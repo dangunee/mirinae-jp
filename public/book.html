@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>著書｜ミリネ韓国語教室</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --beige: #f5f0e8;
+      --taupe: #BD9962;
+      --gray-light: #f8f8f8;
+      --gray-border: #e5e5e5;
+      --text-dark: #2c2c2c;
+      --text-muted: #666;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Noto Sans JP', sans-serif; color: var(--text-dark); line-height: 1.8; background: #f0f0f0; }
+    .page-wrapper { max-width: 900px; margin: 0 auto; background: white; min-height: 100vh; box-shadow: 0 0 40px rgba(0,0,0,0.08); }
+    .top-bar { background: var(--beige); padding: 12px 24px; border-bottom: 1px solid #e8e0d5; }
+    .top-bar a { color: var(--text-dark); text-decoration: none; font-size: 14px; }
+    .top-bar a:hover { color: #4a6fa5; }
+    .main-content { padding: 40px 32px 60px; }
+    .page-title { font-size: 32px; font-weight: 700; margin-bottom: 12px; color: var(--text-dark); }
+    .page-subtitle { font-size: 16px; color: var(--text-muted); margin-bottom: 24px; }
+    .tab-bar { display: flex; gap: 0; margin-bottom: 32px; border-bottom: 2px solid var(--gray-border); flex-wrap: wrap; }
+    .tab-btn { padding: 12px 20px; font-size: 14px; font-weight: 500; background: var(--gray-light); border: none; border-bottom: 3px solid transparent; cursor: pointer; color: var(--text-muted); font-family: inherit; margin-bottom: -2px; transition: all 0.2s; }
+    .tab-btn:hover { color: var(--text-dark); }
+    .tab-btn.active { background: white; color: var(--taupe); border-bottom-color: var(--taupe); font-weight: 600; }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+    .section-header { background: var(--taupe); color: white; padding: 16px 24px; font-size: 18px; font-weight: 600; border-radius: 8px 8px 0 0; margin-bottom: 0; }
+    .content-block { margin-bottom: 28px; }
+    .content-block h3 { font-size: 17px; margin-bottom: 12px; color: var(--text-dark); padding-bottom: 6px; border-bottom: 2px solid var(--taupe); }
+    .content-inner { padding: 24px; border: 1px solid var(--gray-border); border-top: none; border-radius: 0 0 8px 8px; }
+    .content-block p { margin-bottom: 12px; color: var(--text-muted); font-size: 14px; }
+    .book-cover { max-width: 220px; margin: 0 auto 16px; }
+    .book-cover img { width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 14px rgba(0,0,0,0.18); display: block; }
+    .book-links { margin: 16px 0; }
+    .book-links a { display: inline-block; margin-right: 12px; padding: 8px 16px; background: #2c3e50; color: white; text-decoration: none; border-radius: 6px; font-size: 14px; }
+    .book-links a:hover { background: #34495e; }
+    .testimonial { background: var(--gray-light); border-radius: 8px; padding: 20px; margin-bottom: 20px; border-left: 4px solid var(--taupe); }
+    .testimonial-header { font-weight: 600; font-size: 14px; margin-bottom: 10px; color: var(--text-dark); }
+    .testimonial-content { font-size: 13px; color: var(--text-muted); line-height: 1.8; }
+    .voice-list { font-size: 13px; margin: 12px 0; }
+    .voice-list a { color: #4a6fa5; text-decoration: none; }
+    .voice-list a:hover { text-decoration: underline; }
+    .back-link { display: inline-block; margin-top: 24px; color: #4a6fa5; text-decoration: none; font-size: 14px; }
+    ul { margin-left: 24px; margin-bottom: 12px; }
+    @media (max-width: 600px) { .tab-btn { padding: 10px 14px; font-size: 13px; } }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+    <div class="top-bar">
+      <a href="index.html">← ミリネ韓国語教室 トップへ</a>
+    </div>
+    <div class="main-content">
+      <h1 class="page-title">著書</h1>
+      <p class="page-subtitle">ミリネ韓国語教室の単語集・リーディング教材をご紹介します。</p>
+      <div class="tab-bar">
+        <button type="button" class="tab-btn active" data-tab="tab01">入門・初級編</button>
+        <button type="button" class="tab-btn" data-tab="tab02">初中級編</button>
+        <button type="button" class="tab-btn" data-tab="tab03">中級編</button>
+        <button type="button" class="tab-btn" data-tab="tab04">上級編</button>
+        <button type="button" class="tab-btn" data-tab="tab05">TOPIK I</button>
+        <button type="button" class="tab-btn" data-tab="tab06">TOPIK II</button>
+        <button type="button" class="tab-btn" data-tab="tab07">日本生活記</button>
+        <button type="button" class="tab-btn" data-tab="tab08">韓国人生劇場</button>
+      </div>
+
+      <!-- tab01: 韓国語単語 入門・初級編 -->
+      <div id="tab01" class="tab-panel active">
+        <h2 class="section-header">『韓国語単語〈入門・初級編〉』</h2>
+        <div class="content-inner">
+          <div class="book-cover">
+            <img src="img/ハングル検定４５級png.png" alt="韓国語単語〈入門・初級編〉 表紙">
+          </div>
+          <p>日本で受験できる韓国語の検定試験、「ハングル能力」検定試験(ハン検)の最新出題範囲(2016年2月発表)に対応した例文付き単語集。</p>
+          <div class="book-links">
+            <a href="https://www.amazon.co.jp/dp/4844376993" target="_blank" rel="noopener">AMAZON</a>
+            <a href="https://books.rakuten.co.jp/rb/14240785/" target="_blank" rel="noopener">楽天</a>
+          </div>
+          <div class="content-block">
+            <h3>本の紹介</h3>
+            <p><strong>内容紹介</strong><br>ハン検の4級と5級の出題範囲に指定されている基礎単語911語を取り上げました。例文は、ハン検4・5級の語彙と文法を中心に作成した、短くてすぐに会話で使えるもの。本書は単なる検定対策の単語集ではなく、この例文と音声を使って「すぐに使える」単語力を身に付ける本です!</p>
+            <p><strong>出版社からのコメント</strong><br>見出し語はもちろん、例文の中で表記と発音が異なる箇所には、すべて発音通りのハングルをフォローし、付録CD-ROMにはすべての例文の音声を収録してあります。さらに、「見出し語のみ音声」「見出し語訳のみ音声」「見出し語+例文訳音声」が弊社サイトよりダウンロード可能になっており、音読、シャドーイング、リピーティングから、クイックレスポンス、瞬間韓作文など、さまざまな練習方法を実践することが可能です。まさに「音から単語を学ぶ」単語集と言えます。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- tab02: 韓国語単語 初中級編 -->
+      <div id="tab02" class="tab-panel">
+        <h2 class="section-header">『韓国語単語〈初中級編〉』</h2>
+        <div class="content-inner">
+          <div class="book-cover">
+            <img src="img/ハングル検定３級.jpg" alt="韓国語単語〈初中級編〉 表紙">
+          </div>
+          <p>hanaの韓国語単語〈初中級編〉ハン検3級レベル CD-ROM付き</p>
+          <div class="book-links">
+            <a href="https://www.amazon.co.jp/dp/4844376993" target="_blank" rel="noopener">AMAZON</a>
+            <a href="https://books.rakuten.co.jp/rb/14240785/" target="_blank" rel="noopener">楽天</a>
+          </div>
+          <div class="content-block">
+            <h3>本の紹介</h3>
+            <p><strong>内容紹介</strong><br>ハン検3級の出題範囲に指定されている840単語を取り上げました。例文は、ハン検3〜5級までの語彙と文法を中心に作成し、すぐに会話で使えるものばかり。本書は、3級合格を目指す人が、無理なく効果的に3級の実力を蓄えることができるのはもちろん、「すぐに使える」単語力も身に付くようになっています。</p>
+            <p><strong>出版社からのコメント</strong><br>見出し語はもちろん、例文の中で表記と発音が異なる注意すべき箇所には、発音通りのハングルをフォローし、付録CD-ROMにすべての例文の音声を収録してあります。さらに、「見出し語のみ音声」「見出し語訳のみ音声」「見出し語+例文訳音声」が弊社サイトよりダウンロード可能になっており、音読、シャドーイング、リピーティングから、クイックレスポンス、瞬間韓作文など、さまざまな練習方法を実践することが可能です。まさに「音から単語を学ぶ」単語集と言えます。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- tab03: 韓国語単語 中級編 -->
+      <div id="tab03" class="tab-panel">
+        <h2 class="section-header">『韓国語単語〈中級編〉』</h2>
+        <div class="content-inner">
+          <div class="book-cover">
+            <img src="img/ハングル検定準２級.jpg" alt="韓国語単語〈中級編〉 表紙">
+          </div>
+          <p>hanaの韓国語単語〈中級編〉ハン検準2級レベル CD-ROM付き</p>
+          <div class="book-links">
+            <a href="https://www.amazon.co.jp/dp/4295403504/" target="_blank" rel="noopener">AMAZON</a>
+            <a href="https://books.rakuten.co.jp/rb/16180229" target="_blank" rel="noopener">楽天</a>
+          </div>
+          <div class="content-block">
+            <h3>本の紹介</h3>
+            <p>ミリネ韓国語教室執筆の本、ハン検準2級レベルの単語集がついに出版されました！中級語彙を強化されたい方、ハン検準2級を目指される方、ぜひご注目ください。</p>
+            <p>日本で受験できる韓国語の検定試験、「ハングル能力」検定試験（ハン検）の最新出題範囲に対応した例文付き単語集。ハン検準２級の出題範囲に指定された単語の中から、約1000語を取り上げました。例文は、ハン検準２〜５級までの語彙と文法を用いて作成し、すぐに会話で使えるものばかり。本書は、準２級合格を目指す人が、無理なく効果的に実力を蓄えることができるのはもちろん、「すぐに使える」単語力も身に付くようになっています。付録CD-ROMには、すべての例文の音声を収録してあります。さらに、「見出し語のみ音声」「見出し語訳のみ音声」「見出し語＋例文訳音声」が弊社サイトよりダウンロード可能になっており、音読、シャドーイング、リピーティングから、クイックレスポンス、瞬間韓作文など、さまざまな練習方法を実践することが可能です。まさに「音から単語を学ぶ」単語集と言えます。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- tab04: 韓国語単語 上級編 -->
+      <div id="tab04" class="tab-panel">
+        <h2 class="section-header">『韓国語単語〈上級編〉』</h2>
+        <div class="content-inner">
+          <div class="book-cover">
+            <img src="img/ハングル検定１２級.jpg" alt="韓国語単語〈上級編〉 表紙">
+          </div>
+          <p>ハン検1・2級レベルの語彙をまとめた上級者向け単語集です。ニュースや評論、専門的な話題にも対応できるよう、抽象的な表現や慣用句・四字熟語などもバランスよく収録しています。</p>
+          <div class="content-block">
+            <h3>本の紹介</h3>
+            <p>検定最上級を目指す学習者が、読解・作文・面接で必要となる高度な語彙力を効率よく身に付けられるよう構成されています。例文は自然で実際の場面を意識したものが中心で、単語の使い方やニュアンスもあわせて学べます。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- tab05: TOPIK I 対策 -->
+      <div id="tab05" class="tab-panel">
+        <h2 class="section-header">『TOPIK I対策』</h2>
+        <div class="content-inner">
+          <div class="book-cover">
+            <img src="img/topik%20I対策.jpg" alt="TOPIK I対策 表紙">
+          </div>
+          <p>韓国語能力試験 TOPIK I（初級レベル）の合格を目指すための対策本です。 듣기・읽기 の問題形式に合わせて、頻出語彙と表現をまとめ、実戦的な練習問題も収録しています。</p>
+          <div class="content-block">
+            <h3>本の紹介</h3>
+            <p>ハングルの基礎を身につけた学習者が、試験本番で力を発揮できるよう、短い会話・案内文・掲示文など、日常生活でよく目にするタイプの文章を豊富に掲載しています。解説は日本語で丁寧に書かれており、独学でも学びやすい構成です。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- tab06: TOPIK II 対策 -->
+      <div id="tab06" class="tab-panel">
+        <h2 class="section-header">『TOPIK II対策』</h2>
+        <div class="content-inner">
+          <div class="book-cover">
+            <img src="img/topik%20II対策.jpg" alt="TOPIK II対策 表紙">
+          </div>
+          <p>TOPIK II（中上級レベル）に必要な 읽기・듣기・쓰기 をバランスよく鍛えるための対策本です。試験形式に沿った模擬問題と、解答のポイント・採点基準の解説がセットになっています。</p>
+          <div class="content-block">
+            <h3>本の紹介</h3>
+            <p>新聞記事やコラム、インタビューなど、実際の韓国語らしい素材を用いて、長文読解力と論理的な作文力を養成します。頻出テーマごとの必須表現も整理してあり、高級レベルを目指す学習者の「仕上げ」に最適な一冊です。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- tab07: タングニ 日本生活記 -->
+      <div id="tab07" class="tab-panel">
+        <h2 class="section-header">『韓国語リーディング タングニの日本生活記』</h2>
+        <div class="content-inner">
+          <div class="book-cover">
+            <img src="img/タングニの日本生活記.jpg" alt="タングニの日本生活記 表紙">
+          </div>
+          <p>「タングニの日本生活記」の発売中です。今アマゾン・楽天などのネット書店でご購入できます。出版社は「白水社」で、全国1600余りの書店でもご購入できます。</p>
+          <div class="book-links">
+            <a href="https://www.amazon.co.jp/dp/4560086923" target="_blank" rel="noopener">AMAZON</a>
+            <a href="https://books.rakuten.co.jp/rb/13158886" target="_blank" rel="noopener">楽天</a>
+            <a href="https://www.kinokuniya.co.jp/f/dsg-01-9784560086926" target="_blank" rel="noopener">紀伊國屋</a>
+          </div>
+          <div class="content-block">
+            <h3>本の紹介</h3>
+            <p>ミリネ韓国語教室の代表講師金玄謹です。「タングニの日本生活記」が出版され、発売中です。タングニは私のニックネームですが、この本は私が日本で15年間暮らしながら経験したことをエッセイで書いたものです。韓国語学習者のための本ですが別のページに日本語訳もありますので韓国語のわからない方もお読みいただけます。本の構成はエッセイの横に注を入れ、ハングル検定3級以上の単語の中で難しそうな単語を抜粋し、読むにあたって辞書を引く時間を省くようにしました。「ポイントとなる表現」もまとめ、抑えておく文法事項をチェックしました。今回イラストも描かせて頂いたのですが、そこに擬態語・擬声語も一緒に描きました。興味のある方はぜひ手に取ってお読みいただければ幸いです。</p>
+          </div>
+          <div class="content-block">
+            <h3>朗読音声</h3>
+            <p class="voice-list">著者による朗読音声は<a href="https://mirinae.jp/voice/nihon/dang01.mp3" target="_blank" rel="noopener">朗読01</a>～<a href="https://mirinae.jp/voice/nihon/dang25.m4a" target="_blank" rel="noopener">朗読25</a>など、ミリネサイトよりお聞きいただけます。</p>
+          </div>
+          <div class="testimonial">
+            <div class="testimonial-header">K様</div>
+            <div class="testimonial-content"><p>韓国語で読みたいけど、文学とか難しそう。という方にお勧めの韓国のリーディング初心者のためのエッセイです。タイトル通り日本の生活について、韓国語ネイティブの使う自然な韓国語で記したエッセイ集。筆者が若くて来日した時のカルチャーショックや、日本と韓国の文化の比較もあっておもしろい読み物です。</p></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- tab08: タングニ 韓国人生劇場 -->
+      <div id="tab08" class="tab-panel">
+        <h2 class="section-header">『韓国語リーディング タングニの韓国人生劇場』</h2>
+        <div class="content-inner">
+          <div class="book-cover">
+            <img src="img/タングニの人生劇場.jpg" alt="タングニの韓国人生劇場 表紙">
+          </div>
+          <p>「タングニの韓国人生劇場」が好評発売中です。今アマゾン・楽天などのネット書店でご購入できます。出版社は「白水社」で、全国1600余りの書店でもご購入できます。</p>
+          <div class="book-links">
+            <a href="https://www.amazon.co.jp/dp/4560087288" target="_blank" rel="noopener">AMAZON</a>
+            <a href="https://books.rakuten.co.jp/rb/14410151" target="_blank" rel="noopener">楽天</a>
+            <a href="https://www.kinokuniya.co.jp/f/dsg-01-9784560087282" target="_blank" rel="noopener">紀伊國屋</a>
+          </div>
+          <div class="content-block">
+            <h3>本の紹介</h3>
+            <p>韓流だけではわからない!? 好評『韓国語リーディング タングニの日本生活記』に続く第2弾! 今回は、韓国人の人生を彩る光と影を取り上げます。隣国ながら日本と異なる点が少なくない韓国における誕生から死に至るまでさまざまなエピソードを取り上げて、韓流の裏側のリアル・ライフに迫ります。百日酒、イタリアタオル、土の匙、修能、シーワールド、パルチャ等々。本文には詳しい注、日本語訳付。朗読音源をダウンロードして聞くことができます。<br><a href="https://www.hakusuisha.co.jp/smp/book/b243680.html" target="_blank" rel="noopener">➤ 白水社 音声ダウンロードはこちら</a></p>
+          </div>
+          <div class="testimonial">
+            <div class="testimonial-header">B様</div>
+            <div class="testimonial-content"><p>今回のタングニ第２弾は、まず韓国文化満載の内容なのが感涙モノでした！そして何よりのウリは「慣用句・ことわざ・関連語句」。能力試験やハン検の受験者は必読・必携ですし、試験を卒業していても、知識をまた体系立てて整理出来てありがたいと思いました。全編音声ダウンロードが出来るという！ぜひ、第３弾も待っております！</p></div>
+          </div>
+        </div>
+      </div>
+
+      <a href="index.html" class="back-link">← トップページへ戻る</a>
+    </div>
+  </div>
+  <script>
+    (function() {
+      var tabBtns = document.querySelectorAll('.tab-btn');
+      var tabPanels = document.querySelectorAll('.tab-panel');
+      function switchTab(tabId) {
+        tabBtns.forEach(function(btn) { btn.classList.toggle('active', btn.getAttribute('data-tab') === tabId); });
+        tabPanels.forEach(function(panel) { panel.classList.toggle('active', panel.id === tabId); });
+        history.replaceState(null, '', 'book.html#' + tabId);
+      }
+      tabBtns.forEach(function(btn) { btn.addEventListener('click', function() { switchTab(btn.getAttribute('data-tab')); }); });
+      var hash = location.hash.slice(1);
+      if (['tab02','tab03','tab04','tab05','tab06','tab07','tab08'].indexOf(hash) !== -1) switchTab(hash);
+      window.addEventListener('hashchange', function() {
+        var h = location.hash.slice(1);
+        if (['tab01','tab02','tab03','tab04','tab05','tab06','tab07','tab08'].indexOf(h) !== -1) switchTab(h);
+      });
+    })();
+  </script>
+</body>
+</html>

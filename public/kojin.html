@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>個人レッスン｜ミリネ韓国語教室</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --beige: #f5f0e8;
+      --taupe: #BD9962;
+      --taupe-dark: #9B8B7E;
+      --gray-light: #f8f8f8;
+      --gray-border: #e5e5e5;
+      --text-dark: #2c2c2c;
+      --text-muted: #666;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      color: var(--text-dark);
+      line-height: 1.8;
+      background: #f0f0f0;
+    }
+
+    .page-wrapper {
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      min-height: 100vh;
+      box-shadow: 0 0 40px rgba(0,0,0,0.08);
+    }
+
+    .top-bar {
+      background: var(--beige);
+      padding: 12px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #e8e0d5;
+    }
+
+    .top-bar a {
+      color: var(--text-dark);
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .top-bar a:hover { color: #4a6fa5; }
+
+    .main-content { padding: 40px 32px 60px; }
+
+    .page-title { font-size: 32px; font-weight: 700; margin-bottom: 12px; color: var(--text-dark); }
+    .page-subtitle { font-size: 16px; color: var(--text-muted); margin-bottom: 24px; }
+
+    /* タブ */
+    .tab-bar {
+      display: flex;
+      gap: 0;
+      margin-bottom: 32px;
+      border-bottom: 2px solid var(--gray-border);
+    }
+
+    .tab-btn {
+      padding: 14px 28px;
+      font-size: 15px;
+      font-weight: 500;
+      background: var(--gray-light);
+      border: none;
+      border-bottom: 3px solid transparent;
+      cursor: pointer;
+      color: var(--text-muted);
+      font-family: inherit;
+      margin-bottom: -2px;
+      transition: all 0.2s;
+    }
+
+    .tab-btn:hover { color: var(--text-dark); }
+
+    .tab-btn.active {
+      background: white;
+      color: var(--taupe);
+      border-bottom-color: var(--taupe);
+      font-weight: 600;
+    }
+
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    .section-header {
+      background: var(--taupe);
+      color: white;
+      padding: 16px 24px;
+      font-size: 18px;
+      font-weight: 600;
+      border-radius: 8px 8px 0 0;
+      margin-bottom: 0;
+    }
+
+    .participation-area {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      padding: 24px;
+      background: white;
+      border: 1px solid var(--gray-border);
+      border-top: none;
+      flex-wrap: wrap;
+    }
+
+    .progress-circle {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .progress-circle.kojin { background: conic-gradient(#4a6fa5 70%, #e5e5e5 70%); }
+    .progress-circle.tanki { background: conic-gradient(#4a6fa5 80%, #e5e5e5 80%); }
+
+    .progress-inner {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+
+    .participation-label { font-size: 14px; color: var(--text-muted); }
+
+    .skill-icons { display: flex; gap: 32px; margin-left: auto; }
+    .skill-icon { text-align: center; color: var(--taupe); }
+    .skill-icon span { display: block; font-size: 24px; margin-bottom: 4px; }
+    .skill-icon small { font-size: 13px; color: var(--text-muted); }
+
+    .content-block { margin-bottom: 32px; }
+    .content-block h3 {
+      font-size: 18px;
+      margin-bottom: 16px;
+      color: var(--text-dark);
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--taupe);
+    }
+
+    .section-note { font-size: 13px; color: var(--text-muted); margin-bottom: 8px; }
+
+    .step-icons-row { display: flex; flex-wrap: wrap; gap: 24px; margin: 20px 0 24px; }
+    .step-icon-item { display: flex; align-items: center; gap: 8px; font-size: 15px; color: var(--text-dark); }
+    .step-icon-item span { font-size: 20px; }
+
+    .textbook-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin: 20px 0; }
+    .textbook-card {
+      background: #faf8f5;
+      border: 1px solid var(--taupe);
+      border-radius: 12px;
+      padding: 24px;
+    }
+    .textbook-card h4 { font-size: 16px; font-weight: 600; color: var(--text-dark); margin-bottom: 12px; }
+    .textbook-card p { font-size: 14px; color: var(--text-muted); margin: 0; line-height: 1.7; }
+    .textbook-note { font-size: 13px; color: var(--text-muted); margin-top: 16px; }
+
+    .target-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin: 20px 0; }
+    .target-cards-row3 { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+
+    .target-card {
+      background: white;
+      border: 1px solid var(--gray-border);
+      border-radius: 12px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+
+    .target-card-icon { font-size: 28px; flex-shrink: 0; }
+    .target-card-icon.aplus {
+      font-size: 24px; font-weight: 700; color: var(--text-dark);
+      background: #e8e8e8;
+      width: 44px; height: 44px;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    .target-card-text { font-size: 14px; color: var(--text-dark); line-height: 1.5; }
+    .target-card-link { color: var(--taupe); font-size: 14px; font-weight: 500; text-decoration: none; }
+
+    .price-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 14px;
+    }
+    .price-table th, .price-table td {
+      border: 1px solid var(--gray-border);
+      padding: 12px 16px;
+      text-align: left;
+    }
+    .price-table th { background: var(--gray-light); font-weight: 600; }
+
+    /* 短期集中 カリキュラム表 (画像デザイン) */
+    .curriculum-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0 0 24px 0;
+      font-size: 16px;
+      min-width: 480px;
+      table-layout: fixed;
+      border: 1px solid #d0d0d0;
+    }
+    /* コマ列は3列とも同幅（初級・中級・上級で統一） */
+    .curriculum-table col.col-koma { width: 10%; }
+    .curriculum-table col.col-12 { width: 30%; }
+    .curriculum-table col.col-24 { width: 30%; }
+    .curriculum-table col.col-48 { width: 30%; }
+    .curriculum-wrap { overflow-x: auto; margin: 16px 0; }
+    .curriculum-table th, .curriculum-table td {
+      border: 1px solid #d0d0d0;
+      padding: 10px 12px;
+      vertical-align: middle;
+    }
+    .curriculum-table thead tr:first-child th {
+      background: #3d6b6b;
+      color: white;
+      font-weight: 600;
+      text-align: center;
+      padding: 12px;
+      font-size: 21px;
+    }
+    .curriculum-table thead tr:last-child th {
+      background: #4a7c7c;
+      color: white;
+      font-weight: 500;
+      text-align: center;
+      padding: 10px 8px;
+      font-size: 18px;
+    }
+    .curriculum-table tbody td { background: white; color: #2c2c2c; }
+    .curriculum-table tbody td:first-child {
+      text-align: center;
+      font-weight: 500;
+      background: #fafafa;
+    }
+    .curriculum-table .cell-green { background: #e0f2e8 !important; }
+    /* コマ修了セル：quiz.mirinae.jp/tanki-kojin と同様にグレー */
+    .curriculum-table .cell-complete { background: #d0d0d0 !important; color: #2c2c2c !important; }
+    .curriculum-table th,
+    .curriculum-table td {
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+
+    /* スマホ: カリキュラム表を画面内に収める */
+    @media (max-width: 600px) {
+      .curriculum-wrap { margin: 12px 0; }
+      .curriculum-table {
+        font-size: 10px;
+        min-width: 0;
+        table-layout: fixed;
+      }
+      .curriculum-table col.col-koma { width: 12%; }
+      .curriculum-table col.col-12 { width: 29%; }
+      .curriculum-table col.col-24 { width: 29%; }
+      .curriculum-table col.col-48 { width: 30%; }
+      .curriculum-table th,
+      .curriculum-table td {
+        padding: 6px 5px;
+        line-height: 1.35;
+      }
+      .curriculum-table thead tr:first-child th {
+        font-size: 13px;
+        padding: 8px 4px;
+      }
+      .curriculum-table thead tr:last-child th {
+        font-size: 10px;
+        padding: 6px 4px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .curriculum-table { font-size: 9px; }
+      .curriculum-table thead tr:first-child th { font-size: 12px; }
+      .curriculum-table thead tr:last-child th { font-size: 9px; }
+      .curriculum-table th,
+      .curriculum-table td { padding: 5px 4px; }
+    }
+
+    .testimonial {
+      background: var(--gray-light);
+      border-radius: 8px;
+      padding: 24px;
+      margin-bottom: 24px;
+      border-left: 4px solid var(--taupe);
+    }
+    .testimonial-header { font-weight: 600; font-size: 15px; margin-bottom: 16px; color: var(--text-dark); }
+    .testimonial-content { font-size: 14px; color: var(--text-muted); line-height: 1.9; }
+    .testimonial-content p { margin-bottom: 12px; }
+
+    .cta-buttons { margin-top: 48px; margin-bottom: 24px; }
+    .cta-wrapper {
+      background: white;
+      padding: 24px 32px;
+      border-radius: 16px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+    .cta-btn {
+      display: block;
+      text-align: center;
+      padding: 20px 48px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 20px;
+      background: #A28C69;
+      color: white;
+      transition: transform 0.2s;
+    }
+    .cta-btn:hover { transform: translateY(-2px); }
+
+    .back-link { display: inline-block; margin-top: 24px; color: #4a6fa5; text-decoration: none; font-size: 14px; }
+
+    .content-block p { margin-bottom: 12px; color: var(--text-muted); }
+    .content-block ul { margin: 16px 0 16px 24px; }
+    .content-block li { margin-bottom: 8px; }
+
+    @media (max-width: 600px) {
+      .textbook-cards, .target-cards { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+    <div class="top-bar">
+      <a href="index.html">← ミリネ韓国語教室 トップへ</a>
+    </div>
+
+    <div class="main-content">
+      <h1 class="page-title">個人レッスン</h1>
+      <p class="page-subtitle">都合に合わせて予約し、自分のペースで勉強できます</p>
+
+      <div class="tab-bar">
+        <button type="button" class="tab-btn active" data-tab="tab01">個人レッスン</button>
+        <button type="button" class="tab-btn" data-tab="tab02">短期集中個人</button>
+        <button type="button" class="tab-btn" data-tab="tab03">発音矯正</button>
+        <button type="button" class="tab-btn" data-tab="tab04">レベルテスト</button>
+      </div>
+
+      <!-- ========== タブ1: 個人レッスン ========== -->
+      <div id="tab01" class="tab-panel active">
+        <h2 class="section-header">『個人レッスン』</h2>
+        <div class="participation-area">
+          <div class="progress-circle kojin"><div class="progress-inner">70%</div></div>
+          <div class="participation-label">発話参加率</div>
+          <div class="skill-icons">
+            <div class="skill-icon"><span>👂</span><small>聞く</small></div>
+            <div class="skill-icon"><span>📖</span><small>読む</small></div>
+            <div class="skill-icon"><span>✏️</span><small>書く</small></div>
+          </div>
+        </div>
+
+        <div class="content-block" style="padding: 24px; border: 1px solid var(--gray-border); border-top: none; border-radius: 0 0 8px 8px;">
+          <p>個人レッスンではテキストを使用し、聞く・話す・読む・書くを総合的に学習します。文法、語彙、表現については講師から説明いたしますが、レッスンの7割は音読や会話となり、生徒さんにどんどん声を出していただくことをモットーとしております。丁寧な解説で文法のポイントを学んだ後は、練習問題で反復練習をし、「書くチカラ」も身につけます。授業中に学習した本文や例文は暗記していたただき、次のレッスン時に、韓国語で声に出していただきます。レッスンはこのように丁寧に行われるため、1コマで１つの課の50％~80％ほどの目安で進められます。</p>
+        </div>
+
+        <div class="content-block">
+          <h3>対象</h3>
+          <div class="target-cards">
+            <div class="target-card">
+              <div class="target-card-icon aplus">A+</div>
+              <div class="target-card-text">入門・初級・中級、上級 全レベル対象</div>
+            </div>
+            <div class="target-card">
+              <div class="target-card-icon">🎧</div>
+              <div class="target-card-text">韓国ドラマやK-POPを聞き取れるようになりたい方</div>
+            </div>
+            <div class="target-card">
+              <div class="target-card-icon">💬</div>
+              <div class="target-card-text">韓国語で上手に話せるようになりたい方</div>
+            </div>
+            <div class="target-card">
+              <div class="target-card-icon">🎤</div>
+              <div class="target-card-text">韓国語の正確な発音を身につけたい方</div>
+            </div>
+          </div>
+          <div class="target-cards-row3">
+            <div class="target-card">
+              <div class="target-card-icon">🏫</div>
+              <div class="target-card-text">新宿教室での対面授業</div>
+            </div>
+            <div class="target-card">
+              <div class="target-card-icon">💻</div>
+              <div class="target-card-text">オンライン授業（Teams又はZoom）</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-block">
+          <p class="section-note">※対面・オンラインどちらでも受講可能</p>
+          <h3>授業形式</h3>
+          <ul style="margin-left: 24px;">
+            <li>新宿教室での対面授業</li>
+            <li>オンライン授業（Teams又はZoom）</li>
+            <li>どちらでも受講可</li>
+          </ul>
+        </div>
+
+        <div class="content-block">
+          <h3>日程</h3>
+          <p>火～金 10:00-21:00<br>土 10:00-18:00 / 日 10:00-17:00<br>予約制（50分）</p>
+        </div>
+
+        <div class="content-block">
+          <h3>テキスト</h3>
+          <div class="textbook-cards">
+            <div class="textbook-card">
+              <h4>ミリネ韓国語テキスト</h4>
+              <p>ミリネのオリジナルストーリーも入っているので、楽しく韓国語を学べます</p>
+            </div>
+            <div class="textbook-card">
+              <h4>ソウル大韓国語</h4>
+              <p>ソウル大学の教科書で体系的に韓国語を学べます（1A-6B）</p>
+            </div>
+          </div>
+          <p class="textbook-note">その他、学習ニーズに合わせて教材を選定いたします。</p>
+        </div>
+
+        <div class="content-block">
+          <h3>進め方</h3>
+          <div class="step-icons-row">
+            <div class="step-icon-item"><span>①</span>本文理解</div>
+            <div class="step-icon-item"><span>②</span>文法・語彙</div>
+            <div class="step-icon-item"><span>③</span>練習問題</div>
+            <div class="step-icon-item"><span>④</span>復習</div>
+          </div>
+          <ul style="margin-left: 24px; list-style: none;">
+            <li>❶ テキスト本文の理解（音読、和訳、発音指導、オバーラッピング、シャドーイング）</li>
+            <li>❷ 文法、語彙、表現の学習（音読、和訳、発音指導）</li>
+            <li>❸ 練習問題（作文、音読、聞き取り、聞き逃した箇所の和訳）</li>
+            <li>❹ 学んだことは次回に復習（講師：日本語→生徒さん：韓国語に訳して声に出す）</li>
+          </ul>
+        </div>
+
+        <div class="content-block">
+          <h3>内容</h3>
+          <p>「オーバーラッピング」と「シャドーイング」を使って、ネイティブの話すスピードについて行けるようなトレーニングを行います。</p>
+          <p style="font-size: 13px;">※オーバーラッピング:音声と同時に読むこと シャドーイング:テキストを見ないで音声だけを聞きながら重ねて言うこと</p>
+          <p>韓国語訳の復習を通して学んだ内容の定着を図る：１つの課が終わったら、学習した「文型や表現」は次の課を始める前に韓国語訳を行い、どのくらい頭の中に定着したか確認します。講師が日本語で例文を話します。</p>
+          <p style="font-size: 13px;">※ミリネのレッスンは主に受講生の方が約7割話すことで、聞き取り力・会話力の両方を引きあげます。</p>
+          <ul style="margin-left: 24px; list-style: none;">
+            <li>❶ 韓国語のテキスト本文や文法の和訳も事前にしてきていただきます。当教室では受講生の和訳に正確なチェックを入れ、より効果的に覚えられるよう指導します。もちろん和訳していく中で出てくる似ている文型や微妙なニュアンスの違いも漏れなく解説いたします。</li>
+            <li>❷ そのため授業は予習を前提として進められます。予習課題をしていただくことで週1回や2~3回の授業を無駄なく消化できるようになります。</li>
+            <li>❸ 主に音読(声に出して読む)を中心とした指導をしています。音読で大切なのは、その場で先生から、きちんと発音と抑揚の指摘を受け、直してもらうことです。スポーツ選手のトレーナーのように、発音と抑揚の技術を教え、練習をそばで支えてくれる人が必要なのです。練習問題も声に出して解いていただきます。</li>
+          </ul>
+        </div>
+
+        <div class="content-block">
+          <h3>入学金</h3>
+          <p><strong>9,800円</strong></p>
+        </div>
+
+        <div class="content-block">
+          <h3>授業料</h3>
+          <table class="price-table">
+            <thead>
+              <tr><th>コース</th><th>1コマ</th><th>授業料</th><th>有効期限</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>12回コース</td><td>4,900円</td><td>58,800円（税込64,680円）</td><td>3ヶ月</td></tr>
+              <tr><td>24回コース</td><td>4,400円</td><td>105,600円（税込116,160円）</td><td>8ヶ月</td></tr>
+              <tr><td>48回コース</td><td>3,980円</td><td>191,040円（税込210,144円）</td><td>1年</td></tr>
+              <tr><td>72回コース</td><td>3,600円</td><td>259,200円（税込285,120円）</td><td>1年</td></tr>
+              <tr><td>※月謝制(月8コマ)</td><td>5,100円</td><td>40,800円（税込44,880円）</td><td>1ヶ月</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 class="section-header" style="margin-top: 48px;">『生徒の声』</h2>
+
+        <div class="testimonial">
+          <div class="testimonial-header">NS様｜6級｜2023.08</div>
+          <div class="testimonial-content">
+            <p><strong>●この教室で初級1から習い始めて１年１０カ月でTOPIK6級に合格しました。今の感想は。</strong><br>素直に、とても嬉しいです。自分としては文法、発音、語彙等挙げてもキリがないほど不足している部分が多いと感じているのですが、それでもこうやって資格として「合格」をいただいて、自信に繋がりました。</p>
+            <p><strong>●一昨年１０月から教室で初級1から学んでいます。その前に学習経験はありましたか。</strong><br>書店で買った韓国語会話の本を一冊勉強した後に、文法の本を買ってみましたが、自分の発音が合っているかもわからず、質問する相手もいなかったので、モチベーションがどんどん落ちて…。文法の本は最初の方で挫折して、韓国語教室に通おうと決めました。</p>
+            <p><strong>●韓国語を勉強しようと思ったきっかけは。</strong><br>友達や家族にあまりにも勧められるので、年末年始休暇に20年ぶり位に韓国ドラマを見ました。「愛の不時着」を英語字幕で見ていたのですが、その後、妹と日本語字幕で見たら、台詞の意味が日英で違ったんです。私が韓国語を知らないから、本当は何と言っていたのか理解出来ない、翻訳者の言葉を介してしか台詞を理解出来ないことが悔しくて。元々意味もわからないのに音が好きだからと韓国の音楽を少し聴いていたこともあり、勉強してみようと思いました。</p>
+            <p><strong>●実際韓国語を勉強してみたらどうでしたか。</strong><br>うーん、難しい質問ですね(笑)韓国語は文法の作りや発音が日本語に近いと言われますし、とっつきやすさはあると思います。でも個人的には発音は英語より難しいです。私の耳がまだ韓国語に適応していないのかもしれません。細かい発音の違いをマスターするには、もう少しかかりそうです。でも、総じて楽しく勉強しています。</p>
+            <p><strong>●この教室を選んだ理由。</strong><br>韓国語教室をネットで探していたら、半年でTOPIK5級に合格されたミリネ受講生の伊藤さんの記事をたまたま拝見しました。私は何事も短期集中型な性格なので、半年でTOPIK5級に合格できる授業をこの教室は提供しているのだと、直感でここだなと思いました。また私は仕事の関係で夜に急遽会議が入ることがあったので、通常の韓国語教室のように定期的に夕方や夜の授業に通うことが難しかったんです。仕事に左右されずに続けたく、平日の朝、仕事前にオンライン個人レッスンを受けられないか打診したところ可能だと言っていただきました。その後、体験レッスンを受けて、先生の印象が良かったこともあり、すぐに決めました。自分の生活リズムに合わせて勉強が出来て本当に良かったです。先生方には時間外にご対応いただき、大変感謝しております。</p>
+            <p><strong>●ミリネテキストでずっと勉強していますが、テキストについてはどう思いますか。</strong><br>凄く良いテキストだと思います。本文(会話)の内容も面白いですし、韓国人の性格や韓国の文化について本文の内容から学ぶことも出来ました。テキストのレベルが上がるにつれて、文も長く、単語も難しくなり、予習復習に時間がかかりましたが、一課に本文・単語・文法・語彙・練習問題・読解があり、マンネリ化せず続けられたと思います。</p>
+            <p><strong>●会話を覚える、効率よく勉強する秘訣は。</strong><br>私はまだこの部分が不足していると感じているので、この質問は難しいです(笑)ただ、文章は丸ごと覚えるのが良いのだと思います。どんな場面で、どういう文の中でその表現が使われたかを覚えると、単語や表現を単体で覚える時より、記憶に結びつく情報量が多い気がするので。ミリネのテキストはホームページで本文会話の音声を聴けるようになっています。毎日仕事をしながらの予習復習で精一杯で、その音声を聴いて発音する練習をあまりしてこなかったことを今でも後悔しています。音読をしておけば、もう少し早く正確に会話を覚えられたと思います。</p>
+            <p><strong>●週３回Zoomで習う集中学習の長短所</strong><br>上記別の質問で記載した通り、自分の生活リズムに合わせて勉強できたことが1番良かったです。また、例えば週一だと、次の授業までに前回習った内容を忘れるということがあると思いますが、週3だとそのようなこともなく、継続的に勉強出来ました。逆に短所は、予習復習が大変なところです。ミリネは授業の最初に前回の内容を復習するので、復習を疎かに出来ず、テキストのレベルが上がるにつれて復習の負担が大きくなりました。</p>
+            <p><strong>●ミリネTOPIK対策レッスンは役に立ちましたか。</strong><br>とても役に立ちました。語彙リストも市販のものは購入せず、ミリネから頂いたものを使いましたし、特にTOPIK IIについては添削をたくさんしていただき、汎用的に書取りで使える表現を教えていただけて大変助かりました。最初1回のみ授業中にTOPIKの読解問題を解いて質問という形にしましたが、読解は自分で解いて採点までして、不明点を授業内で質問する方が時間の使い方が効率的・生産的だと感じたので、2回目以降はそのようにしていただきました。自分のスタイルに合わせて勉強出来て、とても良かったです。</p>
+            <p><strong>●TOPIKを受けてよかったと思いますか。</strong><br>良かったです。韓国語の勉強を始めてから、TOPIKは毎回受けました。私はTOPIK前にも試験対策のみにフォーカスするのではなく、先生との文法・会話の通常授業に加え、授業時間外で自分で過去問を解き添削をお願いする・不明点のみ質問するというスタイルだったので、対策するかしないかは自分にかかっている感じでした。毎回TOPIKを受け終わった後に「もっと試験対策すれば良かった…」と後悔していましたし、5級取得後、その次の回でも5級だった時は、やはり6級の壁は高いと思いましたが、取得出来て良かったです。</p>
+            <p><strong>●韓国語勉強する前と今一番の変化は。</strong><br>世界が広がりましたし、楽しみが増えました。元々言語が好きなのですが、言語を学ぶことで、その言語を話す人や文化、歴史等多くのことを知ることが出来ると思っています。今まで私の中に入ってくる情報は日英の2カ国語のみでしたが、今は韓国語も入って来て、単純に刺激が増え、見える世界が広がりました。そして、私は元々テレビをほぼ見ない人間だったのですが、韓国バラエティが凄く面白くて、Youtubeでよく見ています。100%理解できるわけではもちろんないですが、笑いどころはわかりやすいですし、ドラマではなく、バラエティの中での会話・言葉の掛け合いから表現を学ぶことも多いです。</p>
+            <p><strong>●これからの目標について</strong><br>丁度6級を取得した直後ですが、一年ワーホリで韓国に行きます。自分としてはまだまだと思っている発音を特に伸ばしたいです。加えて、韓国文学を韓国語で読めるようになりたいです。英語の小説でも、やはり原書で読むのと日本語訳本を読むのでは流れる空気感が違いますし、その言語でしか表現できないものがあると思っています。韓国文学の日本語訳本を読んでいても繊細な表現が多いイメージで、原書ではどう書かれているのか、気になっていました。まだ韓国語の本を読むには実力不足だと思うので、今後更に勉強して、韓国文学をたくさん読めるようになりたいです。</p>
+          </div>
+        </div>
+
+        <div class="testimonial">
+          <div class="testimonial-header">WY様｜4級｜2019.07</div>
+          <div class="testimonial-content">
+            <p>ソウル大学教科書を通じて文法を学びながらも各課のテーマに沿った単語や表現、教科書に記載はないけれども良く使う言い回しも教わりました。韓国の生活、歴史にも話題が及ぶこともあり、充実した授業でした。</p>
+            <p>ネイティブの先生からの発音チェックでは、自分では気づかないクセや、発音のポイントを教わりました。韓国に行っても、おそらく直してくれる人はいないと思うので有益でした。どの先生も丁寧に教えてくださり、感謝しています。</p>
+            <p>授業内容の録音の許可をいただけたおかげで、今まで消化しきれなかった分を韓国滞在中に聞いて復習し、確実に身につけたいと思います。ありがとうございました。</p>
+          </div>
+        </div>
+
+        <div class="testimonial">
+          <div class="testimonial-header">IT様｜中級(TOPIK5級）｜2018.5(新宿)</div>
+          <div class="testimonial-content">
+            <p><strong>「1」ミリネ教室に通ってよかったこと</strong></p>
+            <p><strong>❶私の興味にあわせて、教えてくださること</strong><br>私の興味がある韓国の歴史や、ある単語の語源、発音するときの唇や舌の仕組み、漢字語の規則など、韓国語の勉強そのものと直接関係ないような話も混ぜながら、たくさんしてくださいました。意識的に私に合わせたネタを準備してくださり、知的好奇心が刺激されたので「もっと知りたい、もっと聞きたい」というワクワクした気持ちにつながりました。</p>
+            <p><strong>❷質問に納得いくまでとことん説明してくださるところ</strong><br>特に、似た単語が二つあって使い分けがよくわからないとき、私が納得できずにモヤモヤしていると、先生方がとにかくたくさんの例文を出してくださいます。いろんな例文を聞いていくうちに、なんとなく腑に落ちるポイントが見えてきます。言語なので、なにもかもが明確に決まっているわけではないと思うのですが、例をたくさんあげてもらうことで、できるだけネイティブに近い単語のチョイスができるように訓練されるように思いました。</p>
+            <p><strong>❸安心感があるところ</strong><br>我ながら変な質問をしたりしたのですが、間違っても、受け容れてくれる安心感がありました。授業は、韓国語と日本語の両方で進むのですが、最初の方は日本語が多く、私からの質問も日本語ですることが多かったように思います。でも、だんだん先生の韓国語の割合が増えてきて、自分も韓国語で質問するようになりました。先生方が、私の言いたいことを注意深く読み取ろうとしてくださるのが分かるので、私もなんとか伝えよう・伝えたい、という気持ちで一生懸命にトライできたと思います。授業がほぼ韓国語になると、上達したんだなという実感も湧き嬉しくなります。</p>
+            <p><strong>「2」短期間で実力を伸ばすコツ</strong></p>
+            <p><strong>❶ 疑問はすぐに調べること、調べてもわからなかったら書き留めておいて授業で必ず質問すること、この二つを意識しました。</strong><br>携帯にネイバーの韓国語辞書を入れて、どこにいても調べられる状況を作りました。考えてみたら、ドラマを見ていても歌を聞いていても、気になった言い回しや単語があればメモ・メモ・メモ…。ミリネのテキストは余白が多くレイアウトされているので、テキストの他にはノートを作らず、すべてテキストにメモするかたちで勉強しました。とにかくテキストさえみれば復習が完結するのが私にはとても合っていて効率的だったのと、それだけメモするとテキストがボロボロと擦り切れてくるので「これだけやったんだ」という達成感も生まれ、自信につながりました。</p>
+            <p><strong>❷「私、国内留学みたいなことがしたいんですが…」</strong><br>私が最初にミリネに問い合わせをした内容です。授業を１日に複数コマ取って毎日通うのはもちろん、それ以外に韓国語で独り言を言うことを徹底しました。実際に口に出す独り言だけでなく、脳内で再生される独り言も、すべて韓国語で言うように意識しました。そうすると、「これ、どう言うともっと自然なんだろう？」と疑問が湧き、それを次の授業で質問したりして、だんだん慣れていきます。そのうち夢でも韓国語を話すようになったりもして、授業のない日も韓国語脳を維持することができました。語学の勉強は、自らその言語に浸りに行くような積極的な意識が必要だと思うのですが、困った時に助けてもらえるバックアップ体制もまた必要なことだと思っています。その点で、私はミリネに通えて、先生方に出会えてほんとによかった！と心から思ってます。これからもがんばります。</p>
+          </div>
+        </div>
+
+        <div class="testimonial">
+          <div class="testimonial-header">TM様｜3級｜2016.8～2017.10(新宿)</div>
+          <div class="testimonial-content">
+            <p>ミリネではテキスト本文をただ読むだけでなく、テキストCDの音声とオーバーラッピングしながら読み、本文全てを暗記する等、他の教室ではあまりやらないような方法で学びました。この様な方法は、ある一定の緊張感を保ちつつ授業を受ける事が出来るので、とても良いと感じました。授業で文法の復習がある点も、帰宅後に自ら復習をしようというやる気に繋がったと思います。もちろん、緊張感ばかりでなく、先生方と楽しい話も沢山する事も出来ました。最初からミリネで学習していたら良かったなぁと感じています。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========== タブ2: 短期集中個人 (quiz.mirinae.jp/tanki-kojin 内容) ========== -->
+      <div id="tab02" class="tab-panel">
+        <h2 class="section-header">『短期個人レッスン』</h2>
+        <div class="participation-area">
+          <div class="progress-circle tanki"><div class="progress-inner">80%</div></div>
+          <div class="participation-label">集中効率</div>
+          <div class="skill-icons">
+            <div class="skill-icon"><span>👂</span><small>聞く</small></div>
+            <div class="skill-icon"><span>📖</span><small>読む</small></div>
+            <div class="skill-icon"><span>✏️</span><small>書く</small></div>
+          </div>
+        </div>
+
+        <div class="content-block" style="padding: 24px; border: 1px solid var(--gray-border); border-top: none; border-radius: 0 0 8px 8px;">
+          <p>語学は集中的に学んでこそ上達します。韓国語を本気でマスターしたい方にオススメの短期集中個人レッスン！自由予約制だから好きな曜日程間にレッスンが可能。週に複数回、もちろん毎日だってＯＫ！</p>
+          <p style="margin-top: 16px;"><strong>こんな悩みはありませんか？</strong> 色んな勉強法を試してみたが伸びない、会話に自信が持てない、話す順番がなかなか回ってこない…。信頼できる韓国語講師が責任を持ってあなたをサポートします。</p>
+          <p class="section-note" style="margin-top: 16px;">※12コマ、24コマ、48コマ、72コマのチケットで１コマあたり割安に。自宅が遠い方にはTeamsでマンツーマンレッスン可能。一日で４~５時間まとめて勉強もOK！</p>
+        </div>
+
+        <div class="content-block">
+          <h3>対象</h3>
+          <div class="target-cards">
+            <div class="target-card">
+              <div class="target-card-icon aplus">A+</div>
+              <div class="target-card-text">入門・初級・中級・上級 全レベル対象</div>
+            </div>
+            <div class="target-card">
+              <div class="target-card-icon">✈️</div>
+              <div class="target-card-text">韓国留学・滞在前に短期間でレベルアップしたい方</div>
+            </div>
+          </div>
+          <div class="target-cards-row3">
+            <div class="target-card">
+              <div class="target-card-icon">🏫</div>
+              <div class="target-card-text">新宿教室での対面授業</div>
+            </div>
+            <div class="target-card">
+              <div class="target-card-icon">💻</div>
+              <div class="target-card-text">オンライン授業（Teams又はZoom）</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-block">
+          <p class="section-note">※対面・オンラインどちらでも受講可能</p>
+          <h3>日程</h3>
+          <ul style="margin-left: 24px;">
+            <li>火～金 10:00-17:00</li>
+            <li>予約制（50分）</li>
+          </ul>
+        </div>
+
+        <div class="content-block">
+          <h3>カリキュラム</h3>
+          <div class="curriculum-wrap">
+          <table class="curriculum-table">
+            <colgroup><col class="col-koma"><col class="col-12"><col class="col-24"><col class="col-48"></colgroup>
+            <thead>
+              <tr><th colspan="4">初級</th></tr>
+              <tr><th>コマ</th><th>12コマ</th><th>24コマ</th><th>48コマ</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>1</td><td>発音のルール1・2 発音矯正集中トレーニング1</td><td>発音のルール1・2 発音矯正集中トレーニング1・2</td><td>発音のルール1 発音のルール2 発音矯正集中トレーニング1・2・3</td></tr>
+              <tr><td>2</td><td></td><td></td><td></td></tr>
+              <tr><td>3</td><td></td><td></td><td></td></tr>
+              <tr><td>4</td><td>해요/입니다 体 連体形 変則のまとめ 初級 時制, 助詞のまとめ</td><td></td><td></td></tr>
+              <tr><td>5</td><td class="cell-green">ネイティブ抑揚トレーニング1・2・3</td><td></td><td></td></tr>
+              <tr><td>6</td><td class="cell-green">ネイティブ抑揚トレーニング1・2・3・4</td><td></td><td></td></tr>
+              <tr><td>7</td><td>韓国語耳になる速聴トレーニング 1</td><td></td><td></td></tr>
+              <tr><td>8</td><td>必須初級単語(全体25%構成)1・2・3</td><td class="cell-green">音読トレーニング 1・2</td><td></td></tr>
+              <tr><td>9</td><td>韓国語耳になる速聴トレーニング 1</td><td></td><td></td></tr>
+              <tr><td>10</td><td>해요/입니다, 初級 敬語 連体形, 助詞の総まとめ 変則,～겠/았었、時制、数字、日付 ～아/어서 vs ～고 初級～아/어 総まとめ 初級理由表現の総まとめ</td><td class="cell-green">音読トレーニング 1 音読トレーニング 2</td><td></td></tr>
+              <tr><td>11</td><td>会話トレーニング 1・2</td><td></td><td></td></tr>
+              <tr><td>12</td><td>해요/입니다, 初級 敬語 連体形, 助詞のまとめ 変則のまとめ 겠/았었など 時制, 数字 日付 아/어서 vs 고 初級 아/어 総まとめ 初級 理由表現 総まとめ 意思・可能形 表現のまとめ 初級 부정적 表現のまとめ 対比と推量 願望, お願い, 要求, 助け 試み, 経験 提案, 意見 目的, 計画 初級 条件と仮定</td><td></td><td></td></tr>
+              <tr><td>13</td><td class="cell-complete">12コマ修了</td><td></td><td></td></tr>
+              <tr><td>14</td><td></td><td></td><td></td></tr>
+              <tr><td>15</td><td></td><td></td><td></td></tr>
+              <tr><td>16</td><td></td><td></td><td></td></tr>
+              <tr><td>17</td><td>必須初級単語(全体50%構成)1・2・3・4</td><td></td><td></td></tr>
+              <tr><td>18</td><td></td><td></td><td></td></tr>
+              <tr><td>19</td><td></td><td></td><td></td></tr>
+              <tr><td>20</td><td></td><td></td><td></td></tr>
+              <tr><td>21~24</td><td>会話トレーニング 1・2・3・4</td><td></td><td></td></tr>
+              <tr><td>25</td><td></td><td class="cell-complete">24コマコース修了</td><td></td></tr>
+              <tr><td>26</td><td></td><td></td><td></td></tr>
+              <tr><td>27~33</td><td>必須初級単語(100%構成)1・2・3・4・5・6・7</td><td></td><td></td></tr>
+              <tr><td>34~37</td><td>初級 必須表現1・2・3・4</td><td></td><td></td></tr>
+              <tr><td>38~40</td><td>TOPIK Ⅱ 作文対策1・2・3</td><td></td><td></td></tr>
+              <tr><td>41~48</td><td>会話トレーニング 1・2・3・4・5・・7・8</td><td></td><td></td></tr>
+              <tr><td>49</td><td></td><td></td><td class="cell-complete">48コマコース修了</td></tr>
+            </tbody>
+          </table>
+          <table class="curriculum-table">
+            <colgroup><col class="col-koma"><col class="col-12"><col class="col-24"><col class="col-48"></colgroup>
+            <thead>
+              <tr><th colspan="4">中級</th></tr>
+              <tr><th>コマ</th><th>12コマ</th><th>24コマ</th><th>48コマ</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>1</td><td>発音のルール1・2 発音矯正集中トレーニング1</td><td>発音のルール1・2 発音矯正集中トレーニング1・2</td><td>発音のルール1・2 発音矯正集中トレーニング 1・2・3</td></tr>
+              <tr><td>2</td><td></td><td></td><td></td></tr>
+              <tr><td>3</td><td></td><td></td><td></td></tr>
+              <tr><td>4</td><td>推量と予想表現 文章体と반말体 中級 理由 総まとめ(거든요, 잖아요 等) 初中級 間接話法</td><td></td><td></td></tr>
+              <tr><td>5</td><td class="cell-green">ネイティブ抑揚トレーニング 1・2・3</td><td></td><td></td></tr>
+              <tr><td>6</td><td class="cell-green">ネイティブ抑揚トレーニング 1・2・3・4</td><td></td><td></td></tr>
+              <tr><td>7</td><td>韓国語耳になる速聴トレーニング 1</td><td></td><td></td></tr>
+              <tr><td>8</td><td>必須中級単語(全体25%構成) 1・2・3</td><td class="cell-green">音読トレーニング 1・2</td><td></td></tr>
+              <tr><td>9</td><td>韓国語耳になる速聴トレーニング 1</td><td></td><td></td></tr>
+              <tr><td>10</td><td>推量과 予想 表現 文正体とタメ口体 中級 理由 総まとめ(거든요, 잖아요など) 初中級 間接話法 使役/受身 決心と意図(～ㄹ까하다,～려던 참이다など) 回想を表す 表現のまとめ(～더,～던)</td><td class="cell-green">音読トレーニング 1・2</td><td></td></tr>
+              <tr><td>11</td><td>会話トレーニング 1・2</td><td></td><td></td></tr>
+              <tr><td>12</td><td>音読トレーニング 2 推量と予想 表現 文正体とタメ口体 中級の理由表現の総まとめ(～거든요,～잖아요など) 初中級の間接話法 使役/受身 決心と意図(～ㄹ까하다,～려던 참이다など) 回想を表す表現のまとめ(～더,～던) 中級条件の表現(～아/어야,～거든などを含む) 条件を表す表現 -다가 시리즈 整理 -고 보니 vs -아/어 보니 整理 상태를 나타내는 表現 間接話法 深化 中級 仮定 表現 総まとめ 上級になるための文法(後悔, 習慣, 態度の表 など)</td><td></td><td></td></tr>
+              <tr><td>13</td><td class="cell-complete">12コマ修了</td><td></td><td></td></tr>
+              <tr><td>14</td><td></td><td></td><td></td></tr>
+              <tr><td>15</td><td></td><td></td><td></td></tr>
+              <tr><td>16</td><td></td><td></td><td></td></tr>
+              <tr><td>17</td><td>必須中級単語(全体50%構成) 1・2・3・4</td><td></td><td></td></tr>
+              <tr><td>18</td><td></td><td></td><td></td></tr>
+              <tr><td>19</td><td></td><td></td><td></td></tr>
+              <tr><td>20</td><td></td><td></td><td></td></tr>
+              <tr><td>21</td><td>会話トレーニング 1・2・3・4</td><td></td><td></td></tr>
+              <tr><td>22</td><td></td><td></td><td></td></tr>
+              <tr><td>23</td><td></td><td></td><td></td></tr>
+              <tr><td>24</td><td></td><td></td><td></td></tr>
+              <tr><td>25</td><td></td><td class="cell-complete">24コマコース修了</td><td></td></tr>
+              <tr><td>26</td><td></td><td></td><td></td></tr>
+              <tr><td>27~33</td><td>必須中級単語(100%構成) 1・2・3・4・5・6・7</td><td></td><td></td></tr>
+              <tr><td>34~37</td><td>中級必須表現 1・2・3・4</td><td></td><td></td></tr>
+              <tr><td>38~40</td><td>TOPIK 5級目標 作文対策 1・2・3</td><td></td><td></td></tr>
+              <tr><td>41~48</td><td>会話トレーニング 1・2・3・4・5・6・7・8</td><td></td><td></td></tr>
+              <tr><td>49</td><td></td><td></td><td class="cell-complete">48コマコース修了</td></tr>
+            </tbody>
+          </table>
+          <table class="curriculum-table">
+            <colgroup><col class="col-koma"><col class="col-12"><col class="col-24"><col class="col-48"></colgroup>
+            <thead>
+              <tr><th colspan="4">上級</th></tr>
+              <tr><th>コマ</th><th>12コマ</th><th>24コマ</th><th>48コマ</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>1</td><td>発音のルール1・2 発音矯正集中トレーニング1</td><td>発音のルール1・2 発音矯正集中トレーニング1・2・3</td><td>発音のルール1・2 発音矯正集中トレーニング1・2・3</td></tr>
+              <tr><td>2</td><td></td><td></td><td></td></tr>
+              <tr><td>3</td><td></td><td></td><td></td></tr>
+              <tr><td>4</td><td>上級変化表現(～에 따라,～음에 따라,～어서부터) 上級引用文法 上級否定表現(나마/자봤다/다 한들/ 다 해도など) 上級状況表現(마당에/판국에/状況に/참에/통에)</td><td></td><td></td></tr>
+              <tr><td>5</td><td class="cell-green">ネイティブ抑揚トレーニング1・2・3</td><td></td><td></td></tr>
+              <tr><td>6</td><td class="cell-green">ネイティブ抑揚トレーニング1・2・3・4</td><td></td><td></td></tr>
+              <tr><td>7</td><td>韓国語耳になる速聴トレーニング 1</td><td></td><td></td></tr>
+              <tr><td>8</td><td>必須上級単語(全体25%構成)1・2・3</td><td class="cell-green">音読トレーニング 1・2</td><td></td></tr>
+              <tr><td>9</td><td>韓国語耳になる速聴トレーニング 1</td><td></td><td></td></tr>
+              <tr><td>10</td><td>上級変化表現(～에 따라,～음에 따라,～어서부터) 上級引用文法 上級否定表現(～나마/～자봤다/～다 한들/～다 해도など) 上級状況表現(～마당에/～판국에/～状況に/～참에/～통에) 上級推量表現(～듯싶다,～듯하다,～을 법하다,～나 보다,～모양이다など) 上級条件表現(～다면 몰라도,～고 한다면,～겠다면など) ネイティブが使う韓国語 表現 1</td><td class="cell-green">音読トレーニング 1 音読トレーニング 2</td><td></td></tr>
+              <tr><td>11</td><td>会話トレーニング 1 会話トレーニング 2</td><td></td><td></td></tr>
+              <tr><td>12</td><td>上級変化表現(～에 따라,～음에 따라,～어서부터) 上級引用文法 上級否定表現(～나마/～자봤자/～다 한들/～다 해도など) 上級状況表現(～마당에/～판국에/～状況に/～참에/～통에) 上級推量表現(～듯싶다,～듯하다,～을 법하다,～나 보다,～모양이다など) 上級条件表現(～다면 몰라도,～고 한다면,～겠다면など) ネイティブが使う韓国語表現 1 ネイティブが使う韓国語 表現 2 追加と含む(～거니와,～기는 커녕,～되,～을 비롯해서など) 習慣과 態度 (～아/어 대다,～기 일쑤이다,～는 둥 마는 둥 하다など) 状況や基準を表す 表現(～는 가운데,～는 마당に,～치고など) 強調表現(여간-지 않다,～기가 이를 데 없다,～려야～을수 없다) 上級敬語 深化 事のすべて(~것, ~일, ~경우, ~적,～기) "上級必須反語(~줄 누가 알았겠어요?, ～다 뭐예요/ 무슨(뭔) 소용이 있어요 , ～만～어・어도 어딘데요, ～겠어? 겠니? / 뿐이겠니?, ～랴 / 무슨～랴)"</td><td></td><td></td></tr>
+              <tr><td>13</td><td class="cell-complete">12コマ修了</td><td></td><td></td></tr>
+              <tr><td>14</td><td></td><td></td><td></td></tr>
+              <tr><td>15</td><td></td><td></td><td></td></tr>
+              <tr><td>16</td><td></td><td></td><td></td></tr>
+              <tr><td>17</td><td>必須上級単語(全体50%構成)1・2・3・4</td><td></td><td></td></tr>
+              <tr><td>18</td><td></td><td></td><td></td></tr>
+              <tr><td>19</td><td></td><td></td><td></td></tr>
+              <tr><td>20</td><td></td><td></td><td></td></tr>
+              <tr><td>21</td><td>会話トレーニング 1</td><td></td><td></td></tr>
+              <tr><td>22</td><td></td><td></td><td></td></tr>
+              <tr><td>23</td><td></td><td></td><td></td></tr>
+              <tr><td>24</td><td></td><td></td><td></td></tr>
+              <tr><td>25</td><td></td><td class="cell-complete">24コマコース修了</td><td></td></tr>
+              <tr><td>26</td><td></td><td></td><td></td></tr>
+              <tr><td>27~33</td><td>必須上級単語(100%構成)1・2・3・4・5・6・7</td><td></td><td></td></tr>
+              <tr><td>34~37</td><td>ネイティブのようになる、上級必須表現1・2・3・4</td><td></td><td></td></tr>
+              <tr><td>38-40</td><td>TOPIK5,6級を目指す作文対策1・2・3</td><td></td><td></td></tr>
+              <tr><td>41~48</td><td>会話トレーニング1・2・3・4・5・6・7・8</td><td></td><td></td></tr>
+              <tr><td>49</td><td></td><td></td><td class="cell-complete">48コマコース修了</td></tr>
+            </tbody>
+          </table>
+          </div>
+        </div>
+
+        <div class="content-block">
+          <h3>テキスト</h3>
+          <p>ミリネ韓国語テキスト１，２，３，４</p>
+        </div>
+
+        <div class="content-block">
+          <h3>進め方</h3>
+          <ul style="margin-left: 24px; list-style: none;">
+            <li>❶ テキスト本文の理解（音読、和訳、発音指導、オバーラッピング、シャドーイング）</li>
+            <li>❷ 文法、語彙、表現の学習（音読、和訳、発音指導）</li>
+            <li>❸ 練習問題（作文、音読、聞き取り、聞き逃した箇所の和訳）</li>
+            <li>❹ 学んだことは次回に復習（講師：日本語→生徒さん：韓国語に訳して声に出す）</li>
+          </ul>
+        </div>
+
+        <div class="content-block">
+          <h3>入学金</h3>
+          <p><strong>9,800円</strong></p>
+        </div>
+
+        <div class="content-block">
+          <h3>授業料</h3>
+          <table class="price-table">
+            <thead>
+              <tr><th>コース</th><th>1コマ</th><th>授業料（税込）</th><th>使用期限</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>12回</td><td>4,280円</td><td>56,496円</td><td>1ヶ月</td></tr>
+              <tr><td>24回</td><td>3,880円</td><td>102,432円</td><td>2ヶ月</td></tr>
+              <tr><td>48回</td><td>3,580円</td><td>189,024円</td><td>3ヶ月</td></tr>
+              <tr><td>72回</td><td>3,380円</td><td>267,696円</td><td>5ヶ月</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 class="section-header" style="margin-top: 48px;">『生徒の声』</h2>
+
+        <!-- mirinae.jp/kojin.html?tab=tab02 全文 -->
+        <div class="testimonial">
+          <div class="testimonial-header">A様｜48コマコース｜2020.1</div>
+          <div class="testimonial-content">
+            <p>約2か月間という短い期間でしたが、すごく充実した時間になりました。独学ということもあり、最初は思っていたより出来ませんでしたが、辛すぎず楽しいと思えるレベルで始められたことで毎日2，3コマずつでも続けられました。教科書の内容に合わせながら、韓国の文化について教えてくださるのも魅力の１つでした。また、実際に話す練習が多いことで、発音も思考力も実践的なものになったと思います。지금까지 정말 감사했습니다. 앞으로도 열심히 하겠습니다.</p>
+          </div>
+        </div>
+
+        <div class="testimonial">
+          <div class="testimonial-header">Y様｜24コマコース｜2020.2</div>
+          <div class="testimonial-content">
+            <p>約1か月間通って、頭の中に自然と韓国語が浮かぶ瞬間が増えてきたと思います。いつも語彙力がなくて自分の言いたいことが言えなかったのが、少しずつ語彙力がついて表現できるようになってきたと思います。朝のレッスンは特に頭が働いてない時もあって先生方も本当に大変だったと思います。本当にありがとうございました。毎週通って、ますます韓国語が好きになりました。もっとスムーズに韓国語を口に出して、この乾燥の内容が韓国語で直接お伝えできるようにこれからもずっと勉強しつづけたいと思います。정말 감사합니다~~~!!</p>
+          </div>
+        </div>
+
+        <div class="testimonial">
+          <div class="testimonial-header">K様｜48コマコース｜2020.3</div>
+          <div class="testimonial-content">
+            <p>48時間大変お世話になりました。韓国語のドラマを字幕無しで見たいために勉強をはじめましたが、自分で言いたい事を韓国語で話せるようになることがとても楽しく思えました。これからもドラマを見るためだけではなく、韓国旅行で使えるようにもっと勉強しようと思います。毎日、前回の復習をして、習った語彙と文法を使いながらお話をする時間があったことは学んだことを実践することでとてもためになりました。とても楽しく勉強できました。앞으로도 열심히 공부해요. 감사합니다.</p>
+          </div>
+        </div>
+
+        <div class="testimonial">
+          <div class="testimonial-header">T様｜24コマコース｜2019.9(新宿)</div>
+          <div class="testimonial-content">
+            <p>夏休みに時間が取れたので今回の短期集中コースをとりました。毎回前回の復習があり、緊張感をもってレッスンを受けられました。プライベートレッスンだったので分からない所がいつまでも質問できてとてもよかったです。また機会があったら受講したいと思います。ありがとうございました。</p>
+          </div>
+        </div>
+
+        <div class="testimonial">
+          <div class="testimonial-header">F様(韓国在住)｜12コマコース｜2019.8(新宿)</div>
+          <div class="testimonial-content">
+            <p>短期間でしたが、久しぶりに集中して勉強することが出来た４日間でした。実際に言いたいことを口に出して説明しようとするとやはりうまく言えなくてもどかしい思いをしましたが、韓国に帰って実践で上達したいと思います。勉強したテキストを何度も復習しながら身につけたいと思います。発音についても意識して発音するように努力したいと思います。ありがとうございました。ツイッター楽しみにまた読ませて頂きます。いつも勉強になっています。</p>
+          </div>
+        </div>
+
+        <div class="testimonial">
+          <div class="testimonial-header">H様｜24コマコース｜2018.11(新宿)</div>
+          <div class="testimonial-content">
+            <p>留学前に24回コースに通いました。スピーキングに自信がなかったので、マンツーマンで発音を教えてくださってとても勉強になりました。集中して勉強が出来て自信になりました。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========== タブ3: 発音矯正 ========== -->
+      <div id="tab03" class="tab-panel">
+        <h2 class="section-header">『発音レッスン』</h2>
+        <div class="content-block" style="padding: 24px; border: 1px solid var(--gray-border); border-top: none; border-radius: 0 0 8px 8px;">
+          <p>韓国語学習者の皆さん! こんな経験はありませんか？ 「簡単な単語のはずなのに、通じなくてショック」 「相手の言っていることが聞き取れず、会話が続かない」 これらの悩みは、発音変化のルールをきちんと理解することで大きく改善できます。この講座ではコミュニケーションでつまづきやすい部分を克服できるよう、効果的、効率的に会話指導をします。</p>
+          <ul style="margin: 16px 0 0 24px; list-style: none;">
+            <li>❶ 日本語には無い音を発音したり、日本語の発音とはどのように違うのかその仕組みを理解し、実践できるようにします。</li>
+            <li>❷ ピッチ（音の高低）や、文章の抑揚（イントネーション）の特徴を理解し、しっかり聞き取ってもらい、また相手の韓国語を聞き取るためのコツをつかみます。</li>
+            <li>❸ 韓国語は文字と発音がかけ離れている場合が多く、そのためにコミュニケーションがうまくいかない場合がよくあります。身近な単語や例文を使い発音変化をしっかり学び、正しい発音を身につけます。</li>
+            <li>❹ 理論を学んだ後は、ネイティブ講師とどんどん韓国語を声に出して話します。受講生のレベルに合わせて教材を選定いたします。個人レッスンと同じく自由予約制です。ご都合のよい曜日と時間を選べ、一度の来校で何回分を受講するかなど自由に決めることが可能です。</li>
+          </ul>
+        </div>
+
+        <div class="content-block">
+          <h3>対象</h3>
+          <div class="target-cards">
+            <div class="target-card">
+              <div class="target-card-icon aplus">A+</div>
+              <div class="target-card-text">入門・初級・中級、上級 全レベル対象</div>
+            </div>
+            <div class="target-card">
+              <div class="target-card-icon">🎤</div>
+              <div class="target-card-text">韓国語の正確な発音を身につけたい方</div>
+            </div>
+          </div>
+          <div class="target-cards-row3">
+            <div class="target-card">
+              <div class="target-card-icon">🏫</div>
+              <div class="target-card-text">新宿教室での対面授業</div>
+            </div>
+            <div class="target-card">
+              <div class="target-card-icon">💻</div>
+              <div class="target-card-text">オンライン授業（Teams又はZoom）</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-block">
+          <p class="section-note">※対面・オンラインどちらでも受講可能</p>
+          <h3>日程</h3>
+          <p>火～金 10:00-21:00<br>土 10:00-18:00 / 日 10:00-17:00<br>予約制（50分）</p>
+        </div>
+
+        <div class="content-block">
+          <h3>内容</h3>
+          <div class="curriculum-wrap">
+          <table class="price-table">
+            <thead>
+              <tr><th>回</th><th>タイトル</th><th>内容</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>1</td><td>今のあなたの発音＆聞き取り診断</td><td>・音はどこで作られる？（母音、子音） ・日本語に無い音VS韓国語に無い音（母音、子音） ・音の高さに秘密があった！（平音、激音、濃音） ・濁る？濁らない？なぜ？（平音）</td></tr>
+              <tr><td>2</td><td>パッチムは日本語にもある！ㅁ,ㄴ,ㅇそしてㅂ,ㄷ,ㄱ</td><td>・日本語と韓国語の『パッチム』比較 ・日本語の「る」とは違う！ㄹパッチム攻略法。</td></tr>
+              <tr><td>3</td><td>目指せ！聞き取り強化！発音変化まとめ（1）</td><td>・連音化（할아버지 ハラボジ） ・ㅎの弱音化（고향 コヤン, 전화번호 チョナボノ） ・ㅎの無音化（좋아요 チョアヨ） ・口蓋音化（같이 カッチ）</td></tr>
+              <tr><td>4</td><td>目指せ！聞き取り強化！発音変化まとめ（2）</td><td>・濃音化（학교 ハッキョ） ・鼻音化（막내 マンネ）</td></tr>
+              <tr><td>5</td><td>目指せ！聞き取り強化！発音変化まとめ（3）</td><td>・流音化（신라 シルラ） ・ㄴ挿入（일본 요리 イルボンニョリ）</td></tr>
+              <tr><td>6</td><td>★中間評価</td><td>★発音チェック＆評価 ・例文１００音読。 ・矯正前との比較。</td></tr>
+              <tr><td>7～11</td><td>レベルに合うテキストで発音＆聞き取り強化</td><td>受講生の方の学習歴やレベルに合わせて教材を選定し ・ネイティブ講師と一緒に、どんどん韓国語を声に出して実践！ ・随時あなたの発音をチェックし、正しい発音へと導きます。 教材例）「KBSの韓国語 標準発音と朗読」「間違いやすい韓国語表現」など</td></tr>
+              <tr><td>12</td><td>発音＆聞き取り診断</td><td>・改善点と今後の課題についてアドバイス</td></tr>
+              <tr><td>13～24</td><td>音読練習</td><td>・抑揚の改善点と今後の課題について徹底的に練習</td></tr>
+            </tbody>
+          </table>
+          </div>
+        </div>
+
+        <div class="content-block">
+          <h3>入学金</h3>
+          <p><strong>9,800円</strong></p>
+        </div>
+
+        <div class="content-block">
+          <h3>授業料</h3>
+          <table class="price-table">
+            <thead>
+              <tr><th>コース</th><th>1コマ</th><th>授業料</th><th>有効期限</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>12回コース</td><td>4,900円</td><td>58,800円（税込64,680円）</td><td>3ヶ月</td></tr>
+              <tr><td>24回コース</td><td>4,400円</td><td>105,600円（税込116,160円）</td><td>8ヶ月</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 class="section-header" style="margin-top: 48px;">『生徒の声』</h2>
+
+        <div class="testimonial">
+          <div class="testimonial-header">O様｜2019年9月</div>
+          <div class="testimonial-content">
+            <p>発音の細かいところをしっかりと教えて頂いたので、とてもためになりました。「ㄹ」は特に今まで難しかったのですが、どうしてその様な発音になるのかも、理解できたので自分で練習する時にも役に立ちます。習ったことを復習してもっと会話に生かせるように頑張りたいです。抑揚も今まできちんと意識したことが無かったので、パターンを考え、たくさんの例文で学べたのは良かったです。これからも、もっと勉強頑張ろうと思える授業でした。先生方もいつもていねいに楽しく教えて下さり、ありがとうございました。また、お休みの時に来たいと思います。</p>
+          </div>
+        </div>
+
+        <div class="testimonial">
+          <div class="testimonial-header">C様｜2016年4月</div>
+          <div class="testimonial-content">
+            <p>韓国語歴10年にして改めて「正確な発音、抑揚で話したい！」という気持ちが湧いて今回この講座を受けました。10年もの間、パッチム○（イウン）の発音が習得できておらずいい加減にしてきた「ツケ」は大きくて、ちょっとやそっとでは修正できませんが、先生がその都度指摘してくださったおかげで意識して発音するようになりました。音変化などはこれまで勉強してきたため問題ないように思っていましたけれども、基本的な平音、激音、濃音でさえ文章の中で発音すると抑揚がいい加減になってしまうことも、今回の講座の中の指摘で新たに気づいたことです。入門や初級のうちにこのような講座を受けておくことは理想的ですが、ある程度学習が進んでいる学習者こそ見直す機会が必要ですね。これからも１年に１回はこの講座を受けたいと思っています。ありがとうございました!!</p>
+          </div>
+        </div>
+
+        <div class="testimonial">
+          <div class="testimonial-header">M様｜2016年1月</div>
+          <div class="testimonial-content">
+            <p>ずっと独学でCDを聞いて勉強していたので、発音できているのかずっと不安だったのですが、今回授業を受けて、出来ていること、出来てなかったことが、分かってよかったです。1人では全く分からなかった違いが分かりました。これからは家での発音練習を少し自信を持ってやれそうです。簡単な会話も、話そうとすると、全く言葉が出てこないので、話せように、また別の講座を受けてみたいと思います。ありがとうございました。</p>
+          </div>
+        </div>
+
+        <div class="testimonial">
+          <div class="testimonial-header">N様｜2016年1月</div>
+          <div class="testimonial-content">
+            <p>初めて集中講座（発音矯正クリニック）に参加しました。正しい発音を教えていただいたことで、今までの自分の発音が如何にいい加減だったのかということに気づかされる、良い機会となりました。ネイティブへの道のりはまだまだ遠いですが、ひとつひとつ丁寧に正確に発音していくことから始めたいと思います。4日間ありがとうございました。</p>
+          </div>
+        </div>
+
+        <div class="testimonial">
+          <div class="testimonial-header">H様｜2016年1月</div>
+          <div class="testimonial-content">
+            <p>四日間、ありがとうございました。初めての発音矯正レッスンでしたが、とても楽しく受けさせていただきました！今まで疑問に思っていたことがスッキリ解消した感じです。忘れないように、しっかりと復習したいと思います。一週間過ごしたソウルでも、以前より聞き返されることが減ったような気がします。モチベーションが上がりましたので、引き続き韓国語の勉強頑張ります！また、よろしくお願いします。本当にありがとうございました^ ^</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========== タブ4: レベルテスト ========== -->
+      <div id="tab04" class="tab-panel">
+        <h2 class="section-header">『レベルテスト』</h2>
+        <div class="content-block" style="padding: 24px; border: 1px solid var(--gray-border); border-top: none; border-radius: 0 0 8px 8px;">
+          <p>何年間も伸び悩んでいる方、自分の韓国語はなぜ通じないのか悩んでいる方、モチベーションが下がってやる気が湧いて来ない方など韓国語の勉強につまづいている方が対象です。また、短期間で資格を取りたいけれどもどうしたらよいか分らないという方もどうぞ。どこが弱点なのかを知るためのテストと学習相談を行います。あなたにピッタリなテキストと勉強方法がきっと見つかります！</p>
+        </div>
+
+        <div class="content-block">
+          <h3>予約可能時間</h3>
+          <p>平日 11：00～21：00、土・日</p>
+        </div>
+
+        <div class="content-block">
+          <h3>相談会開催期間</h3>
+          <p>随時</p>
+        </div>
+
+        <div class="content-block">
+          <h3>時間</h3>
+          <p>50分</p>
+        </div>
+
+        <div class="content-block">
+          <h3>参加費</h3>
+          <p><strong>4,800円+税</strong></p>
+        </div>
+
+        <div class="content-block">
+          <h3>相談の流れ</h3>
+          <div class="step-icons-row">
+            <div class="step-icon-item"><span>①</span>お悩み相談 10分間</div>
+            <div class="step-icon-item"><span>②</span>韓国語会話及びレベルチェック 30分</div>
+            <div class="step-icon-item"><span>③</span>テキスト及び勉強方法のご案内体験 20分</div>
+          </div>
+        </div>
+
+        <div class="content-block">
+          <h3>テスト内容</h3>
+          <ul style="margin-left: 24px;">
+            <li><strong>初級：</strong>語彙、基本文型、発音矯正など</li>
+            <li><strong>中級：</strong>語彙・読解、書き取り、尊敬語、発音矯正など</li>
+            <li><strong>上級：</strong>語彙・読解、書き取り、尊敬語、発音矯正、翻訳、上級必須文型など</li>
+          </ul>
+          <p style="margin-top: 12px;">☆テストを受けてみるだけでも自分の弱点が発見できます！お気軽にお申し込みください。</p>
+        </div>
+
+        <div class="content-block">
+          <h3>テストサンプル</h3>
+          <table class="price-table">
+            <thead>
+              <tr><th>項目</th><th>レベル</th><th>注意点</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>発音</td><td>1 ❷ 3 4 5</td><td>濃音注意</td></tr>
+              <tr><td>文型</td><td>1 2 ❸ 4 5</td><td>文章体が弱い</td></tr>
+              <tr><td>語彙</td><td>1 2 ❸ 4 5</td><td>副詞が弱い</td></tr>
+              <tr><td>読解</td><td>1 ❷ 3 4 5</td><td>時間がかかる</td></tr>
+              <tr><td>聞き取り</td><td>❶ 2 3 4 5</td><td>連音注意</td></tr>
+              <tr><td>敬語</td><td>❶ 2 3 4 5</td><td>尊敬語の見直し必要</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="content-block">
+          <h3>申込方法</h3>
+          <p>申し込みフォームにてレベルテストをお選び、お申し込みください。</p>
+        </div>
+
+        <h2 class="section-header" style="margin-top: 48px;">『生徒の声』</h2>
+
+        <div class="testimonial">
+          <div class="testimonial-header">H様｜2017.2 レベルテスト・相談</div>
+          <div class="testimonial-content">
+            <p>今回のカウンセリングを受けて、改めて自分がどのぐらいのレベルなのかわかってよかったと思います。・発音の注意点 文章を書く＝会話ができるようになる そのためには毎日日記を書く練習をすることが大事であること 短い文章でよいから音読をする。そうすればあやふやな文法もわかるようになる。教えていただいたことを早速実行していこうと思います。ありがとうございました。</p>
+          </div>
+        </div>
+
+        <div class="testimonial">
+          <div class="testimonial-header">J様｜2017.2 レベルテスト・相談</div>
+          <div class="testimonial-content">
+            <p>今回の試験を受けてみた、自分がちゃんと韓国語を身につけていないとはっきりわかりました。これからの勉強の仕方も教えてもらえてよかったです。ありがとうございました。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cta-buttons">
+        <div class="cta-wrapper">
+          <a href="https://mirinae.jp/trial.html" class="cta-btn">お申込みはこちら</a>
+        </div>
+      </div>
+
+      <a href="index.html" class="back-link">← トップページへ戻る</a>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      var tabBtns = document.querySelectorAll('.tab-btn');
+      var tabPanels = document.querySelectorAll('.tab-panel');
+
+      function switchTab(tabId) {
+        tabBtns.forEach(function(btn) {
+          btn.classList.toggle('active', btn.getAttribute('data-tab') === tabId);
+        });
+        tabPanels.forEach(function(panel) {
+          panel.classList.toggle('active', panel.id === tabId);
+        });
+        history.replaceState(null, '', 'kojin.html#' + tabId);
+      }
+
+      tabBtns.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          switchTab(btn.getAttribute('data-tab'));
+        });
+      });
+
+      var hash = location.hash.slice(1);
+      if (hash === 'tab02' || hash === 'tab03' || hash === 'tab04') {
+        switchTab(hash);
+      }
+
+      window.addEventListener('hashchange', function() {
+        var h = location.hash.slice(1);
+        if (['tab01', 'tab02', 'tab03', 'tab04'].indexOf(h) !== -1) switchTab(h);
+      });
+    })();
+  </script>
+</body>
+</html>

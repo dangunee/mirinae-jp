@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>試験対策講座｜ミリネ韓国語教室</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --beige: #f5f0e8;
+      --taupe: #BD9962;
+      --taupe-dark: #9B8B7E;
+      --gray-light: #f8f8f8;
+      --gray-border: #e5e5e5;
+      --text-dark: #2c2c2c;
+      --text-muted: #666;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      color: var(--text-dark);
+      line-height: 1.8;
+      background: #f0f0f0;
+    }
+
+    .page-wrapper {
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      min-height: 100vh;
+      box-shadow: 0 0 40px rgba(0,0,0,0.08);
+    }
+
+    .top-bar {
+      background: var(--beige);
+      padding: 12px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #e8e0d5;
+    }
+
+    .top-bar a {
+      color: var(--text-dark);
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .top-bar a:hover { color: #4a6fa5; }
+
+    .main-content { padding: 40px 32px 60px; }
+
+    .page-title { font-size: 32px; font-weight: 700; margin-bottom: 12px; color: var(--text-dark); }
+    .page-subtitle { font-size: 16px; color: var(--text-muted); margin-bottom: 24px; }
+
+    /* タブ */
+    .tab-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0;
+      margin-bottom: 32px;
+      border-bottom: 2px solid var(--gray-border);
+    }
+
+    .tab-btn {
+      padding: 12px 20px;
+      font-size: 14px;
+      font-weight: 500;
+      background: var(--gray-light);
+      border: none;
+      border-bottom: 3px solid transparent;
+      cursor: pointer;
+      color: var(--text-muted);
+      font-family: inherit;
+      margin-bottom: -2px;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+
+    .tab-btn:hover { color: var(--text-dark); }
+
+    .tab-btn.active {
+      background: white;
+      color: var(--taupe);
+      border-bottom-color: var(--taupe);
+      font-weight: 600;
+    }
+
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    .section-header {
+      background: var(--taupe);
+      color: white;
+      padding: 16px 24px;
+      font-size: 18px;
+      font-weight: 600;
+      border-radius: 8px 8px 0 0;
+      margin-bottom: 0;
+    }
+
+    .content-inner {
+      padding: 24px;
+      border: 1px solid var(--gray-border);
+      border-top: none;
+      border-radius: 0 0 8px 8px;
+      background: white;
+    }
+
+    .content-block { margin-bottom: 32px; }
+    .content-block h3 {
+      font-size: 18px;
+      margin-bottom: 16px;
+      color: var(--text-dark);
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--taupe);
+    }
+
+    .section-note { font-size: 13px; color: var(--text-muted); margin-bottom: 8px; }
+
+    .target-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin: 16px 0 8px; }
+    .target-card {
+      background: white;
+      border: 1px solid var(--gray-border);
+      border-radius: 12px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    .target-card-icon { font-size: 24px; flex-shrink: 0; }
+    .target-card-text { font-size: 14px; color: var(--text-dark); line-height: 1.5; }
+
+    .price-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 14px;
+    }
+    .price-table th, .price-table td {
+      border: 1px solid var(--gray-border);
+      padding: 8px 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+    .price-table th { background: var(--gray-light); font-weight: 600; }
+
+    .cta-buttons { margin-top: 48px; margin-bottom: 24px; }
+    .cta-wrapper {
+      background: white;
+      padding: 24px 32px;
+      border-radius: 16px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+    .cta-btn {
+      display: block;
+      text-align: center;
+      padding: 18px 40px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 18px;
+      background: #A28C69;
+      color: white;
+      transition: transform 0.2s;
+    }
+    .cta-btn:hover { transform: translateY(-2px); }
+
+    .back-link { display: inline-block; margin-top: 24px; color: #4a6fa5; text-decoration: none; font-size: 14px; }
+
+    .content-block p { margin-bottom: 12px; color: var(--text-muted); }
+    .content-block ul { margin: 8px 0 8px 24px; }
+    .content-block li { margin-bottom: 6px; }
+
+    @media (max-width: 600px) {
+      .main-content { padding: 24px 16px 40px; }
+      .tab-bar { overflow-x: auto; }
+      .tab-btn { flex: 1 0 auto; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+    <div class="top-bar">
+      <a href="index.html">← ミリネ韓国語教室 トップへ</a>
+    </div>
+
+    <div class="main-content">
+      <h1 class="page-title">試験対策講座</h1>
+      <p class="page-subtitle">TOPIK・ハングル検定・語彙力強化のための対策クラス</p>
+
+      <div class="tab-bar">
+        <button type="button" class="tab-btn active" data-tab="tab01">TOPIK初級</button>
+        <button type="button" class="tab-btn" data-tab="tab02">TOPIK中級</button>
+        <button type="button" class="tab-btn" data-tab="tab03">TOPIK上級</button>
+        <button type="button" class="tab-btn" data-tab="tab04">ハン検1/2級</button>
+        <button type="button" class="tab-btn" data-tab="tab05">ハン検準2級</button>
+        <button type="button" class="tab-btn" data-tab="tab06">語彙力強化</button>
+      </div>
+
+      <!-- ========== タブ1: TOPIK初級 ========== -->
+      <div id="tab01" class="tab-panel active">
+        <h2 class="section-header">「TOPIKⅠオンライン初級(1・2級)対策」</h2>
+        <div class="content-inner">
+          <div class="content-block">
+            <p>TOPIKⅠ（1・2級）の読解・聞き取りを中心に、試験時間内に解き切る力を養成するコースです。初めてTOPIKを受験する方にも、出題形式や学習方法を丁寧に解説します。</p>
+          </div>
+
+          <div class="content-block">
+            <h3>受講ポイント</h3>
+            <ul style="margin-left: 24px; list-style: none;">
+              <li>❶ 高頻出語彙の集中学習</li>
+              <li>❷ 初級文法の総まとめ</li>
+              <li>❸ 読解・聞き取り問題への慣れ</li>
+              <li>❹ 模擬試験で弱点把握</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========== タブ2: TOPIK中級 ========== -->
+      <div id="tab02" class="tab-panel">
+        <h2 class="section-header">「TOPIKオンライン中級(3・4級)対策」</h2>
+        <div class="content-inner">
+          <div class="content-block">
+            <p>TOPIKⅡ（3・4級）の合格を目指し、中級必須単語と読解・作文問題（51〜54番）を総合的に対策する講座です。</p>
+          </div>
+          <div class="content-block">
+            <h3>特徴</h3>
+            <ul style="margin-left: 24px; list-style: none;">
+              <li>❶ 中級必須語彙リスト＋毎週単語テスト</li>
+              <li>❷ 過去問に基づいた読解パターン別攻略</li>
+              <li>❸ 作文問題51〜54番の構成・書き方指導</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========== タブ3: TOPIK上級 ========== -->
+      <div id="tab03" class="tab-panel">
+        <h2 class="section-header">「TOPIKオンライン上級(5・6級)対策」</h2>
+        <div class="content-inner">
+          <div class="content-block">
+            <p>時事単語など上級語彙を強化しつつ、長文読解と作文問題を徹底的に練習する5・6級対策講座です。</p>
+          </div>
+          <div class="content-block">
+            <h3>特徴</h3>
+            <ul style="margin-left: 24px; list-style: none;">
+              <li>❶ 上級必須単語875個を7週間で整理</li>
+              <li>❷ 51〜54番作文問題の集中的トレーニング</li>
+              <li>❸ 過去問による読解・聞き取り総まとめ</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========== タブ4: ハン検1/2級 ========== -->
+      <div id="tab04" class="tab-panel">
+        <h2 class="section-header">「ハングル検定1級・2級対策講座」</h2>
+        <div class="content-inner">
+          <div class="content-block">
+            <p>トウミや上級単語集を元に、1級・2級レベルの語彙を体系的に覚える長期講座です。語彙の意味だけでなく、類義語・反意語・慣用句まで学び、試験にも実践にも強い語彙力を目指します。</p>
+          </div>
+          <div class="content-block">
+            <h3>ポイント</h3>
+            <ul style="margin-left: 24px; list-style: none;">
+              <li>❶ 宿題＋小テストで語彙を徹底暗記</li>
+              <li>❷ 試験形式の類似問題で実戦感覚アップ</li>
+              <li>❸ 授業動画でいつでも復習可能</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========== タブ5: ハン検準2級 ========== -->
+      <div id="tab05" class="tab-panel">
+        <h2 class="section-header">「ハングル検定準2級講座」</h2>
+        <div class="content-inner">
+          <div class="content-block">
+            <p>準2級の出題範囲に対応した例文付き単語集を使い、約1000語の語彙と慣用句を効率よく学ぶ語彙特化講座です。</p>
+          </div>
+          <div class="content-block">
+            <h3>ポイント</h3>
+            <ul style="margin-left: 24px; list-style: none;">
+              <li>❶ 単語＋例文で、すぐ会話에 쓸 수 있는語彙習得</li>
+              <li>❷ 試験形式 문제로 実戦訓練</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========== タブ6: 語彙力強化 ========== -->
+      <div id="tab06" class="tab-panel">
+        <h2 class="section-header">「語彙力強化クラス」</h2>
+        <div class="content-inner">
+          <div class="content-block">
+            <p>単語帳을 혼자서는 끝까지 못 보는 학습자를 위한語彙集中クラス입니다。語源や類義語・反意語をセット로 学び、必須語彙を確実に身につけます。</p>
+          </div>
+          <div class="content-block">
+            <h3>進め方</h3>
+            <ul style="margin-left: 24px; list-style: none;">
+              <li>❶ 毎週決まった範囲の単語テスト</li>
+              <li>❷ テスト例文の音読と発音チェック</li>
+              <li>❸ 類義語・反意語・文法까지 묶어서 설명</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="cta-buttons">
+        <div class="cta-wrapper">
+          <a href="https://mirinae.jp/trial.html" class="cta-btn">お申込みはこちら</a>
+        </div>
+      </div>
+
+      <a href="index.html" class="back-link">← トップページへ戻る</a>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      var tabBtns = document.querySelectorAll('.tab-btn');
+      var tabPanels = document.querySelectorAll('.tab-panel');
+      var tabIds = ['tab01', 'tab02', 'tab03', 'tab04', 'tab05', 'tab06'];
+
+      function switchTab(tabId) {
+        tabBtns.forEach(function(btn) {
+          btn.classList.toggle('active', btn.getAttribute('data-tab') === tabId);
+        });
+        tabPanels.forEach(function(panel) {
+          panel.classList.toggle('active', panel.id === tabId);
+        });
+        if (tabIds.indexOf(tabId) !== -1) {
+          history.replaceState(null, '', 'special.html#' + tabId);
+        }
+      }
+
+      tabBtns.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          switchTab(btn.getAttribute('data-tab'));
+        });
+      });
+
+      var hash = location.hash.slice(1);
+      if (tabIds.indexOf(hash) !== -1) {
+        switchTab(hash);
+      }
+
+      window.addEventListener('hashchange', function() {
+        var h = location.hash.slice(1);
+        if (tabIds.indexOf(h) !== -1) switchTab(h);
+      });
+    })();
+  </script>
+</body>
+</html>
+

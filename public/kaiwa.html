@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>会話強化クラス｜ミリネ韓国語教室</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --beige: #f5f0e8;
+      --taupe: #BD9962;
+      --taupe-dark: #9B8B7E;
+      --gray-light: #f8f8f8;
+      --gray-border: #e5e5e5;
+      --text-dark: #2c2c2c;
+      --text-muted: #666;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      color: var(--text-dark);
+      line-height: 1.8;
+      background: #f0f0f0;
+    }
+
+    .page-wrapper {
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      min-height: 100vh;
+      box-shadow: 0 0 40px rgba(0,0,0,0.08);
+    }
+
+    .top-bar {
+      background: var(--beige);
+      padding: 12px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #e8e0d5;
+    }
+
+    .top-bar a {
+      color: var(--text-dark);
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .top-bar a:hover { color: #4a6fa5; }
+
+    .main-content { padding: 40px 32px 60px; }
+
+    .page-title { font-size: 32px; font-weight: 700; margin-bottom: 12px; color: var(--text-dark); }
+    .page-subtitle { font-size: 16px; color: var(--text-muted); margin-bottom: 24px; }
+
+    /* タブ */
+    .tab-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0;
+      margin-bottom: 32px;
+      border-bottom: 2px solid var(--gray-border);
+    }
+
+    .tab-btn {
+      padding: 12px 20px;
+      font-size: 14px;
+      font-weight: 500;
+      background: var(--gray-light);
+      border: none;
+      border-bottom: 3px solid transparent;
+      cursor: pointer;
+      color: var(--text-muted);
+      font-family: inherit;
+      margin-bottom: -2px;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+
+    .tab-btn:hover { color: var(--text-dark); }
+
+    .tab-btn.active {
+      background: white;
+      color: var(--taupe);
+      border-bottom-color: var(--taupe);
+      font-weight: 600;
+    }
+
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    .section-header {
+      background: var(--taupe);
+      color: white;
+      padding: 16px 24px;
+      font-size: 18px;
+      font-weight: 600;
+      border-radius: 8px 8px 0 0;
+      margin-bottom: 0;
+    }
+
+    .content-inner {
+      padding: 24px;
+      border: 1px solid var(--gray-border);
+      border-top: none;
+      border-radius: 0 0 8px 8px;
+      background: white;
+    }
+
+    .content-block { margin-bottom: 32px; }
+    .content-block h3 {
+      font-size: 18px;
+      margin-bottom: 16px;
+      color: var(--text-dark);
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--taupe);
+    }
+
+    .section-note { font-size: 13px; color: var(--text-muted); margin-bottom: 8px; }
+
+    .target-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin: 16px 0 8px; }
+    .target-card {
+      background: white;
+      border: 1px solid var(--gray-border);
+      border-radius: 12px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    .target-card-icon { font-size: 24px; flex-shrink: 0; }
+    .target-card-text { font-size: 14px; color: var(--text-dark); line-height: 1.5; }
+
+    .price-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 14px;
+    }
+    .price-table th, .price-table td {
+      border: 1px solid var(--gray-border);
+      padding: 8px 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+    .price-table th { background: var(--gray-light); font-weight: 600; }
+
+    .testimonial {
+      background: var(--gray-light);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin-bottom: 20px;
+      border-left: 4px solid var(--taupe);
+    }
+    .testimonial-header { font-weight: 600; font-size: 15px; margin-bottom: 12px; color: var(--text-dark); }
+    .testimonial-content { font-size: 14px; color: var(--text-muted); line-height: 1.9; }
+
+    .cta-buttons { margin-top: 48px; margin-bottom: 24px; }
+    .cta-wrapper {
+      background: white;
+      padding: 24px 32px;
+      border-radius: 16px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+    .cta-btn {
+      display: block;
+      text-align: center;
+      padding: 18px 40px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 18px;
+      background: #A28C69;
+      color: white;
+      transition: transform 0.2s;
+    }
+    .cta-btn:hover { transform: translateY(-2px); }
+
+    .back-link { display: inline-block; margin-top: 24px; color: #4a6fa5; text-decoration: none; font-size: 14px; }
+
+    .content-block p { margin-bottom: 12px; color: var(--text-muted); }
+    .content-block ul { margin: 8px 0 8px 24px; }
+    .content-block li { margin-bottom: 6px; }
+
+    @media (max-width: 600px) {
+      .main-content { padding: 24px 16px 40px; }
+      .tab-bar { overflow-x: auto; }
+      .tab-btn { flex: 1 0 auto; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+    <div class="top-bar">
+      <a href="index.html">← ミリネ韓国語教室 トップへ</a>
+    </div>
+
+    <div class="main-content">
+      <h1 class="page-title">会話強化クラス</h1>
+      <p class="page-subtitle">会話・音読・発音・ニュース・朝勉・小説朗読で総合的に会話力アップ</p>
+
+      <div class="tab-bar">
+        <button type="button" class="tab-btn active" data-tab="tab01">会話クラス</button>
+        <button type="button" class="tab-btn" data-tab="tab02">音読クラス</button>
+        <button type="button" class="tab-btn" data-tab="tab03">発音・抑揚</button>
+        <button type="button" class="tab-btn" data-tab="tab04">時事韓国語</button>
+        <button type="button" class="tab-btn" data-tab="tab05">朝勉クラス</button>
+        <button type="button" class="tab-btn" data-tab="tab06">小説朗読</button>
+      </div>
+
+      <!-- ========== タブ1: 会話クラス ========== -->
+      <div id="tab01" class="tab-panel active">
+        <h2 class="section-header">『会話トレーニング』</h2>
+        <div class="content-inner">
+          <div class="content-block">
+            <p>独学または授業で習った表現を、実際の会話トレーニングで使いこなすクラスです。いつも同じ単語・同じ文型だけで話してしまう方に向けて、より多くの正確な表現を使う練習を行います。</p>
+            <p>ミリネ独自のテキストを利用し、毎回違うテーマについて指定された文型で作文・添削・会話を繰り返すことで、文型と語彙を定着させます。</p>
+          </div>
+
+          <div class="content-block">
+            <h3>対象・目標</h3>
+            <div class="target-cards">
+              <div class="target-card">
+                <div class="target-card-icon">💬</div>
+                <div class="target-card-text">会話クラス（中級〜上級）で、韓国語で不自由なく話せるようになりたい方</div>
+              </div>
+              <div class="target-card">
+                <div class="target-card-icon">🧾</div>
+                <div class="target-card-text">会話だけでなく、短い作文も添削しながら文法と表現の違いをしっかり学びたい方</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="content-block">
+            <h3>時間・日程</h3>
+            <table class="price-table">
+              <thead>
+                <tr><th>人数</th><th>時間</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>1～5人</td><td>1コマ 50分</td></tr>
+              </tbody>
+            </table>
+            <p>中級：水 11:00〜12:00（対面）／ 中上級：土 14:00〜15:00（オンライン）</p>
+          </div>
+
+          <div class="content-block">
+            <h3>進め方</h3>
+            <ul style="margin-left: 24px; list-style: none;">
+              <li>❶ 本日のテーマを確認し、指定された文型で事前に作文してきます。</li>
+              <li>❷ 授業で新しい単語や表現を確認し、発音チェックを行います。</li>
+              <li>❸ 準備してきた内容をもとに会話しながら、随時表現を修正します。</li>
+              <li>❹ 最後に、本日のテーマで学んだ表現をまとめて整理します。</li>
+            </ul>
+          </div>
+
+          <div class="content-block">
+            <h3>主なテーマ例</h3>
+            <table class="price-table">
+              <thead>
+                <tr><th>レベル</th><th>一例</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>初中級</td><td>初対面の挨拶・自己紹介／余暇・趣味／旅行／家族／ニュース など</td></tr>
+                <tr><td>中級</td><td>韓国語の勉強／私について／結婚式・結婚文化／気分転換／映画・スマートフォン など</td></tr>
+                <tr><td>上級</td><td>職場の人間関係／育児・教育／お金・老後設計／韓国社会のニュース・時事問題 など</td></tr>
+              </tbody>
+            </table>
+            <p class="section-note">※実際のカリキュラムでは約50テーマ以上を扱います。</p>
+          </div>
+
+          <div class="content-block">
+            <h3>入学金・授業料</h3>
+            <p>入学金：9,800円</p>
+            <table class="price-table">
+              <thead>
+                <tr><th>プラン</th><th>1回あたり</th><th>回数</th><th>授業料（税抜）</th><th>税込</th><th>有効期限</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>通常（月4回）</td><td>2,980円</td><td>12回</td><td>35,760円</td><td>39,237円</td><td>3ヶ月</td></tr>
+                <tr><td>月3回コース</td><td>3,500円</td><td>9回</td><td>31,500円</td><td>34,650円</td><td>―</td></tr>
+              </tbody>
+            </table>
+            <p class="section-note">※回数券の場合、予約は1週間前まで。キャンセル不可。一人からスタート可能です。</p>
+          </div>
+
+          <div class="content-block">
+            <h3>生徒の声</h3>
+            <div class="testimonial">
+              <div class="testimonial-header">M様｜会話トレーニング</div>
+              <div class="testimonial-content">
+                <p>この会話トレーニングを受けて、自分から韓国語で発言する自信が持てるようになりました。毎回テーマが変わるので、話せる内容の幅が広がりました。</p>
+              </div>
+            </div>
+            <div class="testimonial">
+              <div class="testimonial-header">S様｜会話トレーニング</div>
+              <div class="testimonial-content">
+                <p>作文を通して似ている文型の違いを教えていただき、会話も作文も少しずつ良くなってきたと感じています。身近なテーマなので、習った表現をそのまま使えるのが嬉しいです。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========== タブ2: 音読クラス ========== -->
+      <div id="tab02" class="tab-panel">
+        <h2 class="section-header">『音読クラス』</h2>
+        <div class="content-inner">
+          <div class="content-block">
+            <p>黙読だけではなかなか伸びない中級レベルの壁を、「音読」で突破するクラスです。専門講師の発音チェックを受けながら音読の習慣をつけることで、綺麗な発音と抑揚を身につけ、会話力・聞き取り力を同時に伸ばします。</p>
+          </div>
+
+          <div class="content-block">
+            <h3>ポイント</h3>
+            <ul style="margin-left: 24px; list-style: none;">
+              <li>❶ 毎回、発音・抑揚・話すスピードをチェック</li>
+              <li>❷ 正しい抑揚と発音をイメージトレーニングで定着</li>
+              <li>❸ オーバーラッピングとシャドーイングで、長い文章も自然に読めるように</li>
+            </ul>
+          </div>
+
+          <div class="content-block">
+            <h3>クラス概要</h3>
+            <p>クラス：初中級（2〜5人）</p>
+            <p>日程：[日曜クラス] 11:00〜12:00（オンライン）</p>
+            <p>目標：すらすら韓国語文章を読む／ネイティブに近い発音と抑揚を学ぶ／会話に自信をつける</p>
+            <p>テキスト：『韓国語リーディング タングニの日本生活記』 など</p>
+          </div>
+
+          <div class="content-block">
+            <h3>授業の流れ</h3>
+            <ul style="margin-left: 24px; list-style: none;">
+              <li>❶ 音読記録シートを作成し、進捗を見える化</li>
+              <li>❷ 文章の意味・文法要素・音の変化を確認</li>
+              <li>❸ 音声を聞き、オーバーラッピング → シャドーイング → イメージトレーニング</li>
+            </ul>
+          </div>
+
+          <div class="content-block">
+            <h3>入学金・授業料</h3>
+            <p>入学金：9,800円</p>
+            <table class="price-table">
+              <thead>
+                <tr><th>レベル</th><th>曜日</th><th>時間</th><th>教室</th><th>1コマあたり</th><th>回数</th><th>授業料（税抜）</th><th>税込</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>初中級</td><td>日</td><td>11:00〜12:00</td><td>オンライン</td><td>2,980円</td><td>10回</td><td>29,800円</td><td>32,780円</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="content-block">
+            <h3>生徒の声</h3>
+            <div class="testimonial">
+              <div class="testimonial-header">Y様｜2018.11</div>
+              <div class="testimonial-content">
+                <p>今までのどの授業よりも大変でしたが、その分集中した時間でした。パダスギで聞き取れなかった細かいところが聞き取れるようになり、苦手だった音読が少し好きになりました。</p>
+              </div>
+            </div>
+            <div class="testimonial">
+              <div class="testimonial-header">M様｜2018.2</div>
+              <div class="testimonial-content">
+                <p>独学では気づけなかった発音のポイントをたくさん学べました。先生方がとても熱心で、ここで音読を教えていただいて本当によかったです。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========== タブ3: 発音・抑揚 ========== -->
+      <div id="tab03" class="tab-panel">
+        <h2 class="section-header">『発音・抑揚クラス』</h2>
+        <div class="content-inner">
+          <div class="content-block">
+            <p>日本語ネイティブがつまずきやすい韓国語の発音と抑揚を集中的にトレーニングするクラスです。平音・激音・濃音、パッチム、発音変化のルールを体系的に学び、長文でも自然なイントネーションで読めるようにします。</p>
+          </div>
+
+          <div class="content-block">
+            <h3>内容の一例</h3>
+            <ul>
+              <li>日本語にない母音・子音、パッチムの音の作り方</li>
+              <li>激音化・濃音化・鼻音化・流音化・ㄴ挿入 など発音5大ルール</li>
+              <li>ニュース・エッセイ・小説など長めの文章の音読と抑揚トレーニング</li>
+            </ul>
+          </div>
+
+          <div class="content-block">
+            <h3>短期集中 多読・発音トレーニング（概要）</h3>
+            <p>日本の名作文学や韓国の昔話をやさしい韓国語で多読しながら、発音の基礎と抑揚を徹底的に練習する集中講座も開講しています。</p>
+            <table class="price-table">
+              <thead>
+                <tr><th>期間</th><th>コマ数</th><th>授業料（税抜）</th><th>税込</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>1日間</td><td>3コマ</td><td>9,840円</td><td>10,824円</td></tr>
+                <tr><td>2日間</td><td>6コマ</td><td>17,880円</td><td>19,668円</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="content-block">
+            <h3>生徒の声（抜粋）</h3>
+            <div class="testimonial">
+              <div class="testimonial-header">初級｜中部在住</div>
+              <div class="testimonial-content">
+                <p>口や舌の動きを実際に見ることができ、自分では気づけなかった発音のクセを知ることができました。発音の大切さを改めて実感しました。</p>
+              </div>
+            </div>
+            <div class="testimonial">
+              <div class="testimonial-header">中級｜関東在住</div>
+              <div class="testimonial-content">
+                <p>抑揚の基本ルールを初めて理解できました。長めの文章の読み方を細かく直していただき、自分のクセを知る良い機会になりました。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========== タブ4: 時事韓国語 ========== -->
+      <div id="tab04" class="tab-panel">
+        <h2 class="section-header">『ニュースで学ぶ時事韓国語』</h2>
+        <div class="content-inner">
+          <div class="content-block">
+            <p>実際の韓国ニュースを素材に、上級文法と生きた表現を学ぶクラスです。政治・経済・社会・文化など幅広いテーマのニュースを通して、韓国の時事と文化も同時に学べます。</p>
+          </div>
+
+          <div class="content-block">
+            <h3>対象・日程</h3>
+            <p>対象：中上級〜上級（TOPIK5級以上、ハン検準2級以上）</p>
+            <p>教室：新宿（オンライン併用）</p>
+            <p>日程：毎週土曜日 15:00〜16:00</p>
+          </div>
+
+          <div class="content-block">
+            <h3>授業の流れ</h3>
+            <table class="price-table">
+              <thead>
+                <tr><th>ステップ</th><th>内容</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>1. 導入</td><td>写真と導入質問でニュース内容を予測し、聞き取りの準備をします。</td></tr>
+                <tr><td>2. 聞き取り</td><td>ニュースを聞きながら内容に関する質問に答えます。</td></tr>
+                <tr><td>3. 語彙</td><td>ニュースに出る上級語彙を例文と共に学びます。</td></tr>
+                <tr><td>4. 文法・表現</td><td>ニュースに出る中級以上の文法・表現を整理します。</td></tr>
+                <tr><td>5. スクリプト確認</td><td>スクリプトを見ながら再度聞き取り、理解度を確認します。</td></tr>
+                <tr><td>6. 討論</td><td>ニュースの内容について韓国語で意見交換・討論を行います。</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="content-block">
+            <h3>入学金・授業料</h3>
+            <p>入学金：9,800円</p>
+            <table class="price-table">
+              <thead>
+                <tr><th>1回あたり</th><th>回数</th><th>授業料（税抜）</th><th>税込</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>3,500円</td><td>10回</td><td>35,000円</td><td>38,500円</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========== タブ5: 朝勉クラス ========== -->
+      <div id="tab05" class="tab-panel">
+        <h2 class="section-header">『朝勉クラス』</h2>
+        <div class="content-inner">
+          <div class="content-block">
+            <p>新宿教室限定の「朝勉韓国語！」出社前の時間を活用して、人気カリキュラムをぎゅっと詰め込んだコースで勉強します。朝型の方や、仕事後のレッスンが難しい方におすすめです。</p>
+          </div>
+
+          <div class="content-block">
+            <h3>概要</h3>
+            <p>クラス：「中上級」音読トレーニング</p>
+            <p>日程：水 8:15〜（50分）／2023年2月1日開始</p>
+            <p>場所：新宿教室</p>
+          </div>
+
+          <div class="content-block">
+            <h3>特徴</h3>
+            <ul>
+              <li>❶ 毎レッスンごとに発音・抑揚・話すスピードをチェック</li>
+              <li>❷ オーバーラッピング・シャドーイングで集中力アップ</li>
+              <li>❸ 習った内容で会話しながら、話のまとめ方も練習</li>
+              <li>❹ 朝学んだ内容をその日のうちに復習しやすく、忙しい社会人にも最適</li>
+            </ul>
+          </div>
+
+          <div class="content-block">
+            <h3>入学金・授業料</h3>
+            <p>入学金：9,800円</p>
+            <table class="price-table">
+              <thead>
+                <tr><th>1回あたり</th><th>回数</th><th>授業料（税抜）</th><th>税込</th><th>有効期限</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>3,480円</td><td>8回</td><td>27,840円</td><td>30,624円</td><td>2ヶ月</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========== タブ6: 小説朗読 ========== -->
+      <div id="tab06" class="tab-panel">
+        <h2 class="section-header">『小説朗読討論クラス』</h2>
+        <div class="content-inner">
+          <div class="content-block">
+            <p>小説を朗読し、要約し、内容について討論する上級向けクラスです。教科書的な文章を離れ、実生活に近い生きた韓国語に触れながら、語彙力・会話力・聞き取り力の3つをバランス良く伸ばします。</p>
+          </div>
+
+          <div class="content-block">
+            <h3>対象・テキスト</h3>
+            <p>対象：韓国語の小説を読み、討論しながら会話練習をしたい方（上級）</p>
+            <p>定員：2〜8人／教室：Zoom</p>
+            <p>テキスト：『いらっしゃいませ、ヒュナム洞書店です(어서오세요 휴남동 서점입니다)』 ほか</p>
+          </div>
+
+          <div class="content-block">
+            <h3>日程・授業の流れ</h3>
+            <p>日程：2月7日開始、隔週土曜日 12:00〜14:00（1コマ50分、4ヶ月更新制）</p>
+            <ul>
+              <li>❶ 授業前に指定範囲を予習（単語・表現を調べておく）</li>
+              <li>❷ 授業中に順番に朗読し、発音・イントネーションをチェック</li>
+              <li>❸ 読んだ箇所を韓国語で要約</li>
+              <li>❹ 内容について討論</li>
+              <li>❺ 授業動画を使って復習（毎回録画を配布）</li>
+            </ul>
+          </div>
+
+          <div class="content-block">
+            <h3>授業料</h3>
+            <table class="price-table">
+              <thead>
+                <tr><th>コマあたり</th><th>期間</th><th>授業料（税抜）</th><th>税込</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>2,990円</td><td>16コマ（4ヶ月）</td><td>47,840円</td><td>52,624円</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="cta-buttons">
+        <div class="cta-wrapper">
+          <a href="https://mirinae.jp/trial.html" class="cta-btn">お申込みはこちら</a>
+        </div>
+      </div>
+
+      <a href="index.html" class="back-link">← トップページへ戻る</a>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      var tabBtns = document.querySelectorAll('.tab-btn');
+      var tabPanels = document.querySelectorAll('.tab-panel');
+      var tabIds = ['tab01', 'tab02', 'tab03', 'tab04', 'tab05', 'tab06'];
+
+      function switchTab(tabId) {
+        tabBtns.forEach(function(btn) {
+          btn.classList.toggle('active', btn.getAttribute('data-tab') === tabId);
+        });
+        tabPanels.forEach(function(panel) {
+          panel.classList.toggle('active', panel.id === tabId);
+        });
+        if (tabIds.indexOf(tabId) !== -1) {
+          history.replaceState(null, '', 'kaiwa.html#' + tabId);
+        }
+      }
+
+      tabBtns.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          switchTab(btn.getAttribute('data-tab'));
+        });
+      });
+
+      var hash = location.hash.slice(1);
+      if (tabIds.indexOf(hash) !== -1) {
+        switchTab(hash);
+      }
+
+      window.addEventListener('hashchange', function() {
+        var h = location.hash.slice(1);
+        if (tabIds.indexOf(h) !== -1) switchTab(h);
+      });
+    })();
+  </script>
+</body>
+</html>
+

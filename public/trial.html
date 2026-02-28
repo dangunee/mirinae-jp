@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>お申込み｜ミリネ韓国語教室</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --beige: #f5f0e8;
+      --taupe: #BD9962;
+      --taupe-dark: #9B8B7E;
+      --gray-light: #f8f8f8;
+      --gray-border: #e5e5e5;
+      --text-dark: #2c2c2c;
+      --text-muted: #666;
+      --accent-blue: #4a6fa5;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      color: var(--text-dark);
+      line-height: 1.8;
+      background: #f0f0f0;
+    }
+
+    .page-wrapper {
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      min-height: 100vh;
+      box-shadow: 0 0 40px rgba(0,0,0,0.08);
+    }
+
+    .top-bar {
+      background: var(--beige);
+      padding: 12px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #e8e0d5;
+    }
+
+    .top-bar a {
+      color: var(--text-dark);
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .top-bar a:hover { color: var(--accent-blue); }
+
+    .main-content { padding: 40px 32px 60px; }
+
+    .page-title { font-size: 32px; font-weight: 700; margin-bottom: 12px; color: var(--text-dark); }
+    .page-subtitle { font-size: 15px; color: var(--text-muted); margin-bottom: 24px; }
+
+    /* タブ */
+    .tab-bar {
+      display: flex;
+      gap: 0;
+      margin-bottom: 32px;
+      border-bottom: 2px solid var(--gray-border);
+      overflow-x: auto;
+    }
+
+    .tab-btn {
+      padding: 12px 22px;
+      font-size: 14px;
+      font-weight: 500;
+      background: var(--gray-light);
+      border: none;
+      border-bottom: 3px solid transparent;
+      cursor: pointer;
+      color: var(--text-muted);
+      font-family: inherit;
+      margin-bottom: -2px;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+
+    .tab-btn:hover { color: var(--text-dark); }
+
+    .tab-btn.active {
+      background: white;
+      color: var(--taupe);
+      border-bottom-color: var(--taupe);
+      font-weight: 600;
+    }
+
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    .section-header {
+      background: var(--taupe);
+      color: white;
+      padding: 16px 24px;
+      font-size: 18px;
+      font-weight: 600;
+      border-radius: 8px 8px 0 0;
+      margin-bottom: 0;
+    }
+
+    .content-inner {
+      border: 1px solid var(--gray-border);
+      border-top: none;
+      border-radius: 0 0 8px 8px;
+      padding: 24px;
+      background: white;
+    }
+
+    .form-note {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .form-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+
+    .form-table th,
+    .form-table td {
+      border: 1px solid var(--gray-border);
+      padding: 10px 12px;
+      vertical-align: top;
+    }
+
+    .form-table th {
+      width: 32%;
+      background: var(--gray-light);
+      font-weight: 600;
+    }
+
+    .form-table td {
+      background: white;
+    }
+
+    .form-table small {
+      display: block;
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 8px 10px;
+      border-radius: 4px;
+      border: 1px solid var(--gray-border);
+      font-family: inherit;
+      font-size: 14px;
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .form-actions {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .submit-btn {
+      display: inline-block;
+      padding: 12px 32px;
+      border-radius: 999px;
+      border: none;
+      background: #A28C69;
+      color: white;
+      font-weight: 600;
+      font-size: 15px;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 24px;
+      color: var(--accent-blue);
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .back-link:hover { text-decoration: underline; }
+
+    @media (max-width: 600px) {
+      .main-content { padding: 28px 18px 40px; }
+      .section-header { padding: 14px 18px; font-size: 17px; }
+      .content-inner { padding: 18px; }
+      .form-table th, .form-table td { display: block; width: 100%; }
+      .form-table th { border-bottom: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+    <div class="top-bar">
+      <a href="index.html">← ミリネ韓国語教室 トップへ</a>
+    </div>
+
+    <div class="main-content">
+      <h1 class="page-title">お申込み</h1>
+      <p class="page-subtitle">体験レッスン・レベルテスト、講座本申込、メールマガジン登録、お問い合わせはこちらから。</p>
+
+      <div class="tab-bar">
+        <button type="button" class="tab-btn active" data-tab="tab01">体験＆レベルテスト</button>
+        <button type="button" class="tab-btn" data-tab="tab02">講座申込</button>
+        <button type="button" class="tab-btn" data-tab="tab03">メールマガジン</button>
+        <button type="button" class="tab-btn" data-tab="tab04">お問い合わせ</button>
+      </div>
+
+      <!-- ========== タブ1: 体験＆レベルテスト ========== -->
+      <div id="tab01" class="tab-panel active">
+        <h2 class="section-header">『体験＆レベルテストの申込』</h2>
+        <div class="content-inner">
+          <p class="form-note">※体験レッスン・相談料は <strong>1,800円</strong> です。（レベルテストは別途料金）<br>◆ 定休日: 月曜日 ／ ◆ 体験可能な日時: 平日 10:00～21:00／土 10:00～18:00／日 10:00～17:00</p>
+
+          <form>
+            <table class="form-table">
+              <tbody>
+                <tr>
+                  <th>タイトル（*必須）</th>
+                  <td>
+                    <select>
+                      <option>体験レッスン</option>
+                      <option>レベルテスト</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <th>お名前（*必須）</th>
+                  <td><input type="text"></td>
+                </tr>
+                <tr>
+                  <th>ふりがな（*必須）</th>
+                  <td><input type="text"></td>
+                </tr>
+                <tr>
+                  <th>年齢</th>
+                  <td>
+                    <select>
+                      <option>選択してください</option>
+                      <option>10代</option>
+                      <option>20代</option>
+                      <option>30代</option>
+                      <option>40代</option>
+                      <option>50代</option>
+                      <option>60代</option>
+                      <option>70代以上</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <th>都道府県</th>
+                  <td>
+                    <select>
+                      <option>選択してください</option>
+                      <option>北海道</option><option>青森県</option><option>岩手県</option><option>宮城県</option><option>秋田県</option><option>山形県</option><option>福島県</option>
+                      <option>茨城県</option><option>栃木県</option><option>群馬県</option><option>埼玉県</option><option>千葉県</option><option>東京23区</option><option>東京都</option><option>神奈川県</option>
+                      <option>山梨県</option><option>長野県</option><option>新潟県</option><option>富山県</option><option>石川県</option><option>福井県</option>
+                      <option>岐阜県</option><option>静岡県</option><option>愛知県</option><option>三重県</option>
+                      <option>滋賀県</option><option>京都府</option><option>大阪府</option><option>兵庫県</option><option>奈良県</option><option>和歌山県</option>
+                      <option>鳥取県</option><option>島根県</option><option>岡山県</option><option>広島県</option><option>山口県</option>
+                      <option>徳島県</option><option>香川県</option><option>愛媛県</option><option>高知県</option>
+                      <option>福岡県</option><option>佐賀県</option><option>長崎県</option><option>熊本県</option><option>大分県</option><option>宮崎県</option><option>鹿児島県</option><option>沖縄県</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <th>メールアドレス（*必須）<small>携帯メールの場合はパソコン受信設定のご確認をお願いします。</small></th>
+                  <td><input type="email"></td>
+                </tr>
+                <tr>
+                  <th>お電話番号（*必須）</th>
+                  <td><input type="tel"></td>
+                </tr>
+                <tr>
+                  <th>ご希望教室（*必須）</th>
+                  <td>
+                    <select>
+                      <option>選択してください</option>
+                      <option>新宿教室</option>
+                      <option>Skype / ZOOM レッスン</option>
+                      <option>メール通信添削</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <th>ご希望レッスン（*必須）</th>
+                  <td>
+                    <select>
+                      <option>個人レッスン</option>
+                      <option>短期集中個人レッスン</option>
+                      <option>発音矯正レッスン</option>
+                      <option>時事韓国語レッスン</option>
+                      <option>土曜上級1講座</option>
+                      <option>土曜上級2講座</option>
+                      <option>ネットレッスン</option>
+                      <option>会話トレーニング</option>
+                      <option>レベルテスト</option>
+                      <option>その他</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <th>ミリネ韓国語教室を知ったきっかけ</th>
+                  <td>
+                    <select>
+                      <option>Ｘ・ツイッター</option>
+                      <option>YouTube</option>
+                      <option>フェイスブック</option>
+                      <option>Instagram</option>
+                      <option>threads(スレッズ)</option>
+                      <option>検索</option>
+                      <option>ブログ</option>
+                      <option>紹介</option>
+                      <option>ミリネ出版本</option>
+                      <option>メールマガジン</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <th>体験・申し込み講座のご希望日と時間帯</th>
+                  <td>
+                    <textarea placeholder="例）○月○日 ○時～○時"></textarea>
+                  </td>
+                </tr>
+                <tr>
+                  <th>簡単な韓国語の学習歴及びレベル</th>
+                  <td><textarea></textarea></td>
+                </tr>
+                <tr>
+                  <th>お問い合わせ</th>
+                  <td><textarea></textarea></td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="form-actions">
+              <button type="submit" class="submit-btn">送信する</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- ========== タブ2: 講座申込 ========== -->
+      <div id="tab02" class="tab-panel">
+        <h2 class="section-header">『講座の申込』</h2>
+        <div class="content-inner">
+          <p class="form-note">受講したい講座が決まっている方はこちらから本申込ができます。希望の教室・レッスン名・日程などをご記入ください。</p>
+
+          <form>
+            <table class="form-table">
+              <tbody>
+                <tr>
+                  <th>タイトル（*必須）</th>
+                  <td><input type="text" placeholder="例）講座の申し込み"></td>
+                </tr>
+                <tr>
+                  <th>お名前（*必須）</th>
+                  <td><input type="text"></td>
+                </tr>
+                <tr>
+                  <th>ふりがな（*必須）</th>
+                  <td><input type="text"></td>
+                </tr>
+                <tr>
+                  <th>メールアドレス（*必須）</th>
+                  <td><input type="email"></td>
+                </tr>
+                <tr>
+                  <th>年齢</th>
+                  <td>
+                    <select>
+                      <option>選択してください</option>
+                      <option>10代</option><option>20代</option><option>30代</option><option>40代</option><option>50代</option><option>60代</option><option>70代以上</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <th>都道府県</th>
+                  <td>
+                    <select>
+                      <option>選択してください</option>
+                      <option>北海道</option><option>青森県</option><option>岩手県</option><option>宮城県</option><option>秋田県</option><option>山形県</option><option>福島県</option>
+                      <option>茨城県</option><option>栃木県</option><option>群馬県</option><option>埼玉県</option><option>千葉県</option><option>東京23区</option><option>東京都</option><option>神奈川県</option>
+                      <option>山梨県</option><option>長野県</option><option>新潟県</option><option>富山県</option><option>石川県</option><option>福井県</option>
+                      <option>岐阜県</option><option>静岡県</option><option>愛知県</option><option>三重県</option>
+                      <option>滋賀県</option><option>京都府</option><option>大阪府</option><option>兵庫県</option><option>奈良県</option><option>和歌山県</option>
+                      <option>鳥取県</option><option>島根県</option><option>岡山県</option><option>広島県</option><option>山口県</option>
+                      <option>徳島県</option><option>香川県</option><option>愛媛県</option><option>高知県</option>
+                      <option>福岡県</option><option>佐賀県</option><option>長崎県</option><option>熊本県</option><option>大分県</option><option>宮崎県</option><option>鹿児島県</option><option>沖縄県</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <th>お電話番号（*必須）</th>
+                  <td><input type="tel"></td>
+                </tr>
+                <tr>
+                  <th>ご希望教室（*必須）</th>
+                  <td>
+                    <select>
+                      <option>選択してください</option>
+                      <option>新宿教室</option>
+                      <option>Skype / ZOOM レッスン</option>
+                      <option>メール通信添削</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <th>ご希望レッスン（*必須）</th>
+                  <td>
+                    <select>
+                      <option>2月多読・発音講座-初中級</option>
+                      <option>2月多読・発音講座-中上級</option>
+                      <option>中級文法まとめ講座</option>
+                      <option>上級文法まとめ講座</option>
+                      <option>個人レッスン</option>
+                      <option>短期集中個人レッスン</option>
+                      <option>発音矯正個人レッスン</option>
+                      <option>入門＆初級講座</option>
+                      <option>入門集中講座</option>
+                      <option>初級集中講座</option>
+                      <option>中級集中講座</option>
+                      <option>上級集中講座</option>
+                      <option>語彙力強化レッスン</option>
+                      <option>TOPIK対策講座</option>
+                      <option>ハン検対策クラス</option>
+                      <option>土曜上級1講座</option>
+                      <option>土曜上級2講座</option>
+                      <option>ネットレッスン</option>
+                      <option>会話トレーニング</option>
+                      <option>小人数グループレッスン</option>
+                      <option>小説朗読討論講座</option>
+                      <option>通信音読トレーニング</option>
+                      <option>メール作文トレーニング</option>
+                      <option>その他</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <th>ミリネ韓国語教室を知ったきっかけ</th>
+                  <td>
+                    <select>
+                      <option>Ｘ・ツイッター</option>
+                      <option>YouTube</option>
+                      <option>フェイスブック</option>
+                      <option>Instagram</option>
+                      <option>threads(スレッズ)</option>
+                      <option>検索</option>
+                      <option>ブログ</option>
+                      <option>紹介</option>
+                      <option>ミリネ出版本</option>
+                      <option>メールマガジン</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <th>申し込み講座のご希望日と時間帯</th>
+                  <td><textarea placeholder="例）○月○日から、週○回 ○時台を希望　など"></textarea></td>
+                </tr>
+                <tr>
+                  <th>簡単な韓国語の学習歴及びレベル</th>
+                  <td><textarea></textarea></td>
+                </tr>
+                <tr>
+                  <th>お問い合わせ・メッセージ</th>
+                  <td><textarea></textarea></td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="form-actions">
+              <button type="submit" class="submit-btn">送信する</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- ========== タブ3: メールマガジン ========== -->
+      <div id="tab03" class="tab-panel">
+        <h2 class="section-header">『メールマガジン』</h2>
+        <div class="content-inner">
+          <p class="form-note"><strong>役に立つ韓国語情報がいっぱい！</strong> メールマガジンでは、文法・表現のコツや最新講座情報などをお届けします。下記フォームに必要事項をご入力ください。</p>
+
+          <form>
+            <table class="form-table">
+              <tbody>
+                <tr>
+                  <th>メールアドレス（*必須）</th>
+                  <td>
+                    <input type="email">
+                    <small>※ハングルが文字化けする可能性があるため、「docomo」「ezweb」以外のアドレスでのご登録をおすすめします。</small>
+                  </td>
+                </tr>
+                <tr>
+                  <th>お名前（*必須）</th>
+                  <td><input type="text" placeholder="全角でご入力ください"></td>
+                </tr>
+                <tr>
+                  <th>都道府県（*必須）</th>
+                  <td>
+                    <select>
+                      <option>選択してください</option>
+                      <option>北海道</option><option>青森県</option><option>岩手県</option><option>宮城県</option><option>秋田県</option><option>山形県</option><option>福島県</option>
+                      <option>茨城県</option><option>栃木県</option><option>群馬県</option><option>埼玉県</option><option>千葉県</option><option>東京都</option><option>神奈川県</option>
+                      <option>山梨県</option><option>長野県</option><option>新潟県</option><option>富山県</option><option>石川県</option><option>福井県</option>
+                      <option>岐阜県</option><option>静岡県</option><option>愛知県</option><option>三重県</option>
+                      <option>滋賀県</option><option>京都府</option><option>大阪府</option><option>兵庫県</option><option>奈良県</option><option>和歌山県</option>
+                      <option>鳥取県</option><option>島根県</option><option>岡山県</option><option>広島県</option><option>山口県</option>
+                      <option>徳島県</option><option>香川県</option><option>愛媛県</option><option>高知県</option>
+                      <option>福岡県</option><option>佐賀県</option><option>長崎県</option><option>熊本県</option><option>大分県</option><option>宮崎県</option><option>鹿児島県</option><option>沖縄県</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <th>韓国語レベル（*必須）</th>
+                  <td>
+                    <select>
+                      <option>選択してください</option>
+                      <option>入門</option>
+                      <option>初級</option>
+                      <option>初中級</option>
+                      <option>中級</option>
+                      <option>中上級</option>
+                      <option>上級</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <th>興味のあるレッスン（*必須）</th>
+                  <td>
+                    <select>
+                      <option>会話</option>
+                      <option>発音矯正</option>
+                      <option>文法強化</option>
+                      <option>小説朗読</option>
+                      <option>集中講座</option>
+                      <option>試験対策</option>
+                      <option>作文・添削</option>
+                      <option>ビジネス韓国語</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <th>メルマガ申込のきっかけ（*必須）</th>
+                  <td>
+                    <select>
+                      <option>X（旧twitter）</option>
+                      <option>YouTube</option>
+                      <option>Instagram</option>
+                      <option>facebook</option>
+                      <option>ミリネブログ</option>
+                      <option>検索</option>
+                      <option>紹介</option>
+                    </select>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="form-actions">
+              <button type="submit" class="submit-btn">登録する</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- ========== タブ4: お問い合わせ ========== -->
+      <div id="tab04" class="tab-panel">
+        <h2 class="section-header">『お問い合わせ』</h2>
+        <div class="content-inner">
+          <p class="form-note">講座内容についてのご質問、法人向け研修、メディア取材などのお問い合わせはこちらからお送りください。</p>
+
+          <form>
+            <table class="form-table">
+              <tbody>
+                <tr>
+                  <th>タイトル（*必須）</th>
+                  <td>
+                    <select>
+                      <option>お問い合わせ</option>
+                      <option>業務提携</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <th>お名前（*必須）</th>
+                  <td><input type="text"></td>
+                </tr>
+                <tr>
+                  <th>ふりがな（*必須）</th>
+                  <td><input type="text"></td>
+                </tr>
+                <tr>
+                  <th>メールアドレス（*必須）</th>
+                  <td><input type="email"></td>
+                </tr>
+                <tr>
+                  <th>ご連絡先（携帯番号等）（*必須）</th>
+                  <td><input type="tel"></td>
+                </tr>
+                <tr>
+                  <th>年齢</th>
+                  <td>
+                    <select>
+                      <option>選択してください</option>
+                      <option>10代</option><option>20代</option><option>30代</option><option>40代</option><option>50代</option><option>60代</option><option>70代以上</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <th>都道府県</th>
+                  <td>
+                    <select>
+                      <option>選択してください</option>
+                      <option>北海道</option><option>青森県</option><option>岩手県</option><option>宮城県</option><option>秋田県</option><option>山形県</option><option>福島県</option>
+                      <option>茨城県</option><option>栃木県</option><option>群馬県</option><option>埼玉県</option><option>千葉県</option><option>東京23区</option><option>東京都</option><option>神奈川県</option>
+                      <option>山梨県</option><option>長野県</option><option>新潟県</option><option>富山県</option><option>石川県</option><option>福井県</option>
+                      <option>岐阜県</option><option>静岡県</option><option>愛知県</option><option>三重県</option>
+                      <option>滋賀県</option><option>京都府</option><option>大阪府</option><option>兵庫県</option><option>奈良県</option><option>和歌山県</option>
+                      <option>鳥取県</option><option>島根県</option><option>岡山県</option><option>広島県</option><option>山口県</option>
+                      <option>徳島県</option><option>香川県</option><option>愛媛県</option><option>高知県</option>
+                      <option>福岡県</option><option>佐賀県</option><option>長崎県</option><option>熊本県</option><option>大分県</option><option>宮崎県</option><option>鹿児島県</option><option>沖縄県</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <th>ミリネ韓国語教室を知ったきっかけ（*必須）</th>
+                  <td>
+                    <select>
+                      <option>Ｘ・ツイッター</option>
+                      <option>YouTube</option>
+                      <option>フェイスブック</option>
+                      <option>Instagram</option>
+                      <option>threads(スレッズ)</option>
+                      <option>検索</option>
+                      <option>ブログ</option>
+                      <option>紹介</option>
+                      <option>メールマガジン</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <th>メッセージ</th>
+                  <td><textarea></textarea></td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="form-actions">
+              <button type="submit" class="submit-btn">送信する</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <a href="index.html" class="back-link">← トップページへ戻る</a>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      var tabBtns = document.querySelectorAll('.tab-btn');
+      var tabPanels = document.querySelectorAll('.tab-panel');
+
+      function switchTab(tabId) {
+        tabBtns.forEach(function(btn) {
+          btn.classList.toggle('active', btn.getAttribute('data-tab') === tabId);
+        });
+        tabPanels.forEach(function(panel) {
+          panel.classList.toggle('active', panel.id === tabId);
+        });
+        history.replaceState(null, '', 'trial.html#' + tabId);
+      }
+
+      tabBtns.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          switchTab(btn.getAttribute('data-tab'));
+        });
+      });
+
+      var hash = location.hash.slice(1);
+      if (hash === 'tab02' || hash === 'tab03' || hash === 'tab04') {
+        switchTab(hash);
+      }
+
+      window.addEventListener('hashchange', function() {
+        var h = location.hash.slice(1);
+        if (['tab01', 'tab02', 'tab03', 'tab04'].indexOf(h) !== -1) switchTab(h);
+      });
+    })();
+  </script>
+</body>
+</html>
+

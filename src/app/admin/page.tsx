@@ -36,7 +36,7 @@ export default function AdminPage() {
         ))}
       </ul>
       <p style={{ marginTop: 24, fontSize: 14, color: "#666" }}>
-        表データはデータベースに保存されます。퀴즈앱과 같은 DB を使う場合は .env の DATABASE_URL を設定してください。
+        表データはデータベース（퀴즈앱과同一の Supabase）に保存されます。
       </p>
     </div>
   );

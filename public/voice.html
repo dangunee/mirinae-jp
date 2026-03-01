@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>「ミリネ教科書」の音声｜ミリネ韓国語教室</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --beige: #f5f0e8;
+      --beige-dark: #e8e0d5;
+      --gray-light: #f8f8f8;
+      --gray-border: #e5e5e5;
+      --text-dark: #2c2c2c;
+      --text-muted: #666;
+      --accent-blue: #4a6fa5;
+      --taupe: #BD9962;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      color: var(--text-dark);
+      line-height: 1.8;
+      background: #f0f0f0;
+    }
+    .page-wrapper { max-width: 900px; margin: 0 auto; background: white; min-height: 100vh; box-shadow: 0 0 40px rgba(0,0,0,0.08); }
+    .top-bar {
+      background: var(--beige);
+      padding: 12px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      border-bottom: 1px solid var(--beige-dark);
+    }
+    .top-bar a { color: var(--text-dark); text-decoration: none; font-size: 14px; font-weight: 500; }
+    .top-bar a:hover { color: var(--accent-blue); }
+    .main-content { padding: 40px 32px 60px; }
+    .page-title { font-size: 28px; font-weight: 700; margin-bottom: 12px; color: var(--text-dark); }
+    .page-intro { color: var(--text-muted); margin-bottom: 24px; }
+    .voice-player-bar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: var(--gray-light);
+      border: 1px solid var(--gray-border);
+      border-radius: 8px;
+      padding: 12px 16px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .voice-player-bar audio { flex: 1; max-width: 100%; height: 36px; }
+    .voice-player-bar .label { font-size: 13px; color: var(--text-muted); white-space: nowrap; }
+    .section-header {
+      background: var(--taupe);
+      color: white;
+      padding: 14px 20px;
+      font-size: 18px;
+      font-weight: 600;
+      margin-top: 32px;
+      margin-bottom: 0;
+      border-radius: 8px 8px 0 0;
+    }
+    .content-block {
+      padding: 20px 24px 28px;
+      border: 1px solid var(--gray-border);
+      border-top: none;
+      border-radius: 0 0 8px 8px;
+      margin-bottom: 24px;
+    }
+    .content-block p { margin-bottom: 12px; color: var(--text-muted); }
+    .voice-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+    .voice-table th, .voice-table td { border: 1px solid var(--gray-border); padding: 10px 12px; vertical-align: middle; }
+    .voice-table th { background: var(--gray-light); font-weight: 600; }
+    .voice-table td:first-child { width: 64px; text-align: center; }
+    .voice-play {
+      color: var(--accent-blue);
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .voice-play:hover { text-decoration: underline; }
+    .voice-play::before { content: "▶ "; font-size: 0.85em; }
+    .footer {
+      background: var(--text-dark);
+      color: rgba(255,255,255,0.85);
+      padding: 40px 32px 24px;
+      margin-top: 48px;
+    }
+    .footer-columns { display: flex; flex-wrap: wrap; gap: 32px 48px; margin-bottom: 24px; }
+    .footer-column h4 { font-size: 14px; margin-bottom: 12px; color: white; }
+    .footer-column a { display: block; color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; margin-bottom: 8px; }
+    .footer-column a:hover { color: white; }
+    .footer-bottom { font-size: 13px; opacity: 0.9; }
+    @media (max-width: 640px) {
+      .voice-table { font-size: 12px; }
+      .voice-table th, .voice-table td { padding: 8px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+    <div class="top-bar">
+      <a href="index.html">ホーム</a>
+      <nav style="display: flex; flex-wrap: wrap; gap: 20px;">
+        <a href="https://mirinae.jp/company.html">会社概要</a>
+        <a href="https://mirinae.jp/access.html">アクセス</a>
+        <a href="trial.html">お申込み</a>
+        <a href="https://mirinae.jp/teacher.html">講師</a>
+        <a href="book.html">著書</a>
+        <a href="voice.html">「ミリネ教科書」の音声</a>
+        <a href="cancel.html">キャンセル規定</a>
+        <a href="https://mirinae.jp/contact.html">お問い合わせ</a>
+      </nav>
+    </div>
+
+    <main class="main-content">
+      <h1 class="page-title">ミリネ韓国語の音声ファイル</h1>
+      <p class="page-intro">下のリンクをクリックすると、該当する音声が再生されます。ミリネ韓国語教科書の音声は<a href="https://mirinae.jp/voice.html" target="_blank" rel="noopener">mirinae.jp</a>で提供しています。</p>
+
+      <div class="voice-player-bar">
+        <span class="label">再生:</span>
+        <audio id="voicePlayer" controls preload="metadata"></audio>
+      </div>
+
+      <nav class="anchor-nav" style="display: flex; flex-wrap: wrap; gap: 12px 24px; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--gray-border);">
+        <a href="#1kyu">ミリネ1級</a>
+        <a href="#2kyu">ミリネ2級</a>
+        <a href="#3kyu">ミリネ3級</a>
+        <a href="#4kyu">ミリネ4級</a>
+      </nav>
+
+      <section id="1kyu">
+        <h2 class="section-header">ミリネ韓国語1級</h2>
+        <div class="content-block">
+          <p><strong>『ミリネ韓国語教科書1』 音声ファイル</strong><br>下のリンクをクリックすると『ミリネ韓国語教科書1』の音声をお聞きになれます。</p>
+          <table class="voice-table">
+            <thead><tr><th>課</th><th>本文</th><th>文法・語彙</th></tr></thead>
+            <tbody id="voice-1kyu"></tbody>
+          </table>
+          <p><a href="index.html">トップページへ戻る</a></p>
+        </div>
+      </section>
+
+      <section id="2kyu">
+        <h2 class="section-header">ミリネ韓国語2級</h2>
+        <div class="content-block">
+          <p><strong>『ミリネ韓国語教科書2』 音声ファイル</strong><br>下のリンクをクリックすると『ミリネ韓国語教科書2』の音声をお聞きになれます。</p>
+          <table class="voice-table">
+            <thead><tr><th>課</th><th>本文</th><th>文法</th><th>語彙</th></tr></thead>
+            <tbody id="voice-2kyu"></tbody>
+          </table>
+          <p><a href="index.html">トップページへ戻る</a></p>
+        </div>
+      </section>
+
+      <section id="3kyu">
+        <h2 class="section-header">ミリネ韓国語3級</h2>
+        <div class="content-block">
+          <p><strong>『ミリネ韓国語教科書3』 音声ファイル</strong><br>下のリンクをクリックすると『ミリネ韓国語教科書3』の音声をお聞きになれます。</p>
+          <table class="voice-table">
+            <thead><tr><th>課</th><th>本文</th><th>文法・語彙</th></tr></thead>
+            <tbody id="voice-3kyu"></tbody>
+          </table>
+          <p><a href="index.html">トップページへ戻る</a></p>
+        </div>
+      </section>
+
+      <section id="4kyu">
+        <h2 class="section-header">ミリネ韓国語4級</h2>
+        <div class="content-block">
+          <p><strong>『ミリネ韓国語教科書4』 音声ファイル</strong><br>下のリンクをクリックすると『ミリネ韓国語教科書4』の音声をお聞きになれます。</p>
+          <table class="voice-table">
+            <thead><tr><th>課</th><th>本文</th><th>文法・語彙</th></tr></thead>
+            <tbody id="voice-4kyu"></tbody>
+          </table>
+          <p><a href="index.html">トップページへ戻る</a></p>
+        </div>
+      </section>
+
+      <p style="margin-top: 32px;"><a href="index.html" style="color: var(--accent-blue); text-decoration: none;">← トップページへ戻る</a></p>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-columns">
+        <div class="footer-column"><h4>メニュー</h4><a href="index.html">ホーム</a><a href="https://mirinae.jp/company.html">会社概要</a><a href="https://mirinae.jp/access.html">アクセス</a></div>
+        <div class="footer-column"><h4>講座</h4><a href="kojin.html">個人レッスン</a><a href="group.html">グループレッスン</a><a href="kaiwa.html">会話強化クラス</a></div>
+        <div class="footer-column"><h4>お申込み</h4><a href="trial.html#tab01">体験申込</a><a href="trial.html#tab02">講座申込</a><a href="trial.html#tab04">お問い合わせ</a></div>
+        <div class="footer-column"><h4>その他</h4><a href="https://mirinae.jp/teacher.html">講師</a><a href="book.html">著書</a><a href="voice.html">「ミリネ教科書」の音声</a><a href="cancel.html">キャンセル規定</a></div>
+      </div>
+      <div class="footer-bottom">Copyright © (株)カオンヌリ All Rights Reserved.</div>
+    </footer>
+  </div>
+
+  <script>
+    (function() {
+      var BASE = "https://mirinae.jp/voice/";
+      var player = document.getElementById("voicePlayer");
+      function playUrl(url, label) {
+        if (!player) return;
+        player.src = url;
+        player.play().catch(function() {});
+      }
+      function link(url, text) {
+        var a = document.createElement("a");
+        a.href = BASE + url;
+        a.className = "voice-play";
+        a.textContent = text;
+        a.addEventListener("click", function(e) {
+          e.preventDefault();
+          playUrl(BASE + url, text);
+        });
+        return a;
+      }
+      function cell(content) {
+        var td = document.createElement("td");
+        if (typeof content === "string") td.innerHTML = content; else td.appendChild(content);
+        return td;
+      }
+      var i, row, tbody;
+      tbody = document.getElementById("voice-1kyu");
+      for (i = 1; i <= 25; i++) {
+        row = document.createElement("tr");
+        row.appendChild(cell(i + "課"));
+        row.appendChild(cell(link("1kyu/Mi1-Main" + i + ".mp3", "「ミリネ1」 " + i + "課 本文")));
+        row.appendChild(cell(link("1kyu/Mi1-sub" + i + ".mp3", "「ミリネ1」 " + i + "課 文法・語彙")));
+        tbody.appendChild(row);
+      }
+      tbody = document.getElementById("voice-2kyu");
+      for (i = 1; i <= 24; i++) {
+        row = document.createElement("tr");
+        row.appendChild(cell(i + "課"));
+        row.appendChild(cell(link("2kyu/Mi2-Main" + i + ".mp3", "「ミリネ2」 " + i + "課 本文")));
+        row.appendChild(cell(link("2kyu/Mi2-Bunpo" + i + ".mp3", "「ミリネ2」 " + i + "課 文法")));
+        row.appendChild(cell(link("2kyu/Mi2-Goi" + i + ".mp3", "「ミリネ2」 " + i + "課 語彙")));
+        tbody.appendChild(row);
+      }
+      tbody = document.getElementById("voice-3kyu");
+      for (i = 1; i <= 24; i++) {
+        row = document.createElement("tr");
+        row.appendChild(cell(i + "課"));
+        row.appendChild(cell(link("3kyu/Mi3-Main" + i + ".mp3", "「ミリネ3」 " + i + "課 本文")));
+        row.appendChild(cell(link("3kyu/Mi3-Sub" + i + ".mp3", "「ミリネ3」 " + i + "課 文法・語彙")));
+        tbody.appendChild(row);
+      }
+      tbody = document.getElementById("voice-4kyu");
+      for (i = 1; i <= 24; i++) {
+        row = document.createElement("tr");
+        row.appendChild(cell(i + "課"));
+        row.appendChild(cell(link("4kyu/Mi4-Main" + i + ".mp3", "「ミリネ4」 " + i + "課 本文")));
+        row.appendChild(cell(link("4kyu/Mi4-Sub" + i + ".mp3", "「ミリネ4」 " + i + "課 文法・語彙")));
+        tbody.appendChild(row);
+      }
+    })();
+  </script>
+  <script src="/admin-badge.js"></script>
+</body>
+</html>

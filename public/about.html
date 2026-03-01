@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>会社概要・アクセス・講師｜ミリネ韓国語教室</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --beige: #f5f0e8;
+      --beige-dark: #e8e0d5;
+      --gray-light: #f8f8f8;
+      --gray-border: #e5e5e5;
+      --text-dark: #2c2c2c;
+      --text-muted: #666;
+      --accent-blue: #4a6fa5;
+      --taupe: #BD9962;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      color: var(--text-dark);
+      line-height: 1.8;
+      background: #f0f0f0;
+    }
+    .page-wrapper { max-width: 900px; margin: 0 auto; background: white; min-height: 100vh; box-shadow: 0 0 40px rgba(0,0,0,0.08); }
+    .top-bar {
+      background: var(--beige);
+      padding: 12px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      border-bottom: 1px solid var(--beige-dark);
+    }
+    .top-bar a { color: var(--text-dark); text-decoration: none; font-size: 14px; font-weight: 500; }
+    .top-bar a:hover { color: var(--accent-blue); }
+    .main-content { padding: 40px 32px 60px; }
+    .page-title { font-size: 28px; font-weight: 700; margin-bottom: 12px; color: var(--text-dark); }
+    .page-intro { color: var(--text-muted); margin-bottom: 24px; }
+    .tab-bar {
+      display: flex;
+      gap: 0;
+      margin-bottom: 0;
+      border-bottom: 2px solid var(--gray-border);
+      overflow-x: auto;
+    }
+    .tab-btn {
+      padding: 12px 20px;
+      font-size: 14px;
+      font-weight: 500;
+      background: var(--gray-light);
+      border: none;
+      border-bottom: 3px solid transparent;
+      cursor: pointer;
+      color: var(--text-muted);
+      font-family: inherit;
+      margin-bottom: -2px;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .tab-btn:hover { color: var(--text-dark); }
+    .tab-btn.active { background: white; color: var(--taupe); border-bottom-color: var(--taupe); font-weight: 600; }
+    .tab-panel { display: none; padding: 24px 0; }
+    .tab-panel.active { display: block; }
+    .section-header {
+      background: var(--taupe);
+      color: white;
+      padding: 14px 20px;
+      font-size: 18px;
+      font-weight: 600;
+      margin-top: 24px;
+      margin-bottom: 0;
+      border-radius: 8px 8px 0 0;
+    }
+    .section-header:first-child { margin-top: 0; }
+    .content-block {
+      padding: 20px 24px 28px;
+      border: 1px solid var(--gray-border);
+      border-top: none;
+      border-radius: 0 0 8px 8px;
+      margin-bottom: 24px;
+    }
+    .content-block p { margin-bottom: 12px; color: var(--text-muted); }
+    .content-block table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 14px;
+    }
+    .content-block th, .content-block td {
+      border: 1px solid var(--gray-border);
+      padding: 12px 16px;
+      text-align: left;
+      vertical-align: top;
+    }
+    .content-block th { background: var(--gray-light); font-weight: 600; width: 140px; }
+    .content-block a { color: var(--accent-blue); text-decoration: none; }
+    .content-block a:hover { text-decoration: underline; }
+    .access-address { font-size: 16px; font-weight: 600; margin: 16px 0 8px; }
+    .access-list { margin: 12px 0 0 20px; }
+    .access-list li { margin-bottom: 6px; }
+    .teacher-block { margin-bottom: 28px; }
+    .footer {
+      background: var(--text-dark);
+      color: rgba(255,255,255,0.85);
+      padding: 40px 32px 24px;
+      margin-top: 48px;
+    }
+    .footer-columns { display: flex; flex-wrap: wrap; gap: 32px 48px; margin-bottom: 24px; }
+    .footer-column h4 { font-size: 14px; margin-bottom: 12px; color: white; }
+    .footer-column a { display: block; color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; margin-bottom: 8px; }
+    .footer-column a:hover { color: white; }
+    .footer-bottom { font-size: 13px; opacity: 0.9; }
+    @media (max-width: 640px) {
+      .content-block th { width: 100px; font-size: 13px; }
+      .content-block td { font-size: 13px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+    <div class="top-bar">
+      <a href="index.html">ホーム</a>
+      <nav style="display: flex; flex-wrap: wrap; gap: 20px;">
+        <a href="about.html">会社概要</a>
+        <a href="https://mirinae.jp/access.html">アクセス</a>
+        <a href="trial.html">お申込み</a>
+        <a href="https://mirinae.jp/teacher.html">講師</a>
+        <a href="book.html">著書</a>
+        <a href="voice.html">「ミリネ教科書」の音声</a>
+        <a href="cancel.html">キャンセル規定</a>
+        <a href="https://mirinae.jp/contact.html">お問い合わせ</a>
+      </nav>
+    </div>
+
+    <main class="main-content">
+      <h1 class="page-title">会社概要・アクセス・講師</h1>
+      <p class="page-intro">個人レッスンは都合に合わせて予約し、マイペースで勉強できます。</p>
+
+      <div class="tab-bar" role="tablist">
+        <button type="button" class="tab-btn active" data-tab="tab01" role="tab" aria-selected="true">会社概要・口座</button>
+        <button type="button" class="tab-btn" data-tab="tab02" role="tab" aria-selected="false">アクセス</button>
+        <button type="button" class="tab-btn" data-tab="tab03" role="tab" aria-selected="false">講師</button>
+      </div>
+
+      <div id="tab01" class="tab-panel active">
+        <h2 class="section-header">『会社概要・口座』</h2>
+        <div class="content-block">
+          <table>
+            <tr><th>社名</th><td>株式会社 カオンヌリ</td></tr>
+            <tr><th>設立年月日</th><td>2010年11月19日</td></tr>
+            <tr><th>代表取締役</th><td>金玄謹</td></tr>
+            <tr><th>事務所 所在地</th><td>〒160-0022 東京都新宿区新宿2-8-1 新宿セブンビル606号</td></tr>
+            <tr><th>業務内容</th><td>韓国語の授業・通訳・翻訳・作文添削 海外業務提携、韓国「엑스포츠 뉴스」の芸能ニュースコンテンツ翻訳・日本販売総代理店（参考：<a href="https://www.k-insider.com/" target="_blank" rel="noopener">k-insider.com</a>、<a href="https://www.xportsnews.com/" target="_blank" rel="noopener">xportsnews.com</a>）</td></tr>
+            <tr><th>メール</th><td><a href="mailto:mirinae@kaonnuri.com">mirinae@kaonnuri.com</a></td></tr>
+            <tr><th>連絡先</th><td>TEL 03-5925-8245 / FAX 03-5925-8249</td></tr>
+            <tr><th>口座</th><td>三井住友銀行 日暮里支店 普通 7961777 (株) カオンヌリ<br>ゆうちょ銀行(郵便局) 記号: 10190 番号: 90647671 カ) カオンヌリ</td></tr>
+          </table>
+        </div>
+      </div>
+
+      <div id="tab02" class="tab-panel">
+        <h2 class="section-header">『新宿教室』</h2>
+        <div class="content-block">
+          <p class="access-address">〒160-0022 新宿区新宿2-8-1 新宿セブンビル606号</p>
+          <p>TEL: 03-5925-8245</p>
+          <p style="margin-top: 20px;"><strong>JR新宿駅からのMAP</strong></p>
+          <ul class="access-list">
+            <li>➡ JR新宿駅から徒歩10分</li>
+            <li>➡ 地下鉄(都営新宿線、副都心線、丸の内線) 新宿3丁目駅から徒歩3分</li>
+            <li>➡ 丸の内線、新宿御苑前駅から徒歩1分</li>
+          </ul>
+          <p style="margin-top: 20px;">■ JR新宿駅からの行き方 (TEL: 03-5925-8245)</p>
+          <p><a href="https://www.google.com/maps/search/?api=1&query=東京都新宿区新宿2-8-1+新宿セブンビル" target="_blank" rel="noopener">Google マップで開く</a></p>
+        </div>
+      </div>
+
+      <div id="tab03" class="tab-panel">
+        <h2 class="section-header">『韓国語講師』</h2>
+
+        <div class="content-block teacher-block">
+          <table>
+            <tr><th>院長</th><td>金 玄謹（キム・ヒョングン）</td></tr>
+            <tr><th>講師歴</th><td>2004年～</td></tr>
+            <tr><th>経歴</th><td>韓国語講師、韓国語翻訳添削</td></tr>
+            <tr><th>書籍</th><td>『도쿄를 알면 일본어가 보인다1』21세기북스, 2008年 『도쿄를 알면 일본어가 보인다2』21세기북스, 2010年 『일본어 회화패턴 BEST100Ⅰ』21세기북스, 2008年 『일본어 회화표현 BEST100Ⅱ』21세기북스, 2009年 『タングニの日本生活記』白水社、2015年 『タングニの韓国人生劇場』白水社、2016年 『クイズで学ぶ韓国語』あさ出版、2021年 『ゼロから完全攻略！ 韓国語能力試験 TOPIKⅠ』新生出版社 『ゼロから完全攻略！ 韓国語能力試験 TOPIKⅡ』新生出版社、2024年 『123！韓国語 入門』 HANA、2024年 『123！韓国語 初中級』 HANA、2025年</td></tr>
+            <tr><th>一言</th><td>시작이 반이다・継続は力なり</td></tr>
+          </table>
+        </div>
+
+        <div class="content-block teacher-block">
+          <table>
+            <tr><th>名前</th><td>朴 多貞 (パク・ダジョン)</td></tr>
+            <tr><th>講師歴</th><td>2014年～</td></tr>
+            <tr><th>経歴</th><td>東京外国語大学日本語専攻、韓国語講師</td></tr>
+            <tr><th>資格</th><td>日本語能力試験1級</td></tr>
+            <tr><th>一言</th><td>韓国や韓国語に興味をもっていた友達が周りにいたのがきっかけで韓国語を教えることに興味を持つようになりました。みなさんと同じく、言葉を学習する立場でもあるので、より分かりやすく教えていきたいと思っております。</td></tr>
+          </table>
+        </div>
+
+        <div class="content-block teacher-block">
+          <table>
+            <tr><th>名前</th><td>安 ミンジョン（アン・ミンジョン）</td></tr>
+            <tr><th>講師歴</th><td>2011年～</td></tr>
+            <tr><th>経歴</th><td>韓国のテレビ局、記者、芸能事務所、韓国語講師 韓国語教員資格2級</td></tr>
+            <tr><th>書籍</th><td>『森ガールと草食男の世界、東京』（チャンへ出版社2010年） 『日本のお母さんの力』（hwangsobooks 2015年） 『ゼロから完全攻略！ 韓国語能力試験 TOPIKⅡ』 2024年</td></tr>
+            <tr><th>一言</th><td>語学の王道は毎日のコツコツが第一！皆さんの努力を応援してサポートいたします！</td></tr>
+          </table>
+        </div>
+
+        <div class="content-block teacher-block">
+          <table>
+            <tr><th>名前</th><td>申 廣徳（シン カンドク）</td></tr>
+            <tr><th>講師歴</th><td>2009年～</td></tr>
+            <tr><th>経歴</th><td>韓国語講師、読売カルチャー、インカルチャーの講師</td></tr>
+            <tr><th>資格</th><td>韓国語教員免許2級</td></tr>
+            <tr><th>一言</th><td>新しいチャレンジは新しい出会いが待っていますし、世界が広がります。</td></tr>
+          </table>
+        </div>
+
+        <div class="content-block teacher-block">
+          <table>
+            <tr><th>名前</th><td>孫 秀賢（ソン・スヒョン）</td></tr>
+            <tr><th>講師歴</th><td>2022年～</td></tr>
+            <tr><th>経歴</th><td>日本女子大学 人間社会学部 文化学科卒業</td></tr>
+            <tr><th>資格</th><td>韓国語教員資格2級 日本語能力試験1級</td></tr>
+            <tr><th>書籍</th><td>『ゼロから完全攻略！ 韓国語能力試験 TOPIKⅠ』 2024年</td></tr>
+            <tr><th>一言</th><td>何かに夢中になれることは素敵なことです。韓国語を通してもっと豊かな人生にしませんか？</td></tr>
+          </table>
+        </div>
+
+        <div class="content-block teacher-block">
+          <table>
+            <tr><th>名前</th><td>李 姃姸 （リ・ジョンヨン）</td></tr>
+            <tr><th>講師歴</th><td>2023年～</td></tr>
+            <tr><th>経歴</th><td>日語日文学科 卒業</td></tr>
+            <tr><th>資格</th><td>日本語能力試験N1 日本語教師養成講座420時間修了 日本語講師 韓国語教員資格2級</td></tr>
+            <tr><th>一言</th><td>韓国語は難しい!'から'韓国語は楽しい！'となるよう楽しい韓国語を目指して一緒に頑張りませんか</td></tr>
+          </table>
+        </div>
+
+        <div class="content-block teacher-block">
+          <table>
+            <tr><th>名前</th><td>池上智子</td></tr>
+            <tr><th>講師歴</th><td>2019年～</td></tr>
+            <tr><th>経歴</th><td>東京外国語大学国際社会学部朝鮮語専攻卒、韓国語講師</td></tr>
+            <tr><th>資格</th><td>TOPIK 6級 日本語教育能力試験(日本語教師資格保持) TOEIC スコア970</td></tr>
+            <tr><th>一言</th><td>韓国語学習を通して言語だけではなく、韓国の文化や人々を深く知ることができ、日々新しい発見があるのが面白いところだと思います。同じ韓国語学習者の目線から分かりやすく、楽しい授業を心がけていきます！</td></tr>
+          </table>
+        </div>
+      </div>
+
+      <p style="margin-top: 32px;"><a href="index.html" style="color: var(--accent-blue); text-decoration: none;">← トップページへ戻る</a></p>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-columns">
+        <div class="footer-column"><h4>メニュー</h4><a href="index.html">ホーム</a><a href="about.html">会社概要</a><a href="https://mirinae.jp/access.html">アクセス</a></div>
+        <div class="footer-column"><h4>講座</h4><a href="kojin.html">個人レッスン</a><a href="group.html">グループレッスン</a><a href="kaiwa.html">会話強化クラス</a></div>
+        <div class="footer-column"><h4>お申込み</h4><a href="trial.html#tab01">体験申込</a><a href="trial.html#tab02">講座申込</a><a href="trial.html#tab04">お問い合わせ</a></div>
+        <div class="footer-column"><h4>その他</h4><a href="https://mirinae.jp/teacher.html">講師</a><a href="book.html">著書</a><a href="voice.html">「ミリネ教科書」の音声</a><a href="cancel.html">キャンセル規定</a></div>
+      </div>
+      <div class="footer-bottom">Copyright © (株)カオンヌリ All Rights Reserved.</div>
+    </footer>
+  </div>
+
+  <script>
+    (function() {
+      var tabBtns = document.querySelectorAll('.tab-btn');
+      var tabPanels = document.querySelectorAll('.tab-panel');
+      function switchTab(tabId) {
+        tabBtns.forEach(function(btn) {
+          btn.classList.toggle('active', btn.getAttribute('data-tab') === tabId);
+          btn.setAttribute('aria-selected', btn.getAttribute('data-tab') === tabId);
+        });
+        tabPanels.forEach(function(panel) {
+          panel.classList.toggle('active', panel.id === tabId);
+        });
+        history.replaceState(null, '', 'about.html#' + tabId);
+      }
+      tabBtns.forEach(function(btn) {
+        btn.addEventListener('click', function() { switchTab(btn.getAttribute('data-tab')); });
+      });
+      var hash = location.hash.slice(1);
+      var q = location.search.match(/tab=(tab0[123])/);
+      var initial = (q && q[1]) || (hash && ['tab01','tab02','tab03'].indexOf(hash) !== -1 ? hash : 'tab01');
+      if (initial !== 'tab01') switchTab(initial);
+      window.addEventListener('hashchange', function() {
+        var h = location.hash.slice(1);
+        if (['tab01','tab02','tab03'].indexOf(h) !== -1) switchTab(h);
+      });
+    })();
+  </script>
+  <script src="/admin-badge.js"></script>
+</body>
+</html>

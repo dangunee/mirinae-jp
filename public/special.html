@@ -94,6 +94,9 @@
     .tab-panel { display: none; }
     .tab-panel.active { display: block; }
 
+    .testimonial { background: var(--gray-light); border-radius: 8px; padding: 20px; margin-bottom: 20px; border-left: 4px solid var(--taupe); }
+    .testimonial-header { font-weight: 600; font-size: 15px; margin-bottom: 12px; color: var(--text-dark); }
+    .testimonial-content { font-size: 14px; color: var(--text-muted); line-height: 1.9; }
     .section-header {
       background: var(--taupe);
       color: white;
@@ -313,6 +316,9 @@
         </div>
       </div>
 
+      <h2 class="section-header" style="margin-top: 48px;">『生徒の声』</h2>
+      <div class="testimonials-container" data-page="special" data-block="testimonials_special_main"></div>
+
       <div class="cta-buttons">
         <div class="cta-wrapper">
           <a href="https://mirinae.jp/trial.html" class="cta-btn">お申込みはこちら</a>
@@ -358,6 +364,7 @@
       });
     })();
   </script>
+  <script src="/testimonials.js"></script>
   <script src="/admin-badge.js"></script>
 </body>
 </html>

@@ -24,12 +24,23 @@ function EditContent() {
   const [dirty, setDirty] = useState(false);
   const [seeding, setSeeding] = useState(false);
 
+  // 初級→中級→上級の順
+  const KOJIN_BLOCK_ORDER = ["curriculum_shokyu", "curriculum_chukyu", "curriculum_jokyu"];
+
   useEffect(() => {
     fetch(`/api/curriculum?page=${page}`)
       .then((r) => r.json())
       .then((data) => {
-        setBlocks(Array.isArray(data) ? data : []);
-        if (data[0]) setSelectedBlock(data[0]);
+        const list = Array.isArray(data) ? data : [];
+        const sorted =
+          page === "kojin"
+            ? [...list].sort(
+                (a, b) =>
+                  KOJIN_BLOCK_ORDER.indexOf(a.blockKey) - KOJIN_BLOCK_ORDER.indexOf(b.blockKey)
+              )
+            : list;
+        setBlocks(sorted);
+        if (sorted[0]) setSelectedBlock(sorted[0]);
       })
       .finally(() => setLoading(false));
   }, [page]);

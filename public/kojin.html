@@ -331,6 +331,15 @@
 
     .back-link { display: inline-block; margin-top: 24px; color: #4a6fa5; text-decoration: none; font-size: 14px; }
 
+    .tanki-level-tabs { display: flex; gap: 8px; margin: 12px 0 16px; flex-wrap: wrap; }
+    .tanki-level-tab {
+      padding: 10px 20px; border: 1px solid var(--gray-border); background: #f8f8f8;
+      border-radius: 8px; cursor: pointer; font-size: 14px; font-weight: 500;
+    }
+    .tanki-level-tab:hover { background: #eee; }
+    .tanki-level-tab.active { background: #4a6fa5; color: white; border-color: #4a6fa5; }
+    .tanki-schedule-table { margin-top: 0; }
+
     .content-block p { margin-bottom: 12px; color: var(--text-muted); }
     .content-block ul { margin: 16px 0 16px 24px; }
     .content-block li { margin-bottom: 8px; }
@@ -586,6 +595,26 @@
             <li>火～金 10:00-17:00</li>
             <li>予約制（50分）</li>
           </ul>
+        </div>
+
+        <div class="content-block" id="tanki-schedule-block">
+          <h3>短期集中講座 日程・料金</h3>
+          <div class="tanki-level-tabs" role="tablist">
+            <button type="button" class="tanki-level-tab active" data-level="shokyu" role="tab" aria-selected="true">初級</button>
+            <button type="button" class="tanki-level-tab" data-level="chukyu" role="tab" aria-selected="false">中級</button>
+            <button type="button" class="tanki-level-tab" data-level="jokyu" role="tab" aria-selected="false">上級</button>
+          </div>
+          <div class="curriculum-wrap">
+            <table class="price-table tanki-schedule-table">
+              <thead>
+                <tr><th>曜日</th><th>時間</th><th>内容</th><th>料金</th></tr>
+              </thead>
+              <tbody id="tanki-schedule-tbody">
+                <!-- filled by API -->
+              </tbody>
+            </table>
+          </div>
+          <p id="tanki-schedule-empty" class="section-note" style="display: none;">データがありません。</p>
         </div>
 
         <div class="content-block">
@@ -1038,6 +1067,50 @@
         var h = location.hash.slice(1);
         if (['tab01', 'tab02', 'tab03', 'tab04'].indexOf(h) !== -1) switchTab(h);
       });
+    })();
+
+    (function() {
+      var TANKI_ORDER = ['tanki_shokyu', 'tanki_chukyu', 'tanki_jokyu'];
+      var tbody = document.getElementById('tanki-schedule-tbody');
+      var emptyEl = document.getElementById('tanki-schedule-empty');
+      var block = document.getElementById('tanki-schedule-block');
+      var tabs = document.querySelectorAll('.tanki-level-tab');
+      var tankiData = [];
+
+      function renderRows(rows) {
+        if (!tbody) return;
+        tbody.innerHTML = '';
+        if (!rows || !rows.length) return;
+        rows.forEach(function(r) {
+          var tr = document.createElement('tr');
+          tr.innerHTML = '<td>' + (r.yobi || '') + '</td><td>' + (r.jikan || '') + '</td><td>' + (r.naiyo || '') + '</td><td>' + (r.ryokin || '') + '</td>';
+          tbody.appendChild(tr);
+        });
+      }
+
+      function setActiveLevel(index) {
+        tabs.forEach(function(t, i) { t.classList.toggle('active', i === index); t.setAttribute('aria-selected', i === index); });
+        if (tankiData[index]) renderRows(tankiData[index].rows);
+      }
+
+      fetch('/api/curriculum?page=kojin')
+        .then(function(res) { return res.json(); })
+        .then(function(blocks) {
+          tankiData = TANKI_ORDER.map(function(key) { return blocks.find(function(b) { return b.blockKey === key; }); }).filter(Boolean);
+          if (!tankiData.length) {
+            if (block) block.style.display = 'none';
+            return;
+          }
+          if (emptyEl) emptyEl.style.display = 'none';
+          setActiveLevel(0);
+          tabs.forEach(function(tab, index) {
+            tab.addEventListener('click', function() { setActiveLevel(index); });
+          });
+        })
+        .catch(function() {
+          if (emptyEl) emptyEl.style.display = 'block';
+          if (tbody) tbody.innerHTML = '';
+        });
     })();
   </script>
   <script src="/admin-badge.js"></script>

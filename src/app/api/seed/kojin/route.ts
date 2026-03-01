@@ -108,6 +108,35 @@ const BLOCKS = [
   { blockKey: "curriculum_jokyu", title: "上級", rows: JOKYU_ROWS },
 ];
 
+// 短期集中講座 日程・料金（曜日・時間・内容・料金）
+type TankiRow = { yobi: string; jikan: string; naiyo: string; ryokin: string };
+const TANKI_SHOKYU: TankiRow[] = [
+  { yobi: "平日午前", jikan: "10:00-12:00", naiyo: "ひらがな・カタカナ、発音、文法、基本会話", ryokin: "38,500円/回" },
+  { yobi: "平日午後", jikan: "13:00-15:00", naiyo: "ひらがな・カタカナ、発音、文法、基本会話", ryokin: "38,500円/回" },
+  { yobi: "平日夜間", jikan: "19:00-21:00", naiyo: "ひらがな・カタカナ、発音、文法、基本会話", ryokin: "44,000円/回" },
+  { yobi: "土日祝", jikan: "10:00-12:00", naiyo: "ひらがな・カタカナ、発音、文法、基本会話", ryokin: "44,000円/回" },
+  { yobi: "土日祝", jikan: "13:00-15:00", naiyo: "ひらがな・カタカナ、発音、文法、基本会話", ryokin: "44,000円/回" },
+];
+const TANKI_CHUKYU: TankiRow[] = [
+  { yobi: "平日午前", jikan: "10:00-12:00", naiyo: "日本語能力試験N4・N3・N2レベル文法、語彙、読解、聴解、会話練習", ryokin: "38,500円/回" },
+  { yobi: "平日午後", jikan: "13:00-15:00", naiyo: "日本語能力試験N4・N3・N2レベル文法、語彙、読解、聴解、会話練習", ryokin: "38,500円/回" },
+  { yobi: "平日夜間", jikan: "19:00-21:00", naiyo: "日本語能力試験N4・N3・N2レベル文法、語彙、読解、聴解、会話練習", ryokin: "44,000円/回" },
+  { yobi: "土日祝", jikan: "10:00-12:00", naiyo: "日本語能力試験N4・N3・N2レベル文法、語彙、読解、聴解、会話練習", ryokin: "44,000円/回" },
+  { yobi: "土日祝", jikan: "13:00-15:00", naiyo: "日本語能力試験N4・N3・N2レベル文法、語彙、読解、聴解、会話練習", ryokin: "44,000円/回" },
+];
+const TANKI_JOKYU: TankiRow[] = [
+  { yobi: "平日午前", jikan: "10:00-12:00", naiyo: "日本語能力試験N1レベル文法、語彙、読解、聴解、会話練習、小論文、ビジネス日本語", ryokin: "38,500円/回" },
+  { yobi: "平日午後", jikan: "13:00-15:00", naiyo: "日本語能力試験N1レベル文法、語彙、読解、聴解、会話練習、小論文、ビジネス日本語", ryokin: "38,500円/回" },
+  { yobi: "平日夜間", jikan: "19:00-21:00", naiyo: "日本語能力試験N1レベル文法、語彙、読解、聴解、会話練習、小論文、ビジネス日本語", ryokin: "44,000円/回" },
+  { yobi: "土日祝", jikan: "10:00-12:00", naiyo: "日本語能力試験N1レベル文法、語彙、読解、聴解、会話練習、小論文、ビジネス日本語", ryokin: "44,000円/回" },
+  { yobi: "土日祝", jikan: "13:00-15:00", naiyo: "日本語能力試験N1レベル文法、語彙、読解、聴解、会話練習、小論文、ビジネス日本語", ryokin: "44,000円/回" },
+];
+const TANKI_BLOCKS = [
+  { blockKey: "tanki_shokyu", title: "初級", rows: TANKI_SHOKYU },
+  { blockKey: "tanki_chukyu", title: "中級", rows: TANKI_CHUKYU },
+  { blockKey: "tanki_jokyu", title: "上級", rows: TANKI_JOKYU },
+];
+
 export async function POST() {
   const pageSlug = "kojin";
   for (const { blockKey, title, rows } of BLOCKS) {
@@ -117,5 +146,12 @@ export async function POST() {
       update: { title, rowsJson: JSON.stringify(rows) },
     });
   }
-  return NextResponse.json({ ok: true, message: "個人レッスン 初級・中級・上級 を登録しました。" });
+  for (const { blockKey, title, rows } of TANKI_BLOCKS) {
+    await prisma.siteTable.upsert({
+      where: { pageSlug_blockKey: { pageSlug, blockKey } },
+      create: { pageSlug, blockKey, title, rowsJson: JSON.stringify(rows) },
+      update: { title, rowsJson: JSON.stringify(rows) },
+    });
+  }
+  return NextResponse.json({ ok: true, message: "個人レッスン 初級・中級・上級 および 短期集中講座 を登録しました。" });
 }

@@ -6,16 +6,19 @@
   <title>試験対策講座｜ミリネ韓国語教室</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --beige: #f5f0e8;
       --taupe: #BD9962;
       --taupe-dark: #9B8B7E;
+      --gold: #B8963E;
+      --dark: #1C1C1E;
+      --white: #FFFFFF;
       --gray-light: #f8f8f8;
-      --gray-border: #e5e5e5;
+      --gray-border: #E5E0D8;
       --text-dark: #2c2c2c;
-      --text-muted: #666;
+      --text-muted: #8E8E93;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -36,7 +39,7 @@
     }
 
     .top-bar {
-      background: var(--beige);
+      background: var(--white);
       padding: 12px 24px;
       font-size: 12px;
       color: var(--text-muted);
@@ -45,57 +48,62 @@
       align-items: center;
       justify-content: space-between;
       gap: 16px;
-      border-bottom: 1px solid #e8e0d5;
+      border-bottom: 1px solid var(--gray-border);
     }
     .top-bar-info { color: var(--text-muted); }
     .top-bar-nav { display: flex; flex-wrap: wrap; gap: 20px 32px; }
-    .top-bar a, .top-bar-nav a {
-      color: var(--text-dark);
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 14px;
+    .top-bar a, .top-bar-nav a { color: var(--dark); text-decoration: none; font-weight: 500; font-size: 14px; }
+    .top-bar a:hover, .top-bar-nav a:hover { color: var(--gold); }
+
+    .main-content { padding: 0 24px 80px; }
+
+    .page-header { padding: 40px 0 24px; }
+    .page-header .page-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(28px, 5vw, 40px);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--dark);
+      margin-bottom: 12px;
     }
-    .top-bar a:hover, .top-bar-nav a:hover { color: #4a6fa5; }
+    .page-header .page-subtitle { color: var(--text-muted); font-size: 14px; font-weight: 300; }
 
-    .main-content { padding: 40px 32px 60px; }
-
-    .page-title { font-size: 32px; font-weight: 700; margin-bottom: 12px; color: var(--text-dark); }
-    .page-subtitle { font-size: 16px; color: var(--text-muted); margin-bottom: 24px; }
-
-    /* タブ */
+    .tab-wrap { margin-bottom: 0; }
     .tab-bar {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0;
-      margin-bottom: 32px;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
       border-bottom: 2px solid var(--gray-border);
+      position: relative;
     }
-
+    @media (max-width: 560px) { .tab-bar { grid-template-columns: 1fr 1fr; } }
     .tab-btn {
-      padding: 12px 20px;
-      font-size: 14px;
-      font-weight: 500;
-      background: var(--gray-light);
+      background: none;
       border: none;
-      border-bottom: 3px solid transparent;
-      cursor: pointer;
+      padding: 14px 8px;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
       color: var(--text-muted);
-      font-family: inherit;
-      margin-bottom: -2px;
-      transition: all 0.2s;
+      cursor: pointer;
+      position: relative;
+      transition: color 0.2s;
       white-space: nowrap;
     }
-
-    .tab-btn:hover { color: var(--text-dark); }
-
-    .tab-btn.active {
-      background: white;
-      color: var(--taupe);
-      border-bottom-color: var(--taupe);
-      font-weight: 600;
+    .tab-btn::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0; right: 0;
+      height: 2px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transition: transform 0.25s ease;
     }
+    .tab-btn:hover { color: var(--dark); }
+    .tab-btn.active { color: var(--gold); font-weight: 700; }
+    .tab-btn.active::after { transform: scaleX(1); }
 
-    .tab-panel { display: none; }
+    .tab-panel { display: none; padding-top: 32px; }
     .tab-panel.active { display: block; }
 
     .testimonial { background: var(--gray-light); border-radius: 8px; padding: 20px; margin-bottom: 20px; border-left: 4px solid var(--taupe); }
@@ -217,9 +225,12 @@
     </div>
 
     <div class="main-content">
-      <h1 class="page-title">試験対策講座</h1>
-      <p class="page-subtitle">TOPIK・ハングル検定・語彙力強化のための対策クラス</p>
+      <div class="page-header">
+        <h1 class="page-title">試験対策講座</h1>
+        <p class="page-subtitle">TOPIK・ハングル検定・語彙力強化のための対策クラス</p>
+      </div>
 
+      <div class="tab-wrap">
       <div class="tab-bar">
         <button type="button" class="tab-btn active" data-tab="tab01">TOPIK初級</button>
         <button type="button" class="tab-btn" data-tab="tab02">TOPIK中級</button>
@@ -227,6 +238,7 @@
         <button type="button" class="tab-btn" data-tab="tab04">ハン検1/2級</button>
         <button type="button" class="tab-btn" data-tab="tab05">ハン検準2級</button>
         <button type="button" class="tab-btn" data-tab="tab06">語彙力強化</button>
+      </div>
       </div>
 
       <!-- ========== タブ1: TOPIK初級 ========== -->

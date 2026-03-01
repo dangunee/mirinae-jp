@@ -1004,7 +1004,7 @@
 
       <div class="cta-buttons">
         <div class="cta-wrapper">
-          <a href="https://mirinae.jp/trial.html" class="cta-btn">お申込みはこちら</a>
+          <a id="kojin-cta-btn" href="trial.html" class="cta-btn">お申込みはこちら</a>
         </div>
       </div>
 
@@ -1016,6 +1016,13 @@
     (function() {
       var tabBtns = document.querySelectorAll('.tab-btn');
       var tabPanels = document.querySelectorAll('.tab-panel');
+      var ctaBtn = document.getElementById('kojin-cta-btn');
+
+      function getTrialUrlForTab(tabId) {
+        if (tabId === 'tab04') return 'trial.html#leveltest';
+        if (tabId === 'tab02' || tabId === 'tab03') return 'trial.html#tab02';
+        return 'trial.html';
+      }
 
       function switchTab(tabId) {
         tabBtns.forEach(function(btn) {
@@ -1025,6 +1032,7 @@
           panel.classList.toggle('active', panel.id === tabId);
         });
         history.replaceState(null, '', 'kojin.html#' + tabId);
+        if (ctaBtn) ctaBtn.href = getTrialUrlForTab(tabId);
       }
 
       tabBtns.forEach(function(btn) {
@@ -1034,8 +1042,11 @@
       });
 
       var hash = location.hash.slice(1);
+      var currentTab = (['tab01', 'tab02', 'tab03', 'tab04'].indexOf(hash) !== -1) ? hash : 'tab01';
       if (hash === 'tab02' || hash === 'tab03' || hash === 'tab04') {
         switchTab(hash);
+      } else {
+        if (ctaBtn) ctaBtn.href = getTrialUrlForTab('tab01');
       }
 
       window.addEventListener('hashchange', function() {

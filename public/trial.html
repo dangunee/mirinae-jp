@@ -438,6 +438,7 @@
                   <th>ご希望レッスン<span class="required">必須</span></th>
                   <td>
                     <select>
+                      <option selected>選択してください</option>
                       <option>個人レッスン</option>
                       <option>短期集中個人レッスン</option>
                       <option>発音矯正レッスン</option>
@@ -455,6 +456,7 @@
                   <th>ミリネ韓国語教室を知ったきっかけ</th>
                   <td>
                     <select>
+                      <option selected>選択してください</option>
                       <option>Ｘ・ツイッター</option>
                       <option>YouTube</option>
                       <option>フェイスブック</option>
@@ -564,6 +566,7 @@
                   <th>ご希望レッスン<span class="required">必須</span></th>
                   <td>
                     <select>
+                      <option selected>選択してください</option>
                       <option>2月多読・発音講座-初中級</option>
                       <option>2月多読・発音講座-中上級</option>
                       <option>中級文法まとめ講座</option>
@@ -595,6 +598,7 @@
                   <th>ミリネ韓国語教室を知ったきっかけ</th>
                   <td>
                     <select>
+                      <option selected>選択してください</option>
                       <option>Ｘ・ツイッター</option>
                       <option>YouTube</option>
                       <option>フェイスブック</option>
@@ -685,6 +689,7 @@
                   <th>興味のあるレッスン<span class="required">必須</span></th>
                   <td>
                     <select>
+                      <option selected>選択してください</option>
                       <option>会話</option>
                       <option>発音矯正</option>
                       <option>文法強化</option>
@@ -700,6 +705,7 @@
                   <th>メルマガ申込のきっかけ<span class="required">必須</span></th>
                   <td>
                     <select>
+                      <option selected>選択してください</option>
                       <option>X（旧twitter）</option>
                       <option>YouTube</option>
                       <option>Instagram</option>
@@ -790,6 +796,7 @@
                   <th>ミリネ韓国語教室を知ったきっかけ<span class="required">必須</span></th>
                   <td>
                     <select>
+                      <option selected>選択してください</option>
                       <option>Ｘ・ツイッター</option>
                       <option>YouTube</option>
                       <option>フェイスブック</option>
@@ -816,9 +823,6 @@
         </div>
       </div>
 
-      <h2 class="section-header" style="margin-top: 48px;">『生徒の声』</h2>
-      <div class="testimonials-container" data-page="trial" data-block="testimonials_trial"></div>
-
       <a href="index.html" class="back-link">← トップページへ戻る</a>
     </div>
   </div>
@@ -844,14 +848,27 @@
         });
       });
 
+      function applyLevelTestState() {
+        switchTab('tab01');
+        var levelRadio = document.getElementById('trial_level');
+        if (levelRadio) levelRadio.checked = true;
+      }
+
       var hash = location.hash.slice(1);
-      if (hash === 'tab02' || hash === 'tab03' || hash === 'tab04') {
+      if (hash === 'leveltest') {
+        applyLevelTestState();
+        history.replaceState(null, '', 'trial.html#leveltest');
+      } else if (hash === 'tab02' || hash === 'tab03' || hash === 'tab04') {
         switchTab(hash);
       }
 
       window.addEventListener('hashchange', function() {
         var h = location.hash.slice(1);
-        if (['tab01', 'tab02', 'tab03', 'tab04'].indexOf(h) !== -1) switchTab(h);
+        if (h === 'leveltest') {
+          applyLevelTestState();
+        } else if (['tab01', 'tab02', 'tab03', 'tab04'].indexOf(h) !== -1) {
+          switchTab(h);
+        }
       });
     })();
   </script>

@@ -1,0 +1,150 @@
+/* お申込み画面と統一デザイン（会社概要・アクセス・著書） */
+:root {
+  --unified-bg: #FAFAF7;
+  --unified-gold: #B8963E;
+  --unified-gold-light: #C8AF7F;
+  --unified-gold-pale: #F5EDD6;
+  --unified-dark: #2C2C2E;
+  --unified-muted: #8E8E93;
+  --unified-border: #E5E0D8;
+  --unified-white: #FFFFFF;
+}
+
+/* 統一デザインが有効なページ */
+body.unified-design #contents { background: var(--unified-bg); }
+body.unified-design #cont_center {
+  background: var(--unified-bg);
+  padding: 24px 28px 48px;
+}
+
+/* ページヘッダー（大タイトル＋サブタイトル） */
+.unified-page-header { padding: 0 0 20px; margin-bottom: 8px; }
+.unified-page-header .page-title {
+  font-size: clamp(24px, 4vw, 36px);
+  font-weight: 700;
+  color: var(--unified-dark);
+  margin: 0 0 8px;
+  letter-spacing: 0.04em;
+}
+.unified-page-header .page-subtitle {
+  font-size: 14px;
+  color: var(--unified-muted);
+  margin: 0;
+  font-weight: 300;
+}
+
+/* タブバー（ゴールド下線・アクティブ） */
+body.unified-design .tab_content {
+  margin-left: 0;
+  margin-top: 0;
+  padding: 0;
+  overflow: visible;
+}
+body.unified-design .tab_content input[type="radio"] { display: none; }
+body.unified-design .tab_content input[type="radio"] + label {
+  display: inline-block;
+  padding: 14px 20px 12px;
+  background: none;
+  color: var(--unified-muted);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  border-radius: 0;
+  transition: color 0.2s, border-color 0.2s;
+}
+body.unified-design .tab_content input[type="radio"]:checked + label {
+  color: var(--unified-gold);
+  font-weight: 700;
+  border-bottom-color: var(--unified-gold);
+}
+body.unified-design .tab_content input[type="radio"] + label:hover { color: var(--unified-dark); }
+
+/* タブ下の区切り線 */
+body.unified-design .tab_content .tab-bar-line {
+  border-bottom: 2px solid var(--unified-border);
+  margin-bottom: 24px;
+}
+body.unified-design .tab_content > input:first-of-type + label { margin-left: 0; }
+
+/* コンテンツボックス（ゴールドヘッダー＋角丸カード） */
+body.unified-design .conbox {
+  display: none;
+  background: var(--unified-white);
+  border: 1px solid var(--unified-border);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+  margin-top: 0;
+  margin-bottom: 24px;
+  padding: 0;
+}
+body.unified-design .conbox h3 {
+  background: linear-gradient(135deg, var(--unified-gold) 0%, var(--unified-gold-light) 100%);
+  color: var(--unified-white);
+  padding: 16px 24px;
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+  border-radius: 14px 14px 0 0;
+  letter-spacing: 0.03em;
+}
+body.unified-design .conbox .syosai,
+body.unified-design .conbox .feature,
+body.unified-design .conbox p {
+  padding: 20px 24px;
+  margin: 0;
+}
+body.unified-design .conbox table.type01 { margin: 0 24px 20px; }
+
+/* タブ選択時に該当conboxを表示 */
+body.unified-design input[id="tab01"]:checked ~ .con1,
+body.unified-design input[id="tab02"]:checked ~ .con2,
+body.unified-design input[id="tab03"]:checked ~ .con3,
+body.unified-design input[id="tab04"]:checked ~ .con4,
+body.unified-design input[id="tab05"]:checked ~ .con5,
+body.unified-design input[id="tab06"]:checked ~ .con6 { display: block; }
+
+body.unified-design .intro {
+  color: var(--unified-muted);
+  font-size: 14px;
+  margin-bottom: 16px;
+  padding: 0;
+}
+
+/* 体験申込風の情報カード（about/accessで利用可） */
+body.unified-design .info-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+@media (max-width: 560px) { body.unified-design .info-cards { grid-template-columns: 1fr; } }
+body.unified-design .info-card {
+  background: rgba(184, 150, 62, 0.18);
+  border-radius: 10px;
+  padding: 14px 18px;
+  border: 1px solid rgba(184, 150, 62, 0.3);
+}
+body.unified-design .info-card .label { font-size: 11px; color: var(--unified-muted); margin-bottom: 4px; font-weight: 600; }
+body.unified-design .info-card .value { font-size: 14px; font-weight: 500; color: var(--unified-dark); }
+
+/* ボタン統一 */
+body.unified-design .apply_btn a {
+  background: linear-gradient(135deg, var(--unified-gold) 0%, var(--unified-gold-light) 100%);
+  color: var(--unified-white);
+  padding: 12px 24px;
+  border-radius: 10px;
+  font-weight: 700;
+  box-shadow: 0 4px 14px rgba(184,150,62,0.35);
+}
+body.unified-design .apply_btn a:hover { opacity: 0.92; }
+body.unified-design .back_btn a {
+  background: linear-gradient(135deg, var(--unified-gold) 0%, var(--unified-gold-light) 100%);
+  color: var(--unified-white);
+  border-radius: 10px;
+  font-weight: 700;
+}
+body.unified-design .back_btn a:hover { opacity: 0.92; }

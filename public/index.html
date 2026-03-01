@@ -11,7 +11,9 @@
     :root {
       --gold: #B8963E;
       --gold-light: #D4A843;
-      --gold-pale: #F5EDD6;
+      --gold-pale: #FBF4E3;
+      --teal: #2A7F74;
+      --teal-pale: #E8F5F3;
       --dark: #1C1C1E;
       --text: #2C2C2E;
       --text-dark: #2C2C2E;
@@ -20,6 +22,7 @@
       --border: #E5E0D8;
       --gray-border: #e5e5e5;
       --bg: #FAFAF7;
+      --bg2: #F2F0EB;
       --white: #FFFFFF;
       --beige: #f5f0e8;
       --gray-light: #f8f8f8;
@@ -271,50 +274,77 @@
     .course-link:hover .c-icon { opacity: 1; }
     .course-link.highlight { color: var(--gold-light); }
 
-    /* ═══ 只今募集中 SECTION ═══ */
+    /* ── SHARED (reference) ── */
     .section {
+      padding: 72px 24px;
       max-width: 1100px;
       margin: 0 auto;
-      padding: 64px 24px;
     }
-    .section-header {
-      display: flex;
-      align-items: baseline;
-      gap: 14px;
-      margin-bottom: 32px;
+    .section-alt { background: var(--bg2); }
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--gold);
+      margin-bottom: 10px;
     }
-    .section-title-main {
+    .section-label::before {
+      content: '';
+      width: 20px; height: 2px;
+      background: var(--gold);
+      display: block;
+    }
+    .section-title {
       font-family: 'Noto Serif JP', serif;
-      font-size: 22px;
+      font-size: clamp(22px, 3vw, 28px);
       font-weight: 700;
       color: var(--dark);
+      margin-bottom: 8px;
+      letter-spacing: 0.03em;
     }
-    .section-sub { font-size: 12px; color: var(--gray); }
-    .cards-grid {
+    .section-sub {
+      font-size: 14px;
+      color: var(--gray);
+      font-weight: 300;
+      margin-bottom: 40px;
+    }
+
+    /* 注目の講座 (featured) */
+    .featured-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      grid-template-columns: 1fr 1fr;
       gap: 16px;
     }
-    .course-card-new {
-      background: white;
+    @media (max-width: 600px) { .featured-grid { grid-template-columns: 1fr; } }
+    .featured-card {
+      background: var(--white);
       border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 24px;
+      border-radius: 16px;
+      padding: 28px;
       text-decoration: none;
       color: var(--text);
-      transition: transform 0.2s, box-shadow 0.2s;
       display: flex;
       flex-direction: column;
       gap: 10px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      position: relative;
+      overflow: hidden;
     }
-    .course-card-new.card-tint-1 { background: #fdf5f2; }
-    .course-card-new.card-tint-2 { background: #f2f6fa; }
-    .course-card-new.card-tint-3 { background: #f2f7f2; }
-    .course-card-new:hover {
+    .featured-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+    }
+    .featured-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 12px 36px rgba(0,0,0,0.1);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.1);
     }
-    .course-card-new .tag {
+    .featured-card .tag {
       display: inline-block;
       background: var(--gold-pale);
       color: var(--gold);
@@ -325,14 +355,25 @@
       letter-spacing: 0.5px;
       align-self: flex-start;
     }
-    .course-card-new h3 {
+    .featured-card h3 {
       font-family: 'Noto Serif JP', serif;
-      font-size: 16px;
+      font-size: 18px;
       font-weight: 700;
-      line-height: 1.4;
     }
-    .course-card-new p { font-size: 13px; color: var(--gray); line-height: 1.7; flex: 1; }
-    .course-card-new .arrow { font-size: 12px; color: var(--gold); font-weight: 700; align-self: flex-end; }
+    .featured-card p {
+      font-size: 13px;
+      color: var(--gray);
+      flex: 1;
+      line-height: 1.75;
+    }
+    .featured-card .link {
+      font-size: 13px;
+      color: var(--gold);
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
 
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(16px); }
@@ -345,69 +386,23 @@
       .course-link { padding: 12px 10px; font-size: 11px; }
     }
 
-    /* ═══ 아래 섹션용 (기존 스타일 유지) ═══ */
-    .page-rest { max-width: 1100px; margin: 0 auto; }
-
-    .section-title {
-      background: var(--gray-light);
-      padding: 16px 24px;
-      font-size: 18px;
-      font-weight: 600;
-      border-bottom: 1px solid var(--gray-border);
-    }
-
-    /* Featured courses list */
-    .featured-list {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 24px;
-    }
-
-    .featured-item {
-      padding: 20px 0;
-      border-bottom: 1px solid var(--gray-border);
-    }
-
-    .featured-item:last-child {
-      border-bottom: none;
-    }
-
-    .featured-item h4 {
-      font-size: 16px;
-      color: var(--accent-blue);
-      margin-bottom: 8px;
-    }
-
-    .featured-item p {
-      font-size: 14px;
-      color: var(--text-muted);
-    }
-
-    .featured-item a {
-      color: var(--accent-blue);
-      font-size: 14px;
-      text-decoration: none;
-      margin-top: 8px;
-      display: inline-block;
-    }
-
-    /* Site content grid */
+    /* ミリネの講座 grid (SVG cards + circular icon - keep) */
     .content-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      padding: 40px 24px 60px;
+      gap: 14px;
+      margin-top: 0;
       max-width: 1100px;
-      margin: 0 auto;
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 800px) {
       .content-grid {
         grid-template-columns: repeat(2, 1fr);
       }
     }
-
-    @media (max-width: 600px) {
+    @media (max-width: 500px) {
       .content-grid {
         grid-template-columns: 1fr;
       }
@@ -503,238 +498,244 @@
       color: #6b7280;
     }
 
-    /* Two column sections */
-    .two-col {
+    /* split-section (発音矯正 / 個人レッスン) */
+    .split-section {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 48px;
+      gap: 60px;
       align-items: center;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 60px 24px;
     }
-
-    @media (max-width: 900px) {
-      .two-col {
-        grid-template-columns: 1fr;
-      }
+    .split-section.reverse { direction: rtl; }
+    .split-section.reverse > * { direction: ltr; }
+    @media (max-width: 720px) {
+      .split-section { grid-template-columns: 1fr; gap: 32px; }
+      .split-section.reverse { direction: ltr; }
     }
-
-    .two-col img {
+    .split-img {
       width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      aspect-ratio: 4/3;
+      border-radius: 20px;
+      object-fit: cover;
+      box-shadow: 0 12px 48px rgba(0,0,0,0.12);
     }
-
-    .two-col h2 {
-      font-size: 28px;
-      margin-bottom: 24px;
-      color: var(--text-dark);
-    }
-
-    .two-col p {
-      margin-bottom: 16px;
-      color: var(--text-muted);
-    }
-
-    /* Pronunciation diagram placeholder */
-    .pronunciation-diagram {
-      background: linear-gradient(180deg, #f8f9fa 0%, #e9ecef 100%);
-      border-radius: 12px;
-      height: 320px;
+    .split-img-placeholder {
+      width: 100%;
+      aspect-ratio: 4/3;
+      border-radius: 20px;
+      background: linear-gradient(135deg, var(--teal-pale) 0%, #D4EAE7 100%);
       display: flex;
       align-items: center;
       justify-content: center;
+      flex-direction: column;
+      gap: 12px;
+      color: var(--teal);
+      font-size: 13px;
+      font-weight: 500;
+    }
+    .split-content { display: flex; flex-direction: column; gap: 16px; }
+    .split-content p {
       font-size: 14px;
-      color: var(--text-muted);
+      color: var(--gray);
+      line-height: 1.85;
+      font-weight: 300;
     }
-
-    /* FAQ */
-    .faq-section {
-      background: var(--beige);
-      padding: 40px 24px 60px;
+    .link-arrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--gold);
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: gap 0.15s;
     }
+    .link-arrow:hover { gap: 10px; }
 
-    .faq-list {
-      max-width: 800px;
-      margin: 24px auto 0;
-      background: white;
+    /* FAQ (reference) */
+    .faq-list { display: flex; flex-direction: column; gap: 10px; }
+    .faq-item {
+      background: var(--white);
+      border: 1px solid var(--border);
       border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      transition: box-shadow 0.2s;
     }
-
-    .faq-item {
-      padding: 20px 24px;
-      border-bottom: 1px solid var(--gray-border);
-      cursor: pointer;
-    }
-
-    .faq-item:last-child {
-      border-bottom: none;
-    }
-
-    .faq-item:hover {
-      background: var(--gray-light);
-    }
-
-    .faq-item summary {
-      font-weight: 500;
-      list-style: none;
-    }
-
-    .faq-item summary::-webkit-details-marker {
-      display: none;
-    }
-
-    .faq-item summary::before {
-      content: 'Q. ';
-      color: var(--accent-blue);
-      font-weight: 600;
-    }
-
-    .faq-item p {
-      margin-top: 12px;
-      font-size: 14px;
-      color: var(--text-muted);
-    }
-
-    /* Publications */
-    .publications {
-      padding: 40px 24px 60px;
-      overflow: hidden;
-    }
-
-    .book-slider {
-      overflow: hidden;
-      position: relative;
-      margin-top: 24px;
-    }
-
-    .book-track {
-      display: flex;
-      gap: 32px;
-      align-items: flex-start;
-      animation: book-scroll 18.67s linear infinite;
-    }
-
-    .book-item {
-      width: 150px;
-      flex-shrink: 0;
-      text-align: center;
-    }
-
-    .book-item a {
-      display: block;
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .book-item a:hover img { opacity: 0.9; }
-
-    .book-item img {
+    .faq-item:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+    .faq-q {
       width: 100%;
-      height: auto;
-      border-radius: 10px;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text);
+      transition: background 0.15s;
+    }
+    .faq-q:hover { background: var(--bg); }
+    .faq-q-mark {
+      width: 26px; height: 26px;
+      border-radius: 6px;
+      background: var(--teal-pale);
+      color: var(--teal);
+      font-size: 12px;
+      font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .faq-q-text { flex: 1; }
+    .faq-chevron {
+      width: 20px; height: 20px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gray);
+      transition: transform 0.3s;
+      flex-shrink: 0;
+    }
+    .faq-item.open .faq-chevron { transform: rotate(180deg); }
+    .faq-a {
+      display: none;
+      padding: 0 24px 20px 66px;
+      font-size: 13.5px;
+      color: var(--gray);
+      line-height: 1.85;
+      font-weight: 300;
+    }
+    .faq-a a { color: var(--teal); text-decoration: none; font-weight: 500; }
+    .faq-item.open .faq-a {
       display: block;
-      margin-bottom: 10px;
+      animation: faqFade 0.2s ease;
+    }
+    @keyframes faqFade {
+      from { opacity: 0; transform: translateY(-6px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
 
-    .book-item p {
-      font-size: 13px;
-      color: var(--text-muted);
-      line-height: 1.5;
+    /* 著書 (books-scroll) */
+    .books-scroll {
+      display: flex;
+      gap: 16px;
+      overflow-x: auto;
+      padding-bottom: 12px;
+      scrollbar-width: thin;
+      scrollbar-color: var(--border) transparent;
+      scroll-snap-type: x mandatory;
     }
-
-    @keyframes book-scroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-
-    /* CTA */
-    .cta-section {
-      background: var(--accent-blue);
-      color: white;
-      text-align: center;
-      padding: 48px 24px;
-    }
-
-    .cta-section h2 {
-      font-size: 28px;
-      margin-bottom: 16px;
-    }
-
-    .cta-section a {
-      display: inline-block;
-      background: white;
-      color: var(--accent-blue);
-      padding: 14px 32px;
-      border-radius: 8px;
+    .books-scroll::-webkit-scrollbar { height: 4px; }
+    .books-scroll::-webkit-scrollbar-track { background: transparent; }
+    .books-scroll::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+    .book-card {
+      flex-shrink: 0;
+      width: 148px;
+      scroll-snap-align: start;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
       text-decoration: none;
-      font-weight: 600;
-      margin-top: 16px;
-      transition: transform 0.2s;
+      color: var(--text);
     }
+    .book-cover {
+      width: 148px;
+      height: 210px;
+      border-radius: 8px;
+      object-fit: cover;
+      box-shadow: 4px 6px 20px rgba(0,0,0,0.15);
+      display: block;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .book-card:hover .book-cover {
+      transform: translateY(-4px) rotate(-1deg);
+      box-shadow: 6px 12px 28px rgba(0,0,0,0.2);
+    }
+    .book-info { padding: 0 2px; }
+    .book-info h4 { font-size: 12px; font-weight: 700; line-height: 1.4; margin-bottom: 2px; }
+    .book-info p { font-size: 11px; color: var(--gray); }
 
-    .cta-section a:hover {
-      transform: scale(1.05);
+    /* CTA banner */
+    .cta-banner {
+      background: linear-gradient(135deg, var(--dark) 0%, #2d2d44 100%);
+      margin: 0;
+      padding: 72px 24px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
     }
+    .cta-banner::before {
+      content: '미리네';
+      position: absolute;
+      font-size: 160px;
+      color: rgba(255,255,255,0.03);
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: 'Noto Serif JP', serif;
+      white-space: nowrap;
+      pointer-events: none;
+    }
+    .cta-inner { max-width: 540px; margin: 0 auto; position: relative; }
+    .cta-inner h2 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(24px, 4vw, 32px);
+      color: white;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+    .cta-inner p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 32px;
+      font-weight: 300;
+    }
+    .cta-buttons {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-gold {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--gold);
+      color: white;
+      padding: 15px 32px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+      box-shadow: 0 4px 20px rgba(184,150,62,0.4);
+      letter-spacing: 0.03em;
+    }
+    .btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); }
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.35);
+      color: white;
+      padding: 15px 28px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .btn-outline:hover { background: rgba(255,255,255,0.1); }
 
     /* Footer */
-    footer {
-      background: var(--footer-bg);
-      color: white;
-      padding: 48px 24px 24px;
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 32px;
-      max-width: 1200px;
-      margin: 0 auto 40px;
-    }
-
-    @media (max-width: 768px) {
-      .footer-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    .footer-column h4 {
-      font-size: 14px;
-      margin-bottom: 16px;
-      opacity: 0.9;
-    }
-
-    .footer-column a {
-      display: block;
-      color: rgba(255,255,255,0.8);
-      text-decoration: none;
-      font-size: 14px;
-      margin-bottom: 8px;
-    }
-
-    .footer-column a:hover {
-      color: white;
-    }
-
-    .footer-bottom {
+    .main-footer {
+      background: var(--dark);
+      color: rgba(255,255,255,0.4);
       text-align: center;
-      padding-top: 24px;
-      border-top: 1px solid rgba(255,255,255,0.1);
-      font-size: 13px;
-      opacity: 0.8;
+      padding: 24px;
+      font-size: 12px;
     }
 
-    .hero-catch {
-      font-size: clamp(36px, 8vw, 56px);
-    }
-
-    .hero-title {
-      font-size: clamp(28px, 5vw, 48px);
-    }
   </style>
 </head>
 <body>
@@ -814,54 +815,34 @@
   </div>
 </nav>
 
-<!-- ▸ 只今募集中の講座 -->
+<!-- 注目の講座 -->
+<div style="background: var(--white); border-bottom: 1px solid var(--border);">
 <div class="section" id="recruiting">
-  <div class="section-header">
-    <h2 class="section-title-main">只今募集中の講座</h2>
-    <span class="section-sub">気になる講座をクリック</span>
-  </div>
-  <div class="cards-grid">
-    <a href="group.html#tab01" class="course-card-new card-tint-1">
-      <span class="tag">グループ</span>
-      <h3>入門・初級クラス</h3>
-      <p>最短5ヶ月でハングルの読み書きから基礎文法まで。初めての方も安心してスタートできます。</p>
-      <span class="arrow">詳細を見る →</span>
-    </a>
-    <a href="https://mirinae.jp/netlesson.html?tab=tab01" class="course-card-new card-tint-2">
+  <div class="section-label">PICKUP</div>
+  <h2 class="section-title">注目の講座</h2>
+  <p class="section-sub">今すぐ申し込める、人気講座をピックアップ。</p>
+  <div class="featured-grid">
+    <a href="https://mirinae.jp/netlesson.html?tab=tab01" class="featured-card">
       <span class="tag">通信講座</span>
       <h3>通信作文トレーニング</h3>
-      <p>3ヶ月で作文に自信が付く！作文添削＋ネイティブ比較文＋模範文で実力アップ。</p>
-      <span class="arrow">詳細を見る →</span>
+      <p>4月から、作文に自信が付く！3ヶ月で作文添削＋ネイティブ比較文＋模範文で、書く力を徹底強化。</p>
+      <span class="link">詳細を見る →</span>
     </a>
-    <a href="https://mirinae.jp/netlesson.html?tab=tab02" class="course-card-new card-tint-3">
-      <span class="tag">通信講座</span>
-      <h3>通信音読トレーニング</h3>
-      <p>3ヶ月で上達！ご自宅で発音矯正＆音読レッスン。語彙・文型・発音を自然に習得。</p>
-      <span class="arrow">詳細を見る →</span>
+    <a href="https://mirinae.jp/" class="featured-card">
+      <span class="tag">対面講座</span>
+      <h3>土曜上級対面講座</h3>
+      <p>2/4（土）開始、10時〜12時。上級者のためのリスニング力＆スピーキング力アップ講座です。</p>
+      <span class="link">詳細を見る →</span>
     </a>
   </div>
 </div>
+</div>
 
-<!-- ▸ 이하 기존 섹션 -->
-<div class="page-rest">
-
-  <!-- Featured courses list -->
-  <h2 class="section-title">注目の講座</h2>
-  <div class="featured-list">
-    <div class="featured-item">
-      <h4>通信作文トレーニング</h4>
-      <p>4月から、作文に自信が付く！3ヶ月で作文添削 ＋ ネイティブ比較文 ＋ 模範文</p>
-      <a href="https://mirinae.jp/netlesson.html?tab=tab01">詳細 →</a>
-    </div>
-    <div class="featured-item">
-      <h4>土曜上級対面講座</h4>
-      <p>2/4(土)開始、10時～12時｜上級者のためのリスニング力＆スピーキング力アップ</p>
-      <a href="https://mirinae.jp/">詳細 →</a>
-    </div>
-  </div>
-
-  <!-- Site content -->
-  <h2 class="section-title">ミリネ サイト コンテンツ</h2>
+<!-- ミリネの講座 (SVG cards + circular icon - keep) -->
+<div class="section">
+  <div class="section-label">COURSES</div>
+  <h2 class="section-title">ミリネの講座</h2>
+  <p class="section-sub">目的・レベル別に選べる、充実した講座ラインナップ。</p>
   <section class="content-grid">
     <a href="kojin.html" class="content-card">
       <div class="img-wrap">
@@ -1034,219 +1015,200 @@
       </div>
     </a>
   </section>
+</div>
 
-  <!-- Pronunciation correction -->
-  <h2 class="section-title">発音矯正レッスン</h2>
-  <section class="two-col">
-    <div class="pronunciation-diagram">
-      発音図解（ㅂ ㅍ ㅃ ㄷ ㅌ ㄸ ㄱ ㅋ ㄲ ㅅ ㅆ ㅈ ㅊ ㅉ 等）
+<!-- 発音矯正 -->
+<div style="background: var(--bg2);">
+<div class="section">
+  <div class="split-section">
+    <div class="split-img-placeholder">
+      <div style="font-size:48px">🗣</div>
+      <div style="font-size:13px;color:var(--teal);font-weight:500;text-align:center;line-height:1.6">
+        発音図解<br>
+        <span style="font-size:11px;opacity:0.7">ㅂ ㅍ ㅃ ㄷ ㅌ ㄸ ㄱ ㅋ ㄲ<br>ㅅ ㅆ ㅈ ㅊ ㅉ 等</span>
+      </div>
     </div>
-    <div>
-      <h2>発音矯正レッスン</h2>
+    <div class="split-content">
+      <div>
+        <div class="section-label">PRONUNCIATION</div>
+        <h2 class="section-title">発音矯正レッスン</h2>
+      </div>
       <p>日本語ネイティブがやりがちな韓国語発音を徹底的に攻略します。個人レッスンで、あなたの発音の弱点を丁寧に矯正。韓国語の子音・母音の正しい発音方法を、口の形や舌の位置から学べます。</p>
       <p>「何年勉強しても通じない」とお悩みの方、発音矯正で一気に上達するチャンスです。ミリネの経験豊富な講師が、一人ひとりに合わせたレッスンを提供します。</p>
-      <a href="kojin.html#tab03" style="color: var(--accent-blue); font-weight: 600;">詳細はこちら →</a>
+      <a href="kojin.html#tab03" class="link-arrow">詳細はこちら →</a>
     </div>
-  </section>
+  </div>
+</div>
+</div>
 
-  <!-- Individual lessons -->
-  <h2 class="section-title">個人レッスン</h2>
-  <section class="two-col">
-    <div>
-      <h2>個人レッスン</h2>
+<!-- 個人レッスン -->
+<div style="background: var(--white);">
+<div class="section">
+  <div class="split-section reverse">
+    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&auto=format&fit=crop&q=80" alt="個人レッスン" class="split-img" onerror="this.style.display='none'">
+    <div class="split-content">
+      <div>
+        <div class="section-label">PRIVATE LESSON</div>
+        <h2 class="section-title">個人レッスン</h2>
+      </div>
       <p>伸び悩んでいる方にフィットしたうってつけレッスン。マンツーマンだから、あなたのペースで、あなたの弱点に集中して学べます。</p>
-      <p>短期集中個人レッスン、<a href="kojin.html#tab03">発音矯正個人</a>レッスンも好評。まずは<a href="trial.html#leveltest">レベルテスト</a>で自分の実力を把握してから、<a href="kojin.html#tab02">短期集中個人</a>など最適なコースを選びましょう。</p>
-      <a href="kojin.html" style="color: var(--accent-blue); font-weight: 600;">詳細はこちら →</a>
+      <p>短期集中個人レッスン、発音矯正個人レッスンも好評。まずはレベルテストで自分の実力を把握してから、短期集中個人など最適なコースを選びましょう。</p>
+      <a href="kojin.html" class="link-arrow">詳細はこちら →</a>
     </div>
-    <div>
-      <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600" alt="個人レッスンの様子">
-    </div>
-  </section>
+  </div>
+</div>
+</div>
 
-  <!-- FAQ -->
-  <h2 class="section-title">FAQ</h2>
-  <section class="faq-section">
-    <div class="faq-list">
-      <details class="faq-item">
-        <summary>体験レッスンはありますか？</summary>
-        <p>はい、体験申込を受け付けております。お気軽にお問い合わせください。</p>
-      </details>
-      <details class="faq-item">
-        <summary>オンラインレッスンはありますか？</summary>
-        <p>はい、オンラインレッスンをご用意しております。個人lessonで表現力UPを目指せます。</p>
-      </details>
-      <details class="faq-item">
-        <summary>レベルテストはありますか？</summary>
-        <p>はい、レベルテストを実施中です。<a href="trial.html#leveltest">レベルテスト</a>で自分のレベルを把握して対策を取りましょう。</p>
-      </details>
-      <details class="faq-item">
-        <summary>キャンセル規定は？</summary>
-        <p>キャンセル規定については、<a href="cancel.html">キャンセル規定ページ</a>をご確認ください。</p>
-      </details>
+<!-- FAQ -->
+<div style="background: var(--bg2);">
+<div class="section">
+  <div class="section-label">FAQ</div>
+  <h2 class="section-title">よくある質問</h2>
+  <p class="section-sub">お申込み前のご不明点はこちらをご確認ください。</p>
+  <div class="faq-list">
+    <div class="faq-item">
+      <button type="button" class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-mark">Q</span>
+        <span class="faq-q-text">体験レッスンはありますか？</span>
+        <span class="faq-chevron">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </span>
+      </button>
+      <div class="faq-a">はい、体験申込を受け付けております。体験レッスン・相談料は <strong>1,800円</strong> です。平日10:00〜21:00、土曜10:00〜18:00、日曜10:00〜17:00に実施しております。お気軽に<a href="trial.html">お申込みページ</a>からご予約ください。</div>
     </div>
-  </section>
+    <div class="faq-item">
+      <button type="button" class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-mark">Q</span>
+        <span class="faq-q-text">オンラインレッスンはありますか？</span>
+        <span class="faq-chevron">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </span>
+      </button>
+      <div class="faq-a">はい、オンラインレッスンをご用意しております。個人レッスンで表現力UPを目指せます。通信講座（作文・音読・TOPIK Training）はすべてオンラインで受講可能です。</div>
+    </div>
+    <div class="faq-item">
+      <button type="button" class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-mark">Q</span>
+        <span class="faq-q-text">レベルテストはありますか？</span>
+        <span class="faq-chevron">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </span>
+      </button>
+      <div class="faq-a">はい、レベルテストを実施中です。自分のレベルを正確に把握してから最適な講座を選ぶことができます。体験レッスンと合わせてお申込みいただくことも可能です。</div>
+    </div>
+    <div class="faq-item">
+      <button type="button" class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-mark">Q</span>
+        <span class="faq-q-text">キャンセル規定はどうなっていますか？</span>
+        <span class="faq-chevron">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </span>
+      </button>
+      <div class="faq-a">キャンセル規定については、サイト内の<a href="cancel.html">キャンセル規定ページ</a>をご確認ください。ご不明な点がある場合は、<a href="https://mirinae.jp/application.html">お問い合わせ</a>からお気軽にご連絡ください。</div>
+    </div>
+  </div>
+</div>
+</div>
 
-  <!-- Publications -->
-  <h2 class="section-title"><a href="book.html" style="color:inherit;text-decoration:none;">著書</a></h2>
-  <section class="publications">
-    <div class="book-slider">
-      <div class="book-track">
-        <div class="book-item">
-          <a href="book.html#tab01">
-            <img src="/img/book_han45.png" alt="韓国語単語〈入門・初級編〉 表紙イメージ">
-            <p>韓国語単語〈入門・初級編〉<br>ハン検4・5級レベル</p>
-          </a>
-        </div>
-        <div class="book-item">
-          <a href="book.html#tab02">
-            <img src="/img/book_han3.jpg" alt="韓国語単語〈初中級編〉 表紙イメージ">
-            <p>韓国語単語〈初中級編〉<br>ハン検3級レベル</p>
-          </a>
-        </div>
-        <div class="book-item">
-          <a href="book.html#tab03">
-            <img src="/img/book_hanjun2.jpg" alt="韓国語単語〈中級編〉 表紙イメージ">
-            <p>韓国語単語〈中級編〉<br>ハン検準2級レベル</p>
-          </a>
-        </div>
-        <div class="book-item">
-          <a href="book.html#tab04">
-            <img src="/img/book_han12.jpg" alt="ハン検1・2級 表紙イメージ">
-            <p>ハン検1・2級対策</p>
-          </a>
-        </div>
-        <div class="book-item">
-          <a href="book.html#tab07">
-            <img src="/img/book_tanguni_nihon.jpg" alt="タングニの日本生活記 表紙イメージ">
-            <p>韓国語リーディング<br>タングニの日本生活記</p>
-          </a>
-        </div>
-        <div class="book-item">
-          <a href="book.html#tab08">
-            <img src="/img/book_tanguni_ningen.jpg" alt="タングニの韓国人生劇場 表紙イメージ">
-            <p>韓国語リーディング<br>タングニの韓国人生劇場</p>
-          </a>
-        </div>
-        <div class="book-item">
-          <a href="book.html#tab05">
-            <img src="/img/book_topik1.jpg" alt="TOPIK I対策 表紙イメージ">
-            <p>TOPIK I対策</p>
-          </a>
-        </div>
-        <div class="book-item">
-          <a href="book.html#tab06">
-            <img src="/img/book_topik2.jpg" alt="TOPIK II対策 表紙イメージ">
-            <p>TOPIK II対策</p>
-          </a>
-        </div>
-        <!-- ループを滑らかにするため同じ並びをもう一度 -->
-        <div class="book-item">
-          <a href="book.html#tab01">
-            <img src="/img/book_han45.png" alt="韓国語単語〈入門・初級編〉 表紙イメージ">
-            <p>韓国語単語〈入門・初級編〉<br>ハン検4・5級レベル</p>
-          </a>
-        </div>
-        <div class="book-item">
-          <a href="book.html#tab02">
-            <img src="/img/book_han3.jpg" alt="韓国語単語〈初中級編〉 表紙イメージ">
-            <p>韓国語単語〈初中級編〉<br>ハン検3級レベル</p>
-          </a>
-        </div>
-        <div class="book-item">
-          <a href="book.html#tab03">
-            <img src="/img/book_hanjun2.jpg" alt="韓国語単語〈中級編〉 表紙イメージ">
-            <p>韓国語単語〈中級編〉<br>ハン検準2級レベル</p>
-          </a>
-        </div>
-        <div class="book-item">
-          <a href="book.html#tab04">
-            <img src="/img/book_han12.jpg" alt="ハン検1・2級 表紙イメージ">
-            <p>ハン検1・2級対策</p>
-          </a>
-        </div>
-        <div class="book-item">
-          <a href="book.html#tab07">
-            <img src="/img/book_tanguni_nihon.jpg" alt="タングニの日本生活記 表紙イメージ">
-            <p>韓国語リーディング<br>タングニの日本生活記</p>
-          </a>
-        </div>
-        <div class="book-item">
-          <a href="book.html#tab08">
-            <img src="/img/book_tanguni_ningen.jpg" alt="タングニの韓国人生劇場 表紙イメージ">
-            <p>韓国語リーディング<br>タングニの韓国人生劇場</p>
-          </a>
-        </div>
-        <div class="book-item">
-          <a href="book.html#tab05">
-            <img src="/img/book_topik1.jpg" alt="TOPIK I対策 表紙イメージ">
-            <p>TOPIK I対策</p>
-          </a>
-        </div>
-        <div class="book-item">
-          <a href="book.html#tab06">
-            <img src="/img/book_topik2.jpg" alt="TOPIK II対策 表紙イメージ">
-            <p>TOPIK II対策</p>
-          </a>
-        </div>
+<!-- 著書 -->
+<div style="background: var(--white);">
+<div class="section">
+  <div class="section-label">BOOKS</div>
+  <h2 class="section-title">ミリネの著書</h2>
+  <p class="section-sub">講師が手がけた、韓国語学習者のための教材・書籍。</p>
+  <div class="books-scroll">
+    <a href="book.html#tab01" class="book-card">
+      <img src="/img/book_han45.png" alt="韓国語単語 入門・初級編" class="book-cover" onerror="this.style.background='linear-gradient(135deg,#E8F5F3,#2A7F74)';this.style.display='block'">
+      <div class="book-info">
+        <h4>韓国語単語〈入門・初級編〉</h4>
+        <p>ハン検4・5級レベル</p>
       </div>
-    </div>
-  </section>
+    </a>
+    <a href="book.html#tab02" class="book-card">
+      <img src="/img/book_han3.jpg" alt="韓国語単語 初中級編" class="book-cover" onerror="this.style.background='linear-gradient(135deg,#FBF4E3,#B8963E)';this.style.display='block'">
+      <div class="book-info">
+        <h4>韓国語単語〈初中級編〉</h4>
+        <p>ハン検3級レベル</p>
+      </div>
+    </a>
+    <a href="book.html#tab03" class="book-card">
+      <img src="/img/book_hanjun2.jpg" alt="韓国語単語 中級編" class="book-cover" onerror="this.style.background='linear-gradient(135deg,#EDE8F5,#6B4EAA)';this.style.display='block'">
+      <div class="book-info">
+        <h4>韓国語単語〈中級編〉</h4>
+        <p>ハン検準2級レベル</p>
+      </div>
+    </a>
+    <a href="book.html#tab04" class="book-card">
+      <img src="/img/book_han12.jpg" alt="ハン検1・2級" class="book-cover" onerror="this.style.background='linear-gradient(135deg,#F5E8E8,#C0392B)';this.style.display='block'">
+      <div class="book-info">
+        <h4>ハン検1・2級対策</h4>
+        <p>上級レベル</p>
+      </div>
+    </a>
+    <a href="book.html#tab07" class="book-card">
+      <img src="/img/book_tanguni_nihon.jpg" alt="タングニの日本生活記" class="book-cover" onerror="this.style.background='linear-gradient(135deg,#E8F0F5,#2A5F8F)';this.style.display='block'">
+      <div class="book-info">
+        <h4>タングニの日本生活記</h4>
+        <p>韓国語リーディング</p>
+      </div>
+    </a>
+    <a href="book.html#tab08" class="book-card">
+      <img src="/img/book_tanguni_ningen.jpg" alt="タングニの韓国人生劇場" class="book-cover" onerror="this.style.background='linear-gradient(135deg,#F5EBE8,#8F4A2A)';this.style.display='block'">
+      <div class="book-info">
+        <h4>タングニの韓国人生劇場</h4>
+        <p>韓国語リーディング</p>
+      </div>
+    </a>
+    <a href="book.html#tab05" class="book-card">
+      <img src="/img/book_topik1.jpg" alt="TOPIK I対策" class="book-cover" onerror="this.style.background='linear-gradient(135deg,#E8F5F0,#27AE60)';this.style.display='block'">
+      <div class="book-info">
+        <h4>TOPIK I 対策</h4>
+        <p>初級〜中級</p>
+      </div>
+    </a>
+    <a href="book.html#tab06" class="book-card">
+      <img src="/img/book_topik2.jpg" alt="TOPIK II対策" class="book-cover" onerror="this.style.background='linear-gradient(135deg,#E8EEF5,#1A3A6B)';this.style.display='block'">
+      <div class="book-info">
+        <h4>TOPIK II 対策</h4>
+        <p>中級〜上級</p>
+      </div>
+    </a>
+  </div>
+</div>
+</div>
 
-  <!-- CTA -->
-  <section class="cta-section">
-    <h2>体験や講座のお申込み！</h2>
-    <p>まずはお気軽にご相談ください</p>
-    <a href="https://mirinae.jp/application.html">お申込みはこちら</a>
-  </section>
+<!-- CTA -->
+<div class="cta-banner">
+  <div class="cta-inner">
+    <h2>韓国語、始めませんか？</h2>
+    <p>まずは体験レッスン・レベルテストからお気軽にどうぞ。<br>経験豊富な講師がご対応いたします。</p>
+    <div class="cta-buttons">
+      <a href="trial.html" class="btn-gold">体験レッスンを申し込む →</a>
+      <a href="https://mirinae.jp/application.html" class="btn-outline">お問い合わせ</a>
+    </div>
+  </div>
+</div>
 
-  <!-- Footer -->
-  <footer>
-    <div class="footer-grid">
-      <div class="footer-column">
-        <h4>メニュー</h4>
-        <a href="https://mirinae.jp/">ホーム</a>
-        <a href="about.html">会社概要</a>
-        <a href="https://mirinae.jp/access.html">アクセス</a>
-      </div>
-      <div class="footer-column">
-        <h4>講座</h4>
-        <a href="https://mirinae.jp/">個人レッスン</a>
-        <a href="https://mirinae.jp/">グループレッスン</a>
-        <a href="kaiwa.html">会話強化クラス</a>
-        <a href="special.html">試験対策講座</a>
-        <a href="syutyu.html">集中講座</a>
-        <a href="https://mirinae.jp/netlesson.html">通信講座</a>
-      </div>
-      <div class="footer-column">
-        <h4>お申込み</h4>
-        <a href="trial.html#tab01">体験申込</a>
-        <a href="trial.html#tab02">講座申込</a>
-        <a href="trial.html#tab04">お問い合わせ</a>
-      </div>
-      <div class="footer-column">
-        <h4>その他</h4>
-        <a href="https://mirinae.jp/teacher.html">講師</a>
-        <a href="book.html">著書</a>
-        <a href="voice.html">「ミリネ教科書」の音声</a>
-        <a href="cancel.html">キャンセル規定</a>
-        <a href="https://mirinae.jp/">SITEMAP</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      Copyright © (株)カオンヌリ All Rights Reserved.
-    </div>
-  </footer>
-  </div><!-- /.page-rest -->
-  <script>
-    (function() {
-      var header = document.getElementById('siteHeader');
-      if (header) {
-        window.addEventListener('scroll', function() {
-          header.classList.toggle('scrolled', window.scrollY > 20);
-        });
-      }
-    })();
-  </script>
+<footer class="main-footer">
+  Copyright © (株)カオンヌリ · ミリネ韓国語教室 All Rights Reserved.
+</footer>
+
+<script>
+  function toggleFaq(btn) {
+    var item = btn.closest('.faq-item');
+    var isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(function(el) { el.classList.remove('open'); });
+    if (!isOpen) item.classList.add('open');
+  }
+  (function() {
+    var header = document.getElementById('siteHeader');
+    if (header) {
+      window.addEventListener('scroll', function() {
+        header.classList.toggle('scrolled', window.scrollY > 20);
+      });
+    }
+  })();
+</script>
   <script src="/admin-badge.js"></script>
 </body>
 </html>

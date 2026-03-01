@@ -898,6 +898,21 @@
 
     /* FAQ (reference) */
     .faq-list { display: flex; flex-direction: column; gap: 10px; }
+    .faq-list .faq-item.faq-more { display: none; }
+    .faq-more-wrap { text-align: center; margin-top: 20px; }
+    .btn-faq-more {
+      display: inline-block;
+      padding: 12px 28px;
+      background: var(--white);
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .btn-faq-more:hover { background: var(--gold-pale); color: var(--gold); }
     .faq-item {
       background: var(--white);
       border: 1px solid var(--border);
@@ -1006,23 +1021,25 @@
     .book-info h4 { font-size: 12px; font-weight: 700; line-height: 1.4; margin-bottom: 2px; }
     .book-info p { font-size: 11px; color: var(--gray-desc); }
 
-    /* YouTube動画（著書と同じ横流れ） */
+    /* YouTube動画（横スクロール・自動ロールなし） */
     .youtube-slider {
-      overflow: hidden;
+      overflow-x: auto;
+      overflow-y: hidden;
       margin-top: 0;
       padding-bottom: 12px;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
     }
+    .youtube-slider::-webkit-scrollbar { height: 8px; }
+    .youtube-slider::-webkit-scrollbar-track { background: var(--bg2); border-radius: 4px; }
+    .youtube-slider::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
     .youtube-track {
       display: flex;
       gap: 20px;
       align-items: flex-start;
       width: max-content;
-      animation: youtubeRoll 60s linear infinite;
-    }
-    .youtube-track:hover { animation-play-state: paused; }
-    @keyframes youtubeRoll {
-      0%   { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
+      padding: 4px 0;
     }
     .youtube-card {
       flex-shrink: 0;
@@ -1031,6 +1048,7 @@
       flex-direction: column;
       gap: 12px;
       color: var(--text);
+      scroll-snap-align: start;
     }
     .youtube-card .youtube-embed-wrap {
       position: relative;
@@ -1120,6 +1138,12 @@
       letter-spacing: 0.03em;
     }
     .btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); }
+    .btn-cta-single {
+      min-width: 280px;
+      padding: 18px 48px;
+      font-size: 18px;
+      justify-content: center;
+    }
     .btn-outline {
       display: inline-flex;
       align-items: center;
@@ -1732,7 +1756,7 @@
       </button>
       <div class="faq-a">はい、レベルテストを実施中です。自分のレベルを正確に把握してから最適な講座を選ぶことができます。体験レッスンと合わせてお申込みいただくことも可能です。</div>
     </div>
-    <div class="faq-item">
+    <div class="faq-item faq-more">
       <button type="button" class="faq-q" onclick="toggleFaq(this)">
         <span class="faq-q-mark">Q</span>
         <span class="faq-q-text">キャンセル規定はどうなっていますか？</span>
@@ -1743,6 +1767,7 @@
       <div class="faq-a">キャンセル規定については、サイト内の<a href="cancel.html">キャンセル規定ページ</a>をご確認ください。ご不明な点がある場合は、<a href="https://mirinae.jp/application.html">お問い合わせ</a>からお気軽にご連絡ください。</div>
     </div>
   </div>
+  <p class="faq-more-wrap"><a href="cancel.html#tab01" class="btn-faq-more">もっと見る</a></p>
 </div>
 </div>
 
@@ -1890,8 +1915,7 @@
     <h2>韓国語、始めませんか？</h2>
     <p>まずは体験レッスン・レベルテストからお気軽にどうぞ。<br>経験豊富な講師がご対応いたします。</p>
     <div class="cta-buttons">
-      <a href="trial.html" class="btn-gold">体験レッスンを申し込む →</a>
-      <a href="https://mirinae.jp/application.html" class="btn-outline">お問い合わせ</a>
+      <a href="trial.html" class="btn-gold btn-cta-single">お申し込み</a>
     </div>
   </div>
 </div>
@@ -2037,7 +2061,7 @@
             '<div class="youtube-embed-wrap"><iframe src="https://www.youtube.com/embed/' + id + '?rel=0" allowfullscreen title="' + title + '"></iframe></div>' +
             '<div class="youtube-info"><h4>' + title + '</h4><p>' + desc + '</p></div></div>';
         }
-        var html = list.map(cardHtml).join('') + list.map(cardHtml).join('');
+        var html = list.map(cardHtml).join('');
         track.innerHTML = html;
       });
   })();

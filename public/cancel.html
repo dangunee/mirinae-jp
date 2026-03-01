@@ -130,6 +130,80 @@
     }
     .footer-column a:hover { color: white; }
     .footer-bottom { font-size: 13px; opacity: 0.9; }
+
+    .tab-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0;
+      margin-bottom: 24px;
+      border-bottom: 2px solid var(--gray-border);
+    }
+    .tab-btn {
+      padding: 12px 16px;
+      font-size: 14px;
+      font-weight: 500;
+      background: none;
+      border: none;
+      border-bottom: 3px solid transparent;
+      cursor: pointer;
+      color: var(--text-muted);
+      font-family: inherit;
+      margin-bottom: -2px;
+    }
+    .tab-btn:hover { color: var(--text-dark); }
+    .tab-btn.active { color: var(--taupe); border-bottom-color: var(--taupe); font-weight: 600; }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    .faq-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
+    .faq-item {
+      background: var(--white);
+      border: 1px solid var(--gray-border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .faq-q {
+      width: 100%;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-dark);
+    }
+    .faq-q-mark {
+      width: 28px; height: 28px;
+      border-radius: 6px;
+      background: #e8f5f3;
+      color: var(--taupe);
+      font-size: 13px;
+      font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .faq-chevron {
+      width: 20px; height: 20px;
+      margin-left: auto;
+      color: var(--text-muted);
+      transition: transform 0.2s;
+      flex-shrink: 0;
+    }
+    .faq-item.open .faq-chevron { transform: rotate(180deg); }
+    .faq-a {
+      display: none;
+      padding: 0 20px 16px 60px;
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+    .faq-a a { color: var(--accent-blue); text-decoration: none; }
+    .faq-item.open .faq-a { display: block; }
   </style>
 </head>
 <body>
@@ -149,13 +223,54 @@
 
     <main class="main-content">
       <h1 class="page-title">キャンセル及び振替、返金について</h1>
-      <nav class="anchor-nav" aria-label="ページ内リンク">
-        <a href="#kojin">個人レッスン</a>
-        <a href="#shoninzumi">少人数グループ</a>
-        <a href="#ippan">一般グループ</a>
-        <a href="#syuchu">集中講座</a>
-      </nav>
 
+      <div class="tab-bar">
+        <button type="button" class="tab-btn active" data-tab="tab01">よくある質問</button>
+        <button type="button" class="tab-btn" data-tab="tab02">個人レッスン</button>
+        <button type="button" class="tab-btn" data-tab="tab03">少人数グループ</button>
+        <button type="button" class="tab-btn" data-tab="tab04">一般グループ</button>
+        <button type="button" class="tab-btn" data-tab="tab05">集中講座</button>
+      </div>
+
+      <div id="tab01" class="tab-panel active">
+        <p style="margin-bottom: 20px; color: var(--text-muted);">お申込み前のご不明点はこちらをご確認ください。</p>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button type="button" class="faq-q">
+              <span class="faq-q-mark">Q</span>
+              <span class="faq-q-text">体験レッスンはありますか？</span>
+              <span class="faq-chevron">▼</span>
+            </button>
+            <div class="faq-a">はい、体験申込を受け付けております。体験レッスン・相談料は <strong>1,800円</strong> です。平日10:00〜21:00、土曜10:00〜18:00、日曜10:00〜17:00に実施しております。お気軽に<a href="trial.html">お申込みページ</a>からご予約ください。</div>
+          </div>
+          <div class="faq-item">
+            <button type="button" class="faq-q">
+              <span class="faq-q-mark">Q</span>
+              <span class="faq-q-text">オンラインレッスンはありますか？</span>
+              <span class="faq-chevron">▼</span>
+            </button>
+            <div class="faq-a">はい、オンラインレッスンをご用意しております。個人レッスンで表現力UPを目指せます。通信講座（作文・音読・TOPIK Training）はすべてオンラインで受講可能です。</div>
+          </div>
+          <div class="faq-item">
+            <button type="button" class="faq-q">
+              <span class="faq-q-mark">Q</span>
+              <span class="faq-q-text">レベルテストはありますか？</span>
+              <span class="faq-chevron">▼</span>
+            </button>
+            <div class="faq-a">はい、レベルテストを実施中です。自分のレベルを正確に把握してから最適な講座を選ぶことができます。体験レッスンと合わせてお申込みいただくことも可能です。</div>
+          </div>
+          <div class="faq-item">
+            <button type="button" class="faq-q">
+              <span class="faq-q-mark">Q</span>
+              <span class="faq-q-text">キャンセル規定はどうなっていますか？</span>
+              <span class="faq-chevron">▼</span>
+            </button>
+            <div class="faq-a">キャンセル規定については、このページの「個人レッスン」「少人数グループ」などのタブをご確認ください。ご不明な点がある場合は、<a href="trial.html#tab04">お問い合わせ</a>からお気軽にご連絡ください。</div>
+          </div>
+        </div>
+      </div>
+
+      <div id="tab02" class="tab-panel">
       <section id="kojin">
         <h2 class="section-header">「個人レッスン」</h2>
         <div class="content-block">
@@ -199,7 +314,9 @@
           <p>契約の時点から1ヶ月以内でしたら、いつでもできます。ご連絡をいただいた後、契約残高の80％を返します。ただし返金に伴う手数料（振込手数料など）はお客様の負担となります。</p>
         </div>
       </section>
+      </div>
 
+      <div id="tab03" class="tab-panel">
       <section id="shoninzumi">
         <h2 class="section-header">「少人数グループレッスン」</h2>
         <div class="content-block">
@@ -213,7 +330,9 @@
           <p>グループレッスンの場合、開講が決まってからは返金できません。</p>
         </div>
       </section>
+      </div>
 
+      <div id="tab04" class="tab-panel">
       <section id="ippan">
         <h2 class="section-header">「一般グループレッスン」</h2>
         <div class="content-block">
@@ -228,7 +347,9 @@
           <p>グループレッスンの場合、開講が決まってからは返金できません。</p>
         </div>
       </section>
+      </div>
 
+      <div id="tab05" class="tab-panel">
       <section id="syuchu">
         <h2 class="section-header">「集中講座」</h2>
         <div class="content-block">
@@ -246,6 +367,7 @@
           </ul>
         </div>
       </section>
+      </div>
 
       <p style="margin-top: 32px;"><a href="index.html" style="color: var(--accent-blue); text-decoration: none;">← トップページへ戻る</a></p>
     </main>
@@ -285,6 +407,40 @@
       </div>
     </footer>
   </div>
+  <script>
+    (function () {
+      var tabBar = document.querySelector('.tab-bar');
+      var panels = document.querySelectorAll('.tab-panel');
+      var tabIds = ['tab01', 'tab02', 'tab03', 'tab04', 'tab05'];
+
+      function showTab(tabId) {
+        tabBar.querySelectorAll('.tab-btn').forEach(function (btn) {
+          btn.classList.toggle('active', btn.getAttribute('data-tab') === tabId);
+        });
+        panels.forEach(function (panel) {
+          panel.classList.toggle('active', panel.id === tabId);
+        });
+        if (history.replaceState) history.replaceState(null, '', '#' + tabId);
+      }
+
+      tabBar.addEventListener('click', function (e) {
+        var btn = e.target.closest('.tab-btn');
+        if (!btn) return;
+        showTab(btn.getAttribute('data-tab'));
+      });
+
+      var hash = location.hash.slice(1);
+      if (tabIds.indexOf(hash) !== -1) showTab(hash);
+      else showTab('tab01');
+
+      document.querySelectorAll('.faq-list .faq-q').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var item = this.closest('.faq-item');
+          item.classList.toggle('open');
+        });
+      });
+    })();
+  </script>
   <script src="/admin-badge.js"></script>
 </body>
 </html>

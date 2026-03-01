@@ -514,6 +514,117 @@
       gap: 4px;
     }
 
+    /* 受講生の声（スライダー） */
+    .voice-section { padding-bottom: 48px; }
+    .voice-slider-wrap {
+      position: relative;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 48px;
+    }
+    @media (max-width: 768px) { .voice-slider-wrap { padding: 0 16px; } }
+    .voice-slider {
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .voice-slider::-webkit-scrollbar { display: none; }
+    .voice-track {
+      display: flex;
+      gap: 24px;
+      padding: 8px 0 24px;
+    }
+    .voice-card {
+      flex: 0 0 min(320px, 85vw);
+      scroll-snap-align: start;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .voice-card .voice-text {
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.85;
+      flex: 1;
+    }
+    .voice-card .voice-text .highlight { color: var(--gold); font-weight: 600; }
+    .voice-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .voice-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--gold);
+      flex-shrink: 0;
+    }
+    .voice-avatar-placeholder {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--gold-pale);
+      color: var(--gold);
+      font-size: 18px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      border: 2px solid var(--gold);
+    }
+    .voice-name { font-size: 15px; font-weight: 700; color: var(--dark); }
+    .voice-duration { font-size: 12px; color: var(--gray-desc); margin-top: 2px; }
+    .voice-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--white);
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--gold);
+      font-size: 18px;
+      transition: background 0.2s, color 0.2s;
+      z-index: 2;
+    }
+    .voice-nav:hover { background: var(--gold-pale); }
+    .voice-nav.prev { left: 8px; }
+    .voice-nav.next { right: 8px; }
+    @media (max-width: 768px) { .voice-nav { display: none; } }
+    .voice-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 16px;
+    }
+    .voice-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--border);
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: background 0.2s;
+    }
+    .voice-dot.active { background: var(--gold); }
+
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(16px); }
       to   { opacity: 1; transform: translateY(0); }
@@ -1145,6 +1256,58 @@
 </div>
 </div>
 
+<!-- 受講生の声 -->
+<div style="background: var(--white); border-bottom: 1px solid var(--border);">
+<div class="section voice-section" id="voice">
+  <div class="section-label">VOICE</div>
+  <h2 class="section-title">受講生の声</h2>
+  <p class="section-sub">ミリネで学んだ受講生の声をご紹介します。</p>
+  <div class="voice-slider-wrap">
+    <button type="button" class="voice-nav prev" aria-label="前へ">‹</button>
+    <button type="button" class="voice-nav next" aria-label="次へ">›</button>
+    <div class="voice-slider">
+      <div class="voice-track">
+        <div class="voice-card">
+          <p class="voice-text">独学の限界を痛感していたところ、ミリネに出会いました。先生からの丁寧なフィードバックや<span class="highlight">成長を心から応援してくれる姿勢のおかげで壁を乗り越えられました</span>。初級者の私でもここまで変われたのは、<span class="highlight">ミリネのサポートのおかげだと心から感じています</span>。</p>
+          <div class="voice-meta">
+            <img src="/img/classroom/itousang.jpg" alt="" class="voice-avatar">
+            <div>
+              <div class="voice-name">Aさん</div>
+              <div class="voice-duration">学習歴9ヶ月</div>
+            </div>
+          </div>
+        </div>
+        <div class="voice-card">
+          <p class="voice-text">これまでの韓国語学習の考え方が大きく変わり、<span class="highlight">なにより勉強が楽しいと感じられるようになりました</span>。個人レッスンで自分のペースで学べるおかげで、自然と少しずつ成長を実感しています。<span class="highlight">楽しく韓国語を続けていきたいという方にとてもオススメです</span>。</p>
+          <div class="voice-meta">
+            <div class="voice-avatar-placeholder">B</div>
+            <div>
+              <div class="voice-name">Bさん</div>
+              <div class="voice-duration">学習歴約2年</div>
+            </div>
+          </div>
+        </div>
+        <div class="voice-card">
+          <p class="voice-text">仕事や家事の合間に、自分のペースで続けられるのが魅力です。ミリネでは<span class="highlight">都合に合わせて予約できる</span>ので、忙しい方でも無理なく通えます。先生が一人ひとりに合わせて丁寧に教えてくださるので、<span class="highlight">まずは体験から始めてみることをオススメします</span>。</p>
+          <div class="voice-meta">
+            <div class="voice-avatar-placeholder">C</div>
+            <div>
+              <div class="voice-name">Cさん</div>
+              <div class="voice-duration">学習歴1年</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="voice-dots">
+      <button type="button" class="voice-dot active" aria-label="1枚目"></button>
+      <button type="button" class="voice-dot" aria-label="2枚目"></button>
+      <button type="button" class="voice-dot" aria-label="3枚目"></button>
+    </div>
+  </div>
+</div>
+</div>
+
 <!-- ミリネの講座 (SVG cards + circular icon - keep) -->
 <div class="section">
   <div class="section-label">COURSES</div>
@@ -1600,6 +1763,42 @@
         header.classList.toggle('scrolled', window.scrollY > 20);
       });
     }
+  })();
+  (function() {
+    var wrap = document.querySelector('.voice-slider-wrap');
+    if (!wrap) return;
+    var slider = wrap.querySelector('.voice-slider');
+    var track = wrap.querySelector('.voice-track');
+    var cards = wrap.querySelectorAll('.voice-card');
+    var prevBtn = wrap.querySelector('.voice-nav.prev');
+    var nextBtn = wrap.querySelector('.voice-nav.next');
+    var dots = wrap.querySelectorAll('.voice-dot');
+    var cardWidth = 0;
+    function updateDots() {
+      if (!track || cards.length === 0) return;
+      var scrollLeft = slider.scrollLeft;
+      var idx = Math.round(scrollLeft / (cardWidth || 344));
+      idx = Math.max(0, Math.min(idx, dots.length - 1));
+      dots.forEach(function(d, i) { d.classList.toggle('active', i === idx); });
+    }
+    function scrollTo(i) {
+      if (!track || !cards[i]) return;
+      cardWidth = cards[0].offsetWidth + 24;
+      slider.scrollTo({ left: i * cardWidth, behavior: 'smooth' });
+    }
+    if (prevBtn) prevBtn.addEventListener('click', function() {
+      var i = Math.round(slider.scrollLeft / (cards[0].offsetWidth + 24));
+      scrollTo(Math.max(0, i - 1));
+    });
+    if (nextBtn) nextBtn.addEventListener('click', function() {
+      var i = Math.round(slider.scrollLeft / (cards[0].offsetWidth + 24));
+      scrollTo(Math.min(cards.length - 1, i + 1));
+    });
+    dots.forEach(function(dot, i) {
+      dot.addEventListener('click', function() { scrollTo(i); });
+    });
+    slider.addEventListener('scroll', updateDots);
+    updateDots();
   })();
 </script>
   <script src="/admin-badge.js"></script>

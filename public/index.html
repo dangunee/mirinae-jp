@@ -71,6 +71,7 @@
     .nav-logo .logo-kr { font-size: 11px; color: var(--gold); font-weight: 700; letter-spacing: 2px; }
     .nav-logo .logo-jp { font-family: 'Noto Serif JP', serif; font-size: 15px; font-weight: 700; color: var(--dark); letter-spacing: 0.05em; }
     .nav-links { display: flex; align-items: center; gap: 2px; list-style: none; }
+    .nav-links > li { position: relative; }
     .nav-links a {
       display: block;
       padding: 8px 12px;
@@ -82,9 +83,38 @@
       transition: background 0.15s, color 0.15s;
       white-space: nowrap;
     }
-    .nav-links a:hover { background: var(--gold-pale); color: var(--gold); }
+    .nav-links > li > a:hover { background: var(--gold-pale); color: var(--gold); }
     .nav-cta { background: var(--gold) !important; color: white !important; border-radius: 6px !important; font-weight: 700 !important; padding: 8px 16px !important; }
     .nav-cta:hover { background: var(--gold-light) !important; color: white !important; }
+    /* プルダウン */
+    .nav-dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 180px;
+      background: var(--white);
+      border-radius: 8px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+      padding: 8px 0;
+      list-style: none;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.2s, visibility 0.2s;
+      z-index: 200;
+      margin-top: 4px;
+      border: 1px solid var(--border);
+    }
+    .nav-links > li:hover .nav-dropdown {
+      opacity: 1;
+      visibility: visible;
+    }
+    .nav-dropdown a {
+      padding: 10px 20px;
+      font-size: 13px;
+      border-radius: 0;
+      white-space: nowrap;
+    }
+    .nav-dropdown a:hover { background: var(--gold-pale); color: var(--gold); }
 
     /* ═══ HERO（광화문 이미지 유지） ═══ */
     .hero {
@@ -615,23 +645,29 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    /* 著書 (books-scroll) */
-    .books-scroll {
+    /* 著書 (rolling right → left) */
+    .book-slider {
+      overflow: hidden;
+      margin-top: 0;
+      padding-bottom: 12px;
+    }
+    .book-track {
       display: flex;
       gap: 16px;
-      overflow-x: auto;
-      padding-bottom: 12px;
-      scrollbar-width: thin;
-      scrollbar-color: var(--border) transparent;
-      scroll-snap-type: x mandatory;
+      align-items: flex-start;
+      width: max-content;
+      animation: bookRoll 40s linear infinite;
     }
-    .books-scroll::-webkit-scrollbar { height: 4px; }
-    .books-scroll::-webkit-scrollbar-track { background: transparent; }
-    .books-scroll::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+    .book-track:hover {
+      animation-play-state: paused;
+    }
+    @keyframes bookRoll {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
     .book-card {
       flex-shrink: 0;
       width: 148px;
-      scroll-snap-align: start;
       display: flex;
       flex-direction: column;
       gap: 10px;
@@ -729,11 +765,39 @@
 
     /* Footer */
     .main-footer {
-      background: var(--dark);
-      color: rgba(255,255,255,0.4);
+      background: var(--footer-bg);
+      color: white;
+      padding: 48px 24px 24px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      max-width: 1200px;
+      margin: 0 auto 40px;
+    }
+    @media (max-width: 768px) {
+      .footer-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    .footer-column h4 {
+      font-size: 14px;
+      margin-bottom: 16px;
+      opacity: 0.9;
+    }
+    .footer-column a {
+      display: block;
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+    .footer-column a:hover { color: white; }
+    .footer-bottom {
       text-align: center;
-      padding: 24px;
-      font-size: 12px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 13px;
+      opacity: 0.8;
     }
 
   </style>
@@ -748,9 +812,25 @@
     </a>
     <ul class="nav-links">
       <li><a href="index.html">ホーム</a></li>
-      <li><a href="about.html">会社概要</a></li>
-      <li><a href="about.html#tab02">アクセス</a></li>
-      <li><a href="about.html#tab03">講師</a></li>
+      <li>
+        <a href="#recruiting">講座</a>
+        <ul class="nav-dropdown">
+          <li><a href="kojin.html">個人レッスン</a></li>
+          <li><a href="group.html">グループレッスン</a></li>
+          <li><a href="kaiwa.html">会話強化クラス</a></li>
+          <li><a href="special.html">試験対策講座</a></li>
+          <li><a href="syutyu.html">集中講座</a></li>
+          <li><a href="https://mirinae.jp/netlesson.html">通信講座</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="about.html">会社概要</a>
+        <ul class="nav-dropdown">
+          <li><a href="about.html">会社概要</a></li>
+          <li><a href="about.html#tab02">アクセス</a></li>
+          <li><a href="about.html#tab03">講師</a></li>
+        </ul>
+      </li>
       <li><a href="book.html">著書</a></li>
       <li><a href="trial.html" class="nav-cta">お申込み</a></li>
     </ul>
@@ -1116,63 +1196,122 @@
   <div class="section-label">BOOKS</div>
   <h2 class="section-title">ミリネの著書</h2>
   <p class="section-sub">講師が手がけた、韓国語学習者のための教材・書籍。</p>
-  <div class="books-scroll">
-    <a href="book.html#tab01" class="book-card">
-      <img src="/img/book_han45.png" alt="韓国語単語 入門・初級編" class="book-cover" onerror="this.style.background='linear-gradient(135deg,#E8F5F3,#2A7F74)';this.style.display='block'">
-      <div class="book-info">
-        <h4>韓国語単語〈入門・初級編〉</h4>
-        <p>ハン検4・5級レベル</p>
-      </div>
-    </a>
-    <a href="book.html#tab02" class="book-card">
-      <img src="/img/book_han3.jpg" alt="韓国語単語 初中級編" class="book-cover" onerror="this.style.background='linear-gradient(135deg,#FBF4E3,#B8963E)';this.style.display='block'">
-      <div class="book-info">
-        <h4>韓国語単語〈初中級編〉</h4>
-        <p>ハン検3級レベル</p>
-      </div>
-    </a>
-    <a href="book.html#tab03" class="book-card">
-      <img src="/img/book_hanjun2.jpg" alt="韓国語単語 中級編" class="book-cover" onerror="this.style.background='linear-gradient(135deg,#EDE8F5,#6B4EAA)';this.style.display='block'">
-      <div class="book-info">
-        <h4>韓国語単語〈中級編〉</h4>
-        <p>ハン検準2級レベル</p>
-      </div>
-    </a>
-    <a href="book.html#tab04" class="book-card">
-      <img src="/img/book_han12.jpg" alt="ハン検1・2級" class="book-cover" onerror="this.style.background='linear-gradient(135deg,#F5E8E8,#C0392B)';this.style.display='block'">
-      <div class="book-info">
-        <h4>ハン検1・2級対策</h4>
-        <p>上級レベル</p>
-      </div>
-    </a>
-    <a href="book.html#tab07" class="book-card">
-      <img src="/img/book_tanguni_nihon.jpg" alt="タングニの日本生活記" class="book-cover" onerror="this.style.background='linear-gradient(135deg,#E8F0F5,#2A5F8F)';this.style.display='block'">
-      <div class="book-info">
-        <h4>タングニの日本生活記</h4>
-        <p>韓国語リーディング</p>
-      </div>
-    </a>
-    <a href="book.html#tab08" class="book-card">
-      <img src="/img/book_tanguni_ningen.jpg" alt="タングニの韓国人生劇場" class="book-cover" onerror="this.style.background='linear-gradient(135deg,#F5EBE8,#8F4A2A)';this.style.display='block'">
-      <div class="book-info">
-        <h4>タングニの韓国人生劇場</h4>
-        <p>韓国語リーディング</p>
-      </div>
-    </a>
-    <a href="book.html#tab05" class="book-card">
-      <img src="/img/book_topik1.jpg" alt="TOPIK I対策" class="book-cover" onerror="this.style.background='linear-gradient(135deg,#E8F5F0,#27AE60)';this.style.display='block'">
-      <div class="book-info">
-        <h4>TOPIK I 対策</h4>
-        <p>初級〜中級</p>
-      </div>
-    </a>
-    <a href="book.html#tab06" class="book-card">
-      <img src="/img/book_topik2.jpg" alt="TOPIK II対策" class="book-cover" onerror="this.style.background='linear-gradient(135deg,#E8EEF5,#1A3A6B)';this.style.display='block'">
-      <div class="book-info">
-        <h4>TOPIK II 対策</h4>
-        <p>中級〜上級</p>
-      </div>
-    </a>
+  <div class="book-slider">
+    <div class="book-track">
+      <a href="book.html#tab01" class="book-card">
+        <img src="/img/book_han45.png" alt="韓国語単語 入門・初級編" class="book-cover" onerror="this.style.background='linear-gradient(135deg,#E8F5F3,#2A7F74)';this.style.display='block'">
+        <div class="book-info">
+          <h4>韓国語単語〈入門・初級編〉</h4>
+          <p>ハン検4・5級レベル</p>
+        </div>
+      </a>
+      <a href="book.html#tab02" class="book-card">
+        <img src="/img/book_han3.jpg" alt="韓国語単語 初中級編" class="book-cover" onerror="this.style.background='linear-gradient(135deg,#FBF4E3,#B8963E)';this.style.display='block'">
+        <div class="book-info">
+          <h4>韓国語単語〈初中級編〉</h4>
+          <p>ハン検3級レベル</p>
+        </div>
+      </a>
+      <a href="book.html#tab03" class="book-card">
+        <img src="/img/book_hanjun2.jpg" alt="韓国語単語 中級編" class="book-cover" onerror="this.style.background='linear-gradient(135deg,#EDE8F5,#6B4EAA)';this.style.display='block'">
+        <div class="book-info">
+          <h4>韓国語単語〈中級編〉</h4>
+          <p>ハン検準2級レベル</p>
+        </div>
+      </a>
+      <a href="book.html#tab04" class="book-card">
+        <img src="/img/book_han12.jpg" alt="ハン検1・2級" class="book-cover" onerror="this.style.background='linear-gradient(135deg,#F5E8E8,#C0392B)';this.style.display='block'">
+        <div class="book-info">
+          <h4>ハン検1・2級対策</h4>
+          <p>上級レベル</p>
+        </div>
+      </a>
+      <a href="book.html#tab07" class="book-card">
+        <img src="/img/book_tanguni_nihon.jpg" alt="タングニの日本生活記" class="book-cover" onerror="this.style.background='linear-gradient(135deg,#E8F0F5,#2A5F8F)';this.style.display='block'">
+        <div class="book-info">
+          <h4>タングニの日本生活記</h4>
+          <p>韓国語リーディング</p>
+        </div>
+      </a>
+      <a href="book.html#tab08" class="book-card">
+        <img src="/img/book_tanguni_ningen.jpg" alt="タングニの韓国人生劇場" class="book-cover" onerror="this.style.background='linear-gradient(135deg,#F5EBE8,#8F4A2A)';this.style.display='block'">
+        <div class="book-info">
+          <h4>タングニの韓国人生劇場</h4>
+          <p>韓国語リーディング</p>
+        </div>
+      </a>
+      <a href="book.html#tab05" class="book-card">
+        <img src="/img/book_topik1.jpg" alt="TOPIK I対策" class="book-cover" onerror="this.style.background='linear-gradient(135deg,#E8F5F0,#27AE60)';this.style.display='block'">
+        <div class="book-info">
+          <h4>TOPIK I 対策</h4>
+          <p>初級〜中級</p>
+        </div>
+      </a>
+      <a href="book.html#tab06" class="book-card">
+        <img src="/img/book_topik2.jpg" alt="TOPIK II対策" class="book-cover" onerror="this.style.background='linear-gradient(135deg,#E8EEF5,#1A3A6B)';this.style.display='block'">
+        <div class="book-info">
+          <h4>TOPIK II 対策</h4>
+          <p>中級〜上級</p>
+        </div>
+      </a>
+      <!-- ループ用に同じ8冊を2セット目 -->
+      <a href="book.html#tab01" class="book-card">
+        <img src="/img/book_han45.png" alt="韓国語単語 入門・初級編" class="book-cover" onerror="this.style.background='linear-gradient(135deg,#E8F5F3,#2A7F74)';this.style.display='block'">
+        <div class="book-info">
+          <h4>韓国語単語〈入門・初級編〉</h4>
+          <p>ハン検4・5級レベル</p>
+        </div>
+      </a>
+      <a href="book.html#tab02" class="book-card">
+        <img src="/img/book_han3.jpg" alt="韓国語単語 初中級編" class="book-cover" onerror="this.style.background='linear-gradient(135deg,#FBF4E3,#B8963E)';this.style.display='block'">
+        <div class="book-info">
+          <h4>韓国語単語〈初中級編〉</h4>
+          <p>ハン検3級レベル</p>
+        </div>
+      </a>
+      <a href="book.html#tab03" class="book-card">
+        <img src="/img/book_hanjun2.jpg" alt="韓国語単語 中級編" class="book-cover" onerror="this.style.background='linear-gradient(135deg,#EDE8F5,#6B4EAA)';this.style.display='block'">
+        <div class="book-info">
+          <h4>韓国語単語〈中級編〉</h4>
+          <p>ハン検準2級レベル</p>
+        </div>
+      </a>
+      <a href="book.html#tab04" class="book-card">
+        <img src="/img/book_han12.jpg" alt="ハン検1・2級" class="book-cover" onerror="this.style.background='linear-gradient(135deg,#F5E8E8,#C0392B)';this.style.display='block'">
+        <div class="book-info">
+          <h4>ハン検1・2級対策</h4>
+          <p>上級レベル</p>
+        </div>
+      </a>
+      <a href="book.html#tab07" class="book-card">
+        <img src="/img/book_tanguni_nihon.jpg" alt="タングニの日本生活記" class="book-cover" onerror="this.style.background='linear-gradient(135deg,#E8F0F5,#2A5F8F)';this.style.display='block'">
+        <div class="book-info">
+          <h4>タングニの日本生活記</h4>
+          <p>韓国語リーディング</p>
+        </div>
+      </a>
+      <a href="book.html#tab08" class="book-card">
+        <img src="/img/book_tanguni_ningen.jpg" alt="タングニの韓国人生劇場" class="book-cover" onerror="this.style.background='linear-gradient(135deg,#F5EBE8,#8F4A2A)';this.style.display='block'">
+        <div class="book-info">
+          <h4>タングニの韓国人生劇場</h4>
+          <p>韓国語リーディング</p>
+        </div>
+      </a>
+      <a href="book.html#tab05" class="book-card">
+        <img src="/img/book_topik1.jpg" alt="TOPIK I対策" class="book-cover" onerror="this.style.background='linear-gradient(135deg,#E8F5F0,#27AE60)';this.style.display='block'">
+        <div class="book-info">
+          <h4>TOPIK I 対策</h4>
+          <p>初級〜中級</p>
+        </div>
+      </a>
+      <a href="book.html#tab06" class="book-card">
+        <img src="/img/book_topik2.jpg" alt="TOPIK II対策" class="book-cover" onerror="this.style.background='linear-gradient(135deg,#E8EEF5,#1A3A6B)';this.style.display='block'">
+        <div class="book-info">
+          <h4>TOPIK II 対策</h4>
+          <p>中級〜上級</p>
+        </div>
+      </a>
+    </div>
   </div>
 </div>
 </div>
@@ -1190,7 +1329,40 @@
 </div>
 
 <footer class="main-footer">
-  Copyright © (株)カオンヌリ · ミリネ韓国語教室 All Rights Reserved.
+  <div class="footer-grid">
+    <div class="footer-column">
+      <h4>メニュー</h4>
+      <a href="index.html">ホーム</a>
+      <a href="about.html">会社概要</a>
+      <a href="about.html#tab02">アクセス</a>
+    </div>
+    <div class="footer-column">
+      <h4>講座</h4>
+      <a href="kojin.html">個人レッスン</a>
+      <a href="group.html">グループレッスン</a>
+      <a href="kaiwa.html">会話強化クラス</a>
+      <a href="special.html">試験対策講座</a>
+      <a href="syutyu.html">集中講座</a>
+      <a href="https://mirinae.jp/netlesson.html">通信講座</a>
+    </div>
+    <div class="footer-column">
+      <h4>お申込み</h4>
+      <a href="trial.html">体験申込</a>
+      <a href="trial.html#tab02">講座申込</a>
+      <a href="trial.html#tab04">お問い合わせ</a>
+    </div>
+    <div class="footer-column">
+      <h4>その他</h4>
+      <a href="about.html#tab03">講師</a>
+      <a href="book.html">著書</a>
+      <a href="voice.html">「ミリネ教科書」の音声</a>
+      <a href="cancel.html">キャンセル規定</a>
+      <a href="https://mirinae.jp/">SITEMAP</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    Copyright © (株)カオンヌリ · ミリネ韓国語教室 All Rights Reserved.
+  </div>
 </footer>
 
 <script>

@@ -6,85 +6,116 @@
   <title>会社概要・アクセス・講師｜ミリネ韓国語教室</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --beige: #f5f0e8;
-      --beige-dark: #e8e0d5;
-      --gray-light: #f8f8f8;
-      --gray-border: #e5e5e5;
-      --text-dark: #2c2c2c;
-      --text-muted: #666;
-      --accent-blue: #4a6fa5;
       --taupe: #BD9962;
+      --gold: #B8963E;
+      --gold-light: #C8A84B;
+      --gold-pale: #F5EDD6;
+      --dark: #1C1C1E;
+      --mid: #3A3A3C;
+      --text-dark: #2C2C2E;
+      --text-muted: #8E8E93;
+      --gray-light: #FAFAF7;
+      --gray-border: #E5E0D8;
+      --bg: #FAFAF7;
+      --white: #FFFFFF;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Noto Sans JP', sans-serif;
       color: var(--text-dark);
-      line-height: 1.8;
-      background: #f0f0f0;
+      line-height: 1.7;
+      background: var(--bg);
     }
-    .page-wrapper { max-width: 900px; margin: 0 auto; background: white; min-height: 100vh; box-shadow: 0 0 40px rgba(0,0,0,0.08); }
+    .page-wrapper { max-width: 800px; margin: 0 auto; min-height: 100vh; background: var(--white); box-shadow: 0 0 40px rgba(0,0,0,0.06); }
     .top-bar {
-      background: var(--beige);
+      background: var(--white);
       padding: 12px 24px;
+      font-size: 12px;
+      color: var(--text-muted);
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
       gap: 16px;
-      border-bottom: 1px solid var(--beige-dark);
+      border-bottom: 1px solid var(--gray-border);
     }
     .top-bar-info { color: var(--text-muted); }
     .top-bar-nav { display: flex; flex-wrap: wrap; gap: 20px 32px; }
-    .top-bar a, .top-bar-nav a { color: var(--text-dark); text-decoration: none; font-size: 14px; font-weight: 500; }
-    .top-bar a:hover, .top-bar-nav a:hover { color: var(--accent-blue); }
-    .main-content { padding: 40px 32px 60px; }
-    .page-title { font-size: 28px; font-weight: 700; margin-bottom: 12px; color: var(--text-dark); }
-    .page-intro { color: var(--text-muted); margin-bottom: 24px; }
+    .top-bar a, .top-bar-nav a { color: var(--dark); text-decoration: none; font-weight: 500; font-size: 14px; }
+    .top-bar a:hover, .top-bar-nav a:hover { color: var(--gold); }
+    .main-content { padding: 0 24px 80px; }
+    .page-header { padding: 40px 0 24px; }
+    .page-header .page-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(28px, 5vw, 40px);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--dark);
+      margin-bottom: 12px;
+    }
+    .page-header .page-subtitle { color: var(--text-muted); font-size: 14px; font-weight: 300; }
+    .tab-wrap { margin-bottom: 0; }
     .tab-bar {
-      display: flex;
-      gap: 0;
-      margin-bottom: 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
       border-bottom: 2px solid var(--gray-border);
-      overflow-x: auto;
+      position: relative;
     }
     .tab-btn {
-      padding: 12px 20px;
-      font-size: 14px;
-      font-weight: 500;
-      background: var(--gray-light);
+      background: none;
       border: none;
-      border-bottom: 3px solid transparent;
-      cursor: pointer;
+      padding: 14px 8px;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
       color: var(--text-muted);
-      font-family: inherit;
-      margin-bottom: -2px;
-      transition: all 0.2s;
+      cursor: pointer;
+      position: relative;
+      transition: color 0.2s;
       white-space: nowrap;
     }
-    .tab-btn:hover { color: var(--text-dark); }
-    .tab-btn.active { background: white; color: var(--taupe); border-bottom-color: var(--taupe); font-weight: 600; }
-    .tab-panel { display: none; padding: 24px 0; }
-    .tab-panel.active { display: block; }
+    .tab-btn::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0; right: 0;
+      height: 2px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transition: transform 0.25s ease;
+    }
+    .tab-btn:hover { color: var(--dark); }
+    .tab-btn.active { color: var(--gold); font-weight: 700; }
+    .tab-btn.active::after { transform: scaleX(1); }
+    .tab-panel { display: none; padding-top: 32px; }
+    .tab-panel.active { display: block; animation: fadeUp 0.3s ease; }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
     .section-header {
-      background: var(--taupe);
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
       color: white;
-      padding: 14px 20px;
+      padding: 16px 24px;
+      font-family: 'Noto Serif JP', serif;
       font-size: 18px;
-      font-weight: 600;
+      font-weight: 700;
+      border-radius: 12px 12px 0 0;
       margin-top: 24px;
       margin-bottom: 0;
-      border-radius: 8px 8px 0 0;
     }
     .section-header:first-child { margin-top: 0; }
     .content-block {
-      padding: 20px 24px 28px;
+      padding: 24px 28px 28px;
       border: 1px solid var(--gray-border);
       border-top: none;
-      border-radius: 0 0 8px 8px;
+      border-radius: 0 0 12px 12px;
       margin-bottom: 24px;
+      background: var(--white);
     }
     .content-block p { margin-bottom: 12px; color: var(--text-muted); }
     .content-block table {
@@ -99,10 +130,10 @@
       text-align: left;
       vertical-align: top;
     }
-    .content-block th { background: var(--gray-light); font-weight: 600; width: 140px; }
-    .content-block a { color: var(--accent-blue); text-decoration: none; }
+    .content-block th { background: var(--bg); font-weight: 600; width: 140px; }
+    .content-block a { color: var(--gold); text-decoration: none; }
     .content-block a:hover { text-decoration: underline; }
-    .access-address { font-size: 16px; font-weight: 600; margin: 16px 0 8px; }
+    .access-address { font-size: 16px; font-weight: 600; margin: 16px 0 8px; color: var(--text-dark); }
     .access-list { margin: 12px 0 0 20px; }
     .access-list li { margin-bottom: 6px; }
     .map-embed { margin-top: 20px; border-radius: 8px; overflow: hidden; border: 1px solid var(--gray-border); }
@@ -115,9 +146,9 @@
       .teacher-block .teacher-photo img { width: 120px; height: 170px; }
     }
     .footer {
-      background: var(--text-dark);
+      background: #2c2c2c;
       color: rgba(255,255,255,0.85);
-      padding: 40px 32px 24px;
+      padding: 48px 24px 24px;
       margin-top: 48px;
     }
     .footer-columns { display: flex; flex-wrap: wrap; gap: 32px 48px; margin-bottom: 24px; }
@@ -125,7 +156,10 @@
     .footer-column a { display: block; color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; margin-bottom: 8px; }
     .footer-column a:hover { color: white; }
     .footer-bottom { font-size: 13px; opacity: 0.9; }
+    .back-link { color: var(--gold); text-decoration: none; font-size: 14px; font-weight: 500; }
+    .back-link:hover { text-decoration: underline; }
     @media (max-width: 640px) {
+      .tab-bar { grid-template-columns: 1fr; }
       .content-block th { width: 100px; font-size: 13px; }
       .content-block td { font-size: 13px; }
     }
@@ -147,13 +181,17 @@
     </div>
 
     <main class="main-content">
-      <h1 class="page-title">会社概要・アクセス・講師</h1>
-      <p class="page-intro">個人レッスンは都合に合わせて予約し、マイペースで勉強できます。</p>
+      <div class="page-header">
+        <h1 class="page-title">会社概要・アクセス・講師</h1>
+        <p class="page-subtitle">会社情報、教室へのアクセス、韓国語講師のご紹介はこちらから。</p>
+      </div>
 
-      <div class="tab-bar" role="tablist">
-        <button type="button" class="tab-btn active" data-tab="tab01" role="tab" aria-selected="true">会社概要・口座</button>
-        <button type="button" class="tab-btn" data-tab="tab02" role="tab" aria-selected="false">アクセス</button>
-        <button type="button" class="tab-btn" data-tab="tab03" role="tab" aria-selected="false">講師</button>
+      <div class="tab-wrap">
+        <div class="tab-bar" role="tablist">
+          <button type="button" class="tab-btn active" data-tab="tab01" role="tab" aria-selected="true">会社概要・口座</button>
+          <button type="button" class="tab-btn" data-tab="tab02" role="tab" aria-selected="false">アクセス</button>
+          <button type="button" class="tab-btn" data-tab="tab03" role="tab" aria-selected="false">講師</button>
+        </div>
       </div>
 
       <div id="tab01" class="tab-panel active">
@@ -301,7 +339,7 @@
         </div>
       </div>
 
-      <p style="margin-top: 32px;"><a href="index.html" style="color: var(--accent-blue); text-decoration: none;">← トップページへ戻る</a></p>
+      <p style="margin-top: 32px;"><a href="index.html" class="back-link">← トップページへ戻る</a></p>
     </main>
 
     <footer class="footer">

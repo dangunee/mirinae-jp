@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # OS
 .DS_Store
 Thumbs.db
@@ -7,21 +6,18 @@ Thumbs.db
 *.log
 debug.log
 
-# WordPress (blog) - 업로드/캐시는 선택적으로 제외
+# WordPress (blog)
 # blog/wp-content/uploads/
 # blog/wp-content/cache/
 
-# 로컬/비밀 설정 (필요시 주석 해제)
-# .ftpaccess
-# .env
-# .env.local
-=======
-node_modules
-.next
+# 비밀/자격증명 - 절대 커밋하지 마세요
+credentials.json
+**/credentials.json
 .env
 .env.local
+
+# 기타
+node_modules
+.next
 *.db
 prisma/*.db
-.DS_Store
-*.log
->>>>>>> a8f37e48f532104ce9346d46ec353f898dff803b

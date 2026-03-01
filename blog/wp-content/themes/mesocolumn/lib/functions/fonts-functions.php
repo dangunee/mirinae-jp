@@ -10,9 +10,11 @@ $font_family_group = array(
 
 
 function wp_get_google_webfonts() {
-$url = 'https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyAzUy_DRvZlhlicQk8JAZBU9aytf9rBY8g';
-$response = wp_remote_get( 'https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyAzUy_DRvZlhlicQk8JAZBU9aytf9rBY8g', array( 'sslverify' => true ) );
-$response = wp_remote_retrieve_body( wp_remote_get($url, array('sslverify' => false )));
+// APIキーは環境変数 GOOGLE_FONTS_API_KEY または定数で設定してください。リポジトリにキーをコミットしないでください。
+$api_key = defined( 'GOOGLE_FONTS_API_KEY' ) ? GOOGLE_FONTS_API_KEY : '';
+$url = 'https://www.googleapis.com/webfonts/v1/webfonts?key=' . $api_key;
+$response = wp_remote_get( $url, array( 'sslverify' => true ) );
+$response = wp_remote_retrieve_body( wp_remote_get( $url, array( 'sslverify' => false ) ) );
 if( is_wp_error( $response ) ) {
    echo 'Something went wrong!';
 } else {

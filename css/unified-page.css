@@ -10,7 +10,10 @@
   --unified-white: #FFFFFF;
 }
 
-/* 統一デザインが有効なページ */
+/* 統一デザインが有効なページ（お申込み画面と同じトーン） */
+body.unified-design {
+  font-family: 'Noto Sans JP', sans-serif;
+}
 body.unified-design #contents { background: var(--unified-bg); }
 body.unified-design #cont_center {
   background: var(--unified-bg);
@@ -20,6 +23,7 @@ body.unified-design #cont_center {
 /* ページヘッダー（大タイトル＋サブタイトル） */
 .unified-page-header { padding: 0 0 20px; margin-bottom: 8px; }
 .unified-page-header .page-title {
+  font-family: 'Noto Serif JP', serif;
   font-size: clamp(24px, 4vw, 36px);
   font-weight: 700;
   color: var(--unified-dark);
@@ -82,6 +86,7 @@ body.unified-design .conbox {
   padding: 0;
 }
 body.unified-design .conbox h3 {
+  font-family: 'Noto Serif JP', serif;
   background: linear-gradient(135deg, var(--unified-gold) 0%, var(--unified-gold-light) 100%);
   color: var(--unified-white);
   padding: 16px 24px;
@@ -91,6 +96,47 @@ body.unified-design .conbox h3 {
   border-radius: 14px 14px 0 0;
   letter-spacing: 0.03em;
 }
+
+/* お申込み画面と同じ「ゴールドバナー＋4枚カード」ブロック */
+body.unified-design .conbox .unified-info-banner {
+  margin: -1px -1px 24px -1px;
+  border-radius: 13px 13px 0 0;
+}
+.unified-info-banner {
+  background: linear-gradient(135deg, var(--unified-gold) 0%, var(--unified-gold-light) 100%);
+  border-radius: 14px;
+  padding: 22px 28px;
+  margin-bottom: 24px;
+  color: var(--unified-white);
+}
+.unified-info-banner h3 {
+  background: none !important;
+  color: var(--unified-white) !important;
+  border-radius: 0 !important;
+  padding: 0 0 14px !important;
+  margin: 0 0 14px !important;
+  font-family: 'Noto Serif JP', serif;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+.unified-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+@media (max-width: 520px) { .unified-info-grid { grid-template-columns: 1fr; } }
+.unified-info-item {
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 8px;
+  padding: 10px 14px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+.unified-info-item .icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+.unified-info-item .label { font-size: 10px; opacity: 0.85; margin-bottom: 2px; font-weight: 500; letter-spacing: 0.5px; }
+.unified-info-item .value { font-size: 12.5px; font-weight: 500; line-height: 1.5; color: var(--unified-white); }
 body.unified-design .conbox .syosai,
 body.unified-design .conbox .feature,
 body.unified-design .conbox p {

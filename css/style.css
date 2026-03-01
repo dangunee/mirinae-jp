@@ -498,6 +498,12 @@
         .footer li:before {content: ''; width: 1px; height: 12px; background-color: #74c0ec; position: absolute; left: 0; top: 2px;}
         .footer li:first-child:before {width: 0;}
         .footer address {padding-top: 15px;}
+        .footer_lecture {margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(116, 192, 236, 0.5);}
+        .footer_lecture_ttl {font-size: 1em; margin-bottom: 8px; font-weight: bold;}
+        .footer_lecture ul {list-style: none; margin: 0; padding: 0;}
+        .footer_lecture li {position: relative; display: inline; padding: 0 7px 0 10px; white-space: nowrap;}
+        .footer_lecture li:before {content: ''; width: 1px; height: 12px; background-color: #74c0ec; position: absolute; left: 0; top: 2px;}
+        .footer_lecture li:first-child:before {width: 0;}
 
         /* 사이드 이펙트1 */
         .side1 {position: relative; display: block; perspective: 600px;}

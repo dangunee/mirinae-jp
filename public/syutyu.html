@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>集中講座｜ミリネ韓国語教室</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --beige: #f5f0e8;
+      --taupe: #BD9962;
+      --taupe-dark: #9B8B7E;
+      --gray-light: #f8f8f8;
+      --gray-border: #e5e5e5;
+      --text-dark: #2c2c2c;
+      --text-muted: #666;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      color: var(--text-dark);
+      line-height: 1.8;
+      background: #f0f0f0;
+    }
+
+    .page-wrapper {
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      min-height: 100vh;
+      box-shadow: 0 0 40px rgba(0,0,0,0.08);
+    }
+
+    .top-bar {
+      background: var(--beige);
+      padding: 12px 24px;
+      font-size: 12px;
+      color: var(--text-muted);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      border-bottom: 1px solid #e8e0d5;
+    }
+    .top-bar-info { color: var(--text-muted); }
+    .top-bar-nav { display: flex; flex-wrap: wrap; gap: 20px 32px; }
+    .top-bar a, .top-bar-nav a {
+      color: var(--text-dark);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 14px;
+    }
+    .top-bar a:hover, .top-bar-nav a:hover { color: #4a6fa5; }
+
+    .main-content { padding: 40px 32px 60px; }
+
+    .page-title { font-size: 32px; font-weight: 700; margin-bottom: 12px; color: var(--text-dark); }
+    .page-subtitle { font-size: 16px; color: var(--text-muted); margin-bottom: 24px; }
+
+    /* タブ */
+    .tab-bar {
+      display: flex;
+      gap: 0;
+      margin-bottom: 32px;
+      border-bottom: 2px solid var(--gray-border);
+    }
+
+    .tab-btn {
+      padding: 14px 28px;
+      font-size: 15px;
+      font-weight: 500;
+      background: var(--gray-light);
+      border: none;
+      border-bottom: 3px solid transparent;
+      cursor: pointer;
+      color: var(--text-muted);
+      font-family: inherit;
+      margin-bottom: -2px;
+      transition: all 0.2s;
+    }
+
+    .tab-btn:hover { color: var(--text-dark); }
+
+    .tab-btn.active {
+      background: white;
+      color: var(--taupe);
+      border-bottom-color: var(--taupe);
+      font-weight: 600;
+    }
+
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    .section-header {
+      background: var(--taupe);
+      color: white;
+      padding: 16px 24px;
+      font-size: 18px;
+      font-weight: 600;
+      border-radius: 8px 8px 0 0;
+      margin-bottom: 0;
+    }
+
+    .content-block {
+      margin-bottom: 32px;
+    }
+    .content-block h3 {
+      font-size: 18px;
+      margin-bottom: 16px;
+      color: var(--text-dark);
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--taupe);
+    }
+
+    .section-note { font-size: 13px; color: var(--text-muted); margin-bottom: 8px; }
+
+    .target-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin: 20px 0; }
+    .target-cards-row3 { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+
+    .target-card {
+      background: white;
+      border: 1px solid var(--gray-border);
+      border-radius: 12px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+
+    .target-card-icon { font-size: 28px; flex-shrink: 0; }
+    .target-card-icon.aplus {
+      font-size: 24px; font-weight: 700; color: var(--text-dark);
+      background: #e8e8e8;
+      width: 44px; height: 44px;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    .target-card-text { font-size: 14px; color: var(--text-dark); line-height: 1.5; }
+
+    .price-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 14px;
+    }
+    .price-table th, .price-table td {
+      border: 1px solid var(--gray-border);
+      padding: 12px 16px;
+      text-align: left;
+      vertical-align: top;
+    }
+    .price-table th { background: var(--gray-light); font-weight: 600; }
+
+    .testimonial {
+      background: var(--gray-light);
+      border-radius: 8px;
+      padding: 24px;
+      margin-bottom: 24px;
+      border-left: 4px solid var(--taupe);
+    }
+    .testimonial-header { font-weight: 600; font-size: 15px; margin-bottom: 16px; color: var(--text-dark); }
+    .testimonial-content { font-size: 14px; color: var(--text-muted); line-height: 1.9; }
+    .testimonial-content p { margin-bottom: 12px; }
+
+    .cta-buttons { margin-top: 48px; margin-bottom: 24px; }
+    .cta-wrapper {
+      background: white;
+      padding: 24px 32px;
+      border-radius: 16px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+    .cta-btn {
+      display: block;
+      text-align: center;
+      padding: 20px 48px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 20px;
+      background: #A28C69;
+      color: white;
+      transition: transform 0.2s;
+    }
+    .cta-btn:hover { transform: translateY(-2px); }
+
+    .back-link { display: inline-block; margin-top: 24px; color: #4a6fa5; text-decoration: none; font-size: 14px; }
+
+    .content-block p { margin-bottom: 12px; color: var(--text-muted); }
+    .content-block ul { margin: 16px 0 16px 24px; }
+    .content-block li { margin-bottom: 8px; }
+
+    @media (max-width: 600px) {
+      .target-cards { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+    <div class="top-bar">
+      <span class="top-bar-info">東京で韓国語教室をお探しならミリネ | 定休日: 月曜日</span>
+      <nav class="top-bar-nav">
+        <a href="index.html">ホーム</a>
+        <a href="about.html">会社概要</a>
+        <a href="about.html#tab02">アクセス</a>
+        <a href="trial.html">お申込み</a>
+        <a href="about.html#tab03">講師</a>
+        <a href="book.html">著書</a>
+        <a href="trial.html#tab04">お問い合わせ</a>
+      </nav>
+    </div>
+
+    <div class="main-content">
+      <h1 class="page-title">集中講座</h1>
+      <p class="page-subtitle">入門・初級・中級・上級、レベル別に短期集中で学べる講座です。</p>
+
+      <div class="tab-bar">
+        <button type="button" class="tab-btn active" data-tab="tab01">入門講座</button>
+        <button type="button" class="tab-btn" data-tab="tab02">初級講座</button>
+        <button type="button" class="tab-btn" data-tab="tab03">中級講座</button>
+        <button type="button" class="tab-btn" data-tab="tab04">上級講座</button>
+      </div>
+
+      <!-- ========== タブ1: 入門集中講座 ========== -->
+      <div id="tab01" class="tab-panel active">
+        <h2 class="section-header">『入門集中講座』</h2>
+        <div class="content-block" style="padding: 24px; border: 1px solid var(--gray-border); border-top: none; border-radius: 0 0 8px 8px;">
+          <p>『初めてハングルに接する方が対象』 読み方、書き方から基本会話まで丁寧に指導します。ハングルの子音・母音、発音の特徴をわかりやすく説明し、すぐに使える基礎文法や発音変化も集中的に学びます。</p>
+          <ul style="margin-left: 24px; list-style: none;">
+            <li>❶ 2日間で入門を終わらせます。</li>
+            <li>❷ ハングルの読み書きからよく使う文法（～です・ます、助詞など）までマスターします。</li>
+            <li>❸ 入門段階で最も重要な発音ルールだけ学習し、発音に自信をつけます。</li>
+          </ul>
+        </div>
+
+        <div class="content-block">
+          <h3>詳細</h3>
+          <table class="price-table">
+            <tbody>
+              <tr>
+                <th>レベル</th>
+                <td>入門</td>
+              </tr>
+              <tr>
+                <th>対象</th>
+                <td>全くの初心者／ハングルの発音をしっかり学びたい方</td>
+              </tr>
+              <tr>
+                <th>授業について</th>
+                <td>ハングルを一度もきちんと読んだことがない方、何度も読もうとしたが文字がなかなか覚えられない方におすすめの講座です。講師がハングルの子音・母音、発音の特徴を分かりやすく説明し、文字だけでなく、すぐに使える基礎文法や発音変化についても丁寧に教えていきます。２日間集中して、韓国語の基礎を学びます。</td>
+              </tr>
+              <tr>
+                <th>目標</th>
+                <td>
+                  1. ハングルをきちんと読めるようにする。<br>
+                  2. ハングルの子音・母音の発音、発音変化を正確に身につける。<br>
+                  3. すぐに会話で使える基礎文法を身につける。<br>
+                  4. 講座後、簡単な文章の読み書きができ、意味が理解できるようになる。
+                </td>
+              </tr>
+              <tr>
+                <th>授業の流れ</th>
+                <td>
+                  1. 講師が発音や基礎文法を講義します。<br>
+                  2. 授業中に練習問題を解き、理解度を確認します。<br>
+                  3. 韓国語の文章に慣れるため、一緒に声に出して読む時間をとります。
+                </td>
+              </tr>
+              <tr>
+                <th>定員</th>
+                <td>2～6人</td>
+              </tr>
+              <tr>
+                <th>場所</th>
+                <td>新宿教室</td>
+              </tr>
+              <tr>
+                <th>テキスト</th>
+                <td>『１２３！韓国語 入門〜初級』(ミリネ韓国語教室講師の共著)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="content-block">
+          <h3>日程・時間割（例）</h3>
+          <table class="price-table">
+            <thead>
+              <tr>
+                <th>入門</th>
+                <th>1日目</th>
+                <th>2日目</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>13時</td>
+                <td>文字と発音[1] 母音①②：ハングルで日本語の「ア行」「ヤ行」にあたる文字／子音①②：ハングルの子音に使われる文字</td>
+                <td>基本文法[1] 助詞①、名詞＋です、ではありません</td>
+              </tr>
+              <tr>
+                <td>14時</td>
+                <td>文字と発音[2] 子音③「濃音・激音」、母音③「合成母音」、子音④「パッチム」、子音⑤「複合パッチム」</td>
+                <td>基本文法[2] 助詞②、動詞／形容詞～ます(합니다体)、～しません（否定）</td>
+              </tr>
+              <tr>
+                <td>15時</td>
+                <td>発音の変化：連音化／濃音化／激音化 など発音ルールのまとめ</td>
+                <td>基本文法のまとめと、基本フレーズのハングル読み確認</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="content-block">
+          <h3>授業料</h3>
+          <table class="price-table">
+            <thead>
+              <tr><th>レベル</th><th>コマ数</th><th>授業料（税抜）</th><th>税込</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>入門</td><td>3コマ（1日間）</td><td>1コマ 3,680円 × 3 = 11,040円</td><td>12,144円</td></tr>
+              <tr><td>入門</td><td>6コマ（2日間）</td><td>1コマ 3,180円 × 6 = 19,080円</td><td>20,988円</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 class="section-header" style="margin-top: 48px;">『生徒の声』</h2>
+
+        <div class="testimonial">
+          <div class="testimonial-header">2022年8月｜オンライン（入門）</div>
+          <div class="testimonial-content">
+            <p>すごく楽しかったです。でも、以前勉強していたのでなんとかついていくことが出来ましたが、やっぱり1日で入門は大変だなと実感しました。もっと勉強したい意欲が湧きました。発音の違いや自分の弱点もはっきり分かり、とても良い機会になりました。</p>
+          </div>
+        </div>
+
+        <div class="testimonial">
+          <div class="testimonial-header">2022年5月｜オンライン（入門）</div>
+          <div class="testimonial-content">
+            <p>特に発音の仕方を丁寧に解説していただいたことが嬉しかったです。うまく答えられないときも、基礎から丁寧に説明し直していただき、すぐに答えを導き出せるようになりました。初めての韓国語学習がミリネでよかったと思いました。</p>
+          </div>
+        </div>
+
+        <div class="testimonial">
+          <div class="testimonial-header">2020年1月｜新宿（入門）</div>
+          <div class="testimonial-content">
+            <p>2日間集中講座ありがとうございました。ハングルの文字の発音規則性は良く理解することができました。今後仕事の中で、まず読むことが出来る事で少しずつ意味を理解していきたいと思います。初めてちゃんと韓国語を勉強しましたが、発音や文法など少し自信がつきました。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========== タブ2: 初級集中講座 ========== -->
+      <div id="tab02" class="tab-panel">
+        <h2 class="section-header">『初級集中講座』</h2>
+        <div class="content-block" style="padding: 24px; border: 1px solid var(--gray-border); border-top: none; border-radius: 0 0 8px 8px;">
+          <p>『初級のポイントをまとめ、Step Up!』 初級文法に自信をつけたい方のための集中講座です。似ている初級文法48個をまとめて整理し、間違えやすい表現を比較しながら、初級の土台をしっかり固めます。</p>
+          <ul style="margin-left: 24px; list-style: none;">
+            <li>❶ 初級学習者が知っておくべき重要な初級文法48個をまとめます。</li>
+            <li>❷ 似ている文法と表現を比較し、ニュアンスの違いを理解します。</li>
+            <li>❸ 初級学習者が間違えやすい文法や表現を整理します。</li>
+          </ul>
+        </div>
+
+        <div class="content-block">
+          <h3>詳細</h3>
+          <table class="price-table">
+            <tbody>
+              <tr>
+                <th>レベル</th>
+                <td>初級</td>
+              </tr>
+              <tr>
+                <th>授業について</th>
+                <td>まだ初級文法が難しいと感じている方、もしくは短時間に初級文法のポイントだけを学びたいと思っている方におすすめの講座です。この機会に曖昧に理解していた部分に自信をつけて、韓国語の基礎を固めましょう。</td>
+              </tr>
+              <tr>
+                <th>対象</th>
+                <td>初級の文法ポイントをまとめて勉強したい方</td>
+              </tr>
+              <tr>
+                <th>目標</th>
+                <td>
+                  1. 初級レベルでよく出る、似ている表現の違いについて正確に理解できるようになる。<br>
+                  2. 韓国語の変則活用を整理し、使いこなせるようになる。<br>
+                  3. 間違えやすい文法や表現を整理し、理解できるようになる。
+                </td>
+              </tr>
+              <tr>
+                <th>授業の流れ</th>
+                <td>
+                  1. 課題を前もってお送りします。練習問題は事前に解いていただきます。<br>
+                  2. 授業中に講師が文法表現や使い方を丁寧に解説します。<br>
+                  3. 疑問点について質疑応答の時間を持ち、明確に内容を把握します。
+                </td>
+              </tr>
+              <tr>
+                <th>定員</th>
+                <td>2～8人</td>
+              </tr>
+              <tr>
+                <th>場所</th>
+                <td>新宿教室</td>
+              </tr>
+              <tr>
+                <th>テキスト</th>
+                <td>ミリネ独自テキスト（PDF） ※事前にメールにてお送りします。</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="content-block">
+          <h3>時間割（例）</h3>
+          <table class="price-table">
+            <thead>
+              <tr>
+                <th>初級</th>
+                <th>1日目</th>
+                <th>2日目</th>
+                <th>3日目</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>10–11時</td>
+                <td>発音変化のまとめ（有声音化／連音化／鼻音化／濃音化 など）</td>
+                <td>変則のまとめ（ㄹ語幹／ㅂ変則／ㄷ変則／으変則／르変則）</td>
+                <td>語尾の現在・過去・未来 ＋ 尊敬語の表現</td>
+              </tr>
+              <tr>
+                <td>11–12時</td>
+                <td>助詞のまとめ：은/는, 이/가, 을/를, 와/과, 하고, (이)라고, (이)나, (이)라도, 에/에게/한테 など</td>
+                <td>連体形のまとめ（現在／過去／未来）</td>
+                <td>接続語尾のまとめ：-고, -아/어서, -(으)니까, -기 때문에, -지만</td>
+              </tr>
+              <tr>
+                <td>12–13時</td>
+                <td>합니다体と해요体の作り方</td>
+                <td>副詞のまとめ（같이, 잘, 아주, 제일, 빨리, 너무, 다시 など）</td>
+                <td>終結語尾：-세요, -(으)ㄹ까요, -(으)ㅂ시다, -(으)ㄹ 수 있다/없다, -네요 など</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="content-block">
+          <h3>授業料</h3>
+          <table class="price-table">
+            <thead>
+              <tr><th>レベル</th><th>コマ数</th><th>授業料（税抜）</th><th>税込</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>初級</td><td>3コマ（1日間）</td><td>1コマ 4,180円 × 3 = 12,540円</td><td>13,794円</td></tr>
+              <tr><td>初級</td><td>6コマ（2日間）</td><td>1コマ 3,680円 × 6 = 22,080円</td><td>24,288円</td></tr>
+              <tr><td>初級</td><td>9コマ（3日間）</td><td>1コマ 3,180円 × 9 = 28,620円</td><td>31,482円</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 class="section-header" style="margin-top: 48px;">『生徒の声』</h2>
+
+        <div class="testimonial">
+          <div class="testimonial-header">2022年8月｜オンライン（初級）</div>
+          <div class="testimonial-content">
+            <p>これまで独学で学習してきましたが、助詞の使い方など「なぜそうなるのか」を説明してもらえたことで、すごく納得することが出来ました。初級の総復習として、自分の苦手な文法や表現がはっきり分かり、とても有意義でした。</p>
+          </div>
+        </div>
+
+        <div class="testimonial">
+          <div class="testimonial-header">2022年5月｜オンライン（初級）</div>
+          <div class="testimonial-content">
+            <p>自主学習では曖昧だった文法の細かいニュアンスの違いなどを知ることができ、初級文法のまとめになって大変勉強になりました。先生がたくさんの例文を出してくださり、自然な表現も一緒に覚えることができました。</p>
+          </div>
+        </div>
+
+        <div class="testimonial">
+          <div class="testimonial-header">2020年1月｜新宿（初級）</div>
+          <div class="testimonial-content">
+            <p>短時間で多くのことを学ぶので大変でしたが、今まできちんと理解できていなかった項目を知ることができました。試験前に初級を一通り整理したくて受講しましたが、弱点も明確になり、次の目標も見つかりました。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========== タブ3: 中級集中講座 ========== -->
+      <div id="tab03" class="tab-panel">
+        <h2 class="section-header">『中級集中講座』</h2>
+        <div class="content-block" style="padding: 24px; border: 1px solid var(--gray-border); border-top: none; border-radius: 0 0 8px 8px;">
+          <p>似ている中級の文法と表現を3日間で一気に学びます。中級者が必ず知っておくべき文法と、直訳すると間違った意味になる表現を整理しながら、自然な韓国語表現を身につけます。</p>
+          <ul style="margin-left: 24px; list-style: none;">
+            <li>❶ 中級者が必ず知っておくべき文法を問題を解きながらまとめます。</li>
+            <li>❷ 似ている表現を比較し、ニュアンスの違いを理解します。</li>
+          </ul>
+        </div>
+
+        <div class="content-block">
+          <h3>詳細</h3>
+          <table class="price-table">
+            <tbody>
+              <tr>
+                <th>レベル</th>
+                <td>中級</td>
+              </tr>
+              <tr>
+                <th>授業について</th>
+                <td>中級レベルでありながら、まだよく分からない部分が多く不安を感じている方のための講座です。この機会に、中級者が知っておくべき表現と文法を整理し、上級へのステップアップにつなげます。</td>
+              </tr>
+              <tr>
+                <th>対象</th>
+                <td>学習歴3〜6年程度／TOPIK 3〜4級レベルの方</td>
+              </tr>
+              <tr>
+                <th>目標</th>
+                <td>
+                  1. 中級者なら必ず知っておくべき表現と文法を身につける。<br>
+                  2. 中級レベルでよく出る似ている表現の違いについて、正確に理解できるようにする。<br>
+                  3. 中級者が使うべき語彙・表現を学び、聞き取りの能力も高める。<br>
+                  4. 韓国語的発想を学び、より自然な文章を組み立てられるようにする。
+                </td>
+              </tr>
+              <tr>
+                <th>授業の流れ</th>
+                <td>
+                  1. 授業の前に課題を前もってお送りします。<br>
+                  2. 分からない単語などは前もって調べておきます。<br>
+                  3. 授業中に講師が使い方や正確な意味を解説します。<br>
+                  4. 疑問点について質疑応答の時間を持ち、明確に内容を把握します。
+                </td>
+              </tr>
+              <tr>
+                <th>定員</th>
+                <td>2～8人</td>
+              </tr>
+              <tr>
+                <th>場所</th>
+                <td>新宿教室</td>
+              </tr>
+              <tr>
+                <th>テキスト</th>
+                <td>ミリネ独自テキスト（PDF） ※事前にメールにてお送りします。</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="content-block">
+          <h3>時間割（例）</h3>
+          <table class="price-table">
+            <thead>
+              <tr>
+                <th>中級</th>
+                <th>1日目</th>
+                <th>2日目</th>
+                <th>3日目</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>14–15時</td>
+                <td>意味が似ている文型1：接続語尾 고 vs -아/어서</td>
+                <td>意味が似ている文型4：推測表現（-(으)ㄹ 수가 있다 vs -(으)ㄹ 수도 있다 など）</td>
+                <td>意味が似ている文型7：進行・完了（-고 있다 vs -아/어 있다 など）</td>
+              </tr>
+              <tr>
+                <td>15–16時</td>
+                <td>意味が似ている文型2：理由表現 (-아/어서 vs -(으)니까 vs -기 때문에)</td>
+                <td>意味が似ている文型5：未来表現（-겠다, -(으)려고 하다 など）</td>
+                <td>意味が似ている文型8：順序表現 (-자 vs -자마자 vs -는대로 など)</td>
+              </tr>
+              <tr>
+                <td>16–17時</td>
+                <td>意味が似ている文型3：理由・話し手の心情 (거든요 vs 잖아요 など)</td>
+                <td>意味が似ている文型6：選択表現 (-거나 vs -든지 など)</td>
+                <td>意味が似ている文型9：仮定表現 (-(으)면 vs -(으)려면 vs -다면 など)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="content-block">
+          <h3>授業料</h3>
+          <table class="price-table">
+            <thead>
+              <tr><th>レベル</th><th>コマ数</th><th>授業料（税抜）</th><th>税込</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>中級</td><td>3コマ（1日間）</td><td>1コマ 4,180円 × 3 = 12,540円</td><td>13,794円</td></tr>
+              <tr><td>中級</td><td>6コマ（2日間）</td><td>1コマ 3,680円 × 6 = 22,080円</td><td>24,288円</td></tr>
+              <tr><td>中級</td><td>9コマ（3日間）</td><td>1コマ 3,180円 × 9 = 28,620円</td><td>31,482円</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 class="section-header" style="margin-top: 48px;">『生徒の声』</h2>
+
+        <div class="testimonial">
+          <div class="testimonial-header">2022年8月｜オンライン（中級）</div>
+          <div class="testimonial-content">
+            <p>6時間は長く難しかったのですが、いろいろな表現や文法を、類似表現から違いを知れたり、参考書では分からない自然な表現を学べたりして、とても濃い時間になりました。事前課題と録画のおかげで、復習もしやすいです。</p>
+          </div>
+        </div>
+
+        <div class="testimonial">
+          <div class="testimonial-header">2022年5月｜オンライン（中級）</div>
+          <div class="testimonial-content">
+            <p>先生の説明がテンポよく分かりやすく、自分の文章だけでなく他の受講生の回答も一緒に見ながら添削してもらえたので、とても勉強になりました。ニュアンスの違いを意識して文法を選べるようになってきた気がします。</p>
+          </div>
+        </div>
+
+        <div class="testimonial">
+          <div class="testimonial-header">2020年5月｜オンライン（中級）</div>
+          <div class="testimonial-content">
+            <p>普段は独学なので、他の方の韓国語を聞けたり一緒に学べたことが刺激になりました。中級レベルで曖昧だった表現の違いが整理でき、自分の弱点もはっきり分かりました。録画と板書を送っていただけるので、復習にもとても役立ちます。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========== タブ4: 上級集中講座 ========== -->
+      <div id="tab04" class="tab-panel">
+        <h2 class="section-header">『上級集中講座』</h2>
+        <div class="content-block" style="padding: 24px; border: 1px solid var(--gray-border); border-top: none; border-radius: 0 0 8px 8px;">
+          <p>似ている上級の文法と表現を3日間で一気に学びます。上級者なら必ず知っておくべき文法と、ネイティブがよく使う表現を整理しながら、自然で高度な韓国語表現を目指します。</p>
+          <ul style="margin-left: 24px; list-style: none;">
+            <li>❶ 上級者なら必ず知っておくべき文法を身につけます。</li>
+            <li>❷ 直訳すると不自然・誤解を招く表現を学び、ネイティブがよく使う自然な言い回しを身につけます。</li>
+          </ul>
+        </div>
+
+        <div class="content-block">
+          <h3>詳細</h3>
+          <table class="price-table">
+            <tbody>
+              <tr>
+                <th>レベル</th>
+                <td>上級</td>
+              </tr>
+              <tr>
+                <th>授業について</th>
+                <td>上級者でありながら、いつも同じで慣れた表現ばかりを使ってしまう方のための講座です。この機会に、上級者が使うべき表現と文法を整理し、さらに表現の幅を広げます。</td>
+              </tr>
+              <tr>
+                <th>対象</th>
+                <td>総合的な力をつけたい上級レベルを目指している方／韓国語能力試験6級を目指す方・取得した方など</td>
+              </tr>
+              <tr>
+                <th>目標</th>
+                <td>
+                  1. 上級者なら必ず知っておくべき表現・文法を身につける。<br>
+                  2. 上級レベルでよく出る、似ている表現の違いを正確に理解できるようにする。
+                </td>
+              </tr>
+              <tr>
+                <th>授業の流れ</th>
+                <td>
+                  1. 授業の前に課題を前もってお送りします。<br>
+                  2. 分からない単語などは前もって調べておきます。<br>
+                  3. 授業中に講師が使い方や正確な意味を解説します。<br>
+                  4. 疑問点について質疑応答の時間を持ち、明確に内容を把握します。
+                </td>
+              </tr>
+              <tr>
+                <th>定員</th>
+                <td>2～8人</td>
+              </tr>
+              <tr>
+                <th>場所</th>
+                <td>新宿教室</td>
+              </tr>
+              <tr>
+                <th>テキスト</th>
+                <td>ミリネ独自テキスト（PDF） ※事前にメールにてお送りします。</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="content-block">
+          <h3>時間割（例）</h3>
+          <table class="price-table">
+            <thead>
+              <tr>
+                <th>上級</th>
+                <th>1日目</th>
+                <th>2日目</th>
+                <th>3日目</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>10–11時</td>
+                <td>意味が似ている文型1：理由表現（-아/어서 vs -길래 など）</td>
+                <td>意味が似ている文型4：目的表現（-고자 vs -기 위해 vs -(으)려고 など）</td>
+                <td>意味が似ている文型7：条件表現（-는 한 vs -기 나름이다 など）</td>
+              </tr>
+              <tr>
+                <td>11–12時</td>
+                <td>意味が似ている文型2：原因・理由（-느라고 vs -는 바람에 vs -기 때문에 など）</td>
+                <td>意味が似ている文型5：選択・比較（-느니 vs -(으)ㄹ 바에야 など）</td>
+                <td>意味が似ている文型8：推測・当然性（-기 마련이다 vs -는 법이다 など）</td>
+              </tr>
+              <tr>
+                <td>12–13時</td>
+                <td>意味が似ている文型3：回想表現（-더라고 vs -았/었더라고 など）</td>
+                <td>意味が似ている文型6：名詞形（-(으)ㅁ vs -기 など）</td>
+                <td>意味が似ている文型9：強調表現（여간 -지 않다 など）</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="content-block">
+          <h3>授業料</h3>
+          <table class="price-table">
+            <thead>
+              <tr><th>レベル</th><th>コマ数</th><th>授業料（税抜）</th><th>税込</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>上級</td><td>3コマ（1日間）</td><td>1コマ 4,180円 × 3 = 12,540円</td><td>13,794円</td></tr>
+              <tr><td>上級</td><td>6コマ（2日間）</td><td>1コマ 3,680円 × 6 = 22,080円</td><td>24,288円</td></tr>
+              <tr><td>上級</td><td>9コマ（3日間）</td><td>1コマ 3,180円 × 9 = 28,620円</td><td>31,482円</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 class="section-header" style="margin-top: 48px;">『生徒の声』</h2>
+
+        <div class="testimonial">
+          <div class="testimonial-header">オンライン受講者の声</div>
+          <div class="testimonial-content">
+            <p>上級レベルの文法や表現を、似ている表現同士で比較しながら整理してもらえたので、今まで感覚で使っていた部分がすっきりしました。独学ではなかなか分からないニュアンスの違いをたくさん教えていただき、自然な表現に近づけたと思います。</p>
+          </div>
+        </div>
+
+        <div class="testimonial">
+          <div class="testimonial-header">対面講座受講者の声</div>
+          <div class="testimonial-content">
+            <p>1日6時間の講座は大変でしたが、例文を通して表現の背景や慣用句まで学べてとても濃い時間でした。自分の文章も細かく添削していただき、今後の課題も明確になりました。録画と資料で復習しながら、上級表現を自分のものにしていきたいです。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cta-buttons">
+        <div class="cta-wrapper">
+          <a href="https://mirinae.jp/trial.html?tab=tab02" class="cta-btn">お申込みはこちら</a>
+        </div>
+      </div>
+
+      <a href="index.html" class="back-link">← トップページへ戻る</a>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      var tabBtns = document.querySelectorAll('.tab-btn');
+      var tabPanels = document.querySelectorAll('.tab-panel');
+
+      function switchTab(tabId) {
+        tabBtns.forEach(function(btn) {
+          btn.classList.toggle('active', btn.getAttribute('data-tab') === tabId);
+        });
+        tabPanels.forEach(function(panel) {
+          panel.classList.toggle('active', panel.id === tabId);
+        });
+        history.replaceState(null, '', 'syutyu.html#' + tabId);
+      }
+
+      tabBtns.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          switchTab(btn.getAttribute('data-tab'));
+        });
+      });
+
+      var hash = location.hash.slice(1);
+      if (hash === 'tab02' || hash === 'tab03' || hash === 'tab04') {
+        switchTab(hash);
+      }
+
+      window.addEventListener('hashchange', function() {
+        var h = location.hash.slice(1);
+        if (['tab01', 'tab02', 'tab03', 'tab04'].indexOf(h) !== -1) switchTab(h);
+      });
+    })();
+  </script>
+  <script src="/testimonials.js"></script>
+  <script src="/admin-badge.js"></script>
+</body>
+</html>
+

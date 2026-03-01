@@ -1,0 +1,27 @@
+// ミリネ管理画面：ホームページの表データ（個人・グループ等）
+// 퀴즈앱과 같은 DB를 쓰려면 .env에 DATABASE_URL을 퀴즈앱과 동일하게 설정하세요.
+// 예: DATABASE_URL="postgresql://user:pass@host:5432/dbname"
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+// .env: DATABASE_URL="file:./dev.db" （prisma フォルダ内に dev.db が作られます）
+// 퀴즈앱과 같은 PostgreSQL: provider を "postgresql" に変更し DATABASE_URL を 퀴즈앱과 동일하게 설정
+
+// ページ別の表データ（カリキュラム・料金表など）をJSONで保存
+model SiteTable {
+  id        String   @id @default(cuid())
+  pageSlug  String   // kojin, group, kaiwa, special, syutyu, trial, book など
+  blockKey  String   // curriculum_tanki, price_kojin など（ページ内で一意）
+  title     String?  // 表示用: 初級, 中級, 上級 など
+  rowsJson  String   // JSON: 行データの配列。例: [{ koma, c12, c24, c48, cellGreen?, cellComplete? }]
+  updatedAt DateTime @updatedAt
+
+  @@unique([pageSlug, blockKey])
+  @@map("site_tables")
+}

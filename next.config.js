@@ -2,7 +2,7 @@
 const nextConfig = {
   // www.mirinae.jp のトップ・各ページは public/*.html をクリーンURLで表示
   async rewrites() {
-    return [
+    const htmlRoutes = [
       { source: "/", destination: "/index.html" },
       { source: "/kojin", destination: "/kojin.html" },
       { source: "/group", destination: "/group.html" },
@@ -11,7 +11,6 @@ const nextConfig = {
       { source: "/syutyu", destination: "/syutyu.html" },
       { source: "/trial", destination: "/trial.html" },
       { source: "/book", destination: "/book.html" },
-      // mirinae.jp/t/ 用（作業中コンテンツを同じHTMLで表示）
       { source: "/t", destination: "/index.html" },
       { source: "/t/", destination: "/index.html" },
       { source: "/t/kojin", destination: "/kojin.html" },
@@ -22,6 +21,8 @@ const nextConfig = {
       { source: "/t/trial", destination: "/trial.html" },
       { source: "/t/book", destination: "/book.html" },
     ];
+    // beforeFiles でファイルシステムより先に適用し、/ を index.html に
+    return { beforeFiles: htmlRoutes };
   },
 };
 module.exports = nextConfig;

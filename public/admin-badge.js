@@ -7,7 +7,7 @@
       a.textContent = "管理モードで接続中";
       a.style.cssText = [
         "position:fixed",
-        "bottom:20px",
+        "top:20px",
         "right:20px",
         "z-index:9999",
         "padding:10px 16px",

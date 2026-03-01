@@ -8,7 +8,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           <a href="/api/admin/logout" style={{ color: "rgba(255,255,255,0.85)", textDecoration: "none", fontSize: 14 }}>ログアウト</a>
           <span style={{ opacity: 0.9, fontSize: 14 }}>ホームページ表データの編集</span>
         </span>
-        <a href="/t/" style={{ color: "#fff", textDecoration: "none", fontSize: 14, padding: "6px 14px", border: "1px solid rgba(255,255,255,0.8)", borderRadius: 6 }}>ホームページへ（t）</a>
+        <a href="/" style={{ color: "#fff", textDecoration: "none", fontSize: 14, padding: "6px 14px", border: "1px solid rgba(255,255,255,0.8)", borderRadius: 6 }}>ホームページへ</a>
       </header>
       <main style={{ maxWidth: 1000, margin: "0 auto", padding: 24 }}>{children}</main>
     </div>

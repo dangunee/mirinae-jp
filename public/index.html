@@ -435,6 +435,27 @@
       display: block;
     }
 
+    .content-card .img-wrap {
+      width: 100%;
+      height: 188px;
+      position: relative;
+      overflow: hidden;
+    }
+    .content-card .img-wrap .illust-wrap {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .content-card .img-wrap .illust-wrap svg {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      max-width: 180px;
+      max-height: 120px;
+    }
+
     .content-card .card-body {
       padding: 20px 20px 18px;
       position: relative;
@@ -843,67 +864,147 @@
   <h2 class="section-title">ミリネ サイト コンテンツ</h2>
   <section class="content-grid">
     <a href="kojin.html" class="content-card">
-      <img src="https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?w=900&auto=format&fit=crop&q=80" alt="個人レッスン 1対1レッスン">
-      <div class="card-body">
-        <div class="card-label">
-          <span class="card-icon">👤</span>
-          <span>個人レッスン</span>
+      <div class="img-wrap">
+        <div class="illust-wrap" style="background: linear-gradient(135deg, #E8F5F3 0%, #C8E8E4 100%);">
+          <svg width="180" height="120" viewBox="0 0 180 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="30" y="88" width="120" height="6" rx="3" fill="#2A7F74" opacity="0.25"/>
+            <circle cx="68" cy="48" r="16" fill="#2A7F74" opacity="0.15"/>
+            <circle cx="68" cy="38" r="10" fill="#2A7F74" opacity="0.5"/>
+            <path d="M52 72 Q68 58 84 72" stroke="#2A7F74" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.6"/>
+            <circle cx="118" cy="38" r="10" fill="#B8963E" opacity="0.5"/>
+            <path d="M102 72 Q118 58 134 72" stroke="#B8963E" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.6"/>
+            <rect x="78" y="22" width="38" height="22" rx="8" fill="white" opacity="0.85"/>
+            <path d="M88 44 L84 50 L92 44" fill="white" opacity="0.85"/>
+            <text x="97" y="38" font-family="sans-serif" font-size="13" font-weight="700" fill="#2A7F74" text-anchor="middle" opacity="0.9">한</text>
+            <line x1="68" y1="64" x2="118" y2="64" stroke="#2A7F74" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.3"/>
+          </svg>
         </div>
+      </div>
+      <div class="card-body">
         <h4>個人レッスン</h4>
         <p>マンツーマンで効率的に上達</p>
       </div>
     </a>
     <a href="group.html" class="content-card">
-      <img src="https://images.unsplash.com/photo-1523580846011-7cc0c9dba3e4?w=900&auto=format&fit=crop&q=80" alt="グループレッスン 複数人で黒板の授業">
-      <div class="card-body">
-        <div class="card-label">
-          <span class="card-icon">👥</span>
-          <span>グループレッスン</span>
+      <div class="img-wrap">
+        <div class="illust-wrap" style="background: linear-gradient(135deg, #FBF4E3 0%, #F0E4C0 100%);">
+          <svg width="180" height="120" viewBox="0 0 180 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="30" y="18" width="120" height="58" rx="6" fill="#2A7F74" opacity="0.15"/>
+            <rect x="36" y="24" width="108" height="46" rx="4" fill="#2A7F74" opacity="0.12"/>
+            <text x="90" y="44" font-family="sans-serif" font-size="18" font-weight="700" fill="#2A7F74" text-anchor="middle" opacity="0.7">가나다</text>
+            <line x1="46" y1="56" x2="134" y2="56" stroke="#2A7F74" stroke-width="1.5" opacity="0.3"/>
+            <text x="90" y="65" font-family="sans-serif" font-size="11" fill="#2A7F74" text-anchor="middle" opacity="0.5">ABC → 한국어</text>
+            <circle cx="54" cy="96" r="9" fill="#B8963E" opacity="0.45"/>
+            <circle cx="90" cy="96" r="9" fill="#2A7F74" opacity="0.45"/>
+            <circle cx="126" cy="96" r="9" fill="#B8963E" opacity="0.35"/>
+            <line x1="90" y1="76" x2="90" y2="86" stroke="#2A7F74" stroke-width="1" opacity="0.2"/>
+          </svg>
         </div>
+      </div>
+      <div class="card-body">
         <h4>グループレッスン</h4>
         <p>入門＆初級・中級・上級講座</p>
       </div>
     </a>
     <a href="kaiwa.html" class="content-card">
-      <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=900&auto=format&fit=crop&q=80" alt="会話クラス 皆で会話を楽しむ様子">
-      <div class="card-body">
-        <div class="card-label">
-          <span class="card-icon">💬</span>
-          <span>会話強化クラス</span>
+      <div class="img-wrap">
+        <div class="illust-wrap" style="background: linear-gradient(135deg, #EDE8F5 0%, #D8CEF0 100%);">
+          <svg width="180" height="120" viewBox="0 0 180 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="54" cy="42" r="12" fill="#6B4EAA" opacity="0.4"/>
+            <rect x="20" y="14" width="52" height="26" rx="10" fill="white" opacity="0.85"/>
+            <path d="M52 40 L56 46 L44 40" fill="white" opacity="0.85"/>
+            <text x="46" y="31" font-family="sans-serif" font-size="11" font-weight="700" fill="#6B4EAA" text-anchor="middle" opacity="0.9">안녕!</text>
+            <circle cx="126" cy="62" r="12" fill="#B8963E" opacity="0.4"/>
+            <rect x="108" y="22" width="52" height="26" rx="10" fill="white" opacity="0.85"/>
+            <path d="M128 48 L124 54 L136 48" fill="white" opacity="0.85"/>
+            <text x="134" y="39" font-family="sans-serif" font-size="11" font-weight="700" fill="#B8963E" text-anchor="middle" opacity="0.9">はい!</text>
+            <path d="M76 55 Q90 45 104 55" stroke="#6B4EAA" stroke-width="2" fill="none" opacity="0.3" stroke-linecap="round"/>
+            <path d="M80 62 Q90 55 100 62" stroke="#6B4EAA" stroke-width="2" fill="none" opacity="0.2" stroke-linecap="round"/>
+            <path d="M42 66 Q54 54 66 66" stroke="#6B4EAA" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.4"/>
+            <path d="M114 86 Q126 74 138 86" stroke="#B8963E" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.4"/>
+          </svg>
         </div>
+      </div>
+      <div class="card-body">
         <h4>会話強化クラス</h4>
         <p>会話・音読・発音・抑揚</p>
       </div>
     </a>
     <a href="special.html" class="content-card">
-      <img src="https://images.unsplash.com/photo-1584697964190-82009f26a13c?w=800&auto=format&fit=crop&q=80" alt="TOPIK対策">
-      <div class="card-body">
-        <div class="card-label">
-          <span class="card-icon">📘</span>
-          <span>試験対策講座</span>
+      <div class="img-wrap">
+        <div class="illust-wrap" style="background: linear-gradient(135deg, #E8EEF5 0%, #C8D8EC 100%);">
+          <svg width="180" height="120" viewBox="0 0 180 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="45" y="18" width="90" height="84" rx="8" fill="white" opacity="0.8"/>
+            <rect x="48" y="21" width="84" height="78" rx="6" fill="white" opacity="0.6"/>
+            <rect x="52" y="26" width="76" height="14" rx="4" fill="#2A5F8F" opacity="0.5"/>
+            <text x="90" y="37" font-family="sans-serif" font-size="9" font-weight="700" fill="white" text-anchor="middle" opacity="0.95">TOPIK</text>
+            <circle cx="62" cy="54" r="4" fill="#2A5F8F" opacity="0.25"/>
+            <circle cx="62" cy="66" r="4" fill="#2A5F8F" opacity="0.25"/>
+            <circle cx="62" cy="78" r="4" fill="#2A5F8F" opacity="0.25"/>
+            <rect x="71" y="51" width="50" height="6" rx="3" fill="#E0E8F0" opacity="0.8"/>
+            <rect x="71" y="63" width="50" height="6" rx="3" fill="#E0E8F0" opacity="0.8"/>
+            <rect x="71" y="75" width="50" height="6" rx="3" fill="#E0E8F0" opacity="0.8"/>
+            <circle cx="62" cy="54" r="4" fill="#27AE60" opacity="0.7"/>
+            <path d="M59.5 54 L61.5 56 L65 52" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <rect x="108" y="58" width="6" height="32" rx="2" fill="#B8963E" opacity="0.6" transform="rotate(-35 108 58)"/>
+            <polygon points="97,94 101,84 105,92" fill="#B8963E" opacity="0.7"/>
+            <rect x="97" y="94" width="8" height="3" rx="1" fill="#E8C878" opacity="0.6"/>
+          </svg>
         </div>
+      </div>
+      <div class="card-body">
         <h4>試験対策講座</h4>
         <p>TOPIK・ハン検対策</p>
       </div>
     </a>
     <a href="syutyu.html" class="content-card">
-      <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=800&auto=format&fit=crop&q=80" alt="集中講座">
-      <div class="card-body">
-        <div class="card-label">
-          <span class="card-icon">⏱</span>
-          <span>集中講座</span>
+      <div class="img-wrap">
+        <div class="illust-wrap" style="background: linear-gradient(135deg, #FFF0E8 0%, #FFD8C0 100%);">
+          <svg width="180" height="120" viewBox="0 0 180 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="36" y="24" width="70" height="72" rx="8" fill="white" opacity="0.8"/>
+            <rect x="36" y="24" width="70" height="20" rx="8" fill="#E05A20" opacity="0.4"/>
+            <rect x="36" y="36" width="70" height="8" fill="#E05A20" opacity="0.4"/>
+            <text x="71" y="37" font-family="sans-serif" font-size="9" font-weight="700" fill="white" text-anchor="middle">集中</text>
+            <circle cx="52" cy="56" r="4" fill="#E05A20" opacity="0.3"/>
+            <circle cx="66" cy="56" r="4" fill="#E05A20" opacity="0.3"/>
+            <circle cx="80" cy="56" r="4" fill="#E05A20" opacity="0.3"/>
+            <circle cx="94" cy="56" r="4" fill="#E05A20" opacity="0.3"/>
+            <circle cx="52" cy="68" r="4" fill="#E05A20" opacity="0.5"/>
+            <circle cx="66" cy="68" r="4" fill="#E05A20" opacity="0.5"/>
+            <circle cx="80" cy="68" r="4" fill="#E05A20" opacity="0.5"/>
+            <circle cx="94" cy="68" r="4" fill="#E05A20" opacity="0.3"/>
+            <circle cx="52" cy="80" r="4" fill="#E05A20" opacity="0.7"/>
+            <circle cx="66" cy="80" r="4" fill="#E05A20" opacity="0.7"/>
+            <circle cx="80" cy="80" r="4" fill="#E05A20" opacity="0.7"/>
+            <polygon points="128,22 118,52 130,52 120,90 142,48 128,48" fill="#E05A20" opacity="0.55"/>
+          </svg>
         </div>
+      </div>
+      <div class="card-body">
         <h4>集中講座</h4>
         <p>入門・初級・中級・上級</p>
       </div>
     </a>
     <a href="https://mirinae.jp/netlesson.html" class="content-card">
-      <img src="https://images.unsplash.com/photo-1587613864521-9ef8dfe617cc?w=800&auto=format&fit=crop&q=80" alt="通信講座">
-      <div class="card-body">
-        <div class="card-label">
-          <span class="card-icon">💻</span>
-          <span>通信講座</span>
+      <div class="img-wrap">
+        <div class="illust-wrap" style="background: linear-gradient(135deg, #E8F0F8 0%, #C4D8F0 100%);">
+          <svg width="180" height="120" viewBox="0 0 180 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="30" y="38" width="100" height="64" rx="6" fill="#1A3A6B" opacity="0.15"/>
+            <rect x="34" y="42" width="92" height="52" rx="4" fill="white" opacity="0.75"/>
+            <rect x="40" y="48" width="80" height="10" rx="3" fill="#2A5F8F" opacity="0.35"/>
+            <rect x="40" y="62" width="60" height="6" rx="3" fill="#E0E8F0" opacity="0.8"/>
+            <rect x="40" y="72" width="70" height="6" rx="3" fill="#E0E8F0" opacity="0.8"/>
+            <rect x="40" y="82" width="50" height="6" rx="3" fill="#E0E8F0" opacity="0.8"/>
+            <rect x="22" y="100" width="116" height="8" rx="4" fill="#1A3A6B" opacity="0.2"/>
+            <path d="M140 70 Q158 56 158 36" stroke="#2A5F8F" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.35"/>
+            <path d="M140 78 Q162 62 162 36" stroke="#2A5F8F" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.22"/>
+            <path d="M140 86 Q166 68 166 36" stroke="#2A5F8F" stroke-width="1" stroke-linecap="round" fill="none" opacity="0.13"/>
+            <circle cx="140" cy="62" r="3" fill="#2A5F8F" opacity="0.5"/>
+            <text x="80" y="57" font-family="sans-serif" font-size="7" font-weight="700" fill="#2A5F8F" text-anchor="middle" opacity="0.8">作文 · 音読 · TOPIK</text>
+          </svg>
         </div>
+      </div>
+      <div class="card-body">
         <h4>通信講座</h4>
         <p>作文・音読・TOPIK Training</p>
       </div>

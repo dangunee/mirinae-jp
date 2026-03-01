@@ -49,6 +49,7 @@
       -webkit-backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
       transition: box-shadow 0.3s;
+      overflow: visible;
     }
     header.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.08); }
     .nav-inner {
@@ -60,6 +61,7 @@
       align-items: center;
       justify-content: space-between;
       gap: 24px;
+      overflow: visible;
     }
     .nav-logo {
       display: flex;
@@ -72,6 +74,15 @@
     .nav-logo .logo-jp { font-family: 'Noto Serif JP', serif; font-size: 15px; font-weight: 700; color: var(--dark); letter-spacing: 0.05em; }
     .nav-links { display: flex; align-items: center; gap: 2px; list-style: none; }
     .nav-links > li { position: relative; }
+    /* リンクとドロップダウンの間のホバー維持用 */
+    .nav-links > li.nav-has-dropdown::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      height: 14px;
+    }
     .nav-links a {
       display: block;
       padding: 8px 12px;
@@ -99,14 +110,16 @@
       list-style: none;
       opacity: 0;
       visibility: hidden;
-      transition: opacity 0.2s, visibility 0.2s;
-      z-index: 200;
-      margin-top: 4px;
+      transition: opacity 0.2s, visibility 0.15s;
+      z-index: 9999;
+      margin-top: 0;
       border: 1px solid var(--border);
+      pointer-events: none;
     }
     .nav-links > li:hover .nav-dropdown {
       opacity: 1;
       visibility: visible;
+      pointer-events: auto;
     }
     .nav-dropdown a {
       padding: 10px 20px;
@@ -812,7 +825,7 @@
     </a>
     <ul class="nav-links">
       <li><a href="index.html">ホーム</a></li>
-      <li>
+      <li class="nav-has-dropdown">
         <a href="#recruiting">講座</a>
         <ul class="nav-dropdown">
           <li><a href="kojin.html">個人レッスン</a></li>
@@ -823,7 +836,7 @@
           <li><a href="https://mirinae.jp/netlesson.html">通信講座</a></li>
         </ul>
       </li>
-      <li>
+      <li class="nav-has-dropdown">
         <a href="about.html">会社概要</a>
         <ul class="nav-dropdown">
           <li><a href="about.html">会社概要</a></li>

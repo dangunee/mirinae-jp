@@ -1,28 +1,6 @@
-# GitHub 배포 가이드 (mirinae-jp)
+# GitHub 배포 가이드 (mirinae)
 
-- **GitHub 저장소**: [dangunee/mirinae-jp](https://github.com/dangunee/mirinae-jp)
-- **로컬 폴더**: `admin.mirinae.jp` (이 컴퓨터)
-
----
-
-## 빠른 배포 (이미 저장소 연결된 경우)
-
-변경 후 터미널에서:
-
-```bash
-cd /Users/dangunee/admin.mirinae.jp
-
-git add .
-git status   # 확인
-git commit -m "변경 내용 요약"
-git push origin main
-```
-
-Vercel 등에 연결돼 있으면 `git push` 후 자동 배포됩니다.
-
----
-
-## 1. 로컬에서 Git 초기화 및 첫 커밋 (최초 1회)
+## 1. 로컬에서 Git 초기화 및 첫 커밋
 
 터미널에서 프로젝트 폴더로 이동한 뒤 아래를 순서대로 실행하세요.
 

@@ -1,0 +1,1 @@
+﻿document.write("ぺらぺら会話レッスン".fontsize(5).link("http://mirinae.jp/freetalking.htm") + "<BR>")

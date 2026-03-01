@@ -1,0 +1,1 @@
+<form method="get" id="searchform" action="<?php echo esc_url(home_url('/'));?>"><input type="text" class="text" value="<?php echo the_search_query()?>" name="s" id="s" />&nbsp;<input type="submit" class="button" name="Submit" value="Search" /></form><img src="<?php echo get_template_directory_uri()?>/img/spacer.gif" alt="WP_Modern_Notepad">

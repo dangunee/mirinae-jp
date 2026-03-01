@@ -1,0 +1,1 @@
+﻿document.write("少人数、グループレッスン募集".fontsize(5).link("http://www.mirinae.jp/group.htm") + "<BR>")

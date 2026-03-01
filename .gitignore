@@ -1,0 +1,16 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs & debug
+*.log
+debug.log
+
+# WordPress (blog) - 업로드/캐시는 선택적으로 제외
+# blog/wp-content/uploads/
+# blog/wp-content/cache/
+
+# 로컬/비밀 설정 (필요시 주석 해제)
+# .ftpaccess
+# .env
+# .env.local

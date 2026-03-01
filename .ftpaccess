@@ -1,0 +1,23 @@
+# BEGIN Lolipop [ http://lolipop.jp/manual/user/ftpaccess/ ]
+
+<Limit ALL>
+Order Allow,Deny
+Allow from 219.94.166.54
+Allow from 150.95.250.235
+Allow from 54.64.161.18
+Allow from 54.92.36.247
+Allow from 122.219.43.14
+Allow from 122.219.43.6
+Allow from 122.219.40.14
+Allow from 210.131.150.101
+Allow from 210.131.150.102
+Allow from 180.58.56.17
+Allow from 153.192.173.107
+Allow from 126.249.53.122
+Allow from 124.177.227.140
+Allow from 122.40.149.183
+Allow from 180.56.158.163
+Allow from 106.73.160.97
+Deny from all
+</Limit>
+# END Lolipop

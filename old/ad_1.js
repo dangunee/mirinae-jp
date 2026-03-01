@@ -1,0 +1,1 @@
+﻿document.write("上達が早い! 個人レッスン".fontsize(5).link("http://www.mirinae.jp/gyosil.htm") + "<BR>")

@@ -1,0 +1,36 @@
+/**
+ * @package WordPress
+ * @subpackage Drochilli_Theme
+ */
+.wp-pagenavi {
+	color: #393939;
+	font: 23px/30px Arial;
+	margin: 10px auto;
+	overflow: hidden;
+	text-align: center;
+	width: 100%;
+}
+
+	.wp-pagenavi .pages {
+		display: none;
+	}
+
+	.wp-pagenavi a {
+		color: #393939;
+		height: 30px;
+		margin: 7px 3px 0 3px;
+		text-align: center;
+	}
+
+	.wp-pagenavi .current {
+		background: #ffd700;
+		color: #393939;
+		margin: 7px 3px 0 3px;
+		padding: 0 2px;
+		text-align: center;
+		text-decoration: none;
+	}
+
+	.extend {
+		display: none;
+	}

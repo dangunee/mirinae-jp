@@ -1,0 +1,1 @@
+﻿document.write("1回500円、会話サロン募集中!".fontsize(5).link("http://www.mirinae.jp/freetalking.htm") + "<BR>")

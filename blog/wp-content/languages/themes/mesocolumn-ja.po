@@ -1,0 +1,1017 @@
+# Translation of Themes - MesoColumn in Japanese
+# This file is distributed under the same license as the Themes - MesoColumn package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2017-07-02 05:36:49+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: GlotPress/2.4.0-alpha\n"
+"Language: ja_JP\n"
+"Project-Id-Version: Themes - MesoColumn\n"
+
+#. Description of the plugin/theme
+msgid "Mesocolumn is a Responsive HTML5 and CSS3 WordPress Theme that support BuddyPress, BBPress, WooCommerce and Jigoshop and comes with Unlimited Color Choice on Menu for category and pages, Background, Layout, Footer, Sidebar and Design packed 600+ Google Webfonts Selection."
+msgstr "Mesocolumn (メソカラム) は HTML5 と CSS3 のレスポンシブ WordPress テーマです。BuddyPress、bbPress、WooCommerce、Jigoshop に対応しています。カテゴリー、固定ページ、背景、レイアウト、フッター、サイドバーの色と、600を超える Google Web フォントがメニューから自由に選択可能です。"
+
+#. Theme Name of the plugin/theme
+msgid "MesoColumn"
+msgstr "MesoColumn"
+
+#: lib/functions/customizer-functions.php:1293
+msgid "Choose to disable or enable schema markup for posts"
+msgstr "投稿のスキーママークアップを有効化または無効化します"
+
+#: lib/functions/widget-functions.php:432
+msgid "Select Custom Post Type:"
+msgstr "カスタム投稿タイプを選択:"
+
+#: lib/functions/widget-functions.php:369
+msgid "Custom Posts"
+msgstr "カスタム投稿"
+
+#: lib/functions/widget-functions.php:361
+msgid "Display your custom post type listing."
+msgstr "カスタム投稿タイプリストを表示します。"
+
+#: lib/functions/widget-functions.php:360
+msgid "Custom Post Type"
+msgstr "カスタム投稿タイプ"
+
+#: lib/functions/widget-functions.php:340
+#: lib/functions/widget-functions.php:461
+msgid "Enable Post Meta?:<br /><em>*post date and post comments count</em>"
+msgstr "投稿メタを有効化しますか ?:<br /><em>*投稿日とコメント数</em>"
+
+#: lib/functions/widget-functions.php:243
+msgid "Display your featured category listing."
+msgstr "おすすめカテゴリーのリストを表示します。"
+
+#: lib/functions/hooks-functions.php:513 lib/functions/hooks-functions.php:522
+msgid "You are reading &raquo;"
+msgstr "表示中 &raquo;"
+
+#: lib/functions/hooks-functions.php:423
+msgid "Search &hellip;"
+msgstr "検索 &hellip;"
+
+#: lib/functions/customizer-functions.php:1362
+msgid ""
+"Attention! This will remove all customizations ever made via customizer to this theme!\n"
+"\n"
+"This action is irreversible!"
+msgstr ""
+"注意: テーマに対すして行われたすべてのカスタマイズを削除します。\n"
+"\n"
+"このアクションは取り消しできません。"
+
+#: lib/functions/customizer-functions.php:1361
+msgid "Reset"
+msgstr "リセット"
+
+#: lib/functions/customizer-functions.php:1320
+msgid "Insert your custom css here."
+msgstr "カスタム CSS をここに挿入します。"
+
+#: lib/functions/customizer-functions.php:1301
+msgid "Schema.org Markup for Breadcrumb"
+msgstr "パンくずリストの Schema.org マークアップ"
+
+#: lib/functions/customizer-functions.php:1292
+msgid "Schema.org Markup for Posts"
+msgstr "投稿の Schema.org マークアップ"
+
+#: lib/functions/customizer-functions.php:1283
+msgid "Choose to disable or enable theme author footer credit links.<br /><em>*optional, but I would appreciate if you leave the footer credit link or consider a donation to <a target='_blank' href='http://www.dezzain.com/donation'>support the theme</a></em>"
+msgstr "テーマ作者のフッタークレジットを有効化または無効化します。<br /><em>*任意ですが、フッタークレジットの表示か、<a target='_blank' href='http://www.dezzain.com/donation'>テーマのサポート</a>への寄付を検討していただけたら幸いです。</em>"
+
+#: lib/functions/customizer-functions.php:1282
+msgid "Theme Author Footer Credit"
+msgstr "テーマ作者のフッタークレジット"
+
+#: lib/functions/customizer-functions.php:1271
+msgid "Footer Code"
+msgstr "フッターコード"
+
+#: lib/functions/customizer-functions.php:1262
+msgid "Header Code"
+msgstr "ヘッダーコード"
+
+#: lib/functions/customizer-functions.php:1244
+msgid "Single Post Bottom"
+msgstr "個別投稿下"
+
+#: lib/functions/customizer-functions.php:1235
+msgid "Single Post Top"
+msgstr "個別投稿上"
+
+#: lib/functions/customizer-functions.php:1227
+msgid "Second Post Loop"
+msgstr "2つ目の投稿ループ"
+
+#: lib/functions/customizer-functions.php:1182
+msgid "Category "
+msgstr "カテゴリー"
+
+#: lib/functions/customizer-functions.php:1166
+msgid "How many text count for each post"
+msgstr "各投稿の文字数"
+
+#: lib/functions/customizer-functions.php:1153
+msgid "Enable Category RSS Feed Link"
+msgstr "カテゴリーの RSS フィードリンクを有効化"
+
+#: lib/functions/customizer-functions.php:1139
+msgid "Featured Category Layout"
+msgstr "おすすめカテゴリーレイアウト"
+
+#: lib/functions/customizer-functions.php:1119
+msgid "How many posts to show?"
+msgstr "表示する投稿数"
+
+#: lib/functions/customizer-functions.php:1039
+msgid "Enable Comments Subscribes"
+msgstr "コメントの購読を有効化"
+
+#: lib/functions/customizer-functions.php:979
+msgid "Choose related count"
+msgstr "関連数を選択"
+
+#: lib/functions/customizer-functions.php:928
+msgid "Enable First Image Grab for Featured Thumbnails"
+msgstr "1つ目の画像をおすすめサムネイルとして表示する"
+
+#: lib/functions/customizer-functions.php:1219
+msgid "First Post Loop"
+msgstr "1つ目の投稿ループ"
+
+#: lib/functions/customizer-functions.php:1211
+msgid "Top Header"
+msgstr "トップヘッダー"
+
+#: lib/functions/customizer-functions.php:1199
+msgid "How many?"
+msgstr "数"
+
+#: lib/functions/customizer-functions.php:840
+msgid "Navigation"
+msgstr "ナビゲーション"
+
+#: lib/functions/customizer-functions.php:812
+msgid "Headline"
+msgstr "見出し"
+
+#: lib/functions/customizer-functions.php:797
+#: lib/functions/customizer-functions.php:826
+#: lib/functions/customizer-functions.php:854
+msgid "font weight"
+msgstr "フォントの太さ"
+
+#: lib/functions/customizer-functions.php:784
+msgid "Body"
+msgstr "全体"
+
+#: lib/functions/customizer-functions.php:254
+msgid "Custom css and style settings"
+msgstr "カスタム CSS とスタイル設定"
+
+#: lib/functions/customizer-functions.php:245
+msgid "Miscellaneous settings"
+msgstr "その他の設定"
+
+#: lib/functions/customizer-functions.php:244
+msgid "Miscellaneous"
+msgstr "その他"
+
+#: lib/functions/customizer-functions.php:236
+msgid "Advertisement location settings"
+msgstr "広告表示位置を設定します"
+
+#: lib/functions/customizer-functions.php:235
+msgid "Ad Location"
+msgstr "広告の位置"
+
+#: lib/functions/customizer-functions.php:226
+msgid "Home featured category layout settings"
+msgstr "トップページのおすすめカテゴリーレイアウト設定"
+
+#: lib/functions/customizer-functions.php:225
+msgid "Layout & Style"
+msgstr "レイアウトとスタイル"
+
+#: lib/functions/customizer-functions.php:217
+msgid "Choose which category to featured"
+msgstr "おすすめにするカテゴリーを選択:"
+
+#: lib/functions/customizer-functions.php:216
+msgid "Choose Category:"
+msgstr "カテゴリーを選択:"
+
+#: lib/functions/customizer-functions.php:207
+msgid "Save your slider settings"
+msgstr "スライダー設定を保存します"
+
+#: lib/functions/customizer-functions.php:206
+msgid "Slider"
+msgstr "スライダー"
+
+#: lib/functions/customizer-functions.php:198
+msgid "Save your posts settings"
+msgstr "投稿についての設定を保存します"
+
+#: lib/functions/customizer-functions.php:197
+msgid "Posts"
+msgstr "投稿"
+
+#: lib/functions/customizer-functions.php:189
+msgid "Save your site fonts settings"
+msgstr "サイトのフォント設定を保存します"
+
+#: lib/functions/customizer-functions.php:188
+msgid "Fonts"
+msgstr "フォント"
+
+#: lib/functions/customizer-functions.php:173
+msgid "Site advertisement settings"
+msgstr "サイト広告設定"
+
+#: lib/functions/customizer-functions.php:172
+msgid "Advertisement"
+msgstr "広告"
+
+#: lib/functions/customizer-functions.php:163
+msgid "Home featured categories settings"
+msgstr "トップページのおすすめカテゴリー設定"
+
+#: lib/functions/customizer-functions.php:162
+msgid "Home Featured Category"
+msgstr "トップページのおすすめカテゴリー"
+
+#: lib/functions/customizer-functions.php:154
+msgid "Genaral settings"
+msgstr "一般設定"
+
+#: lib/functions/customizer-functions.php:153
+msgid "General"
+msgstr "一般"
+
+#: lib/functions/customizer-functions.php:129
+msgid "Choose a category"
+msgstr "カテゴリーを選択"
+
+#: lib/functions/color-functions.php:119
+msgid "Add page color for custom menu"
+msgstr "カスタムメニューの固定ページ色を追加"
+
+#: lib/functions/color-functions.php:107
+msgid "Choose Page Color:"
+msgstr "固定ページ色を選択:"
+
+#: lib/functions/color-functions.php:10
+msgid "Color"
+msgstr "色"
+
+#: functions.php:35
+msgid "Mobile Menu"
+msgstr "モバイルメニュー"
+
+#. Template Name of the plugin/theme
+msgid "Sitemap"
+msgstr "サイトマップ"
+
+#. Template Name of the plugin/theme
+msgid "Full Width"
+msgstr "全幅"
+
+#. Template Name of the plugin/theme
+msgid "Blogroll"
+msgstr "ブログロール"
+
+#. Template Name of the plugin/theme
+msgid "Blog Full Content"
+msgstr "すべてのブログコンテンツ"
+
+#: lib/templates/default-widget.php:26
+msgid "Tags"
+msgstr "タグ"
+
+#: lib/templates/default-widget.php:22
+msgid "Pages"
+msgstr "ページ"
+
+#: lib/templates/default-widget.php:18
+msgid "Recent Posts"
+msgstr "最近の投稿"
+
+#: page.php:29 single.php:38
+msgid "...more &raquo;"
+msgstr "...続く &raquo;"
+
+#: page-templates/template-sitemap.php:46
+msgid "Browse Last 50 Posts:"
+msgstr "最後の50投稿を閲覧:"
+
+#: page-templates/template-sitemap.php:37
+msgid "Archives by Category:"
+msgstr "カテゴリー別アーカイブ:"
+
+#: page-templates/template-sitemap.php:35
+msgid "Archives by Month:"
+msgstr "月別アーカイブ:"
+
+#: page-templates/template-blogroll.php:28
+msgid "Useful Resources:"
+msgstr "便利なリソース:"
+
+#: page-templates/template-blog-full-content.php:46
+#: page-templates/template-full-width.php:29
+msgid "...Continue reading"
+msgstr "続きを読む"
+
+#: lib/templates/result.php:13 lib/templates/result.php:15
+msgid "Sorry, we can't find the content you're looking for at this URL. Please try selecting a menu item from above or to the side of this message to get where you'd like to go."
+msgstr "この URL のお探しのコンテンツはありません。上のメニュー項目またはサイドバーから選択してください。"
+
+#: lib/templates/result.php:11
+msgid "Sorry, we can't find the post you're looking for at this URL. Please try selecting a menu item from above or to the side of this message to get where you'd like to go."
+msgstr "この URL のお探しの投稿はありません。上のメニュー項目またはサイドバーから選択してください。"
+
+#: lib/templates/result.php:9
+msgid "Sorry, we can't find the author you're looking for at this URL. Please try selecting a menu item from above or to the side of this message to get where you'd like to go."
+msgstr "この URL のお探しの作者はありません。上のメニュー項目またはサイドバーから選択してください。"
+
+#: lib/templates/result.php:7
+msgid "Sorry, we can't find the search keyword you're looking for. Please try selecting a menu item from above or to the side of this message to get where you'd like to go."
+msgstr "この URL のお探しの検索キーワードはありません。上のメニュー項目またはサイドバーから選択してください。"
+
+#: lib/templates/result.php:5
+msgid "Sorry, we can't find the archive you're looking for at this URL. Please try selecting a menu item from above or to the side of this message to get where you'd like to go."
+msgstr "この URL のお探しのアーカイブはありません。上のメニュー項目またはサイドバーから選択してください。"
+
+#: lib/templates/result.php:3
+msgid "Sorry, we can't find the category you're looking for at this URL. Please try selecting a menu item from above or to the side of this message to get where you'd like to go."
+msgstr "この URL のお探しのカテゴリーはありません。上のメニュー項目またはサイドバーから選択してください。"
+
+#: lib/templates/result.php:1
+msgid "No Result Found!"
+msgstr "見つかりません。"
+
+#: lib/templates/paginate.php:16
+msgid "&laquo; Newer Entries"
+msgstr "&laquo; 新しいエントリー"
+
+#: lib/templates/paginate.php:15
+msgid "Older Entries &raquo;"
+msgstr "古いエントリー &raquo;"
+
+#: lib/templates/home-feat-cat.php:58 lib/templates/home-feat-cat.php:84
+#: lib/templates/home-feat-cat.php:110 lib/templates/home-feat-cat.php:134
+#: lib/templates/home-feat-cat.php:158 lib/templates/home-feat-cat.php:181
+#: lib/templates/home-feat-cat.php:208 lib/templates/home-feat-cat.php:233
+#: lib/templates/home-feat-cat.php:258 lib/templates/home-feat-cat.php:282
+msgid "Get Feed for"
+msgstr "フィードを取得"
+
+#: lib/templates/headline.php:44
+msgid "Archive for"
+msgstr "アーカイブ: "
+
+#: lib/templates/headline.php:40
+msgid "&quot;"
+msgstr "&quot;"
+
+#: lib/templates/headline.php:40
+msgid "Search result for &quot;"
+msgstr "検索結果 &quot;"
+
+#: lib/templates/headline.php:22
+msgid "Author Archives: %s"
+msgstr "作者アーカイブ: %s"
+
+#: lib/templates/headline.php:16
+msgid "Tag archives for"
+msgstr "タグアーカイブ:"
+
+#: lib/templates/headline.php:12 lib/templates/headline.php:29
+#: lib/templates/headline.php:31 lib/templates/headline.php:33
+msgid "Archives for"
+msgstr "アーカイブ:"
+
+#. #-#-#-#-#  mesocolumn.pot (MesoColumn 1.6.5.1)  #-#-#-#-#
+#. Template Name of the plugin/theme
+#: lib/templates/headline.php:8
+msgid "Blog"
+msgstr "ブログ"
+
+#: lib/templates/headline.php:8
+msgid "Latest News From The"
+msgstr "最新ニュース"
+
+#: lib/functions/hooks-functions.php:611 lib/templates/headline.php:8
+#: lib/templates/headline.php:12 lib/templates/headline.php:16
+#: lib/templates/headline.php:22 lib/templates/headline.php:34
+#: lib/templates/headline.php:40
+msgid "Page"
+msgstr "ページ"
+
+#: lib/functions/hooks-functions.php:476
+msgid "Search results for"
+msgstr "検索結果:"
+
+#: lib/functions/hooks-functions.php:454 lib/functions/hooks-functions.php:462
+msgid "You are here: "
+msgstr "現在地:"
+
+#: lib/templates/author-bio.php:11
+msgid "View all posts by %s <span class=\"meta-nav\">&rarr;</span>"
+msgstr "%s の投稿をすべて表示 <span class=\"meta-nav\">&rarr;</span>"
+
+#: lib/templates/author-bio.php:7
+msgid "About %s"
+msgstr "%s について"
+
+#: lib/templates/home-feat-cat.php:58 lib/templates/home-feat-cat.php:84
+#: lib/templates/home-feat-cat.php:110 lib/templates/home-feat-cat.php:134
+#: lib/templates/home-feat-cat.php:158 lib/templates/home-feat-cat.php:181
+#: lib/templates/home-feat-cat.php:208 lib/templates/home-feat-cat.php:233
+#: lib/templates/home-feat-cat.php:258 lib/templates/home-feat-cat.php:282
+#: lib/templates/related.php:24 lib/templates/related.php:62
+msgid "%1$s"
+msgstr "%1$s"
+
+#: lib/sliders/jd-gallery-slider.php:29 lib/sliders/jd-gallery-slider.php:63
+msgid "Continue reading "
+msgstr "続きを読む"
+
+#: lib/functions/widget-functions.php:347
+#: lib/functions/widget-functions.php:468
+msgid "Total:"
+msgstr "合計:"
+
+#: lib/functions/widget-functions.php:335
+#: lib/functions/widget-functions.php:457
+msgid "medium"
+msgstr "中"
+
+#: lib/functions/widget-functions.php:334
+#: lib/functions/widget-functions.php:456
+msgid "thumbnail"
+msgstr "サムネイル"
+
+#: lib/functions/widget-functions.php:332
+#: lib/functions/widget-functions.php:454
+msgid "Thumbnails Size?:"
+msgstr "サムネイルの大きさ:"
+
+#: lib/functions/widget-functions.php:325
+#: lib/functions/widget-functions.php:447
+msgid "Enable Thumbnails?:<br /><em>*post featured images</em>"
+msgstr "サムネイルを有効化しますか ?:<br /><em>*投稿のアイキャッチ画像</em>"
+
+#: lib/functions/widget-functions.php:321
+msgid "*separate by commas [,]"
+msgstr "*カンマ [,] で区切る"
+
+#: lib/functions/widget-functions.php:321
+msgid "Category ID:"
+msgstr "カテゴリー ID:"
+
+#: lib/functions/widget-functions.php:317
+#: lib/functions/widget-functions.php:429
+msgid "*required"
+msgstr "*必須"
+
+#: lib/functions/widget-functions.php:317
+#: lib/functions/widget-functions.php:429
+msgid "Title:"
+msgstr "タイトル:"
+
+#: lib/functions/widget-functions.php:290
+#: lib/functions/widget-functions.php:402
+#: lib/templates/feat-cat-meta-bottom.php:14
+#: lib/templates/feat-cat-meta-top.php:12 lib/templates/post-meta.php:30
+msgid "% Comments"
+msgstr "%件のコメント"
+
+#: lib/functions/widget-functions.php:290
+#: lib/functions/widget-functions.php:402
+#: lib/templates/feat-cat-meta-bottom.php:14
+#: lib/templates/feat-cat-meta-top.php:12 lib/templates/post-meta.php:30
+msgid "1 Comment"
+msgstr "1件のコメント"
+
+#: lib/functions/widget-functions.php:290
+#: lib/functions/widget-functions.php:402
+#: lib/templates/feat-cat-meta-bottom.php:14
+#: lib/templates/feat-cat-meta-top.php:12 lib/templates/post-meta.php:30
+msgid "No Comment"
+msgstr "コメントはありません"
+
+#: lib/functions/widget-functions.php:242
+#: lib/functions/widget-functions.php:251
+msgid "Featured Categories"
+msgstr "おすすめのカテゴリー"
+
+#: lib/functions/widget-functions.php:227
+msgid "Total to show:"
+msgstr "表示する合計:"
+
+#: lib/functions/widget-functions.php:219
+msgid "Enable avatar?:"
+msgstr "アバターを有効にする:"
+
+#: lib/functions/widget-functions.php:215
+msgid "Name for recent comment(optional):"
+msgstr "最新のコメントの名前 (任意):"
+
+#: lib/functions/widget-functions.php:151
+msgid "Display your recent comments with user avatar."
+msgstr "ユーザーアバター付きの最新のコメントを表示します。"
+
+#: lib/functions/widget-functions.php:150
+#: lib/functions/widget-functions.php:157
+msgid "Recent Gravatar Comments"
+msgstr "Gravatar つき最新コメント"
+
+#: lib/functions/widget-functions.php:134
+#: lib/functions/widget-functions.php:222
+#: lib/functions/widget-functions.php:328
+#: lib/functions/widget-functions.php:450
+msgid "no"
+msgstr "いいえ"
+
+#: lib/functions/widget-functions.php:133
+#: lib/functions/widget-functions.php:221
+#: lib/functions/widget-functions.php:327
+#: lib/functions/widget-functions.php:449
+msgid "yes"
+msgstr "はい"
+
+#: lib/functions/widget-functions.php:131
+msgid "Show comments count:"
+msgstr "コメント数を表示:"
+
+#: lib/functions/widget-functions.php:126
+msgid "Total to show: "
+msgstr "表示する合計:"
+
+#: lib/functions/widget-functions.php:122
+msgid "Name for most comment(optional):"
+msgstr "コメントが多いの名前 (任意):"
+
+#: lib/functions/widget-functions.php:80
+msgid "Display your most commented posts."
+msgstr "コメント数が多い投稿を表示します。"
+
+#: lib/functions/widget-functions.php:79 lib/functions/widget-functions.php:87
+msgid "Most Comments"
+msgstr "コメントが多い"
+
+#: lib/functions/widget-functions.php:61
+msgid "The fourth footer widget area"
+msgstr "フッターウィジェットエリア 4"
+
+#: lib/functions/widget-functions.php:59
+msgid "Fourth Footer Widget Area"
+msgstr "フッターウィジェットエリア 4"
+
+#: lib/functions/widget-functions.php:51
+msgid "The third footer widget area"
+msgstr "フッターウィジェットエリア 3"
+
+#: lib/functions/widget-functions.php:49
+msgid "Third Footer Widget Area"
+msgstr "フッターウィジェットエリア 3"
+
+#: lib/functions/widget-functions.php:41
+msgid "The second footer widget area"
+msgstr "フッターウィジェットエリア 2"
+
+#: lib/functions/widget-functions.php:39
+msgid "Second Footer Widget Area"
+msgstr "フッターウィジェットエリア 2"
+
+#: lib/functions/widget-functions.php:31
+msgid "The first footer widget area"
+msgstr "フッターウィジェットエリア 1"
+
+#: lib/functions/widget-functions.php:29
+msgid "First Footer Widget Area"
+msgstr "フッターウィジェットエリア 1"
+
+#: lib/buddypress/bp-theme-functions.php:112
+msgid "Widget area for BuddyPress Pages"
+msgstr "BuddyPress ページ用ウィジェットエリア"
+
+#: lib/buddypress/bp-theme-functions.php:110
+msgid "BuddyPress Sidebar"
+msgstr "BuddyPress サイドバー"
+
+#: lib/bbpress/bb-theme-functions.php:34
+msgid "Widget area for BBPress Forum Pages"
+msgstr "bbPress フォーラムページ用ウィジェットエリア"
+
+#: lib/bbpress/bb-theme-functions.php:32
+msgid "Forum Sidebar"
+msgstr "フォーラムサイドバー"
+
+#: lib/jigoshop/jigoshop-theme-functions.php:145
+msgid "Widget area for Jigo Shop Pages"
+msgstr "Jigo Shop ページ用ウィジェットエリア"
+
+#: lib/woocommerce/woo-theme-functions.php:229
+msgid "Widget area for WooCommerce Shop Pages"
+msgstr "WooCommerce ショップページ用ウィジェットエリア"
+
+#: lib/jigoshop/jigoshop-theme-functions.php:143
+#: lib/woocommerce/woo-theme-functions.php:227
+msgid "Shop Sidebar"
+msgstr "ショップサイドバー"
+
+#: lib/functions/widget-functions.php:21
+msgid "Right sidebar widget area"
+msgstr "右サイドバーのウィジェットエリア"
+
+#: lib/functions/customizer-functions.php:1253
+#: lib/functions/widget-functions.php:19
+msgid "Right Sidebar"
+msgstr "右サイドバー"
+
+#: lib/functions/widget-functions.php:10
+msgid "Sidebar Tabbed widget area"
+msgstr "サイドバーのタブ付きウィジェットエリア"
+
+#: lib/functions/widget-functions.php:8
+msgid "Tabbed Sidebar"
+msgstr "タブ付きサイドバー"
+
+#: lib/functions/theme-functions.php:985
+msgid "Posts by %s"
+msgstr "%s の投稿"
+
+#: lib/functions/theme-functions.php:888
+msgid "ID"
+msgstr "ID"
+
+#: lib/functions/theme-functions.php:830
+msgid "No pingbacks"
+msgstr "ピンバックはありません"
+
+#: lib/functions/theme-functions.php:829
+msgid "% pingbacks"
+msgstr "%件のピンバック"
+
+#: lib/functions/theme-functions.php:828
+msgid "One pingback"
+msgstr "1件のピンバック"
+
+#: lib/functions/theme-functions.php:825
+msgid "No trackbacks"
+msgstr "トラックバックはありません"
+
+#: lib/functions/theme-functions.php:824
+msgid "% trackbacks"
+msgstr "%件のトラックバック"
+
+#: lib/functions/theme-functions.php:823
+msgid "One trackback"
+msgstr "1件のトラックバック"
+
+#: lib/functions/theme-functions.php:820
+msgid "No pinbacks/trackbacks"
+msgstr "ピンバックまたはトラックバックはありません"
+
+#: lib/functions/theme-functions.php:819
+msgid "% pingbacks/trackbacks"
+msgstr "%件のピンバックまたはトラックバック"
+
+#: lib/functions/theme-functions.php:818
+msgid "One pingback/trackback"
+msgstr "1件のピンバックまたはトラックバック"
+
+#: lib/functions/theme-functions.php:815
+msgid "No Comments"
+msgstr "コメントはまだありません"
+
+#: lib/functions/theme-functions.php:814
+msgid "% comments"
+msgstr "%件のコメント"
+
+#: lib/functions/theme-functions.php:813
+msgid "One comment"
+msgstr "1件のコメント"
+
+#: lib/functions/theme-functions.php:765
+msgid "View all posts in %s"
+msgstr "%s の投稿をすべて表示"
+
+#: lib/functions/theme-functions.php:719
+msgid "Your comment is awaiting moderation."
+msgstr "あなたのコメントは承認待ちです。"
+
+#: lib/functions/theme-functions.php:714
+msgid "Comment author #%1$s on %2$s by %3$s"
+msgstr "%2$s への %3$s 管理者によるコメント #%1$s"
+
+#: lib/functions/theme-functions.php:713
+msgid "none"
+msgstr "なし"
+
+#: lib/functions/theme-functions.php:711
+msgid "at"
+msgstr " "
+
+#: lib/functions/theme-functions.php:711
+msgid "F jS, Y"
+msgstr "Y年F月j日"
+
+#: lib/functions/theme-functions.php:315 lib/functions/widget-functions.php:193
+msgid "Comment on"
+msgstr "コメント先:"
+
+#: lib/functions/theme-functions.php:24 lib/functions/theme-functions.php:26
+#: lib/functions/theme-functions.php:28
+msgid "Archives for "
+msgstr "アーカイブ"
+
+#: lib/functions/theme-functions.php:17
+msgid "Page %s"
+msgstr "ページ %s"
+
+#: lib/functions/customizer-functions.php:1311
+msgid "Choose to disable or enable theme responsive mode for smaller screen or mobile"
+msgstr "小型スクリーンやモバイルでレスポンシブモードを有効化または無効化します"
+
+#: lib/functions/customizer-functions.php:1310
+msgid "Responsive Layout"
+msgstr "レスポンシブレイアウト"
+
+#: lib/functions/customizer-functions.php:1302
+msgid "Choose to disable or enable schema markup for site breadcrumb"
+msgstr "パンくずリストのスキーママークアップを有効化または無効化します"
+
+#: lib/functions/customizer-functions.php:1272
+msgid "Insert any code here. It will appeared after wp_footer().<br />*&lsaquo;script&rsaquo; tag not allowed. Read faq.txt on how to use script."
+msgstr "任意のコードを挿入します。wp_footer() の後に表示されます。<br />*&lsaquo;script&rsaquo; タグは使用できません。スクリプトを使用する方法は faq.txt をお読みください。"
+
+#: lib/functions/customizer-functions.php:1263
+msgid "Insert any code here. It will appeared after wp_head().<br />*&lsaquo;script&rsaquo; tag not allowed. Read faq.txt on how to use script."
+msgstr "任意のコードを挿入します。wp_head() の後に表示されます。<br />*&lsaquo;script&rsaquo; タグは使用できません。スクリプトを使用する方法は faq.txt をお読みください。"
+
+#: lib/functions/customizer-functions.php:1254
+msgid "Insert Ads code for the <strong>right</strong> sidebar.<br />*&lsaquo;script&rsaquo; tag not allowed. Read faq.txt on how to use script."
+msgstr "<strong>右</strong>サイドバーに広告コードを挿入します。<br />*&lsaquo;script&rsaquo; タグは使用できません。スクリプトを使用する方法は faq.txt をお読みください。"
+
+#: lib/functions/customizer-functions.php:1245
+msgid "Insert Ads code for the single post <strong>bottom</strong>. It will appeared before post content. <br />*&lsaquo;script&rsaquo; tag not allowed. Read faq.txt on how to use script."
+msgstr "個別投稿の<strong>下</strong>に広告コードを挿入します。<br />*&lsaquo;script&rsaquo; タグは使用できません。スクリプトを使用する方法は faq.txt をお読みください。"
+
+#: lib/functions/customizer-functions.php:1236
+msgid "Insert Ads code for the single post <strong>top</strong>. It will appeared before post content. <br />*&lsaquo;script&rsaquo; tag not allowed. Read faq.txt on how to use script."
+msgstr "個別投稿の<strong>上</strong>に広告コードを挿入します。<br />*&lsaquo;script&rsaquo; タグは使用できません。スクリプトを使用する方法は faq.txt をお読みください。"
+
+#: lib/functions/customizer-functions.php:1220
+#: lib/functions/customizer-functions.php:1228
+msgid "Add Embed Code or Image Banner Here<br />*&lsaquo;script&rsaquo; tag not allowed. Read faq.txt on how to use script."
+msgstr "埋め込みコードや画像バナーを追加します。<br />*&lsaquo;script&rsaquo; タグは使用できません。スクリプトを使用する方法は faq.txt をお読みください。"
+
+#: lib/functions/customizer-functions.php:1212
+msgid "468x60 or 728x90 Header Banner and Advertisment Embed Code"
+msgstr "468×60または728×90の、ヘッダーバナーと広告埋め込みコード"
+
+#: lib/functions/customizer-functions.php:1197
+msgid "How many posts?"
+msgstr "表示する投稿数"
+
+#: lib/functions/customizer-functions.php:1184
+msgid "Choose which category to featured."
+msgstr "おすすめにするカテゴリーを選択します。"
+
+#: lib/functions/customizer-functions.php:1128
+msgid "Add a list of post ids if you want to use posts as featured. <em>*leave blank to use above category ids featured</em><br /><strong style='font-size:13px;'>Post, Page and Custom Post Type Supported</strong><br /><small>example: 136,928,925,80,77,55,49</small>"
+msgstr "投稿をおすすめとして使用するには、投稿 ID のリストを追加します。<em>*上のカテゴリー ID のおすすめを使用するには、空白にする</em><br /><strong style='font-size:13px;'>投稿、固定ページとカスタム投稿タイプに対応</strong><br /><small>例: 136,928,925,80,77,55,49</small>"
+
+#: lib/functions/customizer-functions.php:1127
+msgid "Posts ID"
+msgstr "投稿 ID"
+
+#: lib/functions/customizer-functions.php:1117
+msgid "Limit to how many posts"
+msgstr "投稿数の上限"
+
+#: lib/functions/customizer-functions.php:1104
+msgid "Add a list of category ids if you want to use category as featured. <em>*leave blank to use bottom post ids featured</em><br /><small>example: 3,4,68</small>"
+msgstr "カテゴリーをおすすめとして使用するには、カテゴリ ID のリストを追加します。<em>*下の投稿 ID のおすすめを使用するには、空白にする</em><br /><small>例: 3,4,68</small>"
+
+#: lib/functions/customizer-functions.php:1103
+msgid "Categories ID"
+msgstr "カテゴリー ID"
+
+#: lib/functions/customizer-functions.php:1094
+msgid "Slider Height"
+msgstr "スライダーの高さ"
+
+#: lib/functions/customizer-functions.php:1080
+msgid "Enable Featured Slider"
+msgstr "おすすめスライダーの有効化"
+
+#: lib/functions/customizer-functions.php:1065
+msgid "Enable Custom Shop Style"
+msgstr "カスタムショップスタイル"
+
+#: lib/functions/customizer-functions.php:1052
+msgid "Enable Auto Sub Category in Primary Menu"
+msgstr "メインメニューの自動サブカテゴリーを有効化"
+
+#: lib/functions/customizer-functions.php:1027
+msgid "Enable Comments Close Notice"
+msgstr "コメント停止通知を有効化"
+
+#: lib/functions/customizer-functions.php:1015
+msgid "Enable Archive Header"
+msgstr "アーカイブヘッダー"
+
+#: lib/functions/customizer-functions.php:1002
+msgid "Enable Breadcrumbs"
+msgstr "パンくず表示"
+
+#: lib/functions/customizer-functions.php:989
+msgid "Enable Author Bio"
+msgstr "著者プロフィールの有効化"
+
+#: lib/functions/customizer-functions.php:960
+msgid "Enable Related Posts"
+msgstr "関連記事の表示"
+
+#: lib/functions/customizer-functions.php:941
+msgid "Enter Post Excerpt More Text"
+msgstr "続きを読むテキストを入力"
+
+#: lib/functions/customizer-functions.php:950
+msgid "Enter Post Excerpt Count"
+msgstr "抜粋の文字数を入力"
+
+#: lib/functions/customizer-functions.php:916
+msgid "Blog Post Style"
+msgstr "ブログ投稿スタイル"
+
+#: lib/functions/customizer-functions.php:902
+msgid "Featured Image Size"
+msgstr "アイキャッチ画像サイズ"
+
+#: lib/functions/customizer-functions.php:893
+msgid "Bottom Footer Background Color"
+msgstr "フッターの背景色"
+
+#: lib/functions/customizer-functions.php:880
+msgid "Top Navigation Background Color"
+msgstr "トップナビゲーションの背景色"
+
+#: lib/functions/customizer-functions.php:867
+msgid "Color Scheme"
+msgstr "配色"
+
+#: lib/functions/widget-functions.php:343
+#: lib/functions/widget-functions.php:464
+msgid "Disable"
+msgstr "無効化"
+
+#: lib/functions/widget-functions.php:342
+#: lib/functions/widget-functions.php:463
+msgid "Enable"
+msgstr "有効"
+
+#: lib/functions/customizer-functions.php:253
+#: lib/functions/customizer-functions.php:1319
+msgid "Custom CSS"
+msgstr "カスタム CSS"
+
+#: lib/functions/hooks-functions.php:333 lib/functions/hooks-functions.php:336
+msgid "%s Theme by Dezzain"
+msgstr "%s テーマ by Dezzain"
+
+#: lib/buddypress/bp-theme-functions.php:63
+msgid "Displays your BuddyPress Groups Randomly."
+msgstr "ランダムに BuddyPress グループを表示します。"
+
+#: lib/buddypress/bp-theme-functions.php:62
+#: lib/buddypress/bp-theme-functions.php:69
+msgid "BuddyPress Random Groups"
+msgstr "BuddyPress ランダムグループ"
+
+#: lib/buddypress/bp-theme-functions.php:85
+msgid "Name"
+msgstr "名前"
+
+#: lib/functions/hooks-functions.php:423 lib/templates/default-widget.php:14
+msgid "Search"
+msgstr "検索"
+
+#: lib/functions/hooks-functions.php:423
+msgid "Search for:"
+msgstr "検索: "
+
+#: image.php:43
+msgid "Edit"
+msgstr "編集"
+
+#: image.php:32
+msgid "<span class=\"meta-prep meta-prep-entry-date\">Published </span> <span class=\"entry-date\"><time class=\"entry-date\" datetime=\"%1$s\">%2$s</time></span> at <a href=\"%3$s\" title=\"Link to full-size image\">%4$s &times; %5$s</a> in <a href=\"%6$s\" title=\"Return to %7$s\" rel=\"gallery\">%8$s</a>."
+msgstr "<span class=\"meta-prep meta-prep-entry-date\">公開日時:</span> <span class=\"entry-date\"><time class=\"entry-date\" datetime=\"%1$s\">%2$s</time></span><a href=\"%3$s\" title=\"フルサイズ画像へのリンク\">%4$s &times; %5$s</a> (<a href=\"%6$s\" title=\"%7$s へ戻る\" rel=\"gallery\">%8$s</a>)"
+
+#: image.php:19
+msgid "Next &rarr;"
+msgstr "次 &rarr;"
+
+#: image.php:18
+msgid "&larr; Previous"
+msgstr "&larr; 前"
+
+#: functions.php:93 lib/functions/hooks-functions.php:440
+msgid "Home"
+msgstr "ホーム"
+
+#: functions.php:34
+msgid "Footer Menu"
+msgstr "フッターメニュー"
+
+#: functions.php:33
+msgid "Primary Menu"
+msgstr "メインメニュー"
+
+#: functions.php:32 lib/functions/theme-functions.php:248
+msgid "Top Menu"
+msgstr "トップメニュー"
+
+#: lib/functions/hooks-functions.php:312
+msgid "Y"
+msgstr "Y"
+
+#: lib/functions/hooks-functions.php:312
+msgid "Copyright &copy;"
+msgstr "Copyright &copy;"
+
+#: comments.php:44
+msgid "Sorry, comments are closed for this post"
+msgstr "コメントは受け付けていません"
+
+#: comments.php:13
+msgid "Subscribe to comments feed"
+msgstr "コメントフィードを購読する"
+
+#: comments.php:13
+msgid "stay updated with"
+msgstr "更新を受け取る:"
+
+#: comments.php:7
+msgid "% Comments Already"
+msgstr "%件のコメント"
+
+#: comments.php:7
+msgid "1 Comment Already"
+msgstr "1件のコメント"
+
+#: comments.php:7
+msgid "No Comments Yet"
+msgstr "コメントはまだありません"
+
+#: 404.php:23
+msgid "Don't worry, we are still here, just <a href='%s'>click here</a> to go back to civilization."
+msgstr "<a href='%s'>ここをクリック</a>して戻る。"
+
+#: 404.php:21
+msgid "The page no longer exist"
+msgstr "ページの削除"
+
+#: 404.php:20
+msgid "The page url has been change"
+msgstr "ページ URL の変更"
+
+#: 404.php:19
+msgid "The page has moved"
+msgstr "ページの移動"
+
+#: 404.php:17
+msgid "Perhaps you are here because:"
+msgstr "以下の原因が考えられます:"
+
+#: 404.php:16
+msgid "The page you requested cannot be found!"
+msgstr "お探しのページが見つかりません"
+
+#: 404.php:13 lib/functions/hooks-functions.php:606
+msgid "Error 404"
+msgstr "404エラー"
+
+#. Author URI of the plugin/theme
+msgid "http://www.dezzain.com"
+msgstr "http://www.dezzain.com"
+
+#. Author of the plugin/theme
+msgid "Richie KS"
+msgstr "Richie KS"
+
+#. Theme URI of the plugin/theme
+msgid "http://www.dezzain.com/wordpress-themes/mesocolumn/"
+msgstr "http://www.dezzain.com/wordpress-themes/mesocolumn/"

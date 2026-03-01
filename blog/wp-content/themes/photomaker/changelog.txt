@@ -1,0 +1,51 @@
+== Changelog ==
+
+= Theme Name: photomaker =
+
+= Version: 1.0.9=
+1. Added welcome page.
+2. Fixed Errors.
+
+= Version: 1.0.8=
+1. Popular Social Icons options added.
+
+= Version: 1.0.7=
+1. Theme URI and Footer links updated.
+
+= Version: 1.0.6=
+1. Change Styling on post.
+2. Add icons on post page.
+3. Resolve error on 404 page.
+
+= Version: 1.0.5=
+***************************
+* Theme option to WordPress customizer API migration.
+
+= Version: 1.0.4=
+***************************
+* Theme check issues fixed.
+* All text domain matched with theme directory.
+* Language .pot file matched with text domain.
+* Use add_theme_support( 'title-tag' ) with after_theme_setup hook and removed title tag from header.php.
+* Escaped Some Hard coded link. 
+
+= Version: 1.0.3=
+* Gallery style issue, Fixed.
+
+= Version: 1.0.2=
+* Site title and site description are small issue Fixed.
+* If you hover over the image hover is on a bigger area than the image issue Fixed.
+* Blog listing no margin in left side on small screen. eg. laptop issue Fixed.
+
+= Version: 1.0.1=
+* Deprecated add_custom_image_header function issue Fixed.
+* Undefined index: extension issue Fixed.
+* Undefined index: dirname issue Fixed.
+* Not found license of some js files issue Fixed. All js licensed included.
+* WordPress standard format issue Fixed. 
+* Code optimized.
+
+
+= Version: 1.0 =
+* photomaker Theme is created on 01/05/2014.
+

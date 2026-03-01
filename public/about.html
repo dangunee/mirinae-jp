@@ -105,6 +105,8 @@
     .access-address { font-size: 16px; font-weight: 600; margin: 16px 0 8px; }
     .access-list { margin: 12px 0 0 20px; }
     .access-list li { margin-bottom: 6px; }
+    .map-embed { margin-top: 20px; border-radius: 8px; overflow: hidden; border: 1px solid var(--gray-border); }
+    .map-embed iframe { display: block; width: 100%; height: 360px; border: 0; }
     .teacher-block { margin-bottom: 28px; display: flex; flex-wrap: wrap; align-items: flex-start; gap: 20px 24px; }
     .teacher-block .teacher-photo { flex-shrink: 0; margin-top: 16px; }
     .teacher-block .teacher-photo img { width: 140px; height: 200px; object-fit: contain; border-radius: 8px; display: block; border: 1px solid var(--gray-border); background: var(--gray-light); }
@@ -182,7 +184,10 @@
             <li>➡ 丸の内線、新宿御苑前駅から徒歩1分</li>
           </ul>
           <p style="margin-top: 20px;">■ JR新宿駅からの行き方 (TEL: 03-5925-8245)</p>
-          <p><a href="https://www.google.com/maps/search/?api=1&query=東京都新宿区新宿2-8-1+新宿セブンビル" target="_blank" rel="noopener">Google マップで開く</a></p>
+          <div class="map-embed">
+            <iframe src="https://www.google.com/maps?q=%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%96%B0%E5%AE%BF%E5%8C%BA%E6%96%B0%E5%AE%BF2-8-1+%E6%96%B0%E5%AE%BF%E3%82%BB%E3%83%96%E3%83%B3%E3%83%93%E3%83%AB&zoom=17&hl=ja&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="新宿教室の地図"></iframe>
+          </div>
+          <p style="margin-top: 12px;"><a href="https://www.google.com/maps/search/?api=1&query=東京都新宿区新宿2-8-1+新宿セブンビル" target="_blank" rel="noopener">Google マップで開く</a></p>
         </div>
       </div>
 

@@ -1,8 +1,23 @@
-node_modules
-.next
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs & debug
+*.log
+debug.log
+
+# WordPress (blog)
+# blog/wp-content/uploads/
+# blog/wp-content/cache/
+
+# 비밀/자격증명 - 절대 커밋하지 마세요
+credentials.json
+**/credentials.json
 .env
 .env.local
+
+# 기타
+node_modules
+.next
 *.db
 prisma/*.db
-.DS_Store
-*.log

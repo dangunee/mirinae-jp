@@ -1,0 +1,16 @@
+<html>
+
+<head>
+
+<title>test ssi </title>
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=euc-jp">
+
+
+test exec cmd= 
+
+ <!--#exec cmd="/bin/date"-->
+
+</body>
+
+</html>

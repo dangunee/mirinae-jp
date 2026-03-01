@@ -1,0 +1,2278 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+	<title>韓国語教室を東京でお探しなら日暮里・新宿のミリネ韓国語教室</title>
+
+	<link rel="stylesheet" href="css/reset-min.css" type="text/css" media="all" />
+	<link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+	<link rel="stylesheet" href="js/jquery.fancybox/jquery.fancybox.css" type="text/css" media="screen" />
+        <link href="css/bootstrap.css" rel="stylesheet">
+
+	
+	<!--[if IE 6]>
+		<link rel="stylesheet" href="css/ie.css" type="text/css" media="all" />
+	<![endif]-->
+<meta name="description" content="韓国語が初・中級で伸び悩んでいる方に選ばれる東京日暮里・新宿のミリネ韓国語教室。JR日暮里駅・新宿駅から徒歩5分と程近く入門・会話トレーニングレッスンのほか、毎日ツイッターやfacebookで様々なニュアンスの説明を行っている韓国語教室です。" />
+
+	<meta name="keywords" content="韓国語 入門　初心者　マンツーマン ニュアンス  韓国語教室 新宿 新大久保 代々木 日暮里 上野" />
+	<meta name="author" content="Simone Maranzana" />
+	<meta name="robots" content="all" />
+	
+	<!--[if lt IE 7]>
+    	<script type="text/javascript" src="js/unitpngfix.js"></script>
+	<![endif]--> 
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="js/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="js/ui.core.min.js"></script>
+<script type="text/javascript" src="js/ui.tabs.min.js"></script>
+<script type="text/javascript" src="js/cufon-yui.js"></script>
+<script type="text/javascript" src="js/bluz.js"></script>
+	<script type="text/javascript" src="js/jquery.fancybox-1.2.1.pack.js"></script>
+	
+    
+
+
+    
+	<script type="text/javascript">
+		$(document).ready(function(){
+			// Fancy box section
+			$("a.imgleft, a.imgright").fancybox(); 
+		});
+	</script>
+
+
+     
+
+		
+	<style>
+
+
+/* Main menu */
+
+#menu
+{
+	width: 100%;
+
+	padding: 4px 0 0 0;
+	list-style: none;  
+	background: #d54744;
+	background: -moz-linear-gradient(#d54744); 
+    background: -webkit-gradient(linear,left bottom,left top,color-stop(0, #a50000),color-stop(1, #540000));	
+	background: -webkit-linear-gradient(#d54744);	
+	background: -o-linear-gradient(#d54744);
+	background: -ms-linear-gradient(#d54744);
+	background: linear-gradient(#d54744);
+}
+
+#menu li
+{
+	float: left;	
+	margin: 0;
+	padding: 0 ;
+	position: relative;
+	line-height: 0;
+
+}
+
+#menu a 
+{
+	float: left;
+	height: 25px;
+	margin: 0;
+	padding: 0 ;
+	color: #ffffff;
+	text-transform: uppercase;
+
+	font: bold 13px/25px ヒラギノ角ゴ Pro W3, メイリオ,ＭＳ Ｐゴシック, Meiryo, Osaka;
+	text-decoration: none;
+		border-right-width: 1px;
+		border-right-color: #780000;
+
+}
+
+#menu li:hover > a
+{
+	color: #fafafa;
+}
+
+*html #menu li a:hover /* IE6 */
+{
+	color: #fafafa;
+}
+
+#menu li:hover > ul
+{
+	display: block;
+}
+
+/* Sub-menu */
+
+#menu ul
+{
+    list-style: none;
+    margin: 0;
+    padding: 0;    
+    display: none;
+    position: absolute;
+    top: 35px;
+    left: 0;
+    z-index: 99999;    
+    background: #c60000;
+    background: -moz-linear-gradient(#444, #111);
+    background: -webkit-gradient(linear,left bottom,left top,color-stop(0, #111),color-stop(1, #444));
+    background: -webkit-linear-gradient(#444, #111);    
+    background: -o-linear-gradient(#444, #111);	
+    background: -ms-linear-gradient(#444, #111);	
+    background: linear-gradient(#444, #111);
+
+ 
+    border-radius: 5px;
+}
+
+#menu ul ul
+{
+  top: 0;
+  left: 180px;
+}
+
+#menu ul li
+{
+    float: none;
+    margin: 0;
+    padding: 0;
+    display: block;  
+
+
+}
+
+#menu ul li:last-child
+{   
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;    
+}
+
+#menu ul a
+{    
+    padding: 10px;
+	height: 10px;
+	width: 180px;
+	height: auto;
+    line-height: 1;
+    display: block;
+    white-space: nowrap;
+    float: none;
+	text-transform: none;
+}
+
+*html #menu ul a /* IE6 */
+{    
+	height: 10px;
+}
+
+*:first-child+html #menu ul a /* IE7 */
+{    
+	height: 10px;
+}
+
+#menu ul a:hover
+{
+    background: #0186ba;
+	background: -moz-linear-gradient(#04acec,  #0186ba);	
+	background: -webkit-gradient(linear, left top, left bottom, from(#04acec), to(#0186ba));
+	background: -webkit-linear-gradient(#04acec,  #0186ba);
+	background: -o-linear-gradient(#04acec,  #0186ba);
+	background: -ms-linear-gradient(#04acec,  #0186ba);
+	background: linear-gradient(#04acec,  #0186ba);
+}
+
+#menu ul li:first-child > a
+{
+    -moz-border-radius: 5px 5px 0 0;
+    border-radius: 5px 5px 0 0;
+}
+
+#menu ul li:first-child > a:after
+{
+    content: '';
+    position: absolute;
+    left: 30px;
+    top: -8px;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 8px solid #444;
+}
+
+#menu ul ul li:first-child a:after
+{
+    left: -8px;
+    top: 12px;
+    width: 0;
+    height: 0;
+    border-left: 0;	
+    border-bottom: 5px solid transparent;
+    border-top: 5px solid transparent;
+    border-right: 8px solid #444;
+}
+
+#menu ul li:first-child a:hover:after
+{
+    border-bottom-color: #04acec; 
+}
+
+#menu ul ul li:first-child a:hover:after
+{
+    border-right-color: #04acec; 
+    border-bottom-color: transparent; 	
+}
+
+
+#menu ul li:last-child > a
+{
+    -moz-border-radius: 0 0 5px 5px;
+    border-radius: 0 0 5px 5px;
+}
+
+/* Clear floated elements */
+#menu:after 
+{
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
+}
+
+* html #menu             { zoom: 1; } /* IE6 */
+*:first-child+html #menu { zoom: 1; } /* IE7 */
+    </style>
+
+<!-- AdPacks -->
+<style>
+#adpacks-wrapper{font-family: Arial, Helvetica;width:280px;position: fixed;_position:absolute;bottom: 0;right: 20px;z-index: 9999;background: #eaeaea;padding: 10px;-moz-box-shadow: 0 0 15px #444;-webkit-box-shadow: 0 0 15px #444;box-shadow: 0 0 15px #444;}
+body .adpacks{background:#fff;padding:15px;margin:15px 0 0;border:3px solid #eee;}
+body .one .bsa_it_ad{background:transparent;border:none;font-family:inherit;padding:0;margin:0;}
+body .one .bsa_it_ad .bsa_it_i{display:block;padding:0;float:left;margin:0 10px 0 0;}
+body .one .bsa_it_ad .bsa_it_i img{padding:0;border:none;}
+body .one .bsa_it_ad .bsa_it_t{padding: 0 0 6px 0; font-size: 11px;}
+body .one .bsa_it_p{display:none;}
+body #bsap_aplink,body #bsap_aplink:hover{display:block;font-size:9px;margin: -15px 0 0 0;text-align:right;}
+body .one .bsa_it_ad .bsa_it_d{font-size: 11px;}
+body .one{overflow: hidden}
+
+
+.fb-like-box{
+	margin-left:5px;
+}
+
+.twitter-timeline{
+	margin-left:5px;
+}
+</style>
+
+
+<link rel="stylesheet" type="text/css" href="css/jquery-ui-1.7.3.custom.css" />
+
+
+<style type="text/css">
+<!--
+.style1 {font-size: 18px}
+.style3 {font-size: 36px}
+-->
+</style>
+</head>
+
+<body>
+
+
+	<div id="wrapper">
+	  <hr />
+	  <br />
+
+
+			<!-- BEGIN HEADER -->
+		<div id="logo1"> <a href="index.html" target="_top"><img src="img/logo5.png" alt="business logo" /></a>
+			
+	
+		</div>	  <div id="logo2">
+			<img style="margin-bottom:9px;" src="img/logo3.png" alt="business logo" /><br />
+<a href="about.html"> <strong>会社概要</strong></a>	&nbsp;/ &nbsp; <a href="teacher.html"> <strong>講師紹介</strong></a>&nbsp;/ &nbsp; <a href="cal.html"> <strong>総合スケジュール表</strong></a>	&nbsp;/ &nbsp;<a href="contact.html"> <strong>お問い合せ</strong></a>
+			
+	
+		</div>
+		<!-- END HEADER -->
+		<span class="clear"></span>
+		<!-- BEGIN PAGE -->	
+		<div id="page">
+					<!-- BEGIN NAVIGATION -->
+		<ul id="menu">	<li><a href="index.html"><img src="img/images/navi_01.png" alt=""/></a></li>
+	<li>
+		<a href="#"><img src="img/images/navi_02.png" alt=""/></a>
+		<ul>
+
+			<li>
+				<a href="kojin.html">個人レッスン</a></li>
+                	<li>
+				<a href="tanki.html">短期集中個人レッスン</a></li>
+                	<li>
+			<a href="netlesson.html">ネットレッスン</a></li>
+							
+			
+			
+			
+		</ul>
+	</li>
+    
+    	<li>
+				<a href="#"><img src="img/images/navi_03.png" alt=""/></a>
+				<ul>
+					
+				  <li><a href="group.html">少人数グループレッスン</a></li>
+				
+				</ul>				
+			</li>
+    
+	<li>
+    
+    <li>
+				<a href="#"><img src="img/images/navi_04.png" alt=""/></a>
+				<ul>
+					<li><a href="freetaliking.html">会話トレーニングレッスン</a></li>
+					<li><a href="rsvfreetalk.html">予約制フリートーキング
+</a></li>
+
+				</ul>				
+			</li>
+    <li>
+		<a href="#"><img src="img/images/navi_05.png" alt=""/></a>
+		<ul>
+			<li>
+				<a href="high.html">土曜上級講座</a>
+								
+			</li>
+			<li>
+
+				<a href="taisaku.html">試験対策</a>
+								
+			</li>
+			<li>
+				<a href="bunpo.html">文法クラス</a>
+									
+			</li>
+            	<li>
+				<a href="bungaku.html">韓国文学クラス</a>
+									
+			</li>
+		</ul>		
+	</li>    
+    
+ <li>
+		<a href="#"><img src="img/images/navi_06.png" alt=""/></a>
+		<ul>
+
+			<li>
+				<a href="nyumon.html">入門クラス</a></li>
+                	<li>
+				<a href="syokyu.html">初級クラス</a></li>
+                	<li>
+			<a href="tyukyu.html">中級クラス</a></li>
+					<li>
+			<a href="syutyu.php?syutyu=joukyu">上級クラス</a></li>
+									
+			
+			
+			
+		</ul>
+	</li>   
+    
+    <li>
+
+		<a href="#"><img src="img/images/navi_07.png" alt=""/></a>
+		<ul>
+			<li>
+				<a href="castigation.html">翻訳コース</a>
+								
+			</li>
+			<li>
+
+				<a href="netlesson.html">ネットレッスン</a>
+								
+			</li>
+			
+		</ul>		
+	</li>
+
+        <li>
+
+		<a href="trialesson.html"><img src="img/images/navi_08.png" alt=""/></a>	
+	</li>
+  
+   
+</ul>	
+		<!-- END NAVIGATION -->	
+			<span class="clear"></span>
+<hr />
+
+			<div id="content">
+			<div id="title">
+			  <div class="padd20">
+					<h2 style="padding-left:50px;">集中講座</h2>
+					<p style="color:#3A3A3A">新宿•日暮里の韓国語教室</p>
+			  </div>
+			</div>		
+				
+			<span class="clear"></span>
+			
+			<div id="content2">
+			  <div class="maincol">
+              
+              
+    <div class="padd20">             
+              
+              
+            	            
+	            
+<p align="left">
+
+
+ <strong><span class="style1"><font  color="#B50003"><span class="style3">2014年11月集中講座
+
+
+(11/22-24)</span><br />
+3日間の集中講座で韓国語の力を高めましょう。</font><br />
+<font  color="#04438a"> リピーターの多い集中講座！</font><font  color="#04438a"></font></span><br />
+ </strong>
+<img style="margin-top:10px;" src="http://www.mirinae.jp/picture/classroom/new2/syutyu.gif" alt=""/>
+
+
+
+
+<br /><br />
+
+
+★入門から上級まで<br />
+
+★ 独学で学んでいる方、日頃忙しい方、短期間で実力を上げたい方におすすめです。<br />
+
+★ 飛行機代を節約したプチ留学。初級以上は韓国語で授業を進行。3日間韓国語漬けです。<br />
+
+★語彙・表現・文法を同時に学べ、韓国語能力を底上げできます。<br />
+
+★伸び悩んでいる初級者・中級者にお勧めです。<br />
+
+★一度受講するだけで、もやもやしていた気持ちがすっきりします！<br />
+
+★試験の中で最も難しい韓作文に的を絞った講座です。初級以上は毎回新しい教材を<br />
+用意しています。そのためリピーターが多く、地方からもたくさんの方が参加されています。<br />
+今回20回目の方もいらっしゃいます。<br />
+
+★普段、気になっていたことの質問を受け付けます。この機会に疑問をスッキリと解決なさってください。<br />
+
+★入門から上級まで全てのレベルに合わせて講座を用意しております。<br />
+
+★ハングル検定・韓国語能力試験対策になります。<br />
+
+★みな様の韓国語力の飛躍のため講師一同がんばります。お待ちしております。<br /><br />
+<table class="table table-bordered table-striped">
+	            
+                
+                <tr>
+			            <td width="13%" bgcolor="#daf1c6"><code2>日時</code2></td>
+			            <td width="87%">■&nbsp;3日間&nbsp;&nbsp;11/22（土）23（日）24（祝）</td>
+                </tr>
+                      
+                      
+                      
+                      
+        <tr>
+			            <td bgcolor="#daf1c6"><code2>場所</code2></td>
+			            <td>■&nbsp;日暮里本校</td>
+                </tr>              
+                      
+                      
+                      
+                      
+                
+    
+			          
+                      
+             <tr>
+			            <td bgcolor="#daf1c6"><code2>レッスン料</code2></td>
+			            <td><p align="left"><strong> </strong>（一日4時限×3日間=12レッスン）</p>
+                          <p align="left"><strong>1日間: 13,000円</strong></p>
+                          <p align="left"><strong>2日間: 25,900円</strong></p>
+                          <p align="left"><strong>3日間: 29,900円</strong></p>
+                          <p align="left">* 初級+中級=　59,800円→<strong>49,800円</strong></p>
+                          <p align="left"><strong>* 受講レベルを迷っている方へ！</strong></p>
+                          <p align="left">入門と初級、中級と上級は同じ時間帯にです。受講途中で「やっぱり難しい」「思ったより簡単だ」という場合にレベル変更が可能です。</p>                         
+  </td>
+                </tr>
+                
+                
+	                                 
+                      
+                      
+                      
+			          <tr>
+			            <td bgcolor="#daf1c6"><code2><strong>人数</strong></code2></td>
+			            <td>■&nbsp;3－10人（3人から開講します）
+			            </td>
+		              </tr>
+			          <tr>
+			            <td bgcolor="#daf1c6"><code2>時間</code2></td>
+			            <td>■&nbsp;1時限 50分<br />
+<br />
+<table class="table table-bordered table-striped">
+                <tr>
+                    <td width="94">
+
+                        <p align="center"><FONT color=#000000><SPAN 
+style="LINE-HEIGHT: 125%">時間</SPAN></FONT></p>
+                    </td>
+                 
+                    <td width="287" colspan="2">
+
+                        <p><FONT color=#000000><SPAN 
+style="LINE-HEIGHT: 125%">10/11～10/13</SPAN></FONT></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="94">
+
+                        <p align="center"><FONT color=#000000><SPAN 
+style="LINE-HEIGHT: 125%"> 9:00-13:00</SPAN></FONT></p>
+                    </td>
+                  
+                    <td width="142">
+                        <p><FONT color=#000000><SPAN 
+style="LINE-HEIGHT: 125%"><a href="nyumon.html#nyumon">入門</a> </SPAN></FONT></p>
+                    </td>
+                    <td width="143"><a href="syokyu.html#syokyu">初級</a>　</td>
+                </tr>
+                <tr>
+                    <td width="94">
+
+                        <p align="center">13:00-14:00</p>
+                    </td>
+                
+                    <td width="287" colspan="2">
+                        <p><FONT color=#000000><SPAN 
+style="LINE-HEIGHT: 125%">昼休み</SPAN></FONT></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="94">
+
+                        <p align="center">14:00-18:00</p>
+                    </td>
+                
+                    <td width="142">
+                        <p><FONT color=#000000><SPAN 
+style="LINE-HEIGHT: 125%"><a href="tyukyu.html#tyukyu">中級</a>　</SPAN></FONT></p>
+                    </td>
+                    <td width="143"><a href="joukyu.html#jyokyu">上級</a>　</td>
+                </tr>
+            </table>
+
+</td>
+		              </tr>
+                      
+    <tr>
+			            <td bgcolor="#daf1c6"><code2>■手続き</code2></td>
+			            <td>受講を希望される方は下記のお申し込みフォームに必要事項を入力後、送信して下さい。<br />  
+
+        電話でのお問合せはこちらへ☞(☎ : 03-6458-3499)<br />
+
+②メールが届きましたら、授業料のお振込締切日をお知らせします。<br />
+
+③予習範囲をお知らせします。<br />
+
+④定員になり次第、予定より早く締め切る場合もございます。 </td>
+                </tr>                    
+                      
+		            </table>
+
+
+
+</p>
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+              
+   </div>           
+              
+                 
+              
+              
+              
+              
+              
+			    <!-- tabs START here -->
+			    <div id="tabs">
+			      <!-- tabs navigation START here -->
+			      <ul>
+			        <li><a href="#hosting"><strong>入門クラス</strong></a></li>
+			        <li><a href="#design">初級クラス</a></li>
+			        <li><a href="#seo">中級クラス</a></li>
+                    <li><a href="#seo2">上級クラス</a></li>
+		          </ul>
+			      <!-- tabs navigation END here -->
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+			      <!-- tabs #1 content START here -->
+			      <div id="hosting">
+<img style="margin-top:15px; margin-left:5px;" src="img/toku.jpg" width="595" height="42" alt=""/>
+<div id="moreserv">
+
+
+
+
+
+
+
+
+
+
+
+	            
+ <a name="nyumon"></a>
+ <p align="left"><strong> <font color="#990000">入門クラス：初めてハングルに接する方歓迎です！読み方、書き方から基本会話まで丁寧に指導します。</font></strong><hr />
+入門クラス（ミリネオリジナル教材）：ハングル文字の構成、書き方、読み方、音変化のルールについて説明し、動詞や形容詞を「辞書形」から「です・ます形（ニダ体、ヨ体）」にできるよう練習します。<br />
+また簡単な日常会話、旅行会話にもチャレンジし、韓国語を直接聞いて、声に出す練習をします。<br />
+<br />
+
+</p> 
+                 
+		            </div>
+			        <div class="clear"></div>
+			        <div class="clear"></div>
+                    
+                    
+                    <table class="table table-bordered table-striped">
+	            <tr>
+			            <td width="20%" bgcolor="#daf1c6"><code2>対象</code2></td>
+			            <td width="80%">■&nbsp;入門</td>
+                </tr>
+                
+                <tr>
+			            <td bgcolor="#daf1c6"><code2>時間</code2></td>
+			            <td>■&nbsp;入門クラス： 9：00－13：00（3日間、12時限）</td>
+                </tr>
+                      
+                      
+                  <tr>
+			            <td bgcolor="#daf1c6"><code2>対象</code2></td>
+			            <td>　・ 韓国語を最初からきちんと学びたい方。<br />
+
+
+　・ 韓国語の発音をしっかり押さえておきたい方。<br />
+
+　・ ハングル検定5級、韓国語能力試験初級の合格を目指している人。<br />
+
+　・ とにかく韓国語で会話がしたい方。<br />
+
+　・　ハングル、韓国の文化などに興味のある方。</td>
+                </tr>    
+                      
+        <tr>
+			            <td bgcolor="#daf1c6"><code2>目標</code2></td>
+			            <td>１．ハングルを読めて書けるようになります。音変化の9つのルールについて学びます。<br />
+
+
+２．韓国語での簡単な挨拶や自己紹介、観光で使える会話が身につきます。<br />
+
+３．ハングル検定5級レベルの単語を学び、簡単な作文が可能になります。<br />
+
+４．動詞、形容詞を活用し、ニダ体とヨ体の語尾を作れるようになります。</td>
+                </tr>              
+                      
+                      
+                      
+                      
+                
+    
+			          
+                      
+             <tr>
+			            <td bgcolor="#daf1c6"><code2>入門</code2></td>
+			            <td>
+                        
+                        
+                        
+                        
+     <table class="table table-bordered table-striped">
+                <tr>
+                    <td width="45">時限</td>
+                    <td width="111">　　<b>　授業名</b></td>
+                    <td width="321">　　　　　　説明</td>
+                </tr>
+                <tr>
+                    <td width="489" height="71" colspan="3">   <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<FONT color=#000000><SPAN 
+style="LINE-HEIGHT: 125%">１日目</SPAN></FONT> </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="45">
+
+                        <p>1時限</p>
+                    </td>
+                    <td width="111">
+
+                        <p><b>ハングルの構成と発音</b></p>
+                    </td>
+                    <td width="321">
+
+                        <p>ハングル文字の仕組みを理解し、基本母音と子音（平音、激音）の発音と書き方を学びます。基本単語に触れながら、有声音化について学びます。自分の名前をハングルで書けるようになります。</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="45">
+
+                        <p>2時限</p>
+                    </td>
+                    <td width="111">
+
+                        <p><b>ハングルの構成と発音</b></p>
+                    </td>
+                    <td width="321">
+
+                        <p>基本単語を通して、複合母音の仕組みと発音、濃音の発音の仕方について学びます。</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="45">
+
+                        <p>3時限</p>
+                    </td>
+                    <td width="111">
+
+                        <p><b>ハングルの構成と発音</b></p>
+                    </td>
+                    <td width="321">
+
+                        <p>基本単語を通してパッチムの発音の仕方（代表音）について学びます。</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="45">
+
+                        <p>4時限</p>
+                    </td>
+                    <td width="111">
+
+                        <p><b>韓国語会話</b></p>
+                    </td>
+                    <td width="321">
+
+                        <p>挨拶、自己紹介、趣味について韓国語で話せるようになります。相手の話す韓国語を聞き取れるようになります。</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="489" colspan="3" height="53">
+
+                        <p>　　　　　　　　　　　　　　　　　<FONT color=#000000><SPAN 
+style="LINE-HEIGHT: 125%">２日目</SPAN></FONT> </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="45">
+
+                        <p>1時限</p>
+                    </td>
+                    <td width="111">
+
+                        <p><b>音変化のルール</b></p>
+                    </td>
+                    <td width="321">
+
+                        <p>基本単語や助詞を通して、連音化、口蓋音化、ㅎの弱音化について学びます。</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="45">
+
+                        <p>2時限</p>
+                    </td>
+                    <td width="111">
+
+                        <p><b>文法</b></p>
+                    </td>
+                    <td width="321">
+
+                        <p>ニダ体の仕組みを学びます。基本用言（動詞、形容詞）の辞書型からニダ体への作り方を学び、再度ニダ体から辞書型へと戻せるようになります。</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="45">
+
+                        <p>3時限</p>
+                    </td>
+                    <td width="111">
+
+                        <p><b>文法</b></p>
+                    </td>
+                    <td width="321">
+
+                        <p>ヨ体の仕組みを学びます。基本用言（動詞、形容詞）の辞書型からヨ体への作り方を学び、再度ヨ体から辞書型へと戻せるようになります。疑問詞を学びます。</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="45">
+
+                        <p>4時限</p>
+                    </td>
+                    <td width="111">
+
+                        <p><b>韓国語会話</b></p>
+                    </td>
+                    <td width="321">
+
+                        <p>ショッピング、食事の場面での韓国語会話を身につけ、相手の話す韓国語を聞き取れるようになります。</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="489" colspan="3" height="61">  <p>&nbsp;　　　　　　　　　　　　　　　　　<FONT color=#000000><SPAN 
+style="LINE-HEIGHT: 125%">３日目</SPAN></FONT> </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="45">
+
+                        <p>1時限</p>
+                    </td>
+                    <td width="111">
+
+                        <p><b>音変化のルール</b></p>
+                    </td>
+                    <td width="321">
+
+                        <p>基本単語を通して、激音化、濃音化、鼻音化について学びます。</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="45">
+
+                        <p>2時限</p>
+                    </td>
+                    <td width="111">
+
+                        <p><b>音変化のルール</b></p>
+                    </td>
+                    <td width="321">
+
+                        <p>基本単語を通して、流音、ㄴ挿入について学びます。</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="45">
+
+                        <p>3時限</p>
+                    </td>
+                    <td width="111">
+
+                        <p><b>短作文</b></p>
+                    </td>
+                    <td width="321">
+
+                        <p>今回学んだ基本単語と助詞を使って、短い作文ができるようになります（ニダ体、ヨ体、単語、音変化ルールの復習）。</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="45">
+                        <p>4時限</p>
+                    </td>
+                    <td width="111">
+
+                        <p><b>K-POP</b></p>
+                    </td>
+                    <td width="321">
+
+                        <p>韓国語の歌を通して３日間の総復習をします。韓国語を耳で聴いて声を出すことを通して、今回学んだ音変化のルールや基本文法総復習することで、基礎がしっかり身につきます。</p>
+                    </td>
+                </tr>
+            </table>                     
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+  </td>
+                </tr>
+                
+                
+	                                 
+                      
+                      
+                      
+			          
+			          <tr>
+			            <td bgcolor="#daf1c6"><code2>キャンセル料</code2></td>
+			            <td>※キャンセルは受講日の1週間前までにお願いします。振り込み手数料を除いて返金します。<br />
+キャンセル料は教室の授業のキャンセル料に準じて発生しますのでご注意ください。</td>
+		              </tr>
+                      
+    <tr>
+			            <td bgcolor="#daf1c6"><code2>その他</code2></td>
+			            <td>受講中の授業に関しての相談は<a href="mailto:info@kaonnuri.com">info@kaonnuri.com</a>へ </td>
+                </tr>                    
+                      
+		            </table>
+			       
+			        <hr />
+			      
+			        <p align="left"><code>■&nbsp;お申し込み：</code>受講を希望される方は下記のお申し込みフォームに必要事項を入力後、送信して下さい。</p>
+			        <a href="trialesson.html" class="btn btn-success">お申込みの方はクリックしてください。</a><br />
+			        <br />
+			      
+                    
+                    
+                    <img style="margin-bottom:10px; margin-left:5px;" src="img/hoka.jpg" width="595" height="42" alt=""/>
+                    <p align="left"><code>■&nbsp;予約・キャンセル料・中途解約・手続き等 </code> </p> <a href="etc3.html" class="btn btn-primary"><font color="#fff">その他手続きはクリックしてください。</font></a> <br />
+			        <br />
+                   
+        <hr />
+                       <img style="margin-bottom:10px; margin-left:5px;" src="img/koe2.jpg" width="595" height="42" alt=""/>
+                    <div class="clear"></div>
+                    
+                       <h3>&nbsp;</h3>
+			        <div class="smallcol11">
+			          <div class="padd20">
+			         
+			            <ul class="news">
+			              <li>
+　　　　　　　　　　　　　　　　　　　　 <h5 class="date">10月集中講座 感想文 </h5>
+
+			                <p>Y 様  <br />
+		                    </p>
+ <div class="red">3日間、1日4時間で長いと思っていましたが、終わってみると早くて、内容が濃いものでした。以前勉強していた連音化が今回は理解できました。覚えるには短い3日間でしたので、今回を機にもう一度勉強したいと思いました。文法だけでなく会話もあり、楽しく勉強することができました。旅行に行ったときにも活躍できるフレーズばかりでためになりました。3日間お世話になりました。楽しく勉強ができ、本当にありがとうございました。<red><hr></div>
+			                <br />
+			                <h5 class="date">2014年 GW4月集中講座 感想文 </h5>
+			                <p>SB 様  <br />
+		                    </p>
+			                <div class="red">初めての韓国語教室だったので初めは分からないことだらけでしたが、3日間来るたびに少しずつ理解できて来ました。なので、3日間集中して勉強できて良かったととても感じています。また、レッスンもとても分かりやすく、何故こうなのか、何故こうなるのかを説明していただけたので、理解しやすかったです。今回学んだ事を復習してまた来ます^^</div>
+			                <br />
+			             <p>TK 様  <br />
+		                    </p>
+			                <div class="red">とても楽しかったです。だんだん読めるようになってきて自分でもびっくりしました。継続していけると話せるようになるかなと思いました。</div>
+			               
+			                <br />
+			                <a href="koeall5.html#1koe" class="more">..もっと見る</a>
+			                <p></p>
+		                  </li>
+		                </ul>
+		              </div>
+		            </div>
+			        
+		          </div>
+			      <!-- tabs #1 content END here -->
+                  
+                  
+                  
+                  
+                  
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+ 		      <!-- tabs #2 content START here -->
+			      <div id="design">
+ <img style="margin-top:15px; margin-left:5px;" src="img/toku.jpg" width="595" height="42" alt=""/>
+<div id="moreserv">
+
+
+
+
+
+
+
+
+
+
+
+	            
+<a name="syokyu"></a><p align="left"><strong> <font color="#990000">	初級講座：基本的な文法と語彙を用いて、日常会話ができるように導きます。</font></strong><hr />
+<strong>１．基本的な文法を完璧に身につけて、簡単な会話ができるようになります。<br />
+
+２．添削を通して、間違っている表現や曖昧に理解している文法を見つけ、正しく直しながら文法が身につきます。<br />
+<br />
+</strong> 日本人が苦手な数字、単位（助数詞）、色などについての文章を通じて、分かりやすく学びます。<br />
+
+一緒に繰り返し練習することで、その場でしっかり身につくように導きます。<br />
+<br />
+
+</p> 
+                 
+		            </div>
+			        <div class="clear"></div>
+                    <img style="margin-bottom:10px; margin-left:5px;" src="img/syosai.jpg" width="595" height="42" alt=""/>
+                    <div class="clear"></div>
+                    
+                    
+                    <table class="table table-bordered table-striped">
+	            <tr>
+			            <td width="20%" bgcolor="#daf1c6"><code2>対象</code2></td>
+			            <td width="80%">■&nbsp;初級</td>
+                </tr>
+                
+                <tr>
+			            <td bgcolor="#daf1c6"><code2>時間</code2></td>  <td>■&nbsp;初級クラス： 9：00－13：00（3日間、12時限）</td>
+                </tr>
+                      
+                      
+                  <tr>
+			            <td bgcolor="#daf1c6"><code2>対象</code2></td>
+			            <td>　・　中級の前に、初級文法をまとめて整理したいと思う方<br />
+
+
+・　ハングル検定3・4級、韓国語能力試験初級の合格を目指している方。<br />
+
+・　韓国語の作文が苦手な方<br />
+
+・　会話の練習がしたい方</td>
+                </tr>    
+                      
+        <tr>
+			            <td bgcolor="#daf1c6"><code2>目標</code2></td>
+			            <td><strong>１．基本的な文法を完璧に身につけて、簡単な会話ができるようになります。<br /><br />
+
+
+２．添削を通して、間違っている表現や曖昧に理解している文法を見つけ、正しく直しながら文法が身につきます。<br /><br />
+			            </strong>
+ 日本人が苦手な数字、単位（助数詞）、色などについての文章を通じて、分かりやすく学びます。<br /><br />
+
+一緒に繰り返し練習することで、その場でしっかり身につくように導きます。<br /><br />
+
+ 
+
+＊使用教材： ミリネ独自のテキストを使います。<br />
+
+<strong>添削問題を通して文法を体系的に理解し、初級者に必要な頻出単語が身につきます。</strong></td>
+                </tr>              
+                      
+                      
+                      
+                      
+                
+    
+			          
+                      
+             <tr>
+			            <td bgcolor="#daf1c6"><code2>初級</code2></td>
+			            <td>
+                        
+                        
+ <table class="table table-bordered table-striped">
+                <tr>
+                    <td width="33"><font size="3">時限</font></td>
+                    <td width="63"><font size="3">授業名</font></td>
+                    <td width="440"><font size="3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;内容</font></td>
+                   </tr>
+                <tr>
+                    <td width="527" height="9" colspan="4">
+                        <p><font size="3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font>11月22日（１日目）</p>
+                    </td>
+                </tr>
+               <tr>
+                 　　<td width="33">1</td>
+                    <td width="63">会話</td>
+                   <td width="440">各テーマに関連するテーマや文型を学び、そのテーマについてお互いに意見交換する。</td>
+                </tr>
+                 <tr>
+                 　<td>2&3</td>
+                    <td>韓作文の添削</td>
+                   <td width="440">受講生の方にあらかじめ送付させていただいた課題をもとに、
+　　　　　日本語母語話者が間違えやすい表現を、
+　　　　　より自然な韓国語に直し、類似表現や微妙なニュアンスの違いなどを説明するレッスンです。
+</td>
+                </tr>
+              
+                 <tr>
+                 　　<td>4</td>
+                    <td>会話</td>
+                   <td width="440">社会、経済、国際、文化、生活に関連した記事を読んで理解した後、討論する。</td>
+                </tr>
+                <tr>
+                    <td width="527" colspan="4">
+
+                        <p><font size="3">　　　　　　　　　　　　　　　　11月23日</font>（２日目）</p>
+                    </td>
+                </tr>
+               <tr>
+                 　　
+                 <td>1&2</td>
+                    <td>韓作文の添削</td>
+                   <td width="440">受講生の方にあらかじめ送付させていただいた課題をもとに、
+　　　　　日本語母語話者が間違えやすい表現を、
+　　　　　より自然な韓国語に直し、類似表現や微妙なニュアンスの違いなどを説明するレッスンです。
+</td></tr>
+                 　　<td>3</td>
+                    <td>会話</td>
+                   <td width="440">各テーマに関連するテーマや文型を学び、そのテーマについてお互いに意見交換する。</td>
+                </tr>
+                 <tr>
+                 　　<td>4</td>
+                    <td>韓国の文化</td>
+                   <td width="440"></td>
+                </tr>
+               
+                    <tr>
+                        <td width="527" colspan="4">
+                            <p><font size="3">&nbsp;　　　　　　　　　　　　　　　11月24日　</font>（３日目）</p>
+                        </td>
+                    </tr>
+                    <tr>
+                 　　<td>1&2</td>
+                    <td>韓作文の添削</td>
+                   <td width="440">受講生の方にあらかじめ送付させていただいた課題をもとに、
+　　　　　日本語母語話者が間違えやすい表現を、
+　　　　　より自然な韓国語に直し、類似表現や微妙なニュアンスの違いなどを説明するレッスンです。
+</td>
+                 <tr>
+                 　　<td>3</td>
+                    <td>会話</td>
+                   <td width="440">各テーマに関連するテーマや文型を学び、そのテーマについてお互いに意見交換する。</td>
+                </tr>
+                 <tr>
+                 　　<td>4</td>
+                    <td>ゲームか歌</td>
+                   <td width="440">韓国語の単語を、簡単な韓国語で説明してみたり、先生や受講生が説明した単語を当ててみたりするレッスンです。
+　　　　　　また、クロスワードパズルなども通じて、楽しく語彙力をアップさせるレッスンです。</td>
+                </tr>
+                </table>    
+
+
+
+                        
+   ■用意するもの　<br />
+
+
+・ 初級：ミリネ独自のテキストを使います。<br />
+
+※簡単な韓作文の予習があります。                     
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+  </td>
+                </tr>
+                
+                
+	                                 
+                      
+                      
+                      
+			          
+			          <tr>
+			            <td bgcolor="#daf1c6"><code2>キャンセル料</code2></td>
+			            <td>※キャンセルは受講日の1週間前までにお願いします。振り込み手数料を除いて返金します。<br />
+キャンセル料は教室の授業のキャンセル料に準じて発生しますのでご注意ください。
+
+</td>
+		              </tr>
+                      
+    <tr>
+			            <td bgcolor="#daf1c6"><code2>その他</code2></td>
+			            <td>受講中の授業に関しての相談は<a href="mailto:info@kaonnuri.com">info@kaonnuri.com</a>へ </td>
+                </tr>                    
+                      
+		            </table>
+			       
+			        <hr />
+			      
+			        <p align="left"><code>■&nbsp;お申し込み：</code>受講を希望される方は下記のお申し込みフォームに必要事項を入力後、送信して下さい。</p>
+			        <a href="trialesson.html" class="btn btn-success">お申込みの方はクリックしてください。</a><br />
+			        <br />
+			      
+                    
+                    
+                    <img style="margin-bottom:10px; margin-left:5px;" src="img/hoka.jpg" width="595" height="42" alt=""/>
+                    <p align="left"><code>■&nbsp;予約・キャンセル料・中途解約・手続き等 </code> </p> <a href="etc3.html" class="btn btn-primary"><font color="#fff">その他手続きはクリックしてください。</font></a> <br />
+			        <br />
+                   
+                      <hr />
+                       <img style="margin-bottom:10px; margin-left:5px;" src="img/koe2.jpg" width="595" height="42" alt=""/>
+                    <div class="clear"></div>
+                    
+                       <h3>&nbsp;</h3>
+			        <div class="smallcol11">
+			          <div class="padd20">
+			         
+			            <ul class="news">
+			              <li><h5 class="date">10月集中講座 感想文</h5>
+
+<p>T様 <br />  </p>
+<div class="red">2回目の集中講座であったが、普段充分理解できていないことが多く、確認できでよかった。作文が多く、自分の間違いがよく理解できた。会話の時間が多く、なかなか単語や表現が出てこなかったが先生がフォローしてくださるので非常に勉強になります。いろいろな先生が教えてくださるので、新鮮な気分で受講できてよかったです。
+ </div>
+			                <br />
+<p>N様 <br />  </p>
+<div class="red">集中コースしか取っていないのですが、この学校に通って半年ぐらい経ちます。少しずつですが自分でも力がついてきているのが実感できます。毎回違う講義内容なので、あきずに続けられています。
+  </div>
+			                <br />
+<p>S様<br />  </p>
+<div class="red">3日間ありがとうございました。内容が濃くとてもよかったです。楽しく学ばせていただきました。落ちていたモチベーションが上がったような気がします。またよろしくお願いします。
+   <hr></div>
+			                <br />
+ 
+<h5 class="date">8月集中講座 感想文</h5>
+<p>T様<br />  </p>
+<div class="red">まだ韓国語を学習し始めて日が浅いので、初級を受講するのが不安でしたがとってもためになりました。これから学習るのに励みになりました。
+ </div>
+			                <br />
+<p>S様<br />  </p>
+<div class="red">集中講座のおかげで有意義な充実した夏休みを過ごすことが出来ました。どうもありがとうございました。テキスト、作文ともにもう一度時間をかけて、じっくり復習します（笑）。
+基本がまだまだしっかりしてない私にとってはとてもよい励みになりました。
+ </div>
+			                <br />
+<p>S.N様<br />  </p>
+<div class="red">毎日2時間の作文が充実していてよかった。次回も参加を検討したい。
+ </div>
+			                <br />
+<p>N様<br />  </p>
+<div class="red">70問の韓作文、大変でしたがすごく勉強になりました。やはり文を作るという作業は手間もかかりますが、辞書や文法書を手にすることで一文一文に思いがあり先生の説明が本当に手に取るように分かりました。
+間違いだらけの韓作文ですが（赤ペンだらけ）、記念のノートになりました。これから、習った文法を自分なりに整理してマイ参考書を作りたいと思います。
+歌も、全く知らない歌ですが、訳したおかげで単語＆ニュアンスを覚えることが出来ました（歌は同じ分を繰り返すので嫌でも耳に残ります）。5日間ありがあとうございました。文法、しっかりと身に付けます。
+  </div>
+			                <br />
+<p>T.D様<br />  </p>
+<div class="red">日本語の微妙な言い回しの作文が多く、文脈に合わせた表現を勉強できてよかったです。
+   </div>
+			                <br />
+<p>H様<br />  </p>
+<div class="red">多貞先生の講義は例文に対して皆の答えから間違いやすい文法などを教えて頂きとても分かりやすかったです。1日4時間は意外にあっという間でした。また時間が合えば勉強死体です（ちょっと家から遠いですが）。ありがとうございました。
+最終日に教えていただいた授業も面白く分かりやすかったです。</div>
+			                <br />
+ 
+<p>A様<br />  </p>
+<div class="red">集中して単語や作文の演習をすることで表現を広げることができてよかったです。作文演習は難しかったですが、自分の苦手な内容が分かり、非常にためになりました。
+またチャンスがあったら受講しに来ますので、よろしくお願いします！
+5日間ありがとうございました。</div>
+			                <br />
+ 
+<p>N.M様<br />  </p>
+<div class="red">今回は2日間だけの参加でしたが、韓訳の宿題があり、大変でしたが勉強になりました。
+ </div>
+			                <br />
+<p>S.M様<br />  </p>
+<div class="red">文章を見ることも書くことも初めてだったので、とにかく書き写して文章に慣れていこうと思いました。何度も出てきた言葉は、覚えられたと思います。ついていくことが大変でしたが、今後も諦めずに頑張りたいと思います。
+ <hr> </div>
+			                <br />
+ 
+<h5 class="date">7月集中講座感想文</h5>
+<p>Y様<br />  </p>
+<div class="red">充実した三日間でした。これまで曖昧のままにしていた発音や表現が、改めて説明を聞いて随分整理できたように思います。特に助詞、副詞などの使い分けや、微妙なニュアンスの違いなどがよく分かり、今後の学習にとても役に立ちました。いつもは個人レッスンなのですが、ほかの受講生の方々の異なる表現を伺ったり休憩時間におしゃべりをしながらのレッスンはとても楽しかったです。また日程が合えばぜひ受講したいと思います。ありがとうございました。
+  </div>
+			                <br />
+<p>T様<br />  </p>
+<div class="red">先生方が熱心に教えてくださり、非常にためになりました。質問にも丁寧に答えて頂き助かりました。
+いろいろな先生に教えて頂いたので多面的に学べました。
+欲を言うならテキストを事前に送付頂き予習しやすいようにしていただけると嬉しいです。
+静岡から参加しましたが、３日間の集中講座で交通費も宿泊費も効率的に使え、地方在住のデメリットも少しは緩和しやすい講座だと思います。
+   <hr> </div>
+			                <br />
+  
+
+			                <h5 class="date">2014年 GW4月集中講座 感想文 </h5>
+			                <p>H様 <br />
+		                    </p>
+			                <div class="red">
+
+まだ私のレベルでは少し難しかったです。でも時々聞いたことのある言葉、文法が出てきて楽しかったです。家に帰ってまた復習頑張ります。ありがとうございました。감사합니다.</div>
+			                <br />
+			               <p>N様 <br />
+		                    </p>
+			                <div class="red">今まで一人で勉強していたため韓国語を話す機会がなかったのですが、今日初めて会話をして発音をいろいろ直してもらえたのがよかったです。韓国語はまだ勉強を続けたいので、スケジュールが合えば集中コースか週末のコースも検討したいと思いました。</div>
+			               
+			                <br />
+			                 <a href="koeall5.html#2koe" class="more">..もっと見る</a>
+			                <p></p>
+		                  </li>
+		                </ul>
+		              </div>
+		            </div>
+			        
+		          </div>
+			      <!-- tabs #2 content END here -->
+                            
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+ 
+ 		      <!-- tabs #3 content START here -->
+			      <div id="seo">
+ <img style="margin-top:15px; margin-left:5px;" src="img/toku.jpg" width="595" height="42" alt=""/>
+<div id="moreserv">
+
+
+
+
+
+
+
+
+
+
+
+	            
+<p align="left">
+<a name="tyukyu"></a><strong> <font color="#990000">	中級：中級のポイントをおさえながらニュアンスをつかみ、語彙や表現力をより高めます。</font></strong><hr />
+１．既に知っている表現や、知っているけれども曖昧に理解している表現を添削などを通して定着させ、より自信をつけます。<br />
+<br />
+２．生き生きとした韓国語をに触れながら、様々な表現を楽しく学びます。
+<br />
+</p> 
+                 
+		            </div>
+			        <div class="clear"></div>
+                    <img style="margin-bottom:10px; margin-left:5px;" src="img/syosai.jpg" width="595" height="42" alt=""/>
+                    <div class="clear"></div>
+                    
+                    
+                    <table class="table table-bordered table-striped">
+	            <tr>
+			            <td width="20%" bgcolor="#daf1c6"><code2>対象</code2></td>
+			            <td width="80%">■&nbsp;中級</td>
+                </tr>
+                
+                <tr>
+			            <td bgcolor="#daf1c6"><code2>時間</code2></td>     <td>■&nbsp;中級クラス： 14：00－18：00（3日間、12時限）</td>
+                </tr>
+                      
+                      
+                  <tr>
+			            <td bgcolor="#daf1c6"><code2>対象</code2></td>
+			            <td>・ 独学で勉強がなかなか進まない方<br />
+
+
+・ハングル検定準2級、韓国語能力試験中級の合格を目指している方、および、上級者の方<br />
+
+・中級の微妙なニュアンスをきちんと使い分けて覚えたい方</td>
+                </tr>    
+                      
+        <tr>
+			            <td bgcolor="#daf1c6"><code2>目標</code2></td>
+			            <td>１．既に知っている表現や、知っているけれども曖昧に理解している表現を添削などを通して定着させ、より自信をつけます。<br />
+<br />
+
+
+２．生き生きとした韓国語をに触れながら、様々な表現を楽しく学びます。<br />
+<br />
+
+＊使用教材：'しっかり身につく韓国語トレーニングブック'<br />
+<br />
+
+類似表現と使い分けをきちんと理解し、中級者に必要な単語と文型が身につきます。</td>
+                </tr>              
+                      
+                      
+                      
+                      
+                
+    
+			          
+                      
+             <tr>
+			            <td bgcolor="#daf1c6"><code2>中級</code2></td>
+			            <td>
+                        
+                        
+                        
+     <table class="table table-bordered table-striped">
+                <tr>
+                    <td width="33"><font size="3">時限</font></td>
+                    <td width="63"><font size="3">授業名</font></td>
+                    <td width="440" align="center"><font size="3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;内容</font></td>
+                   </tr>
+<tr>
+                    <td width="527" height="9" colspan="4">
+                        <p><font size="3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font>11月22日（１日目）</p>
+                    </td>
+                </tr>
+                <tr>
+                 　　<td width="33">1</td>
+                    <td width="63">会話</td>
+                   <td width="440">各テーマに関連するテーマや文型を学び、そのテーマについてお互いに意見交換する。</td>
+                </tr>
+                 <tr>
+                 　<td>2&3</td>
+                    <td>韓作文の添削</td>
+                   <td width="440">受講生の方にあらかじめ送付させていただいた課題をもとに、
+　　　　　日本語母語話者が間違えやすい表現を、
+　　　　　より自然な韓国語に直し、類似表現や微妙なニュアンスの違いなどを説明するレッスンです。
+</td>
+                </tr>
+              
+                 <tr>
+                 　　<td>4</td>
+                    <td>会話</td>
+                   <td width="440">社会、経済、国際、文化、生活に関連した記事を読んで理解した後、討論する。</td>
+                </tr>
+                <tr>
+                     <td width="527" colspan="4">
+
+                        <p><font size="3">　　　　　　　　　　　　　　　　11月23日</font>（２日目）</p>
+                    </td>
+                </tr>
+               <tr>
+                 　　<td width="33">1</td>
+                    <td width="63">会話</td>
+                   <td width="440">各テーマに関連するテーマや文型を学び、そのテーマについてお互いに意見交換する。</td>
+                </tr>
+                 <tr>
+                 　<td>2&3</td>
+                    <td>韓作文の添削</td>
+                   <td width="440">受講生の方にあらかじめ送付させていただいた課題をもとに、
+　　　　　日本語母語話者が間違えやすい表現を、
+　　　　　より自然な韓国語に直し、類似表現や微妙なニュアンスの違いなどを説明するレッスンです。
+</td>
+                </tr>
+              
+                 <tr>
+                 　　<td>4</td>
+                    <td>会話</td>
+                   <td width="440">社会、経済、国際、文化、生活に関連した記事を読んで理解した後、討論する。</td>
+                </tr>
+               
+                  <tr>
+                        <td width="527" colspan="4">
+                            <p><font size="3">&nbsp;　　　　　　　　　　　　　　　11月24日　</font>（３日目）</p>
+                        </td>
+                    </tr>
+                     　　
+                 <td>1&2</td>
+                    <td>韓作文の添削</td>
+                   <td width="440">受講生の方にあらかじめ送付させていただいた課題をもとに、
+　　　　　日本語母語話者が間違えやすい表現を、
+　　　　　より自然な韓国語に直し、類似表現や微妙なニュアンスの違いなどを説明するレッスンです。
+</td></tr>
+                 　　<td>3</td>
+                    <td>会話</td>
+                   <td width="440">各テーマに関連するテーマや文型を学び、そのテーマについてお互いに意見交換する。</td>
+                </tr>
+                 <tr>
+                 　　<td>4</td>
+                    <td>韓国の文化</td>
+                   <td width="440"></td>
+                </tr>
+               
+                </table>    
+
+
+                        
+      ■用意するもの　<br />
+
+
+中級テキスト<br />
+
+しっかり身につく韓国語トレーニングブック'中級(ベル出版)<br />
+
+  テキストは各自ご用意ください。                  
+                        
+                        
+                                             
+                        
+                        
+                        
+                        
+                        
+  </td>
+                </tr>
+                
+                
+	                                 
+                      
+                      
+                      
+			          
+			          <tr>
+			            <td bgcolor="#daf1c6"><code2>キャンセル料</code2></td>
+			            <td>※キャンセルは受講日の1週間前までにお願いします。振り込み手数料を除いて返金します。<br />
+キャンセル料は教室の授業のキャンセル料に準じて発生しますのでご注意ください。
+
+
+</td>
+		              </tr>
+                      
+    <tr>
+			            <td bgcolor="#daf1c6"><code2>その他</code2></td>
+			            <td>受講中の授業に関しての相談は<a href="mailto:info@kaonnuri.com">info@kaonnuri.com</a>へ </td>
+                </tr>                    
+                      
+		            </table>
+			       
+			        <hr />
+			      
+			        <p align="left"><code>■&nbsp;お申し込み：</code>受講を希望される方は下記のお申し込みフォームに必要事項を入力後、送信して下さい。</p>
+			        <a href="trialesson.html" class="btn btn-success">お申込みの方はクリックしてください。</a><br />
+			        <br />
+			      
+                    
+                    
+                    <img style="margin-bottom:10px; margin-left:5px;" src="img/hoka.jpg" width="595" height="42" alt=""/>
+                    <p align="left"><code>■&nbsp;予約・キャンセル料・中途解約・手続き等 </code> </p> <a href="etc3.html" class="btn btn-primary"><font color="#fff">その他手続きはクリックしてください。</font></a> <br />
+			        <br />
+                   
+                      <hr />
+                       <img style="margin-bottom:10px; margin-left:5px;" src="img/koe2.jpg" width="595" height="42" alt=""/>
+                    <div class="clear"></div>
+                    
+                       <h3>&nbsp;</h3>
+			        <div class="smallcol11">
+			          <div class="padd20">
+			         
+			            <ul class="news">
+			              <li>
+
+ <h5 class="date">10月集中講座　感想文 </h5>
+ 
+<p>T　様<br />  </p>
+<div class="red">今回の3日間の集中講座では多くのことを学べた気がします。会話の時間が多かったので、少し疲れましたが、その分いろいろな表現に挑戦することが出起ました。また、韓国と日本の文化や、考え方の違いについてもいろいろ教えていただき理解が深まった気がします。
+楽しく教えてくださった先生方に改めて感謝いたしたいと思います。
+ <hr>  </div>
+			                <br />
+ 
+ <h5 class="date">8月集中講座　感想文 </h5>
+<p>K様<br />  </p>
+<div class="red">初めての受講で、始まるまではとても不安でした。始まってみたら不安に思う時間もなく、授業に引き込まれるように作文を添削していただいて、自分ができないところを確認する事ができました。5日間ありがとうございました。
+   </div>
+			                <br />
+<p>Y様<br />  </p>
+<div class="red">5日間の集中講座ありがとうございました。分からなかった点もやさしく丁寧に教えて頂き、参加してよかったと思っています。
+それと同時に自分の勉強不足も実感していますが、これからもこつこつ努力して頑張っていこうと思います。次回もまたよろしくお願いします。
+  </div>
+			                <br /> 
+<p>K.H様<br />  </p>
+<div class="red">日本人が間違えやすい発音や構文を見逃さず聞き逃さずしっかりチェックしていただけてとてもよかったです。
+  <hr> </div>
+			                <br />
+ 
+ <h5 class="date">7月集中講座　感想文 </h5>
+<p>K様<br />  </p>
+<div class="red">２回目ですが、どの先生も意欲的で新しい表現をたくさん知ることができて良かったです。
+色々な例文をそれぞれが使われる状況も説明しながら教えてくださるのでとても勉強になります。本当は毎週習いに来たいですが、都合がつかないのでまた集中講座に来られるように頑張ります。
+   </div>
+			                <br />
+<p>I様<br />  </p>
+<div class="red">初めての集中講座で緊張したけれど、良い雰囲気の中で３日間集中して学ぶことができた。
+みんなの語学力も差がなく、良い刺激をたくさん受けた。授業の内容としては４時間の間ずっと韓国語を聞いている状態なのがよかった。もちろん細かいところ、わからないところもわかりやすい日本語で説明してくれてよかった。習ったことはあっても理解しきれていない細かなニュアンスの違いをたくさん学ぶことができて良かった。
+  </div>
+			                <br /> 
+<p>F様<br />  </p>
+<div class="red">文法の授業を初めて受けたことで、自分の苦手なところや完全に理解できていなかったことを知ることができました。内容も充実していて、今後の勉強に役立ったのでしっかり復習して次に進んでいきたいと思います。ありがとうございました。
+  </div>
+			                <br /> 
+<p>Ｓ様<br />  </p>
+<div class="red">インターネットでいつも見ていて、とても細かいところまで親切に教えてくれそうな学校だと思い、思いきって今回初めて集中講座に申し込んでみましたが、期待以上でした。なんとなく、ですっと過ごしていたことが明確になったところがいくつもありました。想像していたよりも授業のレベルが高く、私のレベルではまだまだ吸収しきれてないところもたくさんあったように感じ、自分の足りなさを実感しましたが、それを今後に活かして勉強にしていこうと思います。ありがとうございました。
+  </div>
+			                <br /> 
+<p>Ｎ様<br />  </p>
+<div class="red">今回も楽しく講座に参加しました。
+事前に準備や日頃の学習不足で授業が難しく感じる時もありましたがこれからの学習意欲にもつながりました。金先生の授業がとてもわかりやすく毎回楽しみにしています。
+ <hr>  </div>
+			                <br />
+
+ 
+			                <h5 class="date">2014年 GW4月集中講座 感想文 </h5>
+			                <p> <strong>中級1</strong>F 様  <br />
+		                    </p><div class="red">独学で勉強していましたがなかなか集中的に取り組むことが出来ずこちらに伺いました。一人では形容詞をあんなに覚えたり長文を読んだりしないのでとてもいい機会になりました。先生たちも皆さん親切でとてもよかったです。これからも勉強を続けていずれは上級を受けたいと思いました。ありがとうございました。 </div>
+			                <br />
+			             <p> <strong>中級1</strong>S 様  <br />
+		                    </p>
+			                <div class="red">즐겁게 공부했습나다.文法をわかりやすく説明していただいてよく理解できました。単語もいろいろと出てきましたが、自分ひとりではなかなか覚えられないので良い機会でした。ありがとうございました。</div>
+			               
+			                <br />
+			                  <a href="koeall5.html#3koe" class="more">..もっと見る</a>
+			                <p></p>
+		                  </li>
+		                </ul>
+		              </div>
+		            </div>
+			       
+		          </div>
+			      <!-- tabs #3 content END here -->
+                               
+    
+    
+    
+    
+    
+    
+    
+    
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+    
+ 
+ 		      <!-- tabs #4 content START here -->
+			      <div id="seo2">
+ <img style="margin-top:15px; margin-left:5px;" src="img/toku.jpg" width="595" height="42" alt=""/>
+<div id="moreserv">
+
+
+
+
+
+
+
+
+
+
+
+	            
+<a name="jyokyu"></a>
+<strong><font color="#990000">上級：エッセイ、小説または韓国の有名な作品を通して韓国文化、韓国人の情緒を理解し、
+
+上級者必須のハイレベルな表現を学びます。</font></strong>
+<hr />
+・韓国語を中級から上級にレベルアップしたい方<br />
+・通訳案内士試験、ハングル検定試験1・2級、韓国語能力試験6級に合格できる力を養成します。<br />
+・ハングル検定1級、韓国語能力試験高級の合格を目指している方、および、上級者の方<br />
+・動画をみて韓国の伝統文化について学び、会話する。<br />
+
+</p> 
+                 
+		            </div>
+			        <div class="clear"></div>
+                    <img style="margin-bottom:10px; margin-left:5px;" src="img/syosai.jpg" width="595" height="42" alt=""/>
+                    <div class="clear"></div>
+                    
+                    
+            <table class="table table-bordered table-striped">
+                <tr>
+                    <td width="33"><font size="3" align="center">時限</font></td>
+                    <td width="63"><font size="3" align="center">授業名</font></td>
+                    <td width="440" align="center"><font size="3" align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;内容</font></td>
+                   </tr>
+<tr>
+                    <td width="527" height="9" colspan="4">
+                        <p><font size="3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font>11月22日（１日目）</p>
+                    </td>
+                </tr>
+
+               <tr>
+                 　　<td width="33">1</td>
+                   <td>討論</td>
+                   <td width="440">
+</td>
+                </tr>
+                 <tr>
+                 　<td width="33" align="center">2</td>
+                    <td>첨삭①</td>
+                   <td width="440">ハングル検定試験1級問題の韓訳添削を通して、自然な上級表現を学びます。
+</td>
+                </tr>
+                 <tr>
+                 　　<td width="33" align="center">3</td>
+                    <td width="63">역사적인 인물</td>
+                   <td width="440">한국의 역사적인 인물을 통해 보는 한국사회</td>
+                </tr>
+                 <tr>
+                 　　<td width="33" align="center">4</td>
+                    <td width="63">여러가지 어원</td>
+                   <td width="440">한국 문화와 함께 익히는 어원</td>
+                </tr>
+                <tr>
+                    <td width="527" colspan="4">
+
+                        <p><font size="3">　　　　　　　　　　　　　　　　11月23日</font>（２日目）</p>
+                    </td>
+                </tr>
+               <tr>
+                 　　<td width="33" align="center">1</td>
+                    <td width="63">첨삭②</td>
+                   <td width="440">ハングル検定試験上級問題の韓訳添削を通して、自然な上級表現を学びます。</td>
+                </tr>
+                 <tr>
+                 　<td width="33" align="center">2</td>
+                    <td width="63">에세이</td>
+                   <td width="440">エッセイで韓国語を楽しむ</td>
+                </tr>
+                 <tr>
+                 　　<td width="33" align="center">3</td>
+                    <td width="63">한국의 전통 문화</td>
+                   <td width="440">문화를 통해 한국어에 대한 이해를 심화시키기</td>
+                </tr>
+                 <tr>
+                 　　<td width="33" align="center">4</td>
+                    <td width="63">글쓰기</td>
+                   <td width="440">テーマに沿った作文に挑戦します。</td>
+                </tr>
+               
+                    <tr>
+                        <td width="527" colspan="4">
+                            <p><font size="3">&nbsp;　　　　　　　　　　　　　　　　３</font>日目</p>
+                        </td>
+                    </tr>
+                    <tr>
+                 　　<td width="33" align="center">1</td>
+                    <td width="63">글쓰기 첨삭</td>
+                   <td width="440">前日に書いた作文を直しながら、適切な表現を学びます。</td>
+                </tr>
+                 <tr>
+                 　　<td width="33" align="center">2</td>
+                    <td width="63">添削③</td>
+                   <td width="440">ハングル検定試験上級問題の韓訳添削を通して、自然な上級表現を学びます。</td>
+                </tr>
+                 <tr>
+                 　　<td width="33" align="center">3</td>
+                    <td width="63">역사</td>
+                   <td width="440">近代歴史</td>
+                </tr>
+                 <tr>
+                 　　<td width="33" align="center">4</td>
+                    <td width="63">전통음식</td>
+                   <td width="440"></td>
+                </tr>
+                </table>                        
+                        
+                        
+                        
+                        
+                        
+                        
+                                 
+      ■用意するもの　<br />
+
+
+上級テキスト<br />
+
+ハン検１級試験の例文を使ったミリネ独自のテキストを使います。事前にお送りします。<br />
+
+<strong> 　※韓作文の予習を必ずなさってきてください!</strong></td>
+                </tr>
+                
+                
+	                                 
+                      
+                      
+                      
+			          
+			          <tr>
+			            <td bgcolor="#daf1c6"><code2>キャンセル料</code2></td>
+			            <td>※キャンセルは受講日の1週間前までにお願いします。振り込み手数料を除いて返金します。<br />
+キャンセル料は教室の授業のキャンセル料に準じて発生しますのでご注意ください。 </td>
+		              </tr>
+                      
+    <tr>
+			            <td bgcolor="#daf1c6"><code2>その他</code2></td>
+			            <td>受講中の授業に関しての相談は<a href="mailto:info@kaonnuri.com">info@kaonnuri.com</a>へ </td>
+
+                </tr>                    
+                      
+		            </table>
+			       
+			        <hr />
+			      
+			        <p align="left"><code>■&nbsp;お申し込み：</code>受講を希望される方は下記のお申し込みフォームに必要事項を入力後、送信して下さい。</p>
+			        <a href="trialesson.html" class="btn btn-success">お申込みの方はクリックしてください。</a><br />
+			        <br />
+			      
+                    
+                    
+                    <img style="margin-bottom:10px; margin-left:5px;" src="img/hoka.jpg" width="595" height="42" alt=""/>
+                    <p align="left"><code>■&nbsp;予約・キャンセル料・中途解約・手続き等 </code> </p> <a href="etc3.html" class="btn btn-primary"><font color="#fff">その他手続きはクリックしてください。</font></a> <br />
+			        <br />
+                   
+                      <hr />
+                       <img style="margin-bottom:10px; margin-left:5px;" src="img/koe2.jpg" width="595" height="42" alt=""/>
+                    <div class="clear"></div>
+                    
+                       <h3>&nbsp;</h3>
+			        <div class="smallcol11">
+			          <div class="padd20">
+			         
+			            <ul class="news">
+			              <li>
+<h5 class="date">10月集中講座　感想文</h5>
+ 
+<p>S　様<br />  </p>
+<div class="red">集中講座に参加し始めてから1年以上経ちますが毎回楽しい内容なので飽きることはありません。今回も討論、エッセイ、文化や風習についてなど、様々な内容の授業でした。参加するたびに教養が身につくような気がします。添削の授業も毎回自然な表現を教えてくれるのでためになります。次回も楽しみにしています。
+  </div>
+			                <br />
+<p>C　様<br />  </p>
+<div class="red">이번에 집중강좌도 다채로운 내용이었습니다. 토론 화제도 사회적인 문제부터 일상생활 문제까지 다양했습니다.그리고 상급 집중강좌의 최고의 매력인 역사 수업도 이번에는 드라마 ‘바람의 화원’에서 알고 있었던 김홍도에 관한 내용이어서 정말 즐거웠어요.
+또 그런 내용을 보완하는 동영상도 볼 수 있어서 이해를 도와주었습니다. 유학을 안
+가도 국내에서 가가운 곳에서 일주일 정도의 유학과도 다른 바가 없는 아주 충실한
+강좌를 받을 수 있어서 대단히 좋았습니다. 감사합니다!!
+  </div>
+			                <br />
+<p>U　様<br />  </p>
+<div class="red">短期講座に初めて参加しました。読み、書き、聞き取り、会話のバランスがとてもよく、普段無意識に使っている表現が、自分の意図とは異なるニュアンスを含んでいることがある点などを指摘していただけたのはとてもよかったです。韓国語学習暦が長くなるにつれ、限られた文型を用いて広く表現しがちですが、今回の作文レッスンを通じて、改めてより自然なフレーズをもっと学び続けたいと思いました。  
+  </div>
+			                <br />
+<p>M　様<br />  </p>
+<div class="red">今回も様々な教材を準備してくださってありがとうございました。興味を持って取り組める教材がたくさんありました。
+김홍도, 냉면, 장가가기와 시잡가기 などは韓国の歴史、風俗、文化を知ることができてよかったです。読み物だけでなく、映像もあったので具体的に知ることができました。勿論韓国語の勉強にもなりました。
+短作文は似た表現のニュアンスの違いを説明していただいたことがよかったです。わかっているようでよくわからない単語や表現が多いので、具体的にニュアンスの違いや使う場面を教えていただき勉強になりました。
+討論、作文も勉強になりました。
+方言は前回もやりましたが、今回は地方によってどんな特徴があるのかも知ることができてよかったです。
+随筆인연も日本と関係のある内容の随筆でなので興味深く読めました。次回はどんな作品を紹介してくださるのか楽しみです。
+たくさんのことを吸収し充実した三日間でした。疲れましたが満足しています。
+一日何時間も授業された先生方、本当にお疲れ様でした。当日だけでなく準備も毎回違う内容を準備されるのですから苦労されたことでしょう。そういう先生方のおかげで私たちが楽しく勉強できるのだと思っています。本当にありがとうございました。これからも宜しくお願いしますね。
+ <hr> </div>
+			                <br />
+ 
+ 
+<h5 class="date">8月集中講座　感想文</h5>
+<p>S様<br />  </p>
+<div class="red">5日間連続の集中講座を受けるのは初めてでしたが、最初から最後まで充実した内容でした。料理の作り方は意外にうまく訳せなかったので、次回以降もやりたいです。歴史の授業は難しかったですが、文章で読んで理解した後に映像を見る形式はよかったです。次回集中講座も楽しみにしています。
+  </div>
+			                <br />
+<p>F様<br />  </p>
+<div class="red">1月に続いて2回目の受講です。前回は初めてだったせいか、作文も辞書をひいて書くのが大変だったのですが、今回は様々な表現を少し余裕を持って学ぶことができました。細かいニュアンスの違いを質問すると、即座に詳しく説明してくださる点が一人で勉強していると無理なので、大変身になりました。
+歴史の授業もとても興味深く動画も交えて教えてくださり、楽しかったです。ありがとうございました。
+  </div>
+			                <br />
+<p>C様<br />  </p>
+<div class="red">7월에 이어서 8월 집중강좌도 참가했습니다.
+단작문은 물론이고 이번에는 역사에 관한 수업도 많아서 흥미진진한 내용이었습니다!
+씨의 수필도 이번 기회에 읽을 수도 있어 좋았습니다. 덕분에 알찬 여름휴가를 보낼 수 있었습니다.감사합니다!!
+  </div>
+			                <br />
+<p>M様<br />  </p>
+<div class="red">私は2日間の参加でしたが今回も多様な内容で楽しく勉強できました、。特に楽しかったのはクロスワードパズルとプサンの方言です。時にこういう学習もよいと思います。
+キムチの話は分かり易かったですが、ハンミョンヘの話は、分からない単語が多く内容を理解できず残念でした。いつもの短作文は難しかったですが、少しずつ分かるものも増えてきたと感じました。毎回趣向を凝らした授業をしてくださり感謝しています。
+ありがとうございました。<hr>
+  </div>
+			                <br />
+<h5 class="date">7月集中講座　感想文</h5>
+<p>M様<br />  </p>
+<div class="red">今回も楽しく勉強できました。来るたびに新しい教材を準備してくださって、新鮮な気持ちで勉強できます。短作文と歴史の話と慣用句は私には難しいですがこれも勉強と思って頑張りました。詩やエッセイを読むのはいつも楽しいです。今日한복に関する映像を見ながら한복について韓国の人たちがどう考えているかについて学習しましたが、興味深い内容でした。
+料理について日本語を見ながら韓国語でしゃべるのも新鮮でした。
+毎回準備をして下さる先生方のおかげで楽しく勉強できます。本当にありがとうございました。
+  </div>
+			                <br />
+<p>C様<br />  </p>
+<div class="red">이번에는 2일밖에 참가하지 못했지만 수필이나 평론문 등 다양한 교재로 다양한 어휘나 표현들을 배웠습니다. 가장 도움이 되었던 것은 서로의 작문을 고치는 수업이었습니다. 객관적으로 다른 사람들의 문장을 다진다거나 자기 작문을 여러 시각에서 교정해주는 것은 신선했습니다. 그리고 조선 역사에 관한 수업도 정말 재미있었습니다. 이것으로 더욱더 깊이 한국 역사에 대해 알고 싶다는 생각이 들었습니다. 2일동안 정말 감사했습니다.
+  </div>
+			                <br />
+<p>T様<br />  </p>
+<div class="red">毎回色々と新しい試みがあって楽しいです。今回その場で作文したものをほかの受講生に添削してもらったのもとても勉強になったし、日本語で書かれた料理のレシピを韓訳する授業も楽しかったです。
+「장녹수」は私には少々難しかったですが、韓国の歴史について知ることができて良かったです。資料が多く、単語も難しかったので事前に下調べができるとさらによかったように感じました。
+ <hr></div>
+			                <br />
+			                <h5 class="date">2014年 GW4月集中講座 感想文 </h5>
+			                <p> <strong> 上級1</strong> T 様 <br />
+		                    </p>
+			                <div class="red">今回この講座に参加して、2年前に初めてミリネ教室の集中講座に来た日を思い出しました。その時に「わあ、なんて楽しいんだろう。思い切って参加してよかった」と感じたままの気持ちで、今回もレッスンを受けることが出来ました。他の韓国語教室では、決して受けることの出来ない充実したレッスン。毎回バラエティ豊かで受講生を飽きさせることがありません。今後も機会があれば必ず参加したいと思います。ありがとうございました。</div>
+			                <br />
+			             <p> <strong> 上級1</strong>O 様 <br />
+		                    </p>
+			                <div class="red">とても久し振りに集中講座に参加し、充実した3日間を過ごせました。最近勉強の方法に悩み、少し韓国語から離れていましたが、この集中講座を受けて改めて韓国語の面白さと難しさを感じ、さらに前へ進みたいという気持ちになりました。当面の目標はハングル検定合格ですが、試験とは関係なくミリネのレッスンはこれからも続けて行きたいです。少しだらけた気持ちを元に戻してくださった김先生と이先生に感謝致します。3日間ありがとうございました。</div>
+			               
+			                <br />
+			                   <a href="koeall5.html#4koe" class="more">..もっと見る</a>
+			                <p></p>
+		                  </li>
+		                </ul>
+		              </div>
+		            </div>
+			       
+		          </div>
+			      <!-- tabs #4 content END here -->
+                               
+    
+      
+  
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+		        </div>
+			    <!-- tabs END here -->
+		      </div>
+			  <!--right-->   
+
+			  <div class="smallcol1">
+              
+              
+              
+              
+              
+              
+              
+              
+                     
+       <a href="koefirst.html" target="_blank"><img style="margin-left:10px;" src="img/koebnr.jpg" alt=""/></a>             
+              
+
+
+              
+              <img src="img/news.jpg" alt=""/>
+<div class="padd30">	  <ul class="news">
+
+							<li>
+
+								<h5 class="date">New 3日間のプチ留学</h5>
+
+								<p>11月集中講座(11/22-24)!<a href="syokyu.html" class="more">..詳しい情報</a></p>
+
+							</li>
+
+							<li>
+
+								<h5 class="date">上達が早い短期集中レッスン</h5>
+
+								<p>
+個人レッスン 3300円～<a href="tanki.html" class="more">..詳しい情報</a></p>
+
+							</li>
+
+							
+
+
+
+
+
+<li>
+
+								<h5 class="date">ミリネ修学旅行!</h5>
+
+							   <p>2014 年度の年末年始現地レッスン<a href="sugaku2014.html" class="more">..詳しい情報</a></p>
+							</li>							
+</ul>	
+					</div>
+                    
+                    
+                    
+       <a href="https://www.facebook.com/mirinaejp" target="_blank"><img style="margin-left:10px;" src="img/fb.jpg" alt=""/></a>
+              <a href="https://twitter.com/anitrue" target="_blank"><img style="margin-left:10px;" src="img/tw.jpg" alt=""/></a>
+              
+   <a href="http://ameblo.jp/mirinaejp" target="_blank"><img style="margin-left:10px;" src="img/ame.jpg" alt=""/></a> <a href="kotowaza.html" target="_blank"><img style="margin-left:10px;" src="img/miri.jpg" alt=""/></a> <div class="padd10">
+					
+							<ul class="news2">
+                        
+							<li>
+								<h5>個人レッスン</h5>    <hr />
+								<p><a href="kojin.html">■&nbsp;個人レッスン</a></p>
+<p><a href="tanki.html">■&nbsp;短期集中個人レッスン</a></p>
+<p><a href="netlesson.html">■&nbsp;ネットレッスン</a>
+                              </p>
+
+							</li>
+							<li>
+								<h5>グループレッスン</h5>    <hr />
+								<p>
+                                
+                                
+                              
+
+					<a href="group.html">■&nbsp;少人数グループレッスン</a>
+
+                              </p>
+
+							</li>
+							<li>
+								<h5>会話クラス</h5>    <hr />
+								<p>
+                              <a href="freetaliking.html">■&nbsp;会話トレーニングレッスン</a></p>
+
+					<p><a href="rsvfreetalk.html">■&nbsp;予約制フリートーキング</a></p>
+                         
+
+							</li>
+                            <li>
+								<h5>特別講座</h5>    <hr />
+                                
+                                
+                                
+         
+                                
+                                
+								<p>
+<a href="high.html">■&nbsp;土曜上級講座</a></p>
+<p><a href="taisaku.html">■&nbsp;試験対策</a></p>
+<p><a href="bungaku.html">■&nbsp;韓国文学クラス</a></p>
+<p><a href="bunpo.html">■&nbsp;文法クラス</a>
+                              </p>
+
+							</li>
+                            
+                            
+                            <li>
+								<h5>集中講座</h5>    <hr />
+                                
+                                
+                                
+               <p>
+<a href="nyumon.html">■&nbsp;入門クラス</a></p>
+
+<p><a href="syokyu.html">■&nbsp;初級クラス</a></p>
+<p><a href="tyukyu.html">■&nbsp;中級クラス</a></p>
+<p><a href="syutyu.php?syutyu=joukyu">■&nbsp;上級クラス</a></p>
+</li>
+
+
+
+ <li>
+								<h5>通信講座</h5>    <hr />
+                                
+                                
+                                
+         
+                         
+                                
+								<p>
+<a href="castigation.html">■&nbsp;翻訳コース</a></p>
+<p><a href="netlesson.html">■&nbsp;ネットレッスン</a></p>
+
+
+
+							</li>
+
+
+ <li>
+								<h5>スケジュール</h5>    <hr />
+                                
+                                
+                                
+         
+                         
+                                
+				
+
+<p><a href="cal.html">■&nbsp;授業全体スケジュール</a>
+                              </p>
+
+							</li>
+							
+						</ul>
+					</div>                    
+                    
+    
+    
+    
+    
+    
+
+    
+    
+    
+                    
+
+                    
+       <div class="fb-like-box" data-href="https://www.facebook.com/mirinaejp" data-width="310" data-height="400" data-colorscheme="light" data-show-faces="true" data-header="true" data-stream="true" data-show-border="true"></div>   
+       
+  <br />
+<br />
+     
+
+
+
+<a class="twitter-timeline" width="310" height="500" href="https://twitter.com/anitrue" data-widget-id="461727447348547584">@anitrue からのツイート</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+
+
+
+
+
+
+       
+       
+       
+                 
+ 
+                    
+			  </div>
+          <!--right end--> 
+     
+
+
+     
+     
+     
+     
+     
+     <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+			</div>	
+		  </div>	
+			<span class="clear"></span>		
+
+			<!-- BEGIN FOOTER -->	
+		<div id="footer" class="col1">
+		<div class="padd10">
+			<div id="secnav">
+                
+                
+       
+					<ul>
+						<li><a href="index.html">ホーム</a></li>
+						<li><a href="about.html">会社概要</a></li>
+                        <li><a href="cal.html">総合スケジュール表</a></li>
+						<li><a href="teacher.html">講師紹介</a></li>
+						<li><a href="contact.html">お問い合せ</a></li>
+					
+					</ul>
+				</div>
+	
+			<div id="copy">
+				<p>韓国語 入門　個人レッスン　初心者　マンツーマン　韓国語教室 日暮里 上野 新宿 新大久保 代々木<br>Copyright (C) kaonnuri Co., Ltd., All Rights Reserved </p>
+			</div>
+		</div>	
+		</div>
+		<!-- END FOOTER -->
+
+	  </div> <!-- END PAGE -->
+	</div> <!-- end wrapper -->
+	<span class="clear"></span>
+</body>
+
+
+      
+    <script type="text/javascript">
+        $(function() {
+          if ($.browser.msie && $.browser.version.substr(0,1)<7)
+          {
+			$('li').has('ul').mouseover(function(){
+				$(this).children('ul').show();
+				}).mouseout(function(){
+				$(this).children('ul').hide();
+				})
+          }
+        });        
+    </script>
+
+    
+
+</html>

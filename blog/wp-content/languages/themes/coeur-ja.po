@@ -1,0 +1,882 @@
+# Translation of Themes - Coeur in Japanese
+# This file is distributed under the same license as the Themes - Coeur package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2018-03-17 21:57:53+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: GlotPress/2.4.0-alpha\n"
+"Language: ja_JP\n"
+"Project-Id-Version: Themes - Coeur\n"
+
+#. Theme Name of the plugin/theme
+msgid "Coeur"
+msgstr "Coeur"
+
+#: framework/functions/woocommerce.php:98
+msgid "Don't have an account?"
+msgstr "アカウントをお持ちでありませんか?"
+
+#: framework/functions/woocommerce.php:99
+msgid "Create one now"
+msgstr "今すぐ作成する"
+
+#: woocommerce/cart/cart-shipping.php:47
+msgid "Shipping costs will be calculated once you have provided your address."
+msgstr "住所を入力した後に送料は計算されます。"
+
+#: framework/customizer/options/options.sections.php:60
+msgid "Fonts"
+msgstr "フォント"
+
+#: framework/customizer/options/options.sections.php:53
+msgid "Posts"
+msgstr "投稿"
+
+#: framework/customizer/options/options.sections.php:46
+msgid "Material"
+msgstr "マテリアル"
+
+#: framework/customizer/options/options.layout.php:136
+msgid "Inner Background Color"
+msgstr "内側の背景色"
+
+#: framework/customizer/options/options.layout.php:87
+msgid "Style"
+msgstr "スタイル"
+
+#: framework/customizer/options/material/options.material.php:34
+msgid "Accent Color"
+msgstr "アクセント色"
+
+#: framework/customizer/customizer.php:59
+msgid "Background"
+msgstr "背景"
+
+#: woocommerce/single-product-reviews.php:93
+msgid "Only logged in customers who have purchased this product may leave a review."
+msgstr "以前にこの商品を購入したことのあるログイン済みのユーザーのみレビューを残すことができます。"
+
+#: woocommerce/single-product-reviews.php:84
+msgid "Your Review"
+msgstr "レビュー"
+
+#: woocommerce/single-product-reviews.php:80
+msgid "Very Poor"
+msgstr "悪い"
+
+#: woocommerce/single-product-reviews.php:79
+msgid "Not that bad"
+msgstr "良くない"
+
+#: woocommerce/single-product-reviews.php:78
+msgid "Average"
+msgstr "平均"
+
+#: woocommerce/single-product-reviews.php:77
+msgid "Good"
+msgstr "良い"
+
+#: woocommerce/single-product-reviews.php:76
+msgid "Perfect"
+msgstr "最高"
+
+#: woocommerce/single-product-reviews.php:75
+msgid "Rate&hellip;"
+msgstr "評価&hellip;"
+
+#: woocommerce/single-product-reviews.php:74
+msgid "Your Rating"
+msgstr "あなたの評価"
+
+#: woocommerce/single-product-reviews.php:70
+msgid "You must be <a href=\"%s\">logged in</a> to post a review."
+msgstr "レビューを書くには<a href=\"%s\">ログインする</a>必要があります。"
+
+#: woocommerce/single-product-reviews.php:64
+msgid "Submit"
+msgstr "送信"
+
+#: woocommerce/single-product-reviews.php:62
+msgid "Email"
+msgstr "メール"
+
+#: woocommerce/single-product-reviews.php:57
+msgid "Leave a Reply to %s"
+msgstr "%s へ返信する"
+
+#: woocommerce/single-product-reviews.php:42
+msgid "There are no reviews yet."
+msgstr "レビューはまだありません。"
+
+#: woocommerce/single-product/related.php:42
+msgid "Related Products"
+msgstr "関連商品"
+
+#: woocommerce/order/tracking.php:16
+msgid " ago"
+msgstr " 前"
+
+#: woocommerce/order/tracking.php:16
+msgid "and was completed"
+msgstr "完成です"
+
+#: woocommerce/order/tracking.php:14
+msgid "ago"
+msgstr "前"
+
+#: woocommerce/order/tracking.php:14
+msgid "Order #%s which was made %s has the status &ldquo;%s&rdquo;"
+msgstr "注文番号 %s に %s を作成　：　ステータス&ldquo;%s&rdquo;"
+
+#: woocommerce/order/order-details-customer.php:50
+#: woocommerce/order/order-details-customer.php:59
+msgid "N/A"
+msgstr "該当なし"
+
+#: woocommerce/order/order-details-customer.php:38
+msgid "Telephone:"
+msgstr "電話番号:"
+
+#: woocommerce/order/order-details-customer.php:31
+msgid "Email:"
+msgstr "メールアドレス:"
+
+#: woocommerce/order/order-details-customer.php:24
+msgid "Note:"
+msgstr "注:"
+
+#: woocommerce/order/order-details-customer.php:19
+msgid "Contact Informations"
+msgstr "連絡先情報"
+
+#: woocommerce/order/order-details-customer.php:14
+msgid "Customer Details"
+msgstr "顧客の詳細"
+
+#: woocommerce/order/order-again.php:16
+msgid "Order Again"
+msgstr "再注文する"
+
+#: woocommerce/order/form-tracking.php:26
+msgid "Track"
+msgstr "追跡"
+
+#: woocommerce/order/form-tracking.php:23
+msgid "Email you used during checkout."
+msgstr "注文時に使用したメールアドレス"
+
+#: woocommerce/order/form-tracking.php:22
+msgid "Found in your order confirmation email."
+msgstr "注文確認メールに記載"
+
+#: woocommerce/order/form-tracking.php:22
+msgid "Order ID"
+msgstr "注文番号"
+
+#: woocommerce/order/form-tracking.php:20
+msgid "To track your order please enter your Order ID in the box below and press the \"Track\" button. This was given to you on your receipt and in the confirmation email you should have received."
+msgstr "現在の配送状況を確認するには、注文IDを入力して配送状況ボタンを押してください。この状況はメールで受け取っているはずの情報となります。"
+
+#: woocommerce/order/tracking.php:31
+msgid "l jS \\o\\f F Y, h:ia"
+msgstr "l Y年n月j日, h:ia"
+
+#: woocommerce/order/tracking.php:25
+msgid "Order Updates"
+msgstr "注文の更新"
+
+#: woocommerce/myaccount/form-lost-password.php:42
+msgid "Reset Password"
+msgstr "パスワードをリセット"
+
+#: woocommerce/myaccount/form-lost-password.php:29
+msgid "Lost your password? Please enter your username or email address. You will receive a link to create a new password via email."
+msgstr "パスワードを忘れましたか？ユーザー名かEメールアドレスを入力して下さい。新しいパスワードを作成するためのリンクが添付されたメールが送信されます。ご確認下さい。"
+
+#: framework/functions/woocommerce.php:80
+msgid "Sign into your account"
+msgstr "アカウントにログイン"
+
+#: framework/functions/woocommerce.php:79
+msgid "Already a member?"
+msgstr "すでに会員ですか?"
+
+#: woocommerce/order/order-details-customer.php:56
+msgid "Shipping Address"
+msgstr "お届け先住所"
+
+#: woocommerce/order/order-details-customer.php:47
+msgid "Billing Address"
+msgstr "請求先住所１"
+
+#: woocommerce/global/form-login.php:49
+msgid "Lost your password?"
+msgstr "パスワードをお忘れですか？"
+
+#: woocommerce/global/form-login.php:45
+msgid "Remember me"
+msgstr "ログインしたままにする"
+
+#: woocommerce/global/form-login.php:42
+msgid "Login"
+msgstr "ログインする"
+
+#: woocommerce/global/form-login.php:32
+msgid "Password"
+msgstr "パスワード"
+
+#: woocommerce/global/form-login.php:29
+#: woocommerce/myaccount/form-lost-password.php:32
+msgid "Username or email"
+msgstr "ユーザー名またはメールアドレス"
+
+#: woocommerce/checkout/thankyou.php:55
+msgid "Payment Method:"
+msgstr "支払い方法: "
+
+#: woocommerce/checkout/thankyou.php:50
+msgid "Total:"
+msgstr "合計:"
+
+#: woocommerce/checkout/thankyou.php:46
+msgid "Date:"
+msgstr "日付:"
+
+#: woocommerce/checkout/thankyou.php:42
+msgid "Order Number:"
+msgstr "注文番号: "
+
+#: woocommerce/checkout/thankyou.php:38 woocommerce/checkout/thankyou.php:71
+msgid "Thank you. Your order has been received."
+msgstr "ありがとうございます。ご注文を承りました。"
+
+#: woocommerce/checkout/thankyou.php:30
+msgid "Pay"
+msgstr "支払い"
+
+#: woocommerce/checkout/thankyou.php:26
+msgid "Please attempt your purchase again."
+msgstr "再度、ご購入を行ってみてください"
+
+#: woocommerce/checkout/thankyou.php:24
+msgid "Please attempt your purchase again or go to your account page."
+msgstr "再度、ご購入を行ってみてください。またはアカウントページにアクセスして下さい。"
+
+#: woocommerce/checkout/thankyou.php:20
+msgid "Unfortunately your order cannot be processed as the originating bank/merchant has declined your transaction."
+msgstr "残念ながら注文が完了となりません。銀行が支払処理を拒否しました。"
+
+#: woocommerce/checkout/review-order.php:19
+msgid "Your order"
+msgstr "ご注文詳細"
+
+#: woocommerce/checkout/payment.php:42
+msgid "Update totals"
+msgstr "金額を更新"
+
+#: woocommerce/checkout/payment.php:41
+msgid "Since your browser does not support JavaScript, or it is disabled, please ensure you click the <em>Update Totals</em> button before placing your order. You may be charged more than the amount stated above if you fail to do so."
+msgstr "お使いのブラウザはJavaScriptをサポートしていないか、無効になっています。注文の前に<em>金額を更新</em>ボタンで合計できることを確認して下さい。もし更新に失敗するようであれば、上記表示金額とは異なった金額が請求される可能性があります。"
+
+#: woocommerce/checkout/payment.php:34
+msgid "Sorry, it seems that there are no available payment methods for your state. Please contact us if you require assistance or wish to make alternate arrangements."
+msgstr "申し訳ありませんが、今の状況では利用可能な支払方法はございません。詳細についてはお問い合わせください。"
+
+#: woocommerce/checkout/payment.php:34
+msgid "Please fill in your details above to see available payment methods."
+msgstr "利用可能な支払い方法を確認し、上記に詳細を記入してください。"
+
+#: woocommerce/checkout/form-shipping.php:58
+msgid "Additional Information"
+msgstr "追加情報"
+
+#: woocommerce/checkout/form-shipping.php:32
+msgid "Ship to a different address?"
+msgstr "ご注文者とは別の住所へお届けしますか？"
+
+#: woocommerce/checkout/form-pay.php:75
+msgid "Sorry, it seems that there are no available payment methods for your location. Please contact us if you require assistance or wish to make alternate arrangements."
+msgstr "申し訳ありませんが、あなたの所在地での利用可能な支払方法はございません。詳細についてはお問い合わせください"
+
+#: woocommerce/checkout/form-pay.php:33
+msgid "Totals"
+msgstr "合計"
+
+#: woocommerce/checkout/form-pay.php:32
+msgid "Qty"
+msgstr "数量"
+
+#: woocommerce/checkout/form-login.php:26
+msgid "If you have shopped with us before, please enter your details in the boxes below. If you are a new customer please proceed to the Billing &amp; Shipping section."
+msgstr "以前にお買い物をしている場合は、下記のボックスに詳細を入力してください。新規のお客様は、お客様情報（ご自身住所および配送先）セクションまでお進みください。"
+
+#: woocommerce/checkout/form-login.php:19
+msgid "Click here to login"
+msgstr "ログインはこちらから"
+
+#: woocommerce/checkout/form-login.php:18
+msgid "Returning customer?"
+msgstr "登録済みの方はこちら"
+
+#: woocommerce/checkout/form-coupon.php:18
+msgid "Click here to enter your code"
+msgstr "コード入力はこちらから"
+
+#: woocommerce/checkout/form-coupon.php:18
+msgid "Have a coupon?"
+msgstr "クーポンをお持ちですか? -"
+
+#: woocommerce/checkout/form-checkout.php:20
+msgid "You must be logged in to checkout."
+msgstr "支払いをする為にはログインして下さい"
+
+#: woocommerce/checkout/form-billing.php:53
+msgid "Create an account by entering the information below. If you are a returning customer please login at the top of the page."
+msgstr "下記の情報を入力してアカウントを作成して下さい。再来店の際は、ページ上部でログインして下さい。"
+
+#: woocommerce/checkout/form-billing.php:42
+msgid "Create an account?"
+msgstr "アカウントを作成しますか？"
+
+#: woocommerce/checkout/form-billing.php:23
+msgid "Billing Details"
+msgstr "請求先詳細"
+
+#: woocommerce/checkout/form-billing.php:19
+msgid "Billing &amp; Shipping"
+msgstr "請求 &amp; 配送"
+
+#: woocommerce/checkout/cart-errors.php:22
+msgid "Return To Cart"
+msgstr "カートに戻る"
+
+#: woocommerce/checkout/cart-errors.php:18
+msgid "There are some issues with the items in your cart (shown above). Please go back to the cart page and resolve these issues before checking out."
+msgstr "カート内アイテムにはいくつかの問題があります（上記を参照）。カートページに戻り、お支払いの前に問題点を解決して下さい。"
+
+#: woocommerce/cart/shipping-calculator.php:87
+msgid "Update Totals"
+msgstr "金額を更新"
+
+#: woocommerce/cart/shipping-calculator.php:82
+msgid "Postcode / Zip"
+msgstr "郵便番号"
+
+#: woocommerce/cart/shipping-calculator.php:74
+msgid "City"
+msgstr "都市"
+
+#: woocommerce/cart/shipping-calculator.php:54
+msgid "Select a state&hellip;"
+msgstr "選択して下さい&hellip;"
+
+#: woocommerce/cart/shipping-calculator.php:47
+#: woocommerce/cart/shipping-calculator.php:53
+#: woocommerce/cart/shipping-calculator.php:65
+msgid "State / county"
+msgstr "州 / 国"
+
+#: woocommerce/cart/shipping-calculator.php:30
+msgid "Select a country&hellip;"
+msgstr "国を選択&hellip;"
+
+#: woocommerce/cart/shipping-calculator.php:24
+msgid "Calculate Shipping"
+msgstr "送料を計算"
+
+#: woocommerce/cart/proceed-to-checkout-button.php:16
+msgid "Proceed to Checkout"
+msgstr "お支払いへ進む"
+
+#: woocommerce/cart/mini-cart.php:84
+msgid "View Cart"
+msgstr "カートを見る"
+
+#: woocommerce/cart/mini-cart.php:71
+msgid "No products in the cart."
+msgstr "カートの中に商品はございません"
+
+#: woocommerce/cart/cross-sells.php:40
+msgid "You may be interested in&hellip;"
+msgstr "興味がある可能性アリ&hellip;"
+
+#: woocommerce/cart/cart.php:140
+msgid "Update Cart"
+msgstr "カートを更新"
+
+#: woocommerce/cart/cart.php:134 woocommerce/checkout/form-coupon.php:30
+msgid "Apply Coupon"
+msgstr "クーポンの適用"
+
+#: woocommerce/cart/cart.php:133 woocommerce/checkout/form-coupon.php:26
+msgid "Coupon code"
+msgstr "クーポンコード"
+
+#: woocommerce/cart/cart.php:85
+msgid "Available on backorder"
+msgstr "取り寄せの注文(予約注文など)が利用できます"
+
+#: woocommerce/cart/cart.php:53 woocommerce/cart/mini-cart.php:48
+msgid "Remove this item"
+msgstr "この項目を削除"
+
+#: woocommerce/cart/cart.php:32
+msgid "Quantity"
+msgstr "数量"
+
+#: woocommerce/cart/cart.php:31
+msgid "Price"
+msgstr "値段"
+
+#: woocommerce/cart/cart.php:30 woocommerce/checkout/form-pay.php:31
+#: woocommerce/checkout/review-order.php:24
+msgid "Product"
+msgstr "プロダクト"
+
+#: woocommerce/cart/cart.php:29
+msgid "Preview"
+msgstr "プレビュー"
+
+#: woocommerce/cart/cart-totals.php:96
+msgid "Note: Shipping and taxes are estimated%s and will be updated during checkout based on your billing and shipping information."
+msgstr "注意：送料と税金は、推定%sとし、支払い方法や配送情報に基づいて、精算時に更新されます。"
+
+#: woocommerce/cart/cart-totals.php:93
+msgid " (taxes estimated for %s)"
+msgstr "(推定の税額 %s)"
+
+#: woocommerce/cart/cart-totals.php:81 woocommerce/cart/cart.php:33
+#: woocommerce/checkout/review-order.php:25
+#: woocommerce/checkout/review-order.php:104
+msgid "Total"
+msgstr "トータル"
+
+#: woocommerce/cart/cart-totals.php:27 woocommerce/cart/mini-cart.php:79
+#: woocommerce/checkout/review-order.php:57
+msgid "Subtotal"
+msgstr "小計"
+
+#: woocommerce/cart/cart-totals.php:19
+msgid "Cart Totals"
+msgstr "カートの合計"
+
+#: woocommerce/cart/cart-shipping.php:49
+msgid "There are no shipping methods available. Please double check your address, or contact us if you need any help."
+msgstr "配送が可能は方法が無いようです。住所を再度ご確認ください。また、必要があればお問い合わせください。"
+
+#: woocommerce/cart/cart-totals.php:49
+msgid "Shipping"
+msgstr "送料"
+
+#: woocommerce/cart/cart-empty.php:25
+msgid "Return To Shop"
+msgstr "ショップへ戻る"
+
+#: woocommerce/cart/cart-empty.php:21
+msgid "Your cart is currently empty."
+msgstr "カートは空です。"
+
+#: framework/functions/woocommerce.php:261 woocommerce/cart/mini-cart.php:85
+msgid "Checkout"
+msgstr "購入手続き"
+
+#: framework/functions/woocommerce.php:249
+msgid "Logout"
+msgstr "ログアウト"
+
+#: framework/functions/woocommerce.php:243
+#: framework/functions/woocommerce.php:248
+#: framework/functions/woocommerce.php:255 woocommerce/checkout/thankyou.php:32
+msgid "My Account"
+msgstr "アカウント"
+
+#: framework/functions/woocommerce.php:216
+msgid "Phone *"
+msgstr "電話番号 *"
+
+#: framework/functions/woocommerce.php:215
+#: framework/functions/woocommerce.php:226
+msgid "Email Address *"
+msgstr "メールアドレス *"
+
+#: framework/functions/woocommerce.php:214
+#: framework/functions/woocommerce.php:225
+msgid "Country *"
+msgstr "国 *"
+
+#: framework/functions/woocommerce.php:213
+msgid "State *"
+msgstr "都道府県 *"
+
+#: framework/functions/woocommerce.php:212
+#: framework/functions/woocommerce.php:224
+msgid "Postcode / Zip *"
+msgstr "郵便番号 *"
+
+#: framework/functions/woocommerce.php:211
+#: framework/functions/woocommerce.php:223
+msgid "Town / City *"
+msgstr "市町村名 *"
+
+#: framework/functions/woocommerce.php:210
+#: framework/functions/woocommerce.php:222
+msgid "Address Line 2"
+msgstr "住所２（建物名や部屋番号など）"
+
+#: framework/functions/woocommerce.php:209
+#: framework/functions/woocommerce.php:221
+msgid "Address *"
+msgstr "住所 *"
+
+#: framework/functions/woocommerce.php:208
+#: framework/functions/woocommerce.php:220
+msgid "Company Name"
+msgstr "法人名"
+
+#: framework/functions/woocommerce.php:207
+#: framework/functions/woocommerce.php:219
+msgid "Last Name *"
+msgstr "姓 *"
+
+#: framework/functions/woocommerce.php:206
+#: framework/functions/woocommerce.php:218
+msgid "First Name *"
+msgstr "名 *"
+
+#: framework/functions/woocommerce.php:194
+msgid "Passwords do not match."
+msgstr "パスワードが一致しません"
+
+#: framework/customizer/customizer-reset.php:31
+msgid "Reset"
+msgstr "リセットします"
+
+#: framework/customizer/options/options.sections.php:127
+msgid "Navigation"
+msgstr "ナビゲーション"
+
+#: framework/customizer/customizer.php:56
+#: framework/customizer/options/flat/options.flat.php:56
+#: framework/customizer/options/material/options.material.php:116
+msgid "Navbar Link Color"
+msgstr "ナビゲーションバーのリンク色"
+
+#. Template Name of the plugin/theme
+msgid "Right Sidebar"
+msgstr "右サイドバー"
+
+#. Template Name of the plugin/theme
+msgid "Left Sidebar"
+msgstr "左サイドバー"
+
+#. Template Name of the plugin/theme
+msgid "Full Width"
+msgstr "全幅"
+
+#: header.php:106
+msgid "Toggle navigation"
+msgstr "ナビゲーションを切り替え"
+
+#: framework/functions/template-tags.php:265
+msgid "Read More"
+msgstr "続きを読む"
+
+#: framework/functions/template-tags.php:239
+msgid "View all posts in %s"
+msgstr "%s の投稿をすべて表示"
+
+#: framework/functions/template-tags.php:207
+msgid "by"
+msgstr "から"
+
+#: framework/functions/template-tags.php:128
+msgid "Author's profile"
+msgstr "著者プロフィール"
+
+#: framework/functions/template-tags.php:117
+msgid "Next Post"
+msgstr "次の投稿へ"
+
+#: framework/functions/template-tags.php:110
+msgid "Previous Post"
+msgstr "過去の投稿へ"
+
+#: framework/functions/template-tags.php:104
+msgid "Show Comments"
+msgstr "コメントを表示"
+
+#: framework/functions/template-tags.php:66
+msgid "&raquo;"
+msgstr "&raquo;"
+
+#: framework/functions/template-tags.php:65
+msgid "&laquo;"
+msgstr "&laquo;"
+
+#: framework/functions/sidebars.php:36
+msgid "Footer Widgets 3 (right)"
+msgstr "フッターウィジェット3 (右)"
+
+#: framework/functions/sidebars.php:27
+msgid "Footer Widgets 2 (center)"
+msgstr "フッターウィジェット2 (中央)"
+
+#: framework/functions/sidebars.php:18
+msgid "Footer Widgets 1 (left)"
+msgstr "フッターウィジェット1 (左)"
+
+#: framework/functions/sidebars.php:11
+msgid "Main sidebar that appears on the right."
+msgstr "右側に表示されるメインサイドバー。"
+
+#: framework/functions/sidebars.php:9
+msgid "Primary Sidebar"
+msgstr "メインサイドバー"
+
+#: framework/functions/setup.php:66
+msgid "Mobile menu"
+msgstr "モバイルメニュー"
+
+#: framework/functions/setup.php:63
+msgid "Primary Menu"
+msgstr "メインメニュー"
+
+#: framework/customizer/options/options.title.php:17
+msgid "Footer Copyright"
+msgstr "フッター著作権表示"
+
+#: framework/customizer/options/options.template.php:16
+msgid "Choose a Template"
+msgstr "テンプレートを選択"
+
+#: framework/customizer/options/options.sections.php:99
+msgid "Comments"
+msgstr "コメント"
+
+#: framework/customizer/options/options.sections.php:91
+msgid "Page Layout"
+msgstr "ページレイアウト"
+
+#: framework/customizer/options/options.sections.php:83
+msgid "Post Layout"
+msgstr "投稿レイアウト"
+
+#: framework/customizer/options/options.sections.php:75
+msgid "Blog Layout"
+msgstr "ブログレイアウト"
+
+#: framework/customizer/options/options.sections.php:39
+msgid "Flat"
+msgstr "フラット"
+
+#: framework/customizer/options/options.sections.php:32
+msgid "Classic"
+msgstr "クラシック"
+
+#: framework/customizer/options/options.sections.php:24
+msgid "Template"
+msgstr "テンプレート"
+
+#: framework/customizer/options/options.post.php:158
+#: framework/functions/template-tags.php:220
+msgid "Posted on"
+msgstr "投稿日"
+
+#: framework/customizer/options/options.post.php:64
+msgid "Do you want thumbnails to be linked to their article?"
+msgstr "サムネイルを記事にリンクさせますか ?"
+
+#: framework/customizer/options/options.post.php:61
+msgid "Thumbnail Link"
+msgstr "サムネイルリンク"
+
+#: framework/customizer/options/options.post.php:35
+msgid "Post Content"
+msgstr "記事の内容"
+
+#: framework/customizer/options/options.post.php:13
+msgid "Choose the excerpt length (in words). Default is 70"
+msgstr "抜粋の長さ(文字数)を選んで下さい。デフォルト値は70です。"
+
+#: framework/customizer/options/options.post.php:12
+msgid "Excerpt lenght"
+msgstr "抜粋の長さ"
+
+#: framework/customizer/options/options.nav.php:43
+msgid "Menu on single post pages"
+msgstr "シングル投稿ページのメニュー"
+
+#: framework/customizer/options/options.nav.php:23
+msgid "Search Icon"
+msgstr "検索アイコン"
+
+#: framework/customizer/options/options.logo.php:13
+#: framework/customizer/options/options.sections.php:106
+msgid "Logo"
+msgstr "ロゴ"
+
+#: framework/customizer/options/options.layout.php:112
+msgid "Width"
+msgstr "幅"
+
+#: framework/customizer/options/options.layout.php:13
+#: framework/customizer/options/options.layout.php:37
+#: framework/customizer/options/options.layout.php:61
+#: framework/customizer/options/options.sections.php:12
+#: framework/customizer/options/options.sections.php:67
+msgid "Layout"
+msgstr "レイアウト"
+
+#: framework/customizer/options/options.font.php:87
+msgid "Heading Font"
+msgstr "見出しフォント"
+
+#: framework/customizer/options/options.font.php:51
+msgid "Body Font"
+msgstr "本文フォント"
+
+#: framework/customizer/options/options.font.php:23
+msgid "Headings"
+msgstr "見出し"
+
+#: framework/customizer/options/flat/options.flat.php:35
+msgid "Navbar Background Color"
+msgstr "ナビゲーションバーの背景色"
+
+#: framework/customizer/options/options.favicon.php:68
+msgid "Bookmark Icon"
+msgstr "ブックマークアイコン"
+
+#: framework/customizer/options/options.favicon.php:50
+msgid "Retina iPad Bookmark"
+msgstr "Retina iPad ブックマーク"
+
+#: framework/customizer/options/options.favicon.php:32
+msgid "Retina iPhone Bookmark"
+msgstr "Retina iPhone ブックマーク"
+
+#: framework/customizer/options/options.favicon.php:14
+#: framework/customizer/options/options.sections.php:113
+msgid "Favicon"
+msgstr "Favicon"
+
+#: framework/customizer/options/options.comments.php:18
+msgid "Click to see comments"
+msgstr "クリックしてコメントをみる"
+
+#: framework/customizer/options/classic/options.classic.php:95
+#: framework/customizer/options/flat/options.flat.php:136
+#: framework/customizer/options/material/options.material.php:56
+msgid "Link Color"
+msgstr "リンク色"
+
+#: framework/customizer/options/classic/options.classic.php:73
+#: framework/customizer/options/flat/options.flat.php:114
+msgid "Primary Color"
+msgstr "プライマリーの色"
+
+#: framework/customizer/options/classic/options.classic.php:54
+#: framework/customizer/options/flat/options.flat.php:95
+#: framework/customizer/options/material/options.material.php:95
+msgid "Headings Link Color"
+msgstr "見出しのリンク色"
+
+#: framework/customizer/options/classic/options.classic.php:34
+#: framework/customizer/options/flat/options.flat.php:75
+#: framework/customizer/options/material/options.material.php:75
+msgid "Tagline Color"
+msgstr "キャッチフレーズの色"
+
+#: framework/customizer/options/classic/options.classic.php:15
+#: framework/customizer/options/flat/options.flat.php:15
+#: framework/customizer/options/material/options.material.php:15
+msgid "Header Background Color"
+msgstr "ヘッダーの背景色"
+
+#: framework/customizer/customizer.php:55
+msgid "Display Tagline in Header"
+msgstr "ヘッダーにタグを表示する"
+
+#: framework/comments.php:87
+msgid "Website"
+msgstr "Web サイト"
+
+#: framework/comments.php:83
+msgid "Email (will not be published)"
+msgstr "メールアドレス (公開されません)"
+
+#: framework/comments.php:79 woocommerce/single-product-reviews.php:61
+msgid "Name"
+msgstr "名前"
+
+#: framework/comments.php:70
+msgid "Comment"
+msgstr "コメント"
+
+#: framework/comments.php:68
+msgid "Submit Comment"
+msgstr "コメントを送信"
+
+#: framework/comments.php:59
+msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
+msgstr "コメントを投稿するには<a href=\"%s\">ログイン</a>してください。"
+
+#: framework/comments.php:43 framework/comments.php:52
+msgid "Comments are closed."
+msgstr "コメントは停止中です。"
+
+#: framework/comments.php:35
+msgid "Newer comments &rarr;"
+msgstr "新しいコメント &rarr;"
+
+#: framework/comments.php:32
+msgid "&larr; Older comments"
+msgstr "&larr; 過去のコメント"
+
+#: framework/comments.php:18 framework/comments.php:21
+msgid "1 Comment"
+msgid_plural "%1$s Comments"
+msgstr[0] "%1$s コメント"
+
+#: framework/comments.php:18 framework/comments.php:21
+msgid "View Comments"
+msgstr "コメントを表示"
+
+#: framework/comments/comment.php:9
+msgid "Your comment is awaiting moderation."
+msgstr "あなたのコメントは承認待ちです。"
+
+#: framework/comments/comment.php:5
+msgid "(Edit)"
+msgstr "(編集)"
+
+#: framework/comments/comment.php:4
+msgid "%1$s"
+msgstr "%1$s"
+
+#: footer.php:25 footer.php:32
+msgid "Back to top"
+msgstr "ページトップへ戻る"
+
+#: 404.php:20 category.php:46 index.php:46
+msgid "Nothing's here."
+msgstr "ここに何もありません。"
+
+#: 404.php:19 category.php:45 index.php:45
+msgid "404"
+msgstr "404"
+
+#. Author URI of the plugin/theme
+msgid "http://frenchtastic.eu/about"
+msgstr "http://frenchtastic.eu/about"
+
+#. Author of the plugin/theme
+msgid "frenchtastic"
+msgstr "frenchtastic"
+
+#. Theme URI of the plugin/theme
+msgid "http://frenchtastic.eu/theme/coeur"
+msgstr "http://frenchtastic.eu/theme/coeur"

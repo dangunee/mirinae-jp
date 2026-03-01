@@ -66,6 +66,29 @@
     .voice-list { font-size: 13px; margin: 12px 0; }
     .voice-list a { color: #4a6fa5; text-decoration: none; }
     .voice-list a:hover { text-decoration: underline; }
+    .voice-player-bar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--gray-light);
+      border: 1px solid var(--gray-border);
+      border-radius: 8px;
+      padding: 12px 16px;
+      margin-bottom: 16px;
+    }
+    .voice-player-bar audio { flex: 1; max-width: 100%; height: 36px; }
+    .voice-player-bar .label { font-size: 13px; color: var(--text-muted); white-space: nowrap; }
+    .voice-table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 14px; }
+    .voice-table th, .voice-table td { border: 1px solid var(--gray-border); padding: 10px 12px; vertical-align: middle; }
+    .voice-table th { background: var(--gray-light); font-weight: 600; }
+    .voice-table td:first-child { width: 72px; text-align: center; }
+    .voice-play {
+      color: #4a6fa5;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .voice-play:hover { text-decoration: underline; }
+    .voice-play::before { content: "▶ "; font-size: 0.85em; }
     .back-link { display: inline-block; margin-top: 24px; color: #4a6fa5; text-decoration: none; font-size: 14px; }
     ul { margin-left: 24px; margin-bottom: 12px; }
     @media (max-width: 600px) { .tab-btn { padding: 10px 14px; font-size: 13px; } }
@@ -251,7 +274,15 @@
           </div>
           <div class="content-block">
             <h3>朗読音声</h3>
-            <p class="voice-list">著者による朗読音声は<a href="https://mirinae.jp/voice/nihon/dang01.mp3" target="_blank" rel="noopener">朗読01</a>～<a href="https://mirinae.jp/voice/nihon/dang25.m4a" target="_blank" rel="noopener">朗読25</a>など、ミリネサイトよりお聞きいただけます。</p>
+            <p style="margin-bottom: 12px;">下のリンクをクリックすると、該当する朗読音声が再生されます。</p>
+            <div class="voice-player-bar">
+              <span class="label">再生:</span>
+              <audio id="bookVoicePlayer" controls preload="metadata"></audio>
+            </div>
+            <table class="voice-table">
+              <thead><tr><th>朗読</th><th>音声</th></tr></thead>
+              <tbody id="tanguni-voice-tbody"></tbody>
+            </table>
           </div>
           <div class="testimonial">
             <div class="testimonial-header">K様</div>
@@ -307,6 +338,36 @@
         var h = location.hash.slice(1);
         if (['tab01','tab02','tab03','tab04','tab05','tab06','tab07','tab08'].indexOf(h) !== -1) switchTab(h);
       });
+
+      var BASE = "https://mirinae.jp/voice/nihon/";
+      var player = document.getElementById("bookVoicePlayer");
+      var tbody = document.getElementById("tanguni-voice-tbody");
+      if (player && tbody) {
+        function playUrl(url) {
+          player.src = url;
+          player.play().catch(function() {});
+        }
+        var i, row, td, a, ext;
+        for (i = 1; i <= 25; i++) {
+          ext = (i === 25) ? ".m4a" : ".mp3";
+          row = document.createElement("tr");
+          td = document.createElement("td");
+          td.textContent = (i < 10 ? "0" : "") + i;
+          row.appendChild(td);
+          td = document.createElement("td");
+          a = document.createElement("a");
+          a.href = BASE + "dang" + (i < 10 ? "0" : "") + i + ext;
+          a.className = "voice-play";
+          a.textContent = "「タングニの日本生活記」 朗読" + (i < 10 ? "0" : "") + i;
+          a.addEventListener("click", function(e) {
+            e.preventDefault();
+            playUrl(this.getAttribute("href"));
+          });
+          td.appendChild(a);
+          row.appendChild(td);
+          tbody.appendChild(row);
+        }
+      }
     })();
   </script>
   <script src="/admin-badge.js"></script>

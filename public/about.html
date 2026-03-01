@@ -105,7 +105,13 @@
     .access-address { font-size: 16px; font-weight: 600; margin: 16px 0 8px; }
     .access-list { margin: 12px 0 0 20px; }
     .access-list li { margin-bottom: 6px; }
-    .teacher-block { margin-bottom: 28px; }
+    .teacher-block { margin-bottom: 28px; display: flex; flex-wrap: wrap; align-items: flex-start; gap: 20px 24px; }
+    .teacher-block .teacher-photo { flex-shrink: 0; }
+    .teacher-block .teacher-photo img { width: 120px; height: 120px; object-fit: cover; border-radius: 8px; display: block; border: 1px solid var(--gray-border); }
+    .teacher-block .teacher-info { flex: 1; min-width: 0; }
+    @media (max-width: 480px) {
+      .teacher-block .teacher-photo img { width: 100px; height: 100px; }
+    }
     .footer {
       background: var(--text-dark);
       color: rgba(255,255,255,0.85);
@@ -184,74 +190,109 @@
         <h2 class="section-header">『韓国語講師』</h2>
 
         <div class="content-block teacher-block">
-          <table>
-            <tr><th>院長</th><td>金 玄謹（キム・ヒョングン）</td></tr>
-            <tr><th>講師歴</th><td>2004年～</td></tr>
-            <tr><th>経歴</th><td>韓国語講師、韓国語翻訳添削</td></tr>
-            <tr><th>書籍</th><td>『도쿄를 알면 일본어가 보인다1』21세기북스, 2008年 『도쿄를 알면 일본어가 보인다2』21세기북스, 2010年 『일본어 회화패턴 BEST100Ⅰ』21세기북스, 2008年 『일본어 회화표현 BEST100Ⅱ』21세기북스, 2009年 『タングニの日本生活記』白水社、2015年 『タングニの韓国人生劇場』白水社、2016年 『クイズで学ぶ韓国語』あさ出版、2021年 『ゼロから完全攻略！ 韓国語能力試験 TOPIKⅠ』新生出版社 『ゼロから完全攻略！ 韓国語能力試験 TOPIKⅡ』新生出版社、2024年 『123！韓国語 入門』 HANA、2024年 『123！韓国語 初中級』 HANA、2025年</td></tr>
-            <tr><th>一言</th><td>시작이 반이다・継続は力なり</td></tr>
-          </table>
+          <div class="teacher-photo">
+            <img src="https://www.mirinae.jp/images/teacher/01.jpg" alt="金 玄謹（キム・ヒョングン）" onerror="this.style.display='none'">
+          </div>
+          <div class="teacher-info">
+            <table>
+              <tr><th>院長</th><td>金 玄謹（キム・ヒョングン）</td></tr>
+              <tr><th>講師歴</th><td>2004年～</td></tr>
+              <tr><th>経歴</th><td>韓国語講師、韓国語翻訳添削</td></tr>
+              <tr><th>書籍</th><td>『도쿄를 알면 일본어가 보인다1』21세기북스, 2008年 『도쿄를 알면 일본어가 보인다2』21세기북스, 2010年 『일본어 회화패턴 BEST100Ⅰ』21세기북스, 2008年 『일본어 회화표현 BEST100Ⅱ』21세기북스, 2009年 『タングニの日本生活記』白水社、2015年 『タングニの韓国人生劇場』白水社、2016年 『クイズで学ぶ韓国語』あさ出版、2021年 『ゼロから完全攻略！ 韓国語能力試験 TOPIKⅠ』新生出版社 『ゼロから完全攻略！ 韓国語能力試験 TOPIKⅡ』新生出版社、2024年 『123！韓国語 入門』 HANA、2024年 『123！韓国語 初中級』 HANA、2025年</td></tr>
+              <tr><th>一言</th><td>시작이 반이다・継続は力なり</td></tr>
+            </table>
+          </div>
         </div>
 
         <div class="content-block teacher-block">
-          <table>
-            <tr><th>名前</th><td>朴 多貞 (パク・ダジョン)</td></tr>
+          <div class="teacher-photo">
+            <img src="https://www.mirinae.jp/images/teacher/02.jpg" alt="朴 多貞 (パク・ダジョン)" onerror="this.style.display='none'">
+          </div>
+          <div class="teacher-info">
+            <table>
+              <tr><th>名前</th><td>朴 多貞 (パク・ダジョン)</td></tr>
             <tr><th>講師歴</th><td>2014年～</td></tr>
             <tr><th>経歴</th><td>東京外国語大学日本語専攻、韓国語講師</td></tr>
             <tr><th>資格</th><td>日本語能力試験1級</td></tr>
             <tr><th>一言</th><td>韓国や韓国語に興味をもっていた友達が周りにいたのがきっかけで韓国語を教えることに興味を持つようになりました。みなさんと同じく、言葉を学習する立場でもあるので、より分かりやすく教えていきたいと思っております。</td></tr>
-          </table>
+            </table>
+          </div>
         </div>
 
         <div class="content-block teacher-block">
-          <table>
-            <tr><th>名前</th><td>安 ミンジョン（アン・ミンジョン）</td></tr>
+          <div class="teacher-photo">
+            <img src="https://www.mirinae.jp/images/teacher/03.jpg" alt="安 ミンジョン（アン・ミンジョン）" onerror="this.style.display='none'">
+          </div>
+          <div class="teacher-info">
+            <table>
+              <tr><th>名前</th><td>安 ミンジョン（アン・ミンジョン）</td></tr>
             <tr><th>講師歴</th><td>2011年～</td></tr>
             <tr><th>経歴</th><td>韓国のテレビ局、記者、芸能事務所、韓国語講師 韓国語教員資格2級</td></tr>
             <tr><th>書籍</th><td>『森ガールと草食男の世界、東京』（チャンへ出版社2010年） 『日本のお母さんの力』（hwangsobooks 2015年） 『ゼロから完全攻略！ 韓国語能力試験 TOPIKⅡ』 2024年</td></tr>
             <tr><th>一言</th><td>語学の王道は毎日のコツコツが第一！皆さんの努力を応援してサポートいたします！</td></tr>
-          </table>
+            </table>
+          </div>
         </div>
 
         <div class="content-block teacher-block">
-          <table>
-            <tr><th>名前</th><td>申 廣徳（シン カンドク）</td></tr>
+          <div class="teacher-photo">
+            <img src="https://www.mirinae.jp/images/teacher/04.jpg" alt="申 廣徳（シン カンドク）" onerror="this.style.display='none'">
+          </div>
+          <div class="teacher-info">
+            <table>
+              <tr><th>名前</th><td>申 廣徳（シン カンドク）</td></tr>
             <tr><th>講師歴</th><td>2009年～</td></tr>
             <tr><th>経歴</th><td>韓国語講師、読売カルチャー、インカルチャーの講師</td></tr>
             <tr><th>資格</th><td>韓国語教員免許2級</td></tr>
             <tr><th>一言</th><td>新しいチャレンジは新しい出会いが待っていますし、世界が広がります。</td></tr>
-          </table>
+            </table>
+          </div>
         </div>
 
         <div class="content-block teacher-block">
-          <table>
-            <tr><th>名前</th><td>孫 秀賢（ソン・スヒョン）</td></tr>
+          <div class="teacher-photo">
+            <img src="https://www.mirinae.jp/images/teacher/05.jpg" alt="孫 秀賢（ソン・スヒョン）" onerror="this.style.display='none'">
+          </div>
+          <div class="teacher-info">
+            <table>
+              <tr><th>名前</th><td>孫 秀賢（ソン・スヒョン）</td></tr>
             <tr><th>講師歴</th><td>2022年～</td></tr>
             <tr><th>経歴</th><td>日本女子大学 人間社会学部 文化学科卒業</td></tr>
             <tr><th>資格</th><td>韓国語教員資格2級 日本語能力試験1級</td></tr>
             <tr><th>書籍</th><td>『ゼロから完全攻略！ 韓国語能力試験 TOPIKⅠ』 2024年</td></tr>
             <tr><th>一言</th><td>何かに夢中になれることは素敵なことです。韓国語を通してもっと豊かな人生にしませんか？</td></tr>
-          </table>
+            </table>
+          </div>
         </div>
 
         <div class="content-block teacher-block">
-          <table>
-            <tr><th>名前</th><td>李 姃姸 （リ・ジョンヨン）</td></tr>
+          <div class="teacher-photo">
+            <img src="https://www.mirinae.jp/images/teacher/06.jpg" alt="李 姃姸 （リ・ジョンヨン）" onerror="this.style.display='none'">
+          </div>
+          <div class="teacher-info">
+            <table>
+              <tr><th>名前</th><td>李 姃姸 （リ・ジョンヨン）</td></tr>
             <tr><th>講師歴</th><td>2023年～</td></tr>
             <tr><th>経歴</th><td>日語日文学科 卒業</td></tr>
             <tr><th>資格</th><td>日本語能力試験N1 日本語教師養成講座420時間修了 日本語講師 韓国語教員資格2級</td></tr>
             <tr><th>一言</th><td>韓国語は難しい!'から'韓国語は楽しい！'となるよう楽しい韓国語を目指して一緒に頑張りませんか</td></tr>
-          </table>
+            </table>
+          </div>
         </div>
 
         <div class="content-block teacher-block">
-          <table>
-            <tr><th>名前</th><td>池上智子</td></tr>
+          <div class="teacher-photo">
+            <img src="https://www.mirinae.jp/images/teacher/07.jpg" alt="池上智子" onerror="this.style.display='none'">
+          </div>
+          <div class="teacher-info">
+            <table>
+              <tr><th>名前</th><td>池上智子</td></tr>
             <tr><th>講師歴</th><td>2019年～</td></tr>
             <tr><th>経歴</th><td>東京外国語大学国際社会学部朝鮮語専攻卒、韓国語講師</td></tr>
             <tr><th>資格</th><td>TOPIK 6級 日本語教育能力試験(日本語教師資格保持) TOEIC スコア970</td></tr>
             <tr><th>一言</th><td>韓国語学習を通して言語だけではなく、韓国の文化や人々を深く知ることができ、日々新しい発見があるのが面白いところだと思います。同じ韓国語学習者の目線から分かりやすく、楽しい授業を心がけていきます！</td></tr>
-          </table>
+            </table>
+          </div>
         </div>
       </div>
 

@@ -276,11 +276,8 @@
       max-width: 1100px;
       margin: 0 auto;
       display: flex;
-      overflow-x: auto;
-      overflow-y: visible;
-      scrollbar-width: none;
+      overflow: visible;
     }
-    .course-bar-inner::-webkit-scrollbar { display: none; }
     .course-item {
       position: relative;
       flex: 1;
@@ -328,7 +325,7 @@
     }
     .course-link:hover .c-icon { opacity: 1; }
     .course-link.highlight { color: var(--gold-light); }
-    /* コースバー プルダウン */
+    /* コースバー プルダウン（overflow で切れないよう .course-bar-inner は overflow:visible） */
     .course-dropdown {
       position: absolute;
       top: 100%;
@@ -343,10 +340,19 @@
       opacity: 0;
       visibility: hidden;
       transition: opacity 0.2s, visibility 0.2s;
-      z-index: 95;
+      z-index: 9999;
       margin-top: 0;
       border: 1px solid var(--border);
       pointer-events: none;
+    }
+    /* リンクとドロップダウンの間のホバー維持用 */
+    .course-dropdown::before {
+      content: '';
+      position: absolute;
+      bottom: 100%;
+      left: 0;
+      right: 0;
+      height: 12px;
     }
     .course-item:hover .course-dropdown {
       opacity: 1;
@@ -401,6 +407,48 @@
       font-weight: 300;
       margin-bottom: 40px;
     }
+
+    /* 只今募集中の講座 */
+    .recruit-wrap {
+      background: #f5f1eb;
+      border-radius: 16px;
+      padding: 32px 24px;
+      margin-top: 24px;
+    }
+    .recruit-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    @media (max-width: 768px) { .recruit-grid { grid-template-columns: 1fr; } }
+    .recruit-card {
+      display: block;
+      padding: 28px 24px;
+      border-radius: 12px;
+      text-decoration: none;
+      color: #fff;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .recruit-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.2);
+    }
+    .recruit-card h3 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      line-height: 1.35;
+    }
+    .recruit-card p {
+      font-size: 13px;
+      opacity: 0.95;
+      line-height: 1.6;
+      margin: 0;
+    }
+    .recruit-card.rose { background: linear-gradient(135deg, #c9a9a6 0%, #b8928f 100%); }
+    .recruit-card.navy { background: linear-gradient(135deg, #2c3e50 0%, #1a252f 100%); }
+    .recruit-card.green { background: linear-gradient(135deg, #6b7c5c 0%, #5a6650 100%); }
 
     /* 注目の講座 (featured) */
     .featured-grid {
@@ -998,9 +1046,34 @@
   </div>
 </nav>
 
-<!-- 注目の講座 -->
+<!-- 只今募集中の講座 -->
 <div style="background: var(--white); border-bottom: 1px solid var(--border);">
 <div class="section" id="recruiting">
+  <div class="section-label">RECRUITING</div>
+  <h2 class="section-title">只今募集中の講座</h2>
+  <p class="section-sub">気になる講座をクリックする!</p>
+  <div class="recruit-wrap">
+    <div class="recruit-grid">
+      <a href="group.html" class="recruit-card rose">
+        <h3>入門・初級クラス</h3>
+        <p>最短5ヶ月でハングルの読み書きから基礎文法まで</p>
+      </a>
+      <a href="https://mirinae.jp/netlesson.html?tab=tab01" class="recruit-card navy">
+        <h3>通信作文トレーニング</h3>
+        <p>3ヶ月で作文添削+ネイティブ比較文+模範文</p>
+      </a>
+      <a href="https://mirinae.jp/netlesson.html?tab=tab02" class="recruit-card green">
+        <h3>通信音読トレーニング</h3>
+        <p>3ヶ月で上達!ご自宅で発音矯正&音読レッスン</p>
+      </a>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- 注目の講座 -->
+<div style="background: var(--white); border-bottom: 1px solid var(--border);">
+<div class="section" id="pickup">
   <div class="section-label">PICKUP</div>
   <h2 class="section-title">注目の講座</h2>
   <p class="section-sub">今すぐ申し込める、人気講座をピックアップ。</p>

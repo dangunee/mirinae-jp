@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>動画管理｜ミリネ</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; padding: 24px; max-width: 800px; margin: 0 auto; }
+    h1 { margin-bottom: 8px; font-size: 22px; }
+    p.sub { color: #666; font-size: 14px; margin-bottom: 24px; }
+    a.back { display: inline-block; margin-bottom: 20px; color: #B8963E; text-decoration: none; font-weight: 600; }
+    a.back:hover { text-decoration: underline; }
+    .card { background: #fff; border: 1px solid #e5e5e5; border-radius: 12px; padding: 20px; margin-bottom: 16px; }
+    .card h3 { font-size: 14px; margin-bottom: 12px; color: #333; }
+    label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 4px; color: #333; }
+    input, textarea { width: 100%; padding: 10px 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px; margin-bottom: 12px; }
+    textarea { min-height: 60px; resize: vertical; }
+    button { padding: 10px 20px; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; border: none; }
+    button.primary { background: #B8963E; color: #fff; }
+    button.primary:hover { background: #A08030; }
+    button.secondary { background: #f0f0f0; color: #333; margin-left: 8px; }
+    button.danger { background: #e0e0e0; color: #c00; font-size: 12px; padding: 6px 12px; }
+    button.danger:hover { background: #ffebee; }
+    .item { display: flex; align-items: flex-start; gap: 12px; padding: 12px 0; border-bottom: 1px solid #eee; }
+    .item:last-child { border-bottom: none; }
+    .item-info { flex: 1; min-width: 0; }
+    .item-title { font-weight: 600; margin-bottom: 4px; }
+    .item-meta { font-size: 12px; color: #666; }
+    .item-actions { flex-shrink: 0; }
+    .download-hint { background: #f8f4e8; border: 1px solid #B8963E; border-radius: 8px; padding: 16px; margin-top: 24px; font-size: 13px; color: #333; }
+    .download-hint strong { color: #B8963E; }
+  </style>
+</head>
+<body>
+  <a href="/" class="back">← トップに戻る</a>
+  <h1>動画管理</h1>
+  <p class="sub">トップページの「動画」セクションに表示するYouTube動画を登録・編集します。保存後は public/data/youtube-videos.json を更新して再デプロイしてください。</p>
+
+  <div class="card">
+    <h3 id="form-title">動画を追加</h3>
+    <form id="add-form">
+      <input type="hidden" id="editingIndex" value="-1">
+      <label>YouTube URL または 動画ID</label>
+      <input type="text" id="videoUrl" placeholder="https://www.youtube.com/watch?v=xxxx または xxxxx" required>
+      <label>タイトル</label>
+      <input type="text" id="videoTitle" placeholder="動画のタイトル" required>
+      <label>説明（任意）</label>
+      <textarea id="videoDesc" placeholder="短い説明文"></textarea>
+      <button type="submit" class="primary" id="btnSubmit">追加</button>
+      <button type="button" class="secondary" id="btnCancel" style="display:none;">キャンセル</button>
+    </form>
+  </div>
+
+  <div class="card">
+    <h3>登録済み動画</h3>
+    <div id="list"></div>
+  </div>
+
+  <div class="card">
+    <h3>JSONを保存</h3>
+    <p style="font-size: 13px; color: #666; margin-bottom: 12px;">下のJSONをコピーし、<strong>public/data/youtube-videos.json</strong> を置き換えてからGitでコミット・プッシュしてください。</p>
+    <textarea id="jsonOut" readonly style="min-height: 120px; font-family: monospace; font-size: 12px;"></textarea>
+    <button type="button" class="primary" id="btnDownload">JSONファイルをダウンロード</button>
+  </div>
+
+  <div class="download-hint">
+    <strong>運用の流れ：</strong> このページで「追加」や編集・削除 → 「JSONファイルをダウンロード」で保存 → ダウンロードしたファイルを <code>public/data/youtube-videos.json</code> に上書き → git add / commit / push で反映されます。
+  </div>
+
+  <script>
+    function parseVideoId(urlOrId) {
+      if (!urlOrId || !urlOrId.trim()) return '';
+      var s = urlOrId.trim();
+      var m = s.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/|embed\/)([a-zA-Z0-9_-]{11})/);
+      if (m) return m[1];
+      if (/^[a-zA-Z0-9_-]{11}$/.test(s)) return s;
+      return '';
+    }
+
+    var list = [];
+
+    function load() {
+      fetch('/data/youtube-videos.json')
+        .then(function(r) { return r.ok ? r.json() : []; })
+        .catch(function() { return []; })
+        .then(function(arr) {
+          list = Array.isArray(arr) ? arr : [];
+          render();
+        });
+    }
+
+    function render() {
+      var listEl = document.getElementById('list');
+      var jsonEl = document.getElementById('jsonOut');
+      if (list.length === 0) {
+        listEl.innerHTML = '<p style="color:#888;font-size:14px;">まだ登録されていません。上で追加してください。</p>';
+      } else {
+        listEl.innerHTML = list.map(function(v, i) {
+          var id = v.id || '';
+          var title = (v.title || '').replace(/</g, '&lt;');
+          var desc = (v.description || '').replace(/</g, '&lt;').substring(0, 50);
+          return '<div class="item" data-index="' + i + '">' +
+            '<div class="item-info">' +
+            '<div class="item-title">' + title + '</div>' +
+            '<div class="item-meta">ID: ' + id + (desc ? ' · ' + desc + '…' : '') + '</div>' +
+            '</div>' +
+            '<div class="item-actions">' +
+            '<button type="button" class="secondary btn-edit" style="padding:6px 12px;font-size:12px;">編集</button> ' +
+            '<button type="button" class="danger btn-delete">削除</button>' +
+            '</div></div>';
+        }).join('');
+      }
+      listEl.querySelectorAll('.btn-delete').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var i = parseInt(btn.closest('.item').getAttribute('data-index'), 10);
+          list.splice(i, 1);
+          render();
+        });
+      });
+      listEl.querySelectorAll('.btn-edit').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var i = parseInt(btn.closest('.item').getAttribute('data-index'), 10);
+          var v = list[i];
+          document.getElementById('editingIndex').value = i;
+          document.getElementById('videoUrl').value = v.id || '';
+          document.getElementById('videoTitle').value = v.title || '';
+          document.getElementById('videoDesc').value = v.description || '';
+          document.getElementById('form-title').textContent = '動画を編集';
+          document.getElementById('btnSubmit').textContent = '更新';
+          document.getElementById('btnCancel').style.display = 'inline-block';
+        });
+      });
+      jsonEl.value = JSON.stringify(list, null, 2);
+    }
+
+    document.getElementById('btnCancel').addEventListener('click', function() {
+      document.getElementById('editingIndex').value = '-1';
+      document.getElementById('videoUrl').value = '';
+      document.getElementById('videoTitle').value = '';
+      document.getElementById('videoDesc').value = '';
+      document.getElementById('form-title').textContent = '動画を追加';
+      document.getElementById('btnSubmit').textContent = '追加';
+      document.getElementById('btnCancel').style.display = 'none';
+    });
+
+    document.getElementById('add-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var url = document.getElementById('videoUrl').value.trim();
+      var id = parseVideoId(url);
+      if (!id) {
+        alert('有効なYouTubeのURLまたは動画IDを入力してください。');
+        return;
+      }
+      var payload = {
+        id: id,
+        title: document.getElementById('videoTitle').value.trim() || '無題',
+        description: document.getElementById('videoDesc').value.trim()
+      };
+      var editIdx = parseInt(document.getElementById('editingIndex').value, 10);
+      if (editIdx >= 0 && editIdx < list.length) {
+        list[editIdx] = payload;
+        document.getElementById('btnCancel').click();
+      } else {
+        list.push(payload);
+        document.getElementById('videoUrl').value = '';
+        document.getElementById('videoTitle').value = '';
+        document.getElementById('videoDesc').value = '';
+      }
+      render();
+    });
+
+    document.getElementById('btnDownload').addEventListener('click', function() {
+      var blob = new Blob([JSON.stringify(list, null, 2)], { type: 'application/json' });
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'youtube-videos.json';
+      a.click();
+      URL.revokeObjectURL(a.href);
+    });
+
+    load();
+  </script>
+</body>
+</html>

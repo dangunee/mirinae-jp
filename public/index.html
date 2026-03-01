@@ -33,6 +33,10 @@
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
+    html, body {
+      overflow-x: hidden;
+      max-width: 100vw;
+    }
     body {
       font-family: 'Noto Sans JP', sans-serif;
       color: var(--text);
@@ -483,6 +487,27 @@
       transform: translateY(-4px);
       box-shadow: 0 16px 40px rgba(0,0,0,0.1);
     }
+    .featured-card.has-bg {
+      background-size: cover;
+      background-position: center;
+      color: var(--white);
+    }
+    .featured-card.has-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 16px;
+      background: rgba(0,0,0,0.4);
+      pointer-events: none;
+    }
+    .featured-card.has-bg .tag,
+    .featured-card.has-bg h3,
+    .featured-card.has-bg p,
+    .featured-card.has-bg .link { position: relative; z-index: 1; }
+    .featured-card.has-bg .tag { background: rgba(255,255,255,0.25); color: #fff; }
+    .featured-card.has-bg h3 { color: #fff; }
+    .featured-card.has-bg p { color: rgba(255,255,255,0.9); }
+    .featured-card.has-bg .link { color: var(--gold-light); }
     .featured-card .tag {
       display: inline-block;
       background: var(--gold-pale);
@@ -630,10 +655,80 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
+    /* モバイル: ハンバーガーメニュー */
+    .nav-hamburger {
+      display: none;
+      width: 44px;
+      height: 44px;
+      padding: 0;
+      border: none;
+      background: none;
+      cursor: pointer;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--dark);
+      border-radius: 1px;
+      transition: transform 0.25s, opacity 0.25s;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
     @media (max-width: 700px) {
       .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
       .course-link .c-icon { display: none; }
       .course-link { padding: 12px 10px; font-size: 11px; }
+    }
+    .nav-mobile-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.4);
+      z-index: 98;
+      opacity: 0;
+      transition: opacity 0.25s;
+    }
+    .nav-mobile-overlay.open {
+      display: block;
+      opacity: 1;
+    }
+    .nav-mobile-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: min(300px, 85vw);
+      height: 100vh;
+      background: var(--white);
+      box-shadow: -4px 0 24px rgba(0,0,0,0.15);
+      z-index: 99;
+      padding: 72px 0 24px 0;
+      overflow-y: auto;
+      transform: translateX(100%);
+      transition: transform 0.25s ease;
+    }
+    .nav-mobile-drawer.open { transform: translateX(0); }
+    .nav-mobile-drawer a {
+      display: block;
+      padding: 14px 24px;
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-mobile-drawer a:hover { background: var(--gold-pale); color: var(--gold); }
+    .nav-mobile-drawer .nav-cta { background: var(--gold-pale) !important; color: var(--gold) !important; border-bottom: 1px solid var(--border) !important; }
+    .nav-mobile-drawer .nav-cta:hover { background: var(--gold) !important; color: white !important; }
+    .nav-mobile-drawer .nav-sub {
+      padding-left: 32px;
+      font-size: 14px;
     }
 
     /* ミリネの講座 grid (SVG cards + circular icon - keep) */
@@ -911,6 +1006,56 @@
     .book-info h4 { font-size: 12px; font-weight: 700; line-height: 1.4; margin-bottom: 2px; }
     .book-info p { font-size: 11px; color: var(--gray-desc); }
 
+    /* YouTube動画（著書と同じ横流れ） */
+    .youtube-slider {
+      overflow: hidden;
+      margin-top: 0;
+      padding-bottom: 12px;
+    }
+    .youtube-track {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      width: max-content;
+      animation: youtubeRoll 60s linear infinite;
+    }
+    .youtube-track:hover { animation-play-state: paused; }
+    @keyframes youtubeRoll {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .youtube-card {
+      flex-shrink: 0;
+      width: 320px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      color: var(--text);
+    }
+    .youtube-card .youtube-embed-wrap {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%;
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--bg2);
+      box-shadow: 4px 6px 20px rgba(0,0,0,0.1);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .youtube-card:hover .youtube-embed-wrap {
+      transform: translateY(-4px);
+      box-shadow: 6px 12px 28px rgba(0,0,0,0.15);
+    }
+    .youtube-card iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: none;
+    }
+    .youtube-info { padding: 0 2px; }
+    .youtube-info h4 { font-size: 14px; font-weight: 700; line-height: 1.4; margin-bottom: 4px; color: var(--dark); }
+    .youtube-info p { font-size: 12px; color: var(--gray-desc); line-height: 1.5; }
+
     /* CTA banner */
     .cta-banner {
       background: linear-gradient(135deg, var(--dark) 0%, #2d2d44 100%);
@@ -1087,8 +1232,27 @@
       <li><a href="book.html">著書</a></li>
       <li><a href="trial.html" class="nav-cta">お申込み</a></li>
     </ul>
+    <button type="button" class="nav-hamburger" id="navHamburger" aria-label="メニューを開く">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </header>
+<div class="nav-mobile-overlay" id="navMobileOverlay" aria-hidden="true"></div>
+<nav class="nav-mobile-drawer" id="navMobileDrawer" aria-hidden="true">
+  <a href="index.html">ホーム</a>
+  <a href="#recruiting">講座</a>
+  <a href="kojin.html" class="nav-sub">個人レッスン</a>
+  <a href="group.html" class="nav-sub">グループレッスン</a>
+  <a href="kaiwa.html" class="nav-sub">会話強化クラス</a>
+  <a href="special.html" class="nav-sub">試験対策講座</a>
+  <a href="syutyu.html" class="nav-sub">集中講座</a>
+  <a href="https://mirinae.jp/netlesson.html" class="nav-sub">通信講座</a>
+  <a href="about.html">会社概要</a>
+  <a href="about.html#tab02" class="nav-sub">アクセス</a>
+  <a href="about.html#tab03" class="nav-sub">講師</a>
+  <a href="book.html">著書</a>
+  <a href="trial.html" class="nav-cta">お申込み</a>
+</nav>
 
 <!-- ▸ HERO（광화문 배경 유지） -->
 <section class="hero">
@@ -1240,13 +1404,13 @@
   <h2 class="section-title">注目の講座</h2>
   <p class="section-sub">今すぐ申し込める、人気講座をピックアップ。</p>
   <div class="featured-grid">
-    <a href="https://mirinae.jp/netlesson.html?tab=tab01" class="featured-card">
+    <a href="https://mirinae.jp/netlesson.html?tab=tab01" class="featured-card has-bg" style="background-image: url('/img/classroom/ondoku.png');">
       <span class="tag">通信講座</span>
       <h3>通信作文トレーニング</h3>
       <p>4月から、作文に自信が付く！3ヶ月で作文添削＋ネイティブ比較文＋模範文で、書く力を徹底強化。</p>
       <span class="link">詳細を見る →</span>
     </a>
-    <a href="https://mirinae.jp/" class="featured-card">
+    <a href="https://mirinae.jp/" class="featured-card has-bg" style="background-image: url('/img/classroom/classroom.jpg');">
       <span class="tag">対面講座</span>
       <h3>土曜上級対面講座</h3>
       <p>2/4（土）開始、10時〜12時。上級者のためのリスニング力＆スピーキング力アップ講座です。</p>
@@ -1574,6 +1738,18 @@
 </div>
 </div>
 
+<!-- YouTube動画（JSONで管理・adminで登録・編集） -->
+<div style="background: var(--white); border-bottom: 1px solid var(--border);" id="youtube-section-wrap">
+<div class="section" id="youtube-section">
+  <div class="section-label">VIDEO</div>
+  <h2 class="section-title">動画</h2>
+  <p class="section-sub">ミリネの講座紹介・学習のヒントになる動画をご紹介します。</p>
+  <div class="youtube-slider">
+    <div class="youtube-track" id="youtube-track"></div>
+  </div>
+</div>
+</div>
+
 <!-- 著書 -->
 <div style="background: var(--white);">
 <div class="section">
@@ -1765,6 +1941,37 @@
     }
   })();
   (function() {
+    var btn = document.getElementById('navHamburger');
+    var overlay = document.getElementById('navMobileOverlay');
+    var drawer = document.getElementById('navMobileDrawer');
+    if (!btn || !overlay || !drawer) return;
+    function open() {
+      btn.classList.add('open');
+      btn.setAttribute('aria-label', 'メニューを閉じる');
+      overlay.classList.add('open');
+      drawer.classList.add('open');
+      overlay.setAttribute('aria-hidden', 'false');
+      drawer.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+    function close() {
+      btn.classList.remove('open');
+      btn.setAttribute('aria-label', 'メニューを開く');
+      overlay.classList.remove('open');
+      drawer.classList.remove('open');
+      overlay.setAttribute('aria-hidden', 'true');
+      drawer.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+    btn.addEventListener('click', function() {
+      if (drawer.classList.contains('open')) close(); else open();
+    });
+    overlay.addEventListener('click', close);
+    drawer.querySelectorAll('a').forEach(function(a) {
+      a.addEventListener('click', close);
+    });
+  })();
+  (function() {
     var wrap = document.querySelector('.voice-slider-wrap');
     if (!wrap) return;
     var slider = wrap.querySelector('.voice-slider');
@@ -1799,6 +2006,28 @@
     });
     slider.addEventListener('scroll', updateDots);
     updateDots();
+  })();
+  (function() {
+    var wrap = document.getElementById('youtube-section-wrap');
+    var track = document.getElementById('youtube-track');
+    if (!wrap || !track) return;
+    fetch('/data/youtube-videos.json')
+      .then(function(r) { return r.ok ? r.json() : []; })
+      .catch(function() { return []; })
+      .then(function(list) {
+        if (!list || list.length === 0) { wrap.style.display = 'none'; return; }
+        function cardHtml(v) {
+          var id = (v.id || '').replace(/^.*(?:youtube\.com\/watch\?v=|youtu\.be\/|embed\/)([a-zA-Z0-9_-]{11}).*$/, '$1') || v.id;
+          if (!id) return '';
+          var title = (v.title || '').replace(/</g, '&lt;').replace(/"/g, '&quot;');
+          var desc = (v.description || '').replace(/</g, '&lt;').replace(/"/g, '&quot;');
+          return '<div class="youtube-card">' +
+            '<div class="youtube-embed-wrap"><iframe src="https://www.youtube.com/embed/' + id + '?rel=0" allowfullscreen title="' + title + '"></iframe></div>' +
+            '<div class="youtube-info"><h4>' + title + '</h4><p>' + desc + '</p></div></div>';
+        }
+        var html = list.map(cardHtml).join('') + list.map(cardHtml).join('');
+        track.innerHTML = html;
+      });
   })();
 </script>
   <script src="/admin-badge.js"></script>

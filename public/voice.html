@@ -36,8 +36,10 @@
       gap: 16px;
       border-bottom: 1px solid var(--beige-dark);
     }
-    .top-bar a { color: var(--text-dark); text-decoration: none; font-size: 14px; font-weight: 500; }
-    .top-bar a:hover { color: var(--accent-blue); }
+    .top-bar-info { color: var(--text-muted); }
+    .top-bar-nav { display: flex; flex-wrap: wrap; gap: 20px 32px; }
+    .top-bar a, .top-bar-nav a { color: var(--text-dark); text-decoration: none; font-size: 14px; font-weight: 500; }
+    .top-bar a:hover, .top-bar-nav a:hover { color: var(--accent-blue); }
     .main-content { padding: 40px 32px 60px; }
     .page-title { font-size: 28px; font-weight: 700; margin-bottom: 12px; color: var(--text-dark); }
     .page-intro { color: var(--text-muted); margin-bottom: 24px; }
@@ -105,16 +107,15 @@
 <body>
   <div class="page-wrapper">
     <div class="top-bar">
-      <a href="index.html">ホーム</a>
-      <nav style="display: flex; flex-wrap: wrap; gap: 20px;">
-        <a href="https://mirinae.jp/company.html">会社概要</a>
-        <a href="https://mirinae.jp/access.html">アクセス</a>
+      <span class="top-bar-info">東京で韓国語教室をお探しならミリネ | 定休日: 月曜日</span>
+      <nav class="top-bar-nav">
+        <a href="index.html">ホーム</a>
+        <a href="about.html">会社概要</a>
+        <a href="about.html#tab02">アクセス</a>
         <a href="trial.html">お申込み</a>
-        <a href="https://mirinae.jp/teacher.html">講師</a>
+        <a href="about.html#tab03">講師</a>
         <a href="book.html">著書</a>
-        <a href="voice.html">「ミリネ教科書」の音声</a>
-        <a href="cancel.html">キャンセル規定</a>
-        <a href="https://mirinae.jp/contact.html">お問い合わせ</a>
+        <a href="trial.html#tab04">お問い合わせ</a>
       </nav>
     </div>
 

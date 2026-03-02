@@ -220,6 +220,7 @@
           <p class="form-note">毎週のテーマ作文＋ネイティブ添削＋比較文＋模範文で、表現力をぐっと伸ばすオンライン講座です。下のフレーム内から、そのまま専用ページを操作できます。</p>
           <div class="iframe-wrap">
             <iframe
+              id="writing-frame"
               class="iframe-frame"
               title="ミリネ韓国語 作文トレーニング"
               loading="lazy"
@@ -343,6 +344,31 @@
         switchTab(hash);
       } else {
         switchTab('tab01');
+      }
+    })();
+  </script>
+  <script>
+    // Receive height updates from writing.mirinae.jp iframe and adjust iframe height
+    (function () {
+      function handleMessage(event) {
+        if (!event.data || event.data.type !== 'mirinae-writing-height') return;
+        // writing.mirinae.jp 에서 오는 메시지만 처리
+        if (event.origin !== 'https://writing.mirinae.jp') return;
+
+        var iframe = document.getElementById('writing-frame');
+        if (!iframe) return;
+
+        var height = parseInt(event.data.height, 10);
+        if (!height || height <= 0) return;
+
+        // 여유를 조금 더해 부드럽게 표시
+        iframe.style.height = (height + 40) + 'px';
+      }
+
+      if (window.addEventListener) {
+        window.addEventListener('message', handleMessage, false);
+      } else if (window.attachEvent) {
+        window.attachEvent('onmessage', handleMessage);
       }
     })();
   </script>

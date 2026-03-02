@@ -144,10 +144,14 @@
     .iframe-frame {
       display: block;
       width: 100%;
-      max-width: 100%;
-      height: 8000px;
+      height: 1400px;
       border: 0;
       background: white;
+    }
+    @media (max-width: 720px) {
+      .iframe-frame {
+        height: 1500px;
+      }
     }
 
     .iframe-note {
@@ -220,12 +224,10 @@
           <p class="form-note">毎週のテーマ作文＋ネイティブ添削＋比較文＋模範文で、表現力をぐっと伸ばすオンライン講座です。下のフレーム内から、そのまま専用ページを操作できます。</p>
           <div class="iframe-wrap">
             <iframe
-              id="writing-frame"
               class="iframe-frame"
               title="ミリネ韓国語 作文トレーニング"
               loading="lazy"
-              data-src="https://writing.mirinae.jp"
-              scrolling="no">
+              data-src="https://writing.mirinae.jp">
             </iframe>
           </div>
           <p class="iframe-note">※ 通信環境により読み込みに少し時間がかかる場合があります。表示されないときは数秒お待ちいただくか、ページを再読み込みしてください。</p>
@@ -242,8 +244,7 @@
               class="iframe-frame"
               title="ミリネ韓国語 通信音読トレーニング"
               loading="lazy"
-              data-src="https://mirinae.jp/netlesson.html?tab=tab02"
-              scrolling="no">
+              data-src="https://mirinae.jp/netlesson.html?tab=tab02">
             </iframe>
           </div>
           <p class="iframe-note">※ 別タブで開きたい場合は、フレーム内のリンクをクリックしてください。</p>
@@ -260,8 +261,7 @@
               class="iframe-frame"
               title="ミリネ韓国語 TOPIK Training"
               loading="lazy"
-              data-src="https://mirinae.jp/netlesson.html?tab=tab03"
-              scrolling="no">
+              data-src="https://mirinae.jp/netlesson.html?tab=tab03">
             </iframe>
           </div>
           <p class="iframe-note">※ 表示中の内容は、従来サイトの TOPIK Training ページと同じです。</p>
@@ -344,31 +344,6 @@
         switchTab(hash);
       } else {
         switchTab('tab01');
-      }
-    })();
-  </script>
-  <script>
-    // Receive height updates from writing.mirinae.jp iframe and adjust iframe height
-    (function () {
-      function handleMessage(event) {
-        if (!event.data || event.data.type !== 'mirinae-writing-height') return;
-        // writing.mirinae.jp 에서 오는 메시지만 처리
-        if (event.origin !== 'https://writing.mirinae.jp') return;
-
-        var iframe = document.getElementById('writing-frame');
-        if (!iframe) return;
-
-        var height = parseInt(event.data.height, 10);
-        if (!height || height <= 0) return;
-
-        // 여유를 조금 더해 부드럽게 표시
-        iframe.style.height = (height + 40) + 'px';
-      }
-
-      if (window.addEventListener) {
-        window.addEventListener('message', handleMessage, false);
-      } else if (window.attachEvent) {
-        window.attachEvent('onmessage', handleMessage);
       }
     })();
   </script>

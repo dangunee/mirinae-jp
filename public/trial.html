@@ -145,14 +145,22 @@
     @media (max-width: 560px) { .form-card { padding: 24px 18px; } }
 
     .content-card {
-      background: var(--white);
-      border: 1px solid var(--gray-border);
-      border-radius: 16px;
-      padding: 32px 28px;
-      box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+      background: transparent;
+      border: none;
+      border-radius: 0;
+      padding: 0;
+      box-shadow: none;
     }
-    .content-card .section-header { border-radius: 12px 12px 0 0; margin: -32px -28px 24px -28px; }
-    .content-card .content-inner { border: none; border-radius: 0; padding: 0 28px 32px; }
+    .content-card .section-header {
+      border-radius: 12px;
+      margin: 0 0 24px 0;
+    }
+    .content-card .content-inner {
+      padding: 0;
+      border: none;
+      border-radius: 0;
+      background: transparent;
+    }
 
     .section-header {
       background: linear-gradient(135deg, var(--gold) 0%, #C8A84B 100%);

@@ -1,7 +1,7 @@
 "use client";
 
 const PAGES: { slug: string; label: string }[] = [
-  { slug: "kojin", label: "個人レッスン（短期集中カリキュラム）" },
+  { slug: "kojin", label: "個人レッスン" },
   { slug: "group", label: "グループ" },
   { slug: "kaiwa", label: "会話" },
   { slug: "special", label: "試験対策" },
@@ -27,7 +27,7 @@ export default function AdminPage() {
             fontWeight: 500,
           }}
         >
-          授業カリキュラムを編集
+          カリキュラム
         </a>
         <a
           href="/admin/testimonials"
@@ -41,7 +41,7 @@ export default function AdminPage() {
             fontWeight: 500,
           }}
         >
-          生徒の声を編集
+          生徒の声
         </a>
       </p>
       <ul style={{ listStyle: "none", padding: 0 }}>

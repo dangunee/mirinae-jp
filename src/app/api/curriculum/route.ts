@@ -4,7 +4,7 @@ import { prisma } from "@/lib/db";
 const CACHE_TTL_MS = 60 * 1000; // 1分
 let curriculumCache: { data: CurriculumBlock[]; ts: number } | null = null;
 
-export function invalidateCurriculumCache() {
+function invalidateCurriculumCache() {
   curriculumCache = null;
 }
 

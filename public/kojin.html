@@ -200,15 +200,20 @@
       margin: 0 auto;
       padding: 64px 80px;
       display: grid;
-      grid-template-columns: 260px 1fr 320px;
+      grid-template-columns: 300px 1fr 320px;
       gap: 48px;
       align-items: start;
     }
-    .main.no-sidebar { grid-template-columns: 260px 1fr; }
+    .main.no-sidebar { grid-template-columns: 300px 1fr; }
     .main.no-sidebar .sidebar { display: none; }
+    .main { overflow: visible; }
+    /* 3カラムの先頭を同じ高さに（講座・本編・レッスン概要） */
+    .course-nav-wrap { margin-top: 48px; }
+    .main .content { padding-top: 48px; }
+    .sidebar { padding-top: 48px; }
 
     /* 強制ストッキーをやめ、グリッドの行で常に本編・サイドバーと高さを揃える */
-    .course-nav-wrap { position: relative; align-self: start; margin-top: 0; }
+    .course-nav-wrap { position: relative; align-self: start; z-index: 50; }
     .course-nav-card {
       background: var(--white);
       border: 1px solid var(--border);
@@ -281,7 +286,7 @@
       opacity: 0;
       visibility: hidden;
       transition: opacity .2s, visibility .2s;
-      z-index: 100;
+      z-index: 9999;
       pointer-events: none;
     }
     .course-nav-list > li.course-nav-has-sub:hover .course-nav-sub {
@@ -1105,11 +1110,56 @@
               <li><a href="kojin.html#tab04" data-tab="tab04">レベルテスト</a></li>
             </ul>
           </li>
-          <li><a href="group.html">グループレッスン</a></li>
-          <li><a href="kaiwa.html">会話強化クラス</a></li>
-          <li><a href="special.html">試験対策講座</a></li>
-          <li><a href="syutyu.html">集中講座</a></li>
-          <li><a href="netlesson.html">通信講座</a></li>
+          <li class="course-nav-has-sub">
+            <span class="course-nav-parent">グループレッスン</span>
+            <ul class="course-nav-sub">
+              <li><a href="group.html#tab01">入門＆初級講座</a></li>
+              <li><a href="group.html#tab02">中級文法講座</a></li>
+              <li><a href="group.html#tab03">上級文法講座</a></li>
+              <li><a href="group.html#tab04">中級月1講座</a></li>
+              <li><a href="group.html#tab05">上級1土曜講座</a></li>
+              <li><a href="group.html#tab06">上級2土曜講座</a></li>
+            </ul>
+          </li>
+          <li class="course-nav-has-sub">
+            <span class="course-nav-parent">会話強化クラス</span>
+            <ul class="course-nav-sub">
+              <li><a href="kaiwa.html#tab01">会話クラス</a></li>
+              <li><a href="kaiwa.html#tab02">音読クラス</a></li>
+              <li><a href="kaiwa.html#tab03">発音・抑揚</a></li>
+              <li><a href="kaiwa.html#tab04">時事韓国語</a></li>
+              <li><a href="kaiwa.html#tab05">朝勉クラス</a></li>
+              <li><a href="kaiwa.html#tab06">小説朗読</a></li>
+            </ul>
+          </li>
+          <li class="course-nav-has-sub">
+            <span class="course-nav-parent">試験対策講座</span>
+            <ul class="course-nav-sub">
+              <li><a href="special.html#tab01">TOPIK初級</a></li>
+              <li><a href="special.html#tab02">TOPIK中級</a></li>
+              <li><a href="special.html#tab03">TOPIK上級</a></li>
+              <li><a href="special.html#tab04">ハン検1/2級</a></li>
+              <li><a href="special.html#tab05">ハン検準2級</a></li>
+              <li><a href="special.html#tab06">語彙力強化</a></li>
+            </ul>
+          </li>
+          <li class="course-nav-has-sub">
+            <span class="course-nav-parent">集中講座</span>
+            <ul class="course-nav-sub">
+              <li><a href="syutyu.html#tab01">入門講座</a></li>
+              <li><a href="syutyu.html#tab02">初級講座</a></li>
+              <li><a href="syutyu.html#tab03">中級講座</a></li>
+              <li><a href="syutyu.html#tab04">上級講座</a></li>
+            </ul>
+          </li>
+          <li class="course-nav-has-sub">
+            <span class="course-nav-parent">通信講座</span>
+            <ul class="course-nav-sub">
+              <li><a href="netlesson.html#tab01">作文トレーニング</a></li>
+              <li><a href="netlesson.html#tab02">音読トレーニング</a></li>
+              <li><a href="netlesson.html#tab03">TOPIK Training</a></li>
+            </ul>
+          </li>
         </ul>
       </div>
     </nav>

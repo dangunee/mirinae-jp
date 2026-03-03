@@ -109,16 +109,20 @@
     .footer {
       background: var(--text-dark);
       color: rgba(255,255,255,0.85);
-      padding: 40px 32px 24px;
+      padding: 48px 24px 24px;
       margin-top: 48px;
     }
-    .footer-columns {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 32px 48px;
-      margin-bottom: 24px;
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      max-width: 1200px;
+      margin: 0 auto 40px;
     }
-    .footer-column h4 { font-size: 14px; margin-bottom: 12px; color: white; }
+    @media (max-width: 768px) {
+      .footer-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    .footer-column h4 { font-size: 14px; margin-bottom: 16px; color: white; opacity: 0.9; }
     .footer-column a {
       display: block;
       color: rgba(255,255,255,0.8);
@@ -127,7 +131,15 @@
       margin-bottom: 8px;
     }
     .footer-column a:hover { color: white; }
-    .footer-bottom { font-size: 13px; opacity: 0.9; }
+    .footer-bottom {
+      text-align: center;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 13px;
+      opacity: 0.8;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
 
     .tab-bar {
       display: flex;
@@ -371,7 +383,7 @@
     </main>
 
     <footer class="footer">
-      <div class="footer-columns">
+      <div class="footer-grid">
         <div class="footer-column">
           <h4>メニュー</h4>
           <a href="index.html">ホーム</a>

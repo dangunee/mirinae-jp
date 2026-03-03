@@ -1660,6 +1660,79 @@
           if (tbody) tbody.innerHTML = '';
         });
     })();
+
+    (function() {
+      var CURRICULUM_KEYS = [
+        { blockKey: 'curriculum_shokyu', prefix: 'beg' },
+        { blockKey: 'curriculum_chukyu', prefix: 'int' },
+        { blockKey: 'curriculum_jokyu', prefix: 'adv' }
+      ];
+      var COLS = ['12', '24', '48'];
+      function escapeHtml(s) {
+        if (s == null) return '';
+        var div = document.createElement('div');
+        div.textContent = s;
+        return div.innerHTML;
+      }
+      function renderCurriculumTables(blocks, themes) {
+        var themeBySlug = {};
+        (themes || []).forEach(function(t) { themeBySlug[t.slug] = t; });
+        CURRICULUM_KEYS.forEach(function(item) {
+          var b = blocks.find(function(x) { return x.blockKey === item.blockKey; });
+          if (!b || !b.rows || !b.rows.length) return;
+          var prefix = item.prefix;
+          COLS.forEach(function(col) {
+            var wrap = document.getElementById(prefix + '-' + col);
+            if (!wrap) return;
+            var tbl = wrap.querySelector('table.cur-table');
+            var tbody = tbl && tbl.querySelector('tbody');
+            if (!tbody) return;
+            tbody.innerHTML = '';
+            var rowsForCol = b.rows.filter(function(row) {
+              var c = row['c' + col] || '';
+              return c.replace(/\s/g, '') !== '' && c !== '-';
+            });
+            rowsForCol.forEach(function(row) {
+              var tr = document.createElement('tr');
+              var content = row['c' + col] || '';
+              var themeSlug = row['theme' + col];
+              var theme = themeSlug ? themeBySlug[themeSlug] : null;
+              if (String(content).replace(/\s/g, '') === '' || content === '-') {
+                tr.innerHTML = '<td>' + escapeHtml(row.koma || '') + '</td><td class="empty">—</td>';
+              } else {
+                var isEnd = String(content).indexOf('修了') !== -1;
+                if (isEnd) tr.classList.add('milestone');
+                var tdKoma = document.createElement('td');
+                tdKoma.textContent = row.koma || '';
+                tr.appendChild(tdKoma);
+                var tdContent = document.createElement('td');
+                if (theme) {
+                  var tag = document.createElement('span');
+                  tag.className = 'tag';
+                  tag.style.background = theme.bgColor || '#f0f0f0';
+                  tag.style.color = theme.color || '#333';
+                  tag.textContent = theme.name || themeSlug;
+                  tdContent.appendChild(tag);
+                  tdContent.appendChild(document.createTextNode('\u2002' + content));
+                } else {
+                  tdContent.textContent = content;
+                }
+                tr.appendChild(tdContent);
+              }
+              tbody.appendChild(tr);
+            });
+          });
+        });
+      }
+      Promise.all([
+        fetch('/api/curriculum?page=kojin').then(function(r) { return r.json(); }),
+        fetch('/api/curriculum/themes').then(function(r) { return r.json(); })
+      ]).then(function(results) {
+        var blocks = results[0];
+        var themes = results[1];
+        if (blocks && blocks.length) renderCurriculumTables(blocks, themes);
+      }).catch(function() {});
+    })();
   </script>
   <script src="/testimonials.js"></script>
   <script src="/admin-badge.js"></script>

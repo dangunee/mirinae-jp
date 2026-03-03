@@ -216,7 +216,120 @@ function EditContent() {
           </div>
 
           {mainTab === "tanki" ? (
-            <div style={{ display: "flex", gap: 24, alignItems: "flex-start" }}>
+            <div style={{ display: "flex", gap: 24, alignItems: "flex-start", width: "100%" }}>
+              <div style={{ width: 300, flexShrink: 0 }}>
+                <button
+                  type="button"
+                  onClick={() => setShowThemes(!showThemes)}
+                  style={{
+                    width: "100%",
+                    padding: "10px 14px",
+                    border: "1px solid #ccc",
+                    borderRadius: 6,
+                    background: "#f5f5f5",
+                    color: "#333",
+                    cursor: "pointer",
+                    fontWeight: 500,
+                    fontSize: 13,
+                    textAlign: "left",
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                  }}
+                >
+                  <span>テーマの色（タグの色）</span>
+                  <span>{showThemes ? "▲" : "▼"}</span>
+                </button>
+                {showThemes && (
+                  <div
+                    style={{
+                      marginTop: 8,
+                      padding: 14,
+                      border: "1px solid #e0e0e0",
+                      borderRadius: 8,
+                      background: "#fafafa",
+                    }}
+                  >
+                    <p style={{ fontSize: 11, color: "#666", marginBottom: 10 }}>
+                      表示名と文字色・背景色を設定
+                    </p>
+                    {themes.map((t, i) => (
+                      <div key={i} style={{ marginBottom: 12, fontSize: 12 }}>
+                        <div style={{ display: "flex", gap: 6, marginBottom: 4 }}>
+                          <input
+                            type="text"
+                            placeholder="slug"
+                            value={t.slug}
+                            onChange={(e) => updateTheme(i, "slug", e.target.value)}
+                            style={{ width: 70, padding: "4px 6px" }}
+                          />
+                          <input
+                            type="text"
+                            placeholder="表示名"
+                            value={t.name}
+                            onChange={(e) => updateTheme(i, "name", e.target.value)}
+                            style={{ flex: 1, padding: "4px 6px" }}
+                          />
+                        </div>
+                        <div style={{ display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap" }}>
+                          <label style={{ display: "flex", alignItems: "center", gap: 4 }}>
+                            <input
+                              type="color"
+                              value={t.color}
+                              onChange={(e) => updateTheme(i, "color", e.target.value)}
+                              style={{ width: 24, height: 24, padding: 0, border: "1px solid #ccc" }}
+                            />
+                            <input
+                              type="text"
+                              value={t.color}
+                              onChange={(e) => updateTheme(i, "color", e.target.value)}
+                              style={{ width: 58, padding: "2px 4px", fontSize: 11 }}
+                            />
+                          </label>
+                          <label style={{ display: "flex", alignItems: "center", gap: 4 }}>
+                            <input
+                              type="color"
+                              value={t.bgColor}
+                              onChange={(e) => updateTheme(i, "bgColor", e.target.value)}
+                              style={{ width: 24, height: 24, padding: 0, border: "1px solid #ccc" }}
+                            />
+                            <input
+                              type="text"
+                              value={t.bgColor}
+                              onChange={(e) => updateTheme(i, "bgColor", e.target.value)}
+                              style={{ width: 58, padding: "2px 4px", fontSize: 11 }}
+                            />
+                          </label>
+                          <span
+                            style={{
+                              padding: "2px 6px",
+                              borderRadius: 4,
+                              fontSize: 11,
+                              background: t.bgColor,
+                              color: t.color,
+                              border: "1px solid #ddd",
+                            }}
+                          >
+                            {t.name || t.slug}
+                          </span>
+                          <button type="button" onClick={() => removeTheme(i)} style={{ padding: "2px 8px", fontSize: 11, border: "1px solid #c00", background: "#fff", color: "#c00", cursor: "pointer", borderRadius: 4 }}>
+                            削除
+                          </button>
+                        </div>
+                      </div>
+                    ))}
+                    <div style={{ display: "flex", gap: 8, marginTop: 12 }}>
+                      <button type="button" onClick={addTheme} style={{ padding: "6px 12px", border: "1px solid #3d6b6b", borderRadius: 6, background: "#fff", color: "#3d6b6b", cursor: "pointer", fontSize: 12 }}>
+                        ＋ 追加
+                      </button>
+                      <button type="button" onClick={saveThemes} disabled={savingThemes} style={{ padding: "6px 12px", border: "none", borderRadius: 6, background: "#3d6b6b", color: "#fff", cursor: savingThemes ? "wait" : "pointer", fontSize: 12 }}>
+                        {savingThemes ? "保存中…" : "保存"}
+                      </button>
+                    </div>
+                  </div>
+                )}
+              </div>
+
               <div style={{ flex: 1, minWidth: 0 }}>
                 <div style={{ display: "flex", gap: 12, marginBottom: 16, flexWrap: "wrap" }}>
                   {curriculumBlocks.map((b) => (
@@ -239,8 +352,8 @@ function EditContent() {
 
                 {selectedBlock && (
                   <>
-                    <div style={{ overflowX: "auto", marginBottom: 16, minWidth: 0 }}>
-                      <table style={{ width: "100%", minWidth: 1600, borderCollapse: "collapse", background: "#fff", border: "1px solid #d0d0d0", tableLayout: "fixed" }}>
+                    <div style={{ marginBottom: 16, width: "100%", overflow: "visible" }}>
+                      <table style={{ width: "100%", borderCollapse: "collapse", background: "#fff", border: "1px solid #d0d0d0", tableLayout: "fixed" }}>
                         <colgroup>
                           <col style={{ width: "56px" }} />
                           <col style={{ width: "100px" }} />
@@ -337,121 +450,6 @@ function EditContent() {
                       {saving ? "保存中…" : "保存"}
                     </button>
                   </>
-                )}
-              </div>
-
-              <div style={{ width: 300, flexShrink: 0 }}>
-                <button
-                  type="button"
-                  onClick={() => setShowThemes(!showThemes)}
-                  style={{
-                    width: "100%",
-                    padding: "10px 14px",
-                    border: "1px solid #ccc",
-                    borderRadius: 6,
-                    background: "#f5f5f5",
-                    color: "#333",
-                    cursor: "pointer",
-                    fontWeight: 500,
-                    fontSize: 13,
-                    textAlign: "left",
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                  }}
-                >
-                  <span>テーマの色（タグの色）</span>
-                  <span>{showThemes ? "▲" : "▼"}</span>
-                </button>
-                {showThemes && (
-                  <div
-                    style={{
-                      marginTop: 8,
-                      padding: 14,
-                      border: "1px solid #e0e0e0",
-                      borderRadius: 8,
-                      background: "#fafafa",
-                      maxHeight: "70vh",
-                      overflowY: "auto",
-                    }}
-                  >
-                    <p style={{ fontSize: 11, color: "#666", marginBottom: 10 }}>
-                      表示名と文字色・背景色を設定
-                    </p>
-                    {themes.map((t, i) => (
-                      <div key={i} style={{ marginBottom: 12, fontSize: 12 }}>
-                        <div style={{ display: "flex", gap: 6, marginBottom: 4 }}>
-                          <input
-                            type="text"
-                            placeholder="slug"
-                            value={t.slug}
-                            onChange={(e) => updateTheme(i, "slug", e.target.value)}
-                            style={{ width: 70, padding: "4px 6px" }}
-                          />
-                          <input
-                            type="text"
-                            placeholder="表示名"
-                            value={t.name}
-                            onChange={(e) => updateTheme(i, "name", e.target.value)}
-                            style={{ flex: 1, padding: "4px 6px" }}
-                          />
-                        </div>
-                        <div style={{ display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap" }}>
-                          <label style={{ display: "flex", alignItems: "center", gap: 4 }}>
-                            <input
-                              type="color"
-                              value={t.color}
-                              onChange={(e) => updateTheme(i, "color", e.target.value)}
-                              style={{ width: 24, height: 24, padding: 0, border: "1px solid #ccc" }}
-                            />
-                            <input
-                              type="text"
-                              value={t.color}
-                              onChange={(e) => updateTheme(i, "color", e.target.value)}
-                              style={{ width: 58, padding: "2px 4px", fontSize: 11 }}
-                            />
-                          </label>
-                          <label style={{ display: "flex", alignItems: "center", gap: 4 }}>
-                            <input
-                              type="color"
-                              value={t.bgColor}
-                              onChange={(e) => updateTheme(i, "bgColor", e.target.value)}
-                              style={{ width: 24, height: 24, padding: 0, border: "1px solid #ccc" }}
-                            />
-                            <input
-                              type="text"
-                              value={t.bgColor}
-                              onChange={(e) => updateTheme(i, "bgColor", e.target.value)}
-                              style={{ width: 58, padding: "2px 4px", fontSize: 11 }}
-                            />
-                          </label>
-                          <span
-                            style={{
-                              padding: "2px 6px",
-                              borderRadius: 4,
-                              fontSize: 11,
-                              background: t.bgColor,
-                              color: t.color,
-                              border: "1px solid #ddd",
-                            }}
-                          >
-                            {t.name || t.slug}
-                          </span>
-                          <button type="button" onClick={() => removeTheme(i)} style={{ padding: "2px 8px", fontSize: 11, border: "1px solid #c00", background: "#fff", color: "#c00", cursor: "pointer", borderRadius: 4 }}>
-                            削除
-                          </button>
-                        </div>
-                      </div>
-                    ))}
-                    <div style={{ display: "flex", gap: 8, marginTop: 12 }}>
-                      <button type="button" onClick={addTheme} style={{ padding: "6px 12px", border: "1px solid #3d6b6b", borderRadius: 6, background: "#fff", color: "#3d6b6b", cursor: "pointer", fontSize: 12 }}>
-                        ＋ 追加
-                      </button>
-                      <button type="button" onClick={saveThemes} disabled={savingThemes} style={{ padding: "6px 12px", border: "none", borderRadius: 6, background: "#3d6b6b", color: "#fff", cursor: savingThemes ? "wait" : "pointer", fontSize: 12 }}>
-                        {savingThemes ? "保存中…" : "保存"}
-                      </button>
-                    </div>
-                  </div>
                 )}
               </div>
             </div>

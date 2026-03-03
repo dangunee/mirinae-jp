@@ -1,6 +1,21 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
 
+const CACHE_TTL_MS = 60 * 1000; // 1分
+let curriculumCache: { data: CurriculumBlock[]; ts: number } | null = null;
+
+export function invalidateCurriculumCache() {
+  curriculumCache = null;
+}
+
+export type CurriculumBlock = {
+  id: string;
+  pageSlug: string;
+  blockKey: string;
+  title: string | null;
+  rows: CurriculumRow[];
+};
+
 export type CurriculumRow = {
   koma: string;
   c12: string;
@@ -22,14 +37,6 @@ export type CurriculumTheme = {
   bgColor: string;
 };
 
-export type CurriculumBlock = {
-  id: string;
-  pageSlug: string;
-  blockKey: string;
-  title: string | null;
-  rows: CurriculumRow[];
-};
-
 function parseRowsJson(rowsJson: string): CurriculumRow[] {
   try {
     const raw = JSON.parse(rowsJson) as unknown;
@@ -39,11 +46,14 @@ function parseRowsJson(rowsJson: string): CurriculumRow[] {
   }
 }
 
-// GET /api/curriculum?page=kojin
+// GET /api/curriculum?page=kojin（1分キャッシュ・POSTで無効化）
 export async function GET(req: NextRequest) {
   const page = req.nextUrl.searchParams.get("page");
   if (!page) {
     return NextResponse.json({ error: "page required" }, { status: 400 });
+  }
+  if (page === "kojin" && curriculumCache && Date.now() - curriculumCache.ts < CACHE_TTL_MS) {
+    return NextResponse.json(curriculumCache.data);
   }
   const blocks = await prisma.siteTable.findMany({
     where: { pageSlug: page },
@@ -56,6 +66,9 @@ export async function GET(req: NextRequest) {
     title: b.title,
     rows: parseRowsJson(b.rowsJson),
   }));
+  if (page === "kojin") {
+    curriculumCache = { data: result, ts: Date.now() };
+  }
   return NextResponse.json(result);
 }
 
@@ -73,6 +86,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "pageSlug, blockKey, rows required" }, { status: 400 });
   }
   const rowsJson = JSON.stringify(rows);
+  invalidateCurriculumCache();
   if (id) {
     const updated = await prisma.siteTable.update({
       where: { id },

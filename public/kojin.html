@@ -196,16 +196,103 @@
     .tab[data-tab="tab02"] { font-size: 13px; }
 
     .main {
-      max-width: 1100px;
+      max-width: 1200px;
       margin: 0 auto;
       padding: 64px 80px;
       display: grid;
-      grid-template-columns: 1fr 320px;
-      gap: 64px;
+      grid-template-columns: 220px 1fr 320px;
+      gap: 48px;
       align-items: start;
     }
-    .main.no-sidebar { grid-template-columns: 1fr; }
+    .main.no-sidebar { grid-template-columns: 220px 1fr; }
     .main.no-sidebar .sidebar { display: none; }
+
+    .course-nav-wrap { position: sticky; top: 80px; }
+    .course-nav-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 40px rgba(30,26,20,0.08);
+    }
+    .course-nav-header {
+      background: var(--dark);
+      padding: 28px 20px 24px;
+      color: var(--white);
+    }
+    .course-nav-header .cnh-label {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: var(--gold-light);
+      margin-bottom: 8px;
+    }
+    .course-nav-header .cnh-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 20px;
+      font-weight: 600;
+    }
+    .course-nav-list {
+      padding: 16px 12px;
+      list-style: none;
+      margin: 0;
+    }
+    .course-nav-list a {
+      display: block;
+      padding: 12px 16px;
+      font-size: 13px;
+      color: var(--mid);
+      text-decoration: none;
+      border-radius: 10px;
+      transition: background .15s, color .15s;
+    }
+    .course-nav-list a:hover { background: var(--gold-pale); color: var(--gold); }
+    .course-nav-list a.active {
+      background: var(--gold-pale);
+      color: var(--gold);
+      font-weight: 500;
+    }
+    .course-nav-list > li { position: relative; }
+    .course-nav-list .course-nav-parent {
+      display: block;
+      padding: 12px 16px;
+      font-size: 13px;
+      color: var(--mid);
+      border-radius: 10px;
+      cursor: default;
+      transition: background .15s, color .15s;
+    }
+    .course-nav-list > li.course-nav-has-sub:hover .course-nav-parent { background: var(--gold-pale); color: var(--gold); }
+    .course-nav-list .course-nav-sub {
+      position: absolute;
+      left: 100%;
+      top: 0;
+      min-width: 180px;
+      margin-left: 4px;
+      padding: 8px 0;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+      list-style: none;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity .2s, visibility .2s;
+      z-index: 100;
+      pointer-events: none;
+    }
+    .course-nav-list > li.course-nav-has-sub:hover .course-nav-sub {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+    .course-nav-list .course-nav-sub a {
+      padding: 10px 20px;
+      font-size: 13px;
+      border-radius: 0;
+      display: block;
+    }
+    .course-nav-list .course-nav-sub a:hover,
+    .course-nav-list .course-nav-sub a.active { background: var(--gold-pale); color: var(--gold); }
 
     .tab-panel { display: none; }
     .tab-panel.active { display: block; }
@@ -499,6 +586,7 @@
     .review-body p + p { margin-top: 12px; }
 
     .sidebar { position: sticky; top: 80px; }
+    .sidebar .info-card { margin-bottom: 20px; }
 
     .price-card-main {
       background: var(--white);
@@ -615,6 +703,10 @@
 
     @media (max-width: 900px) {
       .main { grid-template-columns: 1fr; padding: 40px 24px; gap: 40px; }
+      .main.no-sidebar { grid-template-columns: 1fr; }
+      .course-nav-wrap { position: static; }
+      .course-nav-card { margin-bottom: 24px; }
+      .course-nav-list .course-nav-sub { left: 0; right: auto; top: 100%; margin-left: 0; margin-top: 4px; }
       .hero { padding: 48px 24px 40px; }
       .hero::after { display: none; }
       .tabs-bar { padding: 0 24px; overflow-x: auto; }
@@ -972,6 +1064,30 @@
   </div>
 
   <div class="main" id="main-wrap">
+    <nav class="course-nav-wrap" aria-label="講座メニュー">
+      <div class="course-nav-card">
+        <div class="course-nav-header">
+          <div class="cnh-label">Courses</div>
+          <div class="cnh-title">講座</div>
+        </div>
+        <ul class="course-nav-list">
+          <li class="course-nav-has-sub">
+            <span class="course-nav-parent">個人レッスン</span>
+            <ul class="course-nav-sub">
+              <li><a href="kojin.html#tab01" data-tab="tab01">個人レッスン</a></li>
+              <li><a href="kojin.html#tab02" data-tab="tab02">短期集中個人</a></li>
+              <li><a href="kojin.html#tab03" data-tab="tab03">発音矯正</a></li>
+              <li><a href="kojin.html#tab04" data-tab="tab04">レベルテスト</a></li>
+            </ul>
+          </li>
+          <li><a href="group.html">グループレッスン</a></li>
+          <li><a href="kaiwa.html">会話強化クラス</a></li>
+          <li><a href="special.html">試験対策講座</a></li>
+          <li><a href="syutyu.html">集中講座</a></li>
+          <li><a href="netlesson.html">通信講座</a></li>
+        </ul>
+      </div>
+    </nav>
     <div class="content">
       <div id="tab01" class="tab-panel active">
         <section class="fade-in delay-1">
@@ -1562,6 +1678,14 @@
     </div>
 
     <aside class="sidebar" id="sidebar">
+      <div class="info-card">
+        <div class="ic-title">📋 レッスン概要</div>
+        <div class="info-item"><div class="ii-label">場所</div><div class="ii-val">新宿教室 / オンライン</div></div>
+        <div class="info-item"><div class="ii-label">時間</div><div class="ii-val">50分 / 1コマ</div></div>
+        <div class="info-item"><div class="ii-label">予約</div><div class="ii-val">予約制（随時対応）</div></div>
+        <div class="info-item"><div class="ii-label">レベル</div><div class="ii-val">入門〜上級 全レベル</div></div>
+        <div class="info-item"><div class="ii-label">有効期限</div><div class="ii-val">12回: 3ヶ月 / 24回: 8ヶ月<br>48・72回: 1年</div></div>
+      </div>
       <div class="price-card-main">
         <div class="price-card-header">
           <div class="pch-label">Tuition Fee</div>
@@ -1595,14 +1719,6 @@
         </div>
         <a id="kojin-cta-btn" href="trial.html" class="cta-btn">体験レッスンを申し込む →</a>
       </div>
-      <div class="info-card">
-        <div class="ic-title">📋 レッスン概要</div>
-        <div class="info-item"><div class="ii-label">場所</div><div class="ii-val">新宿教室 / オンライン</div></div>
-        <div class="info-item"><div class="ii-label">時間</div><div class="ii-val">50分 / 1コマ</div></div>
-        <div class="info-item"><div class="ii-label">予約</div><div class="ii-val">予約制（随時対応）</div></div>
-        <div class="info-item"><div class="ii-label">レベル</div><div class="ii-val">入門〜上級 全レベル</div></div>
-        <div class="info-item"><div class="ii-label">有効期限</div><div class="ii-val">12回: 3ヶ月 / 24回: 8ヶ月<br>48・72回: 1年</div></div>
-      </div>
     </aside>
   </div>
 
@@ -1633,6 +1749,11 @@
         return 'trial.html';
       }
 
+      function setCourseNavActive(tabId) {
+        document.querySelectorAll('.course-nav-sub a').forEach(function(a) {
+          a.classList.toggle('active', a.getAttribute('data-tab') === tabId);
+        });
+      }
       function switchTab(tabId) {
         tabBtns.forEach(function(btn) {
           btn.classList.toggle('active', btn.getAttribute('data-tab') === tabId);
@@ -1643,6 +1764,7 @@
         if (mainWrap) mainWrap.classList.toggle('no-sidebar', tabId === 'tab03' || tabId === 'tab04');
         history.replaceState(null, '', 'kojin.html#' + tabId);
         if (ctaBtn) ctaBtn.href = getTrialUrlForTab(tabId);
+        setCourseNavActive(tabId);
       }
 
       tabBtns.forEach(function(btn) {

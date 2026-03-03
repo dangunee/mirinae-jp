@@ -207,13 +207,13 @@
     .main.no-sidebar { grid-template-columns: 260px 1fr; }
     .main.no-sidebar .sidebar { display: none; }
 
-    /* レッスン概要(サイドバー)と同じ高さで揃える: 両方 top: 80px */
-    .course-nav-wrap { position: sticky; top: 80px; align-self: start; margin-top: 0; }
+    /* 強制ストッキーをやめ、グリッドの行で常に本編・サイドバーと高さを揃える */
+    .course-nav-wrap { position: relative; align-self: start; margin-top: 0; }
     .course-nav-card {
       background: var(--white);
       border: 1px solid var(--border);
       border-radius: 20px;
-      overflow: hidden;
+      overflow: visible; /* ホバー時のサブメニューがはみ出して見えるように */
       box-shadow: 0 8px 40px rgba(30,26,20,0.08);
       min-width: 0;
     }
@@ -221,6 +221,7 @@
       background: var(--dark);
       padding: 28px 20px 24px;
       color: var(--white);
+      border-radius: 20px 20px 0 0;
     }
     .course-nav-header .cnh-label {
       font-size: 11px;
@@ -690,25 +691,37 @@
     .info-card {
       background: var(--white);
       border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 24px;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 40px rgba(30,26,20,0.08);
+      margin-bottom: 20px;
     }
-    .info-card .ic-title {
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--dark);
-      margin-bottom: 16px;
-      letter-spacing: 0.05em;
+    .info-card-header {
+      background: var(--dark);
+      padding: 28px 28px 24px;
+      color: var(--white);
     }
+    .info-card-header .ich-label {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: var(--gold-light);
+      margin-bottom: 8px;
+    }
+    .info-card-header .ich-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 20px;
+      font-weight: 600;
+    }
+    .info-card-body { padding: 24px 28px; }
     .info-item {
       display: flex;
       gap: 10px;
-      padding: 10px 0;
+      padding: 12px 0;
       border-bottom: 1px solid var(--border);
-      font-size: 12px;
+      font-size: 13px;
     }
     .info-item:last-child { border-bottom: none; padding-bottom: 0; }
-    .info-item .ii-label { color: var(--muted); min-width: 64px; flex-shrink: 0; }
+    .info-item .ii-label { color: var(--muted); min-width: 72px; flex-shrink: 0; }
     .info-item .ii-val { color: var(--mid); }
 
     @media (max-width: 900px) {
@@ -1695,12 +1708,17 @@
 
     <aside class="sidebar" id="sidebar">
       <div class="info-card">
-        <div class="ic-title">📋 レッスン概要</div>
-        <div class="info-item"><div class="ii-label">場所</div><div class="ii-val">新宿教室 / オンライン</div></div>
-        <div class="info-item"><div class="ii-label">時間</div><div class="ii-val">50分 / 1コマ</div></div>
-        <div class="info-item"><div class="ii-label">予約</div><div class="ii-val">予約制（随時対応）</div></div>
-        <div class="info-item"><div class="ii-label">レベル</div><div class="ii-val">入門〜上級 全レベル</div></div>
-        <div class="info-item"><div class="ii-label">有効期限</div><div class="ii-val">12回: 3ヶ月 / 24回: 8ヶ月<br>48・72回: 1年</div></div>
+        <div class="info-card-header">
+          <div class="ich-label">Lesson Overview</div>
+          <div class="ich-title">レッスン概要</div>
+        </div>
+        <div class="info-card-body">
+          <div class="info-item"><div class="ii-label">場所</div><div class="ii-val">新宿教室 / オンライン</div></div>
+          <div class="info-item"><div class="ii-label">時間</div><div class="ii-val">50分 / 1コマ</div></div>
+          <div class="info-item"><div class="ii-label">予約</div><div class="ii-val">予約制（随時対応）</div></div>
+          <div class="info-item"><div class="ii-label">レベル</div><div class="ii-val">入門〜上級 全レベル</div></div>
+          <div class="info-item"><div class="ii-label">有効期限</div><div class="ii-val">12回: 3ヶ月 / 24回: 8ヶ月<br>48・72回: 1年</div></div>
+        </div>
       </div>
       <div class="price-card-main">
         <div class="price-card-header">

@@ -196,7 +196,7 @@
     .tab[data-tab="tab02"] { font-size: 13px; }
 
     .main {
-      max-width: 1800px; /* 1200 × 1.5: 메인 내용 카드 영역 1.5배 */
+      max-width: 1440px; /* 1200 × 1.2: 메인 내용 카드 영역 1.2배 */
       margin: 0 auto;
       padding: 64px 80px;
       display: grid;
@@ -207,7 +207,7 @@
     .main.no-sidebar { grid-template-columns: 260px 1fr; }
     .main.no-sidebar .sidebar { display: none; }
 
-    .course-nav-wrap { position: sticky; top: 80px; }
+    .course-nav-wrap { position: sticky; top: 200px; align-self: start; margin-top: 0; }
     .course-nav-card {
       background: var(--white);
       border: 1px solid var(--border);
@@ -956,6 +956,8 @@
     #tab02 .cur-table tbody tr.milestone td { font-weight: 500; color: var(--gold); }
     #tab02 .cur-table tbody td { padding: 12px 20px; color: var(--mid); line-height: 1.6; vertical-align: top; }
     #tab02 .cur-table tbody td:first-child { text-align: center; font-family: 'Cormorant Garamond', serif; font-size: 19px; color: var(--muted); width: 64px; white-space: nowrap; }
+    /* 管理画面で入力した改行をフロントで表示 */
+    #tab02 .cur-table tbody td:not(:first-child) { white-space: pre-line; }
     #tab02 .cur-table tbody td.empty { color: var(--border); text-align: center; }
     #tab02 .tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 13px; font-weight: 500; margin-right: 4px; margin-bottom: 2px; }
     #tab02 .tag-phon { background: #e8f5f3; color: var(--teal); }

@@ -196,15 +196,15 @@
     .tab[data-tab="tab02"] { font-size: 13px; }
 
     .main {
-      max-width: 1200px;
+      max-width: 1800px; /* 1200 × 1.5: 메인 내용 카드 영역 1.5배 */
       margin: 0 auto;
       padding: 64px 80px;
       display: grid;
-      grid-template-columns: 220px 1fr 320px;
+      grid-template-columns: 260px 1fr 320px;
       gap: 48px;
       align-items: start;
     }
-    .main.no-sidebar { grid-template-columns: 220px 1fr; }
+    .main.no-sidebar { grid-template-columns: 260px 1fr; }
     .main.no-sidebar .sidebar { display: none; }
 
     .course-nav-wrap { position: sticky; top: 80px; }
@@ -214,6 +214,7 @@
       border-radius: 20px;
       overflow: hidden;
       box-shadow: 0 8px 40px rgba(30,26,20,0.08);
+      min-width: 0;
     }
     .course-nav-header {
       background: var(--dark);
@@ -260,6 +261,7 @@
       border-radius: 10px;
       cursor: default;
       transition: background .15s, color .15s;
+      white-space: nowrap;
     }
     .course-nav-list > li.course-nav-has-sub:hover .course-nav-parent { background: var(--gold-pale); color: var(--gold); }
     .course-nav-list .course-nav-sub {
@@ -328,6 +330,13 @@
       margin-bottom: 40px;
       position: relative;
     }
+    .overview-card .overview-inner {
+      display: flex;
+      align-items: flex-start;
+      gap: 32px;
+    }
+    .overview-card .overview-inner .overview-top { margin-bottom: 0; flex-shrink: 0; }
+    .overview-card .overview-inner .overview-body { flex: 1; min-width: 0; }
     .overview-top {
       display: flex;
       align-items: center;
@@ -1092,26 +1101,30 @@
       <div id="tab01" class="tab-panel active">
         <section class="fade-in delay-1">
           <div class="overview-card">
-            <div class="overview-top">
-              <svg class="progress-ring" viewBox="0 0 72 72">
-                <circle cx="36" cy="36" r="28" fill="none" stroke="#e8d5b0" stroke-width="4"/>
-                <circle cx="36" cy="36" r="28" fill="none" stroke="#b8924a" stroke-width="4"
-                  stroke-dasharray="175.9" stroke-dashoffset="52.8"
-                  stroke-linecap="round" transform="rotate(-90 36 36)"/>
-                <text x="36" y="40" text-anchor="middle" font-family="Cormorant Garamond,serif"
-                  font-size="18" fill="#b8924a" font-weight="600">70%</text>
-              </svg>
-              <div>
-                <div style="font-size:11px;letter-spacing:.1em;color:var(--muted);margin-bottom:4px;">発話参加率</div>
-                <div class="skills-row" style="margin:0;gap:16px;">
-                  <div class="skill-item"><div class="skill-icon">👂</div>聞く</div>
-                  <div class="skill-item"><div class="skill-icon">📖</div>読む</div>
-                  <div class="skill-item"><div class="skill-icon">✏️</div>書く</div>
+            <div class="overview-inner">
+              <div class="overview-top">
+                <svg class="progress-ring" viewBox="0 0 72 72">
+                  <circle cx="36" cy="36" r="28" fill="none" stroke="#e8d5b0" stroke-width="4"/>
+                  <circle cx="36" cy="36" r="28" fill="none" stroke="#b8924a" stroke-width="4"
+                    stroke-dasharray="175.9" stroke-dashoffset="52.8"
+                    stroke-linecap="round" transform="rotate(-90 36 36)"/>
+                  <text x="36" y="40" text-anchor="middle" font-family="Cormorant Garamond,serif"
+                    font-size="18" fill="#b8924a" font-weight="600">70%</text>
+                </svg>
+                <div>
+                  <div style="font-size:11px;letter-spacing:.1em;color:var(--muted);margin-bottom:4px;">発話参加率</div>
+                  <div class="skills-row" style="margin:0;gap:16px;">
+                    <div class="skill-item"><div class="skill-icon">👂</div>聞く</div>
+                    <div class="skill-item"><div class="skill-icon">📖</div>読む</div>
+                    <div class="skill-item"><div class="skill-icon">✏️</div>書く</div>
+                  </div>
                 </div>
               </div>
+              <div class="overview-body">
+                <p>個人レッスンではテキストを使用し、聞く・話す・読む・書くを総合的に学習します。文法、語彙、表現については講師から説明いたしますが、レッスンの7割は音読や会話となり、生徒さんにどんどん声を出していただくことをモットーとしております。</p>
+                <p style="margin-top:12px;">丁寧な解説で文法のポイントを学んだ後は、練習問題で反復練習をし、「書くチカラ」も身につけます。授業中に学習した本文や例文は暗記していただき、次のレッスン時に、韓国語で声に出していただきます。</p>
+              </div>
             </div>
-            <p>個人レッスンではテキストを使用し、聞く・話す・読む・書くを総合的に学習します。文法、語彙、表現については講師から説明いたしますが、レッスンの7割は音読や会話となり、生徒さんにどんどん声を出していただくことをモットーとしております。</p>
-            <p style="margin-top:12px;">丁寧な解説で文法のポイントを学んだ後は、練習問題で反復練習をし、「書くチカラ」も身につけます。授業中に学習した本文や例文は暗記していただき、次のレッスン時に、韓国語で声に出していただきます。</p>
           </div>
         </section>
 

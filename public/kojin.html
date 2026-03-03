@@ -6,106 +6,590 @@
   <title>個人レッスン｜ミリネ韓国語教室</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600;700&family=Noto+Sans+JP:wght@300;400;500&family=Noto+Sans+KR:wght@300;400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
   <style>
     :root {
-      --beige: #f5f0e8;
-      --taupe: #BD9962;
-      --taupe-dark: #9B8B7E;
-      --gold: #B8963E;
-      --dark: #1C1C1E;
-      --white: #FFFFFF;
-      --gray-light: #f8f8f8;
-      --gray-border: #E5E0D8;
-      --text-dark: #2c2c2c;
-      --text-muted: #8E8E93;
+      --bg: #faf8f4;
+      --white: #ffffff;
+      --gold: #b8924a;
+      --gold-light: #e8d5b0;
+      --gold-pale: #f7f0e3;
+      --dark: #1e1a14;
+      --mid: #4a4438;
+      --muted: #8a7f72;
+      --border: #e4ddd2;
+      --accent-blue: #3d6b8a;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
+    html { scroll-behavior: smooth; }
+
     body {
-      font-family: 'Noto Sans JP', sans-serif;
-      color: var(--text-dark);
-      line-height: 1.8;
-      background: #FAFAF7;
-    }
-
-    .page-wrapper {
-      max-width: 900px;
-      margin: 0 auto;
-      min-height: 100vh;
-    }
-
-    .top-bar {
-      background: var(--white);
-      padding: 12px 24px;
-      font-size: 12px;
-      color: var(--text-muted);
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      gap: 16px;
-      border-bottom: 1px solid var(--gray-border);
-    }
-    .top-bar-info { color: var(--text-muted); }
-    .top-bar-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px 32px; }
-    .top-bar a, .top-bar-nav a { color: var(--dark); text-decoration: none; font-weight: 500; font-size: 14px; }
-    .top-bar a:hover, .top-bar-nav a:hover { color: var(--gold); }
-
-    .main-content { padding: 0 24px 80px; }
-
-    .page-header { padding: 40px 0 24px; }
-    .page-header .page-title {
-      font-family: 'Noto Serif JP', serif;
-      font-size: clamp(28px, 5vw, 40px);
-      font-weight: 700;
-      letter-spacing: 0.04em;
+      background: var(--bg);
       color: var(--dark);
-      margin-bottom: 12px;
-    }
-    .page-header .page-subtitle { color: var(--text-muted); font-size: 14px; font-weight: 300; }
-
-    .tab-wrap { margin-bottom: 0; }
-    .tab-bar {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      border-bottom: 2px solid var(--gray-border);
-      position: relative;
-    }
-    @media (max-width: 560px) { .tab-bar { grid-template-columns: 1fr 1fr; } }
-    .tab-btn {
-      background: none;
-      border: none;
-      padding: 14px 8px;
       font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 300;
+      line-height: 1.8;
+    }
+
+    nav {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 0 48px;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      height: 56px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav a {
+      text-decoration: none;
+      color: var(--mid);
       font-size: 13px;
-      font-weight: 500;
-      color: var(--text-muted);
-      cursor: pointer;
+      letter-spacing: 0.05em;
+      transition: color .2s;
+    }
+    nav a:hover { color: var(--gold); }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px;
+      color: var(--dark);
+      letter-spacing: 0.1em;
+      margin-right: auto;
+    }
+
+    .hero {
+      background: var(--white);
+      padding: 72px 80px 64px;
+      border-bottom: 1px solid var(--border);
       position: relative;
-      transition: color 0.2s;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: "개인수업";
+      position: absolute;
+      right: 48px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 120px;
+      font-weight: 700;
+      color: rgba(184,146,74,0.06);
+      pointer-events: none;
+      user-select: none;
       white-space: nowrap;
     }
-    .tab-btn::after {
-      content: '';
-      position: absolute;
-      bottom: -2px;
-      left: 0; right: 0;
-      height: 2px;
-      background: var(--gold);
-      transform: scaleX(0);
-      transition: transform 0.25s ease;
+    .hero-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+      font-weight: 500;
     }
-    .tab-btn:hover { color: var(--dark); }
-    .tab-btn.active { color: var(--gold); font-weight: 700; }
-    .tab-btn.active::after { transform: scaleX(1); }
+    .hero h1 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      line-height: 1.3;
+      margin-bottom: 16px;
+    }
+    .hero p {
+      color: var(--muted);
+      font-size: 14px;
+      letter-spacing: 0.05em;
+    }
 
-    .tab-panel { display: none; padding-top: 32px; }
+    .tabs-bar {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 0 80px;
+      display: flex;
+      gap: 0;
+    }
+    .tab {
+      padding: 16px 28px;
+      font-size: 13px;
+      color: var(--muted);
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: all .2s;
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+      user-select: none;
+      background: none;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      font-family: inherit;
+    }
+    .tab.active {
+      color: var(--gold);
+      border-bottom-color: var(--gold);
+      font-weight: 500;
+    }
+    .tab:hover:not(.active) { color: var(--mid); }
+
+    .main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 64px 80px;
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 64px;
+      align-items: start;
+    }
+    .main.no-sidebar { grid-template-columns: 1fr; }
+    .main.no-sidebar .sidebar { display: none; }
+
+    .tab-panel { display: none; }
     .tab-panel.active { display: block; }
 
+    section { margin-bottom: 64px; }
+    section:last-child { margin-bottom: 0; }
+
+    .section-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: var(--dark);
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-title .dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .overview-card {
+      background: var(--gold-pale);
+      border: 1px solid var(--gold-light);
+      border-radius: 16px;
+      padding: 40px;
+      margin-bottom: 40px;
+      position: relative;
+    }
+    .overview-top {
+      display: flex;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+    .progress-ring {
+      width: 72px; height: 72px;
+      margin-right: 20px;
+      flex-shrink: 0;
+    }
+    .skills-row {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 0;
+    }
+    .skill-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+    }
+    .skill-icon {
+      width: 40px; height: 40px;
+      background: var(--white);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px;
+      border: 1px solid var(--gold-light);
+    }
+    .overview-card p {
+      font-size: 14px;
+      color: var(--mid);
+      line-height: 1.9;
+    }
+
+    .target-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .target-item {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px 20px;
+      font-size: 13px;
+      color: var(--mid);
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      transition: border-color .2s, transform .2s;
+      cursor: default;
+    }
+    .target-item:hover {
+      border-color: var(--gold-light);
+      transform: translateY(-2px);
+    }
+    .target-item .ti-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+
+    .format-list { display: flex; gap: 16px; flex-wrap: wrap; }
+    .format-badge {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px 20px;
+      font-size: 13px;
+      color: var(--mid);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .format-badge .fb-icon { font-size: 18px; }
+    .format-note {
+      margin-top: 12px;
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 0.03em;
+    }
+
+    .schedule-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .schedule-item {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+    }
+    .schedule-item .day {
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      font-weight: 500;
+    }
+    .schedule-item .time {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      color: var(--dark);
+    }
+    .schedule-note {
+      margin-top: 16px;
+      background: var(--gold-pale);
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .textbook-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+    .textbook-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      transition: border-color .2s;
+    }
+    .textbook-card:hover { border-color: var(--gold-light); }
+    .textbook-card .tb-name {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+    .textbook-card .tb-desc {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+    .textbook-note { font-size: 12px; color: var(--muted); }
+
+    .steps-flow {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      position: relative;
+      margin-bottom: 32px;
+    }
+    .steps-flow::before {
+      content: "";
+      position: absolute;
+      top: 20px;
+      left: 10%;
+      right: 10%;
+      height: 1px;
+      background: var(--gold-light);
+      z-index: 0;
+    }
+    .step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      position: relative;
+      z-index: 1;
+    }
+    .step-num {
+      width: 40px; height: 40px;
+      background: var(--white);
+      border: 1.5px solid var(--gold);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      color: var(--gold);
+    }
+    .step-label {
+      font-size: 12px;
+      color: var(--mid);
+      text-align: center;
+      letter-spacing: 0.05em;
+    }
+
+    .detail-list { display: flex; flex-direction: column; gap: 10px; }
+    .detail-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 14px 18px;
+      background: var(--white);
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--mid);
+      line-height: 1.7;
+    }
+    .detail-item .di-num {
+      width: 22px; height: 22px;
+      background: var(--gold);
+      color: white;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .reviews-list { display: flex; flex-direction: column; gap: 20px; }
+    .review-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px 32px;
+      transition: box-shadow .2s;
+    }
+    .review-card:hover {
+      box-shadow: 0 4px 24px rgba(184,146,74,0.1);
+    }
+    .review-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .review-avatar {
+      width: 40px; height: 40px;
+      background: var(--gold-pale);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      color: var(--gold);
+      font-weight: 600;
+      border: 1px solid var(--gold-light);
+      flex-shrink: 0;
+    }
+    .review-info .name { font-size: 14px; font-weight: 500; color: var(--dark); }
+    .review-info .badge-row { display: flex; gap: 8px; margin-top: 4px; }
+    .level-badge {
+      font-size: 11px;
+      background: var(--gold-pale);
+      color: var(--gold);
+      border: 1px solid var(--gold-light);
+      border-radius: 4px;
+      padding: 2px 8px;
+      letter-spacing: 0.05em;
+    }
+    .date-badge { font-size: 11px; color: var(--muted); }
+    .review-body {
+      font-size: 13px;
+      color: var(--mid);
+      line-height: 1.85;
+    }
+    .review-body p + p { margin-top: 12px; }
+
+    .sidebar { position: sticky; top: 80px; }
+
+    .price-card-main {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 40px rgba(30,26,20,0.08);
+      margin-bottom: 20px;
+    }
+    .price-card-header {
+      background: var(--dark);
+      padding: 28px 28px 24px;
+      color: var(--white);
+    }
+    .price-card-header .pch-label {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: var(--gold-light);
+      margin-bottom: 8px;
+    }
+    .price-card-header .pch-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 20px;
+      font-weight: 600;
+    }
+    .price-table { padding: 24px 28px; }
+    .price-table .price-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 13px;
+    }
+    .price-table .price-row:last-child { border-bottom: none; }
+    .price-table .price-row .course { color: var(--mid); }
+    .price-table .price-row .unit { color: var(--muted); font-size: 11px; margin-top: 2px; }
+    .price-table .price-row .amount {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      color: var(--dark);
+      font-weight: 600;
+      text-align: right;
+    }
+    .price-table .price-row .total {
+      font-size: 11px;
+      color: var(--muted);
+      text-align: right;
+      margin-top: 2px;
+    }
+    .price-table .price-row.highlight .amount { color: var(--gold); }
+
+    .enrollment-fee {
+      background: var(--gold-pale);
+      margin: 0 28px 24px;
+      border-radius: 8px;
+      padding: 12px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+    }
+    .enrollment-fee .ef-label { color: var(--mid); }
+    .enrollment-fee .ef-amount {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    .cta-btn {
+      display: block;
+      width: calc(100% - 56px);
+      margin: 0 28px 28px;
+      background: var(--gold);
+      color: var(--white);
+      border: none;
+      border-radius: 10px;
+      padding: 16px;
+      font-size: 14px;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      cursor: pointer;
+      transition: background .2s, transform .2s;
+      text-align: center;
+      text-decoration: none;
+    }
+    .cta-btn:hover { background: #a07a3a; transform: translateY(-1px); }
+
+    .info-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+    }
+    .info-card .ic-title {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--dark);
+      margin-bottom: 16px;
+      letter-spacing: 0.05em;
+    }
+    .info-item {
+      display: flex;
+      gap: 10px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 12px;
+    }
+    .info-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .info-item .ii-label { color: var(--muted); min-width: 64px; flex-shrink: 0; }
+    .info-item .ii-val { color: var(--mid); }
+
+    @media (max-width: 900px) {
+      .main { grid-template-columns: 1fr; padding: 40px 24px; gap: 40px; }
+      .hero { padding: 48px 24px 40px; }
+      .hero::after { display: none; }
+      .tabs-bar { padding: 0 24px; overflow-x: auto; }
+      nav { padding: 0 24px; }
+      .target-grid { grid-template-columns: 1fr; }
+      .steps-flow { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+      .steps-flow::before { display: none; }
+      .schedule-grid { grid-template-columns: 1fr 1fr; }
+      .textbook-grid { grid-template-columns: 1fr; }
+      .sidebar { position: static; }
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(16px);
+      animation: fadeUp .6s forwards;
+    }
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .delay-1 { animation-delay: .1s; }
+    .delay-2 { animation-delay: .2s; }
+    .delay-3 { animation-delay: .3s; }
+
+    /* Legacy: tab02, tab03, tab04 panels */
+    .content-block { margin-bottom: 32px; }
+    .content-block h3 {
+      font-size: 18px;
+      margin-bottom: 16px;
+      color: var(--dark);
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--gold-light);
+    }
+    .section-note { font-size: 13px; color: var(--muted); margin-bottom: 8px; }
     .section-header {
-      background: var(--taupe);
+      background: var(--gold);
       color: white;
       padding: 16px 24px;
       font-size: 18px;
@@ -113,114 +597,74 @@
       border-radius: 8px 8px 0 0;
       margin-bottom: 0;
     }
-
     .participation-area {
       display: flex;
       align-items: center;
       gap: 24px;
       padding: 24px;
-      background: white;
-      border: 1px solid var(--gray-border);
+      background: var(--white);
+      border: 1px solid var(--border);
       border-top: none;
       flex-wrap: wrap;
     }
-
     .progress-circle {
-      width: 80px;
-      height: 80px;
+      width: 80px; height: 80px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
     }
-
-    .progress-circle.kojin { background: conic-gradient(#4a6fa5 70%, #e5e5e5 70%); }
-    .progress-circle.tanki { background: conic-gradient(#4a6fa5 80%, #e5e5e5 80%); }
-
+    .progress-circle.kojin { background: conic-gradient(var(--gold) 70%, #e5e5e5 70%); }
+    .progress-circle.tanki { background: conic-gradient(var(--gold) 80%, #e5e5e5 80%); }
     .progress-inner {
-      width: 60px;
-      height: 60px;
+      width: 60px; height: 60px;
       border-radius: 50%;
-      background: white;
+      background: var(--white);
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 20px;
       font-weight: 700;
-      color: var(--text-dark);
+      color: var(--dark);
     }
-
-    .participation-label { font-size: 14px; color: var(--text-muted); }
-
+    .participation-label { font-size: 14px; color: var(--muted); }
     .skill-icons { display: flex; gap: 32px; margin-left: auto; }
-    .skill-icon { text-align: center; color: var(--taupe); }
-    .skill-icon span { display: block; font-size: 24px; margin-bottom: 4px; }
-    .skill-icon small { font-size: 13px; color: var(--text-muted); }
-
-    .content-block { margin-bottom: 32px; }
-    .content-block h3 {
-      font-size: 18px;
-      margin-bottom: 16px;
-      color: var(--text-dark);
-      padding-bottom: 8px;
-      border-bottom: 2px solid var(--taupe);
-    }
-
-    .section-note { font-size: 13px; color: var(--text-muted); margin-bottom: 8px; }
-
-    .step-icons-row { display: flex; flex-wrap: wrap; gap: 24px; margin: 20px 0 24px; }
-    .step-icon-item { display: flex; align-items: center; gap: 8px; font-size: 15px; color: var(--text-dark); }
-    .step-icon-item span { font-size: 20px; }
-
-    .textbook-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin: 20px 0; }
-    .textbook-card {
-      background: #faf8f5;
-      border: 1px solid var(--taupe);
-      border-radius: 12px;
-      padding: 24px;
-    }
-    .textbook-card h4 { font-size: 16px; font-weight: 600; color: var(--text-dark); margin-bottom: 12px; }
-    .textbook-card p { font-size: 14px; color: var(--text-muted); margin: 0; line-height: 1.7; }
-    .textbook-note { font-size: 13px; color: var(--text-muted); margin-top: 16px; }
-
+    .skill-icons .skill-icon { text-align: center; color: var(--gold); }
+    .skill-icons .skill-icon span { display: block; font-size: 24px; margin-bottom: 4px; }
+    .skill-icons .skill-icon small { font-size: 13px; color: var(--muted); }
     .target-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin: 20px 0; }
     .target-cards-row3 { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
-
     .target-card {
-      background: white;
-      border: 1px solid var(--gray-border);
+      background: var(--white);
+      border: 1px solid var(--border);
       border-radius: 12px;
       padding: 16px 20px;
       display: flex;
       align-items: center;
       gap: 16px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
     }
-
     .target-card-icon { font-size: 28px; flex-shrink: 0; }
     .target-card-icon.aplus {
-      font-size: 24px; font-weight: 700; color: var(--text-dark);
-      background: #e8e8e8;
+      font-size: 24px; font-weight: 700; color: var(--dark);
+      background: var(--gold-pale);
       width: 44px; height: 44px;
       border-radius: 10px;
       display: flex; align-items: center; justify-content: center;
     }
-
-    .target-card-text { font-size: 14px; color: var(--text-dark); line-height: 1.5; }
-    .target-card-link { color: var(--taupe); font-size: 14px; font-weight: 500; text-decoration: none; }
-
-    .price-table {
+    .target-card-text { font-size: 14px; color: var(--mid); line-height: 1.5; }
+    .price-table.legacy-table {
       width: 100%;
       border-collapse: collapse;
       margin: 20px 0;
       font-size: 14px;
     }
-    .price-table th, .price-table td {
-      border: 1px solid var(--gray-border);
+    .price-table.legacy-table th,
+    .price-table.legacy-table td {
+      border: 1px solid var(--border);
       padding: 12px 16px;
       text-align: left;
     }
-    .price-table th { background: var(--gray-light); font-weight: 600; }
+    .price-table.legacy-table th { background: var(--gold-pale); font-weight: 600; }
 
     /* 短期集中 カリキュラム表 (画像デザイン) */
     .curriculum-table {
@@ -354,7 +798,7 @@
 
     .tanki-level-tabs { display: flex; gap: 8px; margin: 12px 0 16px; flex-wrap: wrap; }
     .tanki-level-tab {
-      padding: 10px 20px; border: 1px solid var(--gray-border); background: #f8f8f8;
+      padding: 10px 20px; border: 1px solid var(--border); background: #f8f8f8;
       border-radius: 8px; cursor: pointer; font-size: 14px; font-weight: 500;
     }
     .tanki-level-tab:hover { background: #eee; }
@@ -371,215 +815,164 @@
   </style>
 </head>
 <body>
-  <div class="page-wrapper">
-    <div class="top-bar">
-      <span class="top-bar-info">東京で韓国語教室をお探しならミリネ韓国語教室 | 定休日: 月曜日</span>
-      <nav class="top-bar-nav">
-        <a href="index.html">ホーム</a>
-        <a href="about.html">会社概要</a>
-        <a href="about.html#tab02">アクセス</a>
-        <a href="trial.html">お申込み</a>
-        <a href="about.html#tab03">講師</a>
-        <a href="book.html">著書</a>
-        <a href="trial.html#tab04">お問い合わせ</a>
-      </nav>
-    </div>
+  <nav>
+    <a href="index.html" class="nav-logo">ミリネ韓国語教室</a>
+    <a href="index.html">ホーム</a>
+    <a href="about.html">会社概要</a>
+    <a href="about.html#tab02">アクセス</a>
+    <a href="trial.html">お申込み</a>
+    <a href="about.html#tab03">講師</a>
+    <a href="book.html">著書</a>
+    <a href="trial.html#tab04">お問い合わせ</a>
+  </nav>
 
-    <div class="main-content">
-      <div class="page-header">
-        <h1 class="page-title">個人レッスン</h1>
-        <p class="page-subtitle">都合に合わせて予約し、自分のペースで勉強できます</p>
-      </div>
+  <div class="hero fade-in">
+    <p class="hero-eyebrow">Private Lesson</p>
+    <h1>個人レッスン</h1>
+    <p>都合に合わせて予約し、自分のペースで勉強できます</p>
+  </div>
 
-      <div class="tab-wrap">
-      <div class="tab-bar">
-        <button type="button" class="tab-btn active" data-tab="tab01">個人レッスン</button>
-        <button type="button" class="tab-btn" data-tab="tab02">短期集中個人</button>
-        <button type="button" class="tab-btn" data-tab="tab03">発音矯正</button>
-        <button type="button" class="tab-btn" data-tab="tab04">レベルテスト</button>
-      </div>
-      </div>
+  <div class="tabs-bar">
+    <button type="button" class="tab active" data-tab="tab01">個人レッスン</button>
+    <button type="button" class="tab" data-tab="tab02">短期集中個人</button>
+    <button type="button" class="tab" data-tab="tab03">発音矯正</button>
+    <button type="button" class="tab" data-tab="tab04">レベルテスト</button>
+  </div>
 
-      <!-- ========== タブ1: 個人レッスン ========== -->
+  <div class="main" id="main-wrap">
+    <div class="content">
       <div id="tab01" class="tab-panel active">
-        <h2 class="section-header">『個人レッスン』</h2>
-        <div class="participation-area">
-          <div class="progress-circle kojin"><div class="progress-inner">70%</div></div>
-          <div class="participation-label">発話参加率</div>
-          <div class="skill-icons">
-            <div class="skill-icon"><span>👂</span><small>聞く</small></div>
-            <div class="skill-icon"><span>📖</span><small>読む</small></div>
-            <div class="skill-icon"><span>✏️</span><small>書く</small></div>
+        <section class="fade-in delay-1">
+          <div class="overview-card">
+            <div class="overview-top">
+              <svg class="progress-ring" viewBox="0 0 72 72">
+                <circle cx="36" cy="36" r="28" fill="none" stroke="#e8d5b0" stroke-width="4"/>
+                <circle cx="36" cy="36" r="28" fill="none" stroke="#b8924a" stroke-width="4"
+                  stroke-dasharray="175.9" stroke-dashoffset="52.8"
+                  stroke-linecap="round" transform="rotate(-90 36 36)"/>
+                <text x="36" y="40" text-anchor="middle" font-family="Cormorant Garamond,serif"
+                  font-size="18" fill="#b8924a" font-weight="600">70%</text>
+              </svg>
+              <div>
+                <div style="font-size:11px;letter-spacing:.1em;color:var(--muted);margin-bottom:4px;">発話参加率</div>
+                <div class="skills-row" style="margin:0;gap:16px;">
+                  <div class="skill-item"><div class="skill-icon">👂</div>聞く</div>
+                  <div class="skill-item"><div class="skill-icon">📖</div>読む</div>
+                  <div class="skill-item"><div class="skill-icon">✏️</div>書く</div>
+                </div>
+              </div>
+            </div>
+            <p>個人レッスンではテキストを使用し、聞く・話す・読む・書くを総合的に学習します。文法、語彙、表現については講師から説明いたしますが、レッスンの7割は音読や会話となり、生徒さんにどんどん声を出していただくことをモットーとしております。</p>
+            <p style="margin-top:12px;">丁寧な解説で文法のポイントを学んだ後は、練習問題で反復練習をし、「書くチカラ」も身につけます。授業中に学習した本文や例文は暗記していただき、次のレッスン時に、韓国語で声に出していただきます。</p>
           </div>
-        </div>
+        </section>
 
-        <div class="content-block" style="padding: 24px; border: 1px solid var(--gray-border); border-top: none; border-radius: 0 0 8px 8px;">
-          <p>個人レッスンではテキストを使用し、聞く・話す・読む・書くを総合的に学習します。文法、語彙、表現については講師から説明いたしますが、レッスンの7割は音読や会話となり、生徒さんにどんどん声を出していただくことをモットーとしております。丁寧な解説で文法のポイントを学んだ後は、練習問題で反復練習をし、「書くチカラ」も身につけます。授業中に学習した本文や例文は暗記していたただき、次のレッスン時に、韓国語で声に出していただきます。レッスンはこのように丁寧に行われるため、1コマで１つの課の50％~80％ほどの目安で進められます。</p>
-        </div>
-
-        <div class="content-block">
-          <h3>対象</h3>
-          <div class="target-cards">
-            <div class="target-card">
-              <div class="target-card-icon aplus">A+</div>
-              <div class="target-card-text">入門・初級・中級、上級 全レベル対象</div>
-            </div>
-            <div class="target-card">
-              <div class="target-card-icon">🎧</div>
-              <div class="target-card-text">韓国ドラマやK-POPを聞き取れるようになりたい方</div>
-            </div>
-            <div class="target-card">
-              <div class="target-card-icon">💬</div>
-              <div class="target-card-text">韓国語で上手に話せるようになりたい方</div>
-            </div>
-            <div class="target-card">
-              <div class="target-card-icon">🎤</div>
-              <div class="target-card-text">韓国語の正確な発音を身につけたい方</div>
-            </div>
+        <section class="fade-in delay-2">
+          <h2 class="section-title"><span class="dot"></span>対象</h2>
+          <div class="target-grid">
+            <div class="target-item"><span class="ti-icon">🎓</span>入門・初級・中級、上級 全レベル対象</div>
+            <div class="target-item"><span class="ti-icon">🎧</span>韓国ドラマやK-POPを聞き取れるようになりたい方</div>
+            <div class="target-item"><span class="ti-icon">💬</span>韓国語で上手に話せるようになりたい方</div>
+            <div class="target-item"><span class="ti-icon">🎤</span>韓国語の正確な発音を身につけたい方</div>
           </div>
-          <div class="target-cards-row3">
-            <div class="target-card">
-              <div class="target-card-icon">🏫</div>
-              <div class="target-card-text">新宿教室での対面授業</div>
-            </div>
-            <div class="target-card">
-              <div class="target-card-icon">💻</div>
-              <div class="target-card-text">オンライン授業（Teams又はZoom）</div>
-            </div>
+        </section>
+
+        <section class="fade-in">
+          <h2 class="section-title"><span class="dot"></span>授業形式</h2>
+          <div class="format-list">
+            <div class="format-badge"><span class="fb-icon">🏫</span>新宿教室での対面授業</div>
+            <div class="format-badge"><span class="fb-icon">💻</span>オンライン授業（Teams又はZoom）</div>
           </div>
-        </div>
+          <p class="format-note">※対面・オンラインどちらでも受講可能</p>
+        </section>
 
-        <div class="content-block">
-          <p class="section-note">※対面・オンラインどちらでも受講可能</p>
-          <h3>授業形式</h3>
-          <ul style="margin-left: 24px;">
-            <li>新宿教室での対面授業</li>
-            <li>オンライン授業（Teams又はZoom）</li>
-            <li>どちらでも受講可</li>
-          </ul>
-        </div>
+        <section class="fade-in">
+          <h2 class="section-title"><span class="dot"></span>日程</h2>
+          <div class="schedule-grid">
+            <div class="schedule-item"><div class="day">火〜金</div><div class="time">10:00 – 21:00</div></div>
+            <div class="schedule-item"><div class="day">土曜日</div><div class="time">10:00 – 18:00</div></div>
+            <div class="schedule-item"><div class="day">日曜日</div><div class="time">10:00 – 17:00</div></div>
+          </div>
+          <div class="schedule-note">🗓 予約制（50分）</div>
+        </section>
 
-        <div class="content-block">
-          <h3>日程</h3>
-          <p>火～金 10:00-21:00<br>土 10:00-18:00 / 日 10:00-17:00<br>予約制（50分）</p>
-        </div>
-
-        <div class="content-block">
-          <h3>テキスト</h3>
-          <div class="textbook-cards">
+        <section class="fade-in">
+          <h2 class="section-title"><span class="dot"></span>テキスト</h2>
+          <div class="textbook-grid">
             <div class="textbook-card">
-              <h4>ミリネ韓国語テキスト</h4>
-              <p>ミリネのオリジナルストーリーも入っているので、楽しく韓国語を学べます</p>
+              <div class="tb-name">📕 ミリネ韓国語テキスト</div>
+              <div class="tb-desc">ミリネのオリジナルストーリーも入っているので、楽しく韓国語を学べます</div>
             </div>
             <div class="textbook-card">
-              <h4>ソウル大韓国語</h4>
-              <p>ソウル大学の教科書で体系的に韓国語を学べます（1A-6B）</p>
+              <div class="tb-name">📗 ソウル大韓国語</div>
+              <div class="tb-desc">ソウル大学の教科書で体系的に韓国語を学べます（1A-6B）</div>
             </div>
           </div>
           <p class="textbook-note">その他、学習ニーズに合わせて教材を選定いたします。</p>
-        </div>
+        </section>
 
-        <div class="content-block">
-          <h3>進め方</h3>
-          <div class="step-icons-row">
-            <div class="step-icon-item"><span>①</span>本文理解</div>
-            <div class="step-icon-item"><span>②</span>文法・語彙</div>
-            <div class="step-icon-item"><span>③</span>練習問題</div>
-            <div class="step-icon-item"><span>④</span>復習</div>
+        <section class="fade-in">
+          <h2 class="section-title"><span class="dot"></span>進め方</h2>
+          <div class="steps-flow">
+            <div class="step"><div class="step-num">①</div><div class="step-label">本文理解</div></div>
+            <div class="step"><div class="step-num">②</div><div class="step-label">文法・語彙</div></div>
+            <div class="step"><div class="step-num">③</div><div class="step-label">練習問題</div></div>
+            <div class="step"><div class="step-num">④</div><div class="step-label">復習</div></div>
           </div>
-          <ul style="margin-left: 24px; list-style: none;">
-            <li>❶ テキスト本文の理解（音読、和訳、発音指導、オバーラッピング、シャドーイング）</li>
-            <li>❷ 文法、語彙、表現の学習（音読、和訳、発音指導）</li>
-            <li>❸ 練習問題（作文、音読、聞き取り、聞き逃した箇所の和訳）</li>
-            <li>❹ 学んだことは次回に復習（講師：日本語→生徒さん：韓国語に訳して声に出す）</li>
-          </ul>
-        </div>
-
-        <div class="content-block">
-          <h3>内容</h3>
-          <p>「オーバーラッピング」と「シャドーイング」を使って、ネイティブの話すスピードについて行けるようなトレーニングを行います。</p>
-          <p style="font-size: 13px;">※オーバーラッピング:音声と同時に読むこと シャドーイング:テキストを見ないで音声だけを聞きながら重ねて言うこと</p>
-          <p>韓国語訳の復習を通して学んだ内容の定着を図る：１つの課が終わったら、学習した「文型や表現」は次の課を始める前に韓国語訳を行い、どのくらい頭の中に定着したか確認します。講師が日本語で例文を話します。</p>
-          <p style="font-size: 13px;">※ミリネのレッスンは主に受講生の方が約7割話すことで、聞き取り力・会話力の両方を引きあげます。</p>
-          <ul style="margin-left: 24px; list-style: none;">
-            <li>❶ 韓国語のテキスト本文や文法の和訳も事前にしてきていただきます。当教室では受講生の和訳に正確なチェックを入れ、より効果的に覚えられるよう指導します。もちろん和訳していく中で出てくる似ている文型や微妙なニュアンスの違いも漏れなく解説いたします。</li>
-            <li>❷ そのため授業は予習を前提として進められます。予習課題をしていただくことで週1回や2~3回の授業を無駄なく消化できるようになります。</li>
-            <li>❸ 主に音読(声に出して読む)を中心とした指導をしています。音読で大切なのは、その場で先生から、きちんと発音と抑揚の指摘を受け、直してもらうことです。スポーツ選手のトレーナーのように、発音と抑揚の技術を教え、練習をそばで支えてくれる人が必要なのです。練習問題も声に出して解いていただきます。</li>
-          </ul>
-        </div>
-
-        <div class="content-block">
-          <h3>入学金</h3>
-          <p><strong>9,800円</strong></p>
-        </div>
-
-        <div class="content-block">
-          <h3>授業料</h3>
-          <table class="price-table">
-            <thead>
-              <tr><th>コース</th><th>1コマ</th><th>授業料</th><th>有効期限</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>12回コース</td><td>4,900円</td><td>58,800円（税込64,680円）</td><td>3ヶ月</td></tr>
-              <tr><td>24回コース</td><td>4,400円</td><td>105,600円（税込116,160円）</td><td>8ヶ月</td></tr>
-              <tr><td>48回コース</td><td>3,980円</td><td>191,040円（税込210,144円）</td><td>1年</td></tr>
-              <tr><td>72回コース</td><td>3,600円</td><td>259,200円（税込285,120円）</td><td>1年</td></tr>
-              <tr><td>※月謝制(月8コマ)</td><td>5,100円</td><td>40,800円（税込44,880円）</td><td>1ヶ月</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <h2 class="section-header" style="margin-top: 48px;">『生徒の声』</h2>
-
-        <div class="testimonial">
-          <div class="testimonial-header">NS様｜6級｜2023.08</div>
-          <div class="testimonial-content">
-            <p><strong>●この教室で初級1から習い始めて１年１０カ月でTOPIK6級に合格しました。今の感想は。</strong><br>素直に、とても嬉しいです。自分としては文法、発音、語彙等挙げてもキリがないほど不足している部分が多いと感じているのですが、それでもこうやって資格として「合格」をいただいて、自信に繋がりました。</p>
-            <p><strong>●一昨年１０月から教室で初級1から学んでいます。その前に学習経験はありましたか。</strong><br>書店で買った韓国語会話の本を一冊勉強した後に、文法の本を買ってみましたが、自分の発音が合っているかもわからず、質問する相手もいなかったので、モチベーションがどんどん落ちて…。文法の本は最初の方で挫折して、韓国語教室に通おうと決めました。</p>
-            <p><strong>●韓国語を勉強しようと思ったきっかけは。</strong><br>友達や家族にあまりにも勧められるので、年末年始休暇に20年ぶり位に韓国ドラマを見ました。「愛の不時着」を英語字幕で見ていたのですが、その後、妹と日本語字幕で見たら、台詞の意味が日英で違ったんです。私が韓国語を知らないから、本当は何と言っていたのか理解出来ない、翻訳者の言葉を介してしか台詞を理解出来ないことが悔しくて。元々意味もわからないのに音が好きだからと韓国の音楽を少し聴いていたこともあり、勉強してみようと思いました。</p>
-            <p><strong>●実際韓国語を勉強してみたらどうでしたか。</strong><br>うーん、難しい質問ですね(笑)韓国語は文法の作りや発音が日本語に近いと言われますし、とっつきやすさはあると思います。でも個人的には発音は英語より難しいです。私の耳がまだ韓国語に適応していないのかもしれません。細かい発音の違いをマスターするには、もう少しかかりそうです。でも、総じて楽しく勉強しています。</p>
-            <p><strong>●この教室を選んだ理由。</strong><br>韓国語教室をネットで探していたら、半年でTOPIK5級に合格されたミリネ受講生の伊藤さんの記事をたまたま拝見しました。私は何事も短期集中型な性格なので、半年でTOPIK5級に合格できる授業をこの教室は提供しているのだと、直感でここだなと思いました。また私は仕事の関係で夜に急遽会議が入ることがあったので、通常の韓国語教室のように定期的に夕方や夜の授業に通うことが難しかったんです。仕事に左右されずに続けたく、平日の朝、仕事前にオンライン個人レッスンを受けられないか打診したところ可能だと言っていただきました。その後、体験レッスンを受けて、先生の印象が良かったこともあり、すぐに決めました。自分の生活リズムに合わせて勉強が出来て本当に良かったです。先生方には時間外にご対応いただき、大変感謝しております。</p>
-            <p><strong>●ミリネテキストでずっと勉強していますが、テキストについてはどう思いますか。</strong><br>凄く良いテキストだと思います。本文(会話)の内容も面白いですし、韓国人の性格や韓国の文化について本文の内容から学ぶことも出来ました。テキストのレベルが上がるにつれて、文も長く、単語も難しくなり、予習復習に時間がかかりましたが、一課に本文・単語・文法・語彙・練習問題・読解があり、マンネリ化せず続けられたと思います。</p>
-            <p><strong>●会話を覚える、効率よく勉強する秘訣は。</strong><br>私はまだこの部分が不足していると感じているので、この質問は難しいです(笑)ただ、文章は丸ごと覚えるのが良いのだと思います。どんな場面で、どういう文の中でその表現が使われたかを覚えると、単語や表現を単体で覚える時より、記憶に結びつく情報量が多い気がするので。ミリネのテキストはホームページで本文会話の音声を聴けるようになっています。毎日仕事をしながらの予習復習で精一杯で、その音声を聴いて発音する練習をあまりしてこなかったことを今でも後悔しています。音読をしておけば、もう少し早く正確に会話を覚えられたと思います。</p>
-            <p><strong>●週３回Zoomで習う集中学習の長短所</strong><br>上記別の質問で記載した通り、自分の生活リズムに合わせて勉強できたことが1番良かったです。また、例えば週一だと、次の授業までに前回習った内容を忘れるということがあると思いますが、週3だとそのようなこともなく、継続的に勉強出来ました。逆に短所は、予習復習が大変なところです。ミリネは授業の最初に前回の内容を復習するので、復習を疎かに出来ず、テキストのレベルが上がるにつれて復習の負担が大きくなりました。</p>
-            <p><strong>●ミリネTOPIK対策レッスンは役に立ちましたか。</strong><br>とても役に立ちました。語彙リストも市販のものは購入せず、ミリネから頂いたものを使いましたし、特にTOPIK IIについては添削をたくさんしていただき、汎用的に書取りで使える表現を教えていただけて大変助かりました。最初1回のみ授業中にTOPIKの読解問題を解いて質問という形にしましたが、読解は自分で解いて採点までして、不明点を授業内で質問する方が時間の使い方が効率的・生産的だと感じたので、2回目以降はそのようにしていただきました。自分のスタイルに合わせて勉強出来て、とても良かったです。</p>
-            <p><strong>●TOPIKを受けてよかったと思いますか。</strong><br>良かったです。韓国語の勉強を始めてから、TOPIKは毎回受けました。私はTOPIK前にも試験対策のみにフォーカスするのではなく、先生との文法・会話の通常授業に加え、授業時間外で自分で過去問を解き添削をお願いする・不明点のみ質問するというスタイルだったので、対策するかしないかは自分にかかっている感じでした。毎回TOPIKを受け終わった後に「もっと試験対策すれば良かった…」と後悔していましたし、5級取得後、その次の回でも5級だった時は、やはり6級の壁は高いと思いましたが、取得出来て良かったです。</p>
-            <p><strong>●韓国語勉強する前と今一番の変化は。</strong><br>世界が広がりましたし、楽しみが増えました。元々言語が好きなのですが、言語を学ぶことで、その言語を話す人や文化、歴史等多くのことを知ることが出来ると思っています。今まで私の中に入ってくる情報は日英の2カ国語のみでしたが、今は韓国語も入って来て、単純に刺激が増え、見える世界が広がりました。そして、私は元々テレビをほぼ見ない人間だったのですが、韓国バラエティが凄く面白くて、Youtubeでよく見ています。100%理解できるわけではもちろんないですが、笑いどころはわかりやすいですし、ドラマではなく、バラエティの中での会話・言葉の掛け合いから表現を学ぶことも多いです。</p>
-            <p><strong>●これからの目標について</strong><br>丁度6級を取得した直後ですが、一年ワーホリで韓国に行きます。自分としてはまだまだと思っている発音を特に伸ばしたいです。加えて、韓国文学を韓国語で読めるようになりたいです。英語の小説でも、やはり原書で読むのと日本語訳本を読むのでは流れる空気感が違いますし、その言語でしか表現できないものがあると思っています。韓国文学の日本語訳本を読んでいても繊細な表現が多いイメージで、原書ではどう書かれているのか、気になっていました。まだ韓国語の本を読むには実力不足だと思うので、今後更に勉強して、韓国文学をたくさん読めるようになりたいです。</p>
+          <div class="detail-list">
+            <div class="detail-item"><div class="di-num">1</div>テキスト本文の理解（音読、和訳、発音指導、オーバーラッピング、シャドーイング）</div>
+            <div class="detail-item"><div class="di-num">2</div>文法、語彙、表現の学習（音読、和訳、発音指導）</div>
+            <div class="detail-item"><div class="di-num">3</div>練習問題（作文、音読、聞き取り、聞き逃した箇所の和訳）</div>
+            <div class="detail-item"><div class="di-num">4</div>学んだことは次回に復習（講師：日本語→生徒さん：韓国語に訳して声に出す）</div>
           </div>
-        </div>
+        </section>
 
-        <div class="testimonial">
-          <div class="testimonial-header">WY様｜4級｜2019.07</div>
-          <div class="testimonial-content">
-            <p>ソウル大学教科書を通じて文法を学びながらも各課のテーマに沿った単語や表現、教科書に記載はないけれども良く使う言い回しも教わりました。韓国の生活、歴史にも話題が及ぶこともあり、充実した授業でした。</p>
-            <p>ネイティブの先生からの発音チェックでは、自分では気づかないクセや、発音のポイントを教わりました。韓国に行っても、おそらく直してくれる人はいないと思うので有益でした。どの先生も丁寧に教えてくださり、感謝しています。</p>
-            <p>授業内容の録音の許可をいただけたおかげで、今まで消化しきれなかった分を韓国滞在中に聞いて復習し、確実に身につけたいと思います。ありがとうございました。</p>
+        <section class="fade-in">
+          <h2 class="section-title"><span class="dot"></span>生徒の声</h2>
+          <div class="reviews-list">
+            <div class="review-card">
+              <div class="review-meta">
+                <div class="review-avatar">N</div>
+                <div class="review-info">
+                  <div class="name">NS様</div>
+                  <div class="badge-row"><span class="level-badge">TOPIK 6級</span><span class="date-badge">2023.08</span></div>
+                </div>
+              </div>
+              <div class="review-body">
+                <p>この教室で初級1から習い始めて1年10カ月でTOPIK6級に合格しました。素直に、とても嬉しいです。</p>
+                <p>文法の本は最初の方で挫折して、韓国語教室に通おうと決めました。毎回TOPIKを受け終わった後「もっと試験対策すれば良かった…」と後悔していました。5級取得後、その次の回でも5級だった時は、やはり6級の壁は高いと思いましたが、取得出来て良かったです。</p>
+              </div>
+            </div>
+            <div class="review-card">
+              <div class="review-meta">
+                <div class="review-avatar">W</div>
+                <div class="review-info">
+                  <div class="name">WY様</div>
+                  <div class="badge-row"><span class="level-badge">4級</span><span class="date-badge">2019.07</span></div>
+                </div>
+              </div>
+              <div class="review-body">
+                <p>ソウル大学教科書を通じて文法を学びながらも各課のテーマに沿った単語や表現、教科書に記載はないけれども良く使う言い回しも教わりました。ネイティブの先生からの発音チェックで、自分では気づかないクセや、発音のポイントを教わりました。授業内容の録音許可をいただいたおかげで、今まで消化しきれなかった分を韓国滞在中に聞いて復習し、確実に身につけたいと思います。ありがとうございました。</p>
+              </div>
+            </div>
+            <div class="review-card">
+              <div class="review-meta">
+                <div class="review-avatar">I</div>
+                <div class="review-info">
+                  <div class="name">IT様</div>
+                  <div class="badge-row"><span class="level-badge">中級 TOPIK5級</span><span class="date-badge">2018.05（新宿）</span></div>
+                </div>
+              </div>
+              <div class="review-body">
+                <p>私の興味がある韓国の歴史や、ある単語の語源、発音するときの唇や舌の仕組み、漢字語の規則など、韓国語の勉強そのものと直接関係ないような話も混ぜながら、たくさんしてくださいました。意識的に私に合わせたネタを準備してくださり、知的好奇心が刺激されたので「もっと知りたい、もっと聞きたい」というワクワクした気持ちにつながりました。</p>
+                <p>似た単語が二つあって使い分けがよくわからないとき、私が納得できずにモヤモヤしていると、先生方がとにかくたくさんの例文を出してくださいます。例をたくさんあげてもらうことで、できるだけネイティブに近い単語のチョイスができるように訓練されるように思いました。</p>
+              </div>
+            </div>
           </div>
-        </div>
-
-        <div class="testimonial">
-          <div class="testimonial-header">IT様｜中級(TOPIK5級）｜2018.5(新宿)</div>
-          <div class="testimonial-content">
-            <p><strong>「1」ミリネ教室に通ってよかったこと</strong></p>
-            <p><strong>❶私の興味にあわせて、教えてくださること</strong><br>私の興味がある韓国の歴史や、ある単語の語源、発音するときの唇や舌の仕組み、漢字語の規則など、韓国語の勉強そのものと直接関係ないような話も混ぜながら、たくさんしてくださいました。意識的に私に合わせたネタを準備してくださり、知的好奇心が刺激されたので「もっと知りたい、もっと聞きたい」というワクワクした気持ちにつながりました。</p>
-            <p><strong>❷質問に納得いくまでとことん説明してくださるところ</strong><br>特に、似た単語が二つあって使い分けがよくわからないとき、私が納得できずにモヤモヤしていると、先生方がとにかくたくさんの例文を出してくださいます。いろんな例文を聞いていくうちに、なんとなく腑に落ちるポイントが見えてきます。言語なので、なにもかもが明確に決まっているわけではないと思うのですが、例をたくさんあげてもらうことで、できるだけネイティブに近い単語のチョイスができるように訓練されるように思いました。</p>
-            <p><strong>❸安心感があるところ</strong><br>我ながら変な質問をしたりしたのですが、間違っても、受け容れてくれる安心感がありました。授業は、韓国語と日本語の両方で進むのですが、最初の方は日本語が多く、私からの質問も日本語ですることが多かったように思います。でも、だんだん先生の韓国語の割合が増えてきて、自分も韓国語で質問するようになりました。先生方が、私の言いたいことを注意深く読み取ろうとしてくださるのが分かるので、私もなんとか伝えよう・伝えたい、という気持ちで一生懸命にトライできたと思います。授業がほぼ韓国語になると、上達したんだなという実感も湧き嬉しくなります。</p>
-            <p><strong>「2」短期間で実力を伸ばすコツ</strong></p>
-            <p><strong>❶ 疑問はすぐに調べること、調べてもわからなかったら書き留めておいて授業で必ず質問すること、この二つを意識しました。</strong><br>携帯にネイバーの韓国語辞書を入れて、どこにいても調べられる状況を作りました。考えてみたら、ドラマを見ていても歌を聞いていても、気になった言い回しや単語があればメモ・メモ・メモ…。ミリネのテキストは余白が多くレイアウトされているので、テキストの他にはノートを作らず、すべてテキストにメモするかたちで勉強しました。とにかくテキストさえみれば復習が完結するのが私にはとても合っていて効率的だったのと、それだけメモするとテキストがボロボロと擦り切れてくるので「これだけやったんだ」という達成感も生まれ、自信につながりました。</p>
-            <p><strong>❷「私、国内留学みたいなことがしたいんですが…」</strong><br>私が最初にミリネに問い合わせをした内容です。授業を１日に複数コマ取って毎日通うのはもちろん、それ以外に韓国語で独り言を言うことを徹底しました。実際に口に出す独り言だけでなく、脳内で再生される独り言も、すべて韓国語で言うように意識しました。そうすると、「これ、どう言うともっと自然なんだろう？」と疑問が湧き、それを次の授業で質問したりして、だんだん慣れていきます。そのうち夢でも韓国語を話すようになったりもして、授業のない日も韓国語脳を維持することができました。語学の勉強は、自らその言語に浸りに行くような積極的な意識が必要だと思うのですが、困った時に助けてもらえるバックアップ体制もまた必要なことだと思っています。その点で、私はミリネに通えて、先生方に出会えてほんとによかった！と心から思ってます。これからもがんばります。</p>
-          </div>
-        </div>
-
-        <div class="testimonial">
-          <div class="testimonial-header">TM様｜3級｜2016.8～2017.10(新宿)</div>
-          <div class="testimonial-content">
-            <p>ミリネではテキスト本文をただ読むだけでなく、テキストCDの音声とオーバーラッピングしながら読み、本文全てを暗記する等、他の教室ではあまりやらないような方法で学びました。この様な方法は、ある一定の緊張感を保ちつつ授業を受ける事が出来るので、とても良いと感じました。授業で文法の復習がある点も、帰宅後に自ら復習をしようというやる気に繋がったと思います。もちろん、緊張感ばかりでなく、先生方と楽しい話も沢山する事も出来ました。最初からミリネで学習していたら良かったなぁと感じています。</p>
-          </div>
-        </div>
+        </section>
       </div>
 
-      <!-- ========== タブ2: 短期集中個人 (quiz.mirinae.jp/tanki-kojin 内容) ========== -->
+      <!-- ========== タブ2: 短期集中個人 ========== -->
       <div id="tab02" class="tab-panel">
         <h2 class="section-header">『短期個人レッスン』</h2>
         <div class="participation-area">
@@ -592,7 +985,7 @@
           </div>
         </div>
 
-        <div class="content-block" style="padding: 24px; border: 1px solid var(--gray-border); border-top: none; border-radius: 0 0 8px 8px;">
+        <div class="content-block" style="padding: 24px; border: 1px solid var(--border); border-top: none; border-radius: 0 0 8px 8px;">
           <p>語学は集中的に学んでこそ上達します。韓国語を本気でマスターしたい方にオススメの短期集中個人レッスン！自由予約制だから好きな曜日程間にレッスンが可能。週に複数回、もちろん毎日だってＯＫ！</p>
           <p style="margin-top: 16px;"><strong>こんな悩みはありませんか？</strong> 色んな勉強法を試してみたが伸びない、会話に自信が持てない、話す順番がなかなか回ってこない…。信頼できる韓国語講師が責任を持ってあなたをサポートします。</p>
           <p class="section-note" style="margin-top: 16px;">※12コマ、24コマ、48コマ、72コマのチケットで１コマあたり割安に。自宅が遠い方にはTeamsでマンツーマンレッスン可能。一日で４~５時間まとめて勉強もOK！</p>
@@ -639,13 +1032,11 @@
             <button type="button" class="tanki-level-tab" data-level="jokyu" role="tab" aria-selected="false">上級</button>
           </div>
           <div class="curriculum-wrap">
-            <table class="price-table tanki-schedule-table">
+            <table class="price-table tanki-schedule-table legacy-table">
               <thead>
                 <tr><th>曜日</th><th>時間</th><th>内容</th><th>料金</th></tr>
               </thead>
-              <tbody id="tanki-schedule-tbody">
-                <!-- filled by API -->
-              </tbody>
+              <tbody id="tanki-schedule-tbody"></tbody>
             </table>
           </div>
           <p id="tanki-schedule-empty" class="section-note" style="display: none;">データがありません。</p>
@@ -749,7 +1140,7 @@
               <tr><td>9</td><td>韓国語耳になる速聴トレーニング 1</td><td></td><td></td></tr>
               <tr><td>10</td><td>上級変化表現(～에 따라,～음에 따라,～어서부터) 上級引用文法 上級否定表現(～나마/～자봤다/～다 한들/～다 해도など) 上級状況表現(～마당에/～판국에/～状況に/～참에/～통에) 上級推量表現(～듯싶다,～듯하다,～을 법하다,～나 보다,～모양이다など) 上級条件表現(～다면 몰라도,～고 한다면,～겠다면など) ネイティブが使う韓国語 表現 1</td><td class="cell-green">音読トレーニング 1 音読トレーニング 2</td><td></td></tr>
               <tr><td>11</td><td>会話トレーニング 1 会話トレーニング 2</td><td></td><td></td></tr>
-              <tr><td>12</td><td>上級変化表現(～에 따라,～음에 따라,～어서부터) 上級引用文法 上級否定表現(～나마/～자봤자/～다 한들/～다 해도など) 上級状況表現(～마당에/～판국에/～状況に/～참에/～통에) 上級推量表現(～듯싶다,～듯하다,～을 법하다,～나 보다,～모양이다など) 上級条件表現(～다면 몰라도,～고 한다면,～겠다면など) ネイティブが使う韓国語表現 1 ネイティブが使う韓国語 表現 2 追加と含む(～거니와,～기는 커녕,～되,～을 비롯해서など) 習慣과 態度 (～아/어 대다,～기 일쑤이다,～는 둥 마는 둥 하다など) 状況や基準を表す 表現(～는 가운데,～는 마당に,～치고など) 強調表現(여간-지 않다,～기가 이를 데 없다,～려야～을수 없다) 上級敬語 深化 事のすべて(~것, ~일, ~경우, ~적,～기) "上級必須反語(~줄 누가 알았겠어요?, ～다 뭐예요/ 무슨(뭔) 소용이 있어요 , ～만～어・어도 어딘데요, ～겠어? 겠니? / 뿐이겠니?, ～랴 / 무슨～랴)"</td><td></td><td></td></tr>
+              <tr><td>12</td><td>上級変化表現(～에 따라,～음에 따라,～어서부터) 上級引用文法 上級否定表現(～나마/～자봤자/～다 한들/～다 해도など) 上級状況表現(～마당에/～판국에/～状況に/～참에/～통에) 上級推量表現(～듯싶다,～듯하다,～을 법하다,～나 보다,～모양이다など) 上級条件表現(～다면 몰라도,～고 한다면,～겠다면など) ネイティブが使う韓国語表現 1 ネイティブが使う韓国語 表現 2 追加と含む(～거니와,～기는 커녕,～되,～을 비롯해서など) 習慣과 態度 (～아/어 대다,～기 일쑤이다,～는 둥 마는 둥 하다など) 状況や基準を表す 表現(～는 가운데,～는 마당에,～치고など) 強調表現(여간-지 않다,～기가 이를 데 없다,～려야～을수 없다) 上級敬語 深化 事のすべて(~것, ~일, ~경우, ~적,～기) "上級必須反語(~줄 누가 알았겠어요?, ～다 뭐예요/ 무슨(뭔) 소용이 있어요 , ～만～어・어도 어딘데요, ～겠어? 겠니? / 뿐이겠니?, ～랴 / 무슨～랴)"</td><td></td><td></td></tr>
               <tr><td>13</td><td class="cell-complete">12コマ修了</td><td></td><td></td></tr>
               <tr><td>14</td><td></td><td></td><td></td></tr>
               <tr><td>15</td><td></td><td></td><td></td></tr>
@@ -782,7 +1173,7 @@
         <div class="content-block">
           <h3>進め方</h3>
           <ul style="margin-left: 24px; list-style: none;">
-            <li>❶ テキスト本文の理解（音読、和訳、発音指導、オバーラッピング、シャドーイング）</li>
+            <li>❶ テキスト本文の理解（音読、和訳、発音指導、オーバーラッピング、シャドーイング）</li>
             <li>❷ 文法、語彙、表現の学習（音読、和訳、発音指導）</li>
             <li>❸ 練習問題（作文、音読、聞き取り、聞き逃した箇所の和訳）</li>
             <li>❹ 学んだことは次回に復習（講師：日本語→生徒さん：韓国語に訳して声に出す）</li>
@@ -796,7 +1187,7 @@
 
         <div class="content-block">
           <h3>授業料</h3>
-          <table class="price-table">
+          <table class="price-table legacy-table">
             <thead>
               <tr><th>コース</th><th>1コマ</th><th>授業料（税込）</th><th>使用期限</th></tr>
             </thead>
@@ -816,7 +1207,7 @@
       <!-- ========== タブ3: 発音矯正 ========== -->
       <div id="tab03" class="tab-panel">
         <h2 class="section-header">『発音レッスン』</h2>
-        <div class="content-block" style="padding: 24px; border: 1px solid var(--gray-border); border-top: none; border-radius: 0 0 8px 8px;">
+        <div class="content-block" style="padding: 24px; border: 1px solid var(--border); border-top: none; border-radius: 0 0 8px 8px;">
           <p>韓国語学習者の皆さん! こんな経験はありませんか？ 「簡単な単語のはずなのに、通じなくてショック」 「相手の言っていることが聞き取れず、会話が続かない」 これらの悩みは、発音変化のルールをきちんと理解することで大きく改善できます。この講座ではコミュニケーションでつまづきやすい部分を克服できるよう、効果的、効率的に会話指導をします。</p>
           <ul style="margin: 16px 0 0 24px; list-style: none;">
             <li>❶ 日本語には無い音を発音したり、日本語の発音とはどのように違うのかその仕組みを理解し、実践できるようにします。</li>
@@ -937,7 +1328,7 @@
       <!-- ========== タブ4: レベルテスト ========== -->
       <div id="tab04" class="tab-panel">
         <h2 class="section-header">『レベルテスト』</h2>
-        <div class="content-block" style="padding: 24px; border: 1px solid var(--gray-border); border-top: none; border-radius: 0 0 8px 8px;">
+        <div class="content-block" style="padding: 24px; border: 1px solid var(--border); border-top: none; border-radius: 0 0 8px 8px;">
           <p>何年間も伸び悩んでいる方、自分の韓国語はなぜ通じないのか悩んでいる方、モチベーションが下がってやる気が湧いて来ない方など韓国語の勉強につまづいている方が対象です。また、短期間で資格を取りたいけれどもどうしたらよいか分らないという方もどうぞ。どこが弱点なのかを知るためのテストと学習相談を行います。あなたにピッタリなテキストと勉強方法がきっと見つかります！</p>
         </div>
 
@@ -1019,15 +1410,57 @@
         </div>
       </div>
 
-      <div class="cta-buttons">
-        <div class="cta-wrapper">
-          <a id="kojin-cta-btn" href="trial.html" class="cta-btn">お申込みはこちら</a>
-        </div>
-      </div>
-
-      <a href="index.html" class="back-link">← トップページへ戻る</a>
     </div>
-    <footer>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="price-card-main">
+        <div class="price-card-header">
+          <div class="pch-label">Tuition Fee</div>
+          <div class="pch-title">授業料</div>
+        </div>
+        <div class="enrollment-fee">
+          <div class="ef-label">入学金</div>
+          <div class="ef-amount">¥9,800</div>
+        </div>
+        <div class="price-table">
+          <div class="price-row">
+            <div><div class="course">12回コース</div><div class="unit">1コマ ¥4,900</div></div>
+            <div><div class="amount highlight">¥58,800</div><div class="total">税込 ¥64,680</div></div>
+          </div>
+          <div class="price-row">
+            <div><div class="course">24回コース</div><div class="unit">1コマ ¥4,400</div></div>
+            <div><div class="amount">¥105,600</div><div class="total">税込 ¥116,160</div></div>
+          </div>
+          <div class="price-row">
+            <div><div class="course">48回コース</div><div class="unit">1コマ ¥3,980</div></div>
+            <div><div class="amount">¥191,040</div><div class="total">税込 ¥210,144</div></div>
+          </div>
+          <div class="price-row">
+            <div><div class="course">72回コース</div><div class="unit">1コマ ¥3,600</div></div>
+            <div><div class="amount">¥259,200</div><div class="total">税込 ¥285,120</div></div>
+          </div>
+          <div class="price-row">
+            <div><div class="course">月謝制（月8コマ）</div><div class="unit">1コマ ¥5,100</div></div>
+            <div><div class="amount">¥40,800</div><div class="total">税込 ¥44,880</div></div>
+          </div>
+        </div>
+        <a id="kojin-cta-btn" href="trial.html" class="cta-btn">体験レッスンを申し込む →</a>
+      </div>
+      <div class="info-card">
+        <div class="ic-title">📋 レッスン概要</div>
+        <div class="info-item"><div class="ii-label">場所</div><div class="ii-val">新宿教室 / オンライン</div></div>
+        <div class="info-item"><div class="ii-label">時間</div><div class="ii-val">50分 / 1コマ</div></div>
+        <div class="info-item"><div class="ii-label">予約</div><div class="ii-val">予約制（随時対応）</div></div>
+        <div class="info-item"><div class="ii-label">レベル</div><div class="ii-val">入門〜上級 全レベル</div></div>
+        <div class="info-item"><div class="ii-label">有効期限</div><div class="ii-val">12回: 3ヶ月 / 24回: 8ヶ月<br>48・72回: 1年</div></div>
+      </div>
+    </aside>
+  </div>
+
+  <div class="cta-buttons" style="max-width:1100px;margin:24px auto 0;padding:0 24px;">
+    <a href="index.html" class="back-link">← トップページへ戻る</a>
+  </div>
+  <footer>
       <div class="footer-grid">
         <div class="footer-column"><h4>メニュー</h4><a href="index.html">ホーム</a><a href="about.html">会社概要</a><a href="about.html#tab02">アクセス</a></div>
         <div class="footer-column"><h4>講座</h4><a href="kojin.html">個人レッスン</a><a href="group.html">グループレッスン</a><a href="kaiwa.html">会話強化クラス</a><a href="special.html">試験対策講座</a><a href="syutyu.html">集中講座</a><a href="netlesson.html">通信講座</a></div>
@@ -1040,9 +1473,10 @@
 
   <script>
     (function() {
-      var tabBtns = document.querySelectorAll('.tab-btn');
+      var tabBtns = document.querySelectorAll('.tab[data-tab]');
       var tabPanels = document.querySelectorAll('.tab-panel');
       var ctaBtn = document.getElementById('kojin-cta-btn');
+      var mainWrap = document.getElementById('main-wrap');
 
       function getTrialUrlForTab(tabId) {
         if (tabId === 'tab04') return 'trial.html#leveltest';
@@ -1057,6 +1491,7 @@
         tabPanels.forEach(function(panel) {
           panel.classList.toggle('active', panel.id === tabId);
         });
+        if (mainWrap) mainWrap.classList.toggle('no-sidebar', tabId !== 'tab01');
         history.replaceState(null, '', 'kojin.html#' + tabId);
         if (ctaBtn) ctaBtn.href = getTrialUrlForTab(tabId);
       }
@@ -1069,11 +1504,7 @@
 
       var hash = location.hash.slice(1);
       var currentTab = (['tab01', 'tab02', 'tab03', 'tab04'].indexOf(hash) !== -1) ? hash : 'tab01';
-      if (hash === 'tab02' || hash === 'tab03' || hash === 'tab04') {
-        switchTab(hash);
-      } else {
-        if (ctaBtn) ctaBtn.href = getTrialUrlForTab('tab01');
-      }
+      switchTab(currentTab);
 
       window.addEventListener('hashchange', function() {
         var h = location.hash.slice(1);

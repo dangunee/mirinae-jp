@@ -14,7 +14,21 @@ export default function AdminPage() {
   return (
     <div>
       <h1 style={{ fontSize: 24, marginBottom: 24 }}>編集するページを選んでください</h1>
-      <p style={{ marginBottom: 12 }}>
+      <p style={{ marginBottom: 12, display: "flex", gap: 12, flexWrap: "wrap" }}>
+        <a
+          href="/admin/edit?page=kojin"
+          style={{
+            display: "inline-block",
+            padding: "12px 20px",
+            background: "#2c2c2c",
+            color: "#fff",
+            borderRadius: 8,
+            textDecoration: "none",
+            fontWeight: 500,
+          }}
+        >
+          授業カリキュラムを編集
+        </a>
         <a
           href="/admin/testimonials"
           style={{

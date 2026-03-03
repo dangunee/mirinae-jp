@@ -32,7 +32,7 @@ function EditContent() {
   const [selectedBlock, setSelectedBlock] = useState<CurriculumBlock | null>(null);
   const [dirty, setDirty] = useState(false);
   const [seeding, setSeeding] = useState(false);
-  const [showThemes, setShowThemes] = useState(false);
+  const [showThemes, setShowThemes] = useState(true);
 
   // 初級→中級→上級の順
   const KOJIN_BLOCK_ORDER = ["curriculum_shokyu", "curriculum_chukyu", "curriculum_jokyu"];
@@ -177,6 +177,9 @@ function EditContent() {
         <>
           {page === "kojin" && (
             <div style={{ marginBottom: 24 }}>
+              <p style={{ fontSize: 13, color: "#555", marginBottom: 8 }}>
+                <strong>テーマの色を指定：</strong>下の「テーマ管理」で各テーマ（発音・文法・語彙など）の<strong>文字色・背景色</strong>を設定できます。
+              </p>
               <button
                 type="button"
                 onClick={() => setShowThemes(!showThemes)}
@@ -190,7 +193,7 @@ function EditContent() {
                   fontWeight: 500,
                 }}
               >
-                {showThemes ? "▼ テーマ管理を閉じる" : "▶ テーマ管理（発音・文法・語彙などの色）"}
+                {showThemes ? "▼ テーマ管理を閉じる" : "▶ テーマ管理を開く（発音・文法・語彙などの色）"}
               </button>
               {showThemes && (
                 <div
@@ -348,7 +351,7 @@ function EditContent() {
           {selectedBlock && (
             <>
               <div style={{ overflowX: "auto", marginBottom: 16, minWidth: 0 }}>
-                <table style={{ width: "100%", minWidth: showThemeColumns ? 1100 : 960, borderCollapse: "collapse", background: "#fff", border: "1px solid #d0d0d0", tableLayout: "fixed" }}>
+                <table style={{ width: "100%", minWidth: showThemeColumns ? 1600 : 960, borderCollapse: "collapse", background: "#fff", border: "1px solid #d0d0d0", tableLayout: "fixed" }}>
                   <colgroup>
                     <col style={{ width: "56px" }} />
                     {showThemeColumns && <col style={{ width: "100px" }} />}

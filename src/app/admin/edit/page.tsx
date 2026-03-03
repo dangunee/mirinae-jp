@@ -144,8 +144,14 @@ function EditContent() {
 
           {selectedBlock && (
             <>
-              <div style={{ overflowX: "auto", marginBottom: 16 }}>
-                <table style={{ width: "100%", borderCollapse: "collapse", background: "#fff", border: "1px solid #d0d0d0" }}>
+              <div style={{ overflowX: "auto", marginBottom: 16, minWidth: 0 }}>
+                <table style={{ width: "100%", minWidth: 960, borderCollapse: "collapse", background: "#fff", border: "1px solid #d0d0d0", tableLayout: "fixed" }}>
+                  <colgroup>
+                    <col style={{ width: "56px" }} />
+                    <col />
+                    <col />
+                    <col />
+                  </colgroup>
                   <thead>
                     <tr style={{ background: "#3d6b6b", color: "#fff" }}>
                       <th style={thStyle}>コマ</th>
@@ -157,12 +163,12 @@ function EditContent() {
                   <tbody>
                     {selectedBlock.rows.map((row, i) => (
                       <tr key={i}>
-                        <td style={tdStyle}>
+                        <td style={tdKomaStyle}>
                           <input
                             type="text"
                             value={row.koma}
                             onChange={(e) => updateRow(selectedBlock.id, i, "koma", e.target.value)}
-                            style={inputStyle}
+                            style={inputKomaStyle}
                           />
                         </td>
                         <td style={tdStyle}>
@@ -217,8 +223,10 @@ function EditContent() {
 }
 
 const thStyle: React.CSSProperties = { padding: "10px 12px", textAlign: "left", border: "1px solid #d0d0d0" };
-const tdStyle: React.CSSProperties = { padding: 4, border: "1px solid #d0d0d0" };
-const inputStyle: React.CSSProperties = { width: "100%", padding: "6px 8px", border: "1px solid #ddd", borderRadius: 4, boxSizing: "border-box" };
+const tdStyle: React.CSSProperties = { padding: 6, border: "1px solid #d0d0d0", verticalAlign: "top" };
+const tdKomaStyle: React.CSSProperties = { padding: 6, border: "1px solid #d0d0d0", width: 56, verticalAlign: "top" };
+const inputStyle: React.CSSProperties = { width: "100%", minHeight: 36, padding: "8px 10px", border: "1px solid #ddd", borderRadius: 4, boxSizing: "border-box", fontSize: 14 };
+const inputKomaStyle: React.CSSProperties = { width: "100%", minHeight: 36, padding: "8px 6px", border: "1px solid #ddd", borderRadius: 4, boxSizing: "border-box", fontSize: 14 };
 
 export default function EditPage() {
   return (

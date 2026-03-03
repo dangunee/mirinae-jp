@@ -1676,7 +1676,8 @@
       }
       function renderCurriculumTables(blocks, themes) {
         var themeBySlug = {};
-        (themes || []).forEach(function(t) { themeBySlug[t.slug] = t; });
+        var themeList = Array.isArray(themes) ? themes : [];
+        themeList.forEach(function(t) { themeBySlug[t.slug] = t; });
         CURRICULUM_KEYS.forEach(function(item) {
           var b = blocks.find(function(x) { return x.blockKey === item.blockKey; });
           if (!b || !b.rows || !b.rows.length) return;
@@ -1730,8 +1731,8 @@
       ]).then(function(results) {
         var blocks = results[0];
         var themes = results[1];
-        if (blocks && blocks.length) renderCurriculumTables(blocks, themes);
-      }).catch(function() {});
+        if (Array.isArray(blocks) && blocks.length) renderCurriculumTables(blocks, themes);
+      }).catch(function(err) { console.warn('Curriculum load failed:', err); });
     })();
   </script>
   <script src="/testimonials.js"></script>

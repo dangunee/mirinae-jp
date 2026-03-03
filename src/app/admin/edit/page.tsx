@@ -355,23 +355,23 @@ function EditContent() {
                     <div style={{ marginBottom: 16, width: "100%", overflow: "visible" }}>
                       <table style={{ width: "100%", borderCollapse: "collapse", background: "#fff", border: "1px solid #d0d0d0", tableLayout: "fixed" }}>
                         <colgroup>
-                          <col style={{ width: "56px" }} />
-                          <col style={{ width: "100px" }} />
-                          <col />
-                          <col style={{ width: "100px" }} />
-                          <col />
-                          <col style={{ width: "100px" }} />
-                          <col />
+                          <col style={{ width: "48px" }} />
+                          <col style={{ width: "88px" }} />
+                          <col style={{ width: "24%" }} />
+                          <col style={{ width: "88px" }} />
+                          <col style={{ width: "24%" }} />
+                          <col style={{ width: "88px" }} />
+                          <col style={{ width: "24%" }} />
                         </colgroup>
                         <thead>
                           <tr style={{ background: "#3d6b6b", color: "#fff" }}>
-                            <th style={thStyle}>コマ</th>
+                            <th style={thStyle}>番</th>
                             <th style={thStyle}>12テーマ</th>
-                            <th style={thStyle}>12コマ</th>
+                            <th style={thStyle}>12</th>
                             <th style={thStyle}>24テーマ</th>
-                            <th style={thStyle}>24コマ</th>
+                            <th style={thStyle}>24</th>
                             <th style={thStyle}>48テーマ</th>
-                            <th style={thStyle}>48コマ</th>
+                            <th style={thStyle}>48</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -398,7 +398,7 @@ function EditContent() {
                                 </select>
                               </td>
                               <td style={tdStyle}>
-                                <input type="text" value={row.c12} onChange={(e) => updateRow(selectedBlock.id, i, "c12", e.target.value)} style={inputStyle} />
+                                <textarea value={row.c12} onChange={(e) => updateRow(selectedBlock.id, i, "c12", e.target.value)} rows={2} style={contentInputStyle} />
                               </td>
                               <td style={tdStyle}>
                                 <select
@@ -413,7 +413,7 @@ function EditContent() {
                                 </select>
                               </td>
                               <td style={tdStyle}>
-                                <input type="text" value={row.c24} onChange={(e) => updateRow(selectedBlock.id, i, "c24", e.target.value)} style={inputStyle} />
+                                <textarea value={row.c24} onChange={(e) => updateRow(selectedBlock.id, i, "c24", e.target.value)} rows={2} style={contentInputStyle} />
                               </td>
                               <td style={tdStyle}>
                                 <select
@@ -428,7 +428,7 @@ function EditContent() {
                                 </select>
                               </td>
                               <td style={tdStyle}>
-                                <input type="text" value={row.c48} onChange={(e) => updateRow(selectedBlock.id, i, "c48", e.target.value)} style={inputStyle} />
+                                <textarea value={row.c48} onChange={(e) => updateRow(selectedBlock.id, i, "c48", e.target.value)} rows={2} style={contentInputStyle} />
                               </td>
                             </tr>
                           ))}
@@ -494,13 +494,13 @@ function EditContent() {
                   </colgroup>
                   <thead>
                     <tr style={{ background: "#3d6b6b", color: "#fff" }}>
-                      <th style={thStyle}>コマ</th>
+                      <th style={thStyle}>番</th>
                       {showThemeColumns && <th style={thStyle}>12テーマ</th>}
-                      <th style={thStyle}>12コマ</th>
+                      <th style={thStyle}>12</th>
                       {showThemeColumns && <th style={thStyle}>24テーマ</th>}
-                      <th style={thStyle}>24コマ</th>
+                      <th style={thStyle}>24</th>
                       {showThemeColumns && <th style={thStyle}>48テーマ</th>}
-                      <th style={thStyle}>48コマ</th>
+                      <th style={thStyle}>48</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -533,11 +533,11 @@ function EditContent() {
                           </td>
                         )}
                         <td style={tdStyle}>
-                          <input
-                            type="text"
+                          <textarea
                             value={row.c12}
                             onChange={(e) => updateRow(selectedBlock.id, i, "c12", e.target.value)}
-                            style={inputStyle}
+                            rows={2}
+                            style={contentInputStyle}
                           />
                         </td>
                         {showThemeColumns && (
@@ -559,11 +559,11 @@ function EditContent() {
                           </td>
                         )}
                         <td style={tdStyle}>
-                          <input
-                            type="text"
+                          <textarea
                             value={row.c24}
                             onChange={(e) => updateRow(selectedBlock.id, i, "c24", e.target.value)}
-                            style={inputStyle}
+                            rows={2}
+                            style={contentInputStyle}
                           />
                         </td>
                         {showThemeColumns && (
@@ -585,11 +585,11 @@ function EditContent() {
                           </td>
                         )}
                         <td style={tdStyle}>
-                          <input
-                            type="text"
+                          <textarea
                             value={row.c48}
                             onChange={(e) => updateRow(selectedBlock.id, i, "c48", e.target.value)}
-                            style={inputStyle}
+                            rows={2}
+                            style={contentInputStyle}
                           />
                         </td>
                       </tr>
@@ -620,10 +620,12 @@ function EditContent() {
 }
 
 const thStyle: React.CSSProperties = { padding: "10px 12px", textAlign: "left", border: "1px solid #d0d0d0" };
-const tdStyle: React.CSSProperties = { padding: 6, border: "1px solid #d0d0d0", verticalAlign: "top" };
-const tdKomaStyle: React.CSSProperties = { padding: 6, border: "1px solid #d0d0d0", width: 56, verticalAlign: "top" };
+const tdStyle: React.CSSProperties = { padding: 8, border: "1px solid #d0d0d0", verticalAlign: "top" };
+const tdKomaStyle: React.CSSProperties = { padding: 6, border: "1px solid #d0d0d0", width: 48, verticalAlign: "top" };
 const inputStyle: React.CSSProperties = { width: "100%", minHeight: 36, padding: "8px 10px", border: "1px solid #ddd", borderRadius: 4, boxSizing: "border-box", fontSize: 14 };
 const inputKomaStyle: React.CSSProperties = { width: "100%", minHeight: 36, padding: "8px 6px", border: "1px solid #ddd", borderRadius: 4, boxSizing: "border-box", fontSize: 14 };
+/** カリキュラム内容入力（複数行・大きく表示） */
+const contentInputStyle: React.CSSProperties = { width: "100%", minHeight: 56, padding: "10px 12px", border: "1px solid #ddd", borderRadius: 4, boxSizing: "border-box", fontSize: 14, lineHeight: 1.5, resize: "vertical" };
 
 export default function EditPage() {
   return (

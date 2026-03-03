@@ -21,6 +21,14 @@ const PAGE_LABELS: Record<string, string> = {
 /** テーマ列を表示するブロック（コマ・12/24/48＋テーマのカリキュラム） */
 const CURRICULUM_WITH_THEME_KEYS = ["curriculum_shokyu", "curriculum_chukyu", "curriculum_jokyu"];
 
+type MainTab = "kojin" | "tanki" | "hatsuon" | "leveltest";
+const MAIN_TABS: { id: MainTab; label: string }[] = [
+  { id: "kojin", label: "個人レッスン" },
+  { id: "tanki", label: "短期集中個人" },
+  { id: "hatsuon", label: "発音矯正" },
+  { id: "leveltest", label: "レベルテスト" },
+];
+
 function EditContent() {
   const searchParams = useSearchParams();
   const page = searchParams.get("page") || "kojin";
@@ -32,10 +40,15 @@ function EditContent() {
   const [selectedBlock, setSelectedBlock] = useState<CurriculumBlock | null>(null);
   const [dirty, setDirty] = useState(false);
   const [seeding, setSeeding] = useState(false);
-  const [showThemes, setShowThemes] = useState(true);
+  const [mainTab, setMainTab] = useState<MainTab>("tanki");
+  const [showThemes, setShowThemes] = useState(false);
 
   // 初級→中級→上級の順
   const KOJIN_BLOCK_ORDER = ["curriculum_shokyu", "curriculum_chukyu", "curriculum_jokyu"];
+  const curriculumBlocks =
+    page === "kojin"
+      ? blocks.filter((b) => CURRICULUM_WITH_THEME_KEYS.includes(b.blockKey))
+      : blocks;
 
   useEffect(() => {
     const load = async () => {
@@ -53,7 +66,12 @@ function EditContent() {
             )
           : list;
       setBlocks(sorted);
-      if (sorted[0]) setSelectedBlock(sorted[0]);
+      if (page === "kojin") {
+        const curriculum = sorted.filter((b: CurriculumBlock) =>
+          CURRICULUM_WITH_THEME_KEYS.includes(b.blockKey)
+        );
+        if (curriculum[0]) setSelectedBlock(curriculum[0]);
+      } else if (sorted[0]) setSelectedBlock(sorted[0]);
       if (themesRes?.ok) {
         const t = await themesRes.json();
         setThemes(Array.isArray(t) ? t : []);
@@ -173,163 +191,278 @@ function EditContent() {
             </button>
           )}
         </div>
-      ) : (
+      ) : page === "kojin" ? (
         <>
-          {page === "kojin" && (
-            <div style={{ marginBottom: 24 }}>
-              <p style={{ fontSize: 13, color: "#555", marginBottom: 8 }}>
-                <strong>テーマの色を指定：</strong>下の「テーマ管理」で各テーマ（発音・文法・語彙など）の<strong>文字色・背景色</strong>を設定できます。
-              </p>
+          <div style={{ display: "flex", gap: 4, marginBottom: 20, borderBottom: "1px solid #e0e0e0" }}>
+            {MAIN_TABS.map((tab) => (
               <button
+                key={tab.id}
                 type="button"
-                onClick={() => setShowThemes(!showThemes)}
+                onClick={() => setMainTab(tab.id)}
                 style={{
-                  padding: "8px 16px",
-                  border: "1px solid #3d6b6b",
-                  borderRadius: 6,
-                  background: showThemes ? "#e8f0f0" : "#fff",
-                  color: "#3d6b6b",
+                  padding: "10px 20px",
+                  border: "none",
+                  borderBottom: mainTab === tab.id ? "2px solid #3d6b6b" : "2px solid transparent",
+                  background: "none",
+                  color: mainTab === tab.id ? "#3d6b6b" : "#666",
+                  fontWeight: mainTab === tab.id ? 600 : 400,
                   cursor: "pointer",
-                  fontWeight: 500,
+                  fontSize: 14,
                 }}
               >
-                {showThemes ? "▼ テーマ管理を閉じる" : "▶ テーマ管理を開く（発音・文法・語彙などの色）"}
+                {tab.label}
               </button>
-              {showThemes && (
-                <div
+            ))}
+          </div>
+
+          {mainTab === "tanki" ? (
+            <div style={{ display: "flex", gap: 24, alignItems: "flex-start" }}>
+              <div style={{ flex: 1, minWidth: 0 }}>
+                <div style={{ display: "flex", gap: 12, marginBottom: 16, flexWrap: "wrap" }}>
+                  {curriculumBlocks.map((b) => (
+                    <button
+                      key={b.id}
+                      type="button"
+                      onClick={() => setSelectedBlock(b)}
+                      style={{
+                        padding: "8px 16px",
+                        border: selectedBlock?.id === b.id ? "2px solid #3d6b6b" : "1px solid #ddd",
+                        borderRadius: 6,
+                        background: selectedBlock?.id === b.id ? "#e8f0f0" : "#fff",
+                        cursor: "pointer",
+                      }}
+                    >
+                      {b.title || b.blockKey}
+                    </button>
+                  ))}
+                </div>
+
+                {selectedBlock && (
+                  <>
+                    <div style={{ overflowX: "auto", marginBottom: 16, minWidth: 0 }}>
+                      <table style={{ width: "100%", minWidth: 1600, borderCollapse: "collapse", background: "#fff", border: "1px solid #d0d0d0", tableLayout: "fixed" }}>
+                        <colgroup>
+                          <col style={{ width: "56px" }} />
+                          <col style={{ width: "100px" }} />
+                          <col />
+                          <col style={{ width: "100px" }} />
+                          <col />
+                          <col style={{ width: "100px" }} />
+                          <col />
+                        </colgroup>
+                        <thead>
+                          <tr style={{ background: "#3d6b6b", color: "#fff" }}>
+                            <th style={thStyle}>コマ</th>
+                            <th style={thStyle}>12テーマ</th>
+                            <th style={thStyle}>12コマ</th>
+                            <th style={thStyle}>24テーマ</th>
+                            <th style={thStyle}>24コマ</th>
+                            <th style={thStyle}>48テーマ</th>
+                            <th style={thStyle}>48コマ</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {selectedBlock.rows.map((row, i) => (
+                            <tr key={i}>
+                              <td style={tdKomaStyle}>
+                                <input
+                                  type="text"
+                                  value={row.koma}
+                                  onChange={(e) => updateRow(selectedBlock.id, i, "koma", e.target.value)}
+                                  style={inputKomaStyle}
+                                />
+                              </td>
+                              <td style={tdStyle}>
+                                <select
+                                  value={row.theme12 ?? ""}
+                                  onChange={(e) => updateRow(selectedBlock.id, i, "theme12", e.target.value)}
+                                  style={{ width: "100%", padding: "6px 8px", fontSize: 13 }}
+                                >
+                                  <option value="">—</option>
+                                  {themes.map((t) => (
+                                    <option key={t.slug} value={t.slug}>{t.name || t.slug}</option>
+                                  ))}
+                                </select>
+                              </td>
+                              <td style={tdStyle}>
+                                <input type="text" value={row.c12} onChange={(e) => updateRow(selectedBlock.id, i, "c12", e.target.value)} style={inputStyle} />
+                              </td>
+                              <td style={tdStyle}>
+                                <select
+                                  value={row.theme24 ?? ""}
+                                  onChange={(e) => updateRow(selectedBlock.id, i, "theme24", e.target.value)}
+                                  style={{ width: "100%", padding: "6px 8px", fontSize: 13 }}
+                                >
+                                  <option value="">—</option>
+                                  {themes.map((t) => (
+                                    <option key={t.slug} value={t.slug}>{t.name || t.slug}</option>
+                                  ))}
+                                </select>
+                              </td>
+                              <td style={tdStyle}>
+                                <input type="text" value={row.c24} onChange={(e) => updateRow(selectedBlock.id, i, "c24", e.target.value)} style={inputStyle} />
+                              </td>
+                              <td style={tdStyle}>
+                                <select
+                                  value={row.theme48 ?? ""}
+                                  onChange={(e) => updateRow(selectedBlock.id, i, "theme48", e.target.value)}
+                                  style={{ width: "100%", padding: "6px 8px", fontSize: 13 }}
+                                >
+                                  <option value="">—</option>
+                                  {themes.map((t) => (
+                                    <option key={t.slug} value={t.slug}>{t.name || t.slug}</option>
+                                  ))}
+                                </select>
+                              </td>
+                              <td style={tdStyle}>
+                                <input type="text" value={row.c48} onChange={(e) => updateRow(selectedBlock.id, i, "c48", e.target.value)} style={inputStyle} />
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                    <button
+                      onClick={save}
+                      disabled={saving || !dirty}
+                      style={{
+                        padding: "10px 24px",
+                        background: dirty ? "#3d6b6b" : "#ccc",
+                        color: "#fff",
+                        border: "none",
+                        borderRadius: 8,
+                        cursor: dirty && !saving ? "pointer" : "not-allowed",
+                      }}
+                    >
+                      {saving ? "保存中…" : "保存"}
+                    </button>
+                  </>
+                )}
+              </div>
+
+              <div style={{ width: 300, flexShrink: 0 }}>
+                <button
+                  type="button"
+                  onClick={() => setShowThemes(!showThemes)}
                   style={{
-                    marginTop: 12,
-                    padding: 16,
-                    border: "1px solid #e0e0e0",
-                    borderRadius: 8,
-                    background: "#fafafa",
+                    width: "100%",
+                    padding: "10px 14px",
+                    border: "1px solid #ccc",
+                    borderRadius: 6,
+                    background: "#f5f5f5",
+                    color: "#333",
+                    cursor: "pointer",
+                    fontWeight: 500,
+                    fontSize: 13,
+                    textAlign: "left",
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
                   }}
                 >
-                  <p style={{ fontSize: 12, color: "#666", marginBottom: 12 }}>
-                    短期集中カリキュラムのタグ（発音・文法・語彙など）の表示名と色を設定します。
-                  </p>
-                  {themes.map((t, i) => (
-                    <div
-                      key={i}
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        gap: 12,
-                        marginBottom: 10,
-                        flexWrap: "wrap",
-                      }}
-                    >
-                      <input
-                        type="text"
-                        placeholder="slug"
-                        value={t.slug}
-                        onChange={(e) => updateTheme(i, "slug", e.target.value)}
-                        style={{ width: 100, padding: "6px 8px", fontSize: 12 }}
-                      />
-                      <input
-                        type="text"
-                        placeholder="表示名"
-                        value={t.name}
-                        onChange={(e) => updateTheme(i, "name", e.target.value)}
-                        style={{ width: 120, padding: "6px 8px", fontSize: 12 }}
-                      />
-                      <label style={{ fontSize: 12 }}>
-                        文字色
-                        <input
-                          type="color"
-                          value={t.color}
-                          onChange={(e) => updateTheme(i, "color", e.target.value)}
-                          style={{ marginLeft: 4, width: 28, height: 28, padding: 0, border: "1px solid #ccc" }}
-                        />
-                        <input
-                          type="text"
-                          value={t.color}
-                          onChange={(e) => updateTheme(i, "color", e.target.value)}
-                          style={{ width: 70, marginLeft: 4, padding: "4px 6px", fontSize: 11 }}
-                        />
-                      </label>
-                      <label style={{ fontSize: 12 }}>
-                        背景色
-                        <input
-                          type="color"
-                          value={t.bgColor}
-                          onChange={(e) => updateTheme(i, "bgColor", e.target.value)}
-                          style={{ marginLeft: 4, width: 28, height: 28, padding: 0, border: "1px solid #ccc" }}
-                        />
-                        <input
-                          type="text"
-                          value={t.bgColor}
-                          onChange={(e) => updateTheme(i, "bgColor", e.target.value)}
-                          style={{ width: 70, marginLeft: 4, padding: "4px 6px", fontSize: 11 }}
-                        />
-                      </label>
-                      <span
-                        style={{
-                          padding: "2px 8px",
-                          borderRadius: 4,
-                          fontSize: 12,
-                          background: t.bgColor,
-                          color: t.color,
-                          border: "1px solid #ddd",
-                        }}
-                      >
-                        {t.name || t.slug}
-                      </span>
-                      <button
-                        type="button"
-                        onClick={() => removeTheme(i)}
-                        style={{
-                          padding: "4px 10px",
-                          fontSize: 12,
-                          border: "1px solid #c00",
-                          background: "#fff",
-                          color: "#c00",
-                          cursor: "pointer",
-                          borderRadius: 4,
-                        }}
-                      >
-                        削除
+                  <span>テーマの色（タグの色）</span>
+                  <span>{showThemes ? "▲" : "▼"}</span>
+                </button>
+                {showThemes && (
+                  <div
+                    style={{
+                      marginTop: 8,
+                      padding: 14,
+                      border: "1px solid #e0e0e0",
+                      borderRadius: 8,
+                      background: "#fafafa",
+                      maxHeight: "70vh",
+                      overflowY: "auto",
+                    }}
+                  >
+                    <p style={{ fontSize: 11, color: "#666", marginBottom: 10 }}>
+                      表示名と文字色・背景色を設定
+                    </p>
+                    {themes.map((t, i) => (
+                      <div key={i} style={{ marginBottom: 12, fontSize: 12 }}>
+                        <div style={{ display: "flex", gap: 6, marginBottom: 4 }}>
+                          <input
+                            type="text"
+                            placeholder="slug"
+                            value={t.slug}
+                            onChange={(e) => updateTheme(i, "slug", e.target.value)}
+                            style={{ width: 70, padding: "4px 6px" }}
+                          />
+                          <input
+                            type="text"
+                            placeholder="表示名"
+                            value={t.name}
+                            onChange={(e) => updateTheme(i, "name", e.target.value)}
+                            style={{ flex: 1, padding: "4px 6px" }}
+                          />
+                        </div>
+                        <div style={{ display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap" }}>
+                          <label style={{ display: "flex", alignItems: "center", gap: 4 }}>
+                            <input
+                              type="color"
+                              value={t.color}
+                              onChange={(e) => updateTheme(i, "color", e.target.value)}
+                              style={{ width: 24, height: 24, padding: 0, border: "1px solid #ccc" }}
+                            />
+                            <input
+                              type="text"
+                              value={t.color}
+                              onChange={(e) => updateTheme(i, "color", e.target.value)}
+                              style={{ width: 58, padding: "2px 4px", fontSize: 11 }}
+                            />
+                          </label>
+                          <label style={{ display: "flex", alignItems: "center", gap: 4 }}>
+                            <input
+                              type="color"
+                              value={t.bgColor}
+                              onChange={(e) => updateTheme(i, "bgColor", e.target.value)}
+                              style={{ width: 24, height: 24, padding: 0, border: "1px solid #ccc" }}
+                            />
+                            <input
+                              type="text"
+                              value={t.bgColor}
+                              onChange={(e) => updateTheme(i, "bgColor", e.target.value)}
+                              style={{ width: 58, padding: "2px 4px", fontSize: 11 }}
+                            />
+                          </label>
+                          <span
+                            style={{
+                              padding: "2px 6px",
+                              borderRadius: 4,
+                              fontSize: 11,
+                              background: t.bgColor,
+                              color: t.color,
+                              border: "1px solid #ddd",
+                            }}
+                          >
+                            {t.name || t.slug}
+                          </span>
+                          <button type="button" onClick={() => removeTheme(i)} style={{ padding: "2px 8px", fontSize: 11, border: "1px solid #c00", background: "#fff", color: "#c00", cursor: "pointer", borderRadius: 4 }}>
+                            削除
+                          </button>
+                        </div>
+                      </div>
+                    ))}
+                    <div style={{ display: "flex", gap: 8, marginTop: 12 }}>
+                      <button type="button" onClick={addTheme} style={{ padding: "6px 12px", border: "1px solid #3d6b6b", borderRadius: 6, background: "#fff", color: "#3d6b6b", cursor: "pointer", fontSize: 12 }}>
+                        ＋ 追加
+                      </button>
+                      <button type="button" onClick={saveThemes} disabled={savingThemes} style={{ padding: "6px 12px", border: "none", borderRadius: 6, background: "#3d6b6b", color: "#fff", cursor: savingThemes ? "wait" : "pointer", fontSize: 12 }}>
+                        {savingThemes ? "保存中…" : "保存"}
                       </button>
                     </div>
-                  ))}
-                  <div style={{ display: "flex", gap: 8, marginTop: 12 }}>
-                    <button
-                      type="button"
-                      onClick={addTheme}
-                      style={{
-                        padding: "8px 16px",
-                        border: "1px solid #3d6b6b",
-                        borderRadius: 6,
-                        background: "#fff",
-                        color: "#3d6b6b",
-                        cursor: "pointer",
-                        fontSize: 13,
-                      }}
-                    >
-                      ＋ テーマを追加
-                    </button>
-                    <button
-                      type="button"
-                      onClick={saveThemes}
-                      disabled={savingThemes}
-                      style={{
-                        padding: "8px 16px",
-                        border: "none",
-                        borderRadius: 6,
-                        background: "#3d6b6b",
-                        color: "#fff",
-                        cursor: savingThemes ? "wait" : "pointer",
-                        fontSize: 13,
-                      }}
-                    >
-                      {savingThemes ? "保存中…" : "テーマを保存"}
-                    </button>
                   </div>
-                </div>
-              )}
+                )}
+              </div>
             </div>
+          ) : mainTab === "kojin" ? (
+            <p style={{ color: "#666", padding: 24 }}>個人レッスンのカリキュラムは「短期集中個人」タブで編集できます。</p>
+          ) : (
+            <p style={{ color: "#666", padding: 24 }}>準備中です。</p>
           )}
-
+        </>
+      ) : (
+        <>
           <div style={{ display: "flex", gap: 12, marginBottom: 16, flexWrap: "wrap" }}>
             {blocks.map((b) => (
               <button

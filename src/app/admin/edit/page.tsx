@@ -367,12 +367,12 @@ function EditContent() {
                         </colgroup>
                         <thead>
                           <tr style={{ background: "#3d6b6b", color: "#fff" }}>
-                            <th style={thStyle}>番</th>
-                            <th style={thStyle}>12テーマ</th>
+                            <th style={thStyle}>回</th>
+                            <th style={thStyle}>分類</th>
                             <th style={thStyle}>12</th>
-                            <th style={thStyle}>24テーマ</th>
+                            <th style={thStyle}>分類</th>
                             <th style={thStyle}>24</th>
-                            <th style={thStyle}>48テーマ</th>
+                            <th style={thStyle}>分類</th>
                             <th style={thStyle}>48</th>
                           </tr>
                         </thead>
@@ -495,12 +495,12 @@ function EditContent() {
                   </colgroup>
                   <thead>
                     <tr style={{ background: "#3d6b6b", color: "#fff" }}>
-                      <th style={thStyle}>番</th>
-                      {showThemeColumns && <th style={thStyle}>12テーマ</th>}
+                      <th style={thStyle}>回</th>
+                      {showThemeColumns && <th style={thStyle}>分類</th>}
                       <th style={thStyle}>12</th>
-                      {showThemeColumns && <th style={thStyle}>24テーマ</th>}
+                      {showThemeColumns && <th style={thStyle}>分類</th>}
                       <th style={thStyle}>24</th>
-                      {showThemeColumns && <th style={thStyle}>48テーマ</th>}
+                      {showThemeColumns && <th style={thStyle}>分類</th>}
                       <th style={thStyle}>48</th>
                     </tr>
                   </thead>

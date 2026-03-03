@@ -759,19 +759,25 @@
       .curriculum-table td { padding: 5px 4px; }
     }
 
-    /* ========== tab02: 短期集中個人 design ========== */
+    /* ========== tab02: 短期集中個人 design（字 1.2倍） ========== */
+    #tab02 { font-size: 120%; }
+    #tab02 .section-title { font-size: 22px; }
+    #tab02 .target-item { font-size: 16px; }
+    #tab02 .target-item .ti-icon { font-size: 24px; }
+    #tab02 .format-note { font-size: 14px; }
+    #tab02 .detail-item { font-size: 16px; }
     #tab02 .overview-card .ov-top { display: flex; align-items: center; gap: 20px; margin-bottom: 24px; }
-    #tab02 .overview-card .ov-top .label { font-size: 12px; color: var(--muted); }
-    #tab02 .overview-card .ov-body p { font-size: 14px; color: var(--mid); line-height: 1.9; margin-bottom: 12px; }
+    #tab02 .overview-card .ov-top .label { font-size: 14px; color: var(--muted); }
+    #tab02 .overview-card .ov-body p { font-size: 17px; color: var(--mid); line-height: 1.9; margin-bottom: 12px; }
     #tab02 .overview-card .ov-body p:last-child { margin-bottom: 0; }
-    #tab02 .overview-card .ov-note { margin-top: 16px; background: rgba(255,255,255,0.6); border-radius: 8px; padding: 12px 16px; font-size: 12px; color: var(--muted); line-height: 1.7; }
+    #tab02 .overview-card .ov-note { margin-top: 16px; background: rgba(255,255,255,0.6); border-radius: 8px; padding: 12px 16px; font-size: 14px; color: var(--muted); line-height: 1.7; }
     #tab02 .sched-row { display: flex; gap: 16px; flex-wrap: wrap; }
-    #tab02 .sched-item { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 16px 24px; font-size: 13px; color: var(--mid); }
-    #tab02 .sched-item .day { font-size: 11px; letter-spacing: 0.15em; color: var(--gold); margin-bottom: 4px; font-weight: 500; }
-    #tab02 .sched-item .time { font-family: 'Cormorant Garamond', serif; font-size: 20px; color: var(--dark); }
-    #tab02 .sched-note { margin-top: 12px; background: var(--gold-pale); border-radius: 8px; padding: 10px 16px; font-size: 12px; color: var(--muted); }
+    #tab02 .sched-item { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 16px 24px; font-size: 16px; color: var(--mid); }
+    #tab02 .sched-item .day { font-size: 13px; letter-spacing: 0.15em; color: var(--gold); margin-bottom: 4px; font-weight: 500; }
+    #tab02 .sched-item .time { font-family: 'Cormorant Garamond', serif; font-size: 24px; color: var(--dark); }
+    #tab02 .sched-note { margin-top: 12px; background: var(--gold-pale); border-radius: 8px; padding: 10px 16px; font-size: 14px; color: var(--muted); }
     #tab02 .level-tabs { display: flex; gap: 8px; margin-bottom: 24px; }
-    #tab02 .level-tab { padding: 8px 20px; border-radius: 50px; font-size: 13px; font-weight: 500; cursor: pointer; border: 1.5px solid var(--border); color: var(--muted); transition: all .2s; user-select: none; background: var(--white); }
+    #tab02 .level-tab { padding: 8px 20px; border-radius: 50px; font-size: 16px; font-weight: 500; cursor: pointer; border: 1.5px solid var(--border); color: var(--muted); transition: all .2s; user-select: none; background: var(--white); }
     #tab02 .level-tab.active-beg { background: var(--beginner); color: #fff; border-color: var(--beginner); }
     #tab02 .level-tab.active-int { background: var(--inter); color: #fff; border-color: var(--inter); }
     #tab02 .level-tab.active-adv { background: var(--advanced); color: #fff; border-color: var(--advanced); }
@@ -779,13 +785,13 @@
     #tab02 .curriculum-panel { display: none; }
     #tab02 .curriculum-panel.active { display: block; }
     #tab02 .course-tabs { display: flex; gap: 6px; margin-bottom: 20px; }
-    #tab02 .course-tab { padding: 6px 16px; border-radius: 6px; font-size: 12px; cursor: pointer; border: 1px solid var(--border); color: var(--muted); background: var(--white); transition: all .15s; user-select: none; font-weight: 500; }
+    #tab02 .course-tab { padding: 6px 16px; border-radius: 6px; font-size: 14px; cursor: pointer; border: 1px solid var(--border); color: var(--muted); background: var(--white); transition: all .15s; user-select: none; font-weight: 500; }
     #tab02 .course-tab.active { background: var(--dark); color: #fff; border-color: var(--dark); }
     #tab02 .cur-table-wrap { border-radius: 14px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 2px 16px rgba(30,26,20,0.06); margin-bottom: 20px; }
     #tab02 .cur-table-wrap[style*="display: none"] { display: none !important; }
-    #tab02 .cur-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    #tab02 .cur-table { width: 100%; border-collapse: collapse; font-size: 16px; }
     #tab02 .cur-table thead tr { background: var(--dark); color: #fff; }
-    #tab02 .cur-table thead th { padding: 14px 20px; text-align: left; font-weight: 500; letter-spacing: 0.06em; font-size: 12px; }
+    #tab02 .cur-table thead th { padding: 14px 20px; text-align: left; font-weight: 500; letter-spacing: 0.06em; font-size: 14px; }
     #tab02 .cur-table thead th:first-child { width: 64px; text-align: center; }
     #tab02 .cur-table tbody tr { border-bottom: 1px solid var(--border); transition: background .15s; }
     #tab02 .cur-table tbody tr:last-child { border-bottom: none; }
@@ -793,22 +799,22 @@
     #tab02 .cur-table tbody tr.milestone { background: var(--gold-pale); }
     #tab02 .cur-table tbody tr.milestone td { font-weight: 500; color: var(--gold); }
     #tab02 .cur-table tbody td { padding: 12px 20px; color: var(--mid); line-height: 1.6; vertical-align: top; }
-    #tab02 .cur-table tbody td:first-child { text-align: center; font-family: 'Cormorant Garamond', serif; font-size: 16px; color: var(--muted); width: 64px; white-space: nowrap; }
+    #tab02 .cur-table tbody td:first-child { text-align: center; font-family: 'Cormorant Garamond', serif; font-size: 19px; color: var(--muted); width: 64px; white-space: nowrap; }
     #tab02 .cur-table tbody td.empty { color: var(--border); text-align: center; }
-    #tab02 .tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 500; margin-right: 4px; margin-bottom: 2px; }
+    #tab02 .tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 13px; font-weight: 500; margin-right: 4px; margin-bottom: 2px; }
     #tab02 .tag-phon { background: #e8f5f3; color: var(--teal); }
     #tab02 .tag-vocab { background: #fff3e0; color: #b06a00; }
     #tab02 .tag-conv { background: #e8f0f8; color: var(--inter); }
     #tab02 .tag-listen { background: #f3e8f5; color: var(--advanced); }
     #tab02 .tag-write { background: #fef9e0; color: #7a6a00; }
     #tab02 .tag-end { background: var(--gold-pale); color: var(--gold); border: 1px solid var(--gold-light); }
-    #tab02 .textbook-badge { display: inline-flex; align-items: center; gap: 10px; background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 14px 20px; font-size: 13px; color: var(--mid); }
+    #tab02 .textbook-badge { display: inline-flex; align-items: center; gap: 10px; background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 14px 20px; font-size: 16px; color: var(--mid); }
     #tab02 .tanki-steps-row { display: flex; align-items: center; gap: 0; margin-bottom: 24px; flex-wrap: wrap; }
     #tab02 .tanki-step-node { display: flex; flex-direction: column; align-items: center; gap: 8px; flex: 1; min-width: 80px; }
-    #tab02 .tanki-step-circle { width: 44px; height: 44px; border-radius: 50%; background: var(--white); border: 1.5px solid var(--gold); display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 20px; color: var(--gold); }
-    #tab02 .tanki-step-label { font-size: 12px; color: var(--mid); text-align: center; }
-    #tab02 .tanki-step-arrow { color: var(--gold-light); font-size: 20px; margin: 0 4px; margin-bottom: 24px; }
-    #tab02 .detail-item .detail-num { width: 22px; height: 22px; background: var(--gold); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+    #tab02 .tanki-step-circle { width: 44px; height: 44px; border-radius: 50%; background: var(--white); border: 1.5px solid var(--gold); display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 24px; color: var(--gold); }
+    #tab02 .tanki-step-label { font-size: 14px; color: var(--mid); text-align: center; }
+    #tab02 .tanki-step-arrow { color: var(--gold-light); font-size: 24px; margin: 0 4px; margin-bottom: 24px; }
+    #tab02 .detail-item .detail-num { width: 22px; height: 22px; background: var(--gold); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
     #tab02 .detail-item .di-num { display: none; }
 
     .testimonial {
@@ -1042,7 +1048,7 @@
               </svg>
               <div>
                 <div class="label">集中効率</div>
-                <div style="font-size:13px;color:var(--mid);margin-top:4px;">短期間で最大の効果を</div>
+                <div style="font-size:16px;color:var(--mid);margin-top:4px;">短期間で最大の効果を</div>
               </div>
             </div>
             <div class="ov-body">

@@ -207,7 +207,8 @@
     .main.no-sidebar { grid-template-columns: 260px 1fr; }
     .main.no-sidebar .sidebar { display: none; }
 
-    .course-nav-wrap { position: sticky; top: 200px; align-self: start; margin-top: 0; }
+    /* レッスン概要(サイドバー)と同じ高さで揃える: 両方 top: 80px */
+    .course-nav-wrap { position: sticky; top: 80px; align-self: start; margin-top: 0; }
     .course-nav-card {
       background: var(--white);
       border: 1px solid var(--border);

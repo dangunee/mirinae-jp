@@ -1566,7 +1566,7 @@
         tabPanels.forEach(function(panel) {
           panel.classList.toggle('active', panel.id === tabId);
         });
-        if (mainWrap) mainWrap.classList.toggle('no-sidebar', tabId !== 'tab01');
+        if (mainWrap) mainWrap.classList.toggle('no-sidebar', tabId === 'tab03' || tabId === 'tab04');
         history.replaceState(null, '', 'kojin.html#' + tabId);
         if (ctaBtn) ctaBtn.href = getTrialUrlForTab(tabId);
       }

@@ -6,8 +6,20 @@ export type CurriculumRow = {
   c12: string;
   c24: string;
   c48: string;
+  /** 短期集中: 12コマ列のテーマ（発音・文法・語彙など）slug */
+  theme12?: string;
+  theme24?: string;
+  theme48?: string;
   cellGreen?: number[]; // 1-based column index: [2] = 12コマに cell-green
   cellComplete?: number[];
+};
+
+/** カリキュラム表示用テーマ（タグのラベル・色） */
+export type CurriculumTheme = {
+  slug: string;
+  name: string;
+  color: string;
+  bgColor: string;
 };
 
 export type CurriculumBlock = {

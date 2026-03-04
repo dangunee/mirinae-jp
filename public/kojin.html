@@ -983,6 +983,34 @@
     }
     .price-table.legacy-table th { background: var(--gold-pale); font-weight: 600; }
 
+    /* 発音矯正 内容表（青ヘッダー・交互行） */
+    #tab03 .phonetic-curriculum-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      border: 1px solid #c0d4e8;
+    }
+    #tab03 .phonetic-curriculum-table th,
+    #tab03 .phonetic-curriculum-table td {
+      border: 1px solid #c0d4e8;
+      padding: 12px 16px;
+      vertical-align: top;
+      text-align: left;
+    }
+    #tab03 .phonetic-curriculum-table thead th {
+      background: #4a7c9e;
+      color: white;
+      font-weight: 600;
+      text-align: center;
+    }
+    #tab03 .phonetic-curriculum-table tbody tr:nth-child(odd) td { background: #e8f2fa; }
+    #tab03 .phonetic-curriculum-table tbody tr:nth-child(even) td { background: white; }
+    #tab03 .phonetic-curriculum-table tbody td:first-child {
+      text-align: center;
+      font-weight: 600;
+      width: 80px;
+    }
+
     /* 短期集中 カリキュラム表 (画像デザイン) */
     .curriculum-table {
       width: 100%;
@@ -1917,22 +1945,22 @@
         <div class="content-block">
           <h3>内容</h3>
           <div class="curriculum-wrap">
-          <table class="price-table">
-            <thead>
-              <tr><th>回</th><th>タイトル</th><th>内容</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>1</td><td>今のあなたの発音＆聞き取り診断</td><td>・音はどこで作られる？（母音、子音） ・日本語に無い音VS韓国語に無い音（母音、子音） ・音の高さに秘密があった！（平音、激音、濃音） ・濁る？濁らない？なぜ？（平音）</td></tr>
-              <tr><td>2</td><td>パッチムは日本語にもある！ㅁ,ㄴ,ㅇそしてㅂ,ㄷ,ㄱ</td><td>・日本語と韓国語の『パッチム』比較 ・日本語の「る」とは違う！ㄹパッチム攻略法。</td></tr>
-              <tr><td>3</td><td>目指せ！聞き取り強化！発音変化まとめ（1）</td><td>・連音化（할아버지 ハラボジ） ・ㅎの弱音化（고향 コヤン, 전화번호 チョナボノ） ・ㅎの無音化（좋아요 チョアヨ） ・口蓋音化（같이 カッチ）</td></tr>
-              <tr><td>4</td><td>目指せ！聞き取り強化！発音変化まとめ（2）</td><td>・濃音化（학교 ハッキョ） ・鼻音化（막내 マンネ）</td></tr>
-              <tr><td>5</td><td>目指せ！聞き取り強化！発音変化まとめ（3）</td><td>・流音化（신라 シルラ） ・ㄴ挿入（일본 요리 イルボンニョリ）</td></tr>
-              <tr><td>6</td><td>★中間評価</td><td>★発音チェック＆評価 ・例文１００音読。 ・矯正前との比較。</td></tr>
-              <tr><td>7～11</td><td>レベルに合うテキストで発音＆聞き取り強化</td><td>受講生の方の学習歴やレベルに合わせて教材を選定し ・ネイティブ講師と一緒に、どんどん韓国語を声に出して実践！ ・随時あなたの発音をチェックし、正しい発音へと導きます。 教材例）「KBSの韓国語 標準発音と朗読」「間違いやすい韓国語表現」など</td></tr>
-              <tr><td>12</td><td>発音＆聞き取り診断</td><td>・改善点と今後の課題についてアドバイス</td></tr>
-              <tr><td>13～24</td><td>音読練習</td><td>・抑揚の改善点と今後の課題について徹底的に練習</td></tr>
-            </tbody>
-          </table>
+            <table class="phonetic-curriculum-table">
+              <thead>
+                <tr><th>回</th><th>タイトル</th><th>内容</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>1</td><td>今のあなたの発音＆聞き取り診断</td><td>・音はどこで作られる？（母音、子音）<br>・日本語に無い音VS韓国語に無い音（母音、子音）<br>・音の高さに秘密があった！（平音、激音、濃音）<br>・濁る？濁らない？なぜ？（平音）</td></tr>
+                <tr><td>2</td><td>パッチムは日本語にもある！ㅁ,ㄴ,ㅇそしてㅂ,ㄷ,ㄱ</td><td>・日本語と韓国語の『パッチム』比較<br>・日本語の「る」とは違う！ㄹパッチム攻略法。</td></tr>
+                <tr><td>3</td><td>目指せ！聞き取り強化！発音変化まとめ（1）</td><td>・連音化（할아버지 ハラボジ）<br>・日本語の「る」とは違う！ㄹパッチム攻略法。<br>・ㅎの弱音化（고향 コヤン, 전화번호 チョナボノ）<br>・ㅎの無音化（좋아요 チョアヨ）<br>・口蓋音化（같이 カッチ）</td></tr>
+                <tr><td>4</td><td>目指せ！聞き取り強化！発音変化まとめ（2）</td><td>・濃音化（학교 ハッキョ）<br>・鼻音化（막내 マンネ）</td></tr>
+                <tr><td>5</td><td>目指せ！聞き取り強化！発音変化まとめ（3）</td><td>・流音化（신라 シルラ）<br>・ㄴ挿入（일본 요리 イルボンニョリ）</td></tr>
+                <tr><td>6</td><td>★中間評価</td><td>★発音チェック＆評価<br>・例文１００音読。<br>・矯正前との比較。</td></tr>
+                <tr><td>7～11</td><td>レベルに合うテキストで発音＆聞き取り強化</td><td>受講生の方の学習歴やレベルに合わせて教材を選定し<br>・ネイティブ講師と一緒に、どんどん韓国語を声に出して実践！<br>・随時あなたの発音をチェックし、正しい発音へと導きます。<br>教材例）「KBSの韓国語 標準発音と朗読」「間違いやすい韓国語表現」など</td></tr>
+                <tr><td>12</td><td>発音＆聞き取り診断</td><td>・改善点と今後の課題についてアドバイス</td></tr>
+                <tr><td>13～24</td><td>音読練習</td><td>・抑揚の改善点と今後の課題について徹底的に練習</td></tr>
+              </tbody>
+            </table>
           </div>
         </div>
 

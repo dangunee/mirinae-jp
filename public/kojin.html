@@ -200,11 +200,11 @@
       margin: 0 auto;
       padding: 64px 80px;
       display: grid;
-      grid-template-columns: 300px 1fr 320px;
+      grid-template-columns: 1fr 320px;
       gap: 48px;
       align-items: start;
     }
-    .main.no-sidebar { grid-template-columns: 300px 1fr; }
+    .main.no-sidebar { grid-template-columns: 1fr; }
     .main.no-sidebar .sidebar { display: none; }
     .main { overflow: visible; }
     /* 3カラムの先頭を同じ高さに（講座・本編・レッスン概要） */
@@ -603,17 +603,6 @@
 
     .sidebar { position: sticky; top: 80px; }
     .sidebar .info-card { margin-bottom: 20px; }
-    .main.tab-active-tab01 .sidebar-tab02 { display: none; }
-    .main.tab-active-tab01 .sidebar-tab01 { display: block; }
-    .main.tab-active-tab02 .sidebar-tab01 { display: none; }
-    .main.tab-active-tab02 .sidebar-tab02 { display: block; }
-    .sidebar .overview-card .overview-inner { flex-direction: column; }
-    .sidebar .overview-card .overview-top { margin-bottom: 16px; }
-    .sidebar .sidebar-tab02 .overview-card .ov-top { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; }
-    .sidebar .sidebar-tab02 .overview-card .ov-top .label { font-size: 12px; color: var(--muted); }
-    .sidebar .sidebar-tab02 .overview-card .ov-body p { font-size: 13px; color: var(--mid); line-height: 1.8; margin-bottom: 10px; }
-    .sidebar .sidebar-tab02 .overview-card .ov-body p:last-child { margin-bottom: 0; }
-    .sidebar .sidebar-tab02 .overview-card .ov-note { margin-top: 12px; font-size: 12px; color: var(--muted); line-height: 1.6; }
 
     .price-card-main {
       background: var(--white);
@@ -1104,78 +1093,38 @@
     <button type="button" class="tab" data-tab="tab04">レベルテスト</button>
   </div>
 
-  <div class="main tab-active-tab01" id="main-wrap">
-    <nav class="course-nav-wrap" aria-label="講座メニュー">
-      <div class="course-nav-card">
-        <div class="course-nav-header">
-          <div class="cnh-label">Courses</div>
-          <div class="cnh-title">講座</div>
-        </div>
-        <ul class="course-nav-list">
-          <li class="course-nav-has-sub">
-            <span class="course-nav-parent">個人レッスン</span>
-            <ul class="course-nav-sub">
-              <li><a href="kojin.html#tab01" data-tab="tab01">個人レッスン</a></li>
-              <li><a href="kojin.html#tab02" data-tab="tab02">短期集中個人</a></li>
-              <li><a href="kojin.html#tab03" data-tab="tab03">発音矯正</a></li>
-              <li><a href="kojin.html#tab04" data-tab="tab04">レベルテスト</a></li>
-            </ul>
-          </li>
-          <li class="course-nav-has-sub">
-            <span class="course-nav-parent">グループレッスン</span>
-            <ul class="course-nav-sub">
-              <li><a href="group.html#tab01">入門＆初級講座</a></li>
-              <li><a href="group.html#tab02">中級文法講座</a></li>
-              <li><a href="group.html#tab03">上級文法講座</a></li>
-              <li><a href="group.html#tab04">中級月1講座</a></li>
-              <li><a href="group.html#tab05">上級1土曜講座</a></li>
-              <li><a href="group.html#tab06">上級2土曜講座</a></li>
-            </ul>
-          </li>
-          <li class="course-nav-has-sub">
-            <span class="course-nav-parent">会話強化クラス</span>
-            <ul class="course-nav-sub">
-              <li><a href="kaiwa.html#tab01">会話クラス</a></li>
-              <li><a href="kaiwa.html#tab02">音読クラス</a></li>
-              <li><a href="kaiwa.html#tab03">発音・抑揚</a></li>
-              <li><a href="kaiwa.html#tab04">時事韓国語</a></li>
-              <li><a href="kaiwa.html#tab05">朝勉クラス</a></li>
-              <li><a href="kaiwa.html#tab06">小説朗読</a></li>
-            </ul>
-          </li>
-          <li class="course-nav-has-sub">
-            <span class="course-nav-parent">試験対策講座</span>
-            <ul class="course-nav-sub">
-              <li><a href="special.html#tab01">TOPIK初級</a></li>
-              <li><a href="special.html#tab02">TOPIK中級</a></li>
-              <li><a href="special.html#tab03">TOPIK上級</a></li>
-              <li><a href="special.html#tab04">ハン検1/2級</a></li>
-              <li><a href="special.html#tab05">ハン検準2級</a></li>
-              <li><a href="special.html#tab06">語彙力強化</a></li>
-            </ul>
-          </li>
-          <li class="course-nav-has-sub">
-            <span class="course-nav-parent">集中講座</span>
-            <ul class="course-nav-sub">
-              <li><a href="syutyu.html#tab01">入門講座</a></li>
-              <li><a href="syutyu.html#tab02">初級講座</a></li>
-              <li><a href="syutyu.html#tab03">中級講座</a></li>
-              <li><a href="syutyu.html#tab04">上級講座</a></li>
-            </ul>
-          </li>
-          <li class="course-nav-has-sub">
-            <span class="course-nav-parent">通信講座</span>
-            <ul class="course-nav-sub">
-              <li><a href="netlesson.html#tab01">作文トレーニング</a></li>
-              <li><a href="netlesson.html#tab02">音読トレーニング</a></li>
-              <li><a href="netlesson.html#tab03">TOPIK Training</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </nav>
+  <div class="main" id="main-wrap">
     <div class="content">
       <div id="tab01" class="tab-panel active">
+        <section class="fade-in delay-1">
+          <div class="overview-card">
+            <div class="overview-inner">
+              <div class="overview-top">
+                <svg class="progress-ring" viewBox="0 0 72 72">
+                  <circle cx="36" cy="36" r="28" fill="none" stroke="#e8d5b0" stroke-width="4"/>
+                  <circle cx="36" cy="36" r="28" fill="none" stroke="#b8924a" stroke-width="4"
+                    stroke-dasharray="175.9" stroke-dashoffset="52.8"
+                    stroke-linecap="round" transform="rotate(-90 36 36)"/>
+                  <text x="36" y="40" text-anchor="middle" font-family="Cormorant Garamond,serif"
+                    font-size="18" fill="#b8924a" font-weight="600">70%</text>
+                </svg>
+                <div>
+                  <div style="font-size:11px;letter-spacing:.1em;color:var(--muted);margin-bottom:4px;">発話参加率</div>
+                  <div class="skills-row" style="margin:0;gap:16px;">
+                    <div class="skill-item"><div class="skill-icon">👂</div>聞く</div>
+                    <div class="skill-item"><div class="skill-icon">📖</div>読む</div>
+                    <div class="skill-item"><div class="skill-icon">✏️</div>書く</div>
+                  </div>
+                </div>
+              </div>
+              <div class="overview-body">
+                <p>個人レッスンではテキストを使用し、聞く・話す・読む・書くを総合的に学習します。文法、語彙、表現については講師から説明いたしますが、レッスンの7割は音読や会話となり、生徒さんにどんどん声を出していただくことをモットーとしております。</p>
+                <p style="margin-top:12px;">丁寧な解説で文法のポイントを学んだ後は、練習問題で反復練習をし、「書くチカラ」も身につけます。授業中に学習した本文や例文は暗記していただき、次のレッスン時に、韓国語で声に出していただきます。</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section class="fade-in delay-2">
           <h2 class="section-title"><span class="dot"></span>対象</h2>
           <div class="target-grid">
@@ -1319,6 +1268,27 @@
 
       <!-- ========== タブ2: 短期集中個人 ========== -->
       <div id="tab02" class="tab-panel">
+        <section>
+          <div class="overview-card">
+            <div class="ov-top">
+              <svg width="72" height="72" viewBox="0 0 72 72">
+                <circle cx="36" cy="36" r="28" fill="none" stroke="#e8d5b0" stroke-width="4"/>
+                <circle cx="36" cy="36" r="28" fill="none" stroke="#b8924a" stroke-width="4" stroke-dasharray="175.9" stroke-dashoffset="35.2" stroke-linecap="round" transform="rotate(-90 36 36)"/>
+                <text x="36" y="40" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="18" fill="#b8924a" font-weight="600">80%</text>
+              </svg>
+              <div>
+                <div class="label">集中効率</div>
+                <div style="font-size:16px;color:var(--mid);margin-top:4px;">短期間で最大の効果を</div>
+              </div>
+            </div>
+            <div class="ov-body">
+              <p>語学は集中的に学んでこそ上達します。韓国語を本気でマスターしたい方にオススメの短期集中個人レッスン！自由予約制だから好きな曜日程にレッスンが可能。週に複数回、もちろん毎日だってOK！</p>
+              <p>こんな悩みはありませんか？色んな勉強法を試してみたが伸びない、会話に自信が持てない、話す順番がなかなか回ってこない…。信頼できる韓国語講師が責任を持ってあなたをサポートします。</p>
+            </div>
+            <div class="ov-note">※12コマ、24コマ、48コマ、72コマのチケットで1コマあたり割安に。自宅が遠い方にはTeamsでマンツーマンレッスン可能。一日で4〜5時間まとめて勉強もOK！</div>
+          </div>
+        </section>
+
         <section>
           <h2 class="section-title"><span class="dot"></span>対象</h2>
           <div class="target-grid">
@@ -1803,54 +1773,6 @@
           <div class="info-item"><div class="ii-label">有効期限</div><div class="ii-val">12回: 3ヶ月 / 24回: 8ヶ月<br>48・72回: 1年</div></div>
         </div>
       </div>
-      <div class="sidebar-tab01">
-        <div class="overview-card">
-          <div class="overview-inner">
-            <div class="overview-top">
-              <svg class="progress-ring" viewBox="0 0 72 72">
-                <circle cx="36" cy="36" r="28" fill="none" stroke="#e8d5b0" stroke-width="4"/>
-                <circle cx="36" cy="36" r="28" fill="none" stroke="#b8924a" stroke-width="4"
-                  stroke-dasharray="175.9" stroke-dashoffset="52.8"
-                  stroke-linecap="round" transform="rotate(-90 36 36)"/>
-                <text x="36" y="40" text-anchor="middle" font-family="Cormorant Garamond,serif"
-                  font-size="18" fill="#b8924a" font-weight="600">70%</text>
-              </svg>
-              <div>
-                <div style="font-size:11px;letter-spacing:.1em;color:var(--muted);margin-bottom:4px;">発話参加率</div>
-                <div class="skills-row" style="margin:0;gap:16px;">
-                  <div class="skill-item"><div class="skill-icon">👂</div>聞く</div>
-                  <div class="skill-item"><div class="skill-icon">📖</div>読む</div>
-                  <div class="skill-item"><div class="skill-icon">✏️</div>書く</div>
-                </div>
-              </div>
-            </div>
-            <div class="overview-body">
-              <p>個人レッスンではテキストを使用し、聞く・話す・読む・書くを総合的に学習します。文法、語彙、表現については講師から説明いたしますが、レッスンの7割は音読や会話となり、生徒さんにどんどん声を出していただくことをモットーとしております。</p>
-              <p style="margin-top:12px;">丁寧な解説で文法のポイントを学んだ後は、練習問題で反復練習をし、「書くチカラ」も身につけます。授業中に学習した本文や例文は暗記していただき、次のレッスン時に、韓国語で声に出していただきます。</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="sidebar-tab02">
-        <div class="overview-card">
-          <div class="ov-top">
-            <svg width="72" height="72" viewBox="0 0 72 72">
-              <circle cx="36" cy="36" r="28" fill="none" stroke="#e8d5b0" stroke-width="4"/>
-              <circle cx="36" cy="36" r="28" fill="none" stroke="#b8924a" stroke-width="4" stroke-dasharray="175.9" stroke-dashoffset="35.2" stroke-linecap="round" transform="rotate(-90 36 36)"/>
-              <text x="36" y="40" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="18" fill="#b8924a" font-weight="600">80%</text>
-            </svg>
-            <div>
-              <div class="label">集中効率</div>
-              <div style="font-size:16px;color:var(--mid);margin-top:4px;">短期間で最大の効果を</div>
-            </div>
-          </div>
-          <div class="ov-body">
-            <p>語学は集中的に学んでこそ上達します。韓国語を本気でマスターしたい方にオススメの短期集中個人レッスン！自由予約制だから好きな曜日程にレッスンが可能。週に複数回、もちろん毎日だってOK！</p>
-            <p>こんな悩みはありませんか？色んな勉強法を試してみたが伸びない、会話に自信が持てない、話す順番がなかなか回ってこない…。信頼できる韓国語講師が責任を持ってあなたをサポートします。</p>
-          </div>
-          <div class="ov-note">※12コマ、24コマ、48コマ、72コマのチケットで1コマあたり割安に。自宅が遠い方にはTeamsでマンツーマンレッスン可能。一日で4〜5時間まとめて勉強もOK！</div>
-        </div>
-      </div>
     </aside>
   </div>
 
@@ -1893,11 +1815,7 @@
         tabPanels.forEach(function(panel) {
           panel.classList.toggle('active', panel.id === tabId);
         });
-        if (mainWrap) {
-          mainWrap.classList.toggle('no-sidebar', tabId === 'tab03' || tabId === 'tab04');
-          mainWrap.classList.remove('tab-active-tab01', 'tab-active-tab02', 'tab-active-tab03', 'tab-active-tab04');
-          mainWrap.classList.add('tab-active-' + tabId);
-        }
+        if (mainWrap) mainWrap.classList.toggle('no-sidebar', tabId === 'tab03' || tabId === 'tab04');
         history.replaceState(null, '', 'kojin.html#' + tabId);
         ctaBtns.forEach(function(btn) { btn.href = getTrialUrlForTab(tabId); });
         setCourseNavActive(tabId);

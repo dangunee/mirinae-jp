@@ -169,7 +169,7 @@
       padding: 0 80px;
       display: flex;
       gap: 0;
-      justify-content: center;
+      justify-content: flex-start;
     }
     .tab {
       padding: 16px 28px;
@@ -200,16 +200,17 @@
       margin: 0 auto;
       padding: 64px 80px;
       display: grid;
-      grid-template-columns: 1fr 320px;
+      grid-template-columns: 1fr 1fr;
       gap: 48px;
       align-items: start;
     }
+    .main .sidebar { width: 320px; justify-self: center; }
     .main.no-sidebar { grid-template-columns: 1fr; }
     .main.no-sidebar .sidebar { display: none; }
     .main { overflow: visible; }
     /* 3カラムの先頭を同じ高さに（講座・本編・レッスン概要） */
     .course-nav-wrap { margin-top: 48px; }
-    .main .content { padding-top: 48px; width: 80%; max-width: 80%; justify-self: center; }
+    .main .content { padding-top: 48px; justify-self: start; }
     .sidebar { padding-top: 48px; }
 
     /* 強制ストッキーをやめ、グリッドの行で常に本編・サイドバーと高さを揃える */
@@ -671,7 +672,7 @@
     }
     .price-table-header {
       display: grid;
-      grid-template-columns: 1.2fr 0.9fr 1fr 1fr 0.8fr;
+      grid-template-columns: 1.2fr 0.9fr 1fr 1fr 1fr;
       gap: 12px;
       padding: 12px 0 10px;
       font-size: 11px;
@@ -681,10 +682,11 @@
     }
     .price-table-header .ph-tanka,
     .price-table-header .ph-zeinuki,
-    .price-table-header .ph-zeikomi { text-align: right; }
+    .price-table-header .ph-zeikomi,
+    .price-table-header .ph-yuko { text-align: right; }
     .price-table .price-row {
       display: grid;
-      grid-template-columns: 1.2fr 0.9fr 1fr 1fr 0.8fr;
+      grid-template-columns: 1.2fr 0.9fr 1fr 1fr 1fr;
       gap: 12px;
       align-items: center;
       padding: 14px 0;
@@ -761,8 +763,9 @@
 
     @media (max-width: 900px) {
       .main { grid-template-columns: 1fr; padding: 40px 24px; gap: 40px; }
+      .main .sidebar { width: 100%; justify-self: stretch; }
       .price-table-header,
-      .price-table .price-row { grid-template-columns: 1fr 0.7fr 0.9fr 0.9fr 0.7fr; gap: 8px; font-size: 12px; }
+      .price-table .price-row { grid-template-columns: 1fr 0.7fr 0.9fr 0.9fr 1fr; gap: 8px; font-size: 12px; }
       .main.no-sidebar { grid-template-columns: 1fr; }
       .course-nav-wrap { position: static; }
       .course-nav-card { margin-bottom: 24px; }
@@ -1229,7 +1232,7 @@
             </div>
             <div class="price-table">
               <div class="price-table-header">
-                <span>コース</span><span class="ph-tanka">単価</span><span class="ph-zeinuki">税抜</span><span class="ph-zeikomi">税込</span><span>有効期限</span>
+                <span>コース</span><span class="ph-tanka">単価</span><span class="ph-zeinuki">税抜</span><span class="ph-zeikomi">税込</span><span class="ph-yuko">有効期限</span>
               </div>
               <div class="price-row">
                 <div class="pr-course">12回コース<div class="pr-unit">1コマ ¥4,900</div></div>
@@ -1573,7 +1576,7 @@
             </div>
             <div class="price-table">
               <div class="price-table-header">
-                <span>コース</span><span class="ph-tanka">単価</span><span class="ph-zeinuki">税抜</span><span class="ph-zeikomi">税込</span><span>有効期限</span>
+                <span>コース</span><span class="ph-tanka">単価</span><span class="ph-zeinuki">税抜</span><span class="ph-zeikomi">税込</span><span class="ph-yuko">有効期限</span>
               </div>
               <div class="price-row">
                 <div class="pr-course">12回コース<div class="pr-unit">1コマ ¥4,900</div></div>
@@ -1965,14 +1968,6 @@
           btn.setAttribute('aria-expanded', li.classList.contains('expanded'));
         });
       });
-      var kojinLi = document.querySelector('.sidebar-course-nav a[href^="kojin.html"]');
-      if (kojinLi) {
-        var parent = kojinLi.closest('.course-nav-has-sub');
-        if (parent) {
-          parent.classList.add('expanded');
-          parent.querySelector('.course-nav-parent').setAttribute('aria-expanded', 'true');
-        }
-      }
     })();
 
     (function() {

@@ -200,19 +200,16 @@
       margin: 0 auto;
       padding: 64px 80px;
       display: grid;
-      grid-template-columns: 1fr minmax(600px, 900px) 320px;
+      grid-template-columns: 1fr 320px;
       gap: 48px;
       align-items: start;
     }
-    .main .content { grid-column: 2; }
-    .main .sidebar { grid-column: 3; }
     .main.no-sidebar { grid-template-columns: 1fr; }
-    .main.no-sidebar .content { grid-column: 1; }
     .main.no-sidebar .sidebar { display: none; }
     .main { overflow: visible; }
     /* 3カラムの先頭を同じ高さに（講座・本編・レッスン概要） */
     .course-nav-wrap { margin-top: 48px; }
-    .main .content { padding-top: 48px; }
+    .main .content { padding-top: 48px; width: 80%; max-width: 80%; justify-self: center; }
     .sidebar { padding-top: 48px; }
 
     /* 強制ストッキーをやめ、グリッドの行で常に本編・サイドバーと高さを揃える */
@@ -607,24 +604,109 @@
 
     .sidebar { position: sticky; top: 80px; }
     .sidebar .info-card { margin-bottom: 20px; }
-    .sidebar-course-nav { margin-top: 0; }
-    .sidebar-course-nav .course-nav-parent {
-      width: 100%; text-align: left; background: none; border: none;
-      font-family: inherit; cursor: pointer; display: flex; align-items: center; justify-content: space-between;
+    .courses-nav-box { margin-top: 0; }
+    .courses-nav-header {
+      background: var(--dark);
+      padding: 28px 20px 24px;
+      color: var(--white);
+      border-radius: 20px 20px 0 0;
     }
-    .sidebar-course-nav .course-nav-parent::after {
-      content: ''; width: 0; height: 0; border-left: 5px solid transparent; border-right: 5px solid transparent;
-      border-top: 6px solid currentColor; margin-left: auto; transition: transform .2s;
+    .courses-nav-header .courses-nav-label {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: var(--gold-light);
+      margin-bottom: 8px;
     }
-    .sidebar-course-nav .course-nav-has-sub.expanded .course-nav-parent::after { transform: rotate(180deg); }
-    .sidebar-course-nav .course-nav-sub {
-      position: static; margin: 0; padding: 0; box-shadow: none; border: none; border-radius: 0;
-      max-height: 0; overflow: hidden; opacity: 1; visibility: visible; transition: max-height .25s ease;
-      background: var(--gold-pale); margin-left: 12px; margin-right: 12px; margin-bottom: 8px;
-      border-radius: 8px; list-style: none;
+    .courses-nav-header .courses-nav-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 20px;
+      font-weight: 600;
     }
-    .sidebar-course-nav .course-nav-has-sub.expanded .course-nav-sub { max-height: 500px; }
-    .sidebar-course-nav .course-nav-sub a { padding: 8px 16px; font-size: 12px; display: block; }
+    .courses-nav { padding: 6px 0; }
+    .courses-nav .nav-group-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 11px 16px;
+      color: var(--mid);
+      font-size: 12.5px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+    .courses-nav .nav-group-title:hover { background: var(--gold-pale); color: var(--gold); }
+    .courses-nav .nav-group.open .nav-group-title { color: var(--gold); }
+    .courses-nav .nav-chevron {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 8px;
+      color: var(--muted);
+      transition: transform 0.25s ease, border-color 0.2s, background 0.2s;
+      flex-shrink: 0;
+    }
+    .courses-nav .nav-group.open .nav-chevron {
+      transform: rotate(180deg);
+      border-color: var(--gold);
+      background: var(--gold-pale);
+      color: var(--gold);
+    }
+    .courses-nav .nav-items {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.28s ease;
+      overflow: hidden;
+    }
+    .courses-nav .nav-group.open .nav-items { grid-template-rows: 1fr; }
+    .courses-nav .nav-items-inner {
+      overflow: hidden;
+      background: var(--gold-pale);
+      border-top: 1px solid var(--gold-light);
+      border-bottom: 1px solid rgba(184,146,74,0.15);
+    }
+    .courses-nav .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 16px 9px 20px;
+      font-size: 12px;
+      color: var(--mid);
+      text-decoration: none;
+      transition: color 0.15s, background 0.15s, padding-left 0.15s;
+      border-left: 2px solid transparent;
+    }
+    .courses-nav .nav-item::before {
+      content: '';
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--border);
+      flex-shrink: 0;
+      transition: background 0.15s, transform 0.15s;
+    }
+    .courses-nav .nav-item:hover {
+      color: var(--gold);
+      background: rgba(255,255,255,0.6);
+      padding-left: 24px;
+      border-left-color: var(--gold-light);
+    }
+    .courses-nav .nav-item:hover::before { background: var(--gold); transform: scale(1.4); }
+    .courses-nav .nav-item.active {
+      color: var(--gold);
+      border-left-color: var(--gold);
+      background: rgba(255,255,255,0.6);
+      font-weight: 500;
+    }
+    .courses-nav .nav-item.active::before { background: var(--gold); transform: scale(1.5); }
+    .courses-nav .nav-divider {
+      height: 1px;
+      background: var(--border);
+      margin: 0;
+    }
 
     .price-card-main {
       background: var(--white);
@@ -765,14 +847,11 @@
 
     @media (max-width: 900px) {
       .main { grid-template-columns: 1fr; padding: 40px 24px; gap: 40px; }
-      .main .content { grid-column: 1; }
-      .main .sidebar { grid-column: 1; width: 100%; justify-self: stretch; }
       .price-table-header,
       .price-table .price-row { grid-template-columns: 1fr 0.7fr 0.9fr 0.9fr 1fr; gap: 8px; font-size: 12px; }
       .main.no-sidebar { grid-template-columns: 1fr; }
       .course-nav-wrap { position: static; }
       .course-nav-card { margin-bottom: 24px; }
-      .course-nav-list .course-nav-sub { left: 0; right: auto; top: 100%; margin-left: 0; margin-top: 4px; }
       .hero { padding: 48px 24px 40px; }
       .hero::after { display: none; }
       .tabs-bar { padding: 0 24px; overflow-x: auto; }
@@ -1834,72 +1913,89 @@
     </div>
 
     <aside class="sidebar" id="sidebar">
-      <div class="course-nav-card sidebar-course-nav">
-        <div class="course-nav-header">
-          <div class="cnh-label">Courses</div>
-          <div class="cnh-title">講座</div>
+      <div class="course-nav-card courses-nav-box">
+        <div class="courses-nav-header">
+          <div class="courses-nav-label">Courses</div>
+          <div class="courses-nav-title">講座</div>
         </div>
-        <ul class="course-nav-list">
-          <li class="course-nav-has-sub course-nav-dropdown">
-            <button type="button" class="course-nav-parent" aria-expanded="false">個人レッスン</button>
-            <ul class="course-nav-sub">
-              <li><a href="kojin.html#tab01" data-tab="tab01">個人レッスン</a></li>
-              <li><a href="kojin.html#tab02" data-tab="tab02">短期集中個人</a></li>
-              <li><a href="kojin.html#tab03" data-tab="tab03">発音矯正</a></li>
-              <li><a href="kojin.html#tab04" data-tab="tab04">レベルテスト</a></li>
-            </ul>
-          </li>
-          <li class="course-nav-has-sub course-nav-dropdown">
-            <button type="button" class="course-nav-parent" aria-expanded="false">グループレッスン</button>
-            <ul class="course-nav-sub">
-              <li><a href="group.html#tab01">入門＆初級講座</a></li>
-              <li><a href="group.html#tab02">中級文法講座</a></li>
-              <li><a href="group.html#tab03">上級文法講座</a></li>
-              <li><a href="group.html#tab04">中級月1講座</a></li>
-              <li><a href="group.html#tab05">上級1土曜講座</a></li>
-              <li><a href="group.html#tab06">上級2土曜講座</a></li>
-            </ul>
-          </li>
-          <li class="course-nav-has-sub course-nav-dropdown">
-            <button type="button" class="course-nav-parent" aria-expanded="false">会話強化クラス</button>
-            <ul class="course-nav-sub">
-              <li><a href="kaiwa.html#tab01">会話クラス</a></li>
-              <li><a href="kaiwa.html#tab02">音読クラス</a></li>
-              <li><a href="kaiwa.html#tab03">発音・抑揚</a></li>
-              <li><a href="kaiwa.html#tab04">時事韓国語</a></li>
-              <li><a href="kaiwa.html#tab05">朝勉クラス</a></li>
-              <li><a href="kaiwa.html#tab06">小説朗読</a></li>
-            </ul>
-          </li>
-          <li class="course-nav-has-sub course-nav-dropdown">
-            <button type="button" class="course-nav-parent" aria-expanded="false">試験対策講座</button>
-            <ul class="course-nav-sub">
-              <li><a href="special.html#tab01">TOPIK初級</a></li>
-              <li><a href="special.html#tab02">TOPIK中級</a></li>
-              <li><a href="special.html#tab03">TOPIK上級</a></li>
-              <li><a href="special.html#tab04">ハン検1/2級</a></li>
-              <li><a href="special.html#tab05">ハン検準2級</a></li>
-              <li><a href="special.html#tab06">語彙力強化</a></li>
-            </ul>
-          </li>
-          <li class="course-nav-has-sub course-nav-dropdown">
-            <button type="button" class="course-nav-parent" aria-expanded="false">集中講座</button>
-            <ul class="course-nav-sub">
-              <li><a href="syutyu.html#tab01">入門講座</a></li>
-              <li><a href="syutyu.html#tab02">初級講座</a></li>
-              <li><a href="syutyu.html#tab03">中級講座</a></li>
-              <li><a href="syutyu.html#tab04">上級講座</a></li>
-            </ul>
-          </li>
-          <li class="course-nav-has-sub course-nav-dropdown">
-            <button type="button" class="course-nav-parent" aria-expanded="false">通信講座</button>
-            <ul class="course-nav-sub">
-              <li><a href="netlesson.html#tab01">作文トレーニング</a></li>
-              <li><a href="netlesson.html#tab02">音読トレーニング</a></li>
-              <li><a href="netlesson.html#tab03">TOPIK Training</a></li>
-            </ul>
-          </li>
-        </ul>
+        <div class="courses-nav">
+          <div class="nav-group">
+            <div class="nav-group-title" role="button" tabindex="0" aria-expanded="false">個人レッスン<span class="nav-chevron">▾</span></div>
+            <div class="nav-items">
+              <div class="nav-items-inner">
+                <a href="kojin.html#tab01" class="nav-item" data-tab="tab01">個人レッスン</a>
+                <a href="kojin.html#tab02" class="nav-item" data-tab="tab02">短期集中個人</a>
+                <a href="kojin.html#tab03" class="nav-item" data-tab="tab03">発音矯正</a>
+                <a href="kojin.html#tab04" class="nav-item" data-tab="tab04">レベルテスト</a>
+              </div>
+            </div>
+          </div>
+          <div class="nav-divider"></div>
+          <div class="nav-group">
+            <div class="nav-group-title" role="button" tabindex="0" aria-expanded="false">グループレッスン<span class="nav-chevron">▾</span></div>
+            <div class="nav-items">
+              <div class="nav-items-inner">
+                <a href="group.html#tab01" class="nav-item">入門＆初級講座</a>
+                <a href="group.html#tab02" class="nav-item">中級文法講座</a>
+                <a href="group.html#tab03" class="nav-item">上級文法講座</a>
+                <a href="group.html#tab04" class="nav-item">中級月1講座</a>
+                <a href="group.html#tab05" class="nav-item">上級1土曜講座</a>
+                <a href="group.html#tab06" class="nav-item">上級2土曜講座</a>
+              </div>
+            </div>
+          </div>
+          <div class="nav-divider"></div>
+          <div class="nav-group">
+            <div class="nav-group-title" role="button" tabindex="0" aria-expanded="false">会話強化クラス<span class="nav-chevron">▾</span></div>
+            <div class="nav-items">
+              <div class="nav-items-inner">
+                <a href="kaiwa.html#tab01" class="nav-item">会話クラス</a>
+                <a href="kaiwa.html#tab02" class="nav-item">音読クラス</a>
+                <a href="kaiwa.html#tab03" class="nav-item">発音・抑揚</a>
+                <a href="kaiwa.html#tab04" class="nav-item">時事韓国語</a>
+                <a href="kaiwa.html#tab05" class="nav-item">朝勉クラス</a>
+                <a href="kaiwa.html#tab06" class="nav-item">小説朗読</a>
+              </div>
+            </div>
+          </div>
+          <div class="nav-divider"></div>
+          <div class="nav-group">
+            <div class="nav-group-title" role="button" tabindex="0" aria-expanded="false">試験対策講座<span class="nav-chevron">▾</span></div>
+            <div class="nav-items">
+              <div class="nav-items-inner">
+                <a href="special.html#tab01" class="nav-item">TOPIK初級</a>
+                <a href="special.html#tab02" class="nav-item">TOPIK中級</a>
+                <a href="special.html#tab03" class="nav-item">TOPIK上級</a>
+                <a href="special.html#tab04" class="nav-item">ハン検1/2級</a>
+                <a href="special.html#tab05" class="nav-item">ハン検準2級</a>
+                <a href="special.html#tab06" class="nav-item">語彙力強化</a>
+              </div>
+            </div>
+          </div>
+          <div class="nav-divider"></div>
+          <div class="nav-group">
+            <div class="nav-group-title" role="button" tabindex="0" aria-expanded="false">集中講座<span class="nav-chevron">▾</span></div>
+            <div class="nav-items">
+              <div class="nav-items-inner">
+                <a href="syutyu.html#tab01" class="nav-item">入門講座</a>
+                <a href="syutyu.html#tab02" class="nav-item">初級講座</a>
+                <a href="syutyu.html#tab03" class="nav-item">中級講座</a>
+                <a href="syutyu.html#tab04" class="nav-item">上級講座</a>
+              </div>
+            </div>
+          </div>
+          <div class="nav-divider"></div>
+          <div class="nav-group">
+            <div class="nav-group-title" role="button" tabindex="0" aria-expanded="false">通信講座<span class="nav-chevron">▾</span></div>
+            <div class="nav-items">
+              <div class="nav-items-inner">
+                <a href="netlesson.html#tab01" class="nav-item">作文トレーニング</a>
+                <a href="netlesson.html#tab02" class="nav-item">音読トレーニング</a>
+                <a href="netlesson.html#tab03" class="nav-item">TOPIK Training</a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </aside>
   </div>
@@ -1932,7 +2028,7 @@
       }
 
       function setCourseNavActive(tabId) {
-        document.querySelectorAll('.course-nav-sub a').forEach(function(a) {
+        document.querySelectorAll('.courses-nav .nav-item[data-tab]').forEach(function(a) {
           a.classList.toggle('active', a.getAttribute('data-tab') === tabId);
         });
       }
@@ -1964,11 +2060,17 @@
         if (['tab01', 'tab02', 'tab03', 'tab04'].indexOf(h) !== -1) switchTab(h);
       });
 
-      document.querySelectorAll('.sidebar-course-nav .course-nav-parent').forEach(function(btn) {
+      document.querySelectorAll('.courses-nav .nav-group-title').forEach(function(btn) {
         btn.addEventListener('click', function() {
-          var li = this.closest('.course-nav-has-sub');
-          li.classList.toggle('expanded');
-          btn.setAttribute('aria-expanded', li.classList.contains('expanded'));
+          var group = this.closest('.nav-group');
+          group.classList.toggle('open');
+          btn.setAttribute('aria-expanded', group.classList.contains('open'));
+        });
+        btn.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            this.click();
+          }
         });
       });
     })();

@@ -983,7 +983,11 @@
     }
     .price-table.legacy-table th { background: var(--gold-pale); font-weight: 600; }
 
-    /* 発音矯正 内容表（青ヘッダー・交互行） */
+    /* 発音矯正 内容表（青ヘッダー・交互行・角丸） */
+    #tab03 .phonetic-table-wrap {
+      border-radius: 14px;
+      overflow: hidden;
+    }
     #tab03 .phonetic-curriculum-table {
       width: 100%;
       border-collapse: collapse;
@@ -1201,6 +1205,36 @@
     #tab03 .sched-item .day { font-size: 13px; letter-spacing: 0.15em; color: var(--gold); margin-bottom: 4px; font-weight: 500; }
     #tab03 .sched-item .time { font-family: 'Cormorant Garamond', serif; font-size: 24px; color: var(--dark); }
     #tab03 .sched-note { margin-top: 12px; background: var(--gold-pale); border-radius: 8px; padding: 10px 16px; font-size: 14px; color: var(--muted); }
+
+    /* ========== tab04: レベルテスト design（tab03と同様・フォントtab02と同様） ========== */
+    #tab04 { font-size: 120%; }
+    #tab04 .section-title { font-size: 22px; }
+    #tab04 .target-item { font-size: 16px; }
+    #tab04 .format-note { font-size: 14px; }
+    #tab04 .overview-card .ov-top { display: flex; align-items: center; gap: 20px; margin-bottom: 24px; }
+    #tab04 .overview-card .ov-top .label { font-size: 14px; color: var(--muted); }
+    #tab04 .overview-card .ov-body p { font-size: 17px; color: var(--mid); line-height: 1.9; margin-bottom: 12px; }
+    #tab04 .overview-card .ov-body p:last-child { margin-bottom: 0; }
+    #tab04 .overview-card .ov-note { margin-top: 16px; background: rgba(255,255,255,0.6); border-radius: 8px; padding: 12px 16px; font-size: 14px; color: var(--muted); line-height: 1.7; }
+    #tab04 .tanki-worry-heading { font-size: 20px !important; font-weight: 600 !important; color: var(--dark) !important; margin-bottom: 12px !important; }
+    #tab04 .sched-row { display: flex; gap: 16px; flex-wrap: wrap; }
+    #tab04 .sched-item { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 16px 24px; font-size: 16px; color: var(--mid); }
+    #tab04 .sched-item .day { font-size: 13px; letter-spacing: 0.15em; color: var(--gold); margin-bottom: 4px; font-weight: 500; }
+    #tab04 .sched-item .time { font-family: 'Cormorant Garamond', serif; font-size: 24px; color: var(--dark); }
+    #tab04 .sched-note { margin-top: 12px; background: var(--gold-pale); border-radius: 8px; padding: 10px 16px; font-size: 14px; color: var(--muted); }
+    #tab04 .tanki-steps-row { display: flex; align-items: center; gap: 0; margin-bottom: 24px; flex-wrap: wrap; }
+    #tab04 .tanki-step-node { display: flex; flex-direction: column; align-items: center; gap: 8px; flex: 1; min-width: 100px; }
+    #tab04 .tanki-step-circle { width: 44px; height: 44px; border-radius: 50%; background: var(--white); border: 1.5px solid var(--gold); display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 24px; color: var(--gold); }
+    #tab04 .tanki-step-label { font-size: 14px; color: var(--mid); text-align: center; }
+    #tab04 .tanki-step-arrow { color: var(--gold-light); font-size: 24px; margin: 0 4px; margin-bottom: 24px; }
+    #tab04 .detail-item { font-size: 16px; }
+    #tab04 .detail-item .di-num { width: auto; min-width: 44px; height: 24px; padding: 0 10px; font-size: 13px; border-radius: 6px; }
+    #tab04 .leveltest-price-amount { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 600; color: var(--dark); text-align: center; padding: 24px 28px; }
+    #tab04 .leveltest-table-wrap { border-radius: 14px; overflow: hidden; border: 1px solid var(--border); }
+    #tab04 .leveltest-table { width: 100%; border-collapse: collapse; font-size: 16px; }
+    #tab04 .leveltest-table th, #tab04 .leveltest-table td { border: 1px solid var(--border); padding: 12px 16px; }
+    #tab04 .leveltest-table thead th { background: var(--dark); color: #fff; font-weight: 500; }
+    #tab04 .leveltest-table tbody td { color: var(--mid); }
 
     .testimonial {
       background: var(--gray-light);
@@ -2017,7 +2051,7 @@
 
         <section>
           <h2 class="section-title"><span class="dot"></span>内容</h2>
-          <div class="curriculum-wrap">
+          <div class="curriculum-wrap phonetic-table-wrap">
             <table class="phonetic-curriculum-table">
               <thead>
                 <tr><th>回</th><th>タイトル</th><th>内容</th></tr>
@@ -2139,87 +2173,132 @@
 
       <!-- ========== タブ4: レベルテスト ========== -->
       <div id="tab04" class="tab-panel">
-        <h2 class="section-header">『レベルテスト』</h2>
-        <div class="content-block" style="padding: 24px; border: 1px solid var(--border); border-top: none; border-radius: 0 0 8px 8px;">
-          <p>何年間も伸び悩んでいる方、自分の韓国語はなぜ通じないのか悩んでいる方、モチベーションが下がってやる気が湧いて来ない方など韓国語の勉強につまづいている方が対象です。また、短期間で資格を取りたいけれどもどうしたらよいか分らないという方もどうぞ。どこが弱点なのかを知るためのテストと学習相談を行います。あなたにピッタリなテキストと勉強方法がきっと見つかります！</p>
-        </div>
-
-        <div class="content-block">
-          <h3>予約可能時間</h3>
-          <p>平日 11：00～21：00、土・日</p>
-        </div>
-
-        <div class="content-block">
-          <h3>相談会開催期間</h3>
-          <p>随時</p>
-        </div>
-
-        <div class="content-block">
-          <h3>時間</h3>
-          <p>50分</p>
-        </div>
-
-        <div class="content-block">
-          <h3>参加費</h3>
-          <p><strong>4,800円+税</strong></p>
-        </div>
-
-        <div class="content-block">
-          <h3>相談の流れ</h3>
-          <div class="step-icons-row">
-            <div class="step-icon-item"><span>①</span>お悩み相談 10分間</div>
-            <div class="step-icon-item"><span>②</span>韓国語会話及びレベルチェック 30分</div>
-            <div class="step-icon-item"><span>③</span>テキスト及び勉強方法のご案内体験 20分</div>
+        <section>
+          <div class="overview-card">
+            <div class="ov-top">
+              <svg width="72" height="72" viewBox="0 0 72 72">
+                <circle cx="36" cy="36" r="28" fill="none" stroke="#e8d5b0" stroke-width="4"/>
+                <circle cx="36" cy="36" r="28" fill="none" stroke="#4a7c9e" stroke-width="4" stroke-dasharray="175.9" stroke-dashoffset="52.8" stroke-linecap="round" transform="rotate(-90 36 36)"/>
+                <text x="36" y="42" text-anchor="middle" font-family="Noto Serif JP,serif" font-size="14" fill="#4a7c9e" font-weight="600">レベル</text>
+              </svg>
+              <div>
+                <div style="display:flex;align-items:center;gap:24px;flex-wrap:wrap;">
+                  <div>
+                    <div class="label">レベルテスト</div>
+                    <div style="font-size:16px;color:var(--mid);margin-top:4px;">弱点発見と学習相談</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="ov-body">
+              <p>何年間も伸び悩んでいる方、自分の韓国語はなぜ通じないのか悩んでいる方、モチベーションが下がってやる気が湧いて来ない方など韓国語の勉強につまづいている方が対象です。また、短期間で資格を取りたいけれどもどうしたらよいか分らないという方もどうぞ。どこが弱点なのかを知るためのテストと学習相談を行います。あなたにピッタリなテキストと勉強方法がきっと見つかります！</p>
+            </div>
+            <div class="ov-note">☆テストを受けてみるだけでも自分の弱点が発見できます！お気軽にお申し込みください。</div>
           </div>
-        </div>
+        </section>
 
-        <div class="content-block">
-          <h3>テスト内容</h3>
-          <ul style="margin-left: 24px;">
-            <li><strong>初級：</strong>語彙、基本文型、発音矯正など</li>
-            <li><strong>中級：</strong>語彙・読解、書き取り、尊敬語、発音矯正など</li>
-            <li><strong>上級：</strong>語彙・読解、書き取り、尊敬語、発音矯正、翻訳、上級必須文型など</li>
-          </ul>
-          <p style="margin-top: 12px;">☆テストを受けてみるだけでも自分の弱点が発見できます！お気軽にお申し込みください。</p>
-        </div>
-
-        <div class="content-block">
-          <h3>テストサンプル</h3>
-          <table class="price-table">
-            <thead>
-              <tr><th>項目</th><th>レベル</th><th>注意点</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>発音</td><td>1 ❷ 3 4 5</td><td>濃音注意</td></tr>
-              <tr><td>文型</td><td>1 2 ❸ 4 5</td><td>文章体が弱い</td></tr>
-              <tr><td>語彙</td><td>1 2 ❸ 4 5</td><td>副詞が弱い</td></tr>
-              <tr><td>読解</td><td>1 ❷ 3 4 5</td><td>時間がかかる</td></tr>
-              <tr><td>聞き取り</td><td>❶ 2 3 4 5</td><td>連音注意</td></tr>
-              <tr><td>敬語</td><td>❶ 2 3 4 5</td><td>尊敬語の見直し必要</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="content-block">
-          <h3>申込方法</h3>
-          <p>申し込みフォームにてレベルテストをお選び、お申し込みください。</p>
-        </div>
-
-        <h2 class="section-header" style="margin-top: 48px;">『生徒の声』</h2>
-
-        <div class="testimonial">
-          <div class="testimonial-header">H様｜2017.2 レベルテスト・相談</div>
-          <div class="testimonial-content">
-            <p>今回のカウンセリングを受けて、改めて自分がどのぐらいのレベルなのかわかってよかったと思います。・発音の注意点 文章を書く＝会話ができるようになる そのためには毎日日記を書く練習をすることが大事であること 短い文章でよいから音読をする。そうすればあやふやな文法もわかるようになる。教えていただいたことを早速実行していこうと思います。ありがとうございました。</p>
+        <section>
+          <h2 class="section-title"><span class="dot"></span>日程・時間</h2>
+          <div class="sched-row">
+            <div class="sched-item">
+              <div class="day">予約可能時間</div>
+              <div class="time">平日 11:00～21:00、土・日</div>
+            </div>
+            <div class="sched-item">
+              <div class="day">相談会開催期間</div>
+              <div class="time">随時</div>
+            </div>
+            <div class="sched-item">
+              <div class="day">所要時間</div>
+              <div class="time">50分</div>
+            </div>
           </div>
-        </div>
+        </section>
 
-        <div class="testimonial">
-          <div class="testimonial-header">J様｜2017.2 レベルテスト・相談</div>
-          <div class="testimonial-content">
-            <p>今回の試験を受けてみた、自分がちゃんと韓国語を身につけていないとはっきりわかりました。これからの勉強の仕方も教えてもらえてよかったです。ありがとうございました。</p>
+        <section class="fade-in content-price-block">
+          <div class="price-card-main">
+            <div class="price-card-header">
+              <div class="pch-label">Participation Fee</div>
+              <div class="pch-title">参加費</div>
+            </div>
+            <div class="leveltest-price-amount">4,800円+税</div>
+            <a class="kojin-cta-btn cta-btn" href="trial.html">レベルテストを申し込む →</a>
           </div>
-        </div>
+        </section>
+
+        <section>
+          <h2 class="section-title"><span class="dot"></span>相談の流れ</h2>
+          <div class="tanki-steps-row">
+            <div class="tanki-step-node"><div class="tanki-step-circle">①</div><div class="tanki-step-label">お悩み相談 10分間</div></div>
+            <div class="tanki-step-arrow">›</div>
+            <div class="tanki-step-node"><div class="tanki-step-circle">②</div><div class="tanki-step-label">韓国語会話及びレベルチェック 30分</div></div>
+            <div class="tanki-step-arrow">›</div>
+            <div class="tanki-step-node"><div class="tanki-step-circle">③</div><div class="tanki-step-label">テキスト及び勉強方法のご案内体験 20分</div></div>
+          </div>
+        </section>
+
+        <section>
+          <h2 class="section-title"><span class="dot"></span>テスト内容</h2>
+          <div class="detail-list">
+            <div class="detail-item"><div class="di-num">初級</div>語彙、基本文型、発音矯正など</div>
+            <div class="detail-item"><div class="di-num">中級</div>語彙・読解、書き取り、尊敬語、発音矯正など</div>
+            <div class="detail-item"><div class="di-num">上級</div>語彙・読解、書き取り、尊敬語、発音矯正、翻訳、上級必須文型など</div>
+          </div>
+        </section>
+
+        <section>
+          <h2 class="section-title"><span class="dot"></span>テストサンプル</h2>
+          <div class="leveltest-table-wrap">
+            <table class="leveltest-table">
+              <thead>
+                <tr><th>項目</th><th>レベル</th><th>注意点</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>発音</td><td>1 ❷ 3 4 5</td><td>濃音注意</td></tr>
+                <tr><td>文型</td><td>1 2 ❸ 4 5</td><td>文章体が弱い</td></tr>
+                <tr><td>語彙</td><td>1 2 ❸ 4 5</td><td>副詞が弱い</td></tr>
+                <tr><td>読解</td><td>1 ❷ 3 4 5</td><td>時間がかかる</td></tr>
+                <tr><td>聞き取り</td><td>❶ 2 3 4 5</td><td>連音注意</td></tr>
+                <tr><td>敬語</td><td>❶ 2 3 4 5</td><td>尊敬語の見直し必要</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section>
+          <h2 class="section-title"><span class="dot"></span>申込方法</h2>
+          <p class="format-note">申し込みフォームにてレベルテストをお選び、お申し込みください。</p>
+        </section>
+
+        <section class="fade-in">
+          <h2 class="section-title" style="margin-top: 48px;"><span class="dot"></span>生徒の声</h2>
+          <div class="reviews-list">
+            <div class="review-card">
+              <div class="review-meta">
+                <div class="review-avatar">H</div>
+                <div class="review-info">
+                  <div class="name">H様</div>
+                  <div class="badge-row"><span class="level-badge">レベルテスト・相談</span><span class="date-badge">2017.2</span></div>
+                </div>
+              </div>
+              <div class="review-body">
+                <p>今回のカウンセリングを受けて、改めて自分がどのぐらいのレベルなのかわかってよかったと思います。・発音の注意点 文章を書く＝会話ができるようになる そのためには毎日日記を書く練習をすることが大事であること 短い文章でよいから音読をする。そうすればあやふやな文法もわかるようになる。教えていただいたことを早速実行していこうと思います。ありがとうございました。</p>
+              </div>
+            </div>
+            <div class="review-card">
+              <div class="review-meta">
+                <div class="review-avatar">J</div>
+                <div class="review-info">
+                  <div class="name">J様</div>
+                  <div class="badge-row"><span class="level-badge">レベルテスト・相談</span><span class="date-badge">2017.2</span></div>
+                </div>
+              </div>
+              <div class="review-body">
+                <p>今回の試験を受けてみた、自分がちゃんと韓国語を身につけていないとはっきりわかりました。これからの勉強の仕方も教えてもらえてよかったです。ありがとうございました。</p>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
 
     </div>

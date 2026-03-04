@@ -169,7 +169,7 @@
       padding: 0 80px;
       display: flex;
       gap: 0;
-      justify-content: flex-start;
+      justify-content: center;
     }
     .tab {
       padding: 16px 28px;
@@ -200,17 +200,19 @@
       margin: 0 auto;
       padding: 64px 80px;
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr minmax(600px, 900px) 320px;
       gap: 48px;
       align-items: start;
     }
-    .main .sidebar { width: 320px; justify-self: center; }
+    .main .content { grid-column: 2; }
+    .main .sidebar { grid-column: 3; }
     .main.no-sidebar { grid-template-columns: 1fr; }
+    .main.no-sidebar .content { grid-column: 1; }
     .main.no-sidebar .sidebar { display: none; }
     .main { overflow: visible; }
     /* 3カラムの先頭を同じ高さに（講座・本編・レッスン概要） */
     .course-nav-wrap { margin-top: 48px; }
-    .main .content { padding-top: 48px; justify-self: start; }
+    .main .content { padding-top: 48px; }
     .sidebar { padding-top: 48px; }
 
     /* 強制ストッキーをやめ、グリッドの行で常に本編・サイドバーと高さを揃える */
@@ -763,7 +765,8 @@
 
     @media (max-width: 900px) {
       .main { grid-template-columns: 1fr; padding: 40px 24px; gap: 40px; }
-      .main .sidebar { width: 100%; justify-self: stretch; }
+      .main .content { grid-column: 1; }
+      .main .sidebar { grid-column: 1; width: 100%; justify-self: stretch; }
       .price-table-header,
       .price-table .price-row { grid-template-columns: 1fr 0.7fr 0.9fr 0.9fr 1fr; gap: 8px; font-size: 12px; }
       .main.no-sidebar { grid-template-columns: 1fr; }

@@ -1374,6 +1374,7 @@
       font-size: 14px;
       color: rgba(255,255,255,0.9);
     }
+    #tab04 .level-check:hover .check-icon { border-color: #e8c96a; box-shadow: 0 0 0 1px rgba(212,168,75,0.5); }
     #tab04 .level-check .check-icon {
       width: 18px;
       height: 18px;
@@ -1383,6 +1384,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      transition: border-color 0.2s, box-shadow 0.2s;
     }
     #tab04 .level-check .check-icon svg {
       width: 10px;
@@ -1406,9 +1408,9 @@
       cursor: pointer;
       text-decoration: none;
       font-family: inherit;
-      transition: background 0.2s, transform 0.2s;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
     }
-    #tab04 .level-btn:hover { background: #a07a3a; transform: translateY(-1px); }
+    #tab04 .level-btn:hover { background: #a07a3a; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.25); }
     #tab04 .level-btn svg {
       width: 14px;
       height: 14px;
@@ -1435,6 +1437,19 @@
       align-items: center;
       gap: 12px;
       margin-bottom: 8px;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    #tab04 .pyramid-row:hover {
+      opacity: 1;
+      transform: translateX(4px);
+    }
+    #tab04 .pyramid-row:hover .pyramid-bar {
+      filter: brightness(1.15);
+    }
+    #tab04 .pyramid-row:hover .pyramid-label {
+      transform: scale(1.1);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
     }
     #tab04 .pyramid-label {
       width: 24px;
@@ -1447,6 +1462,7 @@
       font-weight: 700;
       color: #fff;
       flex-shrink: 0;
+      transition: transform 0.2s, box-shadow 0.2s;
     }
     #tab04 .pyramid-bar {
       padding: 8px 16px;
@@ -1454,6 +1470,7 @@
       font-size: 14px;
       font-weight: 500;
       color: #fff;
+      transition: filter 0.2s;
     }
     #tab04 .row-a .pyramid-label { background: #6b4ba8; }
     #tab04 .row-a .pyramid-bar { background: rgba(107,75,168,0.5); }

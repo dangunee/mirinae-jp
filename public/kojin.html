@@ -603,6 +603,17 @@
 
     .sidebar { position: sticky; top: 80px; }
     .sidebar .info-card { margin-bottom: 20px; }
+    .main.tab-active-tab01 .sidebar-tab02 { display: none; }
+    .main.tab-active-tab01 .sidebar-tab01 { display: block; }
+    .main.tab-active-tab02 .sidebar-tab01 { display: none; }
+    .main.tab-active-tab02 .sidebar-tab02 { display: block; }
+    .sidebar .overview-card .overview-inner { flex-direction: column; }
+    .sidebar .overview-card .overview-top { margin-bottom: 16px; }
+    .sidebar .sidebar-tab02 .overview-card .ov-top { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; }
+    .sidebar .sidebar-tab02 .overview-card .ov-top .label { font-size: 12px; color: var(--muted); }
+    .sidebar .sidebar-tab02 .overview-card .ov-body p { font-size: 13px; color: var(--mid); line-height: 1.8; margin-bottom: 10px; }
+    .sidebar .sidebar-tab02 .overview-card .ov-body p:last-child { margin-bottom: 0; }
+    .sidebar .sidebar-tab02 .overview-card .ov-note { margin-top: 12px; font-size: 12px; color: var(--muted); line-height: 1.6; }
 
     .price-card-main {
       background: var(--white);
@@ -1093,7 +1104,7 @@
     <button type="button" class="tab" data-tab="tab04">レベルテスト</button>
   </div>
 
-  <div class="main" id="main-wrap">
+  <div class="main tab-active-tab01" id="main-wrap">
     <nav class="course-nav-wrap" aria-label="講座メニュー">
       <div class="course-nav-card">
         <div class="course-nav-header">
@@ -1165,35 +1176,6 @@
     </nav>
     <div class="content">
       <div id="tab01" class="tab-panel active">
-        <section class="fade-in delay-1">
-          <div class="overview-card">
-            <div class="overview-inner">
-              <div class="overview-top">
-                <svg class="progress-ring" viewBox="0 0 72 72">
-                  <circle cx="36" cy="36" r="28" fill="none" stroke="#e8d5b0" stroke-width="4"/>
-                  <circle cx="36" cy="36" r="28" fill="none" stroke="#b8924a" stroke-width="4"
-                    stroke-dasharray="175.9" stroke-dashoffset="52.8"
-                    stroke-linecap="round" transform="rotate(-90 36 36)"/>
-                  <text x="36" y="40" text-anchor="middle" font-family="Cormorant Garamond,serif"
-                    font-size="18" fill="#b8924a" font-weight="600">70%</text>
-                </svg>
-                <div>
-                  <div style="font-size:11px;letter-spacing:.1em;color:var(--muted);margin-bottom:4px;">発話参加率</div>
-                  <div class="skills-row" style="margin:0;gap:16px;">
-                    <div class="skill-item"><div class="skill-icon">👂</div>聞く</div>
-                    <div class="skill-item"><div class="skill-icon">📖</div>読む</div>
-                    <div class="skill-item"><div class="skill-icon">✏️</div>書く</div>
-                  </div>
-                </div>
-              </div>
-              <div class="overview-body">
-                <p>個人レッスンではテキストを使用し、聞く・話す・読む・書くを総合的に学習します。文法、語彙、表現については講師から説明いたしますが、レッスンの7割は音読や会話となり、生徒さんにどんどん声を出していただくことをモットーとしております。</p>
-                <p style="margin-top:12px;">丁寧な解説で文法のポイントを学んだ後は、練習問題で反復練習をし、「書くチカラ」も身につけます。授業中に学習した本文や例文は暗記していただき、次のレッスン時に、韓国語で声に出していただきます。</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
         <section class="fade-in delay-2">
           <h2 class="section-title"><span class="dot"></span>対象</h2>
           <div class="target-grid">
@@ -1254,6 +1236,42 @@
           </div>
         </section>
 
+        <section class="fade-in content-price-block">
+          <div class="price-card-main">
+            <div class="price-card-header">
+              <div class="pch-label">Tuition Fee</div>
+              <div class="pch-title">授業料</div>
+            </div>
+            <div class="enrollment-fee">
+              <div class="ef-label">入学金</div>
+              <div class="ef-amount">¥9,800</div>
+            </div>
+            <div class="price-table">
+              <div class="price-row">
+                <div><div class="course">12回コース</div><div class="unit">1コマ ¥4,900</div></div>
+                <div><div class="amount highlight">¥58,800</div><div class="total">税込 ¥64,680</div></div>
+              </div>
+              <div class="price-row">
+                <div><div class="course">24回コース</div><div class="unit">1コマ ¥4,400</div></div>
+                <div><div class="amount">¥105,600</div><div class="total">税込 ¥116,160</div></div>
+              </div>
+              <div class="price-row">
+                <div><div class="course">48回コース</div><div class="unit">1コマ ¥3,980</div></div>
+                <div><div class="amount">¥191,040</div><div class="total">税込 ¥210,144</div></div>
+              </div>
+              <div class="price-row">
+                <div><div class="course">72回コース</div><div class="unit">1コマ ¥3,600</div></div>
+                <div><div class="amount">¥259,200</div><div class="total">税込 ¥285,120</div></div>
+              </div>
+              <div class="price-row">
+                <div><div class="course">月謝制（月8コマ）</div><div class="unit">1コマ ¥5,100</div></div>
+                <div><div class="amount">¥40,800</div><div class="total">税込 ¥44,880</div></div>
+              </div>
+            </div>
+            <a class="kojin-cta-btn cta-btn" href="trial.html">体験レッスンを申し込む →</a>
+          </div>
+        </section>
+
         <section class="fade-in">
           <h2 class="section-title"><span class="dot"></span>生徒の声</h2>
           <div class="reviews-list">
@@ -1301,27 +1319,6 @@
 
       <!-- ========== タブ2: 短期集中個人 ========== -->
       <div id="tab02" class="tab-panel">
-        <section>
-          <div class="overview-card">
-            <div class="ov-top">
-              <svg width="72" height="72" viewBox="0 0 72 72">
-                <circle cx="36" cy="36" r="28" fill="none" stroke="#e8d5b0" stroke-width="4"/>
-                <circle cx="36" cy="36" r="28" fill="none" stroke="#b8924a" stroke-width="4" stroke-dasharray="175.9" stroke-dashoffset="35.2" stroke-linecap="round" transform="rotate(-90 36 36)"/>
-                <text x="36" y="40" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="18" fill="#b8924a" font-weight="600">80%</text>
-              </svg>
-              <div>
-                <div class="label">集中効率</div>
-                <div style="font-size:16px;color:var(--mid);margin-top:4px;">短期間で最大の効果を</div>
-              </div>
-            </div>
-            <div class="ov-body">
-              <p>語学は集中的に学んでこそ上達します。韓国語を本気でマスターしたい方にオススメの短期集中個人レッスン！自由予約制だから好きな曜日程にレッスンが可能。週に複数回、もちろん毎日だってOK！</p>
-              <p>こんな悩みはありませんか？色んな勉強法を試してみたが伸びない、会話に自信が持てない、話す順番がなかなか回ってこない…。信頼できる韓国語講師が責任を持ってあなたをサポートします。</p>
-            </div>
-            <div class="ov-note">※12コマ、24コマ、48コマ、72コマのチケットで1コマあたり割安に。自宅が遠い方にはTeamsでマンツーマンレッスン可能。一日で4〜5時間まとめて勉強もOK！</div>
-          </div>
-        </section>
-
         <section>
           <h2 class="section-title"><span class="dot"></span>対象</h2>
           <div class="target-grid">
@@ -1541,6 +1538,42 @@
             <div class="detail-item"><div class="detail-num">2</div>文法、語彙、表現の学習（音読、和訳、発音指導）</div>
             <div class="detail-item"><div class="detail-num">3</div>練習問題（作文、音読、聞き取り、聞き返した箇所の和訳）</div>
             <div class="detail-item"><div class="detail-num">4</div>学んだことは次回に復習（講師：日本語→生徒さん：韓国語に訳して声に出す）</div>
+          </div>
+        </section>
+
+        <section class="fade-in content-price-block">
+          <div class="price-card-main">
+            <div class="price-card-header">
+              <div class="pch-label">Tuition Fee</div>
+              <div class="pch-title">授業料</div>
+            </div>
+            <div class="enrollment-fee">
+              <div class="ef-label">入学金</div>
+              <div class="ef-amount">¥9,800</div>
+            </div>
+            <div class="price-table">
+              <div class="price-row">
+                <div><div class="course">12回コース</div><div class="unit">1コマ ¥4,900</div></div>
+                <div><div class="amount highlight">¥58,800</div><div class="total">税込 ¥64,680</div></div>
+              </div>
+              <div class="price-row">
+                <div><div class="course">24回コース</div><div class="unit">1コマ ¥4,400</div></div>
+                <div><div class="amount">¥105,600</div><div class="total">税込 ¥116,160</div></div>
+              </div>
+              <div class="price-row">
+                <div><div class="course">48回コース</div><div class="unit">1コマ ¥3,980</div></div>
+                <div><div class="amount">¥191,040</div><div class="total">税込 ¥210,144</div></div>
+              </div>
+              <div class="price-row">
+                <div><div class="course">72回コース</div><div class="unit">1コマ ¥3,600</div></div>
+                <div><div class="amount">¥259,200</div><div class="total">税込 ¥285,120</div></div>
+              </div>
+              <div class="price-row">
+                <div><div class="course">月謝制（月8コマ）</div><div class="unit">1コマ ¥5,100</div></div>
+                <div><div class="amount">¥40,800</div><div class="total">税込 ¥44,880</div></div>
+              </div>
+            </div>
+            <a class="kojin-cta-btn cta-btn" href="trial.html">体験レッスンを申し込む →</a>
           </div>
         </section>
 
@@ -1770,38 +1803,53 @@
           <div class="info-item"><div class="ii-label">有効期限</div><div class="ii-val">12回: 3ヶ月 / 24回: 8ヶ月<br>48・72回: 1年</div></div>
         </div>
       </div>
-      <div class="price-card-main">
-        <div class="price-card-header">
-          <div class="pch-label">Tuition Fee</div>
-          <div class="pch-title">授業料</div>
-        </div>
-        <div class="enrollment-fee">
-          <div class="ef-label">入学金</div>
-          <div class="ef-amount">¥9,800</div>
-        </div>
-        <div class="price-table">
-          <div class="price-row">
-            <div><div class="course">12回コース</div><div class="unit">1コマ ¥4,900</div></div>
-            <div><div class="amount highlight">¥58,800</div><div class="total">税込 ¥64,680</div></div>
-          </div>
-          <div class="price-row">
-            <div><div class="course">24回コース</div><div class="unit">1コマ ¥4,400</div></div>
-            <div><div class="amount">¥105,600</div><div class="total">税込 ¥116,160</div></div>
-          </div>
-          <div class="price-row">
-            <div><div class="course">48回コース</div><div class="unit">1コマ ¥3,980</div></div>
-            <div><div class="amount">¥191,040</div><div class="total">税込 ¥210,144</div></div>
-          </div>
-          <div class="price-row">
-            <div><div class="course">72回コース</div><div class="unit">1コマ ¥3,600</div></div>
-            <div><div class="amount">¥259,200</div><div class="total">税込 ¥285,120</div></div>
-          </div>
-          <div class="price-row">
-            <div><div class="course">月謝制（月8コマ）</div><div class="unit">1コマ ¥5,100</div></div>
-            <div><div class="amount">¥40,800</div><div class="total">税込 ¥44,880</div></div>
+      <div class="sidebar-tab01">
+        <div class="overview-card">
+          <div class="overview-inner">
+            <div class="overview-top">
+              <svg class="progress-ring" viewBox="0 0 72 72">
+                <circle cx="36" cy="36" r="28" fill="none" stroke="#e8d5b0" stroke-width="4"/>
+                <circle cx="36" cy="36" r="28" fill="none" stroke="#b8924a" stroke-width="4"
+                  stroke-dasharray="175.9" stroke-dashoffset="52.8"
+                  stroke-linecap="round" transform="rotate(-90 36 36)"/>
+                <text x="36" y="40" text-anchor="middle" font-family="Cormorant Garamond,serif"
+                  font-size="18" fill="#b8924a" font-weight="600">70%</text>
+              </svg>
+              <div>
+                <div style="font-size:11px;letter-spacing:.1em;color:var(--muted);margin-bottom:4px;">発話参加率</div>
+                <div class="skills-row" style="margin:0;gap:16px;">
+                  <div class="skill-item"><div class="skill-icon">👂</div>聞く</div>
+                  <div class="skill-item"><div class="skill-icon">📖</div>読む</div>
+                  <div class="skill-item"><div class="skill-icon">✏️</div>書く</div>
+                </div>
+              </div>
+            </div>
+            <div class="overview-body">
+              <p>個人レッスンではテキストを使用し、聞く・話す・読む・書くを総合的に学習します。文法、語彙、表現については講師から説明いたしますが、レッスンの7割は音読や会話となり、生徒さんにどんどん声を出していただくことをモットーとしております。</p>
+              <p style="margin-top:12px;">丁寧な解説で文法のポイントを学んだ後は、練習問題で反復練習をし、「書くチカラ」も身につけます。授業中に学習した本文や例文は暗記していただき、次のレッスン時に、韓国語で声に出していただきます。</p>
+            </div>
           </div>
         </div>
-        <a id="kojin-cta-btn" href="trial.html" class="cta-btn">体験レッスンを申し込む →</a>
+      </div>
+      <div class="sidebar-tab02">
+        <div class="overview-card">
+          <div class="ov-top">
+            <svg width="72" height="72" viewBox="0 0 72 72">
+              <circle cx="36" cy="36" r="28" fill="none" stroke="#e8d5b0" stroke-width="4"/>
+              <circle cx="36" cy="36" r="28" fill="none" stroke="#b8924a" stroke-width="4" stroke-dasharray="175.9" stroke-dashoffset="35.2" stroke-linecap="round" transform="rotate(-90 36 36)"/>
+              <text x="36" y="40" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="18" fill="#b8924a" font-weight="600">80%</text>
+            </svg>
+            <div>
+              <div class="label">集中効率</div>
+              <div style="font-size:16px;color:var(--mid);margin-top:4px;">短期間で最大の効果を</div>
+            </div>
+          </div>
+          <div class="ov-body">
+            <p>語学は集中的に学んでこそ上達します。韓国語を本気でマスターしたい方にオススメの短期集中個人レッスン！自由予約制だから好きな曜日程にレッスンが可能。週に複数回、もちろん毎日だってOK！</p>
+            <p>こんな悩みはありませんか？色んな勉強法を試してみたが伸びない、会話に自信が持てない、話す順番がなかなか回ってこない…。信頼できる韓国語講師が責任を持ってあなたをサポートします。</p>
+          </div>
+          <div class="ov-note">※12コマ、24コマ、48コマ、72コマのチケットで1コマあたり割安に。自宅が遠い方にはTeamsでマンツーマンレッスン可能。一日で4〜5時間まとめて勉強もOK！</div>
+        </div>
       </div>
     </aside>
   </div>
@@ -1824,7 +1872,7 @@
     (function() {
       var tabBtns = document.querySelectorAll('.tab[data-tab]');
       var tabPanels = document.querySelectorAll('.tab-panel');
-      var ctaBtn = document.getElementById('kojin-cta-btn');
+      var ctaBtns = document.querySelectorAll('.kojin-cta-btn');
       var mainWrap = document.getElementById('main-wrap');
 
       function getTrialUrlForTab(tabId) {
@@ -1845,9 +1893,13 @@
         tabPanels.forEach(function(panel) {
           panel.classList.toggle('active', panel.id === tabId);
         });
-        if (mainWrap) mainWrap.classList.toggle('no-sidebar', tabId === 'tab03' || tabId === 'tab04');
+        if (mainWrap) {
+          mainWrap.classList.toggle('no-sidebar', tabId === 'tab03' || tabId === 'tab04');
+          mainWrap.classList.remove('tab-active-tab01', 'tab-active-tab02', 'tab-active-tab03', 'tab-active-tab04');
+          mainWrap.classList.add('tab-active-' + tabId);
+        }
         history.replaceState(null, '', 'kojin.html#' + tabId);
-        if (ctaBtn) ctaBtn.href = getTrialUrlForTab(tabId);
+        ctaBtns.forEach(function(btn) { btn.href = getTrialUrlForTab(tabId); });
         setCourseNavActive(tabId);
       }
 

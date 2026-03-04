@@ -1336,15 +1336,15 @@
     #tab04 .tanki-step-arrow { color: var(--gold-light); font-size: 24px; margin: 0 4px; margin-bottom: 24px; }
     #tab04 .detail-item { font-size: 16px; }
     #tab04 .detail-item .di-num { width: auto; min-width: 44px; height: 24px; padding: 0 10px; font-size: 13px; border-radius: 6px; }
-    /* Level Test Section (dark card) */
-    #tab04 .level-section { margin-bottom: 32px; }
+    /* Level Test Section (dark card - inside overview-card) */
+    #tab04 .level-section { margin-top: 24px; margin-bottom: 0; }
     #tab04 .level-card {
       display: flex;
       flex-wrap: wrap;
-      background: #2a2724;
-      border-radius: 14px;
+      background: #2d2d2d;
+      border-radius: 1rem;
       overflow: hidden;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.2);
     }
     #tab04 .level-left, #tab04 .level-right {
       flex: 1;
@@ -1364,7 +1364,7 @@
       color: #fff;
       line-height: 1.4;
     }
-    #tab04 .level-heading em { color: var(--gold); font-style: normal; }
+    #tab04 .level-heading em { color: #d4a84b; font-style: normal; }
     #tab04 .level-checks { margin: 24px 0; }
     #tab04 .level-check {
       display: flex;
@@ -1378,16 +1378,18 @@
       width: 18px;
       height: 18px;
       flex-shrink: 0;
-      border: 1.5px solid var(--gold);
+      border: 1.5px solid #d4a84b;
       border-radius: 4px;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--gold);
     }
     #tab04 .level-check .check-icon svg {
       width: 10px;
       height: 10px;
+      stroke: #fff;
+      stroke-width: 2;
+      fill: none;
     }
     #tab04 .level-check .check-text strong { color: #fff; font-weight: 600; }
     #tab04 .level-btn {
@@ -1395,7 +1397,7 @@
       align-items: center;
       gap: 8px;
       padding: 14px 24px;
-      background: var(--gold);
+      background: #b88d4c;
       color: #fff;
       border: none;
       border-radius: 8px;
@@ -1426,7 +1428,7 @@
       color: #fff;
       line-height: 1.5;
     }
-    #tab04 .level-cta-title em { color: var(--gold); font-style: normal; }
+    #tab04 .level-cta-title em { color: #d4a84b; font-style: normal; }
     #tab04 .level-pyramid { margin: 20px 0; }
     #tab04 .pyramid-row {
       display: flex;
@@ -1453,14 +1455,14 @@
       font-weight: 500;
       color: #fff;
     }
-    #tab04 .row-a .pyramid-label { background: #7c5cbf; }
-    #tab04 .row-a .pyramid-bar { background: rgba(124,92,191,0.4); }
-    #tab04 .row-b .pyramid-label { background: #c75b9b; }
-    #tab04 .row-b .pyramid-bar { background: rgba(199,91,155,0.4); }
-    #tab04 .row-c .pyramid-label { background: #e8a54b; }
-    #tab04 .row-c .pyramid-bar { background: rgba(232,165,75,0.4); }
-    #tab04 .row-d .pyramid-label { background: #5a9e6d; }
-    #tab04 .row-d .pyramid-bar { background: rgba(90,158,109,0.4); }
+    #tab04 .row-a .pyramid-label { background: #6b4ba8; }
+    #tab04 .row-a .pyramid-bar { background: rgba(107,75,168,0.5); }
+    #tab04 .row-b .pyramid-label { background: #a84b7a; }
+    #tab04 .row-b .pyramid-bar { background: rgba(168,75,122,0.5); }
+    #tab04 .row-c .pyramid-label { background: #d4a84b; }
+    #tab04 .row-c .pyramid-bar { background: rgba(212,168,75,0.5); }
+    #tab04 .row-d .pyramid-label { background: #4b9e6a; }
+    #tab04 .row-d .pyramid-bar { background: rgba(75,158,106,0.5); }
     #tab04 .pyramid-row-label {
       font-size: 12px;
       color: rgba(255,255,255,0.5);
@@ -1468,22 +1470,99 @@
     }
     #tab04 .level-cta-body {
       font-size: 13px;
-      color: rgba(255,255,255,0.85);
+      color: rgba(255,255,255,0.9);
       line-height: 1.7;
       padding-left: 12px;
-      border-left: 3px solid var(--gold);
+      border-left: 3px solid #b88d4c;
       margin-top: 16px;
     }
-    #tab04 .level-cta-body span { color: var(--gold); }
+    #tab04 .level-cta-body span { color: #d4a84b; }
     @media (max-width: 640px) {
       #tab04 .level-left { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
     }
-    #tab04 .leveltest-price-amount { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 600; color: var(--dark); text-align: center; padding: 24px 28px; }
-    #tab04 .leveltest-table-wrap { border-radius: 14px; overflow: hidden; border: 1px solid var(--border); }
-    #tab04 .leveltest-table { width: 100%; border-collapse: collapse; font-size: 16px; }
-    #tab04 .leveltest-table th, #tab04 .leveltest-table td { border: 1px solid var(--border); padding: 12px 16px; }
-    #tab04 .leveltest-table thead th { background: var(--dark); color: #fff; font-weight: 500; }
-    #tab04 .leveltest-table tbody td { color: var(--mid); }
+    /* Participation Fee (参加費) */
+    #tab04 .fee-section { max-width: 1100px; margin: 0 auto 60px; padding: 0 24px; }
+    #tab04 .fee-card { background: var(--dark); border-radius: 16px; overflow: hidden; position: relative; display: grid; grid-template-columns: 1fr 1fr; min-height: 200px; }
+    #tab04 .fee-card::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(-55deg, transparent, transparent 40px, rgba(255,255,255,0.018) 40px, rgba(255,255,255,0.018) 41px); pointer-events: none; }
+    #tab04 .fee-left { padding: 36px 44px; display: flex; flex-direction: column; justify-content: center; gap: 6px; border-right: 1px solid rgba(255,255,255,0.08); position: relative; z-index: 1; }
+    #tab04 .fee-eyebrow { font-family: 'Cormorant Garamond', serif; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 8px; }
+    #tab04 .fee-title { font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.6); margin-bottom: 12px; }
+    #tab04 .fee-price-row { display: flex; align-items: baseline; gap: 6px; }
+    #tab04 .fee-currency { font-size: 20px; font-weight: 300; color: rgba(255,255,255,0.5); }
+    #tab04 .fee-amount { font-family: 'Cormorant Garamond', serif; font-size: 52px; font-weight: 600; color: #fff; letter-spacing: -0.02em; line-height: 1; }
+    #tab04 .fee-unit { font-size: 14px; color: rgba(255,255,255,0.45); font-weight: 300; }
+    #tab04 .fee-tax-row { display: flex; align-items: center; gap: 10px; margin-top: 10px; }
+    #tab04 .fee-tax-badge { display: inline-flex; align-items: center; gap: 5px; background: rgba(184,146,42,0.15); border: 1px solid rgba(184,146,42,0.3); border-radius: 5px; padding: 4px 10px; }
+    #tab04 .fee-tax-label { font-size: 10px; color: var(--gold-light); letter-spacing: 0.06em; font-weight: 500; }
+    #tab04 .fee-tax-amount { font-size: 15px; font-weight: 700; color: var(--gold-light); }
+    #tab04 .fee-tax-note { font-size: 11px; color: rgba(255,255,255,0.3); }
+    #tab04 .fee-right { padding: 36px 44px; display: flex; flex-direction: column; justify-content: center; gap: 20px; position: relative; z-index: 1; }
+    #tab04 .fee-right::after { content: ''; position: absolute; bottom: 0; right: 0; width: 200px; height: 200px; background: radial-gradient(circle, rgba(184,146,42,0.12) 0%, transparent 70%); pointer-events: none; }
+    #tab04 .fee-cta-heading { font-size: 16px; font-weight: 600; color: #fff; line-height: 1.5; }
+    #tab04 .fee-cta-heading em { font-style: normal; color: var(--gold-light); }
+    #tab04 .fee-features { display: flex; flex-direction: column; gap: 8px; }
+    #tab04 .fee-feature { display: flex; align-items: center; gap: 9px; font-size: 12.5px; color: rgba(255,255,255,0.65); }
+    #tab04 .fee-feature-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+    #tab04 .fee-apply-btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%); color: var(--dark); font-size: 14px; font-weight: 700; padding: 14px 28px; border-radius: 10px; border: none; cursor: pointer; letter-spacing: 0.04em; box-shadow: 0 4px 20px rgba(184,146,42,0.45); transition: transform 0.15s, box-shadow 0.15s; position: relative; z-index: 1; width: 100%; margin-top: 4px; text-decoration: none; font-family: inherit; }
+    #tab04 .fee-apply-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(184,146,42,0.55); }
+    #tab04 .fee-apply-btn svg { width: 16px; height: 16px; stroke: var(--dark); stroke-width: 2.5; fill: none; transition: transform 0.2s; }
+    #tab04 .fee-apply-btn:hover svg { transform: translateX(3px); }
+    @media (max-width: 640px) {
+      #tab04 .fee-card { grid-template-columns: 1fr; }
+      #tab04 .fee-left { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    }
+    /* Result Section (テストサンプル) */
+    #tab04 .result-section { max-width: 1100px; margin: 0 auto 56px; padding: 0 24px; }
+    #tab04 .result-section-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 20px; }
+    #tab04 .result-section-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); flex-shrink: 0; margin-bottom: 1px; }
+    #tab04 .result-section-title { font-size: 15px; font-weight: 600; color: var(--dark); letter-spacing: 0.04em; }
+    #tab04 .result-card { background: #fff; border-radius: 14px; border: 1px solid var(--border); overflow: hidden; box-shadow: 0 4px 24px rgba(28,26,23,0.08); }
+    #tab04 .result-card-header { background: var(--dark); padding: 16px 28px; display: flex; align-items: center; justify-content: space-between; }
+    #tab04 .result-card-header-left { display: flex; flex-direction: column; gap: 2px; }
+    #tab04 .result-card-label { font-family: 'Cormorant Garamond', serif; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-light); }
+    #tab04 .result-card-name { font-size: 16px; font-weight: 600; color: #fff; }
+    #tab04 .result-overall-badge { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+    #tab04 .result-overall-ring { width: 52px; height: 52px; border-radius: 50%; background: conic-gradient(var(--gold-light) 0% 42%, rgba(255,255,255,0.1) 42% 100%); display: flex; align-items: center; justify-content: center; position: relative; }
+    #tab04 .result-overall-ring::after { content: ''; position: absolute; width: 40px; height: 40px; border-radius: 50%; background: var(--dark); }
+    #tab04 .result-overall-score { position: relative; z-index: 1; font-size: 14px; font-weight: 700; color: var(--gold-light); letter-spacing: -0.02em; }
+    #tab04 .result-overall-sublabel { font-size: 9.5px; color: rgba(255,255,255,0.45); letter-spacing: 0.08em; text-transform: uppercase; }
+    #tab04 .result-rows { padding: 0; }
+    #tab04 .result-row { display: grid; grid-template-columns: 130px 1fr 200px; align-items: center; padding: 14px 28px; border-bottom: 1px solid var(--border); gap: 24px; transition: background 0.15s; }
+    #tab04 .result-row:last-child { border-bottom: none; }
+    #tab04 .result-row:hover { background: #faf8f4; }
+    #tab04 .result-item-name { font-size: 13px; font-weight: 500; color: var(--dark); display: flex; align-items: center; gap: 8px; }
+    #tab04 .result-item-icon { width: 28px; height: 28px; border-radius: 7px; background: var(--cream); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 13px; flex-shrink: 0; }
+    #tab04 .result-level-track { display: flex; align-items: center; gap: 0; }
+    #tab04 .level-pip { flex: 1; height: 6px; background: #e8e3d8; position: relative; transition: background 0.2s; }
+    #tab04 .level-pip:first-child { border-radius: 3px 0 0 3px; }
+    #tab04 .level-pip:last-child { border-radius: 0 3px 3px 0; }
+    #tab04 .level-pip.filled-1 { background: #ef4444; }
+    #tab04 .level-pip.filled-2 { background: #f97316; }
+    #tab04 .level-pip.filled-3 { background: #eab308; }
+    #tab04 .level-pip.filled-4 { background: #22c55e; }
+    #tab04 .level-pip.filled-5 { background: #3b82f6; }
+    #tab04 .level-pip.active-pip { height: 10px; border-radius: 3px !important; box-shadow: 0 0 0 2px #fff, 0 0 0 3.5px currentColor; }
+    #tab04 .level-pip.filled-1.active-pip { box-shadow: 0 0 0 2px #fff, 0 0 0 3.5px #ef4444; }
+    #tab04 .level-pip.filled-2.active-pip { box-shadow: 0 0 0 2px #fff, 0 0 0 3.5px #f97316; }
+    #tab04 .level-pip.filled-3.active-pip { box-shadow: 0 0 0 2px #fff, 0 0 0 3.5px #eab308; }
+    #tab04 .level-pip.filled-4.active-pip { box-shadow: 0 0 0 2px #fff, 0 0 0 3.5px #22c55e; }
+    #tab04 .level-pip.filled-5.active-pip { box-shadow: 0 0 0 2px #fff, 0 0 0 3.5px #3b82f6; }
+    #tab04 .level-track-wrap { display: flex; flex-direction: column; gap: 6px; flex: 1; }
+    #tab04 .level-track-labels { display: flex; justify-content: space-between; padding: 0 1px; }
+    #tab04 .level-track-labels span { font-size: 9.5px; color: rgba(0,0,0,0.3); font-weight: 500; }
+    #tab04 .level-score-tag { display: inline-flex; align-items: center; padding: 2px 8px; border-radius: 4px; font-size: 10.5px; font-weight: 700; letter-spacing: 0.04em; margin-left: 12px; flex-shrink: 0; }
+    #tab04 .tag-1 { background: #fee2e2; color: #dc2626; }
+    #tab04 .tag-2 { background: #ffedd5; color: #ea580c; }
+    #tab04 .tag-3 { background: #fef9c3; color: #ca8a04; }
+    #tab04 .tag-4 { background: #dcfce7; color: #16a34a; }
+    #tab04 .tag-5 { background: #dbeafe; color: #2563eb; }
+    #tab04 .result-note { font-size: 12px; color: var(--muted); display: flex; align-items: center; gap: 6px; }
+    #tab04 .note-warn { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 500; color: #92400e; background: #fef3c7; border: 1px solid #fcd34d; border-radius: 4px; padding: 2px 7px; white-space: nowrap; }
+    #tab04 .note-warn::before { content: '⚠'; font-size: 10px; }
+    @media (max-width: 640px) {
+      #tab04 .result-row { grid-template-columns: 1fr; gap: 12px; padding: 12px 16px; }
+      #tab04 .result-card-header { flex-direction: column; gap: 12px; align-items: flex-start; }
+    }
 
     .testimonial {
       background: var(--gray-light);
@@ -2521,11 +2600,8 @@
               <p>何年間も伸び悩んでいる方、自分の韓国語はなぜ通じないのか悩んでいる方、モチベーションが下がってやる気が湧いて来ない方など韓国語の勉強につまづいている方が対象です。また、短期間で資格を取りたいけれどもどうしたらよいか分らないという方もどうぞ。どこが弱点なのかを知るためのテストと学習相談を行います。あなたにピッタリなテキストと勉強方法がきっと見つかります！</p>
             </div>
             <div class="ov-note">☆テストを受けてみるだけでも自分の弱点が発見できます！お気軽にお申し込みください。</div>
-          </div>
-        </section>
-
-        <section class="level-section">
-          <div class="level-card">
+            <div class="level-section">
+              <div class="level-card">
             <div class="level-left">
               <div>
                 <div class="level-eyebrow">Level Diagnosis Test</div>
@@ -2533,15 +2609,15 @@
               </div>
               <div class="level-checks">
                 <div class="level-check">
-                  <span class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3" fill="none" stroke="currentColor" stroke-width="2"/></svg></span>
+                  <span class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
                   <span class="check-text">何年間も<strong>伸び悩んでいる</strong>方</span>
                 </div>
                 <div class="level-check">
-                  <span class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3" fill="none" stroke="currentColor" stroke-width="2"/></svg></span>
+                  <span class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
                   <span class="check-text">自分の韓国語は<strong>なぜ通じないのか</strong>悩んでいる方</span>
                 </div>
                 <div class="level-check">
-                  <span class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3" fill="none" stroke="currentColor" stroke-width="2"/></svg></span>
+                  <span class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
                   <span class="check-text">モチベーションが下がって<strong>やる気が湧いて来ない</strong>方</span>
                 </div>
               </div>
@@ -2560,6 +2636,8 @@
                 <div class="pyramid-row-label">あなたのレベルは？</div>
               </div>
               <div class="level-cta-body">診断結果に合わせた<span>お薦めの学習法</span>や<br><span>教材・授業を紹介</span>しているので、ぜひ参考にしてください。</div>
+            </div>
+          </div>
             </div>
           </div>
         </section>
@@ -2603,32 +2681,161 @@
         </section>
 
         <section>
-          <h2 class="section-title"><span class="dot"></span>テストサンプル</h2>
-          <div class="leveltest-table-wrap">
-            <table class="leveltest-table">
-              <thead>
-                <tr><th>項目</th><th>レベル</th><th>注意点</th></tr>
-              </thead>
-              <tbody>
-                <tr><td>発音</td><td>1 ❷ 3 4 5</td><td>濃音注意</td></tr>
-                <tr><td>文型</td><td>1 2 ❸ 4 5</td><td>文章体が弱い</td></tr>
-                <tr><td>語彙</td><td>1 2 ❸ 4 5</td><td>副詞が弱い</td></tr>
-                <tr><td>読解</td><td>1 ❷ 3 4 5</td><td>時間がかかる</td></tr>
-                <tr><td>聞き取り</td><td>❶ 2 3 4 5</td><td>連音注意</td></tr>
-                <tr><td>敬語</td><td>❶ 2 3 4 5</td><td>尊敬語の見直し必要</td></tr>
-              </tbody>
-            </table>
+          <div class="result-section">
+            <div class="result-section-head">
+              <span class="result-section-dot"></span>
+              <span class="result-section-title">テストサンプル</span>
+            </div>
+            <div class="result-card">
+              <div class="result-card-header">
+                <div class="result-card-header-left">
+                  <span class="result-card-label">Diagnosis Result</span>
+                  <span class="result-card-name">レベル診断結果</span>
+                </div>
+                <div class="result-overall-badge">
+                  <div class="result-overall-ring">
+                    <span class="result-overall-score">Lv.2</span>
+                  </div>
+                  <span class="result-overall-sublabel">Overall</span>
+                </div>
+              </div>
+              <div class="result-rows">
+                <div class="result-row">
+                  <div class="result-item-name"><span class="result-item-icon">🔊</span>発音</div>
+                  <div style="display:flex;align-items:center;gap:12px;flex:1;">
+                    <div class="level-track-wrap">
+                      <div class="result-level-track">
+                        <div class="level-pip filled-1"></div>
+                        <div class="level-pip filled-2 active-pip"></div>
+                        <div class="level-pip"></div>
+                        <div class="level-pip"></div>
+                        <div class="level-pip"></div>
+                      </div>
+                      <div class="level-track-labels"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div>
+                    </div>
+                    <span class="level-score-tag tag-2">Level 2</span>
+                  </div>
+                  <div class="result-note"><span class="note-warn">濃音注意</span></div>
+                </div>
+                <div class="result-row">
+                  <div class="result-item-name"><span class="result-item-icon">📝</span>文型</div>
+                  <div style="display:flex;align-items:center;gap:12px;flex:1;">
+                    <div class="level-track-wrap">
+                      <div class="result-level-track">
+                        <div class="level-pip filled-1"></div>
+                        <div class="level-pip filled-2"></div>
+                        <div class="level-pip filled-3 active-pip"></div>
+                        <div class="level-pip"></div>
+                        <div class="level-pip"></div>
+                      </div>
+                      <div class="level-track-labels"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div>
+                    </div>
+                    <span class="level-score-tag tag-3">Level 3</span>
+                  </div>
+                  <div class="result-note"><span class="note-warn">文章体が弱い</span></div>
+                </div>
+                <div class="result-row">
+                  <div class="result-item-name"><span class="result-item-icon">📚</span>語彙</div>
+                  <div style="display:flex;align-items:center;gap:12px;flex:1;">
+                    <div class="level-track-wrap">
+                      <div class="result-level-track">
+                        <div class="level-pip filled-1"></div>
+                        <div class="level-pip filled-2"></div>
+                        <div class="level-pip filled-3 active-pip"></div>
+                        <div class="level-pip"></div>
+                        <div class="level-pip"></div>
+                      </div>
+                      <div class="level-track-labels"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div>
+                    </div>
+                    <span class="level-score-tag tag-3">Level 3</span>
+                  </div>
+                  <div class="result-note"><span class="note-warn">副詞が弱い</span></div>
+                </div>
+                <div class="result-row">
+                  <div class="result-item-name"><span class="result-item-icon">👁️</span>読解</div>
+                  <div style="display:flex;align-items:center;gap:12px;flex:1;">
+                    <div class="level-track-wrap">
+                      <div class="result-level-track">
+                        <div class="level-pip filled-1"></div>
+                        <div class="level-pip filled-2 active-pip"></div>
+                        <div class="level-pip"></div>
+                        <div class="level-pip"></div>
+                        <div class="level-pip"></div>
+                      </div>
+                      <div class="level-track-labels"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div>
+                    </div>
+                    <span class="level-score-tag tag-2">Level 2</span>
+                  </div>
+                  <div class="result-note"><span class="note-warn">時間がかかる</span></div>
+                </div>
+                <div class="result-row">
+                  <div class="result-item-name"><span class="result-item-icon">👂</span>聞き取り</div>
+                  <div style="display:flex;align-items:center;gap:12px;flex:1;">
+                    <div class="level-track-wrap">
+                      <div class="result-level-track">
+                        <div class="level-pip filled-1 active-pip"></div>
+                        <div class="level-pip"></div>
+                        <div class="level-pip"></div>
+                        <div class="level-pip"></div>
+                        <div class="level-pip"></div>
+                      </div>
+                      <div class="level-track-labels"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div>
+                    </div>
+                    <span class="level-score-tag tag-1">Level 1</span>
+                  </div>
+                  <div class="result-note"><span class="note-warn">連音注意</span></div>
+                </div>
+                <div class="result-row">
+                  <div class="result-item-name"><span class="result-item-icon">🙇</span>敬語</div>
+                  <div style="display:flex;align-items:center;gap:12px;flex:1;">
+                    <div class="level-track-wrap">
+                      <div class="result-level-track">
+                        <div class="level-pip filled-1 active-pip"></div>
+                        <div class="level-pip"></div>
+                        <div class="level-pip"></div>
+                        <div class="level-pip"></div>
+                        <div class="level-pip"></div>
+                      </div>
+                      <div class="level-track-labels"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div>
+                    </div>
+                    <span class="level-score-tag tag-1">Level 1</span>
+                  </div>
+                  <div class="result-note"><span class="note-warn">尊敬語の見直し必要</span></div>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
-        <section class="fade-in content-price-block">
-          <div class="price-card-main">
-            <div class="price-card-header">
-              <div class="pch-label">Participation Fee</div>
-              <div class="pch-title">参加費</div>
+        <section class="fade-in">
+          <div class="fee-section">
+            <div class="fee-card">
+              <div class="fee-left">
+                <div class="fee-eyebrow">Participation Fee</div>
+                <div class="fee-title">参加費</div>
+                <div class="fee-price-row">
+                  <span class="fee-currency">¥</span>
+                  <span class="fee-amount">4,800</span>
+                  <span class="fee-unit">（税抜）</span>
+                </div>
+                <div class="fee-tax-row">
+                  <div class="fee-tax-badge">
+                    <span class="fee-tax-label">税込</span>
+                    <span class="fee-tax-amount">¥5,280</span>
+                  </div>
+                  <span class="fee-tax-note">消費税10%込み</span>
+                </div>
+              </div>
+              <div class="fee-right">
+                <div class="fee-cta-heading">あなたのレベルを<br><em>プロが正確に診断</em>します。</div>
+                <div class="fee-features">
+                  <div class="fee-feature"><span class="fee-feature-dot"></span>発音・文型・語彙・読解・聴解・敬語を総合評価</div>
+                  <div class="fee-feature"><span class="fee-feature-dot"></span>診断後、最適な学習プランをご提案</div>
+                  <div class="fee-feature"><span class="fee-feature-dot"></span>所要時間：約50分 / オンライン対応可</div>
+                </div>
+                <a href="trial.html#leveltest" class="fee-apply-btn">レベルテストを申し込む<svg viewBox="0 0 16 16"><line x1="2" y1="8" x2="13" y2="8"/><polyline points="9,4 13,8 9,12" fill="none"/></svg></a>
+              </div>
             </div>
-            <div class="leveltest-price-amount">4,800円+税</div>
-            <a class="kojin-cta-btn cta-btn" href="trial.html">レベルテストを申し込む →</a>
           </div>
         </section>
 

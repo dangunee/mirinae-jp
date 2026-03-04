@@ -676,7 +676,7 @@
       font-size: 12px;
       color: var(--mid);
       text-decoration: none;
-      transition: color 0.15s, background 0.15s, padding-left 0.15s;
+      transition: color 0.15s, background 0.15s;
       border-left: 2px solid transparent;
     }
     .courses-nav .nav-item::before {
@@ -691,7 +691,6 @@
     .courses-nav .nav-item:hover {
       color: var(--gold);
       background: rgba(255,255,255,0.6);
-      padding-left: 24px;
       border-left-color: var(--gold-light);
     }
     .courses-nav .nav-item:hover::before { background: var(--gold); transform: scale(1.4); }
@@ -702,6 +701,11 @@
       font-weight: 500;
     }
     .courses-nav .nav-item.active::before { background: var(--gold); transform: scale(1.5); }
+    /* 호버 시 active 항목의 점은 숨김 (두 개 점 방지) */
+    .courses-nav .nav-items-inner:has(.nav-item:hover) .nav-item.active:not(:hover)::before {
+      background: var(--border);
+      transform: scale(1);
+    }
     .courses-nav .nav-divider {
       height: 1px;
       background: var(--border);

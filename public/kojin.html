@@ -504,6 +504,9 @@
       background: var(--gold-light);
       z-index: 0;
     }
+    .steps-flow-5 {
+      grid-template-columns: repeat(5, 1fr);
+    }
     .step {
       display: flex;
       flex-direction: column;
@@ -862,6 +865,7 @@
       nav { padding: 0 24px; }
       .target-grid { grid-template-columns: 1fr; }
       .steps-flow { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+      .steps-flow-5 { grid-template-columns: repeat(2, 1fr); }
       .steps-flow::before { display: none; }
       .schedule-grid { grid-template-columns: 1fr 1fr; }
       .textbook-grid { grid-template-columns: 1fr; }
@@ -1303,6 +1307,24 @@
             <div class="detail-item"><div class="di-num">2</div>文法、語彙、表現の学習（音読、和訳、発音指導）</div>
             <div class="detail-item"><div class="di-num">3</div>練習問題（作文、音読、聞き取り、聞き逃した箇所の和訳）</div>
             <div class="detail-item"><div class="di-num">4</div>学んだことは次回に復習（講師：日本語→生徒さん：韓国語に訳して声に出す）</div>
+          </div>
+        </section>
+
+        <section class="fade-in">
+          <h2 class="section-title"><span class="dot"></span>内容</h2>
+          <div class="steps-flow steps-flow-5">
+            <div class="step"><div class="step-num">①</div><div class="step-label">音読中心</div></div>
+            <div class="step"><div class="step-num">②</div><div class="step-label">予習前提</div></div>
+            <div class="step"><div class="step-num">③</div><div class="step-label">事前和訳</div></div>
+            <div class="step"><div class="step-num">④</div><div class="step-label">オーバーラップ・シャドー</div></div>
+            <div class="step"><div class="step-num">⑤</div><div class="step-label">復習で定着</div></div>
+          </div>
+          <div class="detail-list">
+            <div class="detail-item"><div class="di-num">1</div>音読を中心に、講師がその場で発音・抑揚のフィードバックと修正を行います。スポーツ選手のトレーナーがフォームを教えるように指導し、練習問題も音読で解きます。</div>
+            <div class="detail-item"><div class="di-num">2</div>予習を前提にレッスンが進行します。予習を済ませることで、1〜2回、2〜3回分のレッスンを無駄なく効率的に進められます。</div>
+            <div class="detail-item"><div class="di-num">3</div>韓国語本文と文法を事前に和訳してから授業に臨みます。授業では正確なチェックと効果的な学習を導き、和訳から出てくる類似文型や微妙なニュアンスも丁寧に説明します。</div>
+            <div class="detail-item"><div class="di-num">4</div>オーバーラッピング（音声と同時に読むこと）とシャドーイング（テキストを見ないで音声だけを聞きながら重ねて言うこと）によるトレーニングで、ネイティブの話すスピードについていける力を養います。</div>
+            <div class="detail-item"><div class="di-num">5</div>レッスン後、学んだ文型や表現を韓国語に訳す復習をしてから次回に臨みます。講師が日本語で例文を話し、生徒さんが韓国語に訳して声に出すことで定着を図ります。ミリネのレッスンでは生徒の発話が約7割を占め、リスニングと会話力が両立します。</div>
           </div>
         </section>
 

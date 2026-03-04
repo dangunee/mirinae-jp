@@ -1296,12 +1296,22 @@
                     font-size="18" fill="#b8924a" font-weight="600">70%</text>
                 </svg>
                 <div>
-                  <div style="font-size:11px;letter-spacing:.1em;color:var(--muted);margin-bottom:4px;">発話参加率</div>
+                  <div style="display:flex;align-items:center;gap:24px;flex-wrap:wrap;">
+                    <div>
+                      <div style="font-size:11px;letter-spacing:.1em;color:var(--muted);margin-bottom:4px;">発話参加率</div>
+                    </div>
+                    <div class="skills-row" style="margin:0;gap:16px;">
+                      <div class="skill-item"><div class="skill-icon">👂</div>聞く</div>
+                      <div class="skill-item"><div class="skill-icon">📖</div>読む</div>
+                      <div class="skill-item"><div class="skill-icon">✏️</div>書く</div>
+                    </div>
+                  </div>
                 </div>
               </div>
               <div class="overview-body">
-                <p>個人レッスンではテキストを使用し、聞く・話す・読む・書くを総合的に学習します。文法、語彙、表現については講師から説明いたしますが、レッスンの7割は音読や会話となり、生徒さんにどんどん声を出していただくことをモットーとしております。</p>
-                <p style="margin-top:12px;">丁寧な解説で文法のポイントを学んだ後は、練習問題で反復練習をし、「書くチカラ」も身につけます。授業中に学習した本文や例文は暗記していただき、次のレッスン時に、韓国語で声に出していただきます。</p>
+                <p><strong>個人レッスンではテキストを使用し、聞く・話す・読む・書くを総合的に学習します。</strong></p>
+                <p>文法、語彙、表現については講師から説明いたしますが、レッスンの7割は音読や会話となり、生徒さんにどんどん声を出していただくことをモットーとしております。丁寧な解説で文法のポイントを学んだ後は、練習問題で反復練習をし、「書くチカラ」も身につけます。授業中に学習した本文や例文は暗記していただき、次のレッスン時に、韓国語で声に出していただきます。</p>
+                <p>レッスンはこのように丁寧に行われるため、1コマで1つの課の50%～80%ほどの目安で進められます。</p>
               </div>
             </div>
           </div>
@@ -2320,7 +2330,7 @@
         tabPanels.forEach(function(panel) {
           panel.classList.toggle('active', panel.id === tabId);
         });
-        if (mainWrap) mainWrap.classList.toggle('no-sidebar', tabId === 'tab03' || tabId === 'tab04');
+        if (mainWrap) mainWrap.classList.remove('no-sidebar');
         history.replaceState(null, '', 'kojin.html#' + tabId);
         ctaBtns.forEach(function(btn) { btn.href = getTrialUrlForTab(tabId); });
         setCourseNavActive(tabId);

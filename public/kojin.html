@@ -339,11 +339,12 @@
     }
     .overview-card .overview-inner {
       display: flex;
+      flex-direction: column;
       align-items: flex-start;
-      gap: 32px;
+      gap: 20px;
     }
     .overview-card .overview-inner .overview-top { margin-bottom: 0; flex-shrink: 0; }
-    .overview-card .overview-inner .overview-body { flex: 1; min-width: 0; }
+    .overview-card .overview-inner .overview-body { flex: 1; min-width: 0; width: 100%; }
     .overview-top {
       display: flex;
       align-items: center;
@@ -623,16 +624,14 @@
     .sidebar-course-nav .course-nav-sub a { padding: 8px 16px; font-size: 12px; display: block; }
 
     .price-card-main {
-      background: var(--white);
-      border: 1px solid var(--border);
+      background: var(--dark);
       border-radius: 20px;
       overflow: hidden;
-      box-shadow: 0 8px 40px rgba(30,26,20,0.08);
+      box-shadow: 0 8px 40px rgba(30,26,20,0.2);
       margin-bottom: 20px;
     }
     .price-card-header {
-      background: var(--dark);
-      padding: 28px 28px 24px;
+      padding: 28px 28px 20px;
       color: var(--white);
     }
     .price-card-header .pch-label {
@@ -646,50 +645,52 @@
       font-size: 20px;
       font-weight: 600;
     }
-    .price-table { padding: 24px 28px; }
-    .price-table .price-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 12px 0;
-      border-bottom: 1px solid var(--border);
-      font-size: 13px;
-    }
-    .price-table .price-row:last-child { border-bottom: none; }
-    .price-table .price-row .course { color: var(--mid); }
-    .price-table .price-row .unit { color: var(--muted); font-size: 11px; margin-top: 2px; }
-    .price-table .price-row .amount {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 20px;
-      color: var(--dark);
-      font-weight: 600;
-      text-align: right;
-    }
-    .price-table .price-row .total {
-      font-size: 11px;
-      color: var(--muted);
-      text-align: right;
-      margin-top: 2px;
-    }
-    .price-table .price-row.highlight .amount { color: var(--gold); }
-
     .enrollment-fee {
-      background: var(--gold-pale);
-      margin: 0 28px 24px;
-      border-radius: 8px;
-      padding: 12px 16px;
+      margin: 0 28px 20px;
+      padding: 14px 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 13px;
+      font-size: 14px;
+      color: var(--white);
+      background: rgba(255,255,255,0.06);
+      border-radius: 8px;
+      border: 1px solid var(--gold);
     }
-    .enrollment-fee .ef-label { color: var(--mid); }
+    .enrollment-fee .ef-label { color: rgba(255,255,255,0.9); }
     .enrollment-fee .ef-amount {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 20px;
+      font-size: 18px;
       color: var(--gold);
       font-weight: 600;
     }
+    .price-table { padding: 0 28px 24px; }
+    .price-table-header {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr 1fr 1fr;
+      gap: 12px;
+      padding: 12px 0 10px;
+      font-size: 11px;
+      color: rgba(255,255,255,0.6);
+      letter-spacing: 0.05em;
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+    }
+    .price-table .price-row {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr 1fr 1fr;
+      gap: 12px;
+      align-items: center;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      font-size: 13px;
+      color: var(--white);
+    }
+    .price-table .price-row:last-child { border-bottom: none; }
+    .price-table .price-row .pr-course { color: var(--white); }
+    .price-table .price-row .pr-unit { color: rgba(255,255,255,0.6); font-size: 11px; margin-top: 4px; }
+    .price-table .price-row .pr-tanka { color: rgba(255,255,255,0.9); text-align: right; }
+    .price-table .price-row .pr-zeinuki { font-weight: 600; text-align: right; }
+    .price-table .price-row .pr-zeikomi { color: rgba(255,255,255,0.8); font-size: 12px; text-align: right; }
 
     .cta-btn {
       display: block;
@@ -749,6 +750,8 @@
 
     @media (max-width: 900px) {
       .main { grid-template-columns: 1fr; padding: 40px 24px; gap: 40px; }
+      .price-table-header,
+      .price-table .price-row { grid-template-columns: 1fr 0.7fr 0.9fr 0.9fr; gap: 8px; font-size: 12px; }
       .main.no-sidebar { grid-template-columns: 1fr; }
       .course-nav-wrap { position: static; }
       .course-nav-card { margin-bottom: 24px; }
@@ -1214,25 +1217,38 @@
               <div class="ef-amount">¥9,800</div>
             </div>
             <div class="price-table">
-              <div class="price-row">
-                <div><div class="course">12回コース</div><div class="unit">1コマ ¥4,900</div></div>
-                <div><div class="amount highlight">¥58,800</div><div class="total">税込 ¥64,680</div></div>
+              <div class="price-table-header">
+                <span>コース</span><span>単価</span><span>税抜</span><span>税込</span>
               </div>
               <div class="price-row">
-                <div><div class="course">24回コース</div><div class="unit">1コマ ¥4,400</div></div>
-                <div><div class="amount">¥105,600</div><div class="total">税込 ¥116,160</div></div>
+                <div class="pr-course">12回コース<div class="pr-unit">1コマ ¥4,900</div></div>
+                <div class="pr-tanka">¥4,900</div>
+                <div class="pr-zeinuki">¥58,800</div>
+                <div class="pr-zeikomi">¥64,680</div>
               </div>
               <div class="price-row">
-                <div><div class="course">48回コース</div><div class="unit">1コマ ¥3,980</div></div>
-                <div><div class="amount">¥191,040</div><div class="total">税込 ¥210,144</div></div>
+                <div class="pr-course">24回コース<div class="pr-unit">1コマ ¥4,400</div></div>
+                <div class="pr-tanka">¥4,400</div>
+                <div class="pr-zeinuki">¥105,600</div>
+                <div class="pr-zeikomi">¥116,160</div>
               </div>
               <div class="price-row">
-                <div><div class="course">72回コース</div><div class="unit">1コマ ¥3,600</div></div>
-                <div><div class="amount">¥259,200</div><div class="total">税込 ¥285,120</div></div>
+                <div class="pr-course">48回コース<div class="pr-unit">1コマ ¥3,980</div></div>
+                <div class="pr-tanka">¥3,980</div>
+                <div class="pr-zeinuki">¥191,040</div>
+                <div class="pr-zeikomi">¥210,144</div>
               </div>
               <div class="price-row">
-                <div><div class="course">月謝制（月8コマ）</div><div class="unit">1コマ ¥5,100</div></div>
-                <div><div class="amount">¥40,800</div><div class="total">税込 ¥44,880</div></div>
+                <div class="pr-course">72回コース<div class="pr-unit">1コマ ¥3,600</div></div>
+                <div class="pr-tanka">¥3,600</div>
+                <div class="pr-zeinuki">¥259,200</div>
+                <div class="pr-zeikomi">¥285,120</div>
+              </div>
+              <div class="price-row">
+                <div class="pr-course">月謝制（月8コマ）<div class="pr-unit">1コマ ¥5,100</div></div>
+                <div class="pr-tanka">¥5,100</div>
+                <div class="pr-zeinuki">¥40,800</div>
+                <div class="pr-zeikomi">¥44,880</div>
               </div>
             </div>
             <a class="kojin-cta-btn cta-btn" href="trial.html">体験レッスンを申し込む →</a>
@@ -1540,25 +1556,38 @@
               <div class="ef-amount">¥9,800</div>
             </div>
             <div class="price-table">
-              <div class="price-row">
-                <div><div class="course">12回コース</div><div class="unit">1コマ ¥4,900</div></div>
-                <div><div class="amount highlight">¥58,800</div><div class="total">税込 ¥64,680</div></div>
+              <div class="price-table-header">
+                <span>コース</span><span>単価</span><span>税抜</span><span>税込</span>
               </div>
               <div class="price-row">
-                <div><div class="course">24回コース</div><div class="unit">1コマ ¥4,400</div></div>
-                <div><div class="amount">¥105,600</div><div class="total">税込 ¥116,160</div></div>
+                <div class="pr-course">12回コース<div class="pr-unit">1コマ ¥4,900</div></div>
+                <div class="pr-tanka">¥4,900</div>
+                <div class="pr-zeinuki">¥58,800</div>
+                <div class="pr-zeikomi">¥64,680</div>
               </div>
               <div class="price-row">
-                <div><div class="course">48回コース</div><div class="unit">1コマ ¥3,980</div></div>
-                <div><div class="amount">¥191,040</div><div class="total">税込 ¥210,144</div></div>
+                <div class="pr-course">24回コース<div class="pr-unit">1コマ ¥4,400</div></div>
+                <div class="pr-tanka">¥4,400</div>
+                <div class="pr-zeinuki">¥105,600</div>
+                <div class="pr-zeikomi">¥116,160</div>
               </div>
               <div class="price-row">
-                <div><div class="course">72回コース</div><div class="unit">1コマ ¥3,600</div></div>
-                <div><div class="amount">¥259,200</div><div class="total">税込 ¥285,120</div></div>
+                <div class="pr-course">48回コース<div class="pr-unit">1コマ ¥3,980</div></div>
+                <div class="pr-tanka">¥3,980</div>
+                <div class="pr-zeinuki">¥191,040</div>
+                <div class="pr-zeikomi">¥210,144</div>
               </div>
               <div class="price-row">
-                <div><div class="course">月謝制（月8コマ）</div><div class="unit">1コマ ¥5,100</div></div>
-                <div><div class="amount">¥40,800</div><div class="total">税込 ¥44,880</div></div>
+                <div class="pr-course">72回コース<div class="pr-unit">1コマ ¥3,600</div></div>
+                <div class="pr-tanka">¥3,600</div>
+                <div class="pr-zeinuki">¥259,200</div>
+                <div class="pr-zeikomi">¥285,120</div>
+              </div>
+              <div class="price-row">
+                <div class="pr-course">月謝制（月8コマ）<div class="pr-unit">1コマ ¥5,100</div></div>
+                <div class="pr-tanka">¥5,100</div>
+                <div class="pr-zeinuki">¥40,800</div>
+                <div class="pr-zeikomi">¥44,880</div>
               </div>
             </div>
             <a class="kojin-cta-btn cta-btn" href="trial.html">体験レッスンを申し込む →</a>

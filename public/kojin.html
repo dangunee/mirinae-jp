@@ -209,7 +209,7 @@
     .main { overflow: visible; }
     /* 3カラムの先頭を同じ高さに（講座・本編・レッスン概要） */
     .course-nav-wrap { margin-top: 48px; }
-    .main .content { padding-top: 48px; }
+    .main .content { padding-top: 48px; max-width: 80%; }
     .sidebar { padding-top: 48px; }
 
     /* 強制ストッキーをやめ、グリッドの行で常に本編・サイドバーと高さを揃える */
@@ -603,6 +603,24 @@
 
     .sidebar { position: sticky; top: 80px; }
     .sidebar .info-card { margin-bottom: 20px; }
+    .sidebar-course-nav { margin-top: 0; }
+    .sidebar-course-nav .course-nav-parent {
+      width: 100%; text-align: left; background: none; border: none;
+      font-family: inherit; cursor: pointer; display: flex; align-items: center; justify-content: space-between;
+    }
+    .sidebar-course-nav .course-nav-parent::after {
+      content: ''; width: 0; height: 0; border-left: 5px solid transparent; border-right: 5px solid transparent;
+      border-top: 6px solid currentColor; margin-left: auto; transition: transform .2s;
+    }
+    .sidebar-course-nav .course-nav-has-sub.expanded .course-nav-parent::after { transform: rotate(180deg); }
+    .sidebar-course-nav .course-nav-sub {
+      position: static; margin: 0; padding: 0; box-shadow: none; border: none; border-radius: 0;
+      max-height: 0; overflow: hidden; opacity: 1; visibility: visible; transition: max-height .25s ease;
+      background: var(--gold-pale); margin-left: 12px; margin-right: 12px; margin-bottom: 8px;
+      border-radius: 8px; list-style: none;
+    }
+    .sidebar-course-nav .course-nav-has-sub.expanded .course-nav-sub { max-height: 500px; }
+    .sidebar-course-nav .course-nav-sub a { padding: 8px 16px; font-size: 12px; display: block; }
 
     .price-card-main {
       background: var(--white);
@@ -1773,6 +1791,73 @@
           <div class="info-item"><div class="ii-label">有効期限</div><div class="ii-val">12回: 3ヶ月 / 24回: 8ヶ月<br>48・72回: 1年</div></div>
         </div>
       </div>
+      <div class="course-nav-card sidebar-course-nav">
+        <div class="course-nav-header">
+          <div class="cnh-label">Courses</div>
+          <div class="cnh-title">講座</div>
+        </div>
+        <ul class="course-nav-list">
+          <li class="course-nav-has-sub course-nav-dropdown">
+            <button type="button" class="course-nav-parent" aria-expanded="false">個人レッスン</button>
+            <ul class="course-nav-sub">
+              <li><a href="kojin.html#tab01" data-tab="tab01">個人レッスン</a></li>
+              <li><a href="kojin.html#tab02" data-tab="tab02">短期集中個人</a></li>
+              <li><a href="kojin.html#tab03" data-tab="tab03">発音矯正</a></li>
+              <li><a href="kojin.html#tab04" data-tab="tab04">レベルテスト</a></li>
+            </ul>
+          </li>
+          <li class="course-nav-has-sub course-nav-dropdown">
+            <button type="button" class="course-nav-parent" aria-expanded="false">グループレッスン</button>
+            <ul class="course-nav-sub">
+              <li><a href="group.html#tab01">入門＆初級講座</a></li>
+              <li><a href="group.html#tab02">中級文法講座</a></li>
+              <li><a href="group.html#tab03">上級文法講座</a></li>
+              <li><a href="group.html#tab04">中級月1講座</a></li>
+              <li><a href="group.html#tab05">上級1土曜講座</a></li>
+              <li><a href="group.html#tab06">上級2土曜講座</a></li>
+            </ul>
+          </li>
+          <li class="course-nav-has-sub course-nav-dropdown">
+            <button type="button" class="course-nav-parent" aria-expanded="false">会話強化クラス</button>
+            <ul class="course-nav-sub">
+              <li><a href="kaiwa.html#tab01">会話クラス</a></li>
+              <li><a href="kaiwa.html#tab02">音読クラス</a></li>
+              <li><a href="kaiwa.html#tab03">発音・抑揚</a></li>
+              <li><a href="kaiwa.html#tab04">時事韓国語</a></li>
+              <li><a href="kaiwa.html#tab05">朝勉クラス</a></li>
+              <li><a href="kaiwa.html#tab06">小説朗読</a></li>
+            </ul>
+          </li>
+          <li class="course-nav-has-sub course-nav-dropdown">
+            <button type="button" class="course-nav-parent" aria-expanded="false">試験対策講座</button>
+            <ul class="course-nav-sub">
+              <li><a href="special.html#tab01">TOPIK初級</a></li>
+              <li><a href="special.html#tab02">TOPIK中級</a></li>
+              <li><a href="special.html#tab03">TOPIK上級</a></li>
+              <li><a href="special.html#tab04">ハン検1/2級</a></li>
+              <li><a href="special.html#tab05">ハン検準2級</a></li>
+              <li><a href="special.html#tab06">語彙力強化</a></li>
+            </ul>
+          </li>
+          <li class="course-nav-has-sub course-nav-dropdown">
+            <button type="button" class="course-nav-parent" aria-expanded="false">集中講座</button>
+            <ul class="course-nav-sub">
+              <li><a href="syutyu.html#tab01">入門講座</a></li>
+              <li><a href="syutyu.html#tab02">初級講座</a></li>
+              <li><a href="syutyu.html#tab03">中級講座</a></li>
+              <li><a href="syutyu.html#tab04">上級講座</a></li>
+            </ul>
+          </li>
+          <li class="course-nav-has-sub course-nav-dropdown">
+            <button type="button" class="course-nav-parent" aria-expanded="false">通信講座</button>
+            <ul class="course-nav-sub">
+              <li><a href="netlesson.html#tab01">作文トレーニング</a></li>
+              <li><a href="netlesson.html#tab02">音読トレーニング</a></li>
+              <li><a href="netlesson.html#tab03">TOPIK Training</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
     </aside>
   </div>
 
@@ -1835,6 +1920,22 @@
         var h = location.hash.slice(1);
         if (['tab01', 'tab02', 'tab03', 'tab04'].indexOf(h) !== -1) switchTab(h);
       });
+
+      document.querySelectorAll('.sidebar-course-nav .course-nav-parent').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var li = this.closest('.course-nav-has-sub');
+          li.classList.toggle('expanded');
+          btn.setAttribute('aria-expanded', li.classList.contains('expanded'));
+        });
+      });
+      var kojinLi = document.querySelector('.sidebar-course-nav a[href^="kojin.html"]');
+      if (kojinLi) {
+        var parent = kojinLi.closest('.course-nav-has-sub');
+        if (parent) {
+          parent.classList.add('expanded');
+          parent.querySelector('.course-nav-parent').setAttribute('aria-expanded', 'true');
+        }
+      }
     })();
 
     (function() {

@@ -812,6 +812,381 @@
       transition: transform 0.2s;
     }
     #tab01 .beg-cta-btn:hover svg { transform: translateX(3px); }
+
+    /* ========== tab02〜06 入門と同様のデザイン ========== */
+    #tab02, #tab03, #tab04, #tab05, #tab06 {
+      --cream: #f5f2ec;
+      --cream-mid: #ede8df;
+      --gold-light: #d4aa50;
+      --gold-pale: rgba(184,146,42,0.1);
+      --muted: #7a7368;
+      --border: #e0dbd0;
+    }
+    #tab02 .beg-page, #tab03 .beg-page, #tab04 .beg-page, #tab05 .beg-page, #tab06 .beg-page { padding: 0 0 40px; }
+    #tab02 .beg-hero, #tab03 .beg-hero, #tab04 .beg-hero, #tab05 .beg-hero, #tab06 .beg-hero {
+      background: var(--dark);
+      border-radius: 16px;
+      padding: 40px 48px;
+      margin-bottom: 32px;
+      position: relative;
+      overflow: hidden;
+    }
+    #tab02 .beg-hero::before, #tab03 .beg-hero::before, #tab04 .beg-hero::before, #tab05 .beg-hero::before, #tab06 .beg-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: repeating-linear-gradient(-50deg, transparent, transparent 38px,
+        rgba(255,255,255,0.016) 38px, rgba(255,255,255,0.016) 39px);
+      pointer-events: none;
+    }
+    #tab02 .beg-hero::after, #tab03 .beg-hero::after, #tab04 .beg-hero::after, #tab05 .beg-hero::after, #tab06 .beg-hero::after {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 280px; height: 280px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(184,146,42,0.14) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    #tab02 .beg-hero-eyebrow, #tab03 .beg-hero-eyebrow, #tab04 .beg-hero-eyebrow, #tab05 .beg-hero-eyebrow, #tab06 .beg-hero-eyebrow {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 12px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 10px;
+    }
+    #tab02 .beg-hero-title, #tab03 .beg-hero-title, #tab04 .beg-hero-title, #tab05 .beg-hero-title, #tab06 .beg-hero-title {
+      font-size: 34px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.25;
+      margin-bottom: 18px;
+      position: relative; z-index: 1;
+    }
+    #tab02 .beg-hero-title em, #tab03 .beg-hero-title em, #tab04 .beg-hero-title em, #tab05 .beg-hero-title em, #tab06 .beg-hero-title em { font-style: normal; color: var(--gold-light); }
+    #tab02 .beg-hero-desc, #tab03 .beg-hero-desc, #tab04 .beg-hero-desc, #tab05 .beg-hero-desc, #tab06 .beg-hero-desc {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      position: relative; z-index: 1;
+    }
+    #tab02 .beg-hero-desc p, #tab03 .beg-hero-desc p, #tab04 .beg-hero-desc p, #tab05 .beg-hero-desc p, #tab06 .beg-hero-desc p {
+      font-size: 16px;
+      color: rgba(255,255,255,0.65);
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+    #tab02 .beg-hero-desc p::before, #tab03 .beg-hero-desc p::before, #tab04 .beg-hero-desc p::before, #tab05 .beg-hero-desc p::before, #tab06 .beg-hero-desc p::before {
+      content: '';
+      width: 16px; height: 1px;
+      background: var(--gold);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    #tab02 .beg-hero-tags, #tab03 .beg-hero-tags, #tab04 .beg-hero-tags, #tab05 .beg-hero-tags, #tab06 .beg-hero-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 22px;
+      position: relative; z-index: 1;
+    }
+    #tab02 .beg-hero-tag, #tab03 .beg-hero-tag, #tab04 .beg-hero-tag, #tab05 .beg-hero-tag, #tab06 .beg-hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 5px 12px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 20px;
+      font-size: 14px;
+      color: rgba(255,255,255,0.75);
+    }
+    #tab02 .beg-hero-tag span, #tab03 .beg-hero-tag span, #tab04 .beg-hero-tag span, #tab05 .beg-hero-tag span, #tab06 .beg-hero-tag span { color: var(--gold-light); font-weight: 600; }
+    #tab02 .beg-sec-header, #tab03 .beg-sec-header, #tab04 .beg-sec-header, #tab05 .beg-sec-header, #tab06 .beg-sec-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+    #tab02 .beg-sec-line, #tab03 .beg-sec-line, #tab04 .beg-sec-line, #tab05 .beg-sec-line, #tab06 .beg-sec-line { flex: 1; height: 1px; background: var(--border); }
+    #tab02 .beg-sec-title, #tab03 .beg-sec-title, #tab04 .beg-sec-title, #tab05 .beg-sec-title, #tab06 .beg-sec-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--dark);
+      letter-spacing: 0.06em;
+      white-space: nowrap;
+    }
+    #tab02 .beg-sec-label, #tab03 .beg-sec-label, #tab04 .beg-sec-label, #tab05 .beg-sec-label, #tab06 .beg-sec-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    #tab02 .beg-targets-grid, #tab03 .beg-targets-grid, #tab04 .beg-targets-grid, #tab05 .beg-targets-grid, #tab06 .beg-targets-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    @media (max-width: 560px) {
+      #tab02 .beg-targets-grid, #tab03 .beg-targets-grid, #tab04 .beg-targets-grid, #tab05 .beg-targets-grid, #tab06 .beg-targets-grid { grid-template-columns: 1fr; }
+    }
+    #tab02 .beg-target-card, #tab03 .beg-target-card, #tab04 .beg-target-card, #tab05 .beg-target-card, #tab06 .beg-target-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px 18px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    #tab02 .beg-target-card:hover, #tab03 .beg-target-card:hover, #tab04 .beg-target-card:hover, #tab05 .beg-target-card:hover, #tab06 .beg-target-card:hover {
+      border-color: var(--gold-light);
+      box-shadow: 0 3px 14px rgba(184,146,42,0.1);
+    }
+    #tab02 .beg-target-icon, #tab03 .beg-target-icon, #tab04 .beg-target-icon, #tab05 .beg-target-icon, #tab06 .beg-target-icon { font-size: 24px; line-height: 1; flex-shrink: 0; margin-top: 1px; }
+    #tab02 .beg-target-text, #tab03 .beg-target-text, #tab04 .beg-target-text, #tab05 .beg-target-text, #tab06 .beg-target-text { font-size: 14px; color: var(--dark); line-height: 1.6; }
+    #tab02 .beg-flow-steps, #tab03 .beg-flow-steps, #tab04 .beg-flow-steps, #tab05 .beg-flow-steps, #tab06 .beg-flow-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 32px;
+    }
+    #tab02 .beg-flow-step, #tab03 .beg-flow-step, #tab04 .beg-flow-step, #tab05 .beg-flow-step, #tab06 .beg-flow-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--border);
+      transition: background 0.15s;
+    }
+    #tab02 .beg-flow-step:last-child, #tab03 .beg-flow-step:last-child, #tab04 .beg-flow-step:last-child, #tab05 .beg-flow-step:last-child, #tab06 .beg-flow-step:last-child { border-bottom: none; }
+    #tab02 .beg-flow-step:hover, #tab03 .beg-flow-step:hover, #tab04 .beg-flow-step:hover, #tab05 .beg-flow-step:hover, #tab06 .beg-flow-step:hover { background: #faf8f4; }
+    #tab02 .beg-flow-num, #tab03 .beg-flow-num, #tab04 .beg-flow-num, #tab05 .beg-flow-num, #tab06 .beg-flow-num {
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      background: var(--dark);
+      color: var(--gold-light);
+      font-size: 13px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    #tab02 .beg-flow-text, #tab03 .beg-flow-text, #tab04 .beg-flow-text, #tab05 .beg-flow-text, #tab06 .beg-flow-text { font-size: 16px; color: var(--dark); }
+    #tab02 .beg-info-cards, #tab03 .beg-info-cards, #tab04 .beg-info-cards, #tab05 .beg-info-cards, #tab06 .beg-info-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    @media (max-width: 560px) {
+      #tab02 .beg-info-cards, #tab03 .beg-info-cards, #tab04 .beg-info-cards, #tab05 .beg-info-cards, #tab06 .beg-info-cards { grid-template-columns: 1fr; }
+    }
+    #tab02 .beg-info-card, #tab03 .beg-info-card, #tab04 .beg-info-card, #tab05 .beg-info-card, #tab06 .beg-info-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 18px;
+    }
+    #tab02 .beg-info-card-label, #tab03 .beg-info-card-label, #tab04 .beg-info-card-label, #tab05 .beg-info-card-label, #tab06 .beg-info-card-label {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-family: 'Cormorant Garamond', serif;
+      margin-bottom: 5px;
+    }
+    #tab02 .beg-info-card-value, #tab03 .beg-info-card-value, #tab04 .beg-info-card-value, #tab05 .beg-info-card-value, #tab06 .beg-info-card-value {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--dark);
+      line-height: 1.5;
+    }
+    #tab02 .beg-info-card-value small, #tab03 .beg-info-card-value small, #tab04 .beg-info-card-value small, #tab05 .beg-info-card-value small, #tab06 .beg-info-card-value small {
+      display: block;
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+    #tab02 .beg-textbook-row, #tab03 .beg-textbook-row, #tab04 .beg-textbook-row, #tab05 .beg-textbook-row, #tab06 .beg-textbook-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 20px;
+      margin-bottom: 32px;
+    }
+    #tab02 .beg-textbook-icon, #tab03 .beg-textbook-icon, #tab04 .beg-textbook-icon, #tab05 .beg-textbook-icon, #tab06 .beg-textbook-icon {
+      width: 36px; height: 36px;
+      background: var(--dark);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+    #tab02 .beg-textbook-content, #tab03 .beg-textbook-content, #tab04 .beg-textbook-content, #tab05 .beg-textbook-content, #tab06 .beg-textbook-content { flex: 1; }
+    #tab02 .beg-textbook-label, #tab03 .beg-textbook-label, #tab04 .beg-textbook-label, #tab05 .beg-textbook-label, #tab06 .beg-textbook-label {
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      margin-bottom: 2px;
+    }
+    #tab02 .beg-textbook-title, #tab03 .beg-textbook-title, #tab04 .beg-textbook-title, #tab05 .beg-textbook-title, #tab06 .beg-textbook-title { font-size: 16px; font-weight: 500; color: var(--dark); }
+    #tab02 .beg-syllabus-table-wrap, #tab03 .beg-syllabus-table-wrap, #tab04 .beg-syllabus-table-wrap, #tab05 .beg-syllabus-table-wrap, #tab06 .beg-syllabus-table-wrap {
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 2px 12px rgba(28,26,23,0.06);
+      margin-bottom: 32px;
+    }
+    #tab02 .beg-syllabus-table, #tab03 .beg-syllabus-table, #tab04 .beg-syllabus-table, #tab05 .beg-syllabus-table, #tab06 .beg-syllabus-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--white);
+      font-size: 14px;
+    }
+    #tab02 .beg-syllabus-table thead tr, #tab03 .beg-syllabus-table thead tr, #tab04 .beg-syllabus-table thead tr, #tab05 .beg-syllabus-table thead tr, #tab06 .beg-syllabus-table thead tr { background: var(--dark); }
+    #tab02 .beg-syllabus-table thead th, #tab03 .beg-syllabus-table thead th, #tab04 .beg-syllabus-table thead th, #tab05 .beg-syllabus-table thead th, #tab06 .beg-syllabus-table thead th {
+      padding: 11px 14px;
+      font-size: 13px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.8);
+      letter-spacing: 0.05em;
+      text-align: left;
+    }
+    #tab02 .beg-syllabus-table tbody td, #tab03 .beg-syllabus-table tbody td, #tab04 .beg-syllabus-table tbody td, #tab05 .beg-syllabus-table tbody td, #tab06 .beg-syllabus-table tbody td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--border);
+      color: var(--dark);
+    }
+    #tab02 .beg-syllabus-table tbody tr:last-child td, #tab03 .beg-syllabus-table tbody tr:last-child td, #tab04 .beg-syllabus-table tbody tr:last-child td, #tab05 .beg-syllabus-table tbody tr:last-child td, #tab06 .beg-syllabus-table tbody tr:last-child td { border-bottom: none; }
+    #tab02 .beg-tuition-table-wrap, #tab03 .beg-tuition-table-wrap, #tab04 .beg-tuition-table-wrap, #tab05 .beg-tuition-table-wrap, #tab06 .beg-tuition-table-wrap {
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 2px 12px rgba(28,26,23,0.06);
+      margin-bottom: 32px;
+    }
+    #tab02 .beg-tuition-table, #tab03 .beg-tuition-table, #tab04 .beg-tuition-table, #tab05 .beg-tuition-table, #tab06 .beg-tuition-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--white);
+    }
+    #tab02 .beg-tuition-table thead tr, #tab03 .beg-tuition-table thead tr, #tab04 .beg-tuition-table thead tr, #tab05 .beg-tuition-table thead tr, #tab06 .beg-tuition-table thead tr { background: var(--dark); }
+    #tab02 .beg-tuition-table thead th, #tab03 .beg-tuition-table thead th, #tab04 .beg-tuition-table thead th, #tab05 .beg-tuition-table thead th, #tab06 .beg-tuition-table thead th {
+      padding: 11px 18px;
+      font-size: 13px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.8);
+      letter-spacing: 0.05em;
+      text-align: center;
+    }
+    #tab02 .beg-tuition-table thead th:first-child, #tab03 .beg-tuition-table thead th:first-child, #tab04 .beg-tuition-table thead th:first-child, #tab05 .beg-tuition-table thead th:first-child, #tab06 .beg-tuition-table thead th:first-child { text-align: left; }
+    #tab02 .beg-tuition-table tbody tr, #tab03 .beg-tuition-table tbody tr, #tab04 .beg-tuition-table tbody tr, #tab05 .beg-tuition-table tbody tr, #tab06 .beg-tuition-table tbody tr {
+      border-bottom: 1px solid var(--border);
+      transition: background 0.15s;
+    }
+    #tab02 .beg-tuition-table tbody tr:last-child, #tab03 .beg-tuition-table tbody tr:last-child, #tab04 .beg-tuition-table tbody tr:last-child, #tab05 .beg-tuition-table tbody tr:last-child, #tab06 .beg-tuition-table tbody tr:last-child { border-bottom: none; }
+    #tab02 .beg-tuition-table tbody tr:nth-child(even), #tab03 .beg-tuition-table tbody tr:nth-child(even), #tab04 .beg-tuition-table tbody tr:nth-child(even), #tab05 .beg-tuition-table tbody tr:nth-child(even), #tab06 .beg-tuition-table tbody tr:nth-child(even) { background: #faf8f4; }
+    #tab02 .beg-tuition-table tbody tr:hover, #tab03 .beg-tuition-table tbody tr:hover, #tab04 .beg-tuition-table tbody tr:hover, #tab05 .beg-tuition-table tbody tr:hover, #tab06 .beg-tuition-table tbody tr:hover { background: #f3ede0; }
+    #tab02 .beg-tuition-table td, #tab03 .beg-tuition-table td, #tab04 .beg-tuition-table td, #tab05 .beg-tuition-table td, #tab06 .beg-tuition-table td {
+      padding: 13px 18px;
+      font-size: 15px;
+      color: var(--dark);
+      text-align: center;
+    }
+    #tab02 .beg-tuition-table td:first-child, #tab03 .beg-tuition-table td:first-child, #tab04 .beg-tuition-table td:first-child, #tab05 .beg-tuition-table td:first-child, #tab06 .beg-tuition-table td:first-child { text-align: left; font-weight: 500; }
+    #tab02 .beg-tuition-note, #tab03 .beg-tuition-note, #tab04 .beg-tuition-note, #tab05 .beg-tuition-note, #tab06 .beg-tuition-note {
+      background: var(--cream-mid);
+      border-left: 2px solid var(--gold-light);
+      padding: 10px 16px;
+      font-size: 14px;
+      color: var(--muted);
+      border-radius: 0 0 10px 10px;
+      line-height: 1.65;
+    }
+    #tab02 .beg-testimonial, #tab03 .beg-testimonial, #tab04 .beg-testimonial, #tab05 .beg-testimonial, #tab06 .beg-testimonial {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px 24px;
+      margin-bottom: 32px;
+      position: relative;
+    }
+    #tab02 .beg-testimonial::before, #tab03 .beg-testimonial::before, #tab04 .beg-testimonial::before, #tab05 .beg-testimonial::before, #tab06 .beg-testimonial::before {
+      content: '"';
+      position: absolute;
+      top: 10px; left: 18px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 60px;
+      color: var(--gold-pale);
+      line-height: 1;
+      pointer-events: none;
+    }
+    #tab02 .beg-testimonial-meta, #tab03 .beg-testimonial-meta, #tab04 .beg-testimonial-meta, #tab05 .beg-testimonial-meta, #tab06 .beg-testimonial-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    #tab02 .beg-testimonial-avatar, #tab03 .beg-testimonial-avatar, #tab04 .beg-testimonial-avatar, #tab05 .beg-testimonial-avatar, #tab06 .beg-testimonial-avatar {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: var(--dark);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; color: var(--gold-light); font-weight: 700;
+      flex-shrink: 0;
+    }
+    #tab02 .beg-testimonial-name, #tab03 .beg-testimonial-name, #tab04 .beg-testimonial-name, #tab05 .beg-testimonial-name, #tab06 .beg-testimonial-name { font-size: 15px; font-weight: 600; color: var(--dark); }
+    #tab02 .beg-testimonial-date, #tab03 .beg-testimonial-date, #tab04 .beg-testimonial-date, #tab05 .beg-testimonial-date, #tab06 .beg-testimonial-date { font-size: 13px; color: var(--muted); }
+    #tab02 .beg-testimonial-body, #tab03 .beg-testimonial-body, #tab04 .beg-testimonial-body, #tab05 .beg-testimonial-body, #tab06 .beg-testimonial-body {
+      font-size: 16px;
+      color: #3d3830;
+      line-height: 1.75;
+      padding-left: 4px;
+    }
+    #tab02 .beg-cta-btn, #tab03 .beg-cta-btn, #tab04 .beg-cta-btn, #tab05 .beg-cta-btn, #tab06 .beg-cta-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+      color: var(--dark);
+      font-size: 18px;
+      font-weight: 700;
+      padding: 18px 32px;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      letter-spacing: 0.04em;
+      box-shadow: 0 4px 20px rgba(184,146,42,0.4);
+      transition: transform 0.15s, box-shadow 0.15s;
+      width: 100%;
+      text-decoration: none;
+    }
+    #tab02 .beg-cta-btn:hover, #tab03 .beg-cta-btn:hover, #tab04 .beg-cta-btn:hover, #tab05 .beg-cta-btn:hover, #tab06 .beg-cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(184,146,42,0.5);
+    }
+    #tab02 .beg-cta-btn svg, #tab03 .beg-cta-btn svg, #tab04 .beg-cta-btn svg, #tab05 .beg-cta-btn svg, #tab06 .beg-cta-btn svg {
+      width: 16px; height: 16px;
+      stroke: var(--dark); stroke-width: 2.5; fill: none;
+      transition: transform 0.2s;
+    }
+    #tab02 .beg-cta-btn:hover svg, #tab03 .beg-cta-btn:hover svg, #tab04 .beg-cta-btn:hover svg, #tab05 .beg-cta-btn:hover svg, #tab06 .beg-cta-btn:hover svg { transform: translateX(3px); }
   </style>
 </head>
 <body>
@@ -1297,87 +1672,135 @@
 
       <!-- ========== タブ2: 中級文法講座 ========== -->
       <div id="tab02" class="tab-panel">
-        <h2 class="section-header">『中級｜文法まとめ講座』</h2>
-        <div class="content-inner">
-          <div class="content-block">
-            <p>Ⅰ『最短2ヶ月半で重要な中級レベルの文法が習得できます！』2ヶ月半、土曜日（月4回・2コマ）の講座で、中級文法が学べるコースです。</p>
-            <p>Ⅱ『中級文法がイマイチ整理出来ていない』似ている文法の使い分けをしっかり学び、たくさん会話文の練習が出来ます。</p>
-            <p>Ⅲ『せっかく文法を学んでも身に付かない』添削課題を通して学んだ文法が正しいのかを確認し、定着を図ります。</p>
-          </div>
-
-          <div class="content-block">
-            <h3>対象・目標</h3>
-            <div class="target-cards">
-              <div class="target-card">
-                <div class="target-card-icon">📚</div>
-                <div class="target-card-text">中級文法をまとめて学びたい方（TOPIK3～5級レベル）</div>
-              </div>
-              <div class="target-card">
-                <div class="target-card-icon">✅</div>
-                <div class="target-card-text">中級者なら必ず知っておくべき表現と文法を身につけ、聞き取りの能力も高めます。</div>
-              </div>
-              <div class="target-card">
-                <div class="target-card-icon">🔍</div>
-                <div class="target-card-text">似ている表現の違いを正確に理解し、自信を持って使い分けられるようにします。</div>
-              </div>
+        <div class="beg-page">
+          <div class="beg-hero">
+            <div class="beg-hero-eyebrow">Group Lesson — Intermediate Grammar</div>
+            <div class="beg-hero-title">『中級｜<em>文法まとめ</em>講座』</div>
+            <div class="beg-hero-desc">
+              <p>最短2ヶ月半で重要な中級レベルの文法が習得できます！</p>
+              <p>2ヶ月半、土曜日（月4回・2コマ）の講座で、中級文法が学べるコースです。</p>
+              <p>似ている文法の使い分けをしっかり学び、添削課題を通して定着を図ります。</p>
+            </div>
+            <div class="beg-hero-tags">
+              <div class="beg-hero-tag">📅 <span>土曜</span></div>
+              <div class="beg-hero-tag">⏱ <span>50分×2コマ</span></div>
+              <div class="beg-hero-tag">👥 <span>定員 2〜8人</span></div>
+              <div class="beg-hero-tag">💻 <span>オンライン（Zoom）</span></div>
+              <div class="beg-hero-tag">📅 <span>2月7日開始</span></div>
             </div>
           </div>
 
-          <div class="content-block">
-            <h3>授業の流れ</h3>
-            <ul style="margin-left: 24px; list-style: none;">
-              <li>❶ 授業の前に添削課題をお送りします。テキストの分からない単語などは事前に調べ、問題を解いておきます。</li>
-              <li>❷ 授業中に講師が使い方や正確な意味を解説し、疑問点について質疑応答の時間を持ちます。</li>
-            </ul>
+          <div class="beg-sec-header">
+            <div class="beg-sec-label">Targets</div>
+            <div class="beg-sec-title">対象・目標</div>
+            <div class="beg-sec-line"></div>
           </div>
-
-          <div class="content-block">
-            <h3>日程・教室</h3>
-            <p>2月7日開始、土 10時〜12時（50分×2コマ）</p>
-            <p>オンライン（Zoom、欠席時動画提供）／定員 2～8人</p>
-          </div>
-
-          <div class="content-block">
-            <h3>テキスト</h3>
-            <p>『実用韓国語文法 中級』（＋ミリネ独自添削課題）</p>
-          </div>
-
-          <div class="content-block">
-            <h3>主なカリキュラム</h3>
-            <div class="curriculum-wrap">
-              <table class="price-table">
-                <thead>
-                  <tr><th>回数</th><th>時限</th><th>項目</th><th>概要</th></tr>
-                </thead>
-                <tbody>
-                  <tr><td>1</td><td>1限目</td><td>推測と予想❶</td><td>-아/어 보이다, -은/는 모양이다</td></tr>
-                  <tr><td></td><td>2限目</td><td>推測と予想❷</td><td>-을 텐데, -을 걸요</td></tr>
-                  <tr><td>2</td><td>1限目</td><td>推測と予想❸</td><td>-은/는/을 줄 몰랐다(알았다), -을지도 모르다</td></tr>
-                  <tr><td></td><td>2限目</td><td>対照</td><td>-기는 하지만, -기는 -지만, -은/는 반면에, -은/는데도</td></tr>
-                  <tr><td>3</td><td>1限目</td><td>叙述とタメ口</td><td>서술체・반말체</td></tr>
-                  <tr><td></td><td>2限目</td><td>理由❶</td><td>-거든요, -잖아요, -느라고</td></tr>
-                  <tr><td>4</td><td>1限目</td><td>理由❷</td><td>-는 바람에, -는 탓에</td></tr>
-                  <tr><td></td><td>2限目</td><td>理由❸</td><td>-고 해서, -을까 봐</td></tr>
-                  <tr><td>5</td><td>1限目</td><td>他人の話や文の引用❶</td><td>-다고요?, -다고 하던데</td></tr>
-                  <tr><td></td><td>2限目</td><td>他人の話や文の引用❷</td><td>-다면서요?, -다니요?</td></tr>
-                  <tr><td>6</td><td>1限目</td><td>決心と意図❶</td><td>-을까 하다, -고자, -(으)려던 참이다</td></tr>
-                  <tr><td></td><td>2限目</td><td>決心と意図❷</td><td>-을 겸 -을 겸, -아/어야지요</td></tr>
-                  <tr><td>7</td><td>1限目</td><td>推薦と助言</td><td>-을 만하다, -도록 하다, -지 그래요?</td></tr>
-                  <tr><td></td><td>2限目</td><td>回想</td><td>-던, -더라고요, -던데요</td></tr>
-                  <tr><td>8</td><td>1限目</td><td>受け身</td><td>피동(-이/히/리/기-), -아/어지다, -게 되다</td></tr>
-                  <tr><td></td><td>2限目</td><td>使役</td><td>사동(-이/히/리/기-), -게 하다</td></tr>
-                  <tr><td>9</td><td>1限目</td><td>条件</td><td>-아/어야, -거든</td></tr>
-                  <tr><td></td><td>2限目</td><td>追加❶</td><td>-을 뿐만 아니라, -은/는 데다가</td></tr>
-                  <tr><td>10</td><td>1限目</td><td>追加❷</td><td>-조차, -만 해도</td></tr>
-                  <tr><td></td><td>2限目</td><td>途中</td><td>-는 길에, -다가</td></tr>
-                </tbody>
-              </table>
+          <div class="beg-targets-grid">
+            <div class="beg-target-card">
+              <span class="beg-target-icon">📚</span>
+              <span class="beg-target-text">中級文法をまとめて学びたい方（TOPIK3～5級レベル）</span>
+            </div>
+            <div class="beg-target-card">
+              <span class="beg-target-icon">✅</span>
+              <span class="beg-target-text">中級者なら必ず知っておくべき表現と文法を身につけ、聞き取りの能力も高めます。</span>
+            </div>
+            <div class="beg-target-card">
+              <span class="beg-target-icon">🔍</span>
+              <span class="beg-target-text">似ている表現の違いを正確に理解し、自信を持って使い分けられるようにします。</span>
             </div>
           </div>
 
-          <div class="content-block">
-            <h3>授業料</h3>
-            <table class="price-table">
+          <div class="beg-sec-header">
+            <div class="beg-sec-label">Lesson Flow</div>
+            <div class="beg-sec-title">授業の流れ</div>
+            <div class="beg-sec-line"></div>
+          </div>
+          <div class="beg-flow-steps">
+            <div class="beg-flow-step">
+              <span class="beg-flow-num">1</span>
+              <span class="beg-flow-text">授業の前に添削課題をお送りします。テキストの分からない単語などは事前に調べ、問題を解いておきます。</span>
+            </div>
+            <div class="beg-flow-step">
+              <span class="beg-flow-num">2</span>
+              <span class="beg-flow-text">授業中に講師が使い方や正確な意味を解説し、疑問点について質疑応答の時間を持ちます。</span>
+            </div>
+          </div>
+
+          <div class="beg-sec-header">
+            <div class="beg-sec-label">Schedule</div>
+            <div class="beg-sec-title">日程・教室</div>
+            <div class="beg-sec-line"></div>
+          </div>
+          <div class="beg-info-cards">
+            <div class="beg-info-card">
+              <div class="beg-info-card-label">Schedule</div>
+              <div class="beg-info-card-value">2月7日開始<small>土 10時〜12時（50分×2コマ）</small></div>
+            </div>
+            <div class="beg-info-card">
+              <div class="beg-info-card-label">Classroom</div>
+              <div class="beg-info-card-value">オンライン（Zoom）<small>欠席時動画提供</small></div>
+            </div>
+            <div class="beg-info-card">
+              <div class="beg-info-card-label">Capacity</div>
+              <div class="beg-info-card-value">定員 2〜8人</div>
+            </div>
+          </div>
+
+          <div class="beg-sec-header">
+            <div class="beg-sec-label">Textbook</div>
+            <div class="beg-sec-title">テキスト</div>
+            <div class="beg-sec-line"></div>
+          </div>
+          <div class="beg-textbook-row">
+            <div class="beg-textbook-icon">📖</div>
+            <div class="beg-textbook-content">
+              <div class="beg-textbook-label">使用教材</div>
+              <div class="beg-textbook-title">『実用韓国語文法 中級』（＋ミリネ独自添削課題）</div>
+            </div>
+          </div>
+
+          <div class="beg-sec-header">
+            <div class="beg-sec-label">Syllabus</div>
+            <div class="beg-sec-title">主なカリキュラム</div>
+            <div class="beg-sec-line"></div>
+          </div>
+          <div class="beg-syllabus-table-wrap">
+            <table class="beg-syllabus-table">
+              <thead>
+                <tr><th>回数</th><th>時限</th><th>項目</th><th>概要</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>1</td><td>1限目</td><td>推測と予想❶</td><td>-아/어 보이다, -은/는 모양이다</td></tr>
+                <tr><td></td><td>2限目</td><td>推測と予想❷</td><td>-을 텐데, -을 걸요</td></tr>
+                <tr><td>2</td><td>1限目</td><td>推測と予想❸</td><td>-은/는/을 줄 몰랐다(알았다), -을지도 모르다</td></tr>
+                <tr><td></td><td>2限目</td><td>対照</td><td>-기는 하지만, -기는 -지만, -은/는 반면에, -은/는데도</td></tr>
+                <tr><td>3</td><td>1限目</td><td>叙述とタメ口</td><td>서술체・반말체</td></tr>
+                <tr><td></td><td>2限目</td><td>理由❶</td><td>-거든요, -잖아요, -느라고</td></tr>
+                <tr><td>4</td><td>1限目</td><td>理由❷</td><td>-는 바람에, -는 탓에</td></tr>
+                <tr><td></td><td>2限目</td><td>理由❸</td><td>-고 해서, -을까 봐</td></tr>
+                <tr><td>5</td><td>1限目</td><td>他人の話や文の引用❶</td><td>-다고요?, -다고 하던데</td></tr>
+                <tr><td></td><td>2限目</td><td>他人の話や文の引用❷</td><td>-다면서요?, -다니요?</td></tr>
+                <tr><td>6</td><td>1限目</td><td>決心と意図❶</td><td>-을까 하다, -고자, -(으)려던 참이다</td></tr>
+                <tr><td></td><td>2限目</td><td>決心と意図❷</td><td>-을 겸 -을 겸, -아/어야지요</td></tr>
+                <tr><td>7</td><td>1限目</td><td>推薦と助言</td><td>-을 만하다, -도록 하다, -지 그래요?</td></tr>
+                <tr><td></td><td>2限目</td><td>回想</td><td>-던, -더라고요, -던데요</td></tr>
+                <tr><td>8</td><td>1限目</td><td>受け身</td><td>피동(-이/히/리/기-), -아/어지다, -게 되다</td></tr>
+                <tr><td></td><td>2限目</td><td>使役</td><td>사동(-이/히/리/기-), -게 하다</td></tr>
+                <tr><td>9</td><td>1限目</td><td>条件</td><td>-아/어야, -거든</td></tr>
+                <tr><td></td><td>2限目</td><td>追加❶</td><td>-을 뿐만 아니라, -은/는 데다가</td></tr>
+                <tr><td>10</td><td>1限目</td><td>追加❷</td><td>-조차, -만 해도</td></tr>
+                <tr><td></td><td>2限目</td><td>途中</td><td>-는 길에, -다가</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="beg-sec-header">
+            <div class="beg-sec-label">Tuition</div>
+            <div class="beg-sec-title">授業料</div>
+            <div class="beg-sec-line"></div>
+          </div>
+          <div class="beg-tuition-table-wrap">
+            <table class="beg-tuition-table">
               <thead>
                 <tr><th>回数</th><th>1回あたり</th><th>納入額</th><th>税込</th></tr>
               </thead>
@@ -1387,79 +1810,133 @@
             </table>
           </div>
 
-          <div class="content-block">
-            <h3>生徒の声（一部）</h3>
-            <div class="testimonial">
-              <div class="testimonial-header">関東地域｜2021.11</div>
-              <div class="testimonial-content">
-                <p>この講座を受講することで、中級文法がこんなに多岐に渡る内容だったのかと実感しました。会話も決まった文法でしかできていなかったことに気づき、本当に良かったです。細かい説明がわかりやすく、もう一度しっかり復習したいと思います。</p>
+          <div class="beg-sec-header">
+            <div class="beg-sec-label">Testimonial</div>
+            <div class="beg-sec-title">生徒の声</div>
+            <div class="beg-sec-line"></div>
+          </div>
+          <div class="beg-testimonial">
+            <div class="beg-testimonial-meta">
+              <div class="beg-testimonial-avatar">関</div>
+              <div>
+                <div class="beg-testimonial-name">関東地域</div>
+                <div class="beg-testimonial-date">2021.11</div>
               </div>
             </div>
+            <div class="beg-testimonial-body">
+              この講座を受講することで、中級文法がこんなに多岐に渡る内容だったのかと実感しました。会話も決まった文法でしかできていなかったことに気づき、本当に良かったです。細かい説明がわかりやすく、もう一度しっかり復習したいと思います。
+            </div>
           </div>
+
+          <a href="trial.html" class="beg-cta-btn" style="text-decoration:none;">
+            お申込みはこちら
+            <svg viewBox="0 0 16 16"><line x1="2" y1="8" x2="13" y2="8" stroke="currentColor" stroke-width="2.5" fill="none"/><polyline points="9,4 13,8 9,12" stroke="currentColor" stroke-width="2.5" fill="none"/></svg>
+          </a>
         </div>
       </div>
 
       <!-- ========== タブ3: 上級文法講座 ========== -->
       <div id="tab03" class="tab-panel">
-        <h2 class="section-header">『上級｜文法まとめ講座』</h2>
-        <div class="content-inner">
-          <div class="content-block">
-            <p>Ⅰ『最短2ヶ月で重要な上級レベルの文法が習得できます！』2ヶ月間、土曜日（月4回・2コマ）の講座で、上級文法が学べるコースです。</p>
-            <p>Ⅱ『上級文法がイマイチ整理出来ていない』似ている文法の使い分けをしっかり学び、たくさん会話文の練習が出来ます。</p>
-            <p>Ⅲ『せっかく文法を学んでも身に付かない』添削課題を通して学んだ文法が正しいのかを確認し、定着を図ります。</p>
-          </div>
-
-          <div class="content-block">
-            <h3>対象・目標</h3>
-            <div class="target-cards">
-              <div class="target-card">
-                <div class="target-card-icon">🎓</div>
-                <div class="target-card-text">上級文法をまとめて学びたい方（TOPIK5～6級レベル）</div>
-              </div>
-              <div class="target-card">
-                <div class="target-card-icon">🗣</div>
-                <div class="target-card-text">上級者が知っておくべき表現と文法・語彙・聞き取り力を総合的に伸ばします。</div>
-              </div>
+        <div class="beg-page">
+          <div class="beg-hero">
+            <div class="beg-hero-eyebrow">Group Lesson — Advanced Grammar</div>
+            <div class="beg-hero-title">『上級｜<em>文法まとめ</em>講座』</div>
+            <div class="beg-hero-desc">
+              <p>最短2ヶ月で重要な上級レベルの文法が習得できます！</p>
+              <p>2ヶ月間、土曜日（月4回・2コマ）の講座で、上級文法が学べるコースです。</p>
+              <p>似ている文法の使い分けをしっかり学び、添削課題を通して定着を図ります。</p>
+            </div>
+            <div class="beg-hero-tags">
+              <div class="beg-hero-tag">📅 <span>土曜</span></div>
+              <div class="beg-hero-tag">⏱ <span>50分×2コマ</span></div>
+              <div class="beg-hero-tag">👥 <span>定員 3〜8人</span></div>
+              <div class="beg-hero-tag">💻 <span>オンライン（Zoom）</span></div>
+              <div class="beg-hero-tag">📅 <span>10月4日開始</span></div>
+              <div class="beg-hero-tag">🔒 <span>募集終了</span></div>
             </div>
           </div>
 
-          <div class="content-block">
-            <h3>日程・教室</h3>
-            <p>10月4日開始、土 12時〜14時（50分×2コマ）</p>
-            <p>オンライン（Zoom、欠席時動画提供）／定員 3～8人（募集終了）</p>
+          <div class="beg-sec-header">
+            <div class="beg-sec-label">Targets</div>
+            <div class="beg-sec-title">対象・目標</div>
+            <div class="beg-sec-line"></div>
           </div>
-
-          <div class="content-block">
-            <h3>テキスト</h3>
-            <p>『実用韓国語文法 上級』（＋ミリネ独自添削課題）</p>
-          </div>
-
-          <div class="content-block">
-            <h3>主なカリキュラム</h3>
-            <div class="curriculum-wrap">
-              <table class="price-table">
-                <thead>
-                  <tr><th>回数</th><th>時限</th><th>項目</th><th>概要</th></tr>
-                </thead>
-                <tbody>
-                  <tr><td>1</td><td>1限目</td><td>選択</td><td>-느니, -(으)ㄹ 바에야, -건-건</td></tr>
-                  <tr><td></td><td>2限目</td><td>選択・引用</td><td>-(느)ㄴ다기보다는, -고, など</td></tr>
-                  <tr><td>2</td><td>1限目</td><td>引用</td><td>-(느)ㄴ다니까, -(느)ㄴ다면서, ~에 의하면 など</td></tr>
-                  <tr><td></td><td>2限目</td><td>名詞化</td><td>-(으)ㅁ, -는 데, -는 바</td></tr>
-                  <tr><td>3</td><td>1限目</td><td>原因と理由❶</td><td>(으)로 인해서, -는 통에, (으)로 말미암아</td></tr>
-                  <tr><td></td><td>2限目</td><td>原因と理由❷</td><td>-느니만큼, -는 이상, -기로서니</td></tr>
-                  <tr><td>4</td><td>1限目</td><td>原因と理由❸</td><td>-기에망정이지, -(느)ㄴ답시고, -(으)ㅁ으로써</td></tr>
-                  <tr><td></td><td>2限目</td><td>原因と理由❹</td><td>-기에, -길래</td></tr>
-                  <tr><td>5</td><td>1限目</td><td>仮定❶</td><td>-더라도, -(으)ㄹ지라도, -(으)ㄴ들</td></tr>
-                  <tr><td></td><td>2限目</td><td>仮定❷</td><td>-(으)ㄹ망정, -(느)ㄴ다고 치다, -는 셈치다</td></tr>
-                </tbody>
-              </table>
+          <div class="beg-targets-grid">
+            <div class="beg-target-card">
+              <span class="beg-target-icon">🎓</span>
+              <span class="beg-target-text">上級文法をまとめて学びたい方（TOPIK5～6級レベル）</span>
+            </div>
+            <div class="beg-target-card">
+              <span class="beg-target-icon">🗣</span>
+              <span class="beg-target-text">上級者が知っておくべき表現と文法・語彙・聞き取り力を総合的に伸ばします。</span>
             </div>
           </div>
 
-          <div class="content-block">
-            <h3>授業料</h3>
-            <table class="price-table">
+          <div class="beg-sec-header">
+            <div class="beg-sec-label">Schedule</div>
+            <div class="beg-sec-title">日程・教室</div>
+            <div class="beg-sec-line"></div>
+          </div>
+          <div class="beg-info-cards">
+            <div class="beg-info-card">
+              <div class="beg-info-card-label">Schedule</div>
+              <div class="beg-info-card-value">10月4日開始<small>土 12時〜14時（50分×2コマ）</small></div>
+            </div>
+            <div class="beg-info-card">
+              <div class="beg-info-card-label">Classroom</div>
+              <div class="beg-info-card-value">オンライン（Zoom）<small>欠席時動画提供</small></div>
+            </div>
+            <div class="beg-info-card">
+              <div class="beg-info-card-label">Capacity</div>
+              <div class="beg-info-card-value">定員 3〜8人<small>募集終了</small></div>
+            </div>
+          </div>
+
+          <div class="beg-sec-header">
+            <div class="beg-sec-label">Textbook</div>
+            <div class="beg-sec-title">テキスト</div>
+            <div class="beg-sec-line"></div>
+          </div>
+          <div class="beg-textbook-row">
+            <div class="beg-textbook-icon">📖</div>
+            <div class="beg-textbook-content">
+              <div class="beg-textbook-label">使用教材</div>
+              <div class="beg-textbook-title">『実用韓国語文法 上級』（＋ミリネ独自添削課題）</div>
+            </div>
+          </div>
+
+          <div class="beg-sec-header">
+            <div class="beg-sec-label">Syllabus</div>
+            <div class="beg-sec-title">主なカリキュラム</div>
+            <div class="beg-sec-line"></div>
+          </div>
+          <div class="beg-syllabus-table-wrap">
+            <table class="beg-syllabus-table">
+              <thead>
+                <tr><th>回数</th><th>時限</th><th>項目</th><th>概要</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>1</td><td>1限目</td><td>選択</td><td>-느니, -(으)ㄹ 바에야, -건-건</td></tr>
+                <tr><td></td><td>2限目</td><td>選択・引用</td><td>-(느)ㄴ다기보다는, -고, など</td></tr>
+                <tr><td>2</td><td>1限目</td><td>引用</td><td>-(느)ㄴ다니까, -(느)ㄴ다면서, ~에 의하면 など</td></tr>
+                <tr><td></td><td>2限目</td><td>名詞化</td><td>-(으)ㅁ, -는 데, -는 바</td></tr>
+                <tr><td>3</td><td>1限目</td><td>原因と理由❶</td><td>(으)로 인해서, -는 통에, (으)로 말미암아</td></tr>
+                <tr><td></td><td>2限目</td><td>原因と理由❷</td><td>-느니만큼, -는 이상, -기로서니</td></tr>
+                <tr><td>4</td><td>1限目</td><td>原因と理由❸</td><td>-기에망정이지, -(느)ㄴ답시고, -(으)ㅁ으로써</td></tr>
+                <tr><td></td><td>2限目</td><td>原因と理由❹</td><td>-기에, -길래</td></tr>
+                <tr><td>5</td><td>1限目</td><td>仮定❶</td><td>-더라도, -(으)ㄹ지라도, -(으)ㄴ들</td></tr>
+                <tr><td></td><td>2限目</td><td>仮定❷</td><td>-(으)ㄹ망정, -(느)ㄴ다고 치다, -는 셈치다</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="beg-sec-header">
+            <div class="beg-sec-label">Tuition</div>
+            <div class="beg-sec-title">授業料</div>
+            <div class="beg-sec-line"></div>
+          </div>
+          <div class="beg-tuition-table-wrap">
+            <table class="beg-tuition-table">
               <thead>
                 <tr><th>回数</th><th>1回あたり</th><th>納入額</th><th>税込</th></tr>
               </thead>
@@ -1468,45 +1945,89 @@
               </tbody>
             </table>
           </div>
+
+          <a href="trial.html" class="beg-cta-btn" style="text-decoration:none;">
+            お申込みはこちら
+            <svg viewBox="0 0 16 16"><line x1="2" y1="8" x2="13" y2="8" stroke="currentColor" stroke-width="2.5" fill="none"/><polyline points="9,4 13,8 9,12" stroke="currentColor" stroke-width="2.5" fill="none"/></svg>
+          </a>
         </div>
       </div>
 
       <!-- ========== タブ4: 中級月1講座 ========== -->
       <div id="tab04" class="tab-panel">
-        <h2 class="section-header">『月1回中級会話・添削・使い分け講座』</h2>
-        <div class="content-inner">
-          <div class="content-block">
-            <p>効率よく語彙を増やし、最も自然な表現を学べる短文添削の定期グループレッスンです。月1回の3時間集中レッスンで予習・復習の時間もたっぷり確保できます。</p>
-          </div>
-
-          <div class="content-block">
-            <h3>対象・目標</h3>
-            <div class="target-cards">
-              <div class="target-card">
-                <div class="target-card-icon">🎯</div>
-                <div class="target-card-text">ハングル検定準2級・TOPIK3級以上の方</div>
-              </div>
-              <div class="target-card">
-                <div class="target-card-icon">📈</div>
-                <div class="target-card-text">短期間に語彙を増やし、混同しやすい表現の使い分けを身につけ、中級から上級へのレベルアップを目指します。</div>
-              </div>
+        <div class="beg-page">
+          <div class="beg-hero">
+            <div class="beg-hero-eyebrow">Group Lesson — Monthly Intermediate</div>
+            <div class="beg-hero-title">『月1回<em>中級会話・添削・使い分け</em>講座』</div>
+            <div class="beg-hero-desc">
+              <p>効率よく語彙を増やし、最も自然な表現を学べる短文添削の定期グループレッスンです。</p>
+              <p>月1回の3時間集中レッスンで予習・復習の時間もたっぷり確保できます。</p>
+            </div>
+            <div class="beg-hero-tags">
+              <div class="beg-hero-tag">📅 <span>月1回土曜</span></div>
+              <div class="beg-hero-tag">⏱ <span>3時間</span></div>
+              <div class="beg-hero-tag">👥 <span>定員 2〜5人</span></div>
+              <div class="beg-hero-tag">💻 <span>オンライン</span></div>
+              <div class="beg-hero-tag">📅 <span>15:00〜18:00</span></div>
             </div>
           </div>
 
-          <div class="content-block">
-            <h3>教室・日程</h3>
-            <p>オンライン教室</p>
-            <p>2021年7月3日 15:00〜18:00（月1回土曜日／翌月の日程は参加しやすい日で調整）</p>
+          <div class="beg-sec-header">
+            <div class="beg-sec-label">Targets</div>
+            <div class="beg-sec-title">対象・目標</div>
+            <div class="beg-sec-line"></div>
+          </div>
+          <div class="beg-targets-grid">
+            <div class="beg-target-card">
+              <span class="beg-target-icon">🎯</span>
+              <span class="beg-target-text">ハングル検定準2級・TOPIK3級以上の方</span>
+            </div>
+            <div class="beg-target-card">
+              <span class="beg-target-icon">📈</span>
+              <span class="beg-target-text">短期間に語彙を増やし、混同しやすい表現の使い分けを身につけ、中級から上級へのレベルアップを目指します。</span>
+            </div>
           </div>
 
-          <div class="content-block">
-            <h3>テキスト</h3>
-            <p>中級レベルで頻出する形容詞・副詞のニュアンスの違いや使い方を、イラストと例文で詳しく説明するテキストを使用します。</p>
+          <div class="beg-sec-header">
+            <div class="beg-sec-label">Schedule</div>
+            <div class="beg-sec-title">教室・日程</div>
+            <div class="beg-sec-line"></div>
+          </div>
+          <div class="beg-info-cards">
+            <div class="beg-info-card">
+              <div class="beg-info-card-label">Classroom</div>
+              <div class="beg-info-card-value">オンライン教室</div>
+            </div>
+            <div class="beg-info-card">
+              <div class="beg-info-card-label">Schedule</div>
+              <div class="beg-info-card-value">2021年7月3日 15:00〜18:00<small>月1回土曜日／翌月の日程は参加しやすい日で調整</small></div>
+            </div>
+            <div class="beg-info-card">
+              <div class="beg-info-card-label">Capacity</div>
+              <div class="beg-info-card-value">定員 2〜5人</div>
+            </div>
           </div>
 
-          <div class="content-block">
-            <h3>レッスン内容</h3>
-            <table class="price-table">
+          <div class="beg-sec-header">
+            <div class="beg-sec-label">Textbook</div>
+            <div class="beg-sec-title">テキスト</div>
+            <div class="beg-sec-line"></div>
+          </div>
+          <div class="beg-textbook-row">
+            <div class="beg-textbook-icon">📖</div>
+            <div class="beg-textbook-content">
+              <div class="beg-textbook-label">使用教材</div>
+              <div class="beg-textbook-title">中級レベルで頻出する形容詞・副詞のニュアンスの違いや使い方を、イラストと例文で詳しく説明するテキストを使用します。</div>
+            </div>
+          </div>
+
+          <div class="beg-sec-header">
+            <div class="beg-sec-label">Lesson Content</div>
+            <div class="beg-sec-title">レッスン内容</div>
+            <div class="beg-sec-line"></div>
+          </div>
+          <div class="beg-syllabus-table-wrap">
+            <table class="beg-syllabus-table">
               <thead>
                 <tr><th>時限</th><th>レッスン名</th><th>内容</th></tr>
               </thead>
@@ -1518,9 +2039,13 @@
             </table>
           </div>
 
-          <div class="content-block">
-            <h3>授業料</h3>
-            <table class="price-table">
+          <div class="beg-sec-header">
+            <div class="beg-sec-label">Tuition</div>
+            <div class="beg-sec-title">授業料</div>
+            <div class="beg-sec-line"></div>
+          </div>
+          <div class="beg-tuition-table-wrap">
+            <table class="beg-tuition-table">
               <thead>
                 <tr><th>定員</th><th>授業料（税抜）</th><th>税込</th><th>期間</th></tr>
               </thead>
@@ -1530,44 +2055,93 @@
             </table>
           </div>
 
-          <div class="content-block">
-            <h3>生徒の声</h3>
-            <div class="testimonial">
-              <div class="testimonial-header">YH様｜2016.12（東京都）</div>
-              <div class="testimonial-content">
-                <p>一か月に一回土曜日の夕方3時間だけのクラスですが、韓国語への興味がどんどん湧き上がってくる講座です。単なる作文の添削だけでなく、独学や参考書ではなかなか知り得ない表現まで教えてくださるのが魅力です。ずっと続けていきたいクラスです。</p>
+          <div class="beg-sec-header">
+            <div class="beg-sec-label">Testimonial</div>
+            <div class="beg-sec-title">生徒の声</div>
+            <div class="beg-sec-line"></div>
+          </div>
+          <div class="beg-testimonial">
+            <div class="beg-testimonial-meta">
+              <div class="beg-testimonial-avatar">Y</div>
+              <div>
+                <div class="beg-testimonial-name">YH様</div>
+                <div class="beg-testimonial-date">2016.12（東京都）</div>
               </div>
             </div>
+            <div class="beg-testimonial-body">
+              一か月に一回土曜日の夕方3時間だけのクラスですが、韓国語への興味がどんどん湧き上がってくる講座です。単なる作文の添削だけでなく、独学や参考書ではなかなか知り得ない表現まで教えてくださるのが魅力です。ずっと続けていきたいクラスです。
+            </div>
           </div>
+
+          <a href="trial.html" class="beg-cta-btn" style="text-decoration:none;">
+            お申込みはこちら
+            <svg viewBox="0 0 16 16"><line x1="2" y1="8" x2="13" y2="8" stroke="currentColor" stroke-width="2.5" fill="none"/><polyline points="9,4 13,8 9,12" stroke="currentColor" stroke-width="2.5" fill="none"/></svg>
+          </a>
         </div>
       </div>
 
       <!-- ========== タブ5: 上級1土曜講座 ========== -->
       <div id="tab05" class="tab-panel">
-        <h2 class="section-header">『上級文法＆会話講座（上級Ⅰ／3ヶ月コース）』</h2>
-        <div class="content-inner">
-          <div class="content-block">
-            <p>上級者へのレベルアップを目指す、中上級者のための【土曜・上級Ⅰ講座】3ヶ月更新制クラスです。基本の言い回しから卒業し、上級の語彙と文型を駆使した時事・ビジネス韓国語へとレベルアップしたい方のための講座です。</p>
+        <div class="beg-page">
+          <div class="beg-hero">
+            <div class="beg-hero-eyebrow">Group Lesson — Advanced I Saturday</div>
+            <div class="beg-hero-title">『上級文法＆会話講座（<em>上級Ⅰ</em>／3ヶ月コース）』</div>
+            <div class="beg-hero-desc">
+              <p>上級者へのレベルアップを目指す、中上級者のための【土曜・上級Ⅰ講座】3ヶ月更新制クラスです。</p>
+              <p>基本の言い回しから卒業し、上級の語彙と文型を駆使した時事・ビジネス韓国語へとレベルアップしたい方のための講座です。</p>
+            </div>
+            <div class="beg-hero-tags">
+              <div class="beg-hero-tag">📅 <span>月2回土曜</span></div>
+              <div class="beg-hero-tag">⏱ <span>2コマ/回</span></div>
+              <div class="beg-hero-tag">💻 <span>Zoomレッスン</span></div>
+              <div class="beg-hero-tag">📅 <span>10:00〜12:00</span></div>
+              <div class="beg-hero-tag">🔄 <span>3ヶ月更新制</span></div>
+            </div>
           </div>
 
-          <div class="content-block">
-            <h3>対象・教室・日程</h3>
-            <p>対象：ハングル検定準2級・TOPIK5級以上、上級を目指す方</p>
-            <p>教室：Zoomレッスン</p>
-            <p>日程：毎月1週目・3週目の土曜日 10:00〜12:00（1回あたり2コマ）／月2回・3ヶ月更新制</p>
+          <div class="beg-sec-header">
+            <div class="beg-sec-label">Targets</div>
+            <div class="beg-sec-title">対象・目標</div>
+            <div class="beg-sec-line"></div>
+          </div>
+          <div class="beg-targets-grid">
+            <div class="beg-target-card">
+              <span class="beg-target-icon">🎯</span>
+              <span class="beg-target-text">ハングル検定準2級・TOPIK5級以上、上級を目指す方</span>
+            </div>
+            <div class="beg-target-card">
+              <span class="beg-target-icon">📈</span>
+              <span class="beg-target-text">中級から上級へのレベルアップ。TOPIKⅡ 6級、ハン検2級に合格できる力を養成します。</span>
+            </div>
           </div>
 
-          <div class="content-block">
-            <h3>目標</h3>
-            <ul>
-              <li>中級から上級へのレベルアップ。</li>
-              <li>TOPIKⅡ 6級、ハン検2級に合格できる力を養成します。</li>
-            </ul>
+          <div class="beg-sec-header">
+            <div class="beg-sec-label">Schedule</div>
+            <div class="beg-sec-title">教室・日程</div>
+            <div class="beg-sec-line"></div>
+          </div>
+          <div class="beg-info-cards">
+            <div class="beg-info-card">
+              <div class="beg-info-card-label">Classroom</div>
+              <div class="beg-info-card-value">Zoomレッスン</div>
+            </div>
+            <div class="beg-info-card">
+              <div class="beg-info-card-label">Schedule</div>
+              <div class="beg-info-card-value">毎月1週目・3週目の土曜日<small>10:00〜12:00（1回あたり2コマ）</small></div>
+            </div>
+            <div class="beg-info-card">
+              <div class="beg-info-card-label">Format</div>
+              <div class="beg-info-card-value">月2回・3ヶ月更新制</div>
+            </div>
           </div>
 
-          <div class="content-block">
-            <h3>レッスン内容</h3>
-            <table class="price-table">
+          <div class="beg-sec-header">
+            <div class="beg-sec-label">Lesson Content</div>
+            <div class="beg-sec-title">レッスン内容</div>
+            <div class="beg-sec-line"></div>
+          </div>
+          <div class="beg-syllabus-table-wrap">
+            <table class="beg-syllabus-table">
               <thead>
                 <tr><th>時限</th><th>レッスン名</th><th>内容</th></tr>
               </thead>
@@ -1578,9 +2152,13 @@
             </table>
           </div>
 
-          <div class="content-block">
-            <h3>授業料・体験レッスン</h3>
-            <table class="price-table">
+          <div class="beg-sec-header">
+            <div class="beg-sec-label">Tuition</div>
+            <div class="beg-sec-title">授業料・体験レッスン</div>
+            <div class="beg-sec-line"></div>
+          </div>
+          <div class="beg-tuition-table-wrap">
+            <table class="beg-tuition-table">
               <thead>
                 <tr><th>プラン</th><th>1回あたり</th><th>回数</th><th>納入額</th><th>振替</th></tr>
               </thead>
@@ -1588,44 +2166,94 @@
                 <tr><td>通常コース</td><td>6,000円</td><td>6回（月2回×3ヶ月）</td><td>36,000円+税</td><td>2回まで振替可</td></tr>
               </tbody>
             </table>
-            <p class="section-note">※一日体験レッスンも可能です（2コマ 6,000円+税）。</p>
+            <div class="beg-tuition-note">※一日体験レッスンも可能です（2コマ 6,000円+税）。</div>
           </div>
 
-          <div class="content-block">
-            <h3>生徒の声</h3>
-            <div class="testimonial">
-              <div class="testimonial-header">SK様</div>
-              <div class="testimonial-content">
-                <p>添削の授業では自分の文章の間違いを確認するだけでなく、他の受講生の表現やより自然な韓国語表現も学べます。文法やニュアンスの違いも例文を交えて学べるのでとても勉強になります。</p>
+          <div class="beg-sec-header">
+            <div class="beg-sec-label">Testimonial</div>
+            <div class="beg-sec-title">生徒の声</div>
+            <div class="beg-sec-line"></div>
+          </div>
+          <div class="beg-testimonial">
+            <div class="beg-testimonial-meta">
+              <div class="beg-testimonial-avatar">S</div>
+              <div>
+                <div class="beg-testimonial-name">SK様</div>
               </div>
             </div>
+            <div class="beg-testimonial-body">
+              添削の授業では自分の文章の間違いを確認するだけでなく、他の受講生の表現やより自然な韓国語表現も学べます。文法やニュアンスの違いも例文を交えて学べるのでとても勉強になります。
+            </div>
           </div>
+
+          <a href="trial.html" class="beg-cta-btn" style="text-decoration:none;">
+            お申込みはこちら
+            <svg viewBox="0 0 16 16"><line x1="2" y1="8" x2="13" y2="8" stroke="currentColor" stroke-width="2.5" fill="none"/><polyline points="9,4 13,8 9,12" stroke="currentColor" stroke-width="2.5" fill="none"/></svg>
+          </a>
         </div>
       </div>
 
       <!-- ========== タブ6: 上級2土曜講座 ========== -->
       <div id="tab06" class="tab-panel">
-        <h2 class="section-header">『上級者のための総合能力養成講座（上級Ⅱ）』</h2>
-        <div class="content-inner">
-          <div class="content-block">
-            <p>テキストでは学べない「週末のプチ留学」スタイルの上級Ⅱクラスです。ニュース記事や書き取り（ディクテーション）、童話や小説の朗読などを通じて、聞く・書く・読む・話すの総合的な能力を養成します。</p>
+        <div class="beg-page">
+          <div class="beg-hero">
+            <div class="beg-hero-eyebrow">Group Lesson — Advanced II Saturday</div>
+            <div class="beg-hero-title">『上級者のための<em>総合能力養成</em>講座（上級Ⅱ）』</div>
+            <div class="beg-hero-desc">
+              <p>テキストでは学べない「週末のプチ留学」スタイルの上級Ⅱクラスです。</p>
+              <p>ニュース記事や書き取り（ディクテーション）、童話や小説の朗読などを通じて、聞く・書く・読む・話すの総合的な能力を養成します。</p>
+            </div>
+            <div class="beg-hero-tags">
+              <div class="beg-hero-tag">📅 <span>月2回土曜</span></div>
+              <div class="beg-hero-tag">⏱ <span>10:00〜12:00</span></div>
+              <div class="beg-hero-tag">📍 <span>新宿教室</span></div>
+              <div class="beg-hero-tag">🔄 <span>第1週目・第3週目</span></div>
+            </div>
           </div>
 
-          <div class="content-block">
-            <h3>対象・日程</h3>
-            <p>対象：TOPIK6級以上、ハングル検定2級・1級合格を目指す方、流暢に韓国語を話したい方</p>
-            <p>教室：新宿教室</p>
-            <p>日程：土曜日 10:00〜12:00／月2回（第1週目・第3週目）</p>
+          <div class="beg-sec-header">
+            <div class="beg-sec-label">Targets</div>
+            <div class="beg-sec-title">対象・目標</div>
+            <div class="beg-sec-line"></div>
+          </div>
+          <div class="beg-targets-grid">
+            <div class="beg-target-card">
+              <span class="beg-target-icon">🎯</span>
+              <span class="beg-target-text">TOPIK6級以上、ハングル検定2級・1級合格を目指す方、流暢に韓国語を話したい方</span>
+            </div>
+            <div class="beg-target-card">
+              <span class="beg-target-icon">📈</span>
+              <span class="beg-target-text">上級語彙と上級会話力を身につける。ニュースの書き取り・エッセイ朗読・小説音読など多様な素材で総合的な力を伸ばします。</span>
+            </div>
           </div>
 
-          <div class="content-block">
-            <h3>目標・内容</h3>
-            <ul>
-              <li>上級語彙と上級会話力を身につける。</li>
-              <li>ニュースの書き取り・エッセイ朗読・小説音読など多様な素材で総合的な力を伸ばします。</li>
-            </ul>
+          <div class="beg-sec-header">
+            <div class="beg-sec-label">Schedule</div>
+            <div class="beg-sec-title">教室・日程</div>
+            <div class="beg-sec-line"></div>
+          </div>
+          <div class="beg-info-cards">
+            <div class="beg-info-card">
+              <div class="beg-info-card-label">Classroom</div>
+              <div class="beg-info-card-value">新宿教室</div>
+            </div>
+            <div class="beg-info-card">
+              <div class="beg-info-card-label">Schedule</div>
+              <div class="beg-info-card-value">土曜日 10:00〜12:00<small>月2回（第1週目・第3週目）</small></div>
+            </div>
+            <div class="beg-info-card">
+              <div class="beg-info-card-label">Format</div>
+              <div class="beg-info-card-value">3ヶ月更新制</div>
+            </div>
+          </div>
 
-            <table class="price-table">
+          <div class="beg-sec-header">
+            <div class="beg-sec-label">Lesson Content</div>
+            <div class="beg-sec-title">レッスン内容</div>
+            <div class="beg-sec-line"></div>
+          </div>
+          <div class="beg-syllabus-table-wrap">
+            <table class="beg-syllabus-table">
               <thead>
                 <tr><th>時限</th><th>レッスン名</th><th>内容</th></tr>
               </thead>
@@ -1637,9 +2265,13 @@
             </table>
           </div>
 
-          <div class="content-block">
-            <h3>授業料・体験レッスン</h3>
-            <table class="price-table">
+          <div class="beg-sec-header">
+            <div class="beg-sec-label">Tuition</div>
+            <div class="beg-sec-title">授業料・体験レッスン</div>
+            <div class="beg-sec-line"></div>
+          </div>
+          <div class="beg-tuition-table-wrap">
+            <table class="beg-tuition-table">
               <thead>
                 <tr><th>1回あたり</th><th>回数</th><th>授業料</th><th>税込</th><th>振替</th></tr>
               </thead>
@@ -1647,18 +2279,31 @@
                 <tr><td>6,000円</td><td>6回（月2回×3ヶ月）</td><td>36,000円+税</td><td>39,600円</td><td>2回まで振替可</td></tr>
               </tbody>
             </table>
-            <p class="section-note">※一日体験レッスン（2コマ 6,000円+税）も可能です。</p>
+            <div class="beg-tuition-note">※一日体験レッスン（2コマ 6,000円+税）も可能です。</div>
           </div>
 
-          <div class="content-block">
-            <h3>生徒の声</h3>
-            <div class="testimonial">
-              <div class="testimonial-header">M様｜2015.3</div>
-              <div class="testimonial-content">
-                <p>土曜講座は月2回、1回4時間でがっつり勉強できる講座です。パダスギや長文読解、ディスカッションなど幅広い内容で、1年受講した結果、ドラマのセリフがよく聞こえるようになり、読む力も大きく伸びました。内容がとても濃く、実力を伸ばせる講座だと思います。</p>
+          <div class="beg-sec-header">
+            <div class="beg-sec-label">Testimonial</div>
+            <div class="beg-sec-title">生徒の声</div>
+            <div class="beg-sec-line"></div>
+          </div>
+          <div class="beg-testimonial">
+            <div class="beg-testimonial-meta">
+              <div class="beg-testimonial-avatar">M</div>
+              <div>
+                <div class="beg-testimonial-name">M様</div>
+                <div class="beg-testimonial-date">2015.3</div>
               </div>
             </div>
+            <div class="beg-testimonial-body">
+              土曜講座は月2回、1回4時間でがっつり勉強できる講座です。パダスギや長文読解、ディスカッションなど幅広い内容で、1年受講した結果、ドラマのセリフがよく聞こえるようになり、読む力も大きく伸びました。内容がとても濃く、実力を伸ばせる講座だと思います。
+            </div>
           </div>
+
+          <a href="trial.html" class="beg-cta-btn" style="text-decoration:none;">
+            お申込みはこちら
+            <svg viewBox="0 0 16 16"><line x1="2" y1="8" x2="13" y2="8" stroke="currentColor" stroke-width="2.5" fill="none"/><polyline points="9,4 13,8 9,12" stroke="currentColor" stroke-width="2.5" fill="none"/></svg>
+          </a>
         </div>
       </div>
 

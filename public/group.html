@@ -602,8 +602,8 @@
       text-align: left;
       white-space: nowrap;
     }
-    #tab01 .beg-syllabus-table thead th:first-child { text-align: center; width: 44px; }
-    #tab01 .beg-syllabus-table thead th:nth-child(2) { width: 54px; text-align: center; }
+    #tab01 .beg-syllabus-table thead th:first-child { text-align: center; width: 56px; min-width: 56px; white-space: nowrap; }
+    #tab01 .beg-syllabus-table thead th:nth-child(2) { width: 64px; min-width: 64px; text-align: center; white-space: nowrap; }
     #tab01 .beg-syllabus-table thead th:nth-child(4) { width: 90px; text-align: center; }
     #tab01 .beg-syllabus-table tbody tr.group-row td {
       background: #f7f4ee;
@@ -616,7 +616,8 @@
       min-height: 52px;
     }
     #tab01 .beg-group-num-cell {
-      width: 44px;
+      width: 56px;
+      min-width: 56px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -1069,7 +1070,10 @@
       color: rgba(255,255,255,0.8);
       letter-spacing: 0.05em;
       text-align: left;
+      white-space: nowrap;
     }
+    #tab02 .beg-syllabus-table thead th:first-child, #tab03 .beg-syllabus-table thead th:first-child { width: 56px; min-width: 56px; text-align: center; }
+    #tab04 .beg-syllabus-table thead th:first-child, #tab05 .beg-syllabus-table thead th:first-child, #tab06 .beg-syllabus-table thead th:first-child { width: 72px; min-width: 72px; text-align: center; }
     #tab02 .beg-syllabus-table tbody tr, #tab03 .beg-syllabus-table tbody tr, #tab04 .beg-syllabus-table tbody tr, #tab05 .beg-syllabus-table tbody tr, #tab06 .beg-syllabus-table tbody tr {
       background: #f7f4ee;
       transition: background 0.15s;
@@ -1080,12 +1084,18 @@
       border-bottom: 1px solid var(--border);
       color: var(--mid);
     }
+    #tab04 .beg-syllabus-table tbody td:first-child, #tab05 .beg-syllabus-table tbody td:first-child, #tab06 .beg-syllabus-table tbody td:first-child {
+      white-space: nowrap;
+      text-align: center;
+    }
     #tab02 .beg-syllabus-table tbody tr:last-child td, #tab03 .beg-syllabus-table tbody tr:last-child td, #tab04 .beg-syllabus-table tbody tr:last-child td, #tab05 .beg-syllabus-table tbody tr:last-child td, #tab06 .beg-syllabus-table tbody tr:last-child td { border-bottom: none; }
     /* 回数列の数字バッジ（tab02, tab03） */
     #tab02 .beg-syllabus-table tbody td:first-child, #tab03 .beg-syllabus-table tbody td:first-child {
       text-align: center;
       vertical-align: middle;
-      width: 44px;
+      width: 56px;
+      min-width: 56px;
+      white-space: nowrap;
     }
     #tab02 .beg-syllabus-table .beg-num-badge, #tab03 .beg-syllabus-table .beg-num-badge {
       display: inline-flex;
@@ -1362,7 +1372,7 @@
             <table class="beg-syllabus-table">
               <thead>
                 <tr>
-                  <th>回</th>
+                  <th>回数</th>
                   <th>時限</th>
                   <th>項目</th>
                   <th>詳細</th>

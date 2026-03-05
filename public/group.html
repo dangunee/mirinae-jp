@@ -12,23 +12,24 @@
       --beige: #f5f0e8;
       --taupe: #BD9962;
       --taupe-dark: #9B8B7E;
-      --gold: #B8963E;
-      --gold-light: #d4aa50;
+      --gold: #b8924a;
+      --gold-light: #e8d5b0;
       --gold-pale: #f7f0e3;
-      --dark: #1C1C1E;
+      --dark: #1e1a14;
       --white: #FFFFFF;
       --gray-light: #f8f8f8;
-      --gray-border: #E5E0D8;
-      --text-dark: #2c2c2c;
-      --text-muted: #8E8E93;
+      --gray-border: #E4DDD2;
+      --text-dark: #1e1a14;
+      --text-muted: #8a7f72;
       --mid: #4a4438;
+      --muted: #8a7f72;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
       font-family: 'Noto Sans JP', sans-serif;
-      color: var(--text-dark);
+      color: var(--dark);
       line-height: 1.8;
       background: #FAFAF7;
     }
@@ -67,7 +68,7 @@
       color: var(--dark);
       margin-bottom: 12px;
     }
-    .page-header .page-subtitle { color: var(--text-muted); font-size: 14px; font-weight: 300; }
+    .page-header .page-subtitle { color: var(--muted); font-size: 14px; font-weight: 300; }
 
     .tab-wrap { margin-bottom: 0; }
     .tab-bar {
@@ -251,12 +252,12 @@
     .content-block h3 {
       font-size: 18px;
       margin-bottom: 16px;
-      color: var(--text-dark);
+      color: var(--dark);
       padding-bottom: 8px;
       border-bottom: 2px solid var(--taupe);
     }
 
-    .section-note { font-size: 13px; color: var(--text-muted); margin-bottom: 8px; }
+    .section-note { font-size: 13px; color: var(--muted); margin-bottom: 8px; }
 
     .price-table {
       width: 100%;
@@ -286,7 +287,7 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.04);
     }
     .target-card-icon { font-size: 24px; flex-shrink: 0; }
-    .target-card-text { font-size: 14px; color: var(--text-dark); line-height: 1.5; }
+    .target-card-text { font-size: 14px; color: var(--mid); line-height: 1.5; }
 
     .testimonial {
       background: var(--gray-light);
@@ -295,8 +296,8 @@
       margin-bottom: 20px;
       border-left: 4px solid var(--taupe);
     }
-    .testimonial-header { font-weight: 600; font-size: 15px; margin-bottom: 12px; color: var(--text-dark); }
-    .testimonial-content { font-size: 14px; color: var(--text-muted); line-height: 1.9; }
+    .testimonial-header { font-weight: 600; font-size: 15px; margin-bottom: 12px; color: var(--dark); }
+    .testimonial-content { font-size: 14px; color: var(--muted); line-height: 1.9; }
 
     .cta-buttons { margin-top: 48px; margin-bottom: 24px; }
     .cta-wrapper {
@@ -330,7 +331,7 @@
     .footer-column a:hover { color: white; }
     .footer-bottom { text-align: center; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 13px; opacity: 0.8; }
 
-    .content-block p { margin-bottom: 12px; color: var(--text-muted); }
+    .content-block p { margin-bottom: 12px; color: var(--muted); }
     .content-block ul { margin: 8px 0 8px 24px; }
     .content-block li { margin-bottom: 6px; }
 
@@ -344,10 +345,10 @@
     #tab01 {
       --cream: #f5f2ec;
       --cream-mid: #ede8df;
-      --gold-light: #d4aa50;
+      --gold-light: #e8d5b0;
       --gold-pale: rgba(184,146,42,0.1);
-      --muted: #7a7368;
-      --border: #e0dbd0;
+      --muted: #8a7f72;
+      --border: #e4ddd2;
     }
     #tab01 .beg-page { padding: 0 0 40px; }
     #tab01 .beg-hero {
@@ -440,7 +441,7 @@
     #tab01 .beg-sec-title {
       font-size: 16px;
       font-weight: 600;
-      color: var(--dark);
+      color: var(--mid);
       letter-spacing: 0.06em;
       white-space: nowrap;
     }
@@ -473,7 +474,7 @@
       box-shadow: 0 3px 14px rgba(184,146,42,0.1);
     }
     #tab01 .beg-target-icon { font-size: 24px; line-height: 1; flex-shrink: 0; margin-top: 1px; }
-    #tab01 .beg-target-text { font-size: 14px; color: var(--dark); line-height: 1.6; }
+    #tab01 .beg-target-text { font-size: 14px; color: var(--mid); line-height: 1.6; }
     #tab01 .beg-flow-steps {
       display: flex;
       flex-direction: column;
@@ -507,7 +508,7 @@
       flex-shrink: 0;
       margin-top: 1px;
     }
-    #tab01 .beg-flow-text { font-size: 16px; color: var(--dark); }
+    #tab01 .beg-flow-text { font-size: 16px; color: var(--mid); }
     #tab01 .beg-info-cards {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -532,7 +533,7 @@
     #tab01 .beg-info-card-value {
       font-size: 16px;
       font-weight: 500;
-      color: var(--dark);
+      color: var(--mid);
       line-height: 1.5;
     }
     #tab01 .beg-info-card-value small {
@@ -567,7 +568,7 @@
       letter-spacing: 0.08em;
       margin-bottom: 2px;
     }
-    #tab01 .beg-textbook-title { font-size: 16px; font-weight: 500; color: var(--dark); }
+    #tab01 .beg-textbook-title { font-size: 16px; font-weight: 500; color: var(--mid); }
     #tab01 .beg-textbook-cover {
       display: block;
       max-width: 120px;
@@ -656,7 +657,7 @@
       flex-shrink: 0;
       white-space: nowrap;
     }
-    #tab01 .beg-lesson-topic { font-size: 14px; font-weight: 500; color: var(--dark); flex: 1; }
+    #tab01 .beg-lesson-topic { font-size: 14px; font-weight: 500; color: var(--mid); flex: 1; }
     #tab01 .beg-lesson-detail { font-size: 13px; color: var(--muted); flex: 1.4; line-height: 1.5; }
     #tab01 .beg-group-date-cell {
       width: 70px;
@@ -665,7 +666,7 @@
       justify-content: center;
       padding: 8px 10px;
     }
-    #tab01 .beg-date-chip { font-size: 13px; font-weight: 600; color: var(--dark); white-space: nowrap; }
+    #tab01 .beg-date-chip { font-size: 13px; font-weight: 600; color: var(--mid); white-space: nowrap; }
     #tab01 .beg-tuition-table-wrap {
       border-radius: 10px;
       overflow: hidden;
@@ -698,11 +699,11 @@
     #tab01 .beg-tuition-table td {
       padding: 13px 18px;
       font-size: 15px;
-      color: var(--dark);
+      color: var(--mid);
       text-align: center;
     }
     #tab01 .beg-tuition-table td:first-child { text-align: left; font-weight: 500; }
-    #tab01 .beg-plan-name { font-size: 16px; font-weight: 600; color: var(--dark); }
+    #tab01 .beg-plan-name { font-size: 16px; font-weight: 600; color: var(--mid); }
     #tab01 .beg-plan-tag {
       display: inline-block;
       font-size: 11px;
@@ -743,7 +744,7 @@
       color: var(--gold);
       font-family: 'Cormorant Garamond', serif;
     }
-    #tab01 .beg-recruitment-val { font-size: 16px; font-weight: 600; color: var(--dark); }
+    #tab01 .beg-recruitment-val { font-size: 16px; font-weight: 600; color: var(--mid); }
     #tab01 .beg-testimonial {
       background: var(--white);
       border: 1px solid var(--border);
@@ -776,11 +777,11 @@
       font-size: 16px; color: var(--gold-light); font-weight: 700;
       flex-shrink: 0;
     }
-    #tab01 .beg-testimonial-name { font-size: 15px; font-weight: 600; color: var(--dark); }
+    #tab01 .beg-testimonial-name { font-size: 15px; font-weight: 600; color: var(--mid); }
     #tab01 .beg-testimonial-date { font-size: 13px; color: var(--muted); }
     #tab01 .beg-testimonial-body {
       font-size: 16px;
-      color: #3d3830;
+      color: var(--mid);
       line-height: 1.75;
       padding-left: 4px;
     }
@@ -817,10 +818,10 @@
     #tab02, #tab03, #tab04, #tab05, #tab06 {
       --cream: #f5f2ec;
       --cream-mid: #ede8df;
-      --gold-light: #d4aa50;
+      --gold-light: #e8d5b0;
       --gold-pale: rgba(184,146,42,0.1);
-      --muted: #7a7368;
-      --border: #e0dbd0;
+      --muted: #8a7f72;
+      --border: #e4ddd2;
     }
     #tab02 .beg-page, #tab03 .beg-page, #tab04 .beg-page, #tab05 .beg-page, #tab06 .beg-page { padding: 0 0 40px; }
     #tab02 .beg-hero, #tab03 .beg-hero, #tab04 .beg-hero, #tab05 .beg-hero, #tab06 .beg-hero {
@@ -913,7 +914,7 @@
     #tab02 .beg-sec-title, #tab03 .beg-sec-title, #tab04 .beg-sec-title, #tab05 .beg-sec-title, #tab06 .beg-sec-title {
       font-size: 16px;
       font-weight: 600;
-      color: var(--dark);
+      color: var(--mid);
       letter-spacing: 0.06em;
       white-space: nowrap;
     }
@@ -948,7 +949,7 @@
       box-shadow: 0 3px 14px rgba(184,146,42,0.1);
     }
     #tab02 .beg-target-icon, #tab03 .beg-target-icon, #tab04 .beg-target-icon, #tab05 .beg-target-icon, #tab06 .beg-target-icon { font-size: 24px; line-height: 1; flex-shrink: 0; margin-top: 1px; }
-    #tab02 .beg-target-text, #tab03 .beg-target-text, #tab04 .beg-target-text, #tab05 .beg-target-text, #tab06 .beg-target-text { font-size: 14px; color: var(--dark); line-height: 1.6; }
+    #tab02 .beg-target-text, #tab03 .beg-target-text, #tab04 .beg-target-text, #tab05 .beg-target-text, #tab06 .beg-target-text { font-size: 14px; color: var(--mid); line-height: 1.6; }
     #tab02 .beg-flow-steps, #tab03 .beg-flow-steps, #tab04 .beg-flow-steps, #tab05 .beg-flow-steps, #tab06 .beg-flow-steps {
       display: flex;
       flex-direction: column;
@@ -982,7 +983,7 @@
       flex-shrink: 0;
       margin-top: 1px;
     }
-    #tab02 .beg-flow-text, #tab03 .beg-flow-text, #tab04 .beg-flow-text, #tab05 .beg-flow-text, #tab06 .beg-flow-text { font-size: 16px; color: var(--dark); }
+    #tab02 .beg-flow-text, #tab03 .beg-flow-text, #tab04 .beg-flow-text, #tab05 .beg-flow-text, #tab06 .beg-flow-text { font-size: 16px; color: var(--mid); }
     #tab02 .beg-info-cards, #tab03 .beg-info-cards, #tab04 .beg-info-cards, #tab05 .beg-info-cards, #tab06 .beg-info-cards {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -1009,7 +1010,7 @@
     #tab02 .beg-info-card-value, #tab03 .beg-info-card-value, #tab04 .beg-info-card-value, #tab05 .beg-info-card-value, #tab06 .beg-info-card-value {
       font-size: 16px;
       font-weight: 500;
-      color: var(--dark);
+      color: var(--mid);
       line-height: 1.5;
     }
     #tab02 .beg-info-card-value small, #tab03 .beg-info-card-value small, #tab04 .beg-info-card-value small, #tab05 .beg-info-card-value small, #tab06 .beg-info-card-value small {
@@ -1044,7 +1045,7 @@
       letter-spacing: 0.08em;
       margin-bottom: 2px;
     }
-    #tab02 .beg-textbook-title, #tab03 .beg-textbook-title, #tab04 .beg-textbook-title, #tab05 .beg-textbook-title, #tab06 .beg-textbook-title { font-size: 16px; font-weight: 500; color: var(--dark); }
+    #tab02 .beg-textbook-title, #tab03 .beg-textbook-title, #tab04 .beg-textbook-title, #tab05 .beg-textbook-title, #tab06 .beg-textbook-title { font-size: 16px; font-weight: 500; color: var(--mid); }
     #tab02 .beg-syllabus-table-wrap, #tab03 .beg-syllabus-table-wrap, #tab04 .beg-syllabus-table-wrap, #tab05 .beg-syllabus-table-wrap, #tab06 .beg-syllabus-table-wrap {
       border-radius: 10px;
       overflow: hidden;
@@ -1070,7 +1071,7 @@
     #tab02 .beg-syllabus-table tbody td, #tab03 .beg-syllabus-table tbody td, #tab04 .beg-syllabus-table tbody td, #tab05 .beg-syllabus-table tbody td, #tab06 .beg-syllabus-table tbody td {
       padding: 12px 14px;
       border-bottom: 1px solid var(--border);
-      color: var(--dark);
+      color: var(--mid);
     }
     #tab02 .beg-syllabus-table tbody tr:last-child td, #tab03 .beg-syllabus-table tbody tr:last-child td, #tab04 .beg-syllabus-table tbody tr:last-child td, #tab05 .beg-syllabus-table tbody tr:last-child td, #tab06 .beg-syllabus-table tbody tr:last-child td { border-bottom: none; }
     #tab02 .beg-tuition-table-wrap, #tab03 .beg-tuition-table-wrap, #tab04 .beg-tuition-table-wrap, #tab05 .beg-tuition-table-wrap, #tab06 .beg-tuition-table-wrap {
@@ -1105,7 +1106,7 @@
     #tab02 .beg-tuition-table td, #tab03 .beg-tuition-table td, #tab04 .beg-tuition-table td, #tab05 .beg-tuition-table td, #tab06 .beg-tuition-table td {
       padding: 13px 18px;
       font-size: 15px;
-      color: var(--dark);
+      color: var(--mid);
       text-align: center;
     }
     #tab02 .beg-tuition-table td:first-child, #tab03 .beg-tuition-table td:first-child, #tab04 .beg-tuition-table td:first-child, #tab05 .beg-tuition-table td:first-child, #tab06 .beg-tuition-table td:first-child { text-align: left; font-weight: 500; }
@@ -1150,11 +1151,11 @@
       font-size: 16px; color: var(--gold-light); font-weight: 700;
       flex-shrink: 0;
     }
-    #tab02 .beg-testimonial-name, #tab03 .beg-testimonial-name, #tab04 .beg-testimonial-name, #tab05 .beg-testimonial-name, #tab06 .beg-testimonial-name { font-size: 15px; font-weight: 600; color: var(--dark); }
+    #tab02 .beg-testimonial-name, #tab03 .beg-testimonial-name, #tab04 .beg-testimonial-name, #tab05 .beg-testimonial-name, #tab06 .beg-testimonial-name { font-size: 15px; font-weight: 600; color: var(--mid); }
     #tab02 .beg-testimonial-date, #tab03 .beg-testimonial-date, #tab04 .beg-testimonial-date, #tab05 .beg-testimonial-date, #tab06 .beg-testimonial-date { font-size: 13px; color: var(--muted); }
     #tab02 .beg-testimonial-body, #tab03 .beg-testimonial-body, #tab04 .beg-testimonial-body, #tab05 .beg-testimonial-body, #tab06 .beg-testimonial-body {
       font-size: 16px;
-      color: #3d3830;
+      color: var(--mid);
       line-height: 1.75;
       padding-left: 4px;
     }

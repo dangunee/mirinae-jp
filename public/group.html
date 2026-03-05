@@ -119,9 +119,11 @@
       .group-main-grid .sidebar { display: none; }
     }
     .group-left { min-width: 0; }
+    /* サイドバーを本編開始位置に揃え、メニューより上にはスクロールしない（個人レッスンと同様） */
     .sidebar {
       position: sticky;
       top: 80px;
+      padding-top: 200px; /* page-header + tab-bar + tab-panel padding と同程度 */
     }
     .course-nav-card.courses-nav-box {
       background: var(--white);
@@ -1068,12 +1070,39 @@
       letter-spacing: 0.05em;
       text-align: left;
     }
+    #tab02 .beg-syllabus-table tbody tr, #tab03 .beg-syllabus-table tbody tr, #tab04 .beg-syllabus-table tbody tr, #tab05 .beg-syllabus-table tbody tr, #tab06 .beg-syllabus-table tbody tr {
+      background: #f7f4ee;
+      transition: background 0.15s;
+    }
+    #tab02 .beg-syllabus-table tbody tr:hover, #tab03 .beg-syllabus-table tbody tr:hover, #tab04 .beg-syllabus-table tbody tr:hover, #tab05 .beg-syllabus-table tbody tr:hover, #tab06 .beg-syllabus-table tbody tr:hover { background: #f0ebe0; }
     #tab02 .beg-syllabus-table tbody td, #tab03 .beg-syllabus-table tbody td, #tab04 .beg-syllabus-table tbody td, #tab05 .beg-syllabus-table tbody td, #tab06 .beg-syllabus-table tbody td {
       padding: 12px 14px;
       border-bottom: 1px solid var(--border);
       color: var(--mid);
     }
     #tab02 .beg-syllabus-table tbody tr:last-child td, #tab03 .beg-syllabus-table tbody tr:last-child td, #tab04 .beg-syllabus-table tbody tr:last-child td, #tab05 .beg-syllabus-table tbody tr:last-child td, #tab06 .beg-syllabus-table tbody tr:last-child td { border-bottom: none; }
+    /* 回数列の数字バッジ（tab02, tab03） */
+    #tab02 .beg-syllabus-table tbody td:first-child, #tab03 .beg-syllabus-table tbody td:first-child {
+      text-align: center;
+      vertical-align: middle;
+      width: 44px;
+    }
+    #tab02 .beg-syllabus-table .beg-num-badge, #tab03 .beg-syllabus-table .beg-num-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      border-radius: 6px;
+      background: var(--dark);
+      color: var(--gold-light);
+      font-size: 13px;
+      font-weight: 700;
+    }
+    #tab02 .beg-syllabus-table .beg-num-badge-last, #tab03 .beg-syllabus-table .beg-num-badge-last {
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: var(--dark);
+    }
     #tab02 .beg-tuition-table-wrap, #tab03 .beg-tuition-table-wrap, #tab04 .beg-tuition-table-wrap, #tab05 .beg-tuition-table-wrap, #tab06 .beg-tuition-table-wrap {
       border-radius: 10px;
       overflow: hidden;
@@ -1101,8 +1130,8 @@
       transition: background 0.15s;
     }
     #tab02 .beg-tuition-table tbody tr:last-child, #tab03 .beg-tuition-table tbody tr:last-child, #tab04 .beg-tuition-table tbody tr:last-child, #tab05 .beg-tuition-table tbody tr:last-child, #tab06 .beg-tuition-table tbody tr:last-child { border-bottom: none; }
-    #tab02 .beg-tuition-table tbody tr:nth-child(even), #tab03 .beg-tuition-table tbody tr:nth-child(even), #tab04 .beg-tuition-table tbody tr:nth-child(even), #tab05 .beg-tuition-table tbody tr:nth-child(even), #tab06 .beg-tuition-table tbody tr:nth-child(even) { background: #faf8f4; }
-    #tab02 .beg-tuition-table tbody tr:hover, #tab03 .beg-tuition-table tbody tr:hover, #tab04 .beg-tuition-table tbody tr:hover, #tab05 .beg-tuition-table tbody tr:hover, #tab06 .beg-tuition-table tbody tr:hover { background: #f3ede0; }
+    #tab02 .beg-tuition-table tbody tr, #tab03 .beg-tuition-table tbody tr, #tab04 .beg-tuition-table tbody tr, #tab05 .beg-tuition-table tbody tr, #tab06 .beg-tuition-table tbody tr { background: #f7f4ee; }
+    #tab02 .beg-tuition-table tbody tr:hover, #tab03 .beg-tuition-table tbody tr:hover, #tab04 .beg-tuition-table tbody tr:hover, #tab05 .beg-tuition-table tbody tr:hover, #tab06 .beg-tuition-table tbody tr:hover { background: #f0ebe0; }
     #tab02 .beg-tuition-table td, #tab03 .beg-tuition-table td, #tab04 .beg-tuition-table td, #tab05 .beg-tuition-table td, #tab06 .beg-tuition-table td {
       padding: 13px 18px;
       font-size: 15px;
@@ -1771,25 +1800,25 @@
                 <tr><th>回数</th><th>時限</th><th>項目</th><th>概要</th></tr>
               </thead>
               <tbody>
-                <tr><td>1</td><td>1限目</td><td>推測と予想❶</td><td>-아/어 보이다, -은/는 모양이다</td></tr>
+                <tr><td><span class="beg-num-badge">1</span></td><td>1限目</td><td>推測と予想❶</td><td>-아/어 보이다, -은/는 모양이다</td></tr>
                 <tr><td></td><td>2限目</td><td>推測と予想❷</td><td>-을 텐데, -을 걸요</td></tr>
-                <tr><td>2</td><td>1限目</td><td>推測と予想❸</td><td>-은/는/을 줄 몰랐다(알았다), -을지도 모르다</td></tr>
+                <tr><td><span class="beg-num-badge">2</span></td><td>1限目</td><td>推測と予想❸</td><td>-은/는/을 줄 몰랐다(알았다), -을지도 모르다</td></tr>
                 <tr><td></td><td>2限目</td><td>対照</td><td>-기는 하지만, -기는 -지만, -은/는 반면에, -은/는데도</td></tr>
-                <tr><td>3</td><td>1限目</td><td>叙述とタメ口</td><td>서술체・반말체</td></tr>
+                <tr><td><span class="beg-num-badge">3</span></td><td>1限目</td><td>叙述とタメ口</td><td>서술체・반말체</td></tr>
                 <tr><td></td><td>2限目</td><td>理由❶</td><td>-거든요, -잖아요, -느라고</td></tr>
-                <tr><td>4</td><td>1限目</td><td>理由❷</td><td>-는 바람에, -는 탓에</td></tr>
+                <tr><td><span class="beg-num-badge">4</span></td><td>1限目</td><td>理由❷</td><td>-는 바람에, -는 탓에</td></tr>
                 <tr><td></td><td>2限目</td><td>理由❸</td><td>-고 해서, -을까 봐</td></tr>
-                <tr><td>5</td><td>1限目</td><td>他人の話や文の引用❶</td><td>-다고요?, -다고 하던데</td></tr>
+                <tr><td><span class="beg-num-badge">5</span></td><td>1限目</td><td>他人の話や文の引用❶</td><td>-다고요?, -다고 하던데</td></tr>
                 <tr><td></td><td>2限目</td><td>他人の話や文の引用❷</td><td>-다면서요?, -다니요?</td></tr>
-                <tr><td>6</td><td>1限目</td><td>決心と意図❶</td><td>-을까 하다, -고자, -(으)려던 참이다</td></tr>
+                <tr><td><span class="beg-num-badge">6</span></td><td>1限目</td><td>決心と意図❶</td><td>-을까 하다, -고자, -(으)려던 참이다</td></tr>
                 <tr><td></td><td>2限目</td><td>決心と意図❷</td><td>-을 겸 -을 겸, -아/어야지요</td></tr>
-                <tr><td>7</td><td>1限目</td><td>推薦と助言</td><td>-을 만하다, -도록 하다, -지 그래요?</td></tr>
+                <tr><td><span class="beg-num-badge">7</span></td><td>1限目</td><td>推薦と助言</td><td>-을 만하다, -도록 하다, -지 그래요?</td></tr>
                 <tr><td></td><td>2限目</td><td>回想</td><td>-던, -더라고요, -던데요</td></tr>
-                <tr><td>8</td><td>1限目</td><td>受け身</td><td>피동(-이/히/리/기-), -아/어지다, -게 되다</td></tr>
+                <tr><td><span class="beg-num-badge">8</span></td><td>1限目</td><td>受け身</td><td>피동(-이/히/리/기-), -아/어지다, -게 되다</td></tr>
                 <tr><td></td><td>2限目</td><td>使役</td><td>사동(-이/히/리/기-), -게 하다</td></tr>
-                <tr><td>9</td><td>1限目</td><td>条件</td><td>-아/어야, -거든</td></tr>
+                <tr><td><span class="beg-num-badge">9</span></td><td>1限目</td><td>条件</td><td>-아/어야, -거든</td></tr>
                 <tr><td></td><td>2限目</td><td>追加❶</td><td>-을 뿐만 아니라, -은/는 데다가</td></tr>
-                <tr><td>10</td><td>1限目</td><td>追加❷</td><td>-조차, -만 해도</td></tr>
+                <tr><td><span class="beg-num-badge beg-num-badge-last">10</span></td><td>1限目</td><td>追加❷</td><td>-조차, -만 해도</td></tr>
                 <tr><td></td><td>2限目</td><td>途中</td><td>-는 길에, -다가</td></tr>
               </tbody>
             </table>
@@ -1917,15 +1946,15 @@
                 <tr><th>回数</th><th>時限</th><th>項目</th><th>概要</th></tr>
               </thead>
               <tbody>
-                <tr><td>1</td><td>1限目</td><td>選択</td><td>-느니, -(으)ㄹ 바에야, -건-건</td></tr>
+                <tr><td><span class="beg-num-badge">1</span></td><td>1限目</td><td>選択</td><td>-느니, -(으)ㄹ 바에야, -건-건</td></tr>
                 <tr><td></td><td>2限目</td><td>選択・引用</td><td>-(느)ㄴ다기보다는, -고, など</td></tr>
-                <tr><td>2</td><td>1限目</td><td>引用</td><td>-(느)ㄴ다니까, -(느)ㄴ다면서, ~에 의하면 など</td></tr>
+                <tr><td><span class="beg-num-badge">2</span></td><td>1限目</td><td>引用</td><td>-(느)ㄴ다니까, -(느)ㄴ다면서, ~에 의하면 など</td></tr>
                 <tr><td></td><td>2限目</td><td>名詞化</td><td>-(으)ㅁ, -는 데, -는 바</td></tr>
-                <tr><td>3</td><td>1限目</td><td>原因と理由❶</td><td>(으)로 인해서, -는 통에, (으)로 말미암아</td></tr>
+                <tr><td><span class="beg-num-badge">3</span></td><td>1限目</td><td>原因と理由❶</td><td>(으)로 인해서, -는 통에, (으)로 말미암아</td></tr>
                 <tr><td></td><td>2限目</td><td>原因と理由❷</td><td>-느니만큼, -는 이상, -기로서니</td></tr>
-                <tr><td>4</td><td>1限目</td><td>原因と理由❸</td><td>-기에망정이지, -(느)ㄴ답시고, -(으)ㅁ으로써</td></tr>
+                <tr><td><span class="beg-num-badge">4</span></td><td>1限目</td><td>原因と理由❸</td><td>-기에망정이지, -(느)ㄴ답시고, -(으)ㅁ으로써</td></tr>
                 <tr><td></td><td>2限目</td><td>原因と理由❹</td><td>-기에, -길래</td></tr>
-                <tr><td>5</td><td>1限目</td><td>仮定❶</td><td>-더라도, -(으)ㄹ지라도, -(으)ㄴ들</td></tr>
+                <tr><td><span class="beg-num-badge beg-num-badge-last">5</span></td><td>1限目</td><td>仮定❶</td><td>-더라도, -(으)ㄹ지라도, -(으)ㄴ들</td></tr>
                 <tr><td></td><td>2限目</td><td>仮定❷</td><td>-(으)ㄹ망정, -(느)ㄴ다고 치다, -는 셈치다</td></tr>
               </tbody>
             </table>

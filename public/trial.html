@@ -35,7 +35,30 @@
       background: var(--bg);
     }
 
-    .page-wrapper { max-width: 800px; margin: 0 auto; min-height: 100vh; }
+    .page-wrapper { max-width: 1100px; margin: 0 auto; min-height: 100vh; }
+    .main-with-sidebar { display: grid; grid-template-columns: 1fr 300px; gap: 32px; align-items: start; }
+    @media (max-width: 900px) { .main-with-sidebar { grid-template-columns: 1fr; } .main-with-sidebar .sidebar { display: none; } }
+    .sidebar { position: sticky; top: 80px; padding-top: 48px; }
+    .course-nav-card.courses-nav-box { background: var(--white); border: 1px solid var(--gray-border); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+    .courses-nav-header { background: var(--dark); padding: 20px 18px; color: var(--white); }
+    .courses-nav-header .courses-nav-label { font-size: 10px; letter-spacing: 0.2em; color: var(--gold-light); margin-bottom: 4px; }
+    .courses-nav-header .courses-nav-title { font-family: 'Noto Serif JP', serif; font-size: 18px; font-weight: 600; }
+    .courses-nav { padding: 4px 0; }
+    .courses-nav .nav-group-title { display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; color: var(--mid); font-size: 12px; font-weight: 500; cursor: pointer; transition: background 0.2s, color 0.2s; }
+    .courses-nav .nav-group-title:hover { background: var(--gold-pale); color: var(--gold); }
+    .courses-nav .nav-group.open .nav-group-title { color: var(--gold); }
+    .courses-nav .nav-chevron { width: 16px; height: 16px; border-radius: 50%; border: 1px solid var(--gray-border); display: flex; align-items: center; justify-content: center; font-size: 7px; color: var(--text-muted); transition: transform 0.25s ease; flex-shrink: 0; }
+    .courses-nav .nav-group.open .nav-chevron { transform: rotate(180deg); border-color: var(--gold); background: var(--gold-pale); color: var(--gold); }
+    .courses-nav .nav-items { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.28s ease; overflow: hidden; }
+    .courses-nav .nav-group.open .nav-items { grid-template-rows: 1fr; }
+    .courses-nav .nav-items-inner { overflow: hidden; background: var(--gold-pale); border-top: 1px solid rgba(184,146,62,0.2); }
+    .courses-nav .nav-item { display: flex; align-items: center; gap: 8px; padding: 8px 14px 8px 18px; font-size: 12px; color: var(--mid); text-decoration: none; transition: color 0.15s, background 0.15s; border-left: 2px solid transparent; }
+    .courses-nav .nav-item::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: var(--gray-border); flex-shrink: 0; transition: background 0.15s, transform 0.15s; }
+    .courses-nav .nav-item:hover { color: var(--gold); background: rgba(255,255,255,0.6); border-left-color: var(--gold); }
+    .courses-nav .nav-item:hover::before { background: var(--gold); transform: scale(1.4); }
+    .courses-nav .nav-item.active { color: var(--gold); border-left-color: var(--gold); background: rgba(255,255,255,0.6); font-weight: 500; }
+    .courses-nav .nav-item.active::before { background: var(--gold); transform: scale(1.5); }
+    .courses-nav .nav-divider { height: 1px; background: var(--gray-border); margin: 0; }
 
     .top-bar {
       background: var(--white);
@@ -324,6 +347,7 @@
       </nav>
     </div>
 
+    <div class="main-with-sidebar">
     <div class="main-content">
       <div class="page-header">
         <h1 class="page-title">お申込み</h1>
@@ -842,6 +866,93 @@
 
       <a href="index.html" class="back-link">← トップページへ戻る</a>
     </div>
+    <aside class="sidebar" id="sidebar">
+      <div class="course-nav-card courses-nav-box">
+        <div class="courses-nav-header">
+          <div class="courses-nav-label">Courses</div>
+          <div class="courses-nav-title">講座</div>
+        </div>
+        <div class="courses-nav">
+          <div class="nav-group">
+            <div class="nav-group-title" role="button" tabindex="0" aria-expanded="false">個人レッスン<span class="nav-chevron">▾</span></div>
+            <div class="nav-items">
+              <div class="nav-items-inner">
+                <a href="kojin.html#tab01" class="nav-item">個人レッスン</a>
+                <a href="kojin.html#tab02" class="nav-item">短期集中個人</a>
+                <a href="kojin.html#tab03" class="nav-item">発音矯正</a>
+                <a href="kojin.html#tab04" class="nav-item">レベルテスト</a>
+              </div>
+            </div>
+          </div>
+          <div class="nav-divider"></div>
+          <div class="nav-group">
+            <div class="nav-group-title" role="button" tabindex="0" aria-expanded="false">グループレッスン<span class="nav-chevron">▾</span></div>
+            <div class="nav-items">
+              <div class="nav-items-inner">
+                <a href="group.html#tab01" class="nav-item">入門＆初級講座</a>
+                <a href="group.html#tab02" class="nav-item">中級文法講座</a>
+                <a href="group.html#tab03" class="nav-item">上級文法講座</a>
+                <a href="group.html#tab04" class="nav-item">中級月1講座</a>
+                <a href="group.html#tab05" class="nav-item">上級1土曜講座</a>
+                <a href="group.html#tab06" class="nav-item">上級2土曜講座</a>
+              </div>
+            </div>
+          </div>
+          <div class="nav-divider"></div>
+          <div class="nav-group">
+            <div class="nav-group-title" role="button" tabindex="0" aria-expanded="false">会話強化クラス<span class="nav-chevron">▾</span></div>
+            <div class="nav-items">
+              <div class="nav-items-inner">
+                <a href="kaiwa.html#tab01" class="nav-item">会話クラス</a>
+                <a href="kaiwa.html#tab02" class="nav-item">音読クラス</a>
+                <a href="kaiwa.html#tab03" class="nav-item">発音・抑揚</a>
+                <a href="kaiwa.html#tab04" class="nav-item">小説朗読</a>
+                <a href="kaiwa.html#tab05" class="nav-item">朝勉クラス</a>
+                <a href="kaiwa.html#tab06" class="nav-item">時事韓国語</a>
+                <a href="kaiwa.html#tab07" class="nav-item">語彙力強化</a>
+              </div>
+            </div>
+          </div>
+          <div class="nav-divider"></div>
+          <div class="nav-group">
+            <div class="nav-group-title" role="button" tabindex="0" aria-expanded="false">試験対策講座<span class="nav-chevron">▾</span></div>
+            <div class="nav-items">
+              <div class="nav-items-inner">
+                <a href="special.html#tab01" class="nav-item">TOPIK初級</a>
+                <a href="special.html#tab02" class="nav-item">TOPIK中級</a>
+                <a href="special.html#tab03" class="nav-item">TOPIK上級</a>
+                <a href="special.html#tab04" class="nav-item">ハン検1/2級</a>
+                <a href="special.html#tab05" class="nav-item">ハン検準2級</a>
+              </div>
+            </div>
+          </div>
+          <div class="nav-divider"></div>
+          <div class="nav-group">
+            <div class="nav-group-title" role="button" tabindex="0" aria-expanded="false">集中講座<span class="nav-chevron">▾</span></div>
+            <div class="nav-items">
+              <div class="nav-items-inner">
+                <a href="syutyu.html#tab01" class="nav-item">入門講座</a>
+                <a href="syutyu.html#tab02" class="nav-item">初級講座</a>
+                <a href="syutyu.html#tab03" class="nav-item">中級講座</a>
+                <a href="syutyu.html#tab04" class="nav-item">上級講座</a>
+              </div>
+            </div>
+          </div>
+          <div class="nav-divider"></div>
+          <div class="nav-group">
+            <div class="nav-group-title" role="button" tabindex="0" aria-expanded="false">通信講座<span class="nav-chevron">▾</span></div>
+            <div class="nav-items">
+              <div class="nav-items-inner">
+                <a href="netlesson.html#tab01" class="nav-item">作文トレーニング</a>
+                <a href="netlesson.html#tab02" class="nav-item">音読トレーニング</a>
+                <a href="netlesson.html#tab03" class="nav-item">TOPIK Training</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+    </div>
     <footer>
       <div class="footer-grid">
         <div class="footer-column"><h4>メニュー</h4><a href="index.html">ホーム</a><a href="about.html">会社概要</a><a href="about.html#tab02">アクセス</a></div>
@@ -879,6 +990,14 @@
         var levelRadio = document.getElementById('trial_level');
         if (levelRadio) levelRadio.checked = true;
       }
+
+      document.querySelectorAll('.courses-nav .nav-group-title').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var group = this.closest('.nav-group');
+          group.classList.toggle('open');
+          btn.setAttribute('aria-expanded', group.classList.contains('open'));
+        });
+      });
 
       var hash = location.hash.slice(1);
       if (hash === 'leveltest') {

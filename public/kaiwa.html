@@ -6,218 +6,97 @@
   <title>会話強化クラス｜ミリネ韓国語教室</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --beige: #f5f0e8;
       --taupe: #BD9962;
       --taupe-dark: #9B8B7E;
-      --gold: #b8924a;
-      --gold-light: #e8d5b0;
-      --gold-pale: #f7f0e3;
-      --dark: #1e1a14;
-      --white: #FFFFFF;
       --gray-light: #f8f8f8;
-      --gray-border: #E4DDD2;
-      --text-dark: #1e1a14;
-      --text-muted: #8a7f72;
-      --mid: #4a4438;
-      --muted: #8a7f72;
+      --gray-border: #e5e5e5;
+      --text-dark: #2c2c2c;
+      --text-muted: #666;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
       font-family: 'Noto Sans JP', sans-serif;
-      color: var(--dark);
+      color: var(--text-dark);
       line-height: 1.8;
-      background: #FAFAF7;
+      background: #f0f0f0;
     }
 
     .page-wrapper {
-      max-width: 1200px;
+      max-width: 900px;
       margin: 0 auto;
+      background: white;
       min-height: 100vh;
+      box-shadow: 0 0 40px rgba(0,0,0,0.08);
     }
 
     .top-bar {
-      background: var(--white);
+      background: var(--beige);
       padding: 12px 24px;
       font-size: 12px;
       color: var(--text-muted);
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      justify-content: center;
+      justify-content: space-between;
       gap: 16px;
-      border-bottom: 1px solid var(--gray-border);
+      border-bottom: 1px solid #e8e0d5;
     }
     .top-bar-info { color: var(--text-muted); }
-    .top-bar-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px 32px; }
-    .top-bar a, .top-bar-nav a { color: var(--dark); text-decoration: none; font-weight: 500; font-size: 14px; }
-    .top-bar a:hover, .top-bar-nav a:hover { color: var(--gold); }
-
-    .main-content { padding: 0 24px 80px; }
-
-    .page-header { padding: 40px 0 24px; }
-    .page-header .page-title {
-      font-family: 'Noto Serif JP', serif;
-      font-size: clamp(28px, 5vw, 40px);
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      color: var(--dark);
-      margin-bottom: 12px;
-    }
-    .page-header .page-subtitle { color: var(--text-muted); font-size: 14px; font-weight: 300; }
-
-    .tab-wrap { margin-bottom: 0; }
-    .tab-bar {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      border-bottom: 2px solid var(--gray-border);
-      position: relative;
-    }
-    @media (max-width: 560px) { .tab-bar { grid-template-columns: 1fr 1fr; } }
-    .tab-btn {
-      background: none;
-      border: none;
-      padding: 14px 8px;
-      font-family: 'Noto Sans JP', sans-serif;
-      font-size: 13px;
+    .top-bar-nav { display: flex; flex-wrap: wrap; gap: 20px 32px; }
+    .top-bar a, .top-bar-nav a {
+      color: var(--text-dark);
+      text-decoration: none;
       font-weight: 500;
-      color: var(--text-muted);
+      font-size: 14px;
+    }
+    .top-bar a:hover, .top-bar-nav a:hover { color: #4a6fa5; }
+
+    .main-content { padding: 40px 32px 60px; }
+
+    .page-title { font-size: 32px; font-weight: 700; margin-bottom: 12px; color: var(--text-dark); }
+    .page-subtitle { font-size: 16px; color: var(--text-muted); margin-bottom: 24px; }
+
+    /* タブ */
+    .tab-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0;
+      margin-bottom: 32px;
+      border-bottom: 2px solid var(--gray-border);
+    }
+
+    .tab-btn {
+      padding: 12px 20px;
+      font-size: 14px;
+      font-weight: 500;
+      background: var(--gray-light);
+      border: none;
+      border-bottom: 3px solid transparent;
       cursor: pointer;
-      position: relative;
-      transition: color 0.2s;
+      color: var(--text-muted);
+      font-family: inherit;
+      margin-bottom: -2px;
+      transition: all 0.2s;
       white-space: nowrap;
     }
-    .tab-btn::after {
-      content: '';
-      position: absolute;
-      bottom: -2px;
-      left: 0; right: 0;
-      height: 2px;
-      background: var(--gold);
-      transform: scaleX(0);
-      transition: transform 0.25s ease;
-    }
-    .tab-btn:hover { color: var(--dark); }
-    .tab-btn.active { color: var(--gold); font-weight: 700; }
-    .tab-btn.active::after { transform: scaleX(1); }
 
-    .tab-panel { display: none; padding-top: 32px; }
-    .tab-panel.active { display: block; }
+    .tab-btn:hover { color: var(--text-dark); }
 
-    .group-main-grid {
-      display: grid;
-      grid-template-columns: 1fr 300px;
-      gap: 32px;
-      align-items: start;
-    }
-    @media (max-width: 900px) {
-      .group-main-grid { grid-template-columns: 1fr; }
-      .group-main-grid .sidebar { display: none; }
-    }
-    .group-left { min-width: 0; }
-    .sidebar {
-      position: sticky;
-      top: 80px;
-      padding-top: 200px;
-    }
-    .course-nav-card.courses-nav-box {
-      background: var(--white);
-      border: 1px solid var(--gray-border);
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-    }
-    .courses-nav-header {
-      background: var(--dark);
-      padding: 20px 18px;
-      color: var(--white);
-    }
-    .courses-nav-header .courses-nav-label {
-      font-size: 10px;
-      letter-spacing: 0.2em;
-      color: var(--gold-light);
-      margin-bottom: 4px;
-    }
-    .courses-nav-header .courses-nav-title {
-      font-family: 'Noto Serif JP', serif;
-      font-size: 18px;
+    .tab-btn.active {
+      background: white;
+      color: var(--taupe);
+      border-bottom-color: var(--taupe);
       font-weight: 600;
     }
-    .courses-nav { padding: 4px 0; }
-    .courses-nav .nav-group-title {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 10px 14px;
-      color: var(--mid);
-      font-size: 12px;
-      font-weight: 500;
-      cursor: pointer;
-      transition: background 0.2s, color 0.2s;
-    }
-    .courses-nav .nav-group-title:hover { background: var(--gold-pale); color: var(--gold); }
-    .courses-nav .nav-group.open .nav-group-title { color: var(--gold); }
-    .courses-nav .nav-chevron {
-      width: 16px; height: 16px;
-      border-radius: 50%;
-      border: 1px solid var(--gray-border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 7px;
-      color: var(--text-muted);
-      transition: transform 0.25s ease;
-      flex-shrink: 0;
-    }
-    .courses-nav .nav-group.open .nav-chevron {
-      transform: rotate(180deg);
-      border-color: var(--gold);
-      background: var(--gold-pale);
-      color: var(--gold);
-    }
-    .courses-nav .nav-items {
-      display: grid;
-      grid-template-rows: 0fr;
-      transition: grid-template-rows 0.28s ease;
-      overflow: hidden;
-    }
-    .courses-nav .nav-group.open .nav-items { grid-template-rows: 1fr; }
-    .courses-nav .nav-items-inner {
-      overflow: hidden;
-      background: var(--gold-pale);
-      border-top: 1px solid rgba(184,146,62,0.2);
-    }
-    .courses-nav .nav-item {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 14px 8px 18px;
-      font-size: 12px;
-      color: var(--mid);
-      text-decoration: none;
-      transition: color 0.15s, background 0.15s;
-      border-left: 2px solid transparent;
-    }
-    .courses-nav .nav-item:hover {
-      color: var(--gold);
-      background: rgba(255,255,255,0.6);
-      border-left-color: var(--gold);
-    }
-    .courses-nav .nav-item.active {
-      color: var(--gold);
-      border-left-color: var(--gold);
-      background: rgba(255,255,255,0.6);
-      font-weight: 500;
-    }
-    .courses-nav .nav-divider {
-      height: 1px;
-      background: var(--gray-border);
-      margin: 0;
-    }
+
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
 
     .section-header {
       background: var(--taupe);
@@ -286,289 +165,32 @@
     .testimonial-header { font-weight: 600; font-size: 15px; margin-bottom: 12px; color: var(--text-dark); }
     .testimonial-content { font-size: 14px; color: var(--text-muted); line-height: 1.9; }
 
+    .cta-buttons { margin-top: 48px; margin-bottom: 24px; }
+    .cta-wrapper {
+      background: white;
+      padding: 24px 32px;
+      border-radius: 16px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+    .cta-btn {
+      display: block;
+      text-align: center;
+      padding: 18px 40px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 18px;
+      background: #A28C69;
+      color: white;
+      transition: transform 0.2s;
+    }
+    .cta-btn:hover { transform: translateY(-2px); }
+
     .back-link { display: inline-block; margin-top: 24px; color: #4a6fa5; text-decoration: none; font-size: 14px; }
 
-    /* Footer */
-    footer { background: #2c2c2c; color: white; padding: 48px 24px 24px; }
-    .footer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; max-width: 1200px; margin: 0 auto 40px; }
-    @media (max-width: 768px) { .footer-grid { grid-template-columns: repeat(2, 1fr); } }
-    .footer-column h4 { font-size: 14px; margin-bottom: 16px; opacity: 0.9; }
-    .footer-column a { display: block; color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; margin-bottom: 8px; }
-    .footer-column a:hover { color: white; }
-    .footer-bottom { text-align: center; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 13px; opacity: 0.8; }
-
-    .content-block p { margin-bottom: 12px; color: var(--muted); }
+    .content-block p { margin-bottom: 12px; color: var(--text-muted); }
     .content-block ul { margin: 8px 0 8px 24px; }
     .content-block li { margin-bottom: 6px; }
-
-    /* beg-* design (group.html style) */
-    #tab01, #tab02, #tab03, #tab04 {
-      --cream: #f5f2ec;
-      --cream-mid: #ede8df;
-      --gold-light: #e8d5b0;
-      --gold-pale: rgba(184,146,42,0.1);
-      --muted: #8a7f72;
-      --border: #e4ddd2;
-    }
-    #tab01 .beg-page, #tab02 .beg-page, #tab03 .beg-page, #tab04 .beg-page { padding: 0 0 40px; }
-    #tab01 .beg-hero, #tab02 .beg-hero, #tab03 .beg-hero, #tab04 .beg-hero {
-      background: var(--dark);
-      border-radius: 16px;
-      padding: 40px 48px;
-      margin-bottom: 32px;
-      position: relative;
-      overflow: hidden;
-    }
-    #tab01 .beg-hero::before, #tab02 .beg-hero::before, #tab03 .beg-hero::before, #tab04 .beg-hero::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: repeating-linear-gradient(-50deg, transparent, transparent 38px, rgba(255,255,255,0.016) 38px, rgba(255,255,255,0.016) 39px);
-      pointer-events: none;
-    }
-    #tab01 .beg-hero::after, #tab02 .beg-hero::after, #tab03 .beg-hero::after, #tab04 .beg-hero::after {
-      content: '';
-      position: absolute;
-      top: -60px; right: -60px;
-      width: 280px; height: 280px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(184,146,42,0.14) 0%, transparent 65%);
-      pointer-events: none;
-    }
-    #tab01 .beg-hero-eyebrow, #tab02 .beg-hero-eyebrow, #tab03 .beg-hero-eyebrow, #tab04 .beg-hero-eyebrow {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 12px;
-      letter-spacing: 0.24em;
-      text-transform: uppercase;
-      color: var(--gold-light);
-      margin-bottom: 10px;
-    }
-    #tab01 .beg-hero-title, #tab02 .beg-hero-title, #tab03 .beg-hero-title, #tab04 .beg-hero-title {
-      font-size: 34px;
-      font-weight: 700;
-      color: #fff;
-      line-height: 1.25;
-      margin-bottom: 18px;
-      position: relative; z-index: 1;
-    }
-    #tab01 .beg-hero-title em, #tab02 .beg-hero-title em, #tab03 .beg-hero-title em, #tab04 .beg-hero-title em { font-style: normal; color: var(--gold-light); }
-    #tab01 .beg-hero-desc, #tab02 .beg-hero-desc, #tab03 .beg-hero-desc, #tab04 .beg-hero-desc {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      position: relative; z-index: 1;
-    }
-    #tab01 .beg-hero-desc p, #tab02 .beg-hero-desc p, #tab03 .beg-hero-desc p, #tab04 .beg-hero-desc p {
-      font-size: 16px;
-      color: rgba(255,255,255,0.65);
-      display: flex;
-      align-items: baseline;
-      gap: 8px;
-    }
-    #tab01 .beg-hero-desc p::before, #tab02 .beg-hero-desc p::before, #tab03 .beg-hero-desc p::before, #tab04 .beg-hero-desc p::before {
-      content: '';
-      width: 16px; height: 1px;
-      background: var(--gold);
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
-    #tab01 .beg-hero-tags, #tab02 .beg-hero-tags, #tab03 .beg-hero-tags, #tab04 .beg-hero-tags {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-top: 22px;
-      position: relative; z-index: 1;
-    }
-    #tab01 .beg-hero-tag, #tab02 .beg-hero-tag, #tab03 .beg-hero-tag, #tab04 .beg-hero-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      padding: 5px 12px;
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 20px;
-      font-size: 14px;
-      color: rgba(255,255,255,0.75);
-    }
-    #tab01 .beg-hero-tag span, #tab02 .beg-hero-tag span, #tab03 .beg-hero-tag span, #tab04 .beg-hero-tag span { color: var(--gold-light); font-weight: 600; }
-    .beg-sec-header {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 16px;
-    }
-    .beg-sec-line { flex: 1; height: 1px; background: #e4ddd2; }
-    .beg-sec-title {
-      font-size: 16px;
-      font-weight: 600;
-      color: var(--mid);
-      letter-spacing: 0.06em;
-      white-space: nowrap;
-    }
-    .beg-sec-label {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 11px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--gold);
-    }
-    .beg-targets-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin-bottom: 32px; }
-    .beg-target-card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 16px 18px;
-      display: flex;
-      gap: 10px;
-      align-items: flex-start;
-      transition: border-color 0.2s, box-shadow 0.2s;
-    }
-    .beg-target-card:hover {
-      border-color: var(--gold-light);
-      box-shadow: 0 3px 14px rgba(184,146,42,0.1);
-    }
-    .beg-target-icon { font-size: 24px; line-height: 1; flex-shrink: 0; margin-top: 1px; }
-    .beg-target-text { font-size: 14px; color: var(--mid); line-height: 1.6; }
-    .beg-flow-steps {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      overflow: hidden;
-      margin-bottom: 32px;
-    }
-    .beg-flow-step {
-      display: flex;
-      align-items: flex-start;
-      gap: 16px;
-      padding: 14px 20px;
-      border-bottom: 1px solid var(--border);
-      transition: background 0.15s;
-    }
-    .beg-flow-step:last-child { border-bottom: none; }
-    .beg-flow-step:hover { background: #faf8f4; }
-    .beg-flow-num {
-      width: 24px; height: 24px;
-      border-radius: 50%;
-      background: var(--dark);
-      color: var(--gold-light);
-      font-size: 13px;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      margin-top: 1px;
-    }
-    .beg-flow-text { font-size: 16px; color: var(--mid); }
-    .beg-info-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-bottom: 32px; }
-    .beg-info-card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 14px 18px;
-    }
-    .beg-info-card-label {
-      font-size: 11px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--gold);
-      font-family: 'Cormorant Garamond', serif;
-      margin-bottom: 5px;
-    }
-    .beg-info-card-value {
-      font-size: 16px;
-      font-weight: 500;
-      color: var(--mid);
-      line-height: 1.5;
-    }
-    .beg-info-card-value small { display: block; font-size: 13px; font-weight: 400; color: var(--muted); margin-top: 2px; }
-    .beg-tuition-table-wrap {
-      border-radius: 10px;
-      overflow: hidden;
-      border: 1px solid var(--border);
-      box-shadow: 0 2px 12px rgba(28,26,23,0.06);
-      margin-bottom: 32px;
-    }
-    .beg-tuition-table {
-      width: 100%;
-      border-collapse: collapse;
-      background: var(--white);
-    }
-    .beg-tuition-table thead tr { background: var(--dark); }
-    .beg-tuition-table thead th {
-      padding: 11px 18px;
-      font-size: 13px;
-      font-weight: 500;
-      color: rgba(255,255,255,0.8);
-      letter-spacing: 0.05em;
-      text-align: center;
-    }
-    .beg-tuition-table thead th:first-child { text-align: left; }
-    .beg-tuition-table tbody tr { border-bottom: 1px solid var(--border); }
-    .beg-tuition-table tbody tr:last-child { border-bottom: none; }
-    .beg-tuition-table tbody tr:nth-child(even) { background: #faf8f4; }
-    .beg-tuition-table td {
-      padding: 13px 18px;
-      font-size: 15px;
-      color: var(--mid);
-      text-align: center;
-    }
-    .beg-tuition-table td:first-child { text-align: left; font-weight: 500; }
-    .beg-testimonial {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 20px 24px;
-      margin-bottom: 32px;
-      position: relative;
-    }
-    .beg-testimonial::before {
-      content: '"';
-      position: absolute;
-      top: 10px; left: 18px;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 60px;
-      color: var(--gold-pale);
-      line-height: 1;
-      pointer-events: none;
-    }
-    .beg-testimonial-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
-    .beg-testimonial-avatar {
-      width: 32px; height: 32px;
-      border-radius: 50%;
-      background: var(--dark);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 16px; color: var(--gold-light); font-weight: 700;
-      flex-shrink: 0;
-    }
-    .beg-testimonial-name { font-size: 15px; font-weight: 600; color: var(--mid); }
-    .beg-testimonial-date { font-size: 13px; color: var(--muted); }
-    .beg-testimonial-body { font-size: 16px; color: var(--mid); line-height: 1.75; padding-left: 4px; }
-    .beg-cta-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
-      color: var(--dark);
-      font-size: 18px;
-      font-weight: 700;
-      padding: 18px 32px;
-      border-radius: 12px;
-      border: none;
-      cursor: pointer;
-      letter-spacing: 0.04em;
-      box-shadow: 0 4px 20px rgba(184,146,42,0.4);
-      transition: transform 0.15s, box-shadow 0.15s;
-      width: 100%;
-      text-decoration: none;
-    }
-    .beg-cta-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 28px rgba(184,146,42,0.5);
-    }
 
     @media (max-width: 600px) {
       .main-content { padding: 24px 16px 40px; }
@@ -580,7 +202,7 @@
 <body>
   <div class="page-wrapper">
     <div class="top-bar">
-      <span class="top-bar-info">東京で韓国語教室をお探しならミリネ韓国語教室 | 定休日: 月曜日</span>
+      <span class="top-bar-info">東京で韓国語教室をお探しならミリネ | 定休日: 月曜日</span>
       <nav class="top-bar-nav">
         <a href="index.html">ホーム</a>
         <a href="about.html">会社概要</a>
@@ -593,111 +215,82 @@
     </div>
 
     <div class="main-content">
-      <div class="group-main-grid">
-        <div class="group-left">
-      <div class="page-header">
-        <h1 class="page-title">会話強化クラス</h1>
-        <p class="page-subtitle">会話・音読・発音・時事・朝勉・小説朗読・語彙力強化で総合的に会話力アップ</p>
-      </div>
+      <h1 class="page-title">会話強化クラス</h1>
+      <p class="page-subtitle">会話・音読・発音・小説朗読・語彙力強化で総合的に会話力アップ</p>
 
-      <div class="tab-wrap">
       <div class="tab-bar">
         <button type="button" class="tab-btn active" data-tab="tab01">会話クラス</button>
         <button type="button" class="tab-btn" data-tab="tab02">音読クラス</button>
         <button type="button" class="tab-btn" data-tab="tab03">発音・抑揚</button>
         <button type="button" class="tab-btn" data-tab="tab04">小説朗読</button>
-        <button type="button" class="tab-btn" data-tab="tab05">朝勉クラス</button>
-        <button type="button" class="tab-btn" data-tab="tab06">時事韓国語</button>
         <button type="button" class="tab-btn" data-tab="tab07">語彙力強化</button>
-      </div>
       </div>
 
       <!-- ========== タブ1: 会話クラス ========== -->
       <div id="tab01" class="tab-panel active">
-        <div class="beg-page">
-          <div class="beg-hero">
-            <div class="beg-hero-eyebrow">Conversation — Training</div>
-            <div class="beg-hero-title">『会話<em>トレーニング</em>』</div>
-            <div class="beg-hero-desc">
-              <p>独学または授業で習った表現を、実際の会話トレーニングで使いこなすクラスです。</p>
-              <p>ミリネ独自のテキストを利用し、毎回違うテーマについて指定された文型で作文・添削・会話を繰り返すことで、文型と語彙を定着させます。</p>
-            </div>
-            <div class="beg-hero-tags">
-              <div class="beg-hero-tag">👥 <span>1～5人</span></div>
-              <div class="beg-hero-tag">⏱ <span>1コマ 50分</span></div>
-              <div class="beg-hero-tag">📅 <span>水 11:00／土 14:00</span></div>
+        <h2 class="section-header">『会話トレーニング』</h2>
+        <div class="content-inner">
+          <div class="content-block">
+            <p>独学または授業で習った表現を、実際の会話トレーニングで使いこなすクラスです。いつも同じ単語・同じ文型だけで話してしまう方に向けて、より多くの正確な表現を使う練習を行います。</p>
+            <p>ミリネ独自のテキストを利用し、毎回違うテーマについて指定された文型で作文・添削・会話を繰り返すことで、文型と語彙を定着させます。</p>
+          </div>
+
+          <div class="content-block">
+            <h3>対象・目標</h3>
+            <div class="target-cards">
+              <div class="target-card">
+                <div class="target-card-icon">💬</div>
+                <div class="target-card-text">会話クラス（中級〜上級）で、韓国語で不自由なく話せるようになりたい方</div>
+              </div>
+              <div class="target-card">
+                <div class="target-card-icon">🧾</div>
+                <div class="target-card-text">会話だけでなく、短い作文も添削しながら文法と表現の違いをしっかり学びたい方</div>
+              </div>
             </div>
           </div>
 
-          <div class="beg-sec-header">
-            <div class="beg-sec-label">Targets</div>
-            <div class="beg-sec-title">対象・目標</div>
-            <div class="beg-sec-line"></div>
-          </div>
-          <div class="beg-targets-grid">
-            <div class="beg-target-card">
-              <span class="beg-target-icon">💬</span>
-              <span class="beg-target-text">会話クラス（中級〜上級）で、韓国語で不自由なく話せるようになりたい方</span>
-            </div>
-            <div class="beg-target-card">
-              <span class="beg-target-icon">🧾</span>
-              <span class="beg-target-text">会話だけでなく、短い作文も添削しながら文法と表現の違いをしっかり学びたい方</span>
-            </div>
+          <div class="content-block">
+            <h3>時間・日程</h3>
+            <table class="price-table">
+              <thead>
+                <tr><th>人数</th><th>時間</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>1～5人</td><td>1コマ 50分</td></tr>
+              </tbody>
+            </table>
+            <p>中級：水 11:00〜12:00（対面）／ 中上級：土 14:00〜15:00（オンライン）</p>
           </div>
 
-          <div class="beg-sec-header">
-            <div class="beg-sec-label">Lesson Flow</div>
-            <div class="beg-sec-title">進め方</div>
-            <div class="beg-sec-line"></div>
-          </div>
-          <div class="beg-flow-steps">
-            <div class="beg-flow-step">
-              <span class="beg-flow-num">1</span>
-              <span class="beg-flow-text">本日のテーマを確認し、指定された文型で事前に作文してきます。</span>
-            </div>
-            <div class="beg-flow-step">
-              <span class="beg-flow-num">2</span>
-              <span class="beg-flow-text">授業で新しい単語や表現を確認し、発音チェックを行います。</span>
-            </div>
-            <div class="beg-flow-step">
-              <span class="beg-flow-num">3</span>
-              <span class="beg-flow-text">準備してきた内容をもとに会話しながら、随時表現を修正します。</span>
-            </div>
-            <div class="beg-flow-step">
-              <span class="beg-flow-num">4</span>
-              <span class="beg-flow-text">最後に、本日のテーマで学んだ表現をまとめて整理します。</span>
-            </div>
+          <div class="content-block">
+            <h3>進め方</h3>
+            <ul style="margin-left: 24px; list-style: none;">
+              <li>❶ 本日のテーマを確認し、指定された文型で事前に作文してきます。</li>
+              <li>❷ 授業で新しい単語や表現を確認し、発音チェックを行います。</li>
+              <li>❸ 準備してきた内容をもとに会話しながら、随時表現を修正します。</li>
+              <li>❹ 最後に、本日のテーマで学んだ表現をまとめて整理します。</li>
+            </ul>
           </div>
 
-          <div class="beg-sec-header">
-            <div class="beg-sec-label">Theme Examples</div>
-            <div class="beg-sec-title">主なテーマ例</div>
-            <div class="beg-sec-line"></div>
+          <div class="content-block">
+            <h3>主なテーマ例</h3>
+            <table class="price-table">
+              <thead>
+                <tr><th>レベル</th><th>一例</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>初中級</td><td>初対面の挨拶・自己紹介／余暇・趣味／旅行／家族／ニュース など</td></tr>
+                <tr><td>中級</td><td>韓国語の勉強／私について／結婚式・結婚文化／気分転換／映画・スマートフォン など</td></tr>
+                <tr><td>上級</td><td>職場の人間関係／育児・教育／お金・老後設計／韓国社会のニュース・時事問題 など</td></tr>
+              </tbody>
+            </table>
+            <p class="section-note">※実際のカリキュラムでは約50テーマ以上を扱います。</p>
           </div>
-          <div class="beg-info-cards">
-            <div class="beg-info-card">
-              <div class="beg-info-card-label">初中級</div>
-              <div class="beg-info-card-value">初対面の挨拶・自己紹介／余暇・趣味／旅行／家族／ニュース など</div>
-            </div>
-            <div class="beg-info-card">
-              <div class="beg-info-card-label">中級</div>
-              <div class="beg-info-card-value">韓国語の勉強／私について／結婚式・結婚文化／気分転換／映画・スマートフォン など</div>
-            </div>
-            <div class="beg-info-card">
-              <div class="beg-info-card-label">上級</div>
-              <div class="beg-info-card-value">職場の人間関係／育児・教育／お金・老後設計／韓国社会のニュース・時事問題 など</div>
-            </div>
-          </div>
-          <p class="section-note" style="margin-bottom:24px;">※実際のカリキュラムでは約50テーマ以上を扱います。</p>
 
-          <div class="beg-sec-header">
-            <div class="beg-sec-label">Tuition</div>
-            <div class="beg-sec-title">入学金・授業料</div>
-            <div class="beg-sec-line"></div>
-          </div>
-          <p style="margin-bottom:12px;color:var(--mid);">入学金：9,800円</p>
-          <div class="beg-tuition-table-wrap">
-            <table class="beg-tuition-table">
+          <div class="content-block">
+            <h3>入学金・授業料</h3>
+            <p>入学金：9,800円</p>
+            <table class="price-table">
               <thead>
                 <tr><th>プラン</th><th>1回あたり</th><th>回数</th><th>授業料（税抜）</th><th>税込</th><th>有効期限</th></tr>
               </thead>
@@ -706,107 +299,65 @@
                 <tr><td>月3回コース</td><td>3,500円</td><td>9回</td><td>31,500円</td><td>34,650円</td><td>―</td></tr>
               </tbody>
             </table>
-          </div>
-          <p class="section-note" style="margin-bottom:24px;">※回数券の場合、予約は1週間前まで。キャンセル不可。一人からスタート可能です。</p>
-
-          <div class="beg-sec-header">
-            <div class="beg-sec-label">Testimonial</div>
-            <div class="beg-sec-title">生徒の声</div>
-            <div class="beg-sec-line"></div>
-          </div>
-          <div class="beg-testimonial">
-            <div class="beg-testimonial-meta">
-              <div class="beg-testimonial-avatar">M</div>
-              <div>
-                <span class="beg-testimonial-name">M様</span>
-                <span class="beg-testimonial-date">会話トレーニング</span>
-              </div>
-            </div>
-            <div class="beg-testimonial-body">この会話トレーニングを受けて、自分から韓国語で発言する自信が持てるようになりました。毎回テーマが変わるので、話せる内容の幅が広がりました。</div>
-          </div>
-          <div class="beg-testimonial">
-            <div class="beg-testimonial-meta">
-              <div class="beg-testimonial-avatar">S</div>
-              <div>
-                <span class="beg-testimonial-name">S様</span>
-                <span class="beg-testimonial-date">会話トレーニング</span>
-              </div>
-            </div>
-            <div class="beg-testimonial-body">作文を通して似ている文型の違いを教えていただき、会話も作文も少しずつ良くなってきたと感じています。身近なテーマなので、習った表現をそのまま使えるのが嬉しいです。</div>
+            <p class="section-note">※回数券の場合、予約は1週間前まで。キャンセル不可。一人からスタート可能です。</p>
           </div>
 
-          <a href="https://mirinae.jp/trial.html" class="beg-cta-btn" style="text-decoration:none;">
-            お申込みはこちら
-            <svg viewBox="0 0 16 16" style="width:16px;height:16px;"><line x1="2" y1="8" x2="13" y2="8" stroke="currentColor" stroke-width="2.5" fill="none"/><polyline points="9,4 13,8 9,12" stroke="currentColor" stroke-width="2.5" fill="none"/></svg>
-          </a>
+          <div class="content-block">
+            <h3>生徒の声</h3>
+            <div class="testimonial">
+              <div class="testimonial-header">M様｜会話トレーニング</div>
+              <div class="testimonial-content">
+                <p>この会話トレーニングを受けて、自分から韓国語で発言する自信が持てるようになりました。毎回テーマが変わるので、話せる内容の幅が広がりました。</p>
+              </div>
+            </div>
+            <div class="testimonial">
+              <div class="testimonial-header">S様｜会話トレーニング</div>
+              <div class="testimonial-content">
+                <p>作文を通して似ている文型の違いを教えていただき、会話も作文も少しずつ良くなってきたと感じています。身近なテーマなので、習った表現をそのまま使えるのが嬉しいです。</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
       <!-- ========== タブ2: 音読クラス ========== -->
       <div id="tab02" class="tab-panel">
-        <div class="beg-page">
-          <div class="beg-hero">
-            <div class="beg-hero-eyebrow">Reading Aloud — Class</div>
-            <div class="beg-hero-title">『音読<em>クラス</em>』</div>
-            <div class="beg-hero-desc">
-              <p>黙読だけではなかなか伸びない中級レベルの壁を、「音読」で突破するクラスです。</p>
-              <p>専門講師の発音チェックを受けながら音読の習慣をつけることで、綺麗な発音と抑揚を身につけ、会話力・聞き取り力を同時に伸ばします。</p>
-            </div>
-            <div class="beg-hero-tags">
-              <div class="beg-hero-tag">👥 <span>初中級 2〜5人</span></div>
-              <div class="beg-hero-tag">📅 <span>日 11:00〜12:00</span></div>
-              <div class="beg-hero-tag">💻 <span>オンライン</span></div>
-            </div>
+        <h2 class="section-header">『音読クラス』</h2>
+        <div class="content-inner">
+          <div class="content-block">
+            <p>黙読だけではなかなか伸びない中級レベルの壁を、「音読」で突破するクラスです。専門講師の発音チェックを受けながら音読の習慣をつけることで、綺麗な発音と抑揚を身につけ、会話力・聞き取り力を同時に伸ばします。</p>
           </div>
 
-          <div class="beg-sec-header">
-            <div class="beg-sec-label">Points</div>
-            <div class="beg-sec-title">ポイント</div>
-            <div class="beg-sec-line"></div>
-          </div>
-          <div class="beg-flow-steps">
-            <div class="beg-flow-step">
-              <span class="beg-flow-num">1</span>
-              <span class="beg-flow-text">毎回、発音・抑揚・話すスピードをチェック</span>
-            </div>
-            <div class="beg-flow-step">
-              <span class="beg-flow-num">2</span>
-              <span class="beg-flow-text">正しい抑揚と発音をイメージトレーニングで定着</span>
-            </div>
-            <div class="beg-flow-step">
-              <span class="beg-flow-num">3</span>
-              <span class="beg-flow-text">オーバーラッピングとシャドーイングで、長い文章も自然に読めるように</span>
-            </div>
+          <div class="content-block">
+            <h3>ポイント</h3>
+            <ul style="margin-left: 24px; list-style: none;">
+              <li>❶ 毎回、発音・抑揚・話すスピードをチェック</li>
+              <li>❷ 正しい抑揚と発音をイメージトレーニングで定着</li>
+              <li>❸ オーバーラッピングとシャドーイングで、長い文章も自然に読めるように</li>
+            </ul>
           </div>
 
-          <div class="beg-sec-header">
-            <div class="beg-sec-label">Lesson Flow</div>
-            <div class="beg-sec-title">授業の流れ</div>
-            <div class="beg-sec-line"></div>
-          </div>
-          <div class="beg-flow-steps">
-            <div class="beg-flow-step">
-              <span class="beg-flow-num">1</span>
-              <span class="beg-flow-text">音読記録シートを作成し、進捗を見える化</span>
-            </div>
-            <div class="beg-flow-step">
-              <span class="beg-flow-num">2</span>
-              <span class="beg-flow-text">文章の意味・文法要素・音の変化を確認</span>
-            </div>
-            <div class="beg-flow-step">
-              <span class="beg-flow-num">3</span>
-              <span class="beg-flow-text">音声を聞き、オーバーラッピング → シャドーイング → イメージトレーニング</span>
-            </div>
+          <div class="content-block">
+            <h3>クラス概要</h3>
+            <p>クラス：初中級（2〜5人）</p>
+            <p>日程：[日曜クラス] 11:00〜12:00（オンライン）</p>
+            <p>目標：すらすら韓国語文章を読む／ネイティブに近い発音と抑揚を学ぶ／会話に自信をつける</p>
+            <p>テキスト：『韓国語リーディング タングニの日本生活記』 など</p>
           </div>
 
-          <div class="beg-sec-header">
-            <div class="beg-sec-label">Tuition</div>
-            <div class="beg-sec-title">入学金・授業料</div>
-            <div class="beg-sec-line"></div>
+          <div class="content-block">
+            <h3>授業の流れ</h3>
+            <ul style="margin-left: 24px; list-style: none;">
+              <li>❶ 音読記録シートを作成し、進捗を見える化</li>
+              <li>❷ 文章の意味・文法要素・音の変化を確認</li>
+              <li>❸ 音声を聞き、オーバーラッピング → シャドーイング → イメージトレーニング</li>
+            </ul>
           </div>
-          <p style="margin-bottom:12px;color:var(--mid);">入学金：9,800円</p>
-          <div class="beg-tuition-table-wrap">
-            <table class="beg-tuition-table">
+
+          <div class="content-block">
+            <h3>入学金・授業料</h3>
+            <p>入学金：9,800円</p>
+            <table class="price-table">
               <thead>
                 <tr><th>レベル</th><th>曜日</th><th>時間</th><th>教室</th><th>1コマあたり</th><th>回数</th><th>授業料（税抜）</th><th>税込</th></tr>
               </thead>
@@ -816,83 +367,45 @@
             </table>
           </div>
 
-          <div class="beg-sec-header">
-            <div class="beg-sec-label">Testimonial</div>
-            <div class="beg-sec-title">生徒の声</div>
-            <div class="beg-sec-line"></div>
-          </div>
-          <div class="beg-testimonial">
-            <div class="beg-testimonial-meta">
-              <div class="beg-testimonial-avatar">Y</div>
-              <div>
-                <span class="beg-testimonial-name">Y様</span>
-                <span class="beg-testimonial-date">2018.11</span>
+          <div class="content-block">
+            <h3>生徒の声</h3>
+            <div class="testimonial">
+              <div class="testimonial-header">Y様｜2018.11</div>
+              <div class="testimonial-content">
+                <p>今までのどの授業よりも大変でしたが、その分集中した時間でした。パダスギで聞き取れなかった細かいところが聞き取れるようになり、苦手だった音読が少し好きになりました。</p>
               </div>
             </div>
-            <div class="beg-testimonial-body">今までのどの授業よりも大変でしたが、その分集中した時間でした。パダスギで聞き取れなかった細かいところが聞き取れるようになり、苦手だった音読が少し好きになりました。</div>
-          </div>
-          <div class="beg-testimonial">
-            <div class="beg-testimonial-meta">
-              <div class="beg-testimonial-avatar">M</div>
-              <div>
-                <span class="beg-testimonial-name">M様</span>
-                <span class="beg-testimonial-date">2018.2</span>
+            <div class="testimonial">
+              <div class="testimonial-header">M様｜2018.2</div>
+              <div class="testimonial-content">
+                <p>独学では気づけなかった発音のポイントをたくさん学べました。先生方がとても熱心で、ここで音読を教えていただいて本当によかったです。</p>
               </div>
             </div>
-            <div class="beg-testimonial-body">独学では気づけなかった発音のポイントをたくさん学べました。先生方がとても熱心で、ここで音読を教えていただいて本当によかったです。</div>
           </div>
-
-          <a href="https://mirinae.jp/trial.html" class="beg-cta-btn" style="text-decoration:none;">
-            お申込みはこちら
-            <svg viewBox="0 0 16 16" style="width:16px;height:16px;"><line x1="2" y1="8" x2="13" y2="8" stroke="currentColor" stroke-width="2.5" fill="none"/><polyline points="9,4 13,8 9,12" stroke="currentColor" stroke-width="2.5" fill="none"/></svg>
-          </a>
         </div>
       </div>
 
       <!-- ========== タブ3: 発音・抑揚 ========== -->
       <div id="tab03" class="tab-panel">
-        <div class="beg-page">
-          <div class="beg-hero">
-            <div class="beg-hero-eyebrow">Pronunciation — Intonation</div>
-            <div class="beg-hero-title">『発音・抑揚<em>クラス</em>』</div>
-            <div class="beg-hero-desc">
-              <p>日本語ネイティブがつまずきやすい韓国語の発音と抑揚を集中的にトレーニングするクラスです。</p>
-              <p>平音・激音・濃音、パッチム、発音変化のルールを体系的に学び、長文でも自然なイントネーションで読めるようにします。</p>
-            </div>
-            <div class="beg-hero-tags">
-              <div class="beg-hero-tag">📚 <span>発音5大ルール</span></div>
-              <div class="beg-hero-tag">📖 <span>長文音読</span></div>
-            </div>
+        <h2 class="section-header">『発音・抑揚クラス』</h2>
+        <div class="content-inner">
+          <div class="content-block">
+            <p>日本語ネイティブがつまずきやすい韓国語の発音と抑揚を集中的にトレーニングするクラスです。平音・激音・濃音、パッチム、発音変化のルールを体系的に学び、長文でも自然なイントネーションで読めるようにします。</p>
           </div>
 
-          <div class="beg-sec-header">
-            <div class="beg-sec-label">Content</div>
-            <div class="beg-sec-title">内容の一例</div>
-            <div class="beg-sec-line"></div>
-          </div>
-          <div class="beg-flow-steps">
-            <div class="beg-flow-step">
-              <span class="beg-flow-num">1</span>
-              <span class="beg-flow-text">日本語にない母音・子音、パッチムの音の作り方</span>
-            </div>
-            <div class="beg-flow-step">
-              <span class="beg-flow-num">2</span>
-              <span class="beg-flow-text">激音化・濃音化・鼻音化・流音化・ㄴ挿入 など発音5大ルール</span>
-            </div>
-            <div class="beg-flow-step">
-              <span class="beg-flow-num">3</span>
-              <span class="beg-flow-text">ニュース・エッセイ・小説など長めの文章の音読と抑揚トレーニング</span>
-            </div>
+          <div class="content-block">
+            <h3>内容の一例</h3>
+            <ul>
+              <li>日本語にない母音・子音、パッチムの音の作り方</li>
+              <li>激音化・濃音化・鼻音化・流音化・ㄴ挿入 など発音5大ルール</li>
+              <li>ニュース・エッセイ・小説など長めの文章の音読と抑揚トレーニング</li>
+            </ul>
           </div>
 
-          <div class="beg-sec-header">
-            <div class="beg-sec-label">Intensive Course</div>
-            <div class="beg-sec-title">短期集中 多読・発音トレーニング</div>
-            <div class="beg-sec-line"></div>
-          </div>
-          <p style="margin-bottom:16px;color:var(--mid);">日本の名作文学や韓国の昔話をやさしい韓国語で多読しながら、発音の基礎と抑揚を徹底的に練習する集中講座も開講しています。</p>
-          <div class="beg-tuition-table-wrap">
-            <table class="beg-tuition-table">
+          <div class="content-block">
+            <h3>短期集中 多読・発音トレーニング（概要）</h3>
+            <p>日本の名作文学や韓国の昔話をやさしい韓国語で多読しながら、発音の基礎と抑揚を徹底的に練習する集中講座も開講しています。</p>
+            <table class="price-table">
               <thead>
                 <tr><th>期間</th><th>コマ数</th><th>授業料（税抜）</th><th>税込</th></tr>
               </thead>
@@ -903,112 +416,54 @@
             </table>
           </div>
 
-          <div class="beg-sec-header">
-            <div class="beg-sec-label">Testimonial</div>
-            <div class="beg-sec-title">生徒の声</div>
-            <div class="beg-sec-line"></div>
-          </div>
-          <div class="beg-testimonial">
-            <div class="beg-testimonial-meta">
-              <div class="beg-testimonial-avatar">初</div>
-              <div>
-                <span class="beg-testimonial-name">初級</span>
-                <span class="beg-testimonial-date">中部在住</span>
+          <div class="content-block">
+            <h3>生徒の声（抜粋）</h3>
+            <div class="testimonial">
+              <div class="testimonial-header">初級｜中部在住</div>
+              <div class="testimonial-content">
+                <p>口や舌の動きを実際に見ることができ、自分では気づけなかった発音のクセを知ることができました。発音の大切さを改めて実感しました。</p>
               </div>
             </div>
-            <div class="beg-testimonial-body">口や舌の動きを実際に見ることができ、自分では気づけなかった発音のクセを知ることができました。発音の大切さを改めて実感しました。</div>
-          </div>
-          <div class="beg-testimonial">
-            <div class="beg-testimonial-meta">
-              <div class="beg-testimonial-avatar">中</div>
-              <div>
-                <span class="beg-testimonial-name">中級</span>
-                <span class="beg-testimonial-date">関東在住</span>
+            <div class="testimonial">
+              <div class="testimonial-header">中級｜関東在住</div>
+              <div class="testimonial-content">
+                <p>抑揚の基本ルールを初めて理解できました。長めの文章の読み方を細かく直していただき、自分のクセを知る良い機会になりました。</p>
               </div>
             </div>
-            <div class="beg-testimonial-body">抑揚の基本ルールを初めて理解できました。長めの文章の読み方を細かく直していただき、自分のクセを知る良い機会になりました。</div>
           </div>
-
-          <a href="https://mirinae.jp/trial.html" class="beg-cta-btn" style="text-decoration:none;">
-            お申込みはこちら
-            <svg viewBox="0 0 16 16" style="width:16px;height:16px;"><line x1="2" y1="8" x2="13" y2="8" stroke="currentColor" stroke-width="2.5" fill="none"/><polyline points="9,4 13,8 9,12" stroke="currentColor" stroke-width="2.5" fill="none"/></svg>
-          </a>
         </div>
       </div>
 
       <!-- ========== タブ4: 小説朗読 ========== -->
       <div id="tab04" class="tab-panel">
-        <div class="beg-page">
-          <div class="beg-hero">
-            <div class="beg-hero-eyebrow">Novel — Reading & Discussion</div>
-            <div class="beg-hero-title">『小説朗読<em>討論クラス</em>』</div>
-            <div class="beg-hero-desc">
-              <p>小説を朗読し、要約し、内容について討論する上級向けクラスです。</p>
-              <p>教科書的な文章を離れ、実生活に近い生きた韓国語に触れながら、語彙力・会話力・聞き取り力の3つをバランス良く伸ばします。</p>
-            </div>
-            <div class="beg-hero-tags">
-              <div class="beg-hero-tag">👥 <span>定員 2〜8人</span></div>
-              <div class="beg-hero-tag">📅 <span>隔週土曜 12:00〜14:00</span></div>
-              <div class="beg-hero-tag">💻 <span>Zoom</span></div>
-            </div>
+        <h2 class="section-header">『小説朗読討論クラス』</h2>
+        <div class="content-inner">
+          <div class="content-block">
+            <p>小説を朗読し、要約し、内容について討論する上級向けクラスです。教科書的な文章を離れ、実生活に近い生きた韓国語に触れながら、語彙力・会話力・聞き取り力の3つをバランス良く伸ばします。</p>
           </div>
 
-          <div class="beg-sec-header">
-            <div class="beg-sec-label">Target & Textbook</div>
-            <div class="beg-sec-title">対象・テキスト</div>
-            <div class="beg-sec-line"></div>
-          </div>
-          <div class="beg-info-cards">
-            <div class="beg-info-card">
-              <div class="beg-info-card-label">対象</div>
-              <div class="beg-info-card-value">韓国語の小説を読み、討論しながら会話練習をしたい方（上級）</div>
-            </div>
-            <div class="beg-info-card">
-              <div class="beg-info-card-label">定員・教室</div>
-              <div class="beg-info-card-value">2〜8人<small>Zoom</small></div>
-            </div>
-            <div class="beg-info-card">
-              <div class="beg-info-card-label">テキスト</div>
-              <div class="beg-info-card-value">『いらっしゃいませ、ヒュナム洞書店です』 ほか</div>
-            </div>
+          <div class="content-block">
+            <h3>対象・テキスト</h3>
+            <p>対象：韓国語の小説を読み、討論しながら会話練習をしたい方（上級）</p>
+            <p>定員：2〜8人／教室：Zoom</p>
+            <p>テキスト：『いらっしゃいませ、ヒュナム洞書店です(어서오세요 휴남동 서점입니다)』 ほか</p>
           </div>
 
-          <div class="beg-sec-header">
-            <div class="beg-sec-label">Lesson Flow</div>
-            <div class="beg-sec-title">日程・授業の流れ</div>
-            <div class="beg-sec-line"></div>
-          </div>
-          <p style="margin-bottom:16px;color:var(--mid);">日程：2月7日開始、隔週土曜日 12:00〜14:00（1コマ50分、4ヶ月更新制）</p>
-          <div class="beg-flow-steps">
-            <div class="beg-flow-step">
-              <span class="beg-flow-num">1</span>
-              <span class="beg-flow-text">授業前に指定範囲を予習（単語・表現を調べておく）</span>
-            </div>
-            <div class="beg-flow-step">
-              <span class="beg-flow-num">2</span>
-              <span class="beg-flow-text">授業中に順番に朗読し、発音・イントネーションをチェック</span>
-            </div>
-            <div class="beg-flow-step">
-              <span class="beg-flow-num">3</span>
-              <span class="beg-flow-text">読んだ箇所を韓国語で要約</span>
-            </div>
-            <div class="beg-flow-step">
-              <span class="beg-flow-num">4</span>
-              <span class="beg-flow-text">内容について討論</span>
-            </div>
-            <div class="beg-flow-step">
-              <span class="beg-flow-num">5</span>
-              <span class="beg-flow-text">授業動画を使って復習（毎回録画を配布）</span>
-            </div>
+          <div class="content-block">
+            <h3>日程・授業の流れ</h3>
+            <p>日程：2月7日開始、隔週土曜日 12:00〜14:00（1コマ50分、4ヶ月更新制）</p>
+            <ul>
+              <li>❶ 授業前に指定範囲を予習（単語・表現を調べておく）</li>
+              <li>❷ 授業中に順番に朗読し、発音・イントネーションをチェック</li>
+              <li>❸ 読んだ箇所を韓国語で要約</li>
+              <li>❹ 内容について討論</li>
+              <li>❺ 授業動画を使って復習（毎回録画を配布）</li>
+            </ul>
           </div>
 
-          <div class="beg-sec-header">
-            <div class="beg-sec-label">Tuition</div>
-            <div class="beg-sec-title">授業料</div>
-            <div class="beg-sec-line"></div>
-          </div>
-          <div class="beg-tuition-table-wrap">
-            <table class="beg-tuition-table">
+          <div class="content-block">
+            <h3>授業料</h3>
+            <table class="price-table">
               <thead>
                 <tr><th>コマあたり</th><th>期間</th><th>授業料（税抜）</th><th>税込</th></tr>
               </thead>
@@ -1017,14 +472,8 @@
               </tbody>
             </table>
           </div>
-
-          <a href="https://mirinae.jp/trial.html" class="beg-cta-btn" style="text-decoration:none;">
-            お申込みはこちら
-            <svg viewBox="0 0 16 16" style="width:16px;height:16px;"><line x1="2" y1="8" x2="13" y2="8" stroke="currentColor" stroke-width="2.5" fill="none"/><polyline points="9,4 13,8 9,12" stroke="currentColor" stroke-width="2.5" fill="none"/></svg>
-          </a>
         </div>
       </div>
-
 
       <!-- ========== タブ7: 語彙力強化 ========== -->
       <div id="tab07" class="tab-panel">
@@ -1061,113 +510,21 @@
         </div>
       </div>
 
-      <a href="index.html" class="back-link">← トップページへ戻る</a>
+      <div class="cta-buttons">
+        <div class="cta-wrapper">
+          <a href="https://mirinae.jp/trial.html" class="cta-btn">お申込みはこちら</a>
         </div>
+      </div>
 
-        <aside class="sidebar" id="sidebar">
-          <div class="course-nav-card courses-nav-box">
-            <div class="courses-nav-header">
-              <div class="courses-nav-label">Courses</div>
-              <div class="courses-nav-title">講座</div>
-            </div>
-            <div class="courses-nav">
-              <div class="nav-group">
-                <div class="nav-group-title" role="button" tabindex="0" aria-expanded="false">個人レッスン<span class="nav-chevron">▾</span></div>
-                <div class="nav-items">
-                  <div class="nav-items-inner">
-                    <a href="kojin.html#tab01" class="nav-item">個人レッスン</a>
-                    <a href="kojin.html#tab02" class="nav-item">短期集中個人</a>
-                    <a href="kojin.html#tab03" class="nav-item">発音矯正</a>
-                    <a href="kojin.html#tab04" class="nav-item">レベルテスト</a>
-                  </div>
-                </div>
-              </div>
-              <div class="nav-divider"></div>
-              <div class="nav-group">
-                <div class="nav-group-title" role="button" tabindex="0" aria-expanded="false">グループレッスン<span class="nav-chevron">▾</span></div>
-                <div class="nav-items">
-                  <div class="nav-items-inner">
-                    <a href="group.html#tab01" class="nav-item">入門＆初級講座</a>
-                    <a href="group.html#tab02" class="nav-item">中級文法講座</a>
-                    <a href="group.html#tab03" class="nav-item">上級文法講座</a>
-                    <a href="group.html#tab04" class="nav-item">中級月1講座</a>
-                    <a href="group.html#tab05" class="nav-item">上級1土曜講座</a>
-                    <a href="group.html#tab06" class="nav-item">上級2土曜講座</a>
-                  </div>
-                </div>
-              </div>
-              <div class="nav-divider"></div>
-              <div class="nav-group open">
-                <div class="nav-group-title" role="button" tabindex="0" aria-expanded="true">会話強化クラス<span class="nav-chevron">▾</span></div>
-                <div class="nav-items">
-                  <div class="nav-items-inner">
-                    <a href="kaiwa.html#tab01" class="nav-item active">会話クラス</a>
-                    <a href="kaiwa.html#tab02" class="nav-item">音読クラス</a>
-                    <a href="kaiwa.html#tab03" class="nav-item">発音・抑揚</a>
-                    <a href="kaiwa.html#tab04" class="nav-item">小説朗読</a>
-                    <a href="kaiwa.html#tab05" class="nav-item">朝勉クラス</a>
-                    <a href="kaiwa.html#tab06" class="nav-item">時事韓国語</a>
-                    <a href="kaiwa.html#tab07" class="nav-item">語彙力強化</a>
-                  </div>
-                </div>
-              </div>
-              <div class="nav-divider"></div>
-              <div class="nav-group">
-                <div class="nav-group-title" role="button" tabindex="0" aria-expanded="false">試験対策講座<span class="nav-chevron">▾</span></div>
-                <div class="nav-items">
-                  <div class="nav-items-inner">
-                    <a href="special.html#tab01" class="nav-item">TOPIK初級</a>
-                    <a href="special.html#tab02" class="nav-item">TOPIK中級</a>
-                    <a href="special.html#tab03" class="nav-item">TOPIK上級</a>
-                    <a href="special.html#tab04" class="nav-item">ハン検1/2級</a>
-                    <a href="special.html#tab05" class="nav-item">ハン検準2級</a>
-                  </div>
-                </div>
-              </div>
-              <div class="nav-divider"></div>
-              <div class="nav-group">
-                <div class="nav-group-title" role="button" tabindex="0" aria-expanded="false">集中講座<span class="nav-chevron">▾</span></div>
-                <div class="nav-items">
-                  <div class="nav-items-inner">
-                    <a href="syutyu.html#tab01" class="nav-item">入門講座</a>
-                    <a href="syutyu.html#tab02" class="nav-item">初級講座</a>
-                    <a href="syutyu.html#tab03" class="nav-item">中級講座</a>
-                    <a href="syutyu.html#tab04" class="nav-item">上級講座</a>
-                  </div>
-                </div>
-              </div>
-              <div class="nav-divider"></div>
-              <div class="nav-group">
-                <div class="nav-group-title" role="button" tabindex="0" aria-expanded="false">通信講座<span class="nav-chevron">▾</span></div>
-                <div class="nav-items">
-                  <div class="nav-items-inner">
-                    <a href="netlesson.html#tab01" class="nav-item">作文トレーニング</a>
-                    <a href="netlesson.html#tab02" class="nav-item">音読トレーニング</a>
-                    <a href="netlesson.html#tab03" class="nav-item">TOPIK Training</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </aside>
-      </div>
+      <a href="index.html" class="back-link">← トップページへ戻る</a>
     </div>
-    <footer>
-      <div class="footer-grid">
-        <div class="footer-column"><h4>メニュー</h4><a href="index.html">ホーム</a><a href="about.html">会社概要</a><a href="about.html#tab02">アクセス</a></div>
-        <div class="footer-column"><h4>講座</h4><a href="kojin.html">個人レッスン</a><a href="group.html">グループレッスン</a><a href="kaiwa.html">会話強化クラス</a><a href="special.html">試験対策講座</a><a href="syutyu.html">集中講座</a><a href="netlesson.html">通信講座</a></div>
-        <div class="footer-column"><h4>お申込み</h4><a href="trial.html">体験申込</a><a href="trial.html#tab02">講座申込</a><a href="trial.html#tab04">お問い合わせ</a></div>
-        <div class="footer-column"><h4>その他</h4><a href="about.html#tab03">講師</a><a href="book.html">著書</a><a href="voice.html">「ミリネ教科書」の音声</a><a href="cancel.html">キャンセル規定</a></div>
-      </div>
-      <div class="footer-bottom">Copyright © (株)カオンヌリ All Rights Reserved.</div>
-    </footer>
   </div>
 
   <script>
     (function() {
       var tabBtns = document.querySelectorAll('.tab-btn');
       var tabPanels = document.querySelectorAll('.tab-panel');
-      var tabIds = ['tab01', 'tab02', 'tab03', 'tab04', 'tab05', 'tab06', 'tab07'];
+      var tabIds = ['tab01', 'tab02', 'tab03', 'tab04', 'tab07'];
 
       function switchTab(tabId) {
         tabBtns.forEach(function(btn) {
@@ -1175,10 +532,6 @@
         });
         tabPanels.forEach(function(panel) {
           panel.classList.toggle('active', panel.id === tabId);
-        });
-        document.querySelectorAll('.courses-nav .nav-item[href^="kaiwa.html#"]').forEach(function(a) {
-          var href = a.getAttribute('href');
-          a.classList.toggle('active', href === 'kaiwa.html#' + tabId);
         });
         if (tabIds.indexOf(tabId) !== -1) {
           history.replaceState(null, '', 'kaiwa.html#' + tabId);
@@ -1191,22 +544,9 @@
         });
       });
 
-      document.querySelectorAll('.courses-nav .nav-group-title').forEach(function(btn) {
-        btn.addEventListener('click', function() {
-          var group = this.closest('.nav-group');
-          group.classList.toggle('open');
-        });
-      });
-
       var hash = location.hash.slice(1);
       if (tabIds.indexOf(hash) !== -1) {
         switchTab(hash);
-      } else {
-        var activeTab = tabIds.find(function(id) { return document.getElementById(id) && document.getElementById(id).classList.contains('active'); }) || 'tab01';
-        document.querySelectorAll('.courses-nav .nav-item[href^="kaiwa.html#"]').forEach(function(a) {
-          var href = a.getAttribute('href');
-          a.classList.toggle('active', href === 'kaiwa.html#' + activeTab);
-        });
       }
 
       window.addEventListener('hashchange', function() {

@@ -207,18 +207,18 @@
       letter-spacing: 0.05em;
     }
 
-    /* tabs-bar: 개인레슨 스타일 */
+    /* tabs-bar: 2줄 정렬 (6개 탭) */
     .tabs-bar {
       background: var(--white);
       border-bottom: 1px solid var(--gray-border);
-      padding: 0 80px;
-      display: flex;
+      padding: 0 80px 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
       gap: 0;
-      justify-content: center;
-      flex-wrap: wrap;
+      justify-items: center;
     }
     .tab-btn {
-      padding: 16px 28px;
+      padding: 14px 16px;
       font-size: 14px;
       color: var(--muted);
       cursor: pointer;
@@ -232,6 +232,8 @@
       border-left: none;
       border-right: none;
       font-family: inherit;
+      width: 100%;
+      text-align: center;
     }
     .tab-btn.active {
       color: var(--gold);
@@ -263,8 +265,8 @@
       .main-content { padding: 24px 16px 80px; }
       .hero { padding: 40px 16px 32px; }
       .hero::after { display: none; }
-      .tabs-bar { padding: 0 12px; overflow-x: auto; -webkit-overflow-scrolling: touch; justify-content: space-between; flex-wrap: nowrap; }
-      .tabs-bar .tab-btn { flex: 1 1 0; min-width: 0; padding: 12px 2px; font-size: 11px; text-align: center; }
+      .tabs-bar { padding: 0 12px; grid-template-columns: repeat(3, 1fr); }
+      .tabs-bar .tab-btn { padding: 12px 8px; font-size: 12px; }
       nav { padding: 0 16px; }
       .nav-hamburger { display: flex; margin-left: auto; }
       .nav-links {
@@ -520,7 +522,7 @@
     @media (max-width: 600px) {
       .main-content { padding: 20px 12px 40px; }
       .tabs-bar { padding: 0 8px; }
-      .tabs-bar .tab-btn { padding: 10px 1px; font-size: 10px; }
+      .tabs-bar .tab-btn { padding: 10px 4px; font-size: 11px; }
       .hero { padding: 32px 12px 24px; }
       .hero::after { display: none; }
       nav { padding: 0 12px; }
@@ -866,20 +868,36 @@
       box-shadow: 0 2px 12px rgba(28,26,23,0.06);
       margin-bottom: 32px;
     }
+    @media (max-width: 768px) {
+      #tab01 .beg-tuition-table-wrap,
+      #tab02 .beg-tuition-table-wrap, #tab03 .beg-tuition-table-wrap, #tab04 .beg-tuition-table-wrap, #tab05 .beg-tuition-table-wrap, #tab06 .beg-tuition-table-wrap {
+        overflow-x: auto;
+      }
+      #tab01 .beg-tuition-table,
+      #tab02 .beg-tuition-table, #tab03 .beg-tuition-table, #tab04 .beg-tuition-table, #tab05 .beg-tuition-table, #tab06 .beg-tuition-table {
+        min-width: 480px;
+      }
+    }
     #tab01 .beg-tuition-table {
       width: 100%;
       border-collapse: collapse;
       background: var(--white);
+      table-layout: fixed;
     }
     #tab01 .beg-tuition-table thead tr { background: var(--dark); }
     #tab01 .beg-tuition-table thead th {
-      padding: 11px 18px;
+      padding: 14px 16px;
       font-size: 13px;
       font-weight: 500;
-      color: rgba(255,255,255,0.8);
+      color: rgba(255,255,255,0.9);
       letter-spacing: 0.05em;
       text-align: center;
     }
+    #tab01 .beg-tuition-table thead th:nth-child(1) { width: 14%; text-align: left; }
+    #tab01 .beg-tuition-table thead th:nth-child(2) { width: 26%; }
+    #tab01 .beg-tuition-table thead th:nth-child(3) { width: 22%; }
+    #tab01 .beg-tuition-table thead th:nth-child(4) { width: 18%; }
+    #tab01 .beg-tuition-table thead th:nth-child(5) { width: 20%; }
     #tab01 .beg-tuition-table thead th:first-child { text-align: left; }
     #tab01 .beg-tuition-table tbody tr {
       border-bottom: 1px solid var(--border);
@@ -889,25 +907,39 @@
     #tab01 .beg-tuition-table tbody tr:nth-child(even) { background: #faf8f4; }
     #tab01 .beg-tuition-table tbody tr:hover { background: #f3ede0; }
     #tab01 .beg-tuition-table td {
-      padding: 13px 18px;
+      padding: 16px 18px;
       font-size: 15px;
       color: var(--mid);
       text-align: center;
+      vertical-align: middle;
+      line-height: 1.5;
     }
     #tab01 .beg-tuition-table td:first-child { text-align: left; font-weight: 500; }
+    #tab01 .beg-tuition-table td:nth-child(2) { text-align: left; }
+    #tab01 .beg-tuition-table td:nth-child(3) { text-align: left; font-size: 14px; }
+    #tab01 .beg-tuition-table .beg-unit-formula {
+      display: block;
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 2px;
+    }
+    #tab01 .beg-tuition-table .beg-unit-result {
+      font-weight: 600;
+      color: var(--dark);
+    }
+    #tab01 .beg-plan-cell { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; }
     #tab01 .beg-plan-name { font-size: 16px; font-weight: 600; color: var(--mid); }
     #tab01 .beg-plan-tag {
       display: inline-block;
       font-size: 11px;
-      padding: 1px 6px;
-      border-radius: 3px;
+      padding: 2px 8px;
+      border-radius: 4px;
       background: var(--gold-pale);
       color: var(--gold);
       border: 1px solid rgba(184,146,42,0.25);
-      margin-left: 6px;
       font-weight: 500;
     }
-    #tab01 .beg-price-main { font-weight: 600; }
+    #tab01 .beg-price-main { font-weight: 600; font-size: 16px; color: var(--dark); }
     #tab01 .beg-price-tax { color: var(--muted); font-size: 14px; }
     #tab01 .beg-tuition-note {
       background: var(--cream-mid);
@@ -1313,15 +1345,26 @@
       width: 100%;
       border-collapse: collapse;
       background: var(--white);
+      table-layout: fixed;
     }
     #tab02 .beg-tuition-table thead tr, #tab03 .beg-tuition-table thead tr, #tab04 .beg-tuition-table thead tr, #tab05 .beg-tuition-table thead tr, #tab06 .beg-tuition-table thead tr { background: var(--dark); }
     #tab02 .beg-tuition-table thead th, #tab03 .beg-tuition-table thead th, #tab04 .beg-tuition-table thead th, #tab05 .beg-tuition-table thead th, #tab06 .beg-tuition-table thead th {
-      padding: 11px 18px;
+      padding: 14px 16px;
       font-size: 13px;
       font-weight: 500;
-      color: rgba(255,255,255,0.8);
+      color: rgba(255,255,255,0.9);
       letter-spacing: 0.05em;
       text-align: center;
+    }
+    #tab02 .beg-tuition-table .beg-unit-formula, #tab03 .beg-tuition-table .beg-unit-formula, #tab04 .beg-tuition-table .beg-unit-formula, #tab05 .beg-tuition-table .beg-unit-formula, #tab06 .beg-tuition-table .beg-unit-formula {
+      display: block;
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 2px;
+    }
+    #tab02 .beg-tuition-table .beg-unit-result, #tab03 .beg-tuition-table .beg-unit-result, #tab04 .beg-tuition-table .beg-unit-result, #tab05 .beg-tuition-table .beg-unit-result, #tab06 .beg-tuition-table .beg-unit-result {
+      font-weight: 600;
+      color: var(--dark);
     }
     #tab02 .beg-tuition-table thead th:first-child, #tab03 .beg-tuition-table thead th:first-child, #tab04 .beg-tuition-table thead th:first-child, #tab05 .beg-tuition-table thead th:first-child, #tab06 .beg-tuition-table thead th:first-child { text-align: left; }
     #tab02 .beg-tuition-table tbody tr, #tab03 .beg-tuition-table tbody tr, #tab04 .beg-tuition-table tbody tr, #tab05 .beg-tuition-table tbody tr, #tab06 .beg-tuition-table tbody tr {
@@ -1332,10 +1375,12 @@
     #tab02 .beg-tuition-table tbody tr, #tab03 .beg-tuition-table tbody tr, #tab04 .beg-tuition-table tbody tr, #tab05 .beg-tuition-table tbody tr, #tab06 .beg-tuition-table tbody tr { background: #f7f4ee; }
     #tab02 .beg-tuition-table tbody tr:hover, #tab03 .beg-tuition-table tbody tr:hover, #tab04 .beg-tuition-table tbody tr:hover, #tab05 .beg-tuition-table tbody tr:hover, #tab06 .beg-tuition-table tbody tr:hover { background: #f0ebe0; }
     #tab02 .beg-tuition-table td, #tab03 .beg-tuition-table td, #tab04 .beg-tuition-table td, #tab05 .beg-tuition-table td, #tab06 .beg-tuition-table td {
-      padding: 13px 18px;
+      padding: 16px 18px;
       font-size: 15px;
       color: var(--mid);
       text-align: center;
+      vertical-align: middle;
+      line-height: 1.5;
     }
     #tab02 .beg-tuition-table td:first-child, #tab03 .beg-tuition-table td:first-child, #tab04 .beg-tuition-table td:first-child, #tab05 .beg-tuition-table td:first-child, #tab06 .beg-tuition-table td:first-child { text-align: left; font-weight: 500; }
     #tab02 .beg-tuition-note, #tab03 .beg-tuition-note, #tab04 .beg-tuition-note, #tab05 .beg-tuition-note, #tab06 .beg-tuition-note {
@@ -1806,22 +1851,22 @@
               </thead>
               <tbody>
                 <tr>
-                  <td><span class="beg-plan-name">10回分</span></td>
-                  <td>2,990円 × 2時限 = <strong>5,980円</strong></td>
+                  <td><div class="beg-plan-cell"><span class="beg-plan-name">10回分</span></div></td>
+                  <td><span class="beg-unit-formula">2,990円 × 2時限</span><span class="beg-unit-result">5,980円</span></td>
                   <td>10回（20回完結の前半）</td>
                   <td class="beg-price-main">59,800円</td>
                   <td class="beg-price-tax">65,780円</td>
                 </tr>
                 <tr>
-                  <td><span class="beg-plan-name">20回分</span><span class="beg-plan-tag">1回払い</span></td>
-                  <td>2,900円 × 2時限 = <strong>5,800円</strong></td>
+                  <td><div class="beg-plan-cell"><span class="beg-plan-name">20回分</span><span class="beg-plan-tag">1回払い</span></div></td>
+                  <td><span class="beg-unit-formula">2,900円 × 2時限</span><span class="beg-unit-result">5,800円</span></td>
                   <td>20回</td>
                   <td class="beg-price-main">116,000円</td>
                   <td class="beg-price-tax">127,600円</td>
                 </tr>
                 <tr>
-                  <td><span class="beg-plan-name">20回分</span><span class="beg-plan-tag">2回払い</span></td>
-                  <td>3,400円 × 2時限 = <strong>6,800円</strong></td>
+                  <td><div class="beg-plan-cell"><span class="beg-plan-name">20回分</span><span class="beg-plan-tag">2回払い</span></div></td>
+                  <td><span class="beg-unit-formula">3,400円 × 2時限</span><span class="beg-unit-result">6,800円</span></td>
                   <td>10回×2回払い</td>
                   <td class="beg-price-main">68,000円</td>
                   <td class="beg-price-tax">74,800円</td>
@@ -2048,7 +2093,7 @@
                 <tr><th>回数</th><th>1回あたり</th><th>納入額</th><th>税込</th></tr>
               </thead>
               <tbody>
-                <tr><td>20回分（一括払い）</td><td>2,900円 × 2時限 = 5,800円</td><td>116,000円+税</td><td>127,600円</td></tr>
+                <tr><td>20回分（一括払い）</td><td><span class="beg-unit-formula">2,900円 × 2時限</span><span class="beg-unit-result">5,800円</span></td><td>116,000円+税</td><td>127,600円</td></tr>
               </tbody>
             </table>
           </div>
@@ -2184,7 +2229,7 @@
                 <tr><th>回数</th><th>1回あたり</th><th>納入額</th><th>税込</th></tr>
               </thead>
               <tbody>
-                <tr><td>16回分（一括払い）</td><td>2,900円 × 2時限 = 5,800円</td><td>92,800円+税</td><td>102,080円</td></tr>
+                <tr><td>16回分（一括払い）</td><td><span class="beg-unit-formula">2,900円 × 2時限</span><span class="beg-unit-result">5,800円</span></td><td>92,800円+税</td><td>102,080円</td></tr>
               </tbody>
             </table>
           </div>
@@ -2293,7 +2338,7 @@
                 <tr><th>定員</th><th>授業料（税抜）</th><th>税込</th><th>期間</th></tr>
               </thead>
               <tbody>
-                <tr><td>2〜5人</td><td>2,800円 × 3コマ × 4ヶ月 = 33,600円</td><td>36,960円</td><td>4ヶ月</td></tr>
+                <tr><td>2〜5人</td><td><span class="beg-unit-formula">2,800円 × 3コマ × 4ヶ月</span><span class="beg-unit-result">33,600円</span></td><td>36,960円</td><td>4ヶ月</td></tr>
               </tbody>
             </table>
           </div>

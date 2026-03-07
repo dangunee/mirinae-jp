@@ -672,6 +672,19 @@
 
     .sidebar { position: sticky; top: 80px; }
     .sidebar .info-card { margin-bottom: 20px; }
+    .sidebar-promo-card {
+      margin-bottom: 20px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      display: block;
+      text-decoration: none;
+      background: var(--dark);
+      aspect-ratio: 1;
+      background-size: cover;
+      background-position: center;
+    }
+    .sidebar-promo-card:hover { opacity: 0.95; }
     .courses-nav-box { margin-top: 0; }
     .courses-nav-header {
       background: var(--dark);
@@ -3014,6 +3027,7 @@
     </div>
 
     <aside class="sidebar" id="sidebar">
+      <a href="kojin.html#tab01" class="sidebar-promo-card" style="background-image: url('/img/student/class-kojin.jpg');" aria-label="個人レッスン"></a>
       <div class="course-nav-card courses-nav-box">
         <div class="courses-nav-header">
           <div class="courses-nav-label">Courses</div>

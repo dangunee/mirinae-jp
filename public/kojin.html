@@ -1343,10 +1343,32 @@
       background: #1a1a1a;
       border: 1px solid rgba(255,255,255,0.15);
     }
+    /* パーセント＋アイコン部分：クリーム背景でアクセント */
+    #tab01 .overview-card.overview-card-dark .overview-top {
+      background: var(--gold-pale);
+      margin: -40px -40px 24px -40px;
+      padding: 28px 40px;
+      border-radius: 16px 16px 0 0;
+    }
+    @media (max-width: 900px) {
+      #tab01 .overview-card.overview-card-dark .overview-top { margin: -28px -20px 20px -20px; padding: 24px 28px; }
+    }
+    @media (max-width: 600px) {
+      #tab01 .overview-card.overview-card-dark .overview-top { margin: -24px -20px 16px -20px; padding: 20px 24px; }
+    }
+    #tab01 .overview-card.overview-card-dark .overview-top .overview-label {
+      color: var(--muted);
+    }
+    #tab01 .overview-card.overview-card-dark .overview-top .skill-item {
+      color: var(--mid);
+    }
+    #tab01 .overview-card.overview-card-dark .overview-top .skill-icon {
+      background: var(--white);
+      border: 1px solid var(--gold-light);
+    }
     #tab01 .overview-card.overview-card-dark .overview-label {
       font-size: 11px;
       letter-spacing: 0.1em;
-      color: rgba(255,255,255,0.7);
       margin-bottom: 4px;
     }
     #tab01 .overview-card.overview-card-dark .skill-item {
@@ -1912,7 +1934,7 @@
                     stroke-dasharray="175.9" stroke-dashoffset="52.8"
                     stroke-linecap="round" transform="rotate(-90 36 36)"/>
                   <text x="36" y="40" text-anchor="middle" font-family="Cormorant Garamond,serif"
-                    font-size="18" fill="#e8d5b0" font-weight="600">70%</text>
+                    font-size="18" fill="#b8924a" font-weight="600">70%</text>
                 </svg>
                 <div>
                   <div style="display:flex;align-items:center;gap:24px;flex-wrap:wrap;">

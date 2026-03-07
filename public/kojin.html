@@ -1378,17 +1378,17 @@
       #tab01 .overview-card.overview-card-dark .overview-top { margin: -28px -20px 20px -20px; padding: 28px 28px; width: calc(100% + 40px); min-width: calc(100% + 40px); gap: 24px; }
       #tab01 .overview-card.overview-card-dark .overview-top .progress-ring { width: 96px; height: 96px; }
       #tab01 .overview-card.overview-card-dark .overview-top .skill-icon { width: 50px; height: 50px; font-size: 22px; }
-      #tab02 .overview-card.overview-card-dark .ov-top, #tab03 .overview-card.overview-card-dark .ov-top { margin: -28px -20px 20px -20px; padding: 28px 28px; width: calc(100% + 40px); min-width: calc(100% + 40px); gap: 24px; }
-      #tab02 .overview-card.overview-card-dark .ov-top .progress-ring, #tab03 .overview-card.overview-card-dark .ov-top .progress-ring { width: 96px; height: 96px; }
-      #tab02 .overview-card.overview-card-dark .ov-top .skill-icon, #tab03 .overview-card.overview-card-dark .ov-top .skill-icon { width: 50px; height: 50px; font-size: 22px; }
+      #tab02 .overview-card.overview-card-dark .ov-top, #tab03 .overview-card.overview-card-dark .ov-top, #tab04 .overview-card.overview-card-dark .ov-top { margin: -28px -20px 20px -20px; padding: 28px 28px; width: calc(100% + 40px); min-width: calc(100% + 40px); gap: 24px; }
+      #tab02 .overview-card.overview-card-dark .ov-top .progress-ring, #tab03 .overview-card.overview-card-dark .ov-top .progress-ring, #tab04 .overview-card.overview-card-dark .ov-top .progress-ring { width: 96px; height: 96px; }
+      #tab02 .overview-card.overview-card-dark .ov-top .skill-icon, #tab03 .overview-card.overview-card-dark .ov-top .skill-icon, #tab04 .overview-card.overview-card-dark .ov-top .skill-icon { width: 50px; height: 50px; font-size: 22px; }
     }
     @media (max-width: 600px) {
       #tab01 .overview-card.overview-card-dark .overview-top { margin: -24px -20px 16px -20px; padding: 24px 24px; width: calc(100% + 40px); min-width: calc(100% + 40px); flex-wrap: wrap; justify-content: flex-start; gap: 20px; }
       #tab01 .overview-card.overview-card-dark .overview-top .progress-ring { width: 88px; height: 88px; }
       #tab01 .overview-card.overview-card-dark .overview-top .skill-icon { width: 46px; height: 46px; font-size: 20px; }
-      #tab02 .overview-card.overview-card-dark .ov-top, #tab03 .overview-card.overview-card-dark .ov-top { margin: -24px -20px 16px -20px; padding: 24px 24px; width: calc(100% + 40px); min-width: calc(100% + 40px); flex-wrap: wrap; gap: 20px; }
-      #tab02 .overview-card.overview-card-dark .ov-top .progress-ring, #tab03 .overview-card.overview-card-dark .ov-top .progress-ring { width: 88px; height: 88px; }
-      #tab02 .overview-card.overview-card-dark .ov-top .skill-icon, #tab03 .overview-card.overview-card-dark .ov-top .skill-icon { width: 46px; height: 46px; font-size: 20px; }
+      #tab02 .overview-card.overview-card-dark .ov-top, #tab03 .overview-card.overview-card-dark .ov-top, #tab04 .overview-card.overview-card-dark .ov-top { margin: -24px -20px 16px -20px; padding: 24px 24px; width: calc(100% + 40px); min-width: calc(100% + 40px); flex-wrap: wrap; gap: 20px; }
+      #tab02 .overview-card.overview-card-dark .ov-top .progress-ring, #tab03 .overview-card.overview-card-dark .ov-top .progress-ring, #tab04 .overview-card.overview-card-dark .ov-top .progress-ring { width: 88px; height: 88px; }
+      #tab02 .overview-card.overview-card-dark .ov-top .skill-icon, #tab03 .overview-card.overview-card-dark .ov-top .skill-icon, #tab04 .overview-card.overview-card-dark .ov-top .skill-icon { width: 46px; height: 46px; font-size: 20px; }
     }
     #tab01 .overview-card.overview-card-dark .overview-top .overview-label {
       color: var(--muted);
@@ -1593,8 +1593,24 @@
     #tab04 .tanki-worry-heading { font-size: 20px !important; font-weight: 600 !important; color: var(--dark) !important; margin-bottom: 12px !important; }
     /* tab04 dark theme (overview) */
     #tab04 .overview-card.overview-card-dark { background: #1a1a1a; border: 1px solid rgba(255,255,255,0.15); }
-    #tab04 .overview-card.overview-card-dark .ov-top .label { color: rgba(255,255,255,0.7); }
-    #tab04 .overview-card.overview-card-dark .ov-top .ov-subtitle { color: rgba(255,255,255,0.9); }
+    /* tab04 クリーム背景・拡大・3アイコン（個人レッスン同様） */
+    #tab04 .overview-card.overview-card-dark .ov-top {
+      background: var(--gold-pale);
+      margin: -40px -40px 24px -40px;
+      padding: 36px 40px;
+      border-radius: 16px 16px 0 0;
+      width: calc(100% + 80px);
+      min-width: calc(100% + 80px);
+      box-sizing: border-box;
+      justify-content: flex-start;
+      gap: 32px;
+    }
+    #tab04 .overview-card.overview-card-dark .ov-top .progress-ring { width: 112px; height: 112px; }
+    #tab04 .overview-card.overview-card-dark .ov-top .label { font-size: 14px; color: var(--muted); }
+    #tab04 .overview-card.overview-card-dark .ov-top .ov-subtitle { font-size: 17px; color: var(--mid); }
+    #tab04 .overview-card.overview-card-dark .ov-top .skills-row { gap: 28px; }
+    #tab04 .overview-card.overview-card-dark .ov-top .skill-item { font-size: 15px; color: var(--mid); }
+    #tab04 .overview-card.overview-card-dark .ov-top .skill-icon { width: 58px; height: 58px; font-size: 24px; background: var(--white); border: 1px solid var(--gold-light); }
     #tab04 .overview-card.overview-card-dark .ov-body p { color: rgba(255,255,255,0.9); }
     #tab04 .overview-card.overview-card-dark .ov-note { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.8); }
     /* tab04 level-card: white bg when inside dark overview */
@@ -2907,16 +2923,21 @@
         <section>
           <div class="overview-card overview-card-dark">
             <div class="ov-top">
-              <svg width="72" height="72" viewBox="0 0 72 72">
+              <svg class="progress-ring" width="72" height="72" viewBox="0 0 72 72">
                 <circle cx="36" cy="36" r="28" fill="none" stroke="#e8d5b0" stroke-width="4"/>
-                <circle cx="36" cy="36" r="28" fill="none" stroke="#7cb3d4" stroke-width="4" stroke-dasharray="175.9" stroke-dashoffset="52.8" stroke-linecap="round" transform="rotate(-90 36 36)"/>
-                <text x="36" y="42" text-anchor="middle" font-family="Noto Serif JP,serif" font-size="14" fill="#7cb3d4" font-weight="600">レベル</text>
+                <circle cx="36" cy="36" r="28" fill="none" stroke="#4a7c9e" stroke-width="4" stroke-dasharray="175.9" stroke-dashoffset="52.8" stroke-linecap="round" transform="rotate(-90 36 36)"/>
+                <text x="36" y="42" text-anchor="middle" font-family="Noto Serif JP,serif" font-size="14" fill="#4a7c9e" font-weight="600">レベル</text>
               </svg>
               <div>
                 <div style="display:flex;align-items:center;gap:24px;flex-wrap:wrap;">
                   <div>
                     <div class="label">レベルテスト</div>
                     <div class="ov-subtitle">弱点発見と学習相談</div>
+                  </div>
+                  <div class="skills-row" style="margin:0;">
+                    <div class="skill-item"><div class="skill-icon">👂</div>聞く</div>
+                    <div class="skill-item"><div class="skill-icon">📖</div>読む</div>
+                    <div class="skill-item"><div class="skill-icon">✏️</div>書く</div>
                   </div>
                 </div>
               </div>

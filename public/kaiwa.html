@@ -6,7 +6,7 @@
   <title>会話強化クラス｜ミリネ韓国語教室</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
   <style>
     :root {
       --beige: #f5f0e8;
@@ -40,70 +40,163 @@
       min-height: 100vh;
     }
 
-    .top-bar {
+    html { overflow-x: hidden; max-width: 100vw; }
+    body { overflow-x: hidden; max-width: 100vw; }
+
+    nav {
       background: var(--white);
-      padding: 12px 24px;
-      font-size: 12px;
-      color: var(--text-muted);
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      gap: 16px;
       border-bottom: 1px solid var(--gray-border);
+      padding: 0 48px;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      height: 56px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
-    .top-bar-info { color: var(--text-muted); }
-    .top-bar-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px 32px; }
-    .top-bar a, .top-bar-nav a { color: var(--dark); text-decoration: none; font-weight: 500; font-size: 14px; }
-    .top-bar a:hover, .top-bar-nav a:hover { color: var(--gold); }
-
-    .main-content { padding: 0 24px 80px; }
-
-    .page-header { padding: 40px 0 24px; }
-    .page-header .page-title {
-      font-family: 'Noto Serif JP', serif;
-      font-size: clamp(28px, 5vw, 40px);
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      color: var(--dark);
-      margin-bottom: 12px;
-    }
-    .page-header .page-subtitle { color: var(--text-muted); font-size: 14px; font-weight: 300; }
-
-    .tab-wrap { margin-bottom: 0; }
-    .tab-bar {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      border-bottom: 2px solid var(--gray-border);
-      position: relative;
-    }
-    @media (max-width: 560px) { .tab-bar { grid-template-columns: 1fr 1fr; } }
-    .tab-btn {
-      background: none;
-      border: none;
-      padding: 14px 8px;
-      font-family: 'Noto Sans JP', sans-serif;
+    nav a {
+      text-decoration: none;
+      color: var(--mid);
       font-size: 13px;
-      font-weight: 500;
-      color: var(--text-muted);
-      cursor: pointer;
-      position: relative;
-      transition: color 0.2s;
-      white-space: nowrap;
+      letter-spacing: 0.05em;
+      transition: color .2s;
     }
-    .tab-btn::after {
+    nav a:hover { color: var(--gold); }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px;
+      color: var(--dark);
+      letter-spacing: 0.1em;
+      margin-right: auto;
+    }
+    .nav-links { display: flex; align-items: center; gap: 2px; list-style: none; margin: 0; padding: 0; }
+    .nav-links > li { position: relative; }
+    .nav-links > li.nav-has-dropdown::after {
       content: '';
       position: absolute;
-      bottom: -2px;
-      left: 0; right: 0;
-      height: 2px;
-      background: var(--gold);
-      transform: scaleX(0);
-      transition: transform 0.25s ease;
+      top: 100%;
+      left: 0;
+      right: 0;
+      height: 14px;
     }
-    .tab-btn:hover { color: var(--dark); }
-    .tab-btn.active { color: var(--gold); font-weight: 700; }
-    .tab-btn.active::after { transform: scaleX(1); }
+    .nav-links a {
+      display: block;
+      padding: 8px 12px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--mid);
+      text-decoration: none;
+      border-radius: 6px;
+      transition: background .15s, color .15s;
+      white-space: nowrap;
+    }
+    .nav-links > li > a:hover { background: var(--gold-pale); color: var(--gold); }
+    .nav-dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 180px;
+      background: var(--white);
+      border-radius: 8px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+      padding: 8px 0;
+      list-style: none;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity .2s, visibility .15s;
+      z-index: 9999;
+      margin-top: 0;
+      border: 1px solid var(--gray-border);
+      pointer-events: none;
+    }
+    .nav-links > li:hover .nav-dropdown {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+    .nav-dropdown a {
+      padding: 10px 20px;
+      font-size: 13px;
+      border-radius: 0;
+      white-space: nowrap;
+    }
+    .nav-dropdown a:hover { background: var(--gold-pale); color: var(--gold); }
+
+    .hero {
+      background: var(--white);
+      padding: 72px 80px 64px;
+      border-bottom: 1px solid var(--gray-border);
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+    .hero::after {
+      content: "회화강화";
+      position: absolute;
+      right: 48px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 120px;
+      font-weight: 700;
+      color: rgba(184,146,74,0.06);
+      pointer-events: none;
+      user-select: none;
+      white-space: nowrap;
+    }
+    .hero-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+      font-weight: 500;
+    }
+    .hero h1 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      line-height: 1.3;
+      margin-bottom: 16px;
+    }
+    .hero p {
+      color: var(--muted);
+      font-size: 14px;
+      letter-spacing: 0.05em;
+    }
+
+    .tabs-bar {
+      background: var(--white);
+      border-bottom: 1px solid var(--gray-border);
+      padding: 0 80px;
+      display: flex;
+      gap: 0;
+      justify-content: center;
+    }
+    .tab-btn {
+      padding: 16px 28px;
+      font-size: 13px;
+      color: var(--muted);
+      cursor: pointer;
+      border: none;
+      border-bottom: 2px solid transparent;
+      background: none;
+      transition: all .2s;
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+      user-select: none;
+      font-family: inherit;
+    }
+    .tab-btn.active {
+      color: var(--gold);
+      border-bottom-color: var(--gold);
+      font-weight: 500;
+    }
+    .tab-btn:hover:not(.active) { color: var(--mid); }
+
+    .main-content { padding: 0 24px 80px; }
 
     .tab-panel { display: none; padding-top: 32px; }
     .tab-panel.active { display: block; }
@@ -302,7 +395,7 @@
     .content-block li { margin-bottom: 6px; }
 
     /* beg-* design (group.html style) */
-    #tab01, #tab02, #tab03, #tab04 {
+    #tab01, #tab02, #tab03, #tab04, #tab05 {
       --cream: #f5f2ec;
       --cream-mid: #ede8df;
       --gold-light: #e8d5b0;
@@ -310,8 +403,8 @@
       --muted: #8a7f72;
       --border: #e4ddd2;
     }
-    #tab01 .beg-page, #tab02 .beg-page, #tab03 .beg-page, #tab04 .beg-page { padding: 0 0 40px; }
-    #tab01 .beg-hero, #tab02 .beg-hero, #tab03 .beg-hero, #tab04 .beg-hero {
+    #tab01 .beg-page, #tab02 .beg-page, #tab03 .beg-page, #tab04 .beg-page, #tab05 .beg-page { padding: 0 0 40px; }
+    #tab01 .beg-hero, #tab02 .beg-hero, #tab03 .beg-hero, #tab04 .beg-hero, #tab05 .beg-hero {
       background: var(--dark);
       border-radius: 16px;
       padding: 40px 48px;
@@ -319,13 +412,13 @@
       position: relative;
       overflow: hidden;
     }
-    #tab01 .beg-hero::before, #tab02 .beg-hero::before, #tab03 .beg-hero::before, #tab04 .beg-hero::before {
+    #tab01 .beg-hero::before, #tab02 .beg-hero::before, #tab03 .beg-hero::before, #tab04 .beg-hero::before, #tab05 .beg-hero::before {
       content: '';
       position: absolute; inset: 0;
       background: repeating-linear-gradient(-50deg, transparent, transparent 38px, rgba(255,255,255,0.016) 38px, rgba(255,255,255,0.016) 39px);
       pointer-events: none;
     }
-    #tab01 .beg-hero::after, #tab02 .beg-hero::after, #tab03 .beg-hero::after, #tab04 .beg-hero::after {
+    #tab01 .beg-hero::after, #tab02 .beg-hero::after, #tab03 .beg-hero::after, #tab04 .beg-hero::after, #tab05 .beg-hero::after {
       content: '';
       position: absolute;
       top: -60px; right: -60px;
@@ -334,7 +427,7 @@
       background: radial-gradient(circle, rgba(184,146,42,0.14) 0%, transparent 65%);
       pointer-events: none;
     }
-    #tab01 .beg-hero-eyebrow, #tab02 .beg-hero-eyebrow, #tab03 .beg-hero-eyebrow, #tab04 .beg-hero-eyebrow {
+    #tab01 .beg-hero-eyebrow, #tab02 .beg-hero-eyebrow, #tab03 .beg-hero-eyebrow, #tab04 .beg-hero-eyebrow, #tab05 .beg-hero-eyebrow {
       font-family: 'Cormorant Garamond', serif;
       font-size: 12px;
       letter-spacing: 0.24em;
@@ -342,7 +435,7 @@
       color: var(--gold-light);
       margin-bottom: 10px;
     }
-    #tab01 .beg-hero-title, #tab02 .beg-hero-title, #tab03 .beg-hero-title, #tab04 .beg-hero-title {
+    #tab01 .beg-hero-title, #tab02 .beg-hero-title, #tab03 .beg-hero-title, #tab04 .beg-hero, #tab05 .beg-hero-title {
       font-size: 34px;
       font-weight: 700;
       color: #fff;
@@ -350,35 +443,35 @@
       margin-bottom: 18px;
       position: relative; z-index: 1;
     }
-    #tab01 .beg-hero-title em, #tab02 .beg-hero-title em, #tab03 .beg-hero-title em, #tab04 .beg-hero-title em { font-style: normal; color: var(--gold-light); }
-    #tab01 .beg-hero-desc, #tab02 .beg-hero-desc, #tab03 .beg-hero-desc, #tab04 .beg-hero-desc {
+    #tab01 .beg-hero-title em, #tab02 .beg-hero-title em, #tab03 .beg-hero-title em, #tab04 .beg-hero-title em, #tab05 .beg-hero-title em { font-style: normal; color: var(--gold-light); }
+    #tab01 .beg-hero-desc, #tab02 .beg-hero-desc, #tab03 .beg-hero-desc, #tab04 .beg-hero, #tab05 .beg-hero-desc {
       display: flex;
       flex-direction: column;
       gap: 6px;
       position: relative; z-index: 1;
     }
-    #tab01 .beg-hero-desc p, #tab02 .beg-hero-desc p, #tab03 .beg-hero-desc p, #tab04 .beg-hero-desc p {
+    #tab01 .beg-hero-desc p, #tab02 .beg-hero-desc p, #tab03 .beg-hero-desc p, #tab04 .beg-hero, #tab05 .beg-hero-desc p {
       font-size: 16px;
       color: rgba(255,255,255,0.65);
       display: flex;
       align-items: baseline;
       gap: 8px;
     }
-    #tab01 .beg-hero-desc p::before, #tab02 .beg-hero-desc p::before, #tab03 .beg-hero-desc p::before, #tab04 .beg-hero-desc p::before {
+    #tab01 .beg-hero-desc p::before, #tab02 .beg-hero-desc p::before, #tab03 .beg-hero-desc p::before, #tab04 .beg-hero-desc p::before, #tab05 .beg-hero-desc p::before {
       content: '';
       width: 16px; height: 1px;
       background: var(--gold);
       flex-shrink: 0;
       margin-top: 2px;
     }
-    #tab01 .beg-hero-tags, #tab02 .beg-hero-tags, #tab03 .beg-hero-tags, #tab04 .beg-hero-tags {
+    #tab01 .beg-hero-tags, #tab02 .beg-hero-tags, #tab03 .beg-hero-tags, #tab04 .beg-hero-tags, #tab05 .beg-hero-tags {
       display: flex;
       gap: 8px;
       flex-wrap: wrap;
       margin-top: 22px;
       position: relative; z-index: 1;
     }
-    #tab01 .beg-hero-tag, #tab02 .beg-hero-tag, #tab03 .beg-hero-tag, #tab04 .beg-hero-tag {
+    #tab01 .beg-hero-tag, #tab02 .beg-hero-tag, #tab03 .beg-hero-tag, #tab04 .beg-hero, #tab05 .beg-hero-tag {
       display: inline-flex;
       align-items: center;
       gap: 5px;
@@ -389,7 +482,7 @@
       font-size: 14px;
       color: rgba(255,255,255,0.75);
     }
-    #tab01 .beg-hero-tag span, #tab02 .beg-hero-tag span, #tab03 .beg-hero-tag span, #tab04 .beg-hero-tag span { color: var(--gold-light); font-weight: 600; }
+    #tab01 .beg-hero-tag span, #tab02 .beg-hero-tag span, #tab03 .beg-hero-tag span, #tab04 .beg-hero-tag span, #tab05 .beg-hero-tag span { color: var(--gold-light); font-weight: 600; }
     .beg-sec-header {
       display: flex;
       align-items: center;
@@ -570,46 +663,63 @@
       box-shadow: 0 8px 28px rgba(184,146,42,0.5);
     }
 
+    @media (max-width: 900px) {
+      nav { padding: 0 24px; }
+      .hero { padding: 48px 24px 40px; }
+      .hero::after { font-size: 80px; right: 24px; }
+      .tabs-bar { padding: 0 24px; overflow-x: auto; }
+      .tab-btn { flex: 1 0 auto; padding: 14px 16px; font-size: 12px; }
+    }
     @media (max-width: 600px) {
       .main-content { padding: 24px 16px 40px; }
-      .tab-bar { overflow-x: auto; }
-      .tab-btn { flex: 1 0 auto; }
+      .hero { padding: 40px 16px 32px; }
+      .hero::after { font-size: 60px; right: 16px; }
     }
   </style>
 </head>
 <body>
-  <div class="page-wrapper">
-    <div class="top-bar">
-      <span class="top-bar-info">東京で韓国語教室をお探しならミリネ韓国語教室 | 定休日: 月曜日</span>
-      <nav class="top-bar-nav">
-        <a href="index.html">ホーム</a>
-        <a href="about.html">会社概要</a>
-        <a href="about.html#tab02">アクセス</a>
-        <a href="trial.html">お申込み</a>
-        <a href="about.html#tab03">講師</a>
-        <a href="book.html">著書</a>
-        <a href="trial.html#tab04">お問い合わせ</a>
-      </nav>
-    </div>
+  <nav>
+    <a href="index.html" class="nav-logo">ミリネ韓国語教室</a>
+    <ul class="nav-links">
+      <li><a href="index.html">ホーム</a></li>
+      <li class="nav-has-dropdown">
+        <a href="index.html#recruiting">講座</a>
+        <ul class="nav-dropdown">
+          <li><a href="kojin.html">個人レッスン</a></li>
+          <li><a href="group.html">グループレッスン</a></li>
+          <li><a href="kaiwa.html">会話強化クラス</a></li>
+          <li><a href="special.html">試験対策講座</a></li>
+          <li><a href="syutyu.html">集中講座</a></li>
+          <li><a href="netlesson.html">通信講座</a></li>
+        </ul>
+      </li>
+      <li><a href="about.html">会社概要</a></li>
+      <li><a href="about.html#tab02">アクセス</a></li>
+      <li><a href="trial.html">お申込み</a></li>
+      <li><a href="about.html#tab03">講師</a></li>
+      <li><a href="book.html">著書</a></li>
+      <li><a href="trial.html#tab04">お問い合わせ</a></li>
+    </ul>
+  </nav>
 
+  <div class="hero">
+    <p class="hero-eyebrow">Conversation Enhancement</p>
+    <h1>会話強化クラス</h1>
+    <p>会話・音読・発音・小説朗読・語彙力強化で総合的に会話力アップ</p>
+  </div>
+
+  <div class="tabs-bar">
+    <button type="button" class="tab-btn active" data-tab="tab01">会話クラス</button>
+    <button type="button" class="tab-btn" data-tab="tab02">音読クラス</button>
+    <button type="button" class="tab-btn" data-tab="tab03">発音・抑揚</button>
+    <button type="button" class="tab-btn" data-tab="tab04">小説朗読</button>
+    <button type="button" class="tab-btn" data-tab="tab05">語彙力強化</button>
+  </div>
+
+  <div class="page-wrapper">
     <div class="main-content">
       <div class="group-main-grid">
         <div class="group-left">
-      <div class="page-header">
-        <h1 class="page-title">会話強化クラス</h1>
-        <p class="page-subtitle">会話・音読・発音・小説朗読・語彙力強化で総合的に会話力アップ</p>
-      </div>
-
-      <div class="tab-wrap">
-      <div class="tab-bar">
-        <button type="button" class="tab-btn active" data-tab="tab01">会話クラス</button>
-        <button type="button" class="tab-btn" data-tab="tab02">音読クラス</button>
-        <button type="button" class="tab-btn" data-tab="tab03">発音・抑揚</button>
-        <button type="button" class="tab-btn" data-tab="tab04">小説朗読</button>
-        <button type="button" class="tab-btn" data-tab="tab07">語彙力強化</button>
-      </div>
-      </div>
-
       <!-- ========== タブ1: 会話クラス ========== -->
       <div id="tab01" class="tab-panel active">
         <div class="beg-page">
@@ -1023,41 +1133,91 @@
         </div>
       </div>
 
+<!-- ========== タブ5: 語彙力強化 ========== -->
+      <div id="tab05" class="tab-panel">
+        <div class="beg-page">
+          <div class="beg-hero">
+            <div class="beg-hero-eyebrow">Vocabulary — 語彙力強化</div>
+            <div class="beg-hero-title">『語彙力<em>強化クラス</em>』</div>
+            <div class="beg-hero-desc">
+              <p>一人だといつも途中で断念してしまう学習者のための講座です。一つの単語だけを覚えるのではなく、その単語に関連する類似語、反意語、活用、文法、語源まで勉強し、語彙力を強化します。</p>
+              <p>韓国語で話したいけど、言葉が上手く出ないのは発音のせいではありません。ドラマをいくら見ても聞こえないのは聞き取りのせいではありません。全ての外国語は単語が一番重要です。単語帳を買っても１０ページで諦めた経験のある方、ぜひミリネにお越しください。</p>
+            </div>
+            <div class="beg-hero-tags">
+              <div class="beg-hero-tag">👥 <span>2～6人</span></div>
+              <div class="beg-hero-tag">⏱ <span>毎週火曜 20:00～21:00</span></div>
+              <div class="beg-hero-tag">💻 <span>Zoom</span></div>
+            </div>
+          </div>
 
-      <!-- ========== タブ7: 語彙力強化 ========== -->
-      <div id="tab07" class="tab-panel">
-        <h2 class="section-header">「語彙力強化クラス」</h2>
-        <div class="content-inner">
-          <div class="content-block">
-            <p>一人だといつも途中で断念してしまう学習者のための語彙集中クラスです。一つの単語だけを覚えるのではなく、その単語に関連する類似語・反意語・活用・文法・語源まで勉強し、必須語彙を確実に身につけます。</p>
+          <div class="beg-sec-header">
+            <div class="beg-sec-label">Lesson Flow</div>
+            <div class="beg-sec-title">進め方</div>
+            <div class="beg-sec-line"></div>
           </div>
-          <div class="content-block">
-            <h3>進め方</h3>
-            <ul style="margin-left: 24px; list-style: none;">
-              <li>❶ 毎週決まった範囲の単語をテストし、その単語と例文に関連する類似語・反意語・活用・文法などを勉強します。</li>
-              <li>❷ テスト課題を音読し、発音チェックをします。</li>
-              <li>❸ 課題を解くことでニュアンスの違いについて勉強します。</li>
-            </ul>
+          <div class="beg-flow-steps">
+            <div class="beg-flow-step"><span class="beg-flow-num">1</span><span class="beg-flow-text">毎週決まった範囲の単語をテストし、その単語と例文に関連する類似語、反意語、活用、文法などを勉強します。</span></div>
+            <div class="beg-flow-step"><span class="beg-flow-num">2</span><span class="beg-flow-text">テスト課題を音読し、発音チェックをします。</span></div>
+            <div class="beg-flow-step"><span class="beg-flow-num">3</span><span class="beg-flow-text">課題を解くことでニュアンスの違いについて勉強します。</span></div>
           </div>
-          <div class="content-block">
-            <h3>教室・定員・テキスト</h3>
-            <p>教室：Zoom</p>
-            <p>定員：2～6人（2人から開講）</p>
-            <p>テキスト：hanaの韓国語単語〈中級編〉</p>
+          <p class="section-note" style="margin-bottom:24px;color:var(--muted);">※ 単語集１冊分の単語を覚えるとともに発音や関連文法まで学ぶことができる講座です。</p>
+
+          <div class="beg-sec-header">
+            <div class="beg-sec-label">Info</div>
+            <div class="beg-sec-title">教室・定員・テキスト</div>
+            <div class="beg-sec-line"></div>
           </div>
-          <div class="content-block">
-            <h3>授業料</h3>
-            <table class="price-table">
-              <thead>
-                <tr><th>コマあたり</th><th>期間</th><th>授業料（税抜）</th><th>税込</th></tr>
-              </thead>
-              <tbody>
-                <tr><td>2,980円</td><td>20コマ（5か月）</td><td>59,600円</td><td>65,560円</td></tr>
-              </tbody>
+          <div class="beg-info-cards">
+            <div class="beg-info-card">
+              <div class="beg-info-card-label">教室</div>
+              <div class="beg-info-card-value">Zoom</div>
+            </div>
+            <div class="beg-info-card">
+              <div class="beg-info-card-label">定員</div>
+              <div class="beg-info-card-value">2～6人<small>2人から開講</small></div>
+            </div>
+            <div class="beg-info-card">
+              <div class="beg-info-card-label">テキスト</div>
+              <div class="beg-info-card-value">hanaの韓国語単語〈中級編〉</div>
+            </div>
+          </div>
+
+          <div class="beg-sec-header">
+            <div class="beg-sec-label">Tuition</div>
+            <div class="beg-sec-title">授業料</div>
+            <div class="beg-sec-line"></div>
+          </div>
+          <div class="beg-tuition-table-wrap">
+            <table class="beg-tuition-table">
+              <thead><tr><th>コマあたり</th><th>期間</th><th>授業料(税抜)</th><th>税込</th></tr></thead>
+              <tbody><tr><td>2,980円</td><td>20コマ(5か月)</td><td>59,600円</td><td>65,560円</td></tr></tbody>
             </table>
           </div>
-        </div>
-      </div>
+
+          <div class="beg-sec-header">
+            <div class="beg-sec-label">Testimonial</div>
+            <div class="beg-sec-title">生徒の声</div>
+            <div class="beg-sec-line"></div>
+          </div>
+          <div class="beg-testimonial">
+            <div class="beg-testimonial-meta">
+              <div class="beg-testimonial-avatar">B</div>
+              <div><span class="beg-testimonial-name">Bクラス</span><span class="beg-testimonial-date">2023年7-11月</span></div>
+            </div>
+            <div class="beg-testimonial-body">教材に出てくる単語だけではなく、類義語や反対語、発音や例文の文法まで教えていただいて、とても充実した講義内容でした。また、授業の動画を送っていただけるので、復習するのにも良かったです。いつも途中で挫折していた単語の本を最後までやり切ることができたので、達成感もあります。韓国のドラマなどを観ていても、受講前と比較するとかなり理解できるようになったので、確実に語彙力はアップしたと感じています。</div>
+          </div>
+          <div class="beg-testimonial">
+            <div class="beg-testimonial-meta">
+              <div class="beg-testimonial-avatar">K</div>
+              <div><span class="beg-testimonial-name">K様-Bクラス</span><span class="beg-testimonial-date">2018年6-8月</span></div>
+            </div>
+            <div class="beg-testimonial-body">今までの中で一番成果が感じられた講座だったと思います。単語を覚えるという単純な勉強も一人ではなかなかできず、半年間本棚に眠っていた本がようやく日の目を見、８００近くの単語で例文が一通り覚えられたことは私にとってとても有意義な時間でした。</div>
+          </div>
+
+          <a href="https://mirinae.jp/trial.html" class="beg-cta-btn" style="text-decoration:none;">
+            お申込みはこちら
+            <svg viewBox="0 0 16 16" style="width:16px;height:16px;"><line x1="2" y1="8" x2="13" y2="8" stroke="currentColor" stroke-width="2.5" fill="none"/><polyline points="9,4 13,8 9,12" stroke="currentColor" stroke-width="2.5" fill="none"/></svg>
+          </a>
 
       <a href="index.html" class="back-link">← トップページへ戻る</a>
         </div>
@@ -1103,7 +1263,7 @@
                     <a href="kaiwa.html#tab02" class="nav-item">音読クラス</a>
                     <a href="kaiwa.html#tab03" class="nav-item">発音・抑揚</a>
                     <a href="kaiwa.html#tab04" class="nav-item">小説朗読</a>
-                    <a href="kaiwa.html#tab07" class="nav-item">語彙力強化</a>
+                    <a href="kaiwa.html#tab05" class="nav-item">語彙力強化</a>
                   </div>
                 </div>
               </div>
@@ -1163,7 +1323,7 @@
     (function() {
       var tabBtns = document.querySelectorAll('.tab-btn');
       var tabPanels = document.querySelectorAll('.tab-panel');
-      var tabIds = ['tab01', 'tab02', 'tab03', 'tab04', 'tab07'];
+      var tabIds = ['tab01', 'tab02', 'tab03', 'tab04', 'tab05'];
 
       function switchTab(tabId) {
         tabBtns.forEach(function(btn) {

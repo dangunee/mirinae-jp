@@ -1343,21 +1343,46 @@
       background: #1a1a1a;
       border: 1px solid rgba(255,255,255,0.15);
     }
-    /* パーセント＋アイコン部分：クリーム背景でアクセント（右端までフル幅） */
+    /* パーセント＋アイコン部分：クリーム背景でアクセント（右端までフル幅・中央・拡大） */
     #tab01 .overview-card.overview-card-dark .overview-top {
       background: var(--gold-pale);
       margin: -40px -40px 24px -40px;
-      padding: 28px 40px;
+      padding: 32px 40px;
       border-radius: 16px 16px 0 0;
       width: calc(100% + 80px);
       min-width: calc(100% + 80px);
       box-sizing: border-box;
+      justify-content: center;
+      gap: 28px;
+    }
+    #tab01 .overview-card.overview-card-dark .overview-top .progress-ring {
+      width: 96px;
+      height: 96px;
+      margin-right: 0;
+    }
+    #tab01 .overview-card.overview-card-dark .overview-top .overview-label {
+      font-size: 13px;
+    }
+    #tab01 .overview-card.overview-card-dark .overview-top .skills-row {
+      gap: 24px;
+    }
+    #tab01 .overview-card.overview-card-dark .overview-top .skill-item {
+      font-size: 14px;
+    }
+    #tab01 .overview-card.overview-card-dark .overview-top .skill-icon {
+      width: 52px;
+      height: 52px;
+      font-size: 22px;
     }
     @media (max-width: 900px) {
-      #tab01 .overview-card.overview-card-dark .overview-top { margin: -28px -20px 20px -20px; padding: 24px 28px; width: calc(100% + 40px); min-width: calc(100% + 40px); }
+      #tab01 .overview-card.overview-card-dark .overview-top { margin: -28px -20px 20px -20px; padding: 24px 28px; width: calc(100% + 40px); min-width: calc(100% + 40px); gap: 20px; }
+      #tab01 .overview-card.overview-card-dark .overview-top .progress-ring { width: 84px; height: 84px; }
+      #tab01 .overview-card.overview-card-dark .overview-top .skill-icon { width: 46px; height: 46px; font-size: 20px; }
     }
     @media (max-width: 600px) {
-      #tab01 .overview-card.overview-card-dark .overview-top { margin: -24px -20px 16px -20px; padding: 20px 24px; width: calc(100% + 40px); min-width: calc(100% + 40px); }
+      #tab01 .overview-card.overview-card-dark .overview-top { margin: -24px -20px 16px -20px; padding: 20px 24px; width: calc(100% + 40px); min-width: calc(100% + 40px); flex-wrap: wrap; justify-content: center; gap: 16px; }
+      #tab01 .overview-card.overview-card-dark .overview-top .progress-ring { width: 72px; height: 72px; }
+      #tab01 .overview-card.overview-card-dark .overview-top .skill-icon { width: 42px; height: 42px; font-size: 18px; }
     }
     #tab01 .overview-card.overview-card-dark .overview-top .overview-label {
       color: var(--muted);

@@ -690,6 +690,32 @@
     }
     .review-body p + p { margin-top: 12px; }
 
+    /* 生徒の声 アコーディオン（2人目以降） */
+    .review-collapsible .review-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      cursor: pointer;
+      margin-bottom: 0;
+      user-select: none;
+    }
+    .review-collapsible .review-header .review-meta { margin-bottom: 0; }
+    .review-collapsible .review-body {
+      display: none;
+      padding-top: 16px;
+      margin-top: 0;
+      border-top: 1px solid var(--border);
+    }
+    .review-collapsible.review-expanded .review-body { display: block; }
+    .review-collapsible .review-toggle {
+      flex-shrink: 0;
+      font-size: 12px;
+      color: var(--gold);
+      transition: transform .2s;
+    }
+    .review-collapsible.review-expanded .review-toggle { transform: rotate(180deg); }
+
     .sidebar { position: sticky; top: 80px; }
     .sidebar .info-card { margin-bottom: 20px; }
     .sidebar-promo-card {
@@ -2318,13 +2344,16 @@
                 <p><strong>●これからの目標について</strong><br>丁度6級を取得した直後ですが、一年ワーホリで韓国に行きます。自分としてはまだまだと思っている発音を特に伸ばしたいです。加えて、韓国文学を韓国語で読めるようになりたいです。英語の小説でも、やはり原書で読むのと日本語訳本を読むのでは流れる空気感が違いますし、その言語でしか表現できないものがあると思っています。韓国文学の日本語訳本を読んでいても繊細な表現が多いイメージで、原書ではどう書かれているのか、気になっていました。まだ韓国語の本を読むには実力不足だと思うので、今後更に勉強して、韓国文学をたくさん読めるようになりたいです。</p>
               </div>
             </div>
-            <div class="review-card">
-              <div class="review-meta">
-                <div class="review-avatar">W</div>
-                <div class="review-info">
-                  <div class="name">WY様</div>
-                  <div class="badge-row"><span class="level-badge">4級</span><span class="date-badge">2019.07</span></div>
+            <div class="review-card review-collapsible">
+              <div class="review-header" role="button" tabindex="0" aria-expanded="false">
+                <div class="review-meta">
+                  <div class="review-avatar">W</div>
+                  <div class="review-info">
+                    <div class="name">WY様</div>
+                    <div class="badge-row"><span class="level-badge">4級</span><span class="date-badge">2019.07</span></div>
+                  </div>
                 </div>
+                <span class="review-toggle">▼</span>
               </div>
               <div class="review-body">
                 <p>ソウル大学教科書を通じて文法を学びながらも各課のテーマに沿った単語や表現、教科書に記載はないけれども良く使う言い回しも教わりました。韓国の生活、歴史にも話題が及ぶこともあり、充実した授業でした。</p>
@@ -2332,13 +2361,16 @@
                 <p>授業内容の録音の許可をいただけたおかげで、今まで消化しきれなかった分を韓国滞在中に聞いて復習し、確実に身につけたいと思います。ありがとうございました。</p>
               </div>
             </div>
-            <div class="review-card">
-              <div class="review-meta">
-                <div class="review-avatar">I</div>
-                <div class="review-info">
-                  <div class="name">IT様</div>
-                  <div class="badge-row"><span class="level-badge">中級 TOPIK5級</span><span class="date-badge">2018.05（新宿）</span></div>
+            <div class="review-card review-collapsible">
+              <div class="review-header" role="button" tabindex="0" aria-expanded="false">
+                <div class="review-meta">
+                  <div class="review-avatar">I</div>
+                  <div class="review-info">
+                    <div class="name">IT様</div>
+                    <div class="badge-row"><span class="level-badge">中級 TOPIK5級</span><span class="date-badge">2018.05（新宿）</span></div>
+                  </div>
                 </div>
+                <span class="review-toggle">▼</span>
               </div>
               <div class="review-body">
                 <p><strong>「1」ミリネ教室に通ってよかったこと</strong></p>
@@ -2350,13 +2382,16 @@
                 <p><strong>❷「私、国内留学みたいなことがしたいんですが…」</strong><br>私が最初にミリネに問い合わせをした内容です。授業を１日に複数コマ取って毎日通うのはもちろん、それ以外に韓国語で独り言を言うことを徹底しました。実際に口に出す独り言だけでなく、脳内で再生される独り言も、すべて韓国語で言うように意識しました。そうすると、「これ、どう言うともっと自然なんだろう？」と疑問が湧き、それを次の授業で質問したりして、だんだん慣れていきます。そのうち夢でも韓国語を話すようになったりもして、授業のない日も韓国語脳を維持することができました。語学の勉強は、自らその言語に浸りに行くような積極的な意識が必要だと思うのですが、困った時に助けてもらえるバックアップ体制もまた必要なことだと思っています。その点で、私はミリネに通えて、先生方に出会えてほんとによかった！と心から思ってます。これからもがんばります。</p>
               </div>
             </div>
-            <div class="review-card">
-              <div class="review-meta">
-                <div class="review-avatar">T</div>
-                <div class="review-info">
-                  <div class="name">TM様</div>
-                  <div class="badge-row"><span class="level-badge">3級</span><span class="date-badge">2016.8～2017.10（新宿）</span></div>
+            <div class="review-card review-collapsible">
+              <div class="review-header" role="button" tabindex="0" aria-expanded="false">
+                <div class="review-meta">
+                  <div class="review-avatar">T</div>
+                  <div class="review-info">
+                    <div class="name">TM様</div>
+                    <div class="badge-row"><span class="level-badge">3級</span><span class="date-badge">2016.8～2017.10（新宿）</span></div>
+                  </div>
                 </div>
+                <span class="review-toggle">▼</span>
               </div>
               <div class="review-body">
                 <p>ミリネではテキスト本文をただ読むだけでなく、テキストCDの音声とオーバーラッピングしながら読み、本文全てを暗記する等、他の教室ではあまりやらないような方法で学びました。この様な方法は、ある一定の緊張感を保ちつつ授業を受ける事が出来るので、とても良いと感じました。授業で文法の復習がある点も、帰宅後に自ら復習をしようというやる気に繋がったと思います。もちろん、緊張感ばかりでなく、先生方と楽しい話も沢山する事も出来ました。最初からミリネで学習していたら良かったなぁと感じています。</p>
@@ -3482,6 +3517,23 @@
             }
           });
         }
+      });
+    })();
+
+    (function() {
+      document.querySelectorAll('.review-collapsible .review-header').forEach(function(header) {
+        header.addEventListener('click', function() {
+          var card = header.closest('.review-card');
+          if (!card) return;
+          var expanded = card.classList.toggle('review-expanded');
+          header.setAttribute('aria-expanded', expanded);
+        });
+        header.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            header.click();
+          }
+        });
       });
     })();
 

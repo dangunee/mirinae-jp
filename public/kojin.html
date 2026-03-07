@@ -985,6 +985,8 @@
       .nav-links > li > a, .nav-links .nav-dropdown a { padding: 14px 0; }
       .nav-logo { font-size: 14px; margin-right: 0; flex-shrink: 0; white-space: nowrap; }
       .overview-card { padding: 28px 20px; }
+      #tab01 .beg-hero { padding: 28px 20px; }
+      #tab01 .beg-hero-title { font-size: 28px; }
       .target-grid { grid-template-columns: 1fr; }
       .steps-flow { grid-template-columns: repeat(2, 1fr); gap: 16px; }
       .steps-flow-5 { grid-template-columns: repeat(2, 1fr); }
@@ -1002,6 +1004,9 @@
       nav { padding: 0 12px; }
       .nav-logo { font-size: 13px; white-space: nowrap; }
       .overview-card { padding: 24px 20px; }
+      #tab01 .beg-hero { padding: 24px 20px; }
+      #tab01 .beg-hero-title { font-size: 24px; }
+      #tab01 .beg-hero-desc p { font-size: 14px; }
       .price-table-header { font-size: 12px; }
       .price-table .price-row { font-size: 14px; }
       .price-table .price-row .pr-zeikomi,
@@ -1337,8 +1342,88 @@
       .curriculum-table td { padding: 5px 4px; }
     }
 
-    /* ========== tab01: 個人レッスン design（tab02と同様のフォントサイズ） ========== */
+    /* ========== tab01: 個人レッスン design（グループレッスン beg-hero スタイル） ========== */
     #tab01 { font-size: 120%; }
+    #tab01 .beg-hero {
+      background: var(--dark);
+      border-radius: 16px;
+      padding: 40px 48px;
+      margin-bottom: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    #tab01 .beg-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: repeating-linear-gradient(-50deg, transparent, transparent 38px,
+        rgba(255,255,255,0.016) 38px, rgba(255,255,255,0.016) 39px);
+      pointer-events: none;
+    }
+    #tab01 .beg-hero::after {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 280px; height: 280px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(184,146,42,0.14) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    #tab01 .beg-hero-eyebrow {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 12px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 10px;
+    }
+    #tab01 .beg-hero-title {
+      font-size: 34px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.25;
+      margin-bottom: 18px;
+      position: relative; z-index: 1;
+    }
+    #tab01 .beg-hero-title em { font-style: normal; color: var(--gold-light); }
+    #tab01 .beg-hero-desc {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      position: relative; z-index: 1;
+    }
+    #tab01 .beg-hero-desc p {
+      font-size: 16px;
+      color: rgba(255,255,255,0.65);
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+    #tab01 .beg-hero-desc p::before {
+      content: '';
+      width: 16px; height: 1px;
+      background: var(--gold);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    #tab01 .beg-hero-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 22px;
+      position: relative; z-index: 1;
+    }
+    #tab01 .beg-hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 5px 12px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 20px;
+      font-size: 14px;
+      color: rgba(255,255,255,0.75);
+    }
+    #tab01 .beg-hero-tag span { color: var(--gold-light); font-weight: 600; }
     #tab01 .section-title { font-size: 22px; }
     #tab01 .target-item { font-size: 16px; }
     #tab01 .target-item .ti-icon { font-size: 24px; }
@@ -1352,10 +1437,6 @@
     #tab01 .textbook-note { font-size: 14px; }
     #tab01 .step-label { font-size: 15px; }
     #tab01 .detail-item { font-size: 16px; }
-    #tab01 .overview-card .overview-body p { font-size: 17px; color: var(--mid); line-height: 1.9; margin-bottom: 12px; }
-    #tab01 .overview-card .overview-body p:last-child { margin-bottom: 0; }
-    #tab01 .overview-card .overview-body .kojin-overview-heading,
-    #tab01 .overview-card .overview-body .kojin-overview-heading strong { font-size: 20px !important; font-weight: 600 !important; color: var(--dark) !important; margin-bottom: 12px !important; }
     #tab01 .review-body { font-size: 15px; }
 
     /* ========== tab02: 短期集中個人 design（字 1.2倍） ========== */
@@ -1821,35 +1902,20 @@
     <div class="content">
       <div id="tab01" class="tab-panel active">
         <section class="fade-in delay-1">
-          <div class="overview-card">
-            <div class="overview-inner">
-              <div class="overview-top">
-                <svg class="progress-ring" viewBox="0 0 72 72">
-                  <circle cx="36" cy="36" r="28" fill="none" stroke="#e8d5b0" stroke-width="4"/>
-                  <circle cx="36" cy="36" r="28" fill="none" stroke="#b8924a" stroke-width="4"
-                    stroke-dasharray="175.9" stroke-dashoffset="52.8"
-                    stroke-linecap="round" transform="rotate(-90 36 36)"/>
-                  <text x="36" y="40" text-anchor="middle" font-family="Cormorant Garamond,serif"
-                    font-size="18" fill="#b8924a" font-weight="600">70%</text>
-                </svg>
-                <div>
-                  <div style="display:flex;align-items:center;gap:24px;flex-wrap:wrap;">
-                    <div>
-                      <div style="font-size:11px;letter-spacing:.1em;color:var(--muted);margin-bottom:4px;">発話参加率</div>
-                    </div>
-                    <div class="skills-row" style="margin:0;gap:16px;">
-                      <div class="skill-item"><div class="skill-icon">👂</div>聞く</div>
-                      <div class="skill-item"><div class="skill-icon">📖</div>読む</div>
-                      <div class="skill-item"><div class="skill-icon">✏️</div>書く</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="overview-body">
-                <p class="kojin-overview-heading"><strong>個人レッスンではテキストを使用し、聞く・話す・読む・書くを総合的に学習します。</strong></p>
-                <p>文法、語彙、表現については講師から説明いたしますが、レッスンの7割は音読や会話となり、生徒さんにどんどん声を出していただくことをモットーとしております。丁寧な解説で文法のポイントを学んだ後は、練習問題で反復練習をし、「書くチカラ」も身につけます。授業中に学習した本文や例文は暗記していただき、次のレッスン時に、韓国語で声に出していただきます。</p>
-                <p>レッスンはこのように丁寧に行われるため、1コマで1つの課の50%～80%ほどの目安で進められます。</p>
-              </div>
+          <div class="beg-hero">
+            <div class="beg-hero-eyebrow">Private Lesson</div>
+            <div class="beg-hero-title">『個人<em>レッスン</em>』</div>
+            <div class="beg-hero-desc">
+              <p>個人レッスンではテキストを使用し、聞く・話す・読む・書くを総合的に学習します。</p>
+              <p>レッスンの7割は音読や会話となり、生徒さんにどんどん声を出していただくことをモットーとしております。</p>
+              <p>1コマで1つの課の50%～80%ほどの目安で進められます。</p>
+            </div>
+            <div class="beg-hero-tags">
+              <div class="beg-hero-tag">📅 <span>火〜金 10:00–21:00</span></div>
+              <div class="beg-hero-tag">📅 <span>土 10:00–18:00 / 日 10:00–17:00</span></div>
+              <div class="beg-hero-tag">⏱ <span>50分</span></div>
+              <div class="beg-hero-tag">🏫 <span>新宿教室</span></div>
+              <div class="beg-hero-tag">💻 <span>オンライン（Teams/Zoom）</span></div>
             </div>
           </div>
         </section>

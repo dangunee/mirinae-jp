@@ -2005,6 +2005,80 @@
     @media (max-width: 600px) {
       .textbook-cards, .target-cards { grid-template-columns: 1fr; }
     }
+
+    /* =====================================================
+       進め方 / 内容 ステッパー モバイル最適化
+       style の </style> の直前に貼り付けてください
+       ===================================================== */
+
+    @media (max-width: 600px) {
+
+      /* ── 横並びグリッド → 縦の番号リストに変更 ── */
+      .steps-flow,
+      .steps-flow-5 {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        margin-bottom: 20px;
+      }
+
+      /* 横線(::before)は縦レイアウトでは非表示 */
+      .steps-flow::before {
+        display: none;
+      }
+
+      /* 各ステップ: 横並び（番号 + ラベル） */
+      .step {
+        flex-direction: row;
+        align-items: center;
+        gap: 14px;
+        padding: 10px 4px;
+        position: relative;
+      }
+
+      /* ステップ間の縦線 */
+      .step:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        left: 19px;           /* 番号円の中心 */
+        top: 50px;
+        width: 2px;
+        height: calc(100% - 10px);
+        background: var(--gold-light, #d4a96a);
+        z-index: 0;
+      }
+
+      /* 番号円: サイズそのまま、z-index で縦線の上に */
+      .step-num {
+        width: 40px;
+        height: 40px;
+        flex-shrink: 0;
+        font-size: 16px;
+        z-index: 1;
+      }
+
+      /* ラベル: 左寄せ・横書き */
+      .step-label {
+        font-size: 13px;
+        text-align: left;
+        line-height: 1.4;
+        color: var(--mid, #666);
+      }
+
+      /* ── detail-item: 横幅いっぱいに・余白調整 ── */
+      .detail-item {
+        padding: 12px 14px;
+        gap: 10px;
+        font-size: 13px;
+        align-items: flex-start;
+      }
+
+      .detail-item .di-num {
+        flex-shrink: 0;
+        margin-top: 2px;
+      }
+
+    }
   </style>
 </head>
 <body>

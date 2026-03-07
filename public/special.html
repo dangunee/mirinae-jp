@@ -6,7 +6,7 @@
   <title>試験対策講座｜ミリネ韓国語教室</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
   <style>
     :root {
       --beige: #f5f0e8;
@@ -40,70 +40,133 @@
       min-height: 100vh;
     }
 
-    .top-bar {
+    html { overflow-x: hidden; max-width: 100vw; }
+    body { overflow-x: hidden; max-width: 100vw; }
+
+    nav {
       background: var(--white);
-      padding: 12px 24px;
-      font-size: 12px;
-      color: var(--text-muted);
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      gap: 16px;
       border-bottom: 1px solid var(--gray-border);
+      padding: 0 48px;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      height: 56px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
-    .top-bar-info { color: var(--text-muted); }
-    .top-bar-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px 32px; }
-    .top-bar a, .top-bar-nav a { color: var(--dark); text-decoration: none; font-weight: 500; font-size: 14px; }
-    .top-bar a:hover, .top-bar-nav a:hover { color: var(--gold); }
-
-    .main-content { padding: 0 24px 80px; }
-
-    .page-header { padding: 40px 0 24px; }
-    .page-header .page-title {
-      font-family: 'Noto Serif JP', serif;
-      font-size: clamp(28px, 5vw, 40px);
-      font-weight: 700;
-      letter-spacing: 0.04em;
+    nav a { text-decoration: none; color: var(--mid); font-size: 13px; letter-spacing: 0.05em; transition: color .2s; }
+    nav a:hover { color: var(--gold); }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px;
       color: var(--dark);
-      margin-bottom: 12px;
+      letter-spacing: 0.1em;
+      margin-right: auto;
     }
-    .page-header .page-subtitle { color: var(--text-muted); font-size: 14px; font-weight: 300; }
-
-    .tab-wrap { margin-bottom: 0; }
-    .tab-bar {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      border-bottom: 2px solid var(--gray-border);
-      position: relative;
-    }
-    @media (max-width: 560px) { .tab-bar { grid-template-columns: 1fr 1fr; } }
-    .tab-btn {
-      background: none;
-      border: none;
-      padding: 14px 8px;
-      font-family: 'Noto Sans JP', sans-serif;
+    .nav-links { display: flex; align-items: center; gap: 2px; list-style: none; margin: 0; padding: 0; }
+    .nav-links > li { position: relative; }
+    .nav-links > li.nav-has-dropdown::after { content: ''; position: absolute; top: 100%; left: 0; right: 0; height: 14px; }
+    .nav-links a {
+      display: block;
+      padding: 8px 12px;
       font-size: 13px;
       font-weight: 500;
-      color: var(--text-muted);
-      cursor: pointer;
-      position: relative;
-      transition: color 0.2s;
+      color: var(--mid);
+      text-decoration: none;
+      border-radius: 6px;
+      transition: background .15s, color .15s;
       white-space: nowrap;
     }
-    .tab-btn::after {
-      content: '';
+    .nav-links > li > a:hover { background: var(--gold-pale); color: var(--gold); }
+    .nav-dropdown {
       position: absolute;
-      bottom: -2px;
-      left: 0; right: 0;
-      height: 2px;
-      background: var(--gold);
-      transform: scaleX(0);
-      transition: transform 0.25s ease;
+      top: 100%;
+      left: 0;
+      min-width: 180px;
+      background: var(--white);
+      border-radius: 8px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+      padding: 8px 0;
+      list-style: none;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity .2s, visibility .15s;
+      z-index: 9999;
+      margin-top: 0;
+      border: 1px solid var(--gray-border);
+      pointer-events: none;
     }
-    .tab-btn:hover { color: var(--dark); }
-    .tab-btn.active { color: var(--gold); font-weight: 700; }
-    .tab-btn.active::after { transform: scaleX(1); }
+    .nav-links > li:hover .nav-dropdown { opacity: 1; visibility: visible; pointer-events: auto; }
+    .nav-dropdown a { padding: 10px 20px; font-size: 13px; border-radius: 0; white-space: nowrap; }
+    .nav-dropdown a:hover { background: var(--gold-pale); color: var(--gold); }
+
+    .hero {
+      background: var(--white);
+      padding: 72px 80px 64px;
+      border-bottom: 1px solid var(--gray-border);
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+    .hero::after {
+      content: "시험대책";
+      position: absolute;
+      right: 48px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 120px;
+      font-weight: 700;
+      color: rgba(184,146,74,0.06);
+      pointer-events: none;
+      user-select: none;
+      white-space: nowrap;
+    }
+    .hero-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+      font-weight: 500;
+    }
+    .hero h1 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      line-height: 1.3;
+      margin-bottom: 16px;
+    }
+    .hero p { color: var(--muted); font-size: 14px; letter-spacing: 0.05em; }
+
+    .tabs-bar {
+      background: var(--white);
+      border-bottom: 1px solid var(--gray-border);
+      padding: 0 80px;
+      display: flex;
+      gap: 0;
+      justify-content: center;
+    }
+    .tab-btn {
+      padding: 16px 28px;
+      font-size: 13px;
+      color: var(--muted);
+      cursor: pointer;
+      border: none;
+      border-bottom: 2px solid transparent;
+      background: none;
+      transition: all .2s;
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+      user-select: none;
+      font-family: inherit;
+    }
+    .tab-btn.active { color: var(--gold); border-bottom-color: var(--gold); font-weight: 500; }
+    .tab-btn:hover:not(.active) { color: var(--mid); }
+
+    .main-content { padding: 0 24px 80px; }
 
     .tab-panel { display: none; padding-top: 32px; }
     .tab-panel.active { display: block; }
@@ -122,8 +185,21 @@
     .sidebar {
       position: sticky;
       top: 80px;
-      padding-top: 200px;
+      padding-top: 32px;
     }
+    .sidebar-promo-card {
+      margin-bottom: 20px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      display: block;
+      text-decoration: none;
+      background: var(--dark);
+      aspect-ratio: 1;
+      background-size: cover;
+      background-position: center;
+    }
+    .sidebar-promo-card:hover { opacity: 0.95; }
     .course-nav-card.courses-nav-box {
       background: var(--white);
       border: 1px solid var(--gray-border);
@@ -500,45 +576,63 @@
       box-shadow: 0 8px 28px rgba(184,146,42,0.5);
     }
 
+    @media (max-width: 900px) {
+      nav { padding: 0 24px; }
+      .hero { padding: 48px 24px 40px; }
+      .hero::after { font-size: 80px; right: 24px; }
+      .tabs-bar { padding: 0 24px; overflow-x: auto; }
+      .tab-btn { flex: 1 0 auto; padding: 14px 16px; font-size: 12px; }
+    }
     @media (max-width: 600px) {
       .main-content { padding: 24px 16px 40px; }
-      .tab-bar { overflow-x: auto; }
-      .tab-btn { flex: 1 0 auto; }
+      .hero { padding: 40px 16px 32px; }
+      .hero::after { font-size: 60px; right: 16px; }
     }
   </style>
 </head>
 <body>
-  <div class="page-wrapper">
-    <div class="top-bar">
-      <span class="top-bar-info">東京で韓国語教室をお探しならミリネ韓国語教室 | 定休日: 月曜日</span>
-      <nav class="top-bar-nav">
-        <a href="index.html">ホーム</a>
-        <a href="about.html">会社概要</a>
-        <a href="about.html#tab02">アクセス</a>
-        <a href="trial.html">お申込み</a>
-        <a href="about.html#tab03">講師</a>
-        <a href="book.html">著書</a>
-        <a href="trial.html#tab04">お問い合わせ</a>
-      </nav>
-    </div>
+  <nav>
+    <a href="index.html" class="nav-logo">ミリネ韓国語教室</a>
+    <ul class="nav-links">
+      <li><a href="index.html">ホーム</a></li>
+      <li class="nav-has-dropdown">
+        <a href="index.html#recruiting">講座</a>
+        <ul class="nav-dropdown">
+          <li><a href="kojin.html">個人レッスン</a></li>
+          <li><a href="group.html">グループレッスン</a></li>
+          <li><a href="kaiwa.html">会話強化クラス</a></li>
+          <li><a href="special.html">試験対策講座</a></li>
+          <li><a href="syutyu.html">集中講座</a></li>
+          <li><a href="netlesson.html">通信講座</a></li>
+        </ul>
+      </li>
+      <li><a href="about.html">会社概要</a></li>
+      <li><a href="about.html#tab02">アクセス</a></li>
+      <li><a href="trial.html">お申込み</a></li>
+      <li><a href="about.html#tab03">講師</a></li>
+      <li><a href="book.html">著書</a></li>
+      <li><a href="trial.html#tab04">お問い合わせ</a></li>
+    </ul>
+  </nav>
 
+  <div class="hero">
+    <p class="hero-eyebrow">Exam Preparation</p>
+    <h1>試験対策講座</h1>
+    <p>TOPIK・ハングル検定のための対策クラス</p>
+  </div>
+
+  <div class="tabs-bar">
+    <button type="button" class="tab-btn active" data-tab="tab01">TOPIK初級</button>
+    <button type="button" class="tab-btn" data-tab="tab02">TOPIK中級</button>
+    <button type="button" class="tab-btn" data-tab="tab03">TOPIK上級</button>
+    <button type="button" class="tab-btn" data-tab="tab04">ハン検1/2級</button>
+    <button type="button" class="tab-btn" data-tab="tab05">ハン検準2級</button>
+  </div>
+
+  <div class="page-wrapper">
     <div class="main-content">
       <div class="group-main-grid">
         <div class="group-left">
-      <div class="page-header">
-        <h1 class="page-title">試験対策講座</h1>
-        <p class="page-subtitle">TOPIK・ハングル検定のための対策クラス</p>
-      </div>
-
-      <div class="tab-wrap">
-      <div class="tab-bar">
-        <button type="button" class="tab-btn active" data-tab="tab01">TOPIK初級</button>
-        <button type="button" class="tab-btn" data-tab="tab02">TOPIK中級</button>
-        <button type="button" class="tab-btn" data-tab="tab03">TOPIK上級</button>
-        <button type="button" class="tab-btn" data-tab="tab04">ハン検1/2級</button>
-        <button type="button" class="tab-btn" data-tab="tab05">ハン検準2級</button>
-      </div>
-      </div>
 
       <!-- ========== タブ1: TOPIK初級 ========== -->
       <div id="tab01" class="tab-panel active">
@@ -1028,7 +1122,7 @@
 
         </div>
         <aside class="sidebar" id="sidebar">
-
+          <a href="group.html#tab06" class="sidebar-promo-card" style="background-image: url('/img/classroom/classroom.jpg');" aria-label="土曜上級対面講座"></a>
           <div class="course-nav-card courses-nav-box">
             <div class="courses-nav-header">
               <div class="courses-nav-label">Courses</div>

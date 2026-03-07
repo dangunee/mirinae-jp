@@ -215,8 +215,21 @@
     .sidebar {
       position: sticky;
       top: 80px;
-      padding-top: 200px;
+      padding-top: 32px;
     }
+    .sidebar-promo-card {
+      margin-bottom: 20px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      display: block;
+      text-decoration: none;
+      background: var(--dark);
+      aspect-ratio: 1;
+      background-size: cover;
+      background-position: center;
+    }
+    .sidebar-promo-card:hover { opacity: 0.95; }
     .course-nav-card.courses-nav-box {
       background: var(--white);
       border: 1px solid var(--gray-border);
@@ -720,6 +733,7 @@
     <div class="main-content">
       <div class="group-main-grid">
         <div class="group-left">
+
       <!-- ========== タブ1: 会話クラス ========== -->
       <div id="tab01" class="tab-panel active">
         <div class="beg-page">
@@ -1133,7 +1147,7 @@
         </div>
       </div>
 
-<!-- ========== タブ5: 語彙力強化 ========== -->
+      <!-- ========== タブ5: 語彙力強化 ========== -->
       <div id="tab05" class="tab-panel">
         <div class="beg-page">
           <div class="beg-hero">
@@ -1218,11 +1232,14 @@
             お申込みはこちら
             <svg viewBox="0 0 16 16" style="width:16px;height:16px;"><line x1="2" y1="8" x2="13" y2="8" stroke="currentColor" stroke-width="2.5" fill="none"/><polyline points="9,4 13,8 9,12" stroke="currentColor" stroke-width="2.5" fill="none"/></svg>
           </a>
+        </div>
+      </div>
 
       <a href="index.html" class="back-link">← トップページへ戻る</a>
         </div>
 
         <aside class="sidebar" id="sidebar">
+          <a href="group.html#tab06" class="sidebar-promo-card" style="background-image: url('/img/classroom/classroom.jpg');" aria-label="土曜上級対面講座"></a>
           <div class="course-nav-card courses-nav-box">
             <div class="courses-nav-header">
               <div class="courses-nav-label">Courses</div>

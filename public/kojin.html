@@ -1409,8 +1409,13 @@
       height: 112px;
       margin-right: 0;
     }
-    #tab01 .overview-card.overview-card-dark .overview-top .overview-label {
+    #tab01 .overview-card.overview-card-dark .overview-top .ov-top-left .label {
+      font-size: 14px;
+      color: var(--muted);
+    }
+    #tab01 .overview-card.overview-card-dark .overview-top .ov-top-left .overview-label {
       font-size: 17px;
+      margin-top: 4px;
     }
     #tab01 .overview-card.overview-card-dark .overview-top .skills-row {
       gap: 28px;
@@ -2161,7 +2166,10 @@
                     <text x="36" y="40" text-anchor="middle" font-family="Cormorant Garamond,serif"
                       font-size="18" fill="#b8924a" font-weight="600">70%</text>
                   </svg>
-                  <div class="overview-label">発話参加率</div>
+                  <div>
+                    <div class="label">受講生</div>
+                    <div class="overview-label">発話参加率</div>
+                  </div>
                 </div>
                 <div class="skills-row" style="margin:0;gap:16px;">
                   <div class="skill-item"><div class="skill-icon">👂</div>聞く</div>

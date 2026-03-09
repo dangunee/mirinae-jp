@@ -125,6 +125,24 @@ function EditContent() {
     setDirty(true);
   };
 
+  const removeRow = (rowIndex: number) => {
+    if (!selectedBlock) return;
+    if (selectedBlock.rows.length <= 1) return;
+    setBlocks((prev) =>
+      prev.map((b) => {
+        if (b.id !== selectedBlock.id) return b;
+        const rows = b.rows.filter((_, i) => i !== rowIndex);
+        return { ...b, rows };
+      })
+    );
+    setSelectedBlock((b) => {
+      if (!b || b.id !== selectedBlock.id) return b;
+      const rows = b.rows.filter((_, i) => i !== rowIndex);
+      return { ...b, rows };
+    });
+    setDirty(true);
+  };
+
   const showThemeColumns =
     selectedBlock && CURRICULUM_WITH_THEME_KEYS.includes(selectedBlock.blockKey);
 
@@ -381,7 +399,7 @@ function EditContent() {
                     <div style={{ marginBottom: 16, width: "100%", overflow: "visible" }}>
                       <table style={{ width: "100%", borderCollapse: "collapse", background: "#fff", border: "1px solid #d0d0d0", tableLayout: "fixed" }}>
                         <colgroup>
-                          <col style={{ width: "48px" }} />
+                          <col style={{ width: "72px" }} />
                           <col style={{ width: "88px" }} />
                           <col style={{ width: "24%" }} />
                           <col style={{ width: "88px" }} />
@@ -404,12 +422,31 @@ function EditContent() {
                           {selectedBlock.rows.map((row, i) => (
                             <tr key={i}>
                               <td style={tdKomaStyle}>
-                                <input
-                                  type="text"
-                                  value={row.koma}
-                                  onChange={(e) => updateRow(selectedBlock.id, i, "koma", e.target.value)}
-                                  style={inputKomaStyle}
-                                />
+                                <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
+                                  <input
+                                    type="text"
+                                    value={row.koma}
+                                    onChange={(e) => updateRow(selectedBlock.id, i, "koma", e.target.value)}
+                                    style={{ ...inputKomaStyle, flex: 1, minWidth: 0 }}
+                                  />
+                                  <button
+                                    type="button"
+                                    onClick={() => removeRow(i)}
+                                    title="行を削除"
+                                    style={{
+                                      padding: "4px 8px",
+                                      fontSize: 14,
+                                      border: "1px solid #c00",
+                                      background: "#fff",
+                                      color: "#c00",
+                                      cursor: "pointer",
+                                      borderRadius: 4,
+                                      flexShrink: 0,
+                                    }}
+                                  >
+                                    ×
+                                  </button>
+                                </div>
                               </td>
                               <td style={tdStyle}>
                                 <select
@@ -526,7 +563,7 @@ function EditContent() {
               <div style={{ overflowX: "auto", marginBottom: 16, minWidth: 0 }}>
                 <table style={{ width: "100%", minWidth: showThemeColumns ? 1600 : 960, borderCollapse: "collapse", background: "#fff", border: "1px solid #d0d0d0", tableLayout: "fixed" }}>
                   <colgroup>
-                    <col style={{ width: "56px" }} />
+                    <col style={{ width: "72px" }} />
                     {showThemeColumns && <col style={{ width: "100px" }} />}
                     <col />
                     {showThemeColumns && <col style={{ width: "100px" }} />}
@@ -549,12 +586,31 @@ function EditContent() {
                     {selectedBlock.rows.map((row, i) => (
                       <tr key={i}>
                         <td style={tdKomaStyle}>
-                          <input
-                            type="text"
-                            value={row.koma}
-                            onChange={(e) => updateRow(selectedBlock.id, i, "koma", e.target.value)}
-                            style={inputKomaStyle}
-                          />
+                          <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
+                            <input
+                              type="text"
+                              value={row.koma}
+                              onChange={(e) => updateRow(selectedBlock.id, i, "koma", e.target.value)}
+                              style={{ ...inputKomaStyle, flex: 1, minWidth: 0 }}
+                            />
+                            <button
+                              type="button"
+                              onClick={() => removeRow(i)}
+                              title="行を削除"
+                              style={{
+                                padding: "4px 8px",
+                                fontSize: 14,
+                                border: "1px solid #c00",
+                                background: "#fff",
+                                color: "#c00",
+                                cursor: "pointer",
+                                borderRadius: 4,
+                                flexShrink: 0,
+                              }}
+                            >
+                              ×
+                            </button>
+                          </div>
                         </td>
                         {showThemeColumns && (
                           <td style={tdStyle}>

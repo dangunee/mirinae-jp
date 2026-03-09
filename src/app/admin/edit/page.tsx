@@ -42,6 +42,7 @@ function EditContent() {
   const [seeding, setSeeding] = useState(false);
   const [mainTab, setMainTab] = useState<MainTab>("tanki");
   const [showThemes, setShowThemes] = useState(false);
+  const [checkedRows, setCheckedRows] = useState<Set<number>>(new Set());
 
   // 初級→中級→上級の順
   const KOJIN_BLOCK_ORDER = ["curriculum_shokyu", "curriculum_chukyu", "curriculum_jokyu"];
@@ -80,6 +81,19 @@ function EditContent() {
     };
     load();
   }, [page]);
+
+  useEffect(() => {
+    setCheckedRows(new Set());
+  }, [selectedBlock?.id]);
+
+  const toggleCheckRow = (index: number) => {
+    setCheckedRows((prev) => {
+      const next = new Set(prev);
+      if (next.has(index)) next.delete(index);
+      else next.add(index);
+      return next;
+    });
+  };
 
   const updateRow = (blockId: string, rowIndex: number, col: keyof CurriculumRow, value: string) => {
     setBlocks((prev) =>
@@ -125,21 +139,22 @@ function EditContent() {
     setDirty(true);
   };
 
-  const removeRow = (rowIndex: number) => {
+  const removeCheckedRows = () => {
     if (!selectedBlock) return;
-    if (selectedBlock.rows.length <= 1) return;
+    if (checkedRows.size === 0) return;
+    const remaining = selectedBlock.rows.filter((_, i) => !checkedRows.has(i));
+    if (remaining.length === 0) return;
     setBlocks((prev) =>
       prev.map((b) => {
         if (b.id !== selectedBlock.id) return b;
-        const rows = b.rows.filter((_, i) => i !== rowIndex);
-        return { ...b, rows };
+        return { ...b, rows: remaining };
       })
     );
     setSelectedBlock((b) => {
       if (!b || b.id !== selectedBlock.id) return b;
-      const rows = b.rows.filter((_, i) => i !== rowIndex);
-      return { ...b, rows };
+      return { ...b, rows: remaining };
     });
+    setCheckedRows(new Set());
     setDirty(true);
   };
 
@@ -399,7 +414,8 @@ function EditContent() {
                     <div style={{ marginBottom: 16, width: "100%", overflow: "visible" }}>
                       <table style={{ width: "100%", borderCollapse: "collapse", background: "#fff", border: "1px solid #d0d0d0", tableLayout: "fixed" }}>
                         <colgroup>
-                          <col style={{ width: "72px" }} />
+                          <col style={{ width: "36px" }} />
+                          <col style={{ width: "64px" }} />
                           <col style={{ width: "88px" }} />
                           <col style={{ width: "24%" }} />
                           <col style={{ width: "88px" }} />
@@ -409,6 +425,7 @@ function EditContent() {
                         </colgroup>
                         <thead>
                           <tr style={{ background: "#3d6b6b", color: "#fff" }}>
+                            <th style={thStyle}></th>
                             <th style={thStyle}>回</th>
                             <th style={thStyle}>分類</th>
                             <th style={thStyle}>12</th>
@@ -421,32 +438,21 @@ function EditContent() {
                         <tbody>
                           {selectedBlock.rows.map((row, i) => (
                             <tr key={i}>
+                              <td style={tdCheckStyle}>
+                                <input
+                                  type="checkbox"
+                                  checked={checkedRows.has(i)}
+                                  onChange={() => toggleCheckRow(i)}
+                                  style={{ width: 18, height: 18, cursor: "pointer" }}
+                                />
+                              </td>
                               <td style={tdKomaStyle}>
-                                <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
-                                  <input
-                                    type="text"
-                                    value={row.koma}
-                                    onChange={(e) => updateRow(selectedBlock.id, i, "koma", e.target.value)}
-                                    style={{ ...inputKomaStyle, flex: 1, minWidth: 0 }}
-                                  />
-                                  <button
-                                    type="button"
-                                    onClick={() => removeRow(i)}
-                                    title="行を削除"
-                                    style={{
-                                      padding: "4px 8px",
-                                      fontSize: 14,
-                                      border: "1px solid #c00",
-                                      background: "#fff",
-                                      color: "#c00",
-                                      cursor: "pointer",
-                                      borderRadius: 4,
-                                      flexShrink: 0,
-                                    }}
-                                  >
-                                    ×
-                                  </button>
-                                </div>
+                                <input
+                                  type="text"
+                                  value={row.koma}
+                                  onChange={(e) => updateRow(selectedBlock.id, i, "koma", e.target.value)}
+                                  style={inputKomaStyle}
+                                />
                               </td>
                               <td style={tdStyle}>
                                 <select
@@ -498,7 +504,7 @@ function EditContent() {
                         </tbody>
                       </table>
                     </div>
-                    <div style={{ display: "flex", gap: 12, alignItems: "center", marginTop: 12 }}>
+                    <div style={{ display: "flex", gap: 12, alignItems: "center", marginTop: 12, flexWrap: "wrap" }}>
                       <button
                         type="button"
                         onClick={addRow}
@@ -513,6 +519,22 @@ function EditContent() {
                         }}
                       >
                         ＋ 行を追加
+                      </button>
+                      <button
+                        type="button"
+                        onClick={removeCheckedRows}
+                        disabled={checkedRows.size === 0}
+                        style={{
+                          padding: "10px 20px",
+                          background: checkedRows.size > 0 ? "#fff" : "#f5f5f5",
+                          color: checkedRows.size > 0 ? "#c00" : "#999",
+                          border: `1px solid ${checkedRows.size > 0 ? "#c00" : "#ddd"}`,
+                          borderRadius: 8,
+                          cursor: checkedRows.size > 0 ? "pointer" : "not-allowed",
+                          fontWeight: 500,
+                        }}
+                      >
+                        チェックした行を削除 {checkedRows.size > 0 ? `(${checkedRows.size})` : ""}
                       </button>
                       <button
                         onClick={save}
@@ -563,7 +585,8 @@ function EditContent() {
               <div style={{ overflowX: "auto", marginBottom: 16, minWidth: 0 }}>
                 <table style={{ width: "100%", minWidth: showThemeColumns ? 1600 : 960, borderCollapse: "collapse", background: "#fff", border: "1px solid #d0d0d0", tableLayout: "fixed" }}>
                   <colgroup>
-                    <col style={{ width: "72px" }} />
+                    <col style={{ width: "36px" }} />
+                    <col style={{ width: "64px" }} />
                     {showThemeColumns && <col style={{ width: "100px" }} />}
                     <col />
                     {showThemeColumns && <col style={{ width: "100px" }} />}
@@ -573,6 +596,7 @@ function EditContent() {
                   </colgroup>
                   <thead>
                     <tr style={{ background: "#3d6b6b", color: "#fff" }}>
+                      <th style={thStyle}></th>
                       <th style={thStyle}>回</th>
                       {showThemeColumns && <th style={thStyle}>分類</th>}
                       <th style={thStyle}>12</th>
@@ -585,32 +609,21 @@ function EditContent() {
                   <tbody>
                     {selectedBlock.rows.map((row, i) => (
                       <tr key={i}>
+                        <td style={tdCheckStyle}>
+                          <input
+                            type="checkbox"
+                            checked={checkedRows.has(i)}
+                            onChange={() => toggleCheckRow(i)}
+                            style={{ width: 18, height: 18, cursor: "pointer" }}
+                          />
+                        </td>
                         <td style={tdKomaStyle}>
-                          <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
-                            <input
-                              type="text"
-                              value={row.koma}
-                              onChange={(e) => updateRow(selectedBlock.id, i, "koma", e.target.value)}
-                              style={{ ...inputKomaStyle, flex: 1, minWidth: 0 }}
-                            />
-                            <button
-                              type="button"
-                              onClick={() => removeRow(i)}
-                              title="行を削除"
-                              style={{
-                                padding: "4px 8px",
-                                fontSize: 14,
-                                border: "1px solid #c00",
-                                background: "#fff",
-                                color: "#c00",
-                                cursor: "pointer",
-                                borderRadius: 4,
-                                flexShrink: 0,
-                              }}
-                            >
-                              ×
-                            </button>
-                          </div>
+                          <input
+                            type="text"
+                            value={row.koma}
+                            onChange={(e) => updateRow(selectedBlock.id, i, "koma", e.target.value)}
+                            style={inputKomaStyle}
+                          />
                         </td>
                         {showThemeColumns && (
                           <td style={tdStyle}>
@@ -695,7 +708,7 @@ function EditContent() {
                   </tbody>
                 </table>
               </div>
-              <div style={{ display: "flex", gap: 12, alignItems: "center", marginTop: 12 }}>
+              <div style={{ display: "flex", gap: 12, alignItems: "center", marginTop: 12, flexWrap: "wrap" }}>
                 <button
                   type="button"
                   onClick={addRow}
@@ -710,6 +723,22 @@ function EditContent() {
                   }}
                 >
                   ＋ 行を追加
+                </button>
+                <button
+                  type="button"
+                  onClick={removeCheckedRows}
+                  disabled={checkedRows.size === 0}
+                  style={{
+                    padding: "10px 20px",
+                    background: checkedRows.size > 0 ? "#fff" : "#f5f5f5",
+                    color: checkedRows.size > 0 ? "#c00" : "#999",
+                    border: `1px solid ${checkedRows.size > 0 ? "#c00" : "#ddd"}`,
+                    borderRadius: 8,
+                    cursor: checkedRows.size > 0 ? "pointer" : "not-allowed",
+                    fontWeight: 500,
+                  }}
+                >
+                  チェックした行を削除 {checkedRows.size > 0 ? `(${checkedRows.size})` : ""}
                 </button>
                 <button
                   onClick={save}
@@ -736,7 +765,8 @@ function EditContent() {
 
 const thStyle: React.CSSProperties = { padding: "10px 12px", textAlign: "left", border: "1px solid #d0d0d0" };
 const tdStyle: React.CSSProperties = { padding: 8, border: "1px solid #d0d0d0", verticalAlign: "top" };
-const tdKomaStyle: React.CSSProperties = { padding: 6, border: "1px solid #d0d0d0", width: 48, verticalAlign: "top" };
+const tdCheckStyle: React.CSSProperties = { padding: 8, border: "1px solid #d0d0d0", verticalAlign: "top", textAlign: "center" };
+const tdKomaStyle: React.CSSProperties = { padding: 6, border: "1px solid #d0d0d0", verticalAlign: "top" };
 const inputStyle: React.CSSProperties = { width: "100%", minHeight: 36, padding: "8px 10px", border: "1px solid #ddd", borderRadius: 4, boxSizing: "border-box", fontSize: 14 };
 const inputKomaStyle: React.CSSProperties = { width: "100%", minHeight: 36, padding: "8px 6px", border: "1px solid #ddd", borderRadius: 4, boxSizing: "border-box", fontSize: 14 };
 /** カリキュラム内容入力（複数行・大きく表示） */

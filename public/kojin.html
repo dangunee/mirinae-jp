@@ -2737,7 +2737,7 @@
         <section class="fade-in">
           <h2 class="section-title" style="margin-top: 48px;"><span class="dot"></span>生徒の声</h2>
           <div class="reviews-list">
-            <div class="review-card">
+            <div class="review-card" id="review-it">
               <div class="review-meta">
                 <div class="review-avatar">IT</div>
                 <div class="review-info">
@@ -3625,12 +3625,26 @@
       });
 
       var hash = location.hash.slice(1);
-      var currentTab = (['tab01', 'tab02', 'tab03', 'tab04'].indexOf(hash) !== -1) ? hash : 'tab01';
+      var currentTab = (['tab01', 'tab02', 'tab03', 'tab04'].indexOf(hash) !== -1) ? hash : (hash === 'review-it' ? 'tab02' : 'tab01');
       switchTab(currentTab);
+      if (hash === 'review-it') {
+        setTimeout(function() {
+          var el = document.getElementById('review-it');
+          if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+      }
 
       window.addEventListener('hashchange', function() {
         var h = location.hash.slice(1);
-        if (['tab01', 'tab02', 'tab03', 'tab04'].indexOf(h) !== -1) switchTab(h);
+        if (['tab01', 'tab02', 'tab03', 'tab04'].indexOf(h) !== -1) {
+          switchTab(h);
+        } else if (h === 'review-it') {
+          switchTab('tab02');
+          setTimeout(function() {
+            var el = document.getElementById('review-it');
+            if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 100);
+        }
       });
 
       document.querySelectorAll('.courses-nav .nav-group-title').forEach(function(btn) {

@@ -590,6 +590,22 @@
       flex-direction: column;
       gap: 16px;
     }
+    a.voice-card-link {
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    a.voice-card-link:hover {
+      border-color: var(--gold-light);
+      box-shadow: 0 4px 16px rgba(184,146,42,0.12);
+    }
+    .voice-card .voice-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--dark);
+      margin: 0 0 4px 0;
+    }
     .voice-card .voice-text {
       font-size: 14px;
       color: var(--text);
@@ -1628,16 +1644,17 @@
     <button type="button" class="voice-nav next" aria-label="次へ">›</button>
     <div class="voice-slider">
       <div class="voice-track">
-        <div class="voice-card">
-          <p class="voice-text">独学の限界を痛感していたところ、ミリネに出会いました。先生からの丁寧なフィードバックや<span class="highlight">成長を心から応援してくれる姿勢のおかげで壁を乗り越えられました</span>。初級者の私でもここまで変われたのは、<span class="highlight">ミリネのサポートのおかげだと心から感じています</span>。</p>
+        <a href="kojin.html#review-it" class="voice-card voice-card-link">
+          <p class="voice-title">短期集中個人レッスン</p>
+          <p class="voice-text"><strong>韓国留学経験０で半年足らずにペラペラ、しかもTOPIK5級合格まで！</strong><br>できるだけ短期間で話せるようになりたいのが目標だったので、短期コースがある教室を探して多分10個ぐらいですけど、私の希望を教室に送って一番早く対応してくれました。すぐ電話して問い合わせしたら私の希望を100%答えるような印象を受けたので体験に来ました。</p>
           <div class="voice-meta">
             <img src="/img/classroom/itousang.jpg" alt="" class="voice-avatar">
             <div>
-              <div class="voice-name">Aさん</div>
-              <div class="voice-duration">学習歴9ヶ月</div>
+              <div class="voice-name">IT様</div>
+              <div class="voice-duration">学習５ヶ月　TOPIK5級</div>
             </div>
           </div>
-        </div>
+        </a>
         <div class="voice-card">
           <p class="voice-text">これまでの韓国語学習の考え方が大きく変わり、<span class="highlight">なにより勉強が楽しいと感じられるようになりました</span>。個人レッスンで自分のペースで学べるおかげで、自然と少しずつ成長を実感しています。<span class="highlight">楽しく韓国語を続けていきたいという方にとてもオススメです</span>。</p>
           <div class="voice-meta">

@@ -648,18 +648,17 @@
       border-color: var(--gold-light);
       box-shadow: 0 4px 16px rgba(184,146,42,0.12);
     }
+    .voice-card .voice-title-wrap {
+      background: var(--beige);
+      padding: 12px 14px;
+      margin: -24px -24px 16px -24px;
+      border-radius: 16px 16px 0 0;
+    }
     .voice-card .voice-title {
       font-size: 15px;
       font-weight: 700;
       color: var(--dark);
-      margin: 0 0 4px 0;
-    }
-    .voice-card .voice-title.voice-title-badge {
-      background: var(--gold-pale);
-      padding: 6px 12px;
-      border-radius: 6px;
-      margin: 0 0 8px 0;
-      display: inline-block;
+      margin: 0;
     }
     .voice-card .voice-text {
       font-size: 14px;
@@ -702,6 +701,11 @@
     }
     .voice-name { font-size: 15px; font-weight: 700; color: var(--dark); }
     .voice-duration { font-size: 12px; color: var(--gray-desc); margin-top: 2px; }
+    .voice-duration .duration-badge {
+      background: #e5dccf;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
     .voice-nav {
       position: absolute;
       top: 50%;
@@ -1705,13 +1709,15 @@
     <div class="voice-slider">
       <div class="voice-track">
         <a href="kojin.html#review-it" class="voice-card voice-card-link">
-          <p class="voice-title voice-title-badge">短期集中個人レッスン</p>
+          <div class="voice-title-wrap">
+            <p class="voice-title">短期集中個人レッスン</p>
+          </div>
           <p class="voice-text"><strong class="voice-question">この教室で初級1から習い始めてたったの5ヶ月でTOPIK5級に合格しました。今の感想は?</strong><br>泣くほどうれしかったです。本当に泣きましたが。なぜかというと練習の時と違って、聞取り試験の時、響きもひどく、あまりできなかったと思い、3級も受からないかもしれないと。5か月で5級をとるというのは自分にでも夢のような話でうれしくて泣いたと思います。</p>
           <div class="voice-meta">
             <img src="/img/classroom/itousang.jpg" alt="" class="voice-avatar">
             <div>
               <div class="voice-name">IT様</div>
-              <div class="voice-duration">学習歴５ヶ月　TOPIK5級</div>
+              <div class="voice-duration"><span class="duration-badge">学習歴５ヶ月</span>　TOPIK5級</div>
             </div>
           </div>
         </a>

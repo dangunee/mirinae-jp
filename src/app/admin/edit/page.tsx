@@ -101,6 +101,30 @@ function EditContent() {
     setDirty(true);
   };
 
+  const addRow = () => {
+    if (!selectedBlock) return;
+    const newRow: CurriculumRow = {
+      koma: "",
+      c12: "",
+      c24: "",
+      c48: "",
+      theme12: "",
+      theme24: "",
+      theme48: "",
+    };
+    setBlocks((prev) =>
+      prev.map((b) => {
+        if (b.id !== selectedBlock.id) return b;
+        return { ...b, rows: [...b.rows, newRow] };
+      })
+    );
+    setSelectedBlock((b) => {
+      if (!b || b.id !== selectedBlock.id) return b;
+      return { ...b, rows: [...b.rows, newRow] };
+    });
+    setDirty(true);
+  };
+
   const showThemeColumns =
     selectedBlock && CURRICULUM_WITH_THEME_KEYS.includes(selectedBlock.blockKey);
 
@@ -437,20 +461,37 @@ function EditContent() {
                         </tbody>
                       </table>
                     </div>
-                    <button
-                      onClick={save}
-                      disabled={saving || !dirty}
-                      style={{
-                        padding: "10px 24px",
-                        background: dirty ? "#3d6b6b" : "#ccc",
-                        color: "#fff",
-                        border: "none",
-                        borderRadius: 8,
-                        cursor: dirty && !saving ? "pointer" : "not-allowed",
-                      }}
-                    >
-                      {saving ? "保存中…" : "保存"}
-                    </button>
+                    <div style={{ display: "flex", gap: 12, alignItems: "center", marginTop: 12 }}>
+                      <button
+                        type="button"
+                        onClick={addRow}
+                        style={{
+                          padding: "10px 20px",
+                          background: "#fff",
+                          color: "#3d6b6b",
+                          border: "1px solid #3d6b6b",
+                          borderRadius: 8,
+                          cursor: "pointer",
+                          fontWeight: 500,
+                        }}
+                      >
+                        ＋ 行を追加
+                      </button>
+                      <button
+                        onClick={save}
+                        disabled={saving || !dirty}
+                        style={{
+                          padding: "10px 24px",
+                          background: dirty ? "#3d6b6b" : "#ccc",
+                          color: "#fff",
+                          border: "none",
+                          borderRadius: 8,
+                          cursor: dirty && !saving ? "pointer" : "not-allowed",
+                        }}
+                      >
+                        {saving ? "保存中…" : "保存"}
+                      </button>
+                    </div>
                   </>
                 )}
             </div>
@@ -598,20 +639,37 @@ function EditContent() {
                   </tbody>
                 </table>
               </div>
-              <button
-                onClick={save}
-                disabled={saving || !dirty}
-                style={{
-                  padding: "10px 24px",
-                  background: dirty ? "#3d6b6b" : "#ccc",
-                  color: "#fff",
-                  border: "none",
-                  borderRadius: 8,
-                  cursor: dirty && !saving ? "pointer" : "not-allowed",
-                }}
-              >
-                {saving ? "保存中…" : "保存"}
-              </button>
+              <div style={{ display: "flex", gap: 12, alignItems: "center", marginTop: 12 }}>
+                <button
+                  type="button"
+                  onClick={addRow}
+                  style={{
+                    padding: "10px 20px",
+                    background: "#fff",
+                    color: "#3d6b6b",
+                    border: "1px solid #3d6b6b",
+                    borderRadius: 8,
+                    cursor: "pointer",
+                    fontWeight: 500,
+                  }}
+                >
+                  ＋ 行を追加
+                </button>
+                <button
+                  onClick={save}
+                  disabled={saving || !dirty}
+                  style={{
+                    padding: "10px 24px",
+                    background: dirty ? "#3d6b6b" : "#ccc",
+                    color: "#fff",
+                    border: "none",
+                    borderRadius: 8,
+                    cursor: dirty && !saving ? "pointer" : "not-allowed",
+                  }}
+                >
+                  {saving ? "保存中…" : "保存"}
+                </button>
+              </div>
             </>
           )}
         </>

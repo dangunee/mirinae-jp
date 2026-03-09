@@ -1576,12 +1576,13 @@
     #tab02 .cur-table { width: 100%; border-collapse: collapse; font-size: 16px; }
     #tab02 .cur-table thead tr { background: var(--dark); color: #fff; }
     #tab02 .cur-table thead th { padding: 14px 20px; text-align: left; font-weight: 500; letter-spacing: 0.06em; font-size: 14px; }
-    #tab02 .cur-table thead th:first-child { width: 64px; text-align: center; }
+    #tab02 .cur-table thead th:first-child { width: 64px; min-width: 64px; text-align: center; white-space: nowrap; writing-mode: horizontal-tb; }
     #tab02 .cur-table tbody tr { border-bottom: 1px solid var(--border); transition: background .15s; }
     #tab02 .cur-table tbody tr:last-child { border-bottom: none; }
     #tab02 .cur-table tbody tr:hover { background: var(--bg); }
     #tab02 .cur-table tbody tr.milestone { background: var(--gold-pale); }
     #tab02 .cur-table tbody tr.milestone td { font-weight: 500; color: var(--gold); }
+    #tab02 .cur-table tbody tr.milestone td:first-child { visibility: hidden; }
     #tab02 .cur-table tbody td { padding: 12px 20px; color: var(--mid); line-height: 1.6; vertical-align: top; }
     #tab02 .cur-table tbody td:first-child { text-align: center; font-family: 'Cormorant Garamond', serif; font-size: 19px; color: var(--muted); width: 64px; white-space: nowrap; }
     /* 管理画面で入力した改行をフロントで表示 */

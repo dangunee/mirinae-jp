@@ -416,6 +416,9 @@
         visibility: visible;
         pointer-events: auto;
       }
+      .course-link {
+        touch-action: manipulation;
+      }
     }
 
     /* ── SHARED (reference) ── */
@@ -2232,25 +2235,56 @@
   })();
   (function() {
     var items = document.querySelectorAll('.course-item');
-    items.forEach(function(item) {
+    function isMobile() { return window.matchMedia('(max-width: 768px)').matches; }
+    function closeAll() {
+      items.forEach(function(el) {
+        el.classList.remove('dropdown-open');
+        var d = el.querySelector('.course-dropdown');
+        if (d) { d.style.position = ''; d.style.top = ''; d.style.left = ''; d.style.right = ''; }
+      });
+    }
+    function positionDropdown(item, dropdown) {
+      var rect = item.getBoundingClientRect();
+      var dh = dropdown.offsetHeight || 120;
+      var top = rect.top - dh - 4;
+      if (top < 8) top = rect.bottom + 4;
+      dropdown.style.position = 'fixed';
+      dropdown.style.top = top + 'px';
+      dropdown.style.minWidth = '180px';
+      if (item.classList.contains('course-item-last')) {
+        dropdown.style.left = 'auto';
+        dropdown.style.right = Math.max(16, window.innerWidth - rect.right) + 'px';
+      } else {
+        dropdown.style.left = Math.max(16, rect.left) + 'px';
+        dropdown.style.right = 'auto';
+      }
+    }
+    items.forEach(function(item, idx) {
       var link = item.querySelector('.course-link');
       var dropdown = item.querySelector('.course-dropdown');
       if (!link || !dropdown) return;
-      link.addEventListener('click', function(e) {
-        if (!window.matchMedia('(max-width: 768px)').matches) return;
+      if (idx === items.length - 1) item.classList.add('course-item-last');
+      function openDropdown(e) {
+        if (!isMobile()) return;
+        e.preventDefault();
+        e.stopPropagation();
         var isOpen = item.classList.contains('dropdown-open');
-        document.querySelectorAll('.course-item.dropdown-open').forEach(function(el) { el.classList.remove('dropdown-open'); });
+        closeAll();
         if (!isOpen) {
-          e.preventDefault();
           item.classList.add('dropdown-open');
+          requestAnimationFrame(function() {
+            requestAnimationFrame(function() { positionDropdown(item, dropdown); });
+          });
         }
-      });
-    });
-    document.addEventListener('click', function(e) {
-      if (!e.target.closest('.course-item')) {
-        document.querySelectorAll('.course-item.dropdown-open').forEach(function(el) { el.classList.remove('dropdown-open'); });
       }
+      link.addEventListener('touchstart', openDropdown, { passive: false });
+      link.addEventListener('click', openDropdown);
     });
+    function handleOutside(e) {
+      if (!e.target.closest('.course-item')) closeAll();
+    }
+    document.addEventListener('touchstart', handleOutside);
+    document.addEventListener('click', handleOutside);
   })();
   (function() {
     var wrap = document.querySelector('.voice-slider-wrap');

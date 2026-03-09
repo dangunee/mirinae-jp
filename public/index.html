@@ -411,6 +411,11 @@
         left: auto;
         right: 0;
       }
+      .course-item.dropdown-open .course-dropdown {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+      }
     }
 
     /* ── SHARED (reference) ── */
@@ -602,7 +607,12 @@
       margin: 0 auto;
       padding: 0 48px;
     }
-    @media (max-width: 768px) { .voice-slider-wrap { padding: 0 16px; } }
+    @media (max-width: 768px) {
+      .voice-slider-wrap { padding: 0 16px; }
+      .voice-card {
+        flex: 0 0 min(280px, calc(100vw - 80px));
+      }
+    }
     .voice-slider {
       overflow-x: auto;
       overflow-y: hidden;
@@ -663,6 +673,10 @@
       display: flex;
       align-items: center;
       gap: 12px;
+      background: var(--beige);
+      padding: 12px 14px;
+      margin: 0 -24px -24px -24px;
+      border-radius: 0 0 16px 16px;
     }
     .voice-avatar {
       width: 48px;
@@ -1697,7 +1711,7 @@
             <img src="/img/classroom/itousang.jpg" alt="" class="voice-avatar">
             <div>
               <div class="voice-name">IT様</div>
-              <div class="voice-duration">学習５ヶ月　TOPIK5級</div>
+              <div class="voice-duration">学習歴５ヶ月　TOPIK5級</div>
             </div>
           </div>
         </a>
@@ -2208,6 +2222,28 @@
     overlay.addEventListener('click', close);
     drawer.querySelectorAll('a').forEach(function(a) {
       a.addEventListener('click', close);
+    });
+  })();
+  (function() {
+    var items = document.querySelectorAll('.course-item');
+    items.forEach(function(item) {
+      var link = item.querySelector('.course-link');
+      var dropdown = item.querySelector('.course-dropdown');
+      if (!link || !dropdown) return;
+      link.addEventListener('click', function(e) {
+        if (!window.matchMedia('(max-width: 768px)').matches) return;
+        var isOpen = item.classList.contains('dropdown-open');
+        document.querySelectorAll('.course-item.dropdown-open').forEach(function(el) { el.classList.remove('dropdown-open'); });
+        if (!isOpen) {
+          e.preventDefault();
+          item.classList.add('dropdown-open');
+        }
+      });
+    });
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.course-item')) {
+        document.querySelectorAll('.course-item.dropdown-open').forEach(function(el) { el.classList.remove('dropdown-open'); });
+      }
     });
   })();
   (function() {

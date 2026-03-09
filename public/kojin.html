@@ -2332,7 +2332,7 @@
         <section class="fade-in">
           <h2 class="section-title"><span class="dot"></span>生徒の声</h2>
           <div class="reviews-list">
-            <div class="review-card">
+            <div class="review-card" id="review-ns">
               <div class="review-meta">
                 <div class="review-avatar">N</div>
                 <div class="review-info">
@@ -3062,7 +3062,7 @@
         <section class="fade-in">
           <h2 class="section-title" style="margin-top: 48px;"><span class="dot"></span>生徒の声</h2>
           <div class="reviews-list">
-            <div class="review-card">
+            <div class="review-card" id="review-o">
               <div class="review-meta">
                 <div class="review-avatar">O</div>
                 <div class="review-info">
@@ -3625,11 +3625,12 @@
       });
 
       var hash = location.hash.slice(1);
-      var currentTab = (['tab01', 'tab02', 'tab03', 'tab04'].indexOf(hash) !== -1) ? hash : (hash === 'review-it' ? 'tab02' : 'tab01');
+      var reviewToTab = { 'review-it': 'tab02', 'review-ns': 'tab01', 'review-o': 'tab03' };
+      var currentTab = (['tab01', 'tab02', 'tab03', 'tab04'].indexOf(hash) !== -1) ? hash : (reviewToTab[hash] || 'tab01');
       switchTab(currentTab);
-      if (hash === 'review-it') {
+      if (reviewToTab[hash]) {
         setTimeout(function() {
-          var el = document.getElementById('review-it');
+          var el = document.getElementById(hash);
           if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }, 100);
       }
@@ -3638,10 +3639,10 @@
         var h = location.hash.slice(1);
         if (['tab01', 'tab02', 'tab03', 'tab04'].indexOf(h) !== -1) {
           switchTab(h);
-        } else if (h === 'review-it') {
-          switchTab('tab02');
+        } else if (reviewToTab[h]) {
+          switchTab(reviewToTab[h]);
           setTimeout(function() {
-            var el = document.getElementById('review-it');
+            var el = document.getElementById(h);
             if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
           }, 100);
         }

@@ -376,16 +376,56 @@
     }
     .course-dropdown a:hover { background: var(--gold-pale); color: var(--gold); }
 
-    /* モバイル: コースバー横スクロール・プルダウン左寄せ */
+    /* モバイル: コースバー横スクロール・パネル式ドロップダウン */
+    .course-mobile-panel {
+      display: none;
+      background: var(--white);
+      border-top: 1px solid rgba(255,255,255,0.15);
+      padding: 12px 16px 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    }
+    .course-mobile-panel.open {
+      display: block;
+    }
+    .course-mobile-panel a {
+      display: block;
+      padding: 12px 16px;
+      font-size: 14px;
+      color: var(--text);
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background 0.15s;
+    }
+    .course-mobile-panel a:hover,
+    .course-mobile-panel a:active {
+      background: var(--gold-pale);
+      color: var(--gold);
+    }
+    .course-mobile-panel .course-panel-close {
+      display: block;
+      width: 100%;
+      padding: 10px 16px;
+      margin-bottom: 8px;
+      font-size: 13px;
+      color: var(--gray-desc);
+      background: var(--bg2);
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    @media (min-width: 769px) {
+      .course-mobile-panel { display: none !important; }
+    }
     @media (max-width: 768px) {
-      .course-bar {
+      .course-bar-scroll {
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: thin;
       }
-      .course-bar::-webkit-scrollbar { height: 4px; }
-      .course-bar::-webkit-scrollbar-track { background: rgba(255,255,255,0.1); }
-      .course-bar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.3); border-radius: 2px; }
+      .course-bar-scroll::-webkit-scrollbar { height: 4px; }
+      .course-bar-scroll::-webkit-scrollbar-track { background: rgba(255,255,255,0.1); }
+      .course-bar-scroll::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.3); border-radius: 2px; }
       .course-bar-inner {
         flex-wrap: nowrap;
         min-width: max-content;
@@ -395,27 +435,8 @@
         flex: 0 0 auto;
         min-width: 88px;
       }
-      .course-dropdown {
-        left: 0;
-        transform: none;
-        min-width: 180px;
-        top: auto;
-        bottom: 100%;
-        margin-top: 0;
-        margin-bottom: 4px;
-      }
-      .course-dropdown::before {
-        top: 100%;
-        bottom: auto;
-      }
-      .course-item:last-child .course-dropdown {
-        left: auto;
-        right: 0;
-      }
-      .course-item.dropdown-open .course-dropdown {
-        opacity: 1;
-        visibility: visible;
-        pointer-events: auto;
+      .course-item .course-dropdown {
+        display: none;
       }
       .course-link {
         touch-action: manipulation;
@@ -1458,6 +1479,7 @@
 
 <!-- ▸ COURSE NAV BAR -->
 <nav class="course-bar">
+  <div class="course-bar-scroll">
   <div class="course-bar-inner">
     <div class="course-item">
       <a href="kojin.html" class="course-link">
@@ -1546,6 +1568,8 @@
       </div>
     </div>
   </div>
+  </div>
+  <div class="course-mobile-panel" id="courseMobilePanel" aria-hidden="true"></div>
 </nav>
 
 <!-- 只今募集中の講座 -->
@@ -2235,53 +2259,44 @@
     });
   })();
   (function() {
+    var panel = document.getElementById('courseMobilePanel');
     var items = document.querySelectorAll('.course-item');
     function isMobile() { return window.matchMedia('(max-width: 768px)').matches; }
-    function closeAll() {
-      items.forEach(function(el) {
-        el.classList.remove('dropdown-open');
-        var d = el.querySelector('.course-dropdown');
-        if (d) { d.style.position = ''; d.style.top = ''; d.style.left = ''; d.style.right = ''; }
-      });
-    }
-    function positionDropdown(item, dropdown) {
-      var rect = item.getBoundingClientRect();
-      var dh = dropdown.offsetHeight || 120;
-      var top = rect.top - dh - 4;
-      if (top < 8) top = rect.bottom + 4;
-      dropdown.style.position = 'fixed';
-      dropdown.style.top = top + 'px';
-      dropdown.style.minWidth = '180px';
-      dropdown.style.zIndex = '99999';
-      if (item.classList.contains('course-item-last')) {
-        dropdown.style.left = 'auto';
-        dropdown.style.right = Math.max(16, window.innerWidth - rect.right) + 'px';
-      } else {
-        dropdown.style.left = Math.max(16, rect.left) + 'px';
-        dropdown.style.right = 'auto';
+    function closePanel() {
+      if (panel) {
+        panel.classList.remove('open');
+        panel.innerHTML = '';
+        panel.setAttribute('aria-hidden', 'true');
       }
     }
-    items.forEach(function(item, idx) {
+    function openPanel(dropdown) {
+      if (!panel || !dropdown) return;
+      panel.innerHTML = '<button type="button" class="course-panel-close">閉じる</button>' + dropdown.innerHTML;
+      panel.classList.add('open');
+      panel.setAttribute('aria-hidden', 'false');
+      var closeBtn = panel.querySelector('.course-panel-close');
+      if (closeBtn) closeBtn.addEventListener('click', closePanel);
+    }
+    items.forEach(function(item) {
       var link = item.querySelector('.course-link');
       var dropdown = item.querySelector('.course-dropdown');
       if (!link || !dropdown) return;
-      if (idx === items.length - 1) item.classList.add('course-item-last');
       link.addEventListener('click', function(e) {
         if (!isMobile()) return;
         e.preventDefault();
         e.stopPropagation();
-        var isOpen = item.classList.contains('dropdown-open');
-        closeAll();
-        if (!isOpen) {
-          item.classList.add('dropdown-open');
-          requestAnimationFrame(function() {
-            requestAnimationFrame(function() { positionDropdown(item, dropdown); });
-          });
+        if (panel.classList.contains('open')) {
+          closePanel();
+        } else {
+          openPanel(dropdown);
         }
       });
     });
     function handleOutside(e) {
-      if (!e.target.closest('.course-item')) closeAll();
+      if (!panel || !panel.classList.contains('open')) return;
+      if (!e.target.closest('.course-bar')) {
+        closePanel();
+      }
     }
     document.addEventListener('click', handleOutside);
     document.addEventListener('touchend', handleOutside);

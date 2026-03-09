@@ -9,7 +9,7 @@ const PAGE_SLUG = "kojin";
 
 const DEFAULT_THEMES: CurriculumTheme[] = [
   { slug: "phon", name: "発音", color: "#2d7a6e", bgColor: "#e8f5f3" },
-  { slug: "vocab", name: "文法・語彙", color: "#b06a00", bgColor: "#fff3e0" },
+  { slug: "vocab", name: "語彙", color: "#b06a00", bgColor: "#fff3e0" },
   { slug: "bunpou", name: "文法", color: "#b06a00", bgColor: "#fff3e0" },
   { slug: "single", name: "単語", color: "#b06a00", bgColor: "#fff3e0" },
   { slug: "expr", name: "表現", color: "#b06a00", bgColor: "#fff3e0" },

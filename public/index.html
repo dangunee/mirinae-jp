@@ -375,6 +375,44 @@
     }
     .course-dropdown a:hover { background: var(--gold-pale); color: var(--gold); }
 
+    /* モバイル: コースバー横スクロール・プルダウン左寄せ */
+    @media (max-width: 768px) {
+      .course-bar {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+      }
+      .course-bar::-webkit-scrollbar { height: 4px; }
+      .course-bar::-webkit-scrollbar-track { background: rgba(255,255,255,0.1); }
+      .course-bar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.3); border-radius: 2px; }
+      .course-bar-inner {
+        flex-wrap: nowrap;
+        min-width: max-content;
+        padding: 0 8px;
+      }
+      .course-item {
+        flex: 0 0 auto;
+        min-width: 88px;
+      }
+      .course-dropdown {
+        left: 0;
+        transform: none;
+        min-width: 180px;
+        top: auto;
+        bottom: 100%;
+        margin-top: 0;
+        margin-bottom: 4px;
+      }
+      .course-dropdown::before {
+        top: 100%;
+        bottom: auto;
+      }
+      .course-item:last-child .course-dropdown {
+        left: auto;
+        right: 0;
+      }
+    }
+
     /* ── SHARED (reference) ── */
     .section {
       padding: 32px 24px;
@@ -620,6 +658,7 @@
       flex: 1;
     }
     .voice-card .voice-text .highlight { color: var(--gold); font-weight: 600; }
+    .voice-card .voice-text .voice-question { color: #BD9546; }
     .voice-meta {
       display: flex;
       align-items: center;
@@ -1653,7 +1692,7 @@
       <div class="voice-track">
         <a href="kojin.html#review-it" class="voice-card voice-card-link">
           <p class="voice-title voice-title-badge">短期集中個人レッスン</p>
-          <p class="voice-text"><strong>●この教室で初級1から習い始めてたったの5ヶ月でTOPIK5級に合格しました。今の感想は?</strong><br>泣くほどうれしかったです。本当に泣きましたが。なぜかというと練習の時と違って、聞取り試験の時、響きもひどく、あまりできなかったと思い、3級も受からないかもしれないと。5か月で5級をとるというのは自分にでも夢のような話でうれしくて泣いたと思います。</p>
+          <p class="voice-text"><strong class="voice-question">この教室で初級1から習い始めてたったの5ヶ月でTOPIK5級に合格しました。今の感想は?</strong><br>泣くほどうれしかったです。本当に泣きましたが。なぜかというと練習の時と違って、聞取り試験の時、響きもひどく、あまりできなかったと思い、3級も受からないかもしれないと。5か月で5級をとるというのは自分にでも夢のような話でうれしくて泣いたと思います。</p>
           <div class="voice-meta">
             <img src="/img/classroom/itousang.jpg" alt="" class="voice-avatar">
             <div>

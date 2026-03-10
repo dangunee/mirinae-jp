@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>サイトマップ｜ミリネ韓国語教室</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #B8963E;
+      --gold-light: #D4A843;
+      --gold-pale: #FBF4E3;
+      --dark: #1C1C1E;
+      --text: #2C2C2E;
+      --text-muted: #666;
+      --border: #E5E0D8;
+      --bg: #FAFAF7;
+      --white: #FFFFFF;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      color: var(--text);
+      line-height: 1.7;
+      background: var(--bg);
+    }
+    .page-wrapper { max-width: 1100px; margin: 0 auto; min-height: 100vh; padding: 0 24px; }
+    nav {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      margin: 0 -24px 32px -24px;
+      display: flex;
+      align-items: center;
+      height: 56px;
+    }
+    nav a { text-decoration: none; color: var(--text); font-size: 13px; margin-right: 24px; transition: color .2s; }
+    nav a:hover { color: var(--gold); }
+    .nav-logo { font-family: 'Noto Serif JP', serif; font-size: 16px; font-weight: 600; color: var(--dark); margin-right: auto; }
+    .page-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 32px;
+      color: var(--dark);
+    }
+    .sitemap-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px 48px;
+      margin-bottom: 48px;
+    }
+    @media (max-width: 768px) {
+      .sitemap-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .sitemap-grid { grid-template-columns: 1fr; }
+    }
+    .sitemap-column h3 {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--gold);
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--gold-light);
+    }
+    .sitemap-column a {
+      display: block;
+      color: var(--text);
+      text-decoration: none;
+      font-size: 14px;
+      margin-bottom: 10px;
+      transition: color .2s;
+    }
+    .sitemap-column a:hover { color: var(--gold); }
+    .footer-bottom {
+      padding: 24px 0;
+      border-top: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--text-muted);
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrapper">
+  <nav>
+    <a href="index.html" class="nav-logo">ミリネ韓国語教室</a>
+    <a href="index.html">ホーム</a>
+    <a href="about.html">会社概要</a>
+    <a href="trial.html">お申込み</a>
+  </nav>
+
+  <h1 class="page-title">サイトマップ</h1>
+
+  <div class="sitemap-grid">
+    <div class="sitemap-column">
+      <h3>メニュー</h3>
+      <a href="index.html">ホーム</a>
+      <a href="about.html">会社概要</a>
+      <a href="about.html#tab02">アクセス</a>
+    </div>
+    <div class="sitemap-column">
+      <h3>講座</h3>
+      <a href="kojin.html">個人レッスン</a>
+      <a href="group.html">グループレッスン</a>
+      <a href="kaiwa.html">会話強化クラス</a>
+      <a href="special.html">試験対策講座</a>
+      <a href="syutyu.html">集中講座</a>
+      <a href="netlesson.html">通信講座</a>
+    </div>
+    <div class="sitemap-column">
+      <h3>お申込み</h3>
+      <a href="trial.html">体験申込</a>
+      <a href="trial.html#tab02">講座申込</a>
+      <a href="trial.html#tab04">お問い合わせ</a>
+    </div>
+    <div class="sitemap-column">
+      <h3>その他</h3>
+      <a href="about.html#tab03">講師</a>
+      <a href="book.html">著書</a>
+      <a href="voice.html">「ミリネ教科書」の音声</a>
+      <a href="cancel.html">キャンセル規定</a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <a href="index.html" style="color:var(--gold);text-decoration:none;">← トップページへ戻る</a><br><br>
+    Copyright © (株)カオンヌリ · ミリネ韓国語教室 All Rights Reserved.
+  </div>
+</div>
+</body>
+</html>

@@ -6,7 +6,7 @@
   <title>個人レッスン｜ミリネ韓国語教室</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600;700&family=Noto+Sans+JP:wght@300;400;500&family=Noto+Sans+KR:wght@300;400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600;700&family=Noto+Serif+KR:wght@300;400;600&family=Noto+Sans+JP:wght@300;400;500&family=Noto+Sans+KR:wght@300;400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: #faf8f4;
@@ -570,6 +570,230 @@
       .textbook-card .tb-img-row img { flex: 1 1 calc(50% - 6px); }
     }
     .textbook-note { font-size: 12px; color: var(--muted); }
+
+    /* ── ミリネ教科書 3D 책 디자인 ── */
+    .mi-textbook-section {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 36px 40px 40px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+    }
+    .mi-textbook-section .section-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 32px;
+    }
+    .mi-textbook-section .section-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: #2a2018;
+      letter-spacing: 0.04em;
+    }
+    .mi-textbook-section .books-grid {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .mi-textbook-section .book-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+    }
+    .mi-textbook-section .book {
+      width: 160px;
+      height: 226px;
+      border-radius: 3px 10px 10px 3px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: -4px 0 0 0 rgba(0,0,0,0.18), 4px 6px 20px rgba(0,0,0,0.18), inset -3px 0 8px rgba(0,0,0,0.1);
+      transition: transform 0.35s cubic-bezier(.22,.68,0,1.2), box-shadow 0.35s ease;
+      transform-origin: left center;
+    }
+    .mi-textbook-section .book:hover {
+      transform: perspective(600px) rotateY(-8deg) translateX(6px);
+      box-shadow: -4px 0 0 0 rgba(0,0,0,0.2), 12px 12px 32px rgba(0,0,0,0.22), inset -3px 0 8px rgba(0,0,0,0.12);
+    }
+    .mi-textbook-section .book::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 14px;
+      background: inherit;
+      filter: brightness(0.72);
+      border-right: 1px solid rgba(0,0,0,0.08);
+      z-index: 10;
+    }
+    .mi-textbook-section .book-1 { background: linear-gradient(145deg, #e8e16a 0%, #d4cc44 100%); }
+    .mi-textbook-section .book-2 { background: linear-gradient(145deg, #72d98a 0%, #4ec46a 100%); }
+    .mi-textbook-section .book-3 { background: linear-gradient(145deg, #f0a0c0 0%, #e07aa0 100%); }
+    .mi-textbook-section .book-4 { background: linear-gradient(145deg, #6adad8 0%, #40c4c0 100%); }
+    .mi-textbook-section .book-inner {
+      position: absolute;
+      left: 14px; top: 0; right: 0; bottom: 0;
+      display: flex;
+      flex-direction: column;
+      padding: 18px 14px 14px;
+    }
+    .mi-textbook-section .deco-pattern {
+      position: absolute;
+      right: -28px;
+      top: -28px;
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      opacity: 0.18;
+      background: rgba(255,255,255,0.9);
+    }
+    .mi-textbook-section .deco-pattern::after {
+      content: '';
+      position: absolute;
+      right: 14px; top: 14px;
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,0.7);
+    }
+    .mi-textbook-section .deco-lines {
+      position: absolute;
+      bottom: 36px;
+      right: 0;
+      left: 14px;
+      height: 60px;
+      overflow: hidden;
+      opacity: 0.13;
+    }
+    .mi-textbook-section .deco-lines svg { width: 100%; height: 100%; }
+    .mi-textbook-section .brand-line {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 8px;
+      font-weight: 300;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(30,20,0,0.55);
+      margin-bottom: 6px;
+    }
+    .mi-textbook-section .divider-line {
+      width: 28px;
+      height: 1px;
+      background: rgba(30,20,0,0.35);
+      margin-bottom: 12px;
+    }
+    .mi-textbook-section .book-title-jp {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: rgba(20,12,0,0.85);
+      line-height: 1.4;
+      letter-spacing: 0.04em;
+      margin-bottom: 4px;
+    }
+    .mi-textbook-section .book-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 38px;
+      font-weight: 300;
+      color: rgba(20,12,0,0.7);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .mi-textbook-section .book-title-kr {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 9px;
+      font-weight: 300;
+      color: rgba(20,12,0,0.5);
+      letter-spacing: 0.1em;
+      margin-bottom: auto;
+    }
+    .mi-textbook-section .level-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: rgba(20,12,0,0.12);
+      border-radius: 20px;
+      padding: 3px 9px;
+      font-size: 7.5px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      color: rgba(20,12,0,0.65);
+      width: fit-content;
+      margin-bottom: 8px;
+    }
+    .mi-textbook-section .level-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: rgba(20,12,0,0.45);
+    }
+    .mi-textbook-section .book-footer {
+      position: absolute;
+      bottom: 12px;
+      left: 28px;
+      right: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .mi-textbook-section .footer-divider {
+      width: 100%;
+      height: 1px;
+      background: rgba(20,12,0,0.18);
+      margin-bottom: 6px;
+    }
+    .mi-textbook-section .footer-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 7px;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      color: rgba(20,12,0,0.5);
+      font-style: italic;
+    }
+    .mi-textbook-section .footer-ver {
+      font-size: 6.5px;
+      color: rgba(20,12,0,0.38);
+      letter-spacing: 0.08em;
+    }
+    .mi-textbook-section .book-caption { text-align: center; }
+    .mi-textbook-section .caption-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: #4a3a20;
+      letter-spacing: 0.06em;
+    }
+    .mi-textbook-section .caption-level {
+      font-size: 10px;
+      color: #9a8a70;
+      letter-spacing: 0.04em;
+      margin-top: 2px;
+    }
+    .mi-textbook-section .section-desc {
+      margin-top: 28px;
+      font-size: 13.5px;
+      color: #7a6a50;
+      letter-spacing: 0.03em;
+      text-align: center;
+      font-style: italic;
+    }
+    @keyframes miBookFadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .mi-textbook-section .book-wrap {
+      animation: miBookFadeUp 0.6s ease both;
+    }
+    .mi-textbook-section .book-wrap:nth-child(1) { animation-delay: 0.05s; }
+    .mi-textbook-section .book-wrap:nth-child(2) { animation-delay: 0.15s; }
+    .mi-textbook-section .book-wrap:nth-child(3) { animation-delay: 0.25s; }
+    .mi-textbook-section .book-wrap:nth-child(4) { animation-delay: 0.35s; }
+    @media (max-width: 768px) {
+      .mi-textbook-section { padding: 24px 20px 28px; }
+      .mi-textbook-section .book { width: 130px; height: 184px; }
+      .mi-textbook-section .book-number { font-size: 30px; }
+    }
 
     .steps-flow {
       display: grid;
@@ -2224,15 +2448,130 @@
         <section class="fade-in">
           <h2 class="section-title"><span class="dot"></span>テキスト</h2>
           <div class="textbook-grid">
-            <div class="textbook-card">
-              <div class="tb-name">📕 ミリネ韓国語テキスト</div>
-              <div class="tb-img-row">
-                <img src="img/mi-textbook/mi-text1.png" alt="ミリネ韓国語 1">
-                <img src="img/mi-textbook/mi-text2.png" alt="ミリネ韓国語 2">
-                <img src="img/mi-textbook/mi-text3.png" alt="ミリネ韓国語 3">
-                <img src="img/mi-textbook/mi-text4.png" alt="ミリネ韓国語 4">
+            <div class="mi-textbook-section">
+              <div class="section-header">
+                <span style="font-size:22px;">📕</span>
+                <span class="section-title">ミリネ韓国語テキスト</span>
               </div>
-              <div class="tb-desc">ミリネのオリジナルストーリーも入っているので、楽しく韓国語を学べます</div>
+              <div class="books-grid">
+                <div class="book-wrap">
+                  <div class="book book-1">
+                    <div class="deco-pattern"></div>
+                    <div class="deco-lines">
+                      <svg viewBox="0 0 146 60" preserveAspectRatio="none">
+                        <line x1="0" y1="60" x2="146" y2="0" stroke="#000" stroke-width="1.5"/>
+                        <line x1="0" y1="75" x2="146" y2="15" stroke="#000" stroke-width="1"/>
+                        <line x1="0" y1="45" x2="146" y2="-15" stroke="#000" stroke-width="0.8"/>
+                      </svg>
+                    </div>
+                    <div class="book-inner">
+                      <div class="brand-line">Mirinae Korean</div>
+                      <div class="divider-line"></div>
+                      <div class="book-title-jp">ミリネ韓国語</div>
+                      <div class="book-number">01</div>
+                      <div class="book-title-kr">미리내 한국어</div>
+                      <div class="level-badge"><span class="level-dot"></span>初級</div>
+                      <div class="book-footer">
+                        <div class="footer-divider"></div>
+                        <div class="footer-brand">「話せる」ミリネ韓国語教室</div>
+                        <div class="footer-ver">ver 5.5</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="book-caption">
+                    <div class="caption-num">Vol. 1</div>
+                    <div class="caption-level">初級</div>
+                  </div>
+                </div>
+                <div class="book-wrap">
+                  <div class="book book-2">
+                    <div class="deco-pattern"></div>
+                    <div class="deco-lines">
+                      <svg viewBox="0 0 146 60" preserveAspectRatio="none">
+                        <line x1="0" y1="60" x2="146" y2="0" stroke="#000" stroke-width="1.5"/>
+                        <line x1="0" y1="75" x2="146" y2="15" stroke="#000" stroke-width="1"/>
+                        <line x1="0" y1="45" x2="146" y2="-15" stroke="#000" stroke-width="0.8"/>
+                      </svg>
+                    </div>
+                    <div class="book-inner">
+                      <div class="brand-line">Mirinae Korean</div>
+                      <div class="divider-line"></div>
+                      <div class="book-title-jp">ミリネ韓国語</div>
+                      <div class="book-number">02</div>
+                      <div class="book-title-kr">미리내 한국어</div>
+                      <div class="level-badge"><span class="level-dot"></span>初中級</div>
+                      <div class="book-footer">
+                        <div class="footer-divider"></div>
+                        <div class="footer-brand">「話せる」ミリネ韓国語教室</div>
+                        <div class="footer-ver">ver 5.0</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="book-caption">
+                    <div class="caption-num">Vol. 2</div>
+                    <div class="caption-level">初中級</div>
+                  </div>
+                </div>
+                <div class="book-wrap">
+                  <div class="book book-3">
+                    <div class="deco-pattern"></div>
+                    <div class="deco-lines">
+                      <svg viewBox="0 0 146 60" preserveAspectRatio="none">
+                        <line x1="0" y1="60" x2="146" y2="0" stroke="#000" stroke-width="1.5"/>
+                        <line x1="0" y1="75" x2="146" y2="15" stroke="#000" stroke-width="1"/>
+                        <line x1="0" y1="45" x2="146" y2="-15" stroke="#000" stroke-width="0.8"/>
+                      </svg>
+                    </div>
+                    <div class="book-inner">
+                      <div class="brand-line">Mirinae Korean</div>
+                      <div class="divider-line"></div>
+                      <div class="book-title-jp">ミリネ韓国語</div>
+                      <div class="book-number">03</div>
+                      <div class="book-title-kr">미리내 한국어</div>
+                      <div class="level-badge"><span class="level-dot"></span>中級</div>
+                      <div class="book-footer">
+                        <div class="footer-divider"></div>
+                        <div class="footer-brand">「話せる」ミリネ韓国語教室</div>
+                        <div class="footer-ver">ver 4.5</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="book-caption">
+                    <div class="caption-num">Vol. 3</div>
+                    <div class="caption-level">中級</div>
+                  </div>
+                </div>
+                <div class="book-wrap">
+                  <div class="book book-4">
+                    <div class="deco-pattern"></div>
+                    <div class="deco-lines">
+                      <svg viewBox="0 0 146 60" preserveAspectRatio="none">
+                        <line x1="0" y1="60" x2="146" y2="0" stroke="#000" stroke-width="1.5"/>
+                        <line x1="0" y1="75" x2="146" y2="15" stroke="#000" stroke-width="1"/>
+                        <line x1="0" y1="45" x2="146" y2="-15" stroke="#000" stroke-width="0.8"/>
+                      </svg>
+                    </div>
+                    <div class="book-inner">
+                      <div class="brand-line">Mirinae Korean</div>
+                      <div class="divider-line"></div>
+                      <div class="book-title-jp">ミリネ韓国語</div>
+                      <div class="book-number">04</div>
+                      <div class="book-title-kr">미리내 한국어</div>
+                      <div class="level-badge"><span class="level-dot"></span>上級</div>
+                      <div class="book-footer">
+                        <div class="footer-divider"></div>
+                        <div class="footer-brand">「話せる」ミリネ韓国語教室</div>
+                        <div class="footer-ver">ver 2.2</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="book-caption">
+                    <div class="caption-num">Vol. 4</div>
+                    <div class="caption-level">上級</div>
+                  </div>
+                </div>
+              </div>
+              <div class="section-desc">ミリネのオリジナルストーリーも入っているので、楽しく韓国語を学べます</div>
             </div>
             <div class="textbook-card">
               <div class="tb-name">📗 ソウル大韓国語</div>
@@ -2656,15 +2995,130 @@
 
         <section>
           <h2 class="section-title"><span class="dot"></span>テキスト</h2>
-          <div class="textbook-card">
-            <div class="tb-name">📕 ミリネ韓国語テキスト</div>
-            <div class="tb-img-row">
-              <img src="img/mi-textbook/mi-text1.png" alt="ミリネ韓国語 1">
-              <img src="img/mi-textbook/mi-text2.png" alt="ミリネ韓国語 2">
-              <img src="img/mi-textbook/mi-text3.png" alt="ミリネ韓国語 3">
-              <img src="img/mi-textbook/mi-text4.png" alt="ミリネ韓国語 4">
+          <div class="mi-textbook-section">
+            <div class="section-header">
+              <span style="font-size:22px;">📕</span>
+              <span class="section-title">ミリネ韓国語テキスト</span>
             </div>
-            <div class="tb-desc">ミリネのオリジナルストーリーも入っているので、楽しく韓国語を学べます</div>
+            <div class="books-grid">
+              <div class="book-wrap">
+                <div class="book book-1">
+                  <div class="deco-pattern"></div>
+                  <div class="deco-lines">
+                    <svg viewBox="0 0 146 60" preserveAspectRatio="none">
+                      <line x1="0" y1="60" x2="146" y2="0" stroke="#000" stroke-width="1.5"/>
+                      <line x1="0" y1="75" x2="146" y2="15" stroke="#000" stroke-width="1"/>
+                      <line x1="0" y1="45" x2="146" y2="-15" stroke="#000" stroke-width="0.8"/>
+                    </svg>
+                  </div>
+                  <div class="book-inner">
+                    <div class="brand-line">Mirinae Korean</div>
+                    <div class="divider-line"></div>
+                    <div class="book-title-jp">ミリネ韓国語</div>
+                    <div class="book-number">01</div>
+                    <div class="book-title-kr">미리내 한국어</div>
+                    <div class="level-badge"><span class="level-dot"></span>初級</div>
+                    <div class="book-footer">
+                      <div class="footer-divider"></div>
+                      <div class="footer-brand">「話せる」ミリネ韓国語教室</div>
+                      <div class="footer-ver">ver 5.5</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="book-caption">
+                  <div class="caption-num">Vol. 1</div>
+                  <div class="caption-level">初級</div>
+                </div>
+              </div>
+              <div class="book-wrap">
+                <div class="book book-2">
+                  <div class="deco-pattern"></div>
+                  <div class="deco-lines">
+                    <svg viewBox="0 0 146 60" preserveAspectRatio="none">
+                      <line x1="0" y1="60" x2="146" y2="0" stroke="#000" stroke-width="1.5"/>
+                      <line x1="0" y1="75" x2="146" y2="15" stroke="#000" stroke-width="1"/>
+                      <line x1="0" y1="45" x2="146" y2="-15" stroke="#000" stroke-width="0.8"/>
+                    </svg>
+                  </div>
+                  <div class="book-inner">
+                    <div class="brand-line">Mirinae Korean</div>
+                    <div class="divider-line"></div>
+                    <div class="book-title-jp">ミリネ韓国語</div>
+                    <div class="book-number">02</div>
+                    <div class="book-title-kr">미리내 한국어</div>
+                    <div class="level-badge"><span class="level-dot"></span>初中級</div>
+                    <div class="book-footer">
+                      <div class="footer-divider"></div>
+                      <div class="footer-brand">「話せる」ミリネ韓国語教室</div>
+                      <div class="footer-ver">ver 5.0</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="book-caption">
+                  <div class="caption-num">Vol. 2</div>
+                  <div class="caption-level">初中級</div>
+                </div>
+              </div>
+              <div class="book-wrap">
+                <div class="book book-3">
+                  <div class="deco-pattern"></div>
+                  <div class="deco-lines">
+                    <svg viewBox="0 0 146 60" preserveAspectRatio="none">
+                      <line x1="0" y1="60" x2="146" y2="0" stroke="#000" stroke-width="1.5"/>
+                      <line x1="0" y1="75" x2="146" y2="15" stroke="#000" stroke-width="1"/>
+                      <line x1="0" y1="45" x2="146" y2="-15" stroke="#000" stroke-width="0.8"/>
+                    </svg>
+                  </div>
+                  <div class="book-inner">
+                    <div class="brand-line">Mirinae Korean</div>
+                    <div class="divider-line"></div>
+                    <div class="book-title-jp">ミリネ韓国語</div>
+                    <div class="book-number">03</div>
+                    <div class="book-title-kr">미리내 한국어</div>
+                    <div class="level-badge"><span class="level-dot"></span>中級</div>
+                    <div class="book-footer">
+                      <div class="footer-divider"></div>
+                      <div class="footer-brand">「話せる」ミリネ韓国語教室</div>
+                      <div class="footer-ver">ver 4.5</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="book-caption">
+                  <div class="caption-num">Vol. 3</div>
+                  <div class="caption-level">中級</div>
+                </div>
+              </div>
+              <div class="book-wrap">
+                <div class="book book-4">
+                  <div class="deco-pattern"></div>
+                  <div class="deco-lines">
+                    <svg viewBox="0 0 146 60" preserveAspectRatio="none">
+                      <line x1="0" y1="60" x2="146" y2="0" stroke="#000" stroke-width="1.5"/>
+                      <line x1="0" y1="75" x2="146" y2="15" stroke="#000" stroke-width="1"/>
+                      <line x1="0" y1="45" x2="146" y2="-15" stroke="#000" stroke-width="0.8"/>
+                    </svg>
+                  </div>
+                  <div class="book-inner">
+                    <div class="brand-line">Mirinae Korean</div>
+                    <div class="divider-line"></div>
+                    <div class="book-title-jp">ミリネ韓国語</div>
+                    <div class="book-number">04</div>
+                    <div class="book-title-kr">미리내 한국어</div>
+                    <div class="level-badge"><span class="level-dot"></span>上級</div>
+                    <div class="book-footer">
+                      <div class="footer-divider"></div>
+                      <div class="footer-brand">「話せる」ミリネ韓国語教室</div>
+                      <div class="footer-ver">ver 2.2</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="book-caption">
+                  <div class="caption-num">Vol. 4</div>
+                  <div class="caption-level">上級</div>
+                </div>
+              </div>
+            </div>
+            <div class="section-desc">ミリネのオリジナルストーリーも入っているので、楽しく韓国語を学べます</div>
           </div>
         </section>
 

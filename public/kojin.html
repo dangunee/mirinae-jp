@@ -795,6 +795,87 @@
       .mi-textbook-section .book-number { font-size: 30px; }
     }
 
+    /* ── ソウル大韓国語 교재 디자인 ── */
+    .seoul-textbook-section {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 36px 40px 40px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+    }
+    .seoul-textbook-section .section-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 36px;
+    }
+    .seoul-textbook-section .section-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: #2a2018;
+      letter-spacing: 0.04em;
+    }
+    .seoul-textbook-section .books-grid {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .seoul-textbook-section .book-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      animation: seoulBookFadeUp 0.6s ease both;
+    }
+    .seoul-textbook-section .book-wrap:nth-child(1) { animation-delay: 0.05s; }
+    .seoul-textbook-section .book-wrap:nth-child(2) { animation-delay: 0.15s; }
+    .seoul-textbook-section .book-wrap:nth-child(3) { animation-delay: 0.25s; }
+    .seoul-textbook-section .book-wrap:nth-child(4) { animation-delay: 0.35s; }
+    .seoul-textbook-section .book-wrap img {
+      width: 148px;
+      height: auto;
+      border-radius: 3px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+      display: block;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+    .seoul-textbook-section .book-wrap:hover img {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.2);
+    }
+    .seoul-textbook-section .book-caption { text-align: center; }
+    .seoul-textbook-section .caption-vol {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: #3a2e1a;
+      letter-spacing: 0.1em;
+    }
+    .seoul-textbook-section .caption-level {
+      font-size: 10px;
+      color: #9a8060;
+      margin-top: 3px;
+      letter-spacing: 0.05em;
+    }
+    .seoul-textbook-section .section-desc {
+      margin-top: 28px;
+      font-size: 13.5px;
+      color: #7a6a50;
+      text-align: center;
+      font-style: italic;
+      letter-spacing: 0.03em;
+    }
+    @keyframes seoulBookFadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @media (max-width: 768px) {
+      .seoul-textbook-section { padding: 24px 20px 28px; }
+      .seoul-textbook-section .book-wrap img { width: 120px; }
+    }
+
     .steps-flow {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -2573,15 +2654,42 @@
               </div>
               <div class="section-desc">ミリネのオリジナルストーリーも入っているので、楽しく韓国語を学べます</div>
             </div>
-            <div class="textbook-card">
-              <div class="tb-name">📗 ソウル大韓国語</div>
-              <div class="tb-img-row">
-                <img src="img/textbook/seoul1a.JPG" alt="ソウル大韓国語 1A">
-                <img src="img/textbook/seoul2a.JPG" alt="ソウル大韓国語 2A">
-                <img src="img/textbook/seoul3a.JPG" alt="ソウル大韓国語 3A">
-                <img src="img/textbook/seoul4a.JPG" alt="ソウル大韓国語 4A">
+            <div class="seoul-textbook-section">
+              <div class="section-header">
+                <span style="font-size:22px;">📗</span>
+                <span class="section-title">ソウル大韓国語</span>
               </div>
-              <div class="tb-desc">ソウル大学の教科書で体系的に韓国語を学べます（1A-6B）</div>
+              <div class="books-grid">
+                <div class="book-wrap">
+                  <img src="img/textbook/seoul1a.JPG" alt="ソウル大韓国語 1A">
+                  <div class="book-caption">
+                    <div class="caption-vol">Vol. 1A</div>
+                    <div class="caption-level">初級 I</div>
+                  </div>
+                </div>
+                <div class="book-wrap">
+                  <img src="img/textbook/seoul2a.JPG" alt="ソウル大韓国語 2A">
+                  <div class="book-caption">
+                    <div class="caption-vol">Vol. 2A</div>
+                    <div class="caption-level">初中級 I</div>
+                  </div>
+                </div>
+                <div class="book-wrap">
+                  <img src="img/textbook/seoul3a.JPG" alt="ソウル大韓国語 3A">
+                  <div class="book-caption">
+                    <div class="caption-vol">Vol. 3A</div>
+                    <div class="caption-level">中級 I</div>
+                  </div>
+                </div>
+                <div class="book-wrap">
+                  <img src="img/textbook/seoul4a.JPG" alt="ソウル大韓国語 4A">
+                  <div class="book-caption">
+                    <div class="caption-vol">Vol. 4A</div>
+                    <div class="caption-level">上級 I</div>
+                  </div>
+                </div>
+              </div>
+              <div class="section-desc">ソウル大学の教科書で体系的に韓国語を学べます（1A–6B）</div>
             </div>
           </div>
           <p class="textbook-note">その他、学習ニーズに合わせて教材を選定いたします。</p>
@@ -3119,6 +3227,43 @@
               </div>
             </div>
             <div class="section-desc">ミリネのオリジナルストーリーも入っているので、楽しく韓国語を学べます</div>
+          </div>
+          <div class="seoul-textbook-section">
+            <div class="section-header">
+              <span style="font-size:22px;">📗</span>
+              <span class="section-title">ソウル大韓国語</span>
+            </div>
+            <div class="books-grid">
+              <div class="book-wrap">
+                <img src="img/textbook/seoul1a.JPG" alt="ソウル大韓国語 1A">
+                <div class="book-caption">
+                  <div class="caption-vol">Vol. 1A</div>
+                  <div class="caption-level">初級 I</div>
+                </div>
+              </div>
+              <div class="book-wrap">
+                <img src="img/textbook/seoul2a.JPG" alt="ソウル大韓国語 2A">
+                <div class="book-caption">
+                  <div class="caption-vol">Vol. 2A</div>
+                  <div class="caption-level">初中級 I</div>
+                </div>
+              </div>
+              <div class="book-wrap">
+                <img src="img/textbook/seoul3a.JPG" alt="ソウル大韓国語 3A">
+                <div class="book-caption">
+                  <div class="caption-vol">Vol. 3A</div>
+                  <div class="caption-level">中級 I</div>
+                </div>
+              </div>
+              <div class="book-wrap">
+                <img src="img/textbook/seoul4a.JPG" alt="ソウル大韓国語 4A">
+                <div class="book-caption">
+                  <div class="caption-vol">Vol. 4A</div>
+                  <div class="caption-level">上級 I</div>
+                </div>
+              </div>
+            </div>
+            <div class="section-desc">ソウル大学の教科書で体系的に韓国語を学べます（1A–6B）</div>
           </div>
         </section>
 

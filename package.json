@@ -9,7 +9,8 @@
     "postinstall": "prisma generate",
     "db:push": "prisma db push",
     "db:studio": "prisma studio",
-    "seed:group-chubu": "node scripts/seed-group-chubu.cjs"
+    "seed:group-chubu": "node scripts/seed-group-chubu.cjs",
+    "seed:group-jokyu": "node scripts/seed-group-jokyu.cjs"
   },
   "dependencies": {
     "@prisma/client": "^5.22.0",

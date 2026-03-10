@@ -248,27 +248,51 @@ function EditContent() {
             </button>
           )}
           {page === "group" && (
-            <button
-              onClick={async () => {
-                setSeeding(true);
-                try {
-                  const r = await fetch("/api/seed/group-chubu", { method: "POST" });
-                  const j = await r.json();
-                  if (r.ok) {
-                    const res = await fetch(`/api/curriculum?page=group`);
-                    const data = await res.json();
-                    setBlocks(Array.isArray(data) ? data : []);
-                    if (data[0]) setSelectedBlock(data[0]);
-                  } else alert(j.error || "失敗");
-                } finally {
-                  setSeeding(false);
-                }
-              }}
-              disabled={seeding}
-              style={{ marginTop: 12, padding: "10px 20px", cursor: "pointer", borderRadius: 8, border: "1px solid #3d6b6b", background: "#fff", color: "#3d6b6b" }}
-            >
-              {seeding ? "登録中…" : "中級文法カリキュラム（日程付き）を登録"}
-            </button>
+            <div style={{ display: "flex", gap: 8, marginTop: 12, flexWrap: "wrap" }}>
+              <button
+                onClick={async () => {
+                  setSeeding(true);
+                  try {
+                    const r = await fetch("/api/seed/group-chubu", { method: "POST" });
+                    const j = await r.json();
+                    if (r.ok) {
+                      const res = await fetch(`/api/curriculum?page=group`);
+                      const data = await res.json();
+                      setBlocks(Array.isArray(data) ? data : []);
+                      if (data[0]) setSelectedBlock(data[0]);
+                    } else alert(j.error || "失敗");
+                  } finally {
+                    setSeeding(false);
+                  }
+                }}
+                disabled={seeding}
+                style={{ padding: "10px 20px", cursor: "pointer", borderRadius: 8, border: "1px solid #3d6b6b", background: "#fff", color: "#3d6b6b" }}
+              >
+                {seeding ? "登録中…" : "中級文法カリキュラム（日程付き）を登録"}
+              </button>
+              <button
+                onClick={async () => {
+                  setSeeding(true);
+                  try {
+                    const r = await fetch("/api/seed/group-jokyu", { method: "POST" });
+                    const j = await r.json();
+                    if (r.ok) {
+                      const res = await fetch(`/api/curriculum?page=group`);
+                      const data = await res.json();
+                      setBlocks(Array.isArray(data) ? data : []);
+                      const jokyu = (data || []).find((b: { blockKey: string }) => b.blockKey === "curriculum_jokyu");
+                      if (jokyu) setSelectedBlock(jokyu);
+                    } else alert(j.error || "失敗");
+                  } finally {
+                    setSeeding(false);
+                  }
+                }}
+                disabled={seeding}
+                style={{ padding: "10px 20px", cursor: "pointer", borderRadius: 8, border: "1px solid #3d6b6b", background: "#fff", color: "#3d6b6b" }}
+              >
+                {seeding ? "登録中…" : "上級文法カリキュラム（日程付き）を登録"}
+              </button>
+            </div>
           )}
         </div>
       ) : page === "kojin" ? (

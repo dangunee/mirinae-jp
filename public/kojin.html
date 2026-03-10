@@ -585,6 +585,10 @@
       align-items: center;
       gap: 10px;
       margin-bottom: 32px;
+      background: transparent !important;
+      color: #2a2018;
+      padding: 0;
+      border-radius: 0;
     }
     .mi-textbook-section .section-title {
       font-size: 20px;
@@ -596,7 +600,7 @@
       display: flex;
       gap: 20px;
       justify-content: center;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
     }
     .mi-textbook-section .book-wrap {
       display: flex;
@@ -606,8 +610,8 @@
       cursor: pointer;
     }
     .mi-textbook-section .book {
-      width: 160px;
-      height: 226px;
+      width: 128px;
+      height: 181px;
       border-radius: 3px 10px 10px 3px;
       position: relative;
       overflow: hidden;
@@ -623,7 +627,7 @@
       content: '';
       position: absolute;
       left: 0; top: 0; bottom: 0;
-      width: 14px;
+      width: 11px;
       background: inherit;
       filter: brightness(0.72);
       border-right: 1px solid rgba(0,0,0,0.08);
@@ -635,10 +639,10 @@
     .mi-textbook-section .book-4 { background: linear-gradient(145deg, #6adad8 0%, #40c4c0 100%); }
     .mi-textbook-section .book-inner {
       position: absolute;
-      left: 14px; top: 0; right: 0; bottom: 0;
+      left: 11px; top: 0; right: 0; bottom: 0;
       display: flex;
       flex-direction: column;
-      padding: 18px 14px 14px;
+      padding: 14px 11px 11px;
     }
     .mi-textbook-section .deco-pattern {
       position: absolute;
@@ -660,9 +664,9 @@
     }
     .mi-textbook-section .deco-lines {
       position: absolute;
-      bottom: 36px;
+      bottom: 29px;
       right: 0;
-      left: 14px;
+      left: 11px;
       height: 60px;
       overflow: hidden;
       opacity: 0.13;
@@ -685,7 +689,7 @@
     }
     .mi-textbook-section .book-title-jp {
       font-family: 'Noto Serif JP', serif;
-      font-size: 15px;
+      font-size: 12px;
       font-weight: 600;
       color: rgba(20,12,0,0.85);
       line-height: 1.4;
@@ -694,7 +698,7 @@
     }
     .mi-textbook-section .book-number {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 38px;
+      font-size: 30px;
       font-weight: 300;
       color: rgba(20,12,0,0.7);
       line-height: 1;
@@ -730,8 +734,8 @@
     }
     .mi-textbook-section .book-footer {
       position: absolute;
-      bottom: 12px;
-      left: 28px;
+      bottom: 10px;
+      left: 22px;
       right: 12px;
       display: flex;
       flex-direction: column;
@@ -759,7 +763,7 @@
     .mi-textbook-section .book-caption { text-align: center; }
     .mi-textbook-section .caption-num {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 13px;
+      font-size: 11px;
       font-weight: 600;
       color: #4a3a20;
       letter-spacing: 0.06em;
@@ -791,7 +795,8 @@
     .mi-textbook-section .book-wrap:nth-child(4) { animation-delay: 0.35s; }
     @media (max-width: 768px) {
       .mi-textbook-section { padding: 24px 20px 28px; }
-      .mi-textbook-section .book { width: 130px; height: 184px; }
+      .mi-textbook-section .books-grid { overflow-x: auto; padding-bottom: 8px; }
+      .mi-textbook-section .book { width: 104px; height: 147px; flex-shrink: 0; }
       .mi-textbook-section .book-number { font-size: 30px; }
     }
 
@@ -809,6 +814,10 @@
       align-items: center;
       gap: 10px;
       margin-bottom: 36px;
+      background: transparent !important;
+      color: #2a2018;
+      padding: 0;
+      border-radius: 0;
     }
     .seoul-textbook-section .section-title {
       font-size: 20px;
@@ -820,7 +829,7 @@
       display: flex;
       gap: 24px;
       justify-content: center;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
     }
     .seoul-textbook-section .book-wrap {
       display: flex;
@@ -834,7 +843,7 @@
     .seoul-textbook-section .book-wrap:nth-child(3) { animation-delay: 0.25s; }
     .seoul-textbook-section .book-wrap:nth-child(4) { animation-delay: 0.35s; }
     .seoul-textbook-section .book-wrap img {
-      width: 148px;
+      width: 118px;
       height: auto;
       border-radius: 3px;
       box-shadow: 0 4px 16px rgba(0,0,0,0.15);
@@ -873,7 +882,9 @@
     }
     @media (max-width: 768px) {
       .seoul-textbook-section { padding: 24px 20px 28px; }
-      .seoul-textbook-section .book-wrap img { width: 120px; }
+      .seoul-textbook-section .books-grid { overflow-x: auto; padding-bottom: 8px; }
+      .seoul-textbook-section .book-wrap { flex-shrink: 0; }
+      .seoul-textbook-section .book-wrap img { width: 96px; }
     }
 
     .steps-flow {

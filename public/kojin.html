@@ -579,6 +579,8 @@
       padding: 36px 40px 40px;
       margin-bottom: 24px;
       box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+      max-width: 100%;
+      overflow: hidden;
     }
     .mi-textbook-section .section-header {
       display: flex;
@@ -598,9 +600,11 @@
     }
     .mi-textbook-section .books-grid {
       display: flex;
-      gap: 20px;
+      gap: 16px;
       justify-content: center;
       flex-wrap: nowrap;
+      max-width: 100%;
+      overflow: hidden;
     }
     .mi-textbook-section .book-wrap {
       display: flex;
@@ -608,10 +612,14 @@
       align-items: center;
       gap: 12px;
       cursor: pointer;
+      flex: 1 1 0;
+      min-width: 0;
     }
     .mi-textbook-section .book {
-      width: 128px;
-      height: 181px;
+      width: 100%;
+      max-width: 110px;
+      height: auto;
+      aspect-ratio: 128 / 181;
       border-radius: 3px 10px 10px 3px;
       position: relative;
       overflow: hidden;
@@ -795,9 +803,10 @@
     .mi-textbook-section .book-wrap:nth-child(4) { animation-delay: 0.35s; }
     @media (max-width: 768px) {
       .mi-textbook-section { padding: 24px 20px 28px; }
-      .mi-textbook-section .books-grid { overflow-x: auto; padding-bottom: 8px; }
-      .mi-textbook-section .book { width: 104px; height: 147px; flex-shrink: 0; }
-      .mi-textbook-section .book-number { font-size: 30px; }
+      .mi-textbook-section .books-grid { overflow-x: auto; padding-bottom: 8px; -webkit-overflow-scrolling: touch; }
+      .mi-textbook-section .book-wrap { flex: 0 0 auto; min-width: 85px; }
+      .mi-textbook-section .book { max-width: 85px; }
+      .mi-textbook-section .book-number { font-size: 26px; }
     }
 
     /* ── ソウル大韓国語 교재 디자인 ── */
@@ -808,6 +817,8 @@
       padding: 36px 40px 40px;
       margin-bottom: 24px;
       box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+      max-width: 100%;
+      overflow: hidden;
     }
     .seoul-textbook-section .section-header {
       display: flex;
@@ -827,9 +838,11 @@
     }
     .seoul-textbook-section .books-grid {
       display: flex;
-      gap: 24px;
+      gap: 16px;
       justify-content: center;
       flex-wrap: nowrap;
+      max-width: 100%;
+      overflow: hidden;
     }
     .seoul-textbook-section .book-wrap {
       display: flex;
@@ -837,13 +850,16 @@
       align-items: center;
       gap: 12px;
       animation: seoulBookFadeUp 0.6s ease both;
+      flex: 1 1 0;
+      min-width: 0;
     }
     .seoul-textbook-section .book-wrap:nth-child(1) { animation-delay: 0.05s; }
     .seoul-textbook-section .book-wrap:nth-child(2) { animation-delay: 0.15s; }
     .seoul-textbook-section .book-wrap:nth-child(3) { animation-delay: 0.25s; }
     .seoul-textbook-section .book-wrap:nth-child(4) { animation-delay: 0.35s; }
     .seoul-textbook-section .book-wrap img {
-      width: 118px;
+      width: 100%;
+      max-width: 100px;
       height: auto;
       border-radius: 3px;
       box-shadow: 0 4px 16px rgba(0,0,0,0.15);
@@ -882,9 +898,9 @@
     }
     @media (max-width: 768px) {
       .seoul-textbook-section { padding: 24px 20px 28px; }
-      .seoul-textbook-section .books-grid { overflow-x: auto; padding-bottom: 8px; }
-      .seoul-textbook-section .book-wrap { flex-shrink: 0; }
-      .seoul-textbook-section .book-wrap img { width: 96px; }
+      .seoul-textbook-section .books-grid { overflow-x: auto; padding-bottom: 8px; -webkit-overflow-scrolling: touch; }
+      .seoul-textbook-section .book-wrap { flex: 0 0 auto; min-width: 80px; }
+      .seoul-textbook-section .book-wrap img { max-width: 80px; }
     }
 
     .steps-flow {
@@ -2755,28 +2771,28 @@
                 <span>コース</span><span class="ph-tanka">単価</span><span class="ph-zeinuki">税抜</span><span class="ph-zeikomi">税込</span><span class="ph-yuko">有効期限</span>
               </div>
               <div class="price-row">
-                <div class="pr-course">12回コース<div class="pr-unit">1コマ ¥4,900</div></div>
+                <div class="pr-course">12回コース</div>
                 <div class="pr-tanka">¥4,900</div>
                 <div class="pr-zeinuki">¥58,800</div>
                 <div class="pr-zeikomi">¥64,680</div>
                 <div class="pr-yuko">3ヶ月</div>
               </div>
               <div class="price-row">
-                <div class="pr-course">24回コース<div class="pr-unit">1コマ ¥4,400</div></div>
+                <div class="pr-course">24回コース</div>
                 <div class="pr-tanka">¥4,400</div>
                 <div class="pr-zeinuki">¥105,600</div>
                 <div class="pr-zeikomi">¥116,160</div>
                 <div class="pr-yuko">8ヶ月</div>
               </div>
               <div class="price-row">
-                <div class="pr-course">48回コース<div class="pr-unit">1コマ ¥3,980</div></div>
+                <div class="pr-course">48回コース</div>
                 <div class="pr-tanka">¥3,980</div>
                 <div class="pr-zeinuki">¥191,040</div>
                 <div class="pr-zeikomi">¥210,144</div>
                 <div class="pr-yuko">1年</div>
               </div>
               <div class="price-row">
-                <div class="pr-course">72回コース<div class="pr-unit">1コマ ¥3,600</div></div>
+                <div class="pr-course">72回コース</div>
                 <div class="pr-tanka">¥3,600</div>
                 <div class="pr-zeinuki">¥259,200</div>
                 <div class="pr-zeikomi">¥285,120</div>
@@ -3312,28 +3328,28 @@
                 <span>コース</span><span class="ph-tanka">単価</span><span class="ph-zeinuki">税抜</span><span class="ph-zeikomi">税込</span><span class="ph-yuko">有効期限</span>
               </div>
               <div class="price-row">
-                <div class="pr-course">12回コース<div class="pr-unit">1コマ ¥4,280</div></div>
+                <div class="pr-course">12回コース</div>
                 <div class="pr-tanka">¥4,280</div>
                 <div class="pr-zeinuki">¥51,360</div>
                 <div class="pr-zeikomi">¥56,496</div>
                 <div class="pr-yuko">1ヶ月</div>
               </div>
               <div class="price-row">
-                <div class="pr-course">24回コース<div class="pr-unit">1コマ ¥3,880</div></div>
+                <div class="pr-course">24回コース</div>
                 <div class="pr-tanka">¥3,880</div>
                 <div class="pr-zeinuki">¥93,120</div>
                 <div class="pr-zeikomi">¥102,432</div>
                 <div class="pr-yuko">2ヶ月</div>
               </div>
               <div class="price-row">
-                <div class="pr-course">48回コース<div class="pr-unit">1コマ ¥3,580</div></div>
+                <div class="pr-course">48回コース</div>
                 <div class="pr-tanka">¥3,580</div>
                 <div class="pr-zeinuki">¥171,840</div>
                 <div class="pr-zeikomi">¥189,024</div>
                 <div class="pr-yuko">3ヶ月</div>
               </div>
               <div class="price-row">
-                <div class="pr-course">72回コース<div class="pr-unit">1コマ ¥3,380</div></div>
+                <div class="pr-course">72回コース</div>
                 <div class="pr-tanka">¥3,380</div>
                 <div class="pr-zeinuki">¥243,360</div>
                 <div class="pr-zeikomi">¥267,696</div>
@@ -3651,14 +3667,14 @@
                 <span>コース</span><span class="ph-tanka">単価</span><span class="ph-zeinuki">税抜</span><span class="ph-zeikomi">税込</span><span class="ph-yuko">有効期限</span>
               </div>
               <div class="price-row">
-                <div class="pr-course">12回コース<div class="pr-unit">1コマ ¥4,900</div></div>
+                <div class="pr-course">12回コース</div>
                 <div class="pr-tanka">¥4,900</div>
                 <div class="pr-zeinuki">¥58,800</div>
                 <div class="pr-zeikomi">¥64,680</div>
                 <div class="pr-yuko">3ヶ月</div>
               </div>
               <div class="price-row">
-                <div class="pr-course">24回コース<div class="pr-unit">1コマ ¥4,400</div></div>
+                <div class="pr-course">24回コース</div>
                 <div class="pr-tanka">¥4,400</div>
                 <div class="pr-zeinuki">¥105,600</div>
                 <div class="pr-zeikomi">¥116,160</div>

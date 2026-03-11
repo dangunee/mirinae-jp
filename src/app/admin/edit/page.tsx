@@ -326,30 +326,69 @@ function EditContent() {
             </div>
           )}
           {page === "kaiwa" && (
-            <button
-              onClick={async () => {
-                setSeeding(true);
-                try {
-                  const r = await fetch("/api/seed/kaiwa-themes", { method: "POST" });
-                  const j = await r.json();
-                  if (r.ok) {
-                    const res = await fetch(`/api/curriculum?page=kaiwa`);
-                    const data = await res.json();
-                    setBlocks(Array.isArray(data) ? data : []);
-                    const first = (data || []).find((b: { blockKey: string }) =>
-                      KAIWA_THEME_KEYS.includes(b.blockKey)
-                    );
-                    if (first) setSelectedBlock(first);
-                  } else alert(j.error || "失敗");
-                } finally {
-                  setSeeding(false);
-                }
-              }}
-              disabled={seeding}
-              style={{ marginTop: 12, padding: "10px 20px", cursor: "pointer", borderRadius: 8, border: "1px solid #3d6b6b", background: "#fff", color: "#3d6b6b" }}
-            >
-              {seeding ? "登録中…" : "会話テーマ例を登録"}
-            </button>
+            <div style={{ marginTop: 12, display: "flex", gap: 8, flexWrap: "wrap" }}>
+              <button
+                onClick={async () => {
+                  setSeeding(true);
+                  try {
+                    const r = await fetch("/api/seed/kaiwa-themes/fetch", { method: "POST" });
+                    const j = await r.json();
+                    if (r.ok) {
+                      const res = await fetch(`/api/curriculum?page=kaiwa`);
+                      const data = await res.json();
+                      setBlocks(Array.isArray(data) ? data : []);
+                      const first = (data || []).find((b: { blockKey: string }) =>
+                        KAIWA_THEME_KEYS.includes(b.blockKey)
+                      );
+                      if (first) setSelectedBlock(first);
+                      alert(j.message || "登録しました");
+                    } else {
+                      const fallback = await fetch("/api/seed/kaiwa-themes", { method: "POST" });
+                      if (fallback.ok) {
+                        const res = await fetch(`/api/curriculum?page=kaiwa`);
+                        const data = await res.json();
+                        setBlocks(Array.isArray(data) ? data : []);
+                        const first = (data || []).find((b: { blockKey: string }) =>
+                          KAIWA_THEME_KEYS.includes(b.blockKey)
+                        );
+                        if (first) setSelectedBlock(first);
+                        alert("取得に失敗したため、組み込みデータで登録しました");
+                      } else alert(j.error || j.detail || "失敗");
+                    }
+                  } finally {
+                    setSeeding(false);
+                  }
+                }}
+                disabled={seeding}
+                style={{ padding: "10px 20px", cursor: "pointer", borderRadius: 8, border: "1px solid #3d6b6b", background: "#fff", color: "#3d6b6b" }}
+              >
+                {seeding ? "取得中…" : "mirinae.jpから取得"}
+              </button>
+              <button
+                onClick={async () => {
+                  setSeeding(true);
+                  try {
+                    const r = await fetch("/api/seed/kaiwa-themes", { method: "POST" });
+                    const j = await r.json();
+                    if (r.ok) {
+                      const res = await fetch(`/api/curriculum?page=kaiwa`);
+                      const data = await res.json();
+                      setBlocks(Array.isArray(data) ? data : []);
+                      const first = (data || []).find((b: { blockKey: string }) =>
+                        KAIWA_THEME_KEYS.includes(b.blockKey)
+                      );
+                      if (first) setSelectedBlock(first);
+                    } else alert(j.error || "失敗");
+                  } finally {
+                    setSeeding(false);
+                  }
+                }}
+                disabled={seeding}
+                style={{ padding: "10px 20px", cursor: "pointer", borderRadius: 8, border: "1px solid #999", background: "#fff", color: "#666", fontSize: 13 }}
+              >
+                {seeding ? "登録中…" : "組み込みデータで登録"}
+              </button>
+            </div>
           )}
         </div>
       ) : page === "kojin" ? (
@@ -689,8 +728,12 @@ function EditContent() {
                   onClick={async () => {
                     setSeeding(true);
                     try {
-                      const r = await fetch("/api/seed/kaiwa-themes", { method: "POST" });
-                      const j = await r.json();
+                      let r = await fetch("/api/seed/kaiwa-themes/fetch", { method: "POST" });
+                      let j = await r.json();
+                      if (!r.ok) {
+                        r = await fetch("/api/seed/kaiwa-themes", { method: "POST" });
+                        j = await r.json();
+                      }
                       if (r.ok) {
                         const res = await fetch(`/api/curriculum?page=kaiwa`);
                         const data = await res.json();
@@ -699,7 +742,7 @@ function EditContent() {
                           KAIWA_THEME_KEYS.includes(b.blockKey)
                         );
                         if (first) setSelectedBlock(first);
-                      } else alert(j.error || "失敗");
+                      } else alert(j.error || j.detail || "失敗");
                     } finally {
                       setSeeding(false);
                     }
@@ -707,7 +750,7 @@ function EditContent() {
                   disabled={seeding}
                   style={{ padding: "8px 14px", cursor: "pointer", borderRadius: 6, border: "1px solid #3d6b6b", background: "#fff", color: "#3d6b6b", fontSize: 13 }}
                 >
-                  {seeding ? "登録中…" : "会話テーマ例を登録"}
+                  {seeding ? "取得中…" : "mirinae.jpから取得"}
                 </button>
               </>
             )}

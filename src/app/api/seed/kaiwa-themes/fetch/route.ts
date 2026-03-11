@@ -27,7 +27,7 @@ export async function POST() {
     let chukyu2: string[] = [];
     let jokyu: string[] = [];
 
-    function extractFromTable($table: cheerio.Cheerio<cheerio.Element>) {
+    function extractFromTable($table: ReturnType<typeof $>) {
       const allRows = $table.find("tr");
       const cols: string[][] = [[], [], [], []];
       let startRow = 0;

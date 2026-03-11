@@ -30,6 +30,20 @@ export default function AdminPage() {
           カリキュラム
         </a>
         <a
+          href="/admin/youtube"
+          style={{
+            display: "inline-block",
+            padding: "12px 20px",
+            background: "#2c2c2c",
+            color: "#fff",
+            borderRadius: 8,
+            textDecoration: "none",
+            fontWeight: 500,
+          }}
+        >
+          YouTube
+        </a>
+        <a
           href="/admin/testimonials"
           style={{
             display: "inline-block",

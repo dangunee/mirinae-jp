@@ -25,3 +25,18 @@ model SiteTable {
   @@unique([pageSlug, blockKey])
   @@map("site_tables")
 }
+
+// メインページのYouTube動画（SEO用・管理画面で編集）
+model YouTubeVideo {
+  id          String   @id @default(cuid())
+  videoId     String   // YouTube動画ID（11文字）
+  title       String
+  description String?  // カード用短い説明
+  seoSummary  String?  // SEO用：2〜3文の要約（検索エンジン向け）
+  duration    String?  // ISO 8601形式（例: PT5M30S = 5分30秒）
+  sortOrder   Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("youtube_videos")
+}

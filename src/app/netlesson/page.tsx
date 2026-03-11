@@ -1,3 +1,4 @@
+import { fetchEmbedContent } from "./lib/fetch-embed";
 import NetlessonClient from "./NetlessonClient";
 import type { Metadata } from "next";
 
@@ -7,13 +8,31 @@ export const metadata: Metadata = {
     "メール作文・音読トレーニング・TOPIK作文トレーニング など、ご自宅から受講できるオンライン講座のご案内です。",
 };
 
-const EXTERNAL_URLS = {
-  writing: "https://writing.mirinae.jp/?embed=1",
-  ondoku: "https://ondoku.mirinae.jp/?embed=1",
-  topik: "https://writing.mirinae.jp/?tab=topik&embed=1",
-} as const;
+export const revalidate = 60;
 
-export default function NetlessonPage() {
+async function fetchAll() {
+  try {
+    const [writing, ondoku, topik] = await Promise.all([
+      fetchEmbedContent("writing"),
+      fetchEmbedContent("ondoku"),
+      fetchEmbedContent("topik"),
+    ]);
+    const allStyles = [...new Set([...writing.stylesheets, ...ondoku.stylesheets, ...topik.stylesheets])];
+    return { writing, ondoku, topik, stylesheets: allStyles, error: null };
+  } catch (e) {
+    console.error("Netlesson fetch error:", e);
+    return {
+      writing: { html: "", url: "https://writing.mirinae.jp/?embed=1", stylesheets: [] },
+      ondoku: { html: "", url: "https://ondoku.mirinae.jp/?embed=1", stylesheets: [] },
+      topik: { html: "", url: "https://writing.mirinae.jp/?tab=topik&embed=1", stylesheets: [] },
+      stylesheets: [] as string[],
+      error: String(e),
+    };
+  }
+}
+
+export default async function NetlessonPage() {
+  const { writing, ondoku, topik, stylesheets, error } = await fetchAll();
 
   return (
     <div className="netlesson-page">
@@ -21,6 +40,9 @@ export default function NetlessonPage() {
         rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap"
       />
+      {stylesheets.map((href) => (
+        <link key={href} rel="stylesheet" href={href} />
+      ))}
       <style>{`
         .netlesson-page { --beige:#f5f0e8; --taupe:#BD9962; --gold:#B8963E; --gold-light:#e8d5b0; --gold-pale:#f7f0e3; --dark:#1C1C1E; --white:#FFF; --gray-border:#E5E0D8; --text-dark:#2c2c2c; --text-muted:#8E8E93; --mid:#4a4438; }
         .netlesson-page * { margin:0; padding:0; box-sizing:border-box; }
@@ -95,10 +117,18 @@ export default function NetlessonPage() {
                 </p>
               </div>
 
+              {error && (
+                <p style={{ color: "#c00", marginBottom: 16, fontSize: 14 }}>
+                  一部コンテンツの取得に失敗しました。専用ページでご確認ください。
+                </p>
+              )}
               <NetlessonClient
-                writingUrl={EXTERNAL_URLS.writing}
-                ondokuUrl={EXTERNAL_URLS.ondoku}
-                topikUrl={EXTERNAL_URLS.topik}
+                writingHtml={writing.html}
+                ondokuHtml={ondoku.html}
+                topikHtml={topik.html}
+                writingUrl={writing.url}
+                ondokuUrl={ondoku.url}
+                topikUrl={topik.url}
               />
             </div>
 

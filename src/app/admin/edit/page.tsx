@@ -716,44 +716,44 @@ function EditContent() {
                               style={{ width: 18, height: 18, cursor: "pointer" }}
                             />
                           </td>
-                          <td style={tdStyle}>
+                          <td style={groupTdStyle}>
                             <input
                               type="text"
                               value={(row as GroupCurriculumRow).kaisu ?? ""}
                               onChange={(e) => updateRow(selectedBlock.id, i, "kaisu", e.target.value)}
-                              style={{ width: "100%", padding: "6px 8px", fontSize: 13 }}
+                              style={groupInputStyle}
                             />
                           </td>
-                          <td style={tdStyle}>
+                          <td style={groupTdStyle}>
                             <input
                               type="text"
                               value={(row as GroupCurriculumRow).jigen ?? ""}
                               onChange={(e) => updateRow(selectedBlock.id, i, "jigen", e.target.value)}
-                              style={{ width: "100%", padding: "6px 8px", fontSize: 13 }}
+                              style={groupInputStyle}
                             />
                           </td>
-                          <td style={tdStyle}>
+                          <td style={groupTdStyle}>
                             <input
                               type="text"
                               value={(row as GroupCurriculumRow).koumoku ?? ""}
                               onChange={(e) => updateRow(selectedBlock.id, i, "koumoku", e.target.value)}
-                              style={{ width: "100%", padding: "6px 8px", fontSize: 13 }}
+                              style={groupInputStyle}
                             />
                           </td>
-                          <td style={tdStyle}>
+                          <td style={groupTdStyle}>
                             <textarea
                               value={(row as GroupCurriculumRow).shosai ?? ""}
                               onChange={(e) => updateRow(selectedBlock.id, i, "shosai", e.target.value)}
                               rows={2}
-                              style={contentInputStyle}
+                              style={groupTextareaStyle}
                             />
                           </td>
-                          <td style={tdStyle}>
+                          <td style={groupTdStyle}>
                             <input
                               type="text"
                               value={(row as GroupCurriculumRow).nittei ?? ""}
                               onChange={(e) => updateRow(selectedBlock.id, i, "nittei", e.target.value)}
-                              style={{ width: "100%", padding: "6px 8px", fontSize: 13 }}
+                              style={groupInputStyle}
                             />
                           </td>
                         </tr>
@@ -944,10 +944,15 @@ function EditContent() {
 
 const thStyle: React.CSSProperties = { padding: "10px 12px", textAlign: "left", border: "1px solid #d0d0d0" };
 const tdStyle: React.CSSProperties = { padding: 8, border: "1px solid #d0d0d0", verticalAlign: "top" };
+/** グループ文法テーブル用（オーバーフロー防止） */
+const groupTdStyle: React.CSSProperties = { padding: 8, border: "1px solid #d0d0d0", verticalAlign: "top", overflow: "hidden", minWidth: 0 };
 const tdCheckStyle: React.CSSProperties = { padding: 8, border: "1px solid #d0d0d0", verticalAlign: "top", textAlign: "center" };
 const tdKomaStyle: React.CSSProperties = { padding: 6, border: "1px solid #d0d0d0", verticalAlign: "top" };
 const inputStyle: React.CSSProperties = { width: "100%", minHeight: 36, padding: "8px 10px", border: "1px solid #ddd", borderRadius: 4, boxSizing: "border-box", fontSize: 14 };
 const inputKomaStyle: React.CSSProperties = { width: "100%", minHeight: 36, padding: "8px 6px", border: "1px solid #ddd", borderRadius: 4, boxSizing: "border-box", fontSize: 14 };
+/** グループ文法テーブル用（フレーム内に収める） */
+const groupInputStyle: React.CSSProperties = { width: "100%", padding: "6px 8px", fontSize: 13, border: "1px solid #ddd", borderRadius: 4, boxSizing: "border-box", maxWidth: "100%" };
+const groupTextareaStyle: React.CSSProperties = { width: "100%", minHeight: 56, padding: "6px 8px", fontSize: 13, border: "1px solid #ddd", borderRadius: 4, boxSizing: "border-box", resize: "vertical", maxWidth: "100%" };
 /** カリキュラム内容入力（複数行・大きく表示） */
 const contentInputStyle: React.CSSProperties = { width: "100%", minHeight: 56, padding: "10px 12px", border: "1px solid #ddd", borderRadius: 4, boxSizing: "border-box", fontSize: 14, lineHeight: 1.5, resize: "vertical" };
 

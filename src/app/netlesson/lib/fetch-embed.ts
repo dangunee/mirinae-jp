@@ -23,7 +23,7 @@ async function fetchHtml(url: string): Promise<string> {
 function extractContentAndStyles(
   html: string,
   baseUrl: string
-): { html: string; stylesheets: string[] } {
+): { html: string; stylesheets: string[]; inlineStyles: string } {
   try {
     const cheerio = require("cheerio");
     const $ = cheerio.load(html);
@@ -38,17 +38,24 @@ function extractContentAndStyles(
       }
     });
 
-    // 2. script, style, noscript, iframe 제거 (클래스명은 유지)
+    // 2. style 태그 내용 추출 (제거 전에)
+    const inlineStyles: string[] = [];
+    $("style").each((_, el) => {
+      const content = $(el).html();
+      if (content?.trim()) inlineStyles.push(content.trim());
+    });
+
+    // 3. script, style, noscript, iframe 제거 (클래스명은 유지)
     $("script, style, noscript, iframe").remove();
 
-    // 3. main 또는 body 콘텐츠 추출 (클래스명 그대로)
+    // 4. main 또는 body 콘텐츠 추출 (클래스명 그대로)
     let main =
       $("main").html() ||
       $('[role="main"]').html() ||
       $("body").html() ||
       "";
 
-    // 4. 상대 경로 → 절대 경로
+    // 5. 상대 경로 → 절대 경로
     main = main.replace(
       /(href|src)=["'](?!https?:|\/\/|#|mailto:)([^"']*)["']/gi,
       (_m: string, attr: string, path: string) => `${attr}="${new URL(path, base.origin).href}"`
@@ -57,6 +64,7 @@ function extractContentAndStyles(
     return {
       html: main || "<p>コンテンツを読み込めませんでした。</p>",
       stylesheets,
+      inlineStyles: inlineStyles.join("\n"),
     };
   } catch {
     const noScript = html.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, "");
@@ -64,6 +72,7 @@ function extractContentAndStyles(
     return {
       html: bodyMatch ? bodyMatch[1] : "<p>コンテンツを読み込めませんでした。</p>",
       stylesheets: [],
+      inlineStyles: "",
     };
   }
 }
@@ -72,11 +81,12 @@ export async function fetchEmbedContent(source: EmbedSource): Promise<{
   html: string;
   url: string;
   stylesheets: string[];
+  inlineStyles: string;
 }> {
   const url = EXTERNAL_URLS[source];
   const raw = await fetchHtml(url);
-  const { html, stylesheets } = extractContentAndStyles(raw, url);
-  return { html, url, stylesheets };
+  const { html, stylesheets, inlineStyles } = extractContentAndStyles(raw, url);
+  return { html, url, stylesheets, inlineStyles };
 }
 
 export { EXTERNAL_URLS };

@@ -18,31 +18,38 @@ async function fetchAll() {
       fetchEmbedContent("topik"),
     ]);
     const allStyles = [...new Set([...writing.stylesheets, ...ondoku.stylesheets, ...topik.stylesheets])];
-    return { writing, ondoku, topik, stylesheets: allStyles, error: null };
+    const allInlineStyles = [writing.inlineStyles, ondoku.inlineStyles, topik.inlineStyles]
+      .filter(Boolean)
+      .join("\n");
+    return { writing, ondoku, topik, stylesheets: allStyles, inlineStyles: allInlineStyles, error: null };
   } catch (e) {
     console.error("Netlesson fetch error:", e);
     return {
-      writing: { html: "", url: "https://writing.mirinae.jp/?embed=1", stylesheets: [] },
-      ondoku: { html: "", url: "https://ondoku.mirinae.jp/?embed=1", stylesheets: [] },
-      topik: { html: "", url: "https://writing.mirinae.jp/?tab=topik&embed=1", stylesheets: [] },
+      writing: { html: "", url: "https://writing.mirinae.jp/?embed=1", stylesheets: [], inlineStyles: "" },
+      ondoku: { html: "", url: "https://ondoku.mirinae.jp/?embed=1", stylesheets: [], inlineStyles: "" },
+      topik: { html: "", url: "https://writing.mirinae.jp/?tab=topik&embed=1", stylesheets: [], inlineStyles: "" },
       stylesheets: [] as string[],
+      inlineStyles: "",
       error: String(e),
     };
   }
 }
 
 export default async function NetlessonPage() {
-  const { writing, ondoku, topik, stylesheets, error } = await fetchAll();
+  const { writing, ondoku, topik, stylesheets, inlineStyles, error } = await fetchAll();
 
   return (
     <div className="netlesson-page">
       <link
         rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;700&display=swap"
       />
       {stylesheets.map((href) => (
         <link key={href} rel="stylesheet" href={href} />
       ))}
+      {inlineStyles ? (
+        <style dangerouslySetInnerHTML={{ __html: inlineStyles }} />
+      ) : null}
       <style>{`
         .netlesson-page { --beige:#f5f0e8; --taupe:#BD9962; --gold:#B8963E; --gold-light:#e8d5b0; --gold-pale:#f7f0e3; --dark:#1C1C1E; --white:#FFF; --gray-border:#E5E0D8; --text-dark:#2c2c2c; --text-muted:#8E8E93; --mid:#4a4438; }
         .netlesson-page * { margin:0; padding:0; box-sizing:border-box; }
@@ -88,10 +95,6 @@ export default async function NetlessonPage() {
         .netlesson-page .footer-bottom { text-align:center; padding-top:24px; border-top:1px solid rgba(255,255,255,.1); font-size:13px; }
         @media (max-width:900px) { .netlesson-page .group-main-grid { grid-template-columns:1fr; } .netlesson-page .sidebar { display:none; } }
         @media (max-width:560px) { .netlesson-page .tab-bar { grid-template-columns:1fr 1fr; } }
-        /* embed 내부의 "작문" 배경 텍스트 겹침 방지 */
-        .netlesson-page .embed-content .hero::after {
-          display: none;
-        }
       `}</style>
 
       <div className="page-wrapper">

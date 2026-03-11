@@ -21,6 +21,9 @@ const PAGE_LABELS: Record<string, string> = {
 /** テーマ列を表示するブロック（コマ・12/24/48＋テーマのカリキュラム） */
 const CURRICULUM_WITH_THEME_KEYS = ["curriculum_shokyu", "curriculum_chukyu", "curriculum_jokyu"];
 
+/** グループ文法カリキュラム（回数・時限・項目・概要・日程形式） */
+const GROUP_CURRICULUM_KEYS = ["curriculum_chubu", "curriculum_jokyu"];
+
 type MainTab = "kojin" | "tanki" | "hatsuon" | "leveltest";
 const MAIN_TABS: { id: MainTab; label: string }[] = [
   { id: "kojin", label: "個人レッスン" },
@@ -95,7 +98,7 @@ function EditContent() {
     });
   };
 
-  const updateRow = (blockId: string, rowIndex: number, col: keyof CurriculumRow, value: string) => {
+  const updateRow = (blockId: string, rowIndex: number, col: string, value: string) => {
     setBlocks((prev) =>
       prev.map((b) => {
         if (b.id !== blockId) return b;
@@ -117,15 +120,18 @@ function EditContent() {
 
   const addRow = () => {
     if (!selectedBlock) return;
-    const newRow: CurriculumRow = {
-      koma: "",
-      c12: "",
-      c24: "",
-      c48: "",
-      theme12: "",
-      theme24: "",
-      theme48: "",
-    };
+    const isGroupCurriculum = GROUP_CURRICULUM_KEYS.includes(selectedBlock.blockKey);
+    const newRow = isGroupCurriculum
+      ? { kaisu: "", jigen: "", koumoku: "", shosai: "", nittei: "" }
+      : {
+          koma: "",
+          c12: "",
+          c24: "",
+          c48: "",
+          theme12: "",
+          theme24: "",
+          theme48: "",
+        };
     setBlocks((prev) =>
       prev.map((b) => {
         if (b.id !== selectedBlock.id) return b;
@@ -678,6 +684,82 @@ function EditContent() {
           {selectedBlock && (
             <>
               <div style={{ overflowX: "auto", marginBottom: 16, minWidth: 0 }}>
+                {GROUP_CURRICULUM_KEYS.includes(selectedBlock.blockKey) ? (
+                  <table style={{ width: "100%", minWidth: 800, borderCollapse: "collapse", background: "#fff", border: "1px solid #d0d0d0", tableLayout: "fixed" }}>
+                    <colgroup>
+                      <col style={{ width: "36px" }} />
+                      <col style={{ width: "56px" }} />
+                      <col style={{ width: "80px" }} />
+                      <col style={{ width: "28%" }} />
+                      <col style={{ width: "28%" }} />
+                      <col style={{ width: "80px" }} />
+                    </colgroup>
+                    <thead>
+                      <tr style={{ background: "#3d6b6b", color: "#fff" }}>
+                        <th style={thStyle}></th>
+                        <th style={thStyle}>回数</th>
+                        <th style={thStyle}>時限</th>
+                        <th style={thStyle}>項目</th>
+                        <th style={thStyle}>概要</th>
+                        <th style={thStyle}>日程</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {selectedBlock.rows.map((row: Record<string, string>, i: number) => (
+                        <tr key={i}>
+                          <td style={tdCheckStyle}>
+                            <input
+                              type="checkbox"
+                              checked={checkedRows.has(i)}
+                              onChange={() => toggleCheckRow(i)}
+                              style={{ width: 18, height: 18, cursor: "pointer" }}
+                            />
+                          </td>
+                          <td style={tdStyle}>
+                            <input
+                              type="text"
+                              value={row.kaisu ?? ""}
+                              onChange={(e) => updateRow(selectedBlock.id, i, "kaisu", e.target.value)}
+                              style={{ width: "100%", padding: "6px 8px", fontSize: 13 }}
+                            />
+                          </td>
+                          <td style={tdStyle}>
+                            <input
+                              type="text"
+                              value={row.jigen ?? ""}
+                              onChange={(e) => updateRow(selectedBlock.id, i, "jigen", e.target.value)}
+                              style={{ width: "100%", padding: "6px 8px", fontSize: 13 }}
+                            />
+                          </td>
+                          <td style={tdStyle}>
+                            <input
+                              type="text"
+                              value={row.koumoku ?? ""}
+                              onChange={(e) => updateRow(selectedBlock.id, i, "koumoku", e.target.value)}
+                              style={{ width: "100%", padding: "6px 8px", fontSize: 13 }}
+                            />
+                          </td>
+                          <td style={tdStyle}>
+                            <textarea
+                              value={row.shosai ?? ""}
+                              onChange={(e) => updateRow(selectedBlock.id, i, "shosai", e.target.value)}
+                              rows={2}
+                              style={contentInputStyle}
+                            />
+                          </td>
+                          <td style={tdStyle}>
+                            <input
+                              type="text"
+                              value={row.nittei ?? ""}
+                              onChange={(e) => updateRow(selectedBlock.id, i, "nittei", e.target.value)}
+                              style={{ width: "100%", padding: "6px 8px", fontSize: 13 }}
+                            />
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                ) : (
                 <table style={{ width: "100%", minWidth: showThemeColumns ? 1600 : 960, borderCollapse: "collapse", background: "#fff", border: "1px solid #d0d0d0", tableLayout: "fixed" }}>
                   <colgroup>
                     <col style={{ width: "36px" }} />
@@ -802,6 +884,7 @@ function EditContent() {
                     ))}
                   </tbody>
                 </table>
+                )}
               </div>
               <div style={{ display: "flex", gap: 12, alignItems: "center", marginTop: 12, flexWrap: "wrap" }}>
                 <button

@@ -690,22 +690,21 @@
     }
     .kaiwa-theme-tab.active { color: var(--gold); border-bottom-color: var(--gold); font-weight: 500; }
     .kaiwa-theme-tab:hover:not(.active) { color: var(--mid); }
-    .kaiwa-theme-label {
-      font-size: 14px; font-weight: 600; color: var(--mid); margin-bottom: 12px; letter-spacing: .05em;
-    }
     .kaiwa-theme-grid {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: repeat(10, auto);
+      grid-auto-flow: column;
       gap: 8px 16px;
       font-size: 14px;
       color: var(--mid);
       line-height: 1.6;
     }
     @media (max-width: 900px) {
-      .kaiwa-theme-grid { grid-template-columns: repeat(3, 1fr); }
+      .kaiwa-theme-grid { grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(17, auto); }
     }
     @media (max-width: 600px) {
-      .kaiwa-theme-grid { grid-template-columns: repeat(2, 1fr); font-size: 13px; }
+      .kaiwa-theme-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(25, auto); font-size: 13px; }
     }
     .kaiwa-theme-item {
       display: flex;
@@ -939,7 +938,6 @@
               <button type="button" class="kaiwa-theme-tab" data-theme="jokyu">上級</button>
             </div>
             <div class="kaiwa-theme-content" id="kaiwa-theme-content">
-              <div class="kaiwa-theme-label" id="kaiwa-theme-label">初中級</div>
               <div class="kaiwa-theme-grid" id="kaiwa-theme-grid">読み込み中…</div>
             </div>
           </div>
@@ -1561,16 +1559,13 @@
         chukyu2: 'curriculum_kaiwa_chukyu2',
         jokyu: 'curriculum_kaiwa_jokyu'
       };
-      var themeLabels = { shuchukyu: '初中級', chukyu1: '中級1', chukyu2: '中級2', jokyu: '上級' };
       var kaiwaThemeData = {};
 
       function renderKaiwaTheme(themeId) {
-        var labelEl = document.getElementById('kaiwa-theme-label');
         var gridEl = document.getElementById('kaiwa-theme-grid');
-        if (!labelEl || !gridEl) return;
+        if (!gridEl) return;
         var block = kaiwaThemeData[themeBlockMap[themeId]];
         if (block && block.rows && block.rows.length) {
-          labelEl.textContent = block.title || themeLabels[themeId];
           var html = '';
           block.rows.forEach(function(row, i) {
             var text = row.theme || row.themes || '';
@@ -1580,7 +1575,6 @@
           });
           gridEl.innerHTML = html || '（テーマなし）';
         } else {
-          labelEl.textContent = themeLabels[themeId];
           gridEl.innerHTML = '（データ未登録）';
         }
       }

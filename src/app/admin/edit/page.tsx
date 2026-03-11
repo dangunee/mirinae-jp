@@ -684,7 +684,7 @@ function EditContent() {
           {selectedBlock && (
             <>
               <div style={{ overflowX: "auto", marginBottom: 16, minWidth: 0 }}>
-                {GROUP_CURRICULUM_KEYS.includes(selectedBlock.blockKey) ? (
+                {page === "group" ? (
                   <table style={{ width: "100%", minWidth: 800, borderCollapse: "collapse", background: "#fff", border: "1px solid #d0d0d0", tableLayout: "fixed" }}>
                     <colgroup>
                       <col style={{ width: "36px" }} />

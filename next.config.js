@@ -14,6 +14,7 @@ const nextConfig = {
       { source: "/book", destination: "/book.html" },
       { source: "/cancel", destination: "/cancel.html" },
       { source: "/voice", destination: "/voice.html" },
+      { source: "/netlesson.html", destination: "/netlesson" },
       { source: "/t", destination: "/index.html" },
       { source: "/t/", destination: "/index.html" },
       { source: "/t/about", destination: "/about.html" },

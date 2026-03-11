@@ -13,7 +13,7 @@ export type CurriculumBlock = {
   pageSlug: string;
   blockKey: string;
   title: string | null;
-  rows: (CurriculumRow | GroupCurriculumRow | KaiwaThemeRow)[];
+  rows: (CurriculumRow | GroupCurriculumRow | KaiwaThemeRow | TopikCurriculumRow)[];
 };
 
 export type CurriculumRow = {
@@ -41,6 +41,14 @@ export type GroupCurriculumRow = {
 /** 会話クラス主なテーマ例行（1行1テーマ、50行/レベル） */
 export type KaiwaThemeRow = { theme?: string; themes?: string };
 
+/** TOPIK試験対策 カリキュラム行（読解|作文対策|聞取り） */
+export type TopikCurriculumRow = {
+  week?: string;
+  dokkai?: string;
+  sakubun?: string;
+  kikitori?: string;
+};
+
 /** カリキュラム表示用テーマ（タグのラベル・色） */
 export type CurriculumTheme = {
   slug: string;
@@ -51,7 +59,7 @@ export type CurriculumTheme = {
 
 function parseRowsJson(
   rowsJson: string
-): (CurriculumRow | GroupCurriculumRow | KaiwaThemeRow)[] {
+): (CurriculumRow | GroupCurriculumRow | KaiwaThemeRow | TopikCurriculumRow)[] {
   try {
     const raw = JSON.parse(rowsJson) as unknown;
     return Array.isArray(raw) ? raw : [];
@@ -94,7 +102,7 @@ export async function POST(req: NextRequest) {
     pageSlug: string;
     blockKey: string;
     title?: string | null;
-    rows: (CurriculumRow | GroupCurriculumRow | KaiwaThemeRow)[];
+    rows: (CurriculumRow | GroupCurriculumRow | KaiwaThemeRow | TopikCurriculumRow)[];
   };
   if (!pageSlug || !blockKey || !Array.isArray(rows)) {
     return NextResponse.json({ error: "pageSlug, blockKey, rows required" }, { status: 400 });

@@ -8,6 +8,7 @@ import type {
   CurriculumTheme,
   GroupCurriculumRow,
   KaiwaThemeRow,
+  TopikCurriculumRow,
 } from "@/app/api/curriculum/route";
 
 const PAGE_LABELS: Record<string, string> = {
@@ -33,6 +34,9 @@ const KAIWA_THEME_KEYS = [
   "curriculum_kaiwa_chukyu2",
   "curriculum_kaiwa_jokyu",
 ];
+
+/** TOPIK試験対策 カリキュラム（中級・上級） */
+const SPECIAL_TOPIK_KEYS = ["curriculum_special_tab02", "curriculum_special_tab03"];
 
 type MainTab = "kojin" | "tanki" | "hatsuon" | "leveltest";
 const MAIN_TABS: { id: MainTab; label: string }[] = [
@@ -60,10 +64,13 @@ function EditContent() {
   // 初級→中級→上級の順
   const KOJIN_BLOCK_ORDER = ["curriculum_shokyu", "curriculum_chukyu", "curriculum_jokyu"];
   const KAIWA_BLOCK_ORDER = KAIWA_THEME_KEYS;
+  const SPECIAL_BLOCK_ORDER = SPECIAL_TOPIK_KEYS;
   const curriculumBlocks =
     page === "kojin"
       ? blocks.filter((b) => CURRICULUM_WITH_THEME_KEYS.includes(b.blockKey))
-      : blocks;
+      : page === "special"
+        ? blocks.filter((b) => SPECIAL_TOPIK_KEYS.includes(b.blockKey))
+        : blocks;
 
   useEffect(() => {
     const load = async () => {
@@ -84,7 +91,12 @@ function EditContent() {
                 (a: CurriculumBlock, b: CurriculumBlock) =>
                   KAIWA_BLOCK_ORDER.indexOf(a.blockKey) - KAIWA_BLOCK_ORDER.indexOf(b.blockKey)
               )
-            : list;
+            : page === "special"
+              ? [...list].sort(
+                  (a: CurriculumBlock, b: CurriculumBlock) =>
+                    SPECIAL_BLOCK_ORDER.indexOf(a.blockKey) - SPECIAL_BLOCK_ORDER.indexOf(b.blockKey)
+                )
+              : list;
       setBlocks(sorted);
       if (page === "kojin") {
         const curriculum = sorted.filter((b: CurriculumBlock) =>
@@ -96,6 +108,12 @@ function EditContent() {
           KAIWA_THEME_KEYS.includes(b.blockKey)
         );
         if (kaiwaBlocks[0]) setSelectedBlock(kaiwaBlocks[0]);
+        else if (sorted[0]) setSelectedBlock(sorted[0]);
+      } else if (page === "special") {
+        const specialBlocks = sorted.filter((b: CurriculumBlock) =>
+          SPECIAL_TOPIK_KEYS.includes(b.blockKey)
+        );
+        if (specialBlocks[0]) setSelectedBlock(specialBlocks[0]);
         else if (sorted[0]) setSelectedBlock(sorted[0]);
       } else if (sorted[0]) setSelectedBlock(sorted[0]);
       if (themesRes?.ok) {
@@ -144,19 +162,23 @@ function EditContent() {
     if (!selectedBlock) return;
     const isGroupCurriculum = GROUP_CURRICULUM_KEYS.includes(selectedBlock.blockKey);
     const isKaiwaTheme = KAIWA_THEME_KEYS.includes(selectedBlock.blockKey);
-    const newRow: CurriculumRow | GroupCurriculumRow | KaiwaThemeRow = isGroupCurriculum
-      ? { kaisu: "", jigen: "", koumoku: "", shosai: "", nittei: "" }
-      : isKaiwaTheme
-        ? { theme: "" }
-        : {
-            koma: "",
-            c12: "",
-            c24: "",
-            c48: "",
-            theme12: "",
-            theme24: "",
-            theme48: "",
-          };
+    const isSpecialTopik = SPECIAL_TOPIK_KEYS.includes(selectedBlock.blockKey);
+    const newRow: CurriculumRow | GroupCurriculumRow | KaiwaThemeRow | TopikCurriculumRow =
+      isGroupCurriculum
+        ? { kaisu: "", jigen: "", koumoku: "", shosai: "", nittei: "" }
+        : isKaiwaTheme
+          ? { theme: "" }
+          : isSpecialTopik
+            ? { week: "", dokkai: "", sakubun: "", kikitori: "" }
+            : {
+                koma: "",
+                c12: "",
+                c24: "",
+                c48: "",
+                theme12: "",
+                theme24: "",
+                theme48: "",
+              };
     setBlocks((prev) =>
       prev.map((b) => {
         if (b.id !== selectedBlock.id) return b;
@@ -721,6 +743,43 @@ function EditContent() {
                 {b.title || b.blockKey}
               </button>
             ))}
+            {page === "special" && (
+              <>
+                <span style={{ marginLeft: 8, color: "#999", fontSize: 12 }}>|</span>
+                <button
+                  onClick={async () => {
+                    setSeeding(true);
+                    try {
+                      const r = await fetch("/api/seed/special-topik", { method: "POST" });
+                      const j = await r.json();
+                      if (r.ok) {
+                        const res = await fetch(`/api/curriculum?page=special`);
+                        const data = await res.json();
+                        setBlocks(Array.isArray(data) ? data : []);
+                        const first = (data || []).find((b: { blockKey: string }) =>
+                          SPECIAL_TOPIK_KEYS.includes(b.blockKey)
+                        );
+                        if (first) setSelectedBlock(first);
+                      } else alert(j.error || "失敗");
+                    } finally {
+                      setSeeding(false);
+                    }
+                  }}
+                  disabled={seeding}
+                  style={{
+                    padding: "8px 14px",
+                    cursor: "pointer",
+                    borderRadius: 6,
+                    border: "1px solid #3d6b6b",
+                    background: "#fff",
+                    color: "#3d6b6b",
+                    fontSize: 13,
+                  }}
+                >
+                  {seeding ? "登録中…" : "TOPIK中級・上級を登録"}
+                </button>
+              </>
+            )}
             {page === "kaiwa" && (
               <>
                 <span style={{ marginLeft: 8, color: "#999", fontSize: 12 }}>|</span>
@@ -807,7 +866,82 @@ function EditContent() {
           {selectedBlock && (
             <>
               <div style={{ overflowX: "auto", marginBottom: 16, minWidth: 0 }}>
-                {page === "kaiwa" && KAIWA_THEME_KEYS.includes(selectedBlock.blockKey) ? (
+                {page === "special" && SPECIAL_TOPIK_KEYS.includes(selectedBlock.blockKey) ? (
+                  <table
+                    style={{
+                      width: "100%",
+                      minWidth: 700,
+                      borderCollapse: "collapse",
+                      background: "#fff",
+                      border: "1px solid #d0d0d0",
+                      tableLayout: "fixed",
+                    }}
+                  >
+                    <colgroup>
+                      <col style={{ width: "36px" }} />
+                      <col style={{ width: "72px" }} />
+                      <col style={{ width: "33%" }} />
+                      <col style={{ width: "33%" }} />
+                      <col style={{ width: "33%" }} />
+                    </colgroup>
+                    <thead>
+                      <tr style={{ background: "#3d6b6b", color: "#fff" }}>
+                        <th style={thStyle}></th>
+                        <th style={thStyle}>週</th>
+                        <th style={thStyle}>読解</th>
+                        <th style={thStyle}>作文対策</th>
+                        <th style={thStyle}>聞取り</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {selectedBlock.rows.map((row, i) => (
+                        <tr key={i}>
+                          <td style={tdCheckStyle}>
+                            <input
+                              type="checkbox"
+                              checked={checkedRows.has(i)}
+                              onChange={() => toggleCheckRow(i)}
+                              style={{ width: 18, height: 18, cursor: "pointer" }}
+                            />
+                          </td>
+                          <td style={{ padding: 8, borderBottom: "1px solid #e0e0e0" }}>
+                            <input
+                              type="text"
+                              value={(row as TopikCurriculumRow).week ?? ""}
+                              onChange={(e) => updateRow(selectedBlock.id, i, "week", e.target.value)}
+                              placeholder="1週目"
+                              style={{ width: "100%", padding: 8, fontSize: 14 }}
+                            />
+                          </td>
+                          <td style={{ padding: 8, borderBottom: "1px solid #e0e0e0" }}>
+                            <textarea
+                              value={(row as TopikCurriculumRow).dokkai ?? ""}
+                              onChange={(e) => updateRow(selectedBlock.id, i, "dokkai", e.target.value)}
+                              rows={3}
+                              style={{ width: "100%", padding: 8, fontSize: 13, resize: "vertical" }}
+                            />
+                          </td>
+                          <td style={{ padding: 8, borderBottom: "1px solid #e0e0e0" }}>
+                            <textarea
+                              value={(row as TopikCurriculumRow).sakubun ?? ""}
+                              onChange={(e) => updateRow(selectedBlock.id, i, "sakubun", e.target.value)}
+                              rows={3}
+                              style={{ width: "100%", padding: 8, fontSize: 13, resize: "vertical" }}
+                            />
+                          </td>
+                          <td style={{ padding: 8, borderBottom: "1px solid #e0e0e0" }}>
+                            <textarea
+                              value={(row as TopikCurriculumRow).kikitori ?? ""}
+                              onChange={(e) => updateRow(selectedBlock.id, i, "kikitori", e.target.value)}
+                              rows={3}
+                              style={{ width: "100%", padding: 8, fontSize: 13, resize: "vertical" }}
+                            />
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                ) : page === "kaiwa" && KAIWA_THEME_KEYS.includes(selectedBlock.blockKey) ? (
                   <table style={{ width: "100%", borderCollapse: "collapse", background: "#fff", border: "1px solid #d0d0d0", tableLayout: "fixed" }}>
                     <colgroup>
                       <col style={{ width: "36px" }} />

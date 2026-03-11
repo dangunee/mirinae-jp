@@ -668,6 +668,41 @@
       box-shadow: 0 8px 28px rgba(184,146,42,0.5);
     }
 
+    .special-curriculum-wrap {
+      margin-bottom: 32px;
+      overflow-x: auto;
+    }
+    .special-curriculum-table {
+      width: 100%;
+      min-width: 600px;
+      border-collapse: collapse;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(28,26,23,0.06);
+    }
+    .special-curriculum-table thead tr { background: var(--dark); }
+    .special-curriculum-table thead th {
+      padding: 11px 18px;
+      font-size: 13px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.8);
+      letter-spacing: 0.05em;
+      text-align: left;
+    }
+    .special-curriculum-table tbody tr { border-bottom: 1px solid var(--border); }
+    .special-curriculum-table tbody tr:last-child { border-bottom: none; }
+    .special-curriculum-table tbody tr:nth-child(even) { background: #faf8f4; }
+    .special-curriculum-table td {
+      padding: 13px 18px;
+      font-size: 14px;
+      color: var(--mid);
+      line-height: 1.6;
+      vertical-align: top;
+    }
+    .special-curriculum-table td:first-child { font-weight: 500; white-space: nowrap; }
+
     @media (max-width: 900px) {
       nav { padding: 0 24px; }
       .hero { padding: 48px 24px 40px; }
@@ -892,6 +927,15 @@
           <p style="margin-bottom:24px;color:var(--mid);">ミリネ韓国語教室著『ゼロから完全攻略！ 韓国語能力試験 TOPIK II』</p>
 
           <div class="beg-sec-header">
+            <div class="beg-sec-label">Content</div>
+            <div class="beg-sec-title">内容</div>
+            <div class="beg-sec-line"></div>
+          </div>
+          <div class="special-curriculum-wrap" data-block="curriculum_special_tab02">
+            <p style="color:var(--muted);">読み込み中…</p>
+          </div>
+
+          <div class="beg-sec-header">
             <div class="beg-sec-label">Tuition</div>
             <div class="beg-sec-title">授業料</div>
             <div class="beg-sec-line"></div>
@@ -913,20 +957,7 @@
             <div class="beg-sec-title">生徒の声</div>
             <div class="beg-sec-line"></div>
           </div>
-          <div class="beg-testimonial">
-            <div class="beg-testimonial-meta">
-              <div class="beg-testimonial-avatar">関</div>
-              <div><span class="beg-testimonial-name">関東在住</span><span class="beg-testimonial-date">2022.4</span></div>
-            </div>
-            <div class="beg-testimonial-body">とてもテンポの良い授業で、いつも２時間あっという間でした。解説も丁寧で分かりやすく、諦めることなく勉強できました。ありがとうございました。</div>
-          </div>
-          <div class="beg-testimonial">
-            <div class="beg-testimonial-meta">
-              <div class="beg-testimonial-avatar">近</div>
-              <div><span class="beg-testimonial-name">近畿在住</span><span class="beg-testimonial-date">2022.4</span></div>
-            </div>
-            <div class="beg-testimonial-body">5１，５２，５３、特に５４番はネットや対策本では難しいカタい書き方の見本ばかりでハッキリ言って中級レベルの人間には参考にならないのですが、今回のグループレッスンで同じレベルの他の人の作文で自分が使える書き方、言い回しを見ることができ、先生も皆さんの添削を通して教えてくださって知ることができて勉強になりました。</div>
-          </div>
+          <div class="testimonials-container" data-page="special" data-block="testimonials_special_tab02" data-format="beg"></div>
         </div>
       </div>
 
@@ -988,6 +1019,15 @@
           <p style="margin-bottom:24px;color:var(--mid);">ミリネ韓国語教室著『ゼロから完全攻略！ 韓国語能力試験 TOPIK II』</p>
 
           <div class="beg-sec-header">
+            <div class="beg-sec-label">Content</div>
+            <div class="beg-sec-title">内容</div>
+            <div class="beg-sec-line"></div>
+          </div>
+          <div class="special-curriculum-wrap" data-block="curriculum_special_tab03">
+            <p style="color:var(--muted);">読み込み中…</p>
+          </div>
+
+          <div class="beg-sec-header">
             <div class="beg-sec-label">Tuition</div>
             <div class="beg-sec-title">授業料</div>
             <div class="beg-sec-line"></div>
@@ -1009,20 +1049,7 @@
             <div class="beg-sec-title">生徒の声</div>
             <div class="beg-sec-line"></div>
           </div>
-          <div class="beg-testimonial">
-            <div class="beg-testimonial-meta">
-              <div class="beg-testimonial-avatar">関</div>
-              <div><span class="beg-testimonial-name">関東在住</span><span class="beg-testimonial-date">2022.4</span></div>
-            </div>
-            <div class="beg-testimonial-body">とても良かったです。先生の授業がていねいで、分かりやすかったです。</div>
-          </div>
-          <div class="beg-testimonial">
-            <div class="beg-testimonial-meta">
-              <div class="beg-testimonial-avatar">S</div>
-              <div><span class="beg-testimonial-name">S様</span><span class="beg-testimonial-date">2016.5（6級合格）</span></div>
-            </div>
-            <div class="beg-testimonial-body">ついに6級に合格しました。高級の試験を4回受けて、やっと夢が叶いました。点数は前回よりも「語彙及び文法」が20点以上アップ、「書取り」も約10点ほどアップしました。これがまさに、ミリネでレッスンのたびに例文練習をたくさんやったおかげです。</div>
-          </div>
+          <div class="testimonials-container" data-page="special" data-block="testimonials_special_tab03" data-format="beg"></div>
         </div>
       </div>
 
@@ -1399,6 +1426,46 @@
         if (tabIds.indexOf(h) !== -1) switchTab(h);
       });
     })();
+  </script>
+  <script>
+  (function() {
+    var containers = document.querySelectorAll('.special-curriculum-wrap');
+    if (!containers.length) return;
+    fetch('/api/curriculum?page=special').then(function(r) { return r.json(); })
+      .then(function(blocks) {
+        if (!Array.isArray(blocks)) return;
+        containers.forEach(function(el) {
+          var blockKey = el.getAttribute('data-block');
+          var block = blocks.find(function(b) { return b.blockKey === blockKey; });
+          if (!block || !block.rows || !block.rows.length) {
+            el.innerHTML = '<p style="color:var(--muted);">（データ未登録）</p>';
+            return;
+          }
+          var html = '<table class="special-curriculum-table"><thead><tr>';
+          html += '<th>内容</th><th>読解</th><th>作文対策</th><th>聞取り</th></tr></thead><tbody>';
+          block.rows.forEach(function(row) {
+            html += '<tr>';
+            html += '<td>' + escapeHtml(row.week || '') + '</td>';
+            html += '<td>' + (row.dokkai || '').replace(/\n/g, '<br>') + '</td>';
+            html += '<td>' + (row.sakubun || '').replace(/\n/g, '<br>') + '</td>';
+            html += '<td>' + (row.kikitori || '').replace(/\n/g, '<br>') + '</td>';
+            html += '</tr>';
+          });
+          html += '</tbody></table>';
+          el.innerHTML = html;
+        });
+      })
+      .catch(function() {
+        containers.forEach(function(el) {
+          el.innerHTML = '<p style="color:var(--muted);">読み込みに失敗しました。</p>';
+        });
+      });
+    function escapeHtml(s) {
+      var div = document.createElement('div');
+      div.textContent = s;
+      return div.innerHTML;
+    }
+  })();
   </script>
   <script src="/testimonials.js"></script>
   <script src="/admin-badge.js"></script>

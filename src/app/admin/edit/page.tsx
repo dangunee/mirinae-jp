@@ -325,6 +325,32 @@ function EditContent() {
               </button>
             </div>
           )}
+          {page === "kaiwa" && (
+            <button
+              onClick={async () => {
+                setSeeding(true);
+                try {
+                  const r = await fetch("/api/seed/kaiwa-themes", { method: "POST" });
+                  const j = await r.json();
+                  if (r.ok) {
+                    const res = await fetch(`/api/curriculum?page=kaiwa`);
+                    const data = await res.json();
+                    setBlocks(Array.isArray(data) ? data : []);
+                    const first = (data || []).find((b: { blockKey: string }) =>
+                      KAIWA_THEME_KEYS.includes(b.blockKey)
+                    );
+                    if (first) setSelectedBlock(first);
+                  } else alert(j.error || "失敗");
+                } finally {
+                  setSeeding(false);
+                }
+              }}
+              disabled={seeding}
+              style={{ marginTop: 12, padding: "10px 20px", cursor: "pointer", borderRadius: 8, border: "1px solid #3d6b6b", background: "#fff", color: "#3d6b6b" }}
+            >
+              {seeding ? "登録中…" : "会話テーマ例を登録"}
+            </button>
+          )}
         </div>
       ) : page === "kojin" ? (
         <>

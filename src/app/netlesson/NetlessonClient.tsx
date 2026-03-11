@@ -97,24 +97,6 @@ export default function NetlessonClient({
           <h2 className="section-header">『{label}』</h2>
           <div className="iframe-card">
             <p className="form-note">{NOTES[i]}</p>
-            <a
-              href={urls[i]}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                display: "inline-block",
-                marginBottom: 16,
-                padding: "10px 20px",
-                background: "var(--taupe)",
-                color: "white",
-                borderRadius: 8,
-                textDecoration: "none",
-                fontWeight: 600,
-                fontSize: 14,
-              }}
-            >
-              ▶ 専用ページで申込・操作
-            </a>
             <div className="iframe-wrap">
               <iframe
                 className="iframe-frame"

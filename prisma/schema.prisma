@@ -26,6 +26,18 @@ model SiteTable {
   @@map("site_tables")
 }
 
+// 会話強化クラス：レベル別カリキュラム（初中級・中級1・中級2・上級）
+model KaiwaCurriculum {
+  id        String   @id @default(cuid())
+  levelKey  String   // shochukyu, chukyu1, chukyu2, jokyu
+  rowOrder  Int      // 行の並び順（1, 2, 3...）
+  theme     String   // テーマ例（例：初対面の挨拶、自己紹介）
+  updatedAt DateTime @updatedAt
+
+  @@unique([levelKey, rowOrder])
+  @@map("kaiwa_curriculum")
+}
+
 // メインページのYouTube動画（SEO用・管理画面で編集）
 model YouTubeVideo {
   id          String   @id @default(cuid())

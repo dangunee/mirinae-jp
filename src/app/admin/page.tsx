@@ -57,6 +57,20 @@ export default function AdminPage() {
         >
           生徒の声
         </a>
+        <a
+          href="/admin/kaiwa-curriculum"
+          style={{
+            display: "inline-block",
+            padding: "12px 20px",
+            background: "#2c2c2c",
+            color: "#fff",
+            borderRadius: 8,
+            textDecoration: "none",
+            fontWeight: 500,
+          }}
+        >
+          会話カリキュラム
+        </a>
       </p>
       <ul style={{ listStyle: "none", padding: 0 }}>
         {PAGES.map((p) => (

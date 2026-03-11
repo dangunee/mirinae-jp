@@ -7,7 +7,7 @@ const nextConfig = {
       { source: "/about", destination: "/about.html" },
       { source: "/kojin", destination: "/kojin.html" },
       { source: "/group", destination: "/group.html" },
-      { source: "/kaiwa", destination: "/kaiwa.html" },
+      // { source: "/kaiwa", destination: "/kaiwa.html" }, // Next.js app 使用
       { source: "/special", destination: "/special.html" },
       { source: "/syutyu", destination: "/syutyu.html" },
       { source: "/trial", destination: "/trial.html" },

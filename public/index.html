@@ -4,10 +4,54 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ミリネ韓国語教室 | 東京で韓国語教室をお探しならミリネ</title>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "itemListElement": [
+      {
+        "@type": "Course",
+        "name": "上級文法＆会話講座",
+        "description": "中上級者のための土曜・上級Ⅰ講座。時事・ビジネス韓国語",
+        "provider": { "@type": "Organization", "name": "ミリネ韓国語教室", "sameAs": "https://mirinae-jp.vercel.app" },
+        "hasCourseInstance": { "@type": "CourseInstance", "courseMode": "Onsite", "startDate": "2026-04-05", "location": { "@type": "Place", "name": "新宿キャンパス", "address": { "@type": "PostalAddress", "addressLocality": "東京都", "addressRegion": "新宿区" } } }
+      },
+      {
+        "@type": "Course",
+        "name": "土曜上級対面講座",
+        "description": "上級者のためのリスニング力＆スピーキング力アップ講座",
+        "provider": { "@type": "Organization", "name": "ミリネ韓国語教室", "sameAs": "https://mirinae-jp.vercel.app" },
+        "hasCourseInstance": { "@type": "CourseInstance", "courseMode": "Onsite", "startDate": "2026-02-04", "location": { "@type": "Place", "name": "新宿キャンパス" } }
+      },
+      {
+        "@type": "Course",
+        "name": "通信作文トレーニング",
+        "description": "3ヶ月で作文添削＋ネイティブ比較文＋模範文で、書く力を徹底強化",
+        "provider": { "@type": "Organization", "name": "ミリネ韓国語教室", "sameAs": "https://mirinae-jp.vercel.app" },
+        "hasCourseInstance": { "@type": "CourseInstance", "courseMode": "Online", "startDate": "2026-04-01" }
+      },
+      {
+        "@type": "Course",
+        "name": "通信音読トレーニング",
+        "description": "3ヶ月で上達。ご自宅で発音矯正＆音読レッスン",
+        "provider": { "@type": "Organization", "name": "ミリネ韓国語教室", "sameAs": "https://mirinae-jp.vercel.app" },
+        "hasCourseInstance": { "@type": "CourseInstance", "courseMode": "Online", "startDate": "2026-04-01" }
+      },
+      {
+        "@type": "Course",
+        "name": "短期集中個人レッスン",
+        "description": "マンツーマンで効率的に上達",
+        "provider": { "@type": "Organization", "name": "ミリネ韓国語教室", "sameAs": "https://mirinae-jp.vercel.app" },
+        "hasCourseInstance": { "@type": "CourseInstance", "courseMode": "Onsite", "startDate": "2026-04-01" }
+      }
+    ]
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lite-youtube-embed@0.3.4/src/lite-yt-embed.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.css">
   <style>
     :root {
       --gold: #B8963E;
@@ -1264,6 +1308,89 @@
     .youtube-empty a:hover { text-decoration: underline; }
     .youtube-seo-summary { margin-top: 8px; font-size: 13px; color: var(--gray-desc); line-height: 1.6; }
 
+    /* 講座スケジュール（ハイブリッド・タブ） */
+    .schedule-tabs {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+    .schedule-tab {
+      padding: 12px 24px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--gray-desc);
+      background: none;
+      border: none;
+      border-bottom: 3px solid transparent;
+      cursor: pointer;
+      font-family: inherit;
+      transition: color 0.2s, border-color 0.2s;
+      margin-bottom: -1px;
+    }
+    .schedule-tab:hover { color: var(--gold); }
+    .schedule-tab.active {
+      color: var(--gold);
+      border-bottom-color: var(--gold);
+    }
+    .schedule-panel {
+      display: none;
+    }
+    .schedule-panel.active {
+      display: block;
+    }
+    .schedule-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .schedule-list li a {
+      display: block;
+      padding: 16px 20px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      text-decoration: none;
+      color: var(--text);
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .schedule-list li a:hover {
+      border-color: var(--gold-light);
+      box-shadow: 0 4px 16px rgba(184,146,42,0.12);
+    }
+    .schedule-list time {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--gold);
+      margin-right: 12px;
+      min-width: 100px;
+    }
+    .schedule-list [itemprop="name"] {
+      font-weight: 700;
+      color: var(--dark);
+    }
+    .schedule-meta {
+      display: block;
+      font-size: 12px;
+      color: var(--gray-desc);
+      margin-top: 4px;
+      margin-left: 112px;
+    }
+    @media (max-width: 600px) {
+      .schedule-meta { margin-left: 0; }
+    }
+    #schedule-calendar {
+      min-height: 400px;
+      max-width: 100%;
+    }
+    .fc { font-family: 'Noto Sans JP', sans-serif; }
+    .fc .fc-toolbar-title { font-size: 1.1rem; }
+    .fc-event { cursor: pointer; }
+
     /* CTA banner */
     .cta-banner {
       background: linear-gradient(135deg, var(--dark) 0%, #2d2d44 100%);
@@ -2047,6 +2174,67 @@
 </div>
 </div>
 
+<!-- 講座スケジュール（강의 현황）※SEO: ハイブリッド構成・JSON-LD・セマンティックHTML -->
+<div style="background: var(--white); border-bottom: 1px solid var(--border);" id="schedule-section">
+<div class="section">
+  <div class="section-label">SCHEDULE</div>
+  <h2 class="section-title">講座スケジュール</h2>
+  <p class="section-sub">ミリネの講座開講・募集状況をカレンダーと一覧でご確認いただけます。</p>
+
+  <!-- タブ方式:  달력 보기 /  목록 보기 -->
+  <div class="schedule-tabs" role="tablist" aria-label="講座スケジュールの表示切り替え">
+    <button type="button" class="schedule-tab active" role="tab" aria-selected="true" aria-controls="schedule-calendar-panel" id="tab-calendar">カレンダー</button>
+    <button type="button" class="schedule-tab" role="tab" aria-selected="false" aria-controls="schedule-list-panel" id="tab-list">一覧</button>
+  </div>
+
+  <!-- Tab 1: カレンダー表示（FullCalendar） -->
+  <div id="schedule-calendar-panel" class="schedule-panel active" role="tabpanel" aria-labelledby="tab-calendar">
+    <div id="schedule-calendar" aria-label="講座スケジュールカレンダー"></div>
+  </div>
+
+  <!-- Tab 2: 一覧表示（検索ロボット向け・セマンティック） -->
+  <div id="schedule-list-panel" class="schedule-panel" role="tabpanel" aria-labelledby="tab-list" aria-hidden="false">
+    <ul class="schedule-list" itemscope itemtype="https://schema.org/ItemList">
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/Course">
+        <a href="group.html#tab05" itemprop="url">
+          <time datetime="2026-04-05" itemprop="startDate">4月5日（土）</time>
+          <span itemprop="name">上級文法＆会話講座</span>
+          <span class="schedule-meta">中上級者のための土曜・上級Ⅰ講座</span>
+        </a>
+      </li>
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/Course">
+        <a href="group.html#tab06" itemprop="url">
+          <time datetime="2026-02-04" itemprop="startDate">2月4日（土）</time>
+          <span itemprop="name">土曜上級対面講座</span>
+          <span class="schedule-meta">10時〜12時・リスニング＆スピーキング力アップ</span>
+        </a>
+      </li>
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/Course">
+        <a href="netlesson.html#tab01" itemprop="url">
+          <time datetime="2026-04-01" itemprop="startDate">4月1日</time>
+          <span itemprop="name">通信作文トレーニング</span>
+          <span class="schedule-meta">3ヶ月で作文添削＋ネイティブ比較文＋模範文</span>
+        </a>
+      </li>
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/Course">
+        <a href="netlesson.html#tab02" itemprop="url">
+          <time datetime="2026-04-01" itemprop="startDate">4月1日</time>
+          <span itemprop="name">通信音読トレーニング</span>
+          <span class="schedule-meta">3ヶ月で発音矯正＆音読レッスン</span>
+        </a>
+      </li>
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/Course">
+        <a href="kojin.html#tab02" itemprop="url">
+          <time datetime="2026-04-01" itemprop="startDate">4月〜</time>
+          <span itemprop="name">短期集中個人レッスン</span>
+          <span class="schedule-meta">マンツーマンで効率的に上達</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+</div>
+
 <!-- YouTube動画（JSONで管理・adminで登録・編集） -->
 <div style="background: var(--white); border-bottom: 1px solid var(--border);" id="youtube-section-wrap">
 <div class="section" id="youtube-section">
@@ -2153,6 +2341,8 @@
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/lite-youtube-embed@0.3.4/src/lite-yt-embed.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@fullcalendar/core@6.1.10/locales/ja.global.min.js"></script>
 <script>
   function toggleFaq(btn) {
     var item = btn.closest('.faq-item');
@@ -2277,6 +2467,61 @@
     });
     slider.addEventListener('scroll', updateDots);
     updateDots();
+  })();
+  (function() {
+    var tabCalendar = document.getElementById('tab-calendar');
+    var tabList = document.getElementById('tab-list');
+    var panelCalendar = document.getElementById('schedule-calendar-panel');
+    var panelList = document.getElementById('schedule-list-panel');
+    if (tabCalendar && tabList && panelCalendar && panelList) {
+      function showCalendar() {
+        tabCalendar.classList.add('active');
+        tabCalendar.setAttribute('aria-selected', 'true');
+        tabList.classList.remove('active');
+        tabList.setAttribute('aria-selected', 'false');
+        panelCalendar.classList.add('active');
+        panelList.classList.remove('active');
+        panelList.setAttribute('aria-hidden', 'true');
+      }
+      function showList() {
+        tabList.classList.add('active');
+        tabList.setAttribute('aria-selected', 'true');
+        tabCalendar.classList.remove('active');
+        tabCalendar.setAttribute('aria-selected', 'false');
+        panelList.classList.add('active');
+        panelCalendar.classList.remove('active');
+        panelCalendar.setAttribute('aria-hidden', 'true');
+      }
+      tabCalendar.addEventListener('click', showCalendar);
+      tabList.addEventListener('click', showList);
+    }
+  })();
+  (function() {
+    var calEl = document.getElementById('schedule-calendar');
+    if (!calEl || typeof FullCalendar === 'undefined') return;
+    var Calendar = FullCalendar.Calendar;
+    var calendar = new Calendar(calEl, {
+      locale: 'ja',
+      initialView: 'dayGridMonth',
+      headerToolbar: { left: 'prev,next today', center: 'title', right: '' },
+      events: [
+        { title: '上級文法＆会話講座', start: '2026-04-05', url: 'group.html#tab05', extendedProps: { aria: '4月5日 上級文法＆会話講座 開講' } },
+        { title: '土曜上級対面講座', start: '2026-02-04', url: 'group.html#tab06', extendedProps: { aria: '2月4日 土曜上級対面講座 開講' } },
+        { title: '通信作文トレーニング', start: '2026-04-01', url: 'netlesson.html#tab01', extendedProps: { aria: '4月1日 通信作文トレーニング 開始' } },
+        { title: '通信音読トレーニング', start: '2026-04-01', url: 'netlesson.html#tab02', extendedProps: { aria: '4月1日 通信音読トレーニング 開始' } }
+      ],
+      eventClick: function(info) {
+        if (info.event.url) {
+          info.jsEvent.preventDefault();
+          window.location.href = info.event.url;
+        }
+      },
+      eventDidMount: function(info) {
+        var aria = info.event.extendedProps.aria;
+        if (aria && info.el) info.el.setAttribute('aria-label', aria);
+      }
+    });
+    calendar.render();
   })();
   (function() {
     var wrap = document.getElementById('youtube-section-wrap');

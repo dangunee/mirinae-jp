@@ -731,7 +731,7 @@
       padding: 56px 48px 48px;
       margin: 0 -24px 0;
       overflow: hidden;
-      border-radius: 0;
+      border-radius: 16px;
     }
     #tab01 .kaiwa-hero::before {
       content: '';
@@ -806,6 +806,9 @@
       font-size: 12px;
       color: var(--gold-light);
     }
+    #tab01 .kaiwa-hero + .beg-sec-header {
+      margin-top: 48px;
+    }
     #tab01 .kaiwa-tabs-wrapper {
       background: var(--navy);
       border-top: 1px solid rgba(255,255,255,0.08);
@@ -826,9 +829,9 @@
       position: relative;
       padding: 18px 24px;
       font-family: 'Noto Serif JP', serif;
-      font-size: 14px;
+      font-size: 28px;
       font-weight: 400;
-      color: rgba(255,255,255,0.45);
+      color: rgba(255,255,255,0.9);
       background: none;
       border: none;
       cursor: pointer;
@@ -847,9 +850,9 @@
       border-radius: 2px;
       transition: transform 0.3s;
     }
-    #tab01 .kaiwa-tab-btn.active { color: var(--gold-light); }
+    #tab01 .kaiwa-tab-btn.active { color: #fff; }
     #tab01 .kaiwa-tab-btn.active::after { transform: translateX(-50%) scaleX(1); }
-    #tab01 .kaiwa-tab-btn:hover:not(.active) { color: rgba(255,255,255,0.75); }
+    #tab01 .kaiwa-tab-btn:hover:not(.active) { color: #fff; }
     #tab01 .kaiwa-tab-count {
       font-size: 10px;
       font-family: 'Bebas Neue', sans-serif;

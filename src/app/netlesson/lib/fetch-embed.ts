@@ -40,10 +40,10 @@ function extractContentAndStyles(
 
     // 2. style 태그 내용 추출 (제거 전에)
     const inlineStyles: string[] = [];
-    $("style").each((_, el) => {
+    for (const el of $("style").toArray()) {
       const content = $(el).html();
       if (content?.trim()) inlineStyles.push(content.trim());
-    });
+    }
 
     // 3. script, style, noscript, iframe 제거 (클래스명은 유지)
     $("script, style, noscript, iframe").remove();

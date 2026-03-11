@@ -609,7 +609,7 @@ function EditContent() {
         </>
       ) : (
         <>
-          <div style={{ display: "flex", gap: 12, marginBottom: 16, flexWrap: "wrap" }}>
+          <div style={{ display: "flex", gap: 12, marginBottom: 16, flexWrap: "wrap", alignItems: "center" }}>
             {blocks.map((b) => (
               <button
                 key={b.id}
@@ -625,6 +625,54 @@ function EditContent() {
                 {b.title || b.blockKey}
               </button>
             ))}
+            {page === "group" && (
+              <>
+                <span style={{ marginLeft: 8, color: "#999", fontSize: 12 }}>|</span>
+                <button
+                  onClick={async () => {
+                    setSeeding(true);
+                    try {
+                      const r = await fetch("/api/seed/group-chubu", { method: "POST" });
+                      const j = await r.json();
+                      if (r.ok) {
+                        const res = await fetch(`/api/curriculum?page=group`);
+                        const data = await res.json();
+                        setBlocks(Array.isArray(data) ? data : []);
+                        if (data[0]) setSelectedBlock(data[0]);
+                      } else alert(j.error || "失敗");
+                    } finally {
+                      setSeeding(false);
+                    }
+                  }}
+                  disabled={seeding}
+                  style={{ padding: "8px 14px", cursor: "pointer", borderRadius: 6, border: "1px solid #3d6b6b", background: "#fff", color: "#3d6b6b", fontSize: 13 }}
+                >
+                  {seeding ? "登録中…" : "中級を登録"}
+                </button>
+                <button
+                  onClick={async () => {
+                    setSeeding(true);
+                    try {
+                      const r = await fetch("/api/seed/group-jokyu", { method: "POST" });
+                      const j = await r.json();
+                      if (r.ok) {
+                        const res = await fetch(`/api/curriculum?page=group`);
+                        const data = await res.json();
+                        setBlocks(Array.isArray(data) ? data : []);
+                        const jokyu = (data || []).find((b: { blockKey: string }) => b.blockKey === "curriculum_jokyu");
+                        if (jokyu) setSelectedBlock(jokyu);
+                      } else alert(j.error || "失敗");
+                    } finally {
+                      setSeeding(false);
+                    }
+                  }}
+                  disabled={seeding}
+                  style={{ padding: "8px 14px", cursor: "pointer", borderRadius: 6, border: "1px solid #3d6b6b", background: "#fff", color: "#3d6b6b", fontSize: 13 }}
+                >
+                  {seeding ? "登録中…" : "上級を登録"}
+                </button>
+              </>
+            )}
           </div>
 
           {selectedBlock && (

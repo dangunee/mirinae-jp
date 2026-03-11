@@ -1,4 +1,3 @@
-import { fetchEmbedContent } from "./lib/fetch-embed";
 import NetlessonClient from "./NetlessonClient";
 import type { Metadata } from "next";
 
@@ -8,30 +7,13 @@ export const metadata: Metadata = {
     "メール作文・音読トレーニング・TOPIK作文トレーニング など、ご自宅から受講できるオンライン講座のご案内です。",
 };
 
-// ISR: 60초마다 재검증
-export const revalidate = 60;
+const EXTERNAL_URLS = {
+  writing: "https://writing.mirinae.jp/?embed=1",
+  ondoku: "https://ondoku.mirinae.jp/?embed=1",
+  topik: "https://writing.mirinae.jp/?tab=topik&embed=1",
+} as const;
 
-async function fetchAll() {
-  try {
-    const [writing, ondoku, topik] = await Promise.all([
-      fetchEmbedContent("writing"),
-      fetchEmbedContent("ondoku"),
-      fetchEmbedContent("topik"),
-    ]);
-    return { writing, ondoku, topik, error: null };
-  } catch (e) {
-    console.error("Netlesson fetch error:", e);
-    return {
-      writing: { html: "", url: "https://writing.mirinae.jp/?embed=1" },
-      ondoku: { html: "", url: "https://ondoku.mirinae.jp/?embed=1" },
-      topik: { html: "", url: "https://writing.mirinae.jp/?tab=topik&embed=1" },
-      error: String(e),
-    };
-  }
-}
-
-export default async function NetlessonPage() {
-  const { writing, ondoku, topik, error } = await fetchAll();
+export default function NetlessonPage() {
 
   return (
     <div className="netlesson-page">
@@ -113,19 +95,10 @@ export default async function NetlessonPage() {
                 </p>
               </div>
 
-              {error && (
-                <p style={{ color: "#c00", marginBottom: 16, fontSize: 14 }}>
-                  一部コンテンツの取得に失敗しました。専用ページでご確認ください。
-                </p>
-              )}
-
               <NetlessonClient
-                writingHtml={writing.html}
-                ondokuHtml={ondoku.html}
-                topikHtml={topik.html}
-                writingUrl={writing.url}
-                ondokuUrl={ondoku.url}
-                topikUrl={topik.url}
+                writingUrl={EXTERNAL_URLS.writing}
+                ondokuUrl={EXTERNAL_URLS.ondoku}
+                topikUrl={EXTERNAL_URLS.topik}
               />
             </div>
 

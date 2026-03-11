@@ -11,30 +11,31 @@ const TABS: { id: TabId; label: string }[] = [
 ];
 
 type Props = {
-  writingHtml: string;
-  ondokuHtml: string;
-  topikHtml: string;
   writingUrl: string;
   ondokuUrl: string;
   topikUrl: string;
 };
 
 export default function NetlessonClient({
-  writingHtml,
-  ondokuHtml,
-  topikHtml,
   writingUrl,
   ondokuUrl,
   topikUrl,
 }: Props) {
   const [activeTab, setActiveTab] = useState<TabId>("tab01");
+  const [loadedTabs, setLoadedTabs] = useState<Set<TabId>>(new Set(["tab01"]));
 
   useEffect(() => {
     const hash = (typeof window !== "undefined" ? window.location.hash : "").replace("#", "");
     if (["tab01", "tab02", "tab03"].includes(hash)) {
-      setActiveTab(hash as TabId);
+      const tab = hash as TabId;
+      setActiveTab(tab);
+      setLoadedTabs((prev) => new Set(prev).add(tab));
     }
   }, []);
+
+  useEffect(() => {
+    setLoadedTabs((prev) => new Set(prev).add(activeTab));
+  }, [activeTab]);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -50,10 +51,16 @@ export default function NetlessonClient({
     return () => window.removeEventListener("hashchange", onHashChange);
   }, []);
 
-  const contents = [
-    { html: writingHtml, url: writingUrl, note: "作文トレーニング" },
-    { html: ondokuHtml, url: ondokuUrl, note: "音読トレーニング" },
-    { html: topikHtml, url: topikUrl, note: "TOPIK Training" },
+  const urls = [writingUrl, ondokuUrl, topikUrl];
+  const notes = [
+    "毎週のテーマ作文＋ネイティブ添削＋比較文＋模範文で、表現力をぐっと伸ばすオンライン講座です。下のフレーム内から、そのまま専用ページを操作できます。",
+    "発音矯正と音読トレーニングをオンラインで行う講座です。下のフレーム内に、従来の通信音読トレーニングページをそのまま表示しています。",
+    "TOPIK 作文・読解など、試験対策用の通信講座ページを下のフレーム内に表示しています。作文学習サイトの TOPIK タブをそのままご利用いただけます。",
+  ];
+  const iframeNotes = [
+    "※ 通信環境により読み込みに少し時間がかかる場合があります。表示されないときは数秒お待ちいただくか、ページを再読み込みしてください。",
+    "※ 別タブで開きたい場合は、フレーム内のリンクをクリックしてください。",
+    "※ 表示中の内容は、作文トレーニングサイトの TOPIK タブです。",
   ];
 
   return (
@@ -81,47 +88,34 @@ export default function NetlessonClient({
         >
           <h2 className="section-header">『{label}』</h2>
           <div className="iframe-card">
-            <p className="form-note">
-              {id === "tab01" &&
-                "毎週のテーマ作文＋ネイティブ添削＋比較文＋模範文で、表現力をぐっと伸ばすオンライン講座です。下のコンテンツはISRで取得した最新情報です。"}
-              {id === "tab02" &&
-                "発音矯正と音読トレーニングをオンラインで行う講座です。下のコンテンツはISRで取得した最新情報です。"}
-              {id === "tab03" &&
-                "TOPIK 作文・読解など、試験対策用の通信講座です。下のコンテンツはISRで取得した最新情報です。"}
-            </p>
-            <a
-              href={contents[i].url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="embed-open-link"
+            <p className="form-note">{notes[i]}</p>
+            <div
+              className="iframe-wrap"
               style={{
-                display: "inline-block",
-                marginBottom: 16,
-                padding: "10px 20px",
-                background: "var(--taupe)",
-                color: "white",
                 borderRadius: 8,
-                textDecoration: "none",
-                fontWeight: 600,
-                fontSize: 14,
+                overflow: "hidden",
+                border: "1px solid var(--gray-border)",
+                background: "#f5f5f5",
+                marginBottom: 12,
               }}
             >
-              ▶ 専用ページで申込・操作
-            </a>
-            <div
-              className="embed-content"
-              dangerouslySetInnerHTML={{ __html: contents[i].html }}
-              style={{
-                maxHeight: 1200,
-                overflowY: "auto",
-                padding: 16,
-                background: "#fff",
-                borderRadius: 8,
-                border: "1px solid var(--gray-border)",
-              }}
-            />
-            <p className="iframe-note" style={{ marginTop: 12, fontSize: 12, color: "var(--text-muted)" }}>
-              ※ 上記はサーバーサイドで取得したコンテンツです（ISR: 60秒ごとに更新）。申込・フォーム操作は専用ページをご利用ください。
+              <iframe
+                className="iframe-frame"
+                title={`ミリネ韓国語 ${label}`}
+                loading="lazy"
+                src={loadedTabs.has(id) ? urls[i] : undefined}
+                data-src={urls[i]}
+                style={{
+                  display: "block",
+                  width: "100%",
+                  height: 1400,
+                  border: 0,
+                  background: "white",
+                }}
+              />
+            </div>
+            <p className="iframe-note" style={{ fontSize: 12, color: "var(--text-muted)" }}>
+              {iframeNotes[i]}
             </p>
           </div>
         </div>

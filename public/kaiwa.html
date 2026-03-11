@@ -6,7 +6,7 @@
   <title>会話強化クラス｜ミリネ韓国語教室</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
   <style>
     :root {
       --beige: #f5f0e8;
@@ -23,6 +23,9 @@
       --text-muted: #8a7f72;
       --mid: #4a4438;
       --muted: #8a7f72;
+      --navy: #0f1f3d;
+      --navy-mid: #1e3a6e;
+      --border: rgba(201,146,42,0.2);
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -721,6 +724,302 @@
       font-weight: 600;
       flex-shrink: 0;
     }
+    /* ── tab01 会話クラス 新デザイン (navy) ── */
+    #tab01 .kaiwa-hero {
+      position: relative;
+      background: var(--navy);
+      padding: 56px 48px 48px;
+      margin: 0 -24px 0;
+      overflow: hidden;
+      border-radius: 0;
+    }
+    #tab01 .kaiwa-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(201,146,42,0.15) 0%, transparent 70%);
+    }
+    #tab01 .kaiwa-hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(201,146,42,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(201,146,42,0.06) 1px, transparent 1px);
+      background-size: 48px 48px;
+    }
+    #tab01 .kaiwa-hero-inner { position: relative; z-index: 1; }
+    #tab01 .kaiwa-hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(201,146,42,0.15);
+      border: 1px solid rgba(201,146,42,0.35);
+      border-radius: 100px;
+      padding: 6px 16px;
+      font-size: 12px;
+      color: var(--gold-light);
+      letter-spacing: 0.08em;
+      margin-bottom: 16px;
+    }
+    #tab01 .kaiwa-hero-badge::before { content: '✦'; font-size: 10px; }
+    #tab01 .kaiwa-hero-eyebrow {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.35em;
+      color: var(--gold);
+      margin-bottom: 16px;
+      opacity: 0.85;
+    }
+    #tab01 .kaiwa-hero-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(36px, 5vw, 52px);
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+    #tab01 .kaiwa-hero-title em { font-style: italic; color: var(--gold-light); }
+    #tab01 .kaiwa-hero-sub {
+      font-size: 15px;
+      color: rgba(255,255,255,0.55);
+      font-weight: 300;
+      letter-spacing: 0.05em;
+      margin-bottom: 16px;
+    }
+    #tab01 .kaiwa-hero-desc {
+      font-size: 14px;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.8;
+      max-width: 560px;
+    }
+    #tab01 .kaiwa-hero-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+    }
+    #tab01 .kaiwa-hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 6px 14px;
+      background: rgba(201,146,42,0.15);
+      border: 1px solid rgba(201,146,42,0.35);
+      border-radius: 100px;
+      font-size: 12px;
+      color: var(--gold-light);
+    }
+    #tab01 .kaiwa-tabs-wrapper {
+      background: var(--navy);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      margin: 0 -24px;
+      padding: 0 24px;
+      position: sticky;
+      top: 56px;
+      z-index: 50;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+    }
+    #tab01 .kaiwa-tabs {
+      display: flex;
+      gap: 0;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    #tab01 .kaiwa-tab-btn {
+      position: relative;
+      padding: 18px 24px;
+      font-family: 'Noto Serif JP', serif;
+      font-size: 14px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.45);
+      background: none;
+      border: none;
+      cursor: pointer;
+      letter-spacing: 0.05em;
+      transition: color 0.3s;
+    }
+    #tab01 .kaiwa-tab-btn::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%) scaleX(0);
+      width: 80%;
+      height: 2px;
+      background: var(--gold);
+      border-radius: 2px;
+      transition: transform 0.3s;
+    }
+    #tab01 .kaiwa-tab-btn.active { color: var(--gold-light); }
+    #tab01 .kaiwa-tab-btn.active::after { transform: translateX(-50%) scaleX(1); }
+    #tab01 .kaiwa-tab-btn:hover:not(.active) { color: rgba(255,255,255,0.75); }
+    #tab01 .kaiwa-tab-count {
+      font-size: 10px;
+      font-family: 'Bebas Neue', sans-serif;
+      letter-spacing: 0.05em;
+      background: rgba(201,146,42,0.2);
+      color: var(--gold);
+      border-radius: 100px;
+      padding: 2px 8px;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+    #tab01 .kaiwa-level-panel { display: none; animation: kaiwaFadeUp 0.4s ease both; }
+    #tab01 .kaiwa-level-panel.active { display: block; }
+    @keyframes kaiwaFadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    #tab01 .kaiwa-level-header {
+      display: flex;
+      align-items: flex-end;
+      gap: 20px;
+      margin-bottom: 28px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+    #tab01 .kaiwa-level-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 72px;
+      line-height: 1;
+      color: var(--gold);
+      opacity: 0.18;
+      letter-spacing: -2px;
+    }
+    #tab01 .kaiwa-level-info { flex: 1; }
+    #tab01 .kaiwa-level-label {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.4em;
+      color: var(--gold);
+      margin-bottom: 4px;
+    }
+    #tab01 .kaiwa-level-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 24px;
+      color: var(--navy);
+    }
+    #tab01 .kaiwa-level-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-top: 4px;
+      max-width: 520px;
+    }
+    #tab01 .kaiwa-topic-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+    }
+    @media (max-width: 900px) {
+      #tab01 .kaiwa-topic-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 600px) {
+      #tab01 .kaiwa-topic-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    #tab01 .kaiwa-topic-card {
+      position: relative;
+      background: var(--white);
+      border: 1px solid rgba(0,0,0,0.06);
+      border-radius: 12px;
+      padding: 18px 16px 16px;
+      transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+      overflow: hidden;
+    }
+    #tab01 .kaiwa-topic-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+      border-radius: 12px 12px 0 0;
+    }
+    #tab01 .kaiwa-topic-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(15,31,61,0.12);
+      border-color: rgba(201,146,42,0.3);
+    }
+    #tab01 .kaiwa-topic-card:hover::before { transform: scaleX(1); }
+    #tab01 .kaiwa-topic-card.featured {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+      border-color: rgba(201,146,42,0.25);
+    }
+    #tab01 .kaiwa-topic-card.featured .kaiwa-card-num { color: var(--gold-light); opacity: 0.7; }
+    #tab01 .kaiwa-topic-card.featured .kaiwa-card-text { color: rgba(255,255,255,0.9); }
+    #tab01 .kaiwa-card-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      color: var(--gold);
+      margin-bottom: 8px;
+      display: block;
+    }
+    #tab01 .kaiwa-card-text {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 13.5px;
+      line-height: 1.65;
+      color: var(--dark);
+      font-weight: 400;
+    }
+    #tab01 .kaiwa-cta-strip {
+      margin-top: 48px;
+      margin-bottom: 32px;
+      background: linear-gradient(135deg, var(--navy) 0%, #1a3060 100%);
+      border-radius: 16px;
+      padding: 40px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    #tab01 .kaiwa-cta-strip::before {
+      content: '話そう';
+      position: absolute;
+      right: 120px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: 'DM Serif Display', serif;
+      font-size: 100px;
+      color: rgba(255,255,255,0.03);
+      white-space: nowrap;
+      pointer-events: none;
+    }
+    #tab01 .kaiwa-cta-text h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 22px;
+      color: white;
+      margin-bottom: 6px;
+    }
+    #tab01 .kaiwa-cta-text p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.7;
+    }
+    #tab01 .kaiwa-cta-btn {
+      flex-shrink: 0;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: var(--navy);
+      font-family: 'Noto Serif JP', serif;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 14px 32px;
+      border-radius: 100px;
+      border: none;
+      cursor: pointer;
+      letter-spacing: 0.05em;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      white-space: nowrap;
+    }
+    #tab01 .kaiwa-cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(201,146,42,0.4);
+    }
     .beg-tuition-table-wrap {
       border-radius: 10px;
       overflow: hidden;
@@ -871,17 +1170,19 @@
       <!-- ========== タブ1: 会話クラス ========== -->
       <div id="tab01" class="tab-panel active">
         <div class="beg-page">
-          <div class="beg-hero">
-            <div class="beg-hero-eyebrow">Conversation — Training</div>
-            <div class="beg-hero-title">『会話<em>トレーニング</em>』</div>
-            <div class="beg-hero-desc">
-              <p>独学または授業で習った表現を、実際の会話トレーニングで使いこなすクラスです。</p>
-              <p>ミリネ独自のテキストを利用し、毎回違うテーマについて指定された文型で作文・添削・会話を繰り返すことで、文型と語彙を定着させます。</p>
-            </div>
-            <div class="beg-hero-tags">
-              <div class="beg-hero-tag">👥 <span>1～5人</span></div>
-              <div class="beg-hero-tag">⏱ <span>1コマ 50分</span></div>
-              <div class="beg-hero-tag">📅 <span>水 11:00／土 14:00</span></div>
+          <div class="kaiwa-hero">
+            <div class="kaiwa-hero-grid"></div>
+            <div class="kaiwa-hero-inner">
+              <div class="kaiwa-hero-badge">会話トレーニング</div>
+              <div class="kaiwa-hero-eyebrow">MIRINAE KOREAN · CONVERSATION TRAINING</div>
+              <h2 class="kaiwa-hero-title">『会話<em>トレーニング</em>』</h2>
+              <p class="kaiwa-hero-sub">独学または授業で習った表現を、実際の会話トレーニングで使いこなすクラスです。</p>
+              <p class="kaiwa-hero-desc">ミリネ独自のテキストを利用し、毎回違うテーマについて指定された文型で作文・添削・会話を繰り返すことで、文型と語彙を定着させます。</p>
+              <div class="kaiwa-hero-tags">
+                <div class="kaiwa-hero-tag">👥 1～5人</div>
+                <div class="kaiwa-hero-tag">⏱ 1コマ 50分</div>
+                <div class="kaiwa-hero-tag">📅 水 11:00／土 14:00</div>
+              </div>
             </div>
           </div>
 
@@ -930,18 +1231,68 @@
             <div class="beg-sec-title">主なテーマ例</div>
             <div class="beg-sec-line"></div>
           </div>
-          <div class="kaiwa-theme-section">
-            <div class="kaiwa-theme-tabs">
-              <button type="button" class="kaiwa-theme-tab active" data-theme="shuchukyu">初中級</button>
-              <button type="button" class="kaiwa-theme-tab" data-theme="chukyu1">中級1</button>
-              <button type="button" class="kaiwa-theme-tab" data-theme="chukyu2">中級2</button>
-              <button type="button" class="kaiwa-theme-tab" data-theme="jokyu">上級</button>
-            </div>
-            <div class="kaiwa-theme-content" id="kaiwa-theme-content">
-              <div class="kaiwa-theme-grid" id="kaiwa-theme-grid">読み込み中…</div>
+          <div class="kaiwa-tabs-wrapper">
+            <div class="kaiwa-tabs">
+              <button type="button" class="kaiwa-tab-btn active" data-theme="shuchukyu">初中級<span class="kaiwa-tab-count">50</span></button>
+              <button type="button" class="kaiwa-tab-btn" data-theme="chukyu1">中級1<span class="kaiwa-tab-count">50</span></button>
+              <button type="button" class="kaiwa-tab-btn" data-theme="chukyu2">中級2<span class="kaiwa-tab-count">50</span></button>
+              <button type="button" class="kaiwa-tab-btn" data-theme="jokyu">上級<span class="kaiwa-tab-count">50</span></button>
             </div>
           </div>
-          <p class="section-note" style="margin-bottom:24px;">各レベル50テーマを扱います。</p>
+          <div class="kaiwa-theme-content" id="kaiwa-theme-content">
+            <div class="kaiwa-level-panel active" id="panel-shuchukyu">
+              <div class="kaiwa-level-header">
+                <div class="kaiwa-level-num">01</div>
+                <div class="kaiwa-level-info">
+                  <div class="kaiwa-level-label">ELEMENTARY · INTERMEDIATE</div>
+                  <div class="kaiwa-level-title">初中級 テーマ一覧</div>
+                  <div class="kaiwa-level-desc">日常会話の基礎から、自分の意見を伝える練習まで。身近なテーマで会話力を着実に伸ばしましょう。</div>
+                </div>
+              </div>
+              <div class="kaiwa-topic-grid" id="grid-shuchukyu">読み込み中…</div>
+            </div>
+            <div class="kaiwa-level-panel" id="panel-chukyu1">
+              <div class="kaiwa-level-header">
+                <div class="kaiwa-level-num">02</div>
+                <div class="kaiwa-level-info">
+                  <div class="kaiwa-level-label">INTERMEDIATE LEVEL 1</div>
+                  <div class="kaiwa-level-title">中級1 テーマ一覧</div>
+                  <div class="kaiwa-level-desc">社会的・個人的なテーマを通じて、より深い表現力と語彙力を身につけます。</div>
+                </div>
+              </div>
+              <div class="kaiwa-topic-grid" id="grid-chukyu1"></div>
+            </div>
+            <div class="kaiwa-level-panel" id="panel-chukyu2">
+              <div class="kaiwa-level-header">
+                <div class="kaiwa-level-num">03</div>
+                <div class="kaiwa-level-info">
+                  <div class="kaiwa-level-label">INTERMEDIATE LEVEL 2</div>
+                  <div class="kaiwa-level-title">中級2 テーマ一覧</div>
+                  <div class="kaiwa-level-desc">現代社会の課題や多様な価値観について、韓国語で論じる力を養います。</div>
+                </div>
+              </div>
+              <div class="kaiwa-topic-grid" id="grid-chukyu2"></div>
+            </div>
+            <div class="kaiwa-level-panel" id="panel-jokyu">
+              <div class="kaiwa-level-header">
+                <div class="kaiwa-level-num">04</div>
+                <div class="kaiwa-level-info">
+                  <div class="kaiwa-level-label">ADVANCED</div>
+                  <div class="kaiwa-level-title">上級 テーマ一覧</div>
+                  <div class="kaiwa-level-desc">政治・哲学・国際問題など高度なテーマで、ネイティブレベルの議論力を磨きます。</div>
+                </div>
+              </div>
+              <div class="kaiwa-topic-grid" id="grid-jokyu"></div>
+            </div>
+          </div>
+
+          <div class="kaiwa-cta-strip">
+            <div class="kaiwa-cta-text">
+              <h3>気になるテーマは見つかりましたか？</h3>
+              <p>ミリネ韓国語教室では、これらのテーマを使った<br>個人レッスン・グループレッスンをご用意しています。</p>
+            </div>
+            <a href="https://mirinae.jp/trial.html" class="kaiwa-cta-btn">お申し込みはこちら →</a>
+          </div>
 
           <div class="beg-sec-header">
             <div class="beg-sec-label">Tuition</div>
@@ -961,11 +1312,6 @@
             </table>
           </div>
           <p class="section-note" style="margin-bottom:24px;">※回数券の場合、予約は1週間前まで。キャンセル不可。一人からスタート可能です。</p>
-
-          <a href="https://mirinae.jp/trial.html" class="beg-cta-btn" style="text-decoration:none;">
-            お申込みはこちら
-            <svg viewBox="0 0 16 16" style="width:16px;height:16px;"><line x1="2" y1="8" x2="13" y2="8" stroke="currentColor" stroke-width="2.5" fill="none"/><polyline points="9,4 13,8 9,12" stroke="currentColor" stroke-width="2.5" fill="none"/></svg>
-          </a>
 
           <div class="beg-sec-header">
             <div class="beg-sec-label">Testimonial</div>
@@ -1010,6 +1356,18 @@
               <div class="beg-hero-tag">📅 <span>日 11:00〜12:00</span></div>
               <div class="beg-hero-tag">💻 <span>オンライン</span></div>
             </div>
+          </div>
+
+          <div class="beg-intro-block" style="margin-bottom:32px;padding:24px;background:var(--white);border:1px solid var(--gray-border);border-radius:10px;font-size:15px;color:var(--mid);line-height:1.9;">
+            <p style="margin-bottom:16px;"><strong>A:</strong> 田中さんは韓国語をどれぐらい勉強しましたか。<br><strong>B:</strong> 6年ぐらい勉強しましたが、未だに中級で伸び悩んでいます。</p>
+            <p style="margin-bottom:16px;"><strong>A:</strong> 学習の中で何が一番のお悩みですか。<br><strong>B:</strong> 初級時は意欲もあり、単語もよく覚えられましたが、中級へ上がったら、語彙や表現があまりにもたくさん出てきて、全て覚えることが難しく、伸び悩んでおります。</p>
+            <p style="margin-bottom:16px;"><strong>A:</strong> 勉強時間はどのぐらいになりますか。<br><strong>B:</strong> 毎日ではないですが、二日に一回は勉強しています。</p>
+            <p style="margin-bottom:12px;">田中さんは真面目な方で、勉強する時間も他の方より多いのに関わらず、初中級から抜け出せないケースでした。二日に一回勉強する時間を作るのというのは、平均よりもはるかに勉強する時間が多いのに、果たして何が問題なのでしょうか。</p>
+            <p style="margin-bottom:12px;">彼女の勉強方法を聞いてみると、カフェで2時間ほど座って黙読し、訳をノートに書きながら単語を覚えていくという方法でした。また帰り道や電車に乗っているとき、韓国語CDを聞いてもいました。<br>ここで皆さんはどんな問題点を発見しましたか。</p>
+            <p style="margin-bottom:12px;">よく語学をスポーツに喩えます。スポーツは他の分野とは違って努力によって結果がついてきます。もちろん、才能とセンスがある人もいますが、それに加えて反復的なトレーニングをしなければよい成果をあげることはできません。反復的な学習を通じて体に馴染ませていくのが何より重要だと言えます。しかし、反復学習にもかかわらず、伸びない理由は何でしょうか。</p>
+            <p style="margin-bottom:12px;">多くの学習者たちの共通の悩みは、単語や表現がよく覚えられないこと、そして覚えても忘れてしまい、会話まで繋いでいけないことです。黙読は、半分しかできてない勉強法です。全部知っていると考えて、全部覚えたと思っても、1日、2日経ち、1週間、1ヵ月後には結局、記憶に残るのは10%も達しないと言います。</p>
+            <p style="margin-bottom:12px;">たとえ一生懸命勉強していても、音読の習慣が全くない状態では頭の中に残るのは努力と比例しない結果となります。音読の重要性を認識していても、音読練習は、正確な発音で学習しなければ、むしろ間違った発音に慣れてしまうという逆効果が生じる恐れもあります。</p>
+            <p style="margin-bottom:0;"><strong>専門講師に発音チェックを受けた上で、音読の習慣をつければ、綺麗な韓国語を習得できるだけでなく、難なくレベルアップすることができます。</strong></p>
           </div>
 
           <div class="beg-sec-header">
@@ -1559,10 +1917,17 @@
         chukyu2: 'curriculum_kaiwa_chukyu2',
         jokyu: 'curriculum_kaiwa_jokyu'
       };
+      var gridIds = { shuchukyu: 'grid-shuchukyu', chukyu1: 'grid-chukyu1', chukyu2: 'grid-chukyu2', jokyu: 'grid-jokyu' };
       var kaiwaThemeData = {};
 
-      function renderKaiwaTheme(themeId) {
-        var gridEl = document.getElementById('kaiwa-theme-grid');
+      function escapeHtml(s) {
+        var div = document.createElement('div');
+        div.textContent = s;
+        return div.innerHTML;
+      }
+
+      function buildKaiwaGrid(themeId) {
+        var gridEl = document.getElementById(gridIds[themeId]);
         if (!gridEl) return;
         var block = kaiwaThemeData[themeBlockMap[themeId]];
         if (block && block.rows && block.rows.length) {
@@ -1570,7 +1935,12 @@
           block.rows.forEach(function(row, i) {
             var text = row.theme || row.themes || '';
             if (text) {
-              html += '<div class="kaiwa-theme-item"><span class="kaiwa-theme-num">' + (i + 1) + '</span><span>' + escapeHtml(text) + '</span></div>';
+              var num = i + 1;
+              var isFeatured = (num % 10 === 0);
+              html += '<div class="kaiwa-topic-card' + (isFeatured ? ' featured' : '') + '">';
+              html += '<span class="kaiwa-card-num">' + String(num).padStart(2, '0') + '</span>';
+              html += '<div class="kaiwa-card-text">' + escapeHtml(text) + '</div>';
+              html += '</div>';
             }
           });
           gridEl.innerHTML = html || '（テーマなし）';
@@ -1578,20 +1948,21 @@
           gridEl.innerHTML = '（データ未登録）';
         }
       }
-      function escapeHtml(s) {
-        var div = document.createElement('div');
-        div.textContent = s;
-        return div.innerHTML;
+
+      function buildAllKaiwaGrids() {
+        ['shuchukyu', 'chukyu1', 'chukyu2', 'jokyu'].forEach(buildKaiwaGrid);
       }
 
       function switchKaiwaTheme(themeId) {
-        document.querySelectorAll('.kaiwa-theme-tab').forEach(function(btn) {
+        document.querySelectorAll('.kaiwa-tab-btn').forEach(function(btn) {
           btn.classList.toggle('active', btn.getAttribute('data-theme') === themeId);
         });
-        renderKaiwaTheme(themeId);
+        document.querySelectorAll('.kaiwa-level-panel').forEach(function(panel) {
+          panel.classList.toggle('active', panel.id === 'panel-' + themeId);
+        });
       }
 
-      document.querySelectorAll('.kaiwa-theme-tab').forEach(function(btn) {
+      document.querySelectorAll('.kaiwa-tab-btn').forEach(function(btn) {
         btn.addEventListener('click', function() {
           switchKaiwaTheme(btn.getAttribute('data-theme'));
         });
@@ -1604,11 +1975,23 @@
               kaiwaThemeData[b.blockKey] = b;
             });
           }
+          buildAllKaiwaGrids();
+          ['shuchukyu', 'chukyu1', 'chukyu2', 'jokyu'].forEach(function(id) {
+            var block = kaiwaThemeData[themeBlockMap[id]];
+            var count = block && block.rows ? block.rows.length : 0;
+            var tab = document.querySelector('.kaiwa-tab-btn[data-theme="' + id + '"]');
+            if (tab) {
+              var span = tab.querySelector('.kaiwa-tab-count');
+              if (span) span.textContent = count;
+            }
+          });
           switchKaiwaTheme('shuchukyu');
         })
         .catch(function() {
-          var el = document.getElementById('kaiwa-theme-grid');
-          if (el) el.textContent = '読み込みに失敗しました。';
+          ['shuchukyu', 'chukyu1', 'chukyu2', 'jokyu'].forEach(function(id) {
+            var el = document.getElementById(gridIds[id]);
+            if (el) el.textContent = '読み込みに失敗しました。';
+          });
         });
     })();
   </script>

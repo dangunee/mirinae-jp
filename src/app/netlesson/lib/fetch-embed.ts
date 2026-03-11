@@ -43,7 +43,7 @@ function extractMainContent(html: string, baseUrl: string): string {
     const base = new URL(baseUrl);
     main = main.replace(
       /(href|src)=["'](?!https?:|\/\/|#|mailto:)([^"']*)["']/gi,
-      (_, attr, path) => `${attr}="${new URL(path, base.origin).href}"`
+      (_match: string, attr: string, path: string) => `${attr}="${new URL(path, base.origin).href}"`
     );
 
     return main || "<p>コンテンツを読み込めませんでした。</p>";

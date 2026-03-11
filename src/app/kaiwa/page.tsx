@@ -46,14 +46,19 @@ export default function KaiwaPage() {
         .kaiwa-page .section-note { font-size:13px; color:var(--text-muted); margin-top:16px; }
         .kaiwa-page .more-link { display:inline-block; margin-top:24px; color:var(--taupe); font-weight:600; text-decoration:none; font-size:14px; }
         .kaiwa-page .more-link:hover { text-decoration:underline; }
+        .kaiwa-page .kaiwa-course-tabs { display:flex; gap:8px; margin-bottom:20px; }
+        .kaiwa-page .kaiwa-course-tab { padding:10px 20px; font-size:14px; border:1px solid var(--border); background:var(--white); color:var(--mid); border-radius:8px; cursor:pointer; font-family:inherit; transition:all .2s; }
+        .kaiwa-page .kaiwa-course-tab:hover { border-color:var(--gold); color:var(--gold); }
+        .kaiwa-page .kaiwa-course-tab.active { background:var(--dark); color:var(--gold-light); border-color:var(--dark); }
+        .kaiwa-page .curriculum-item.milestone { background:#faf8f4; border-left:3px solid var(--taupe); }
         @media (max-width:900px) { .kaiwa-page .hero { padding:40px 16px 32px; } .kaiwa-page .hero::after { display:none; } .kaiwa-page .tabs-bar { padding:0 12px; overflow-x:auto; -webkit-overflow-scrolling:touch; justify-content:space-between; flex-wrap:nowrap; } .kaiwa-page .tab-btn { flex:1 1 0; min-width:0; padding:12px 2px; font-size:11px; text-align:center; } }
         @media (max-width:560px) { .kaiwa-page .hero { padding:32px 12px 24px; } .kaiwa-page .tabs-bar { padding:0 8px; } .kaiwa-page .tab-btn { padding:10px 1px; font-size:10px; } .kaiwa-page .curriculum-item { padding:12px 16px; } }
       `}</style>
 
       <div className="hero">
-        <p className="hero-eyebrow">Theme Examples</p>
-        <h1>主なテーマ例</h1>
-        <p>会話トレーニングで扱うテーマをレベル別にご覧いただけます。</p>
+        <p className="hero-eyebrow">Conversation Enhancement</p>
+        <h1>会話強化クラス</h1>
+        <p>初級・中級・上級、12コマ・24コマ・48コマで会話トレーニングのカリキュラムをご覧いただけます。</p>
       </div>
 
       <KaiwaCurriculumClient />

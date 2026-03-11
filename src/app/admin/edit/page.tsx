@@ -48,10 +48,10 @@ function EditContent() {
   const [showThemes, setShowThemes] = useState(false);
   const [checkedRows, setCheckedRows] = useState<Set<number>>(new Set());
 
-  // 初級→中級→上級の順
+  // 初級→中級→上級の順（個人・会話共通）
   const KOJIN_BLOCK_ORDER = ["curriculum_shokyu", "curriculum_chukyu", "curriculum_jokyu"];
   const curriculumBlocks =
-    page === "kojin"
+    page === "kojin" || page === "kaiwa"
       ? blocks.filter((b) => CURRICULUM_WITH_THEME_KEYS.includes(b.blockKey))
       : blocks;
 
@@ -59,19 +59,19 @@ function EditContent() {
     const load = async () => {
       const [blocksRes, themesRes] = await Promise.all([
         fetch(`/api/curriculum?page=${page}`),
-        page === "kojin" ? fetch("/api/curriculum/themes") : null,
+        page === "kojin" || page === "kaiwa" ? fetch("/api/curriculum/themes") : null,
       ]);
       const blocksData = await blocksRes.json();
       const list = Array.isArray(blocksData) ? blocksData : [];
       const sorted =
-        page === "kojin"
+        page === "kojin" || page === "kaiwa"
           ? [...list].sort(
               (a: CurriculumBlock, b: CurriculumBlock) =>
                 KOJIN_BLOCK_ORDER.indexOf(a.blockKey) - KOJIN_BLOCK_ORDER.indexOf(b.blockKey)
             )
           : list;
       setBlocks(sorted);
-      if (page === "kojin") {
+      if (page === "kojin" || page === "kaiwa") {
         const curriculum = sorted.filter((b: CurriculumBlock) =>
           CURRICULUM_WITH_THEME_KEYS.includes(b.blockKey)
         );
@@ -617,7 +617,7 @@ function EditContent() {
       ) : (
         <>
           <div style={{ display: "flex", gap: 12, marginBottom: 16, flexWrap: "wrap", alignItems: "center" }}>
-            {blocks.map((b) => (
+            {(page === "kaiwa" ? curriculumBlocks : blocks).map((b) => (
               <button
                 key={b.id}
                 onClick={() => setSelectedBlock(b)}
@@ -632,6 +632,33 @@ function EditContent() {
                 {b.title || b.blockKey}
               </button>
             ))}
+            {page === "kaiwa" && (
+              <>
+                <span style={{ marginLeft: 8, color: "#999", fontSize: 12 }}>|</span>
+                <button
+                  onClick={async () => {
+                    setSeeding(true);
+                    try {
+                      const r = await fetch("/api/seed/kaiwa-curriculum", { method: "POST" });
+                      const j = await r.json();
+                      if (r.ok) {
+                        const res = await fetch(`/api/curriculum?page=kaiwa`);
+                        const data = await res.json();
+                        setBlocks(Array.isArray(data) ? data : []);
+                        const shokyu = (data || []).find((b: { blockKey: string }) => b.blockKey === "curriculum_shokyu");
+                        if (shokyu) setSelectedBlock(shokyu);
+                      } else alert(j.error || "失敗");
+                    } finally {
+                      setSeeding(false);
+                    }
+                  }}
+                  disabled={seeding}
+                  style={{ padding: "8px 14px", cursor: "pointer", borderRadius: 6, border: "1px solid #3d6b6b", background: "#fff", color: "#3d6b6b", fontSize: 13 }}
+                >
+                  {seeding ? "登録中…" : "会話カリキュラムを登録"}
+                </button>
+              </>
+            )}
             {page === "group" && (
               <>
                 <span style={{ marginLeft: 8, color: "#999", fontSize: 12 }}>|</span>

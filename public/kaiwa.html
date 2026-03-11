@@ -818,6 +818,7 @@
       top: 56px;
       z-index: 50;
       box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+      border-radius: 12px;
     }
     #tab01 .kaiwa-tabs {
       display: flex;
@@ -852,7 +853,8 @@
     }
     #tab01 .kaiwa-tab-btn.active { color: #fff; }
     #tab01 .kaiwa-tab-btn.active::after { transform: translateX(-50%) scaleX(1); }
-    #tab01 .kaiwa-tab-btn:hover:not(.active) { color: #fff; }
+    #tab01 .kaiwa-tab-btn:hover { color: var(--gold-light); }
+    #tab01 .kaiwa-tabs-wrapper:hover .kaiwa-tab-btn:not(:hover) { color: rgba(255,255,255,0.35); }
     #tab01 .kaiwa-tab-count {
       font-size: 10px;
       font-family: 'Bebas Neue', sans-serif;
@@ -1302,7 +1304,6 @@
             <div class="beg-sec-title">入学金・授業料</div>
             <div class="beg-sec-line"></div>
           </div>
-          <p style="margin-bottom:12px;color:var(--mid);">入学金：9,800円</p>
           <div class="beg-tuition-table-wrap">
             <table class="beg-tuition-table">
               <thead>
@@ -1418,7 +1419,6 @@
             <div class="beg-sec-title">入学金・授業料</div>
             <div class="beg-sec-line"></div>
           </div>
-          <p style="margin-bottom:12px;color:var(--mid);">入学金：9,800円</p>
           <div class="beg-tuition-table-wrap">
             <table class="beg-tuition-table">
               <thead>

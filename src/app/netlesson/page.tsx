@@ -1,4 +1,5 @@
 import NetlessonClient from "./NetlessonClient";
+import NetlessonSidebar from "./NetlessonSidebar";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -46,19 +47,28 @@ export default function NetlessonPage() {
         .netlesson-page .iframe-note { margin-top:12px; font-size:12px; color:var(--text-muted); }
         .netlesson-page .group-main-grid { display:grid; grid-template-columns:1fr 300px; gap:32px; align-items:start; }
         .netlesson-page .group-left { min-width:0; }
-        .netlesson-page .sidebar { position:sticky; top:80px; padding-top:200px; }
+        .netlesson-page .sidebar { position:sticky; top:80px; padding-top:32px; }
+        .netlesson-page .sidebar-promo-card { margin-bottom:20px; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,.08); display:block; text-decoration:none; background:var(--dark); aspect-ratio:1; background-size:cover; background-position:center; }
+        .netlesson-page .sidebar-promo-card:hover { opacity:0.95; }
         .netlesson-page .courses-nav-box { background:var(--white); border:1px solid var(--gray-border); border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,.06); }
         .netlesson-page .courses-nav-header { background:var(--dark); padding:20px 18px; color:var(--white); }
         .netlesson-page .courses-nav-label { font-size:10px; letter-spacing:.2em; color:var(--gold-light); margin-bottom:4px; }
         .netlesson-page .courses-nav-title { font-family:'Noto Serif JP',serif; font-size:18px; font-weight:600; }
-        .netlesson-page .nav-group-title { display:flex; align-items:center; justify-content:space-between; padding:10px 14px; color:var(--mid); font-size:12px; font-weight:500; cursor:pointer; }
+        .netlesson-page .courses-nav { padding:4px 0; }
+        .netlesson-page .nav-group-title { display:flex; align-items:center; justify-content:space-between; padding:10px 14px; color:var(--mid); font-size:12px; font-weight:500; cursor:pointer; transition:background .2s, color .2s; }
         .netlesson-page .nav-group-title:hover { background:var(--gold-pale); color:var(--gold); }
         .netlesson-page .nav-group.open .nav-group-title { color:var(--gold); }
-        .netlesson-page .nav-chevron { width:16px; height:16px; border-radius:50%; border:1px solid var(--gray-border); font-size:7px; }
-        .netlesson-page .nav-items { display:grid; grid-template-rows:0fr; transition:grid-template-rows .28s; overflow:hidden; }
+        .netlesson-page .nav-chevron { width:16px; height:16px; border-radius:50%; border:1px solid var(--gray-border); display:flex; align-items:center; justify-content:center; font-size:7px; color:var(--text-muted); transition:transform .25s ease; flex-shrink:0; }
+        .netlesson-page .nav-group.open .nav-chevron { transform:rotate(180deg); border-color:var(--gold); background:var(--gold-pale); color:var(--gold); }
+        .netlesson-page .nav-items { display:grid; grid-template-rows:0fr; transition:grid-template-rows .28s ease; overflow:hidden; }
         .netlesson-page .nav-group.open .nav-items { grid-template-rows:1fr; }
-        .netlesson-page .nav-item { padding:8px 14px 8px 18px; font-size:12px; color:var(--mid); text-decoration:none; display:block; }
-        .netlesson-page .nav-item:hover, .netlesson-page .nav-item.active { color:var(--gold); font-weight:500; }
+        .netlesson-page .nav-items-inner { overflow:hidden; background:var(--gold-pale); border-top:1px solid rgba(184,146,62,0.2); }
+        .netlesson-page .nav-item { display:flex; align-items:center; gap:8px; padding:8px 14px 8px 18px; font-size:12px; color:var(--mid); text-decoration:none; transition:color .15s, background .15s; border-left:2px solid transparent; }
+        .netlesson-page .nav-item::before { content:''; width:4px; height:4px; border-radius:50%; background:var(--gray-border); flex-shrink:0; transition:background .15s, transform .15s; }
+        .netlesson-page .nav-item:hover::before { background:var(--gold); transform:scale(1.4); }
+        .netlesson-page .nav-item.active::before { background:var(--gold); transform:scale(1.5); }
+        .netlesson-page .nav-item:hover { color:var(--gold); background:rgba(255,255,255,0.6); border-left-color:var(--gold); }
+        .netlesson-page .nav-item.active { color:var(--gold); background:rgba(255,255,255,0.6); border-left-color:var(--gold); font-weight:500; }
         .netlesson-page .nav-divider { height:1px; background:var(--gray-border); margin:0; }
         .netlesson-page footer { background:#2c2c2c; color:white; padding:48px 24px 24px; }
         .netlesson-page .footer-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:32px; max-width:1200px; margin:0 auto 40px; }
@@ -92,7 +102,7 @@ export default function NetlessonPage() {
               <div className="page-header">
                 <h1 className="page-title">通信講座</h1>
                 <p className="page-subtitle">
-                  メール作文・音読トレーニング・TOPIK Training
+                  メール作文・音読トレーニング・TOPIKトレーニング
                   など、ご自宅から受講できるオンライン講座のご案内です。
                 </p>
               </div>
@@ -104,58 +114,7 @@ export default function NetlessonPage() {
               />
             </div>
 
-            <aside className="sidebar">
-              <div className="course-nav-card courses-nav-box">
-                <div className="courses-nav-header">
-                  <div className="courses-nav-label">Courses</div>
-                  <div className="courses-nav-title">講座</div>
-                </div>
-                <div className="courses-nav">
-                  <div className="nav-group">
-                    <div className="nav-group-title" role="button" tabIndex={0}>
-                      個人レッスン<span className="nav-chevron">▾</span>
-                    </div>
-                    <div className="nav-items">
-                      <div style={{ overflow: "hidden", background: "var(--gold-pale)", padding: "8px 0" }}>
-                        <a href="/kojin#tab01" className="nav-item">個人レッスン</a>
-                        <a href="/kojin#tab02" className="nav-item">短期集中個人</a>
-                        <a href="/kojin#tab03" className="nav-item">発音矯正</a>
-                        <a href="/kojin#tab04" className="nav-item">レベルテスト</a>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="nav-divider" />
-                  <div className="nav-group">
-                    <div className="nav-group-title" role="button" tabIndex={0}>
-                      グループレッスン<span className="nav-chevron">▾</span>
-                    </div>
-                    <div className="nav-items">
-                      <div style={{ overflow: "hidden", background: "var(--gold-pale)", padding: "8px 0" }}>
-                        <a href="/group#tab01" className="nav-item">入門＆初級講座</a>
-                        <a href="/group#tab02" className="nav-item">中級文法講座</a>
-                        <a href="/group#tab03" className="nav-item">上級文法講座</a>
-                        <a href="/group#tab04" className="nav-item">中級月1講座</a>
-                        <a href="/group#tab05" className="nav-item">上級1土曜講座</a>
-                        <a href="/group#tab06" className="nav-item">上級2土曜講座</a>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="nav-divider" />
-                  <div className="nav-group open">
-                    <div className="nav-group-title" role="button" tabIndex={0}>
-                      通信講座<span className="nav-chevron">▾</span>
-                    </div>
-                    <div className="nav-items" style={{ gridTemplateRows: "1fr" }}>
-                      <div style={{ overflow: "hidden", background: "var(--gold-pale)", padding: "8px 0" }}>
-                        <a href="/netlesson#tab01" className="nav-item active">作文トレーニング</a>
-                        <a href="/netlesson#tab02" className="nav-item">音読トレーニング</a>
-                        <a href="/netlesson#tab03" className="nav-item">TOPIK Training</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </aside>
+            <NetlessonSidebar />
           </div>
         </main>
 

@@ -7,7 +7,7 @@ type TabId = "tab01" | "tab02" | "tab03";
 const TABS: { id: TabId; label: string }[] = [
   { id: "tab01", label: "作文トレーニング" },
   { id: "tab02", label: "音読トレーニング" },
-  { id: "tab03", label: "TOPIK Training" },
+  { id: "tab03", label: "TOPIKトレーニング" },
 ];
 
 type Props = {
@@ -60,7 +60,7 @@ export default function NetlessonClient({
   const titles = [
     "ミリネ韓国語 作文トレーニング",
     "ミリネ韓国語 通信音読トレーニング",
-    "ミリネ韓国語 TOPIK作文トレーニング",
+    "ミリネ韓国語 TOPIKトレーニング",
   ];
 
   return (

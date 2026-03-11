@@ -1,4 +1,3 @@
-import { fetchEmbedContent } from "./lib/fetch-embed";
 import NetlessonClient from "./NetlessonClient";
 import type { Metadata } from "next";
 
@@ -8,48 +7,19 @@ export const metadata: Metadata = {
     "メール作文・音読トレーニング・TOPIK作文トレーニング など、ご自宅から受講できるオンライン講座のご案内です。",
 };
 
-export const revalidate = 60;
+const IFRAME_URLS = {
+  writing: "https://writing.mirinae.jp/?embed=1",
+  ondoku: "https://ondoku.mirinae.jp/?embed=1",
+  topik: "https://writing.mirinae.jp/?tab=topik&embed=1",
+} as const;
 
-async function fetchAll() {
-  try {
-    const [writing, ondoku, topik] = await Promise.all([
-      fetchEmbedContent("writing"),
-      fetchEmbedContent("ondoku"),
-      fetchEmbedContent("topik"),
-    ]);
-    const allStyles = [...new Set([...writing.stylesheets, ...ondoku.stylesheets, ...topik.stylesheets])];
-    const allInlineStyles = [writing.inlineStyles, ondoku.inlineStyles, topik.inlineStyles]
-      .filter(Boolean)
-      .join("\n");
-    return { writing, ondoku, topik, stylesheets: allStyles, inlineStyles: allInlineStyles, error: null };
-  } catch (e) {
-    console.error("Netlesson fetch error:", e);
-    return {
-      writing: { html: "", url: "https://writing.mirinae.jp/?embed=1", stylesheets: [], inlineStyles: "" },
-      ondoku: { html: "", url: "https://ondoku.mirinae.jp/?embed=1", stylesheets: [], inlineStyles: "" },
-      topik: { html: "", url: "https://writing.mirinae.jp/?tab=topik&embed=1", stylesheets: [], inlineStyles: "" },
-      stylesheets: [] as string[],
-      inlineStyles: "",
-      error: String(e),
-    };
-  }
-}
-
-export default async function NetlessonPage() {
-  const { writing, ondoku, topik, stylesheets, inlineStyles, error } = await fetchAll();
-
+export default function NetlessonPage() {
   return (
     <div className="netlesson-page">
       <link
         rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap"
       />
-      {stylesheets.map((href) => (
-        <link key={href} rel="stylesheet" href={href} />
-      ))}
-      {inlineStyles ? (
-        <style dangerouslySetInnerHTML={{ __html: inlineStyles }} />
-      ) : null}
       <style>{`
         .netlesson-page { --beige:#f5f0e8; --taupe:#BD9962; --gold:#B8963E; --gold-light:#e8d5b0; --gold-pale:#f7f0e3; --dark:#1C1C1E; --white:#FFF; --gray-border:#E5E0D8; --text-dark:#2c2c2c; --text-muted:#8E8E93; --mid:#4a4438; }
         .netlesson-page * { margin:0; padding:0; box-sizing:border-box; }
@@ -71,6 +41,9 @@ export default async function NetlessonPage() {
         .netlesson-page .section-header { background:var(--taupe); color:white; padding:16px 24px; font-size:18px; font-weight:600; border-radius:8px 8px 0 0; margin-bottom:0; }
         .netlesson-page .iframe-card { border-radius:0 0 8px 8px; border:1px solid var(--gray-border); border-top:none; background:var(--white); box-shadow:0 8px 24px rgba(0,0,0,.06); padding:18px 20px 24px; }
         .netlesson-page .form-note { font-size:13px; color:var(--text-muted); margin-bottom:16px; }
+        .netlesson-page .iframe-wrap { width:100%; min-height:1200px; }
+        .netlesson-page .iframe-frame { width:100%; min-height:1200px; height:90vh; border:none; }
+        .netlesson-page .iframe-note { margin-top:12px; font-size:12px; color:var(--text-muted); }
         .netlesson-page .group-main-grid { display:grid; grid-template-columns:1fr 300px; gap:32px; align-items:start; }
         .netlesson-page .group-left { min-width:0; }
         .netlesson-page .sidebar { position:sticky; top:80px; padding-top:200px; }
@@ -124,18 +97,10 @@ export default async function NetlessonPage() {
                 </p>
               </div>
 
-              {error && (
-                <p style={{ color: "#c00", marginBottom: 16, fontSize: 14 }}>
-                  一部コンテンツの取得に失敗しました。専用ページでご確認ください。
-                </p>
-              )}
               <NetlessonClient
-                writingHtml={writing.html}
-                ondokuHtml={ondoku.html}
-                topikHtml={topik.html}
-                writingUrl={writing.url}
-                ondokuUrl={ondoku.url}
-                topikUrl={topik.url}
+                writingUrl={IFRAME_URLS.writing}
+                ondokuUrl={IFRAME_URLS.ondoku}
+                topikUrl={IFRAME_URLS.topik}
               />
             </div>
 

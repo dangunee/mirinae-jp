@@ -11,18 +11,24 @@ const TABS: { id: TabId; label: string }[] = [
 ];
 
 type Props = {
-  writingHtml: string;
-  ondokuHtml: string;
-  topikHtml: string;
   writingUrl: string;
   ondokuUrl: string;
   topikUrl: string;
 };
 
+const NOTES = [
+  "毎週のテーマ作文＋ネイティブ添削＋比較文＋模範文で、表現力をぐっと伸ばすオンライン講座です。下のフレーム内から、そのまま専用ページを操作できます。",
+  "発音矯正と音読トレーニングをオンラインで行う講座です。下のフレーム内に、従来の通信音読トレーニングページをそのまま表示しています。",
+  "TOPIK 作文・読解など、試験対策用の通信講座です。作文学習サイトの TOPIK タブをそのままご利用いただけます。",
+];
+
+const IFRAME_NOTES = [
+  "※ 通信環境により読み込みに少し時間がかかる場合があります。表示されないときは数秒お待ちいただくか、ページを再読み込みしてください。",
+  "※ 別タブで開きたい場合は、フレーム内のリンクをクリックしてください。",
+  "※ 表示中の内容は、作文トレーニングサイトの TOPIK タブです。",
+];
+
 export default function NetlessonClient({
-  writingHtml,
-  ondokuHtml,
-  topikHtml,
   writingUrl,
   ondokuUrl,
   topikUrl,
@@ -50,16 +56,11 @@ export default function NetlessonClient({
     return () => window.removeEventListener("hashchange", onHashChange);
   }, []);
 
-  const contents = [
-    { html: writingHtml, url: writingUrl },
-    { html: ondokuHtml, url: ondokuUrl },
-    { html: topikHtml, url: topikUrl },
-  ];
-
-  const notes = [
-    "毎週のテーマ作文＋ネイティブ添削＋比較文＋模範文で、表現力をぐっと伸ばすオンライン講座です。下のコンテンツはISRで取得し、外部CSSでデザインを適用しています。",
-    "発音矯正と音読トレーニングをオンラインで行う講座です。下のコンテンツはISRで取得し、外部CSSでデザインを適用しています。",
-    "TOPIK 作文・読解など、試験対策用の通信講座です。下のコンテンツはISRで取得し、外部CSSでデザインを適用しています。",
+  const urls = [writingUrl, ondokuUrl, topikUrl];
+  const titles = [
+    "ミリネ韓国語 作文トレーニング",
+    "ミリネ韓国語 通信音読トレーニング",
+    "ミリネ韓国語 TOPIK作文トレーニング",
   ];
 
   return (
@@ -87,9 +88,9 @@ export default function NetlessonClient({
         >
           <h2 className="section-header">『{label}』</h2>
           <div className="iframe-card">
-            <p className="form-note">{notes[i]}</p>
+            <p className="form-note">{NOTES[i]}</p>
             <a
-              href={contents[i].url}
+              href={urls[i]}
               target="_blank"
               rel="noopener noreferrer"
               style={{
@@ -106,21 +107,15 @@ export default function NetlessonClient({
             >
               ▶ 専用ページで申込・操作
             </a>
-            <div
-              className="embed-content"
-              dangerouslySetInnerHTML={{ __html: contents[i].html }}
-              style={{
-                maxHeight: 1200,
-                overflowY: "auto",
-                padding: 16,
-                background: "#fff",
-                borderRadius: 8,
-                border: "1px solid var(--gray-border)",
-              }}
-            />
-            <p className="iframe-note" style={{ marginTop: 12, fontSize: 12, color: "var(--text-muted)" }}>
-              ※ 上記はサーバーサイドで取得したコンテンツです（ISR: 60秒ごとに更新）。申込・フォーム操作は専用ページをご利用ください。
-            </p>
+            <div className="iframe-wrap">
+              <iframe
+                className="iframe-frame"
+                title={titles[i]}
+                src={activeTab === id ? urls[i] : undefined}
+                loading="lazy"
+              />
+            </div>
+            <p className="iframe-note">{IFRAME_NOTES[i]}</p>
           </div>
         </div>
       ))}

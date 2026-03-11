@@ -681,6 +681,15 @@
       line-height: 1.5;
     }
     .beg-info-card-value small { display: block; font-size: 13px; font-weight: 400; color: var(--muted); margin-top: 2px; }
+    .kaiwa-theme-section { margin-bottom: 32px; }
+    .kaiwa-theme-tabs { display: flex; gap: 0; border-bottom: 1px solid var(--gray-border); margin-bottom: 16px; }
+    .kaiwa-theme-tab {
+      padding: 12px 20px; font-size: 13px; color: var(--text-muted); cursor: pointer; border: none;
+      border-bottom: 2px solid transparent; background: none; transition: all .2s; letter-spacing: .05em;
+      font-family: inherit;
+    }
+    .kaiwa-theme-tab.active { color: var(--gold); border-bottom-color: var(--gold); font-weight: 500; }
+    .kaiwa-theme-tab:hover:not(.active) { color: var(--mid); }
     .beg-tuition-table-wrap {
       border-radius: 10px;
       overflow: hidden;
@@ -890,18 +899,20 @@
             <div class="beg-sec-title">主なテーマ例</div>
             <div class="beg-sec-line"></div>
           </div>
-          <div class="beg-info-cards">
-            <div class="beg-info-card">
-              <div class="beg-info-card-label">初中級</div>
-              <div class="beg-info-card-value">初対面の挨拶・自己紹介／余暇・趣味／旅行／家族／ニュース など</div>
+          <div class="kaiwa-theme-section">
+            <div class="kaiwa-theme-tabs">
+              <button type="button" class="kaiwa-theme-tab active" data-theme="shuchukyu">初中級</button>
+              <button type="button" class="kaiwa-theme-tab" data-theme="chukyu1">中級1</button>
+              <button type="button" class="kaiwa-theme-tab" data-theme="chukyu2">中級2</button>
+              <button type="button" class="kaiwa-theme-tab" data-theme="jokyu">上級</button>
             </div>
-            <div class="beg-info-card">
-              <div class="beg-info-card-label">中級</div>
-              <div class="beg-info-card-value">韓国語の勉強／私について／結婚式・結婚文化／気分転換／映画・スマートフォン など</div>
-            </div>
-            <div class="beg-info-card">
-              <div class="beg-info-card-label">上級</div>
-              <div class="beg-info-card-value">職場の人間関係／育児・教育／お金・老後設計／韓国社会のニュース・時事問題 など</div>
+            <div class="kaiwa-theme-content" id="kaiwa-theme-content">
+              <div class="beg-info-cards">
+                <div class="beg-info-card">
+                  <div class="beg-info-card-label" id="kaiwa-theme-label">初中級</div>
+                  <div class="beg-info-card-value" id="kaiwa-theme-value">読み込み中…</div>
+                </div>
+              </div>
             </div>
           </div>
           <p class="section-note" style="margin-bottom:24px;">※実際のカリキュラムでは約50テーマ以上を扱います。</p>
@@ -1515,6 +1526,55 @@
         var h = location.hash.slice(1);
         if (tabIds.indexOf(h) !== -1) switchTab(h);
       });
+
+      var themeBlockMap = {
+        shuchukyu: 'curriculum_kaiwa_shuchukyu',
+        chukyu1: 'curriculum_kaiwa_chukyu1',
+        chukyu2: 'curriculum_kaiwa_chukyu2',
+        jokyu: 'curriculum_kaiwa_jokyu'
+      };
+      var themeLabels = { shuchukyu: '初中級', chukyu1: '中級1', chukyu2: '中級2', jokyu: '上級' };
+      var kaiwaThemeData = {};
+
+      function renderKaiwaTheme(themeId) {
+        var labelEl = document.getElementById('kaiwa-theme-label');
+        var valueEl = document.getElementById('kaiwa-theme-value');
+        if (!labelEl || !valueEl) return;
+        var block = kaiwaThemeData[themeBlockMap[themeId]];
+        if (block && block.rows && block.rows[0]) {
+          labelEl.textContent = block.title || themeLabels[themeId];
+          valueEl.textContent = block.rows[0].themes || '（テーマなし）';
+        } else {
+          labelEl.textContent = themeLabels[themeId];
+          valueEl.textContent = '（データ未登録）';
+        }
+      }
+
+      function switchKaiwaTheme(themeId) {
+        document.querySelectorAll('.kaiwa-theme-tab').forEach(function(btn) {
+          btn.classList.toggle('active', btn.getAttribute('data-theme') === themeId);
+        });
+        renderKaiwaTheme(themeId);
+      }
+
+      document.querySelectorAll('.kaiwa-theme-tab').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          switchKaiwaTheme(btn.getAttribute('data-theme'));
+        });
+      });
+
+      fetch('/api/curriculum?page=kaiwa').then(function(r) { return r.json(); })
+        .then(function(blocks) {
+          if (Array.isArray(blocks)) {
+            blocks.forEach(function(b) {
+              kaiwaThemeData[b.blockKey] = b;
+            });
+          }
+          switchKaiwaTheme('shuchukyu');
+        })
+        .catch(function() {
+          document.getElementById('kaiwa-theme-value').textContent = '読み込みに失敗しました。';
+        });
     })();
   </script>
   <script src="/testimonials.js"></script>

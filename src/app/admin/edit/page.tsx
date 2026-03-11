@@ -7,6 +7,7 @@ import type {
   CurriculumRow,
   CurriculumTheme,
   GroupCurriculumRow,
+  KaiwaThemeRow,
 } from "@/app/api/curriculum/route";
 
 const PAGE_LABELS: Record<string, string> = {
@@ -24,6 +25,14 @@ const CURRICULUM_WITH_THEME_KEYS = ["curriculum_shokyu", "curriculum_chukyu", "c
 
 /** グループ文法カリキュラム（回数・時限・項目・概要・日程形式） */
 const GROUP_CURRICULUM_KEYS = ["curriculum_chubu", "curriculum_jokyu"];
+
+/** 会話クラス主なテーマ例（初中級・中級1・中級2・上級） */
+const KAIWA_THEME_KEYS = [
+  "curriculum_kaiwa_shuchukyu",
+  "curriculum_kaiwa_chukyu1",
+  "curriculum_kaiwa_chukyu2",
+  "curriculum_kaiwa_jokyu",
+];
 
 type MainTab = "kojin" | "tanki" | "hatsuon" | "leveltest";
 const MAIN_TABS: { id: MainTab; label: string }[] = [
@@ -48,10 +57,11 @@ function EditContent() {
   const [showThemes, setShowThemes] = useState(false);
   const [checkedRows, setCheckedRows] = useState<Set<number>>(new Set());
 
-  // 初級→中級→上級の順（個人・会話共通）
+  // 初級→中級→上級の順
   const KOJIN_BLOCK_ORDER = ["curriculum_shokyu", "curriculum_chukyu", "curriculum_jokyu"];
+  const KAIWA_BLOCK_ORDER = KAIWA_THEME_KEYS;
   const curriculumBlocks =
-    page === "kojin" || page === "kaiwa"
+    page === "kojin"
       ? blocks.filter((b) => CURRICULUM_WITH_THEME_KEYS.includes(b.blockKey))
       : blocks;
 
@@ -59,23 +69,34 @@ function EditContent() {
     const load = async () => {
       const [blocksRes, themesRes] = await Promise.all([
         fetch(`/api/curriculum?page=${page}`),
-        page === "kojin" || page === "kaiwa" ? fetch("/api/curriculum/themes") : null,
+        page === "kojin" ? fetch("/api/curriculum/themes") : null,
       ]);
       const blocksData = await blocksRes.json();
       const list = Array.isArray(blocksData) ? blocksData : [];
       const sorted =
-        page === "kojin" || page === "kaiwa"
+        page === "kojin"
           ? [...list].sort(
               (a: CurriculumBlock, b: CurriculumBlock) =>
                 KOJIN_BLOCK_ORDER.indexOf(a.blockKey) - KOJIN_BLOCK_ORDER.indexOf(b.blockKey)
             )
-          : list;
+          : page === "kaiwa"
+            ? [...list].sort(
+                (a: CurriculumBlock, b: CurriculumBlock) =>
+                  KAIWA_BLOCK_ORDER.indexOf(a.blockKey) - KAIWA_BLOCK_ORDER.indexOf(b.blockKey)
+              )
+            : list;
       setBlocks(sorted);
-      if (page === "kojin" || page === "kaiwa") {
+      if (page === "kojin") {
         const curriculum = sorted.filter((b: CurriculumBlock) =>
           CURRICULUM_WITH_THEME_KEYS.includes(b.blockKey)
         );
         if (curriculum[0]) setSelectedBlock(curriculum[0]);
+      } else if (page === "kaiwa") {
+        const kaiwaBlocks = sorted.filter((b: CurriculumBlock) =>
+          KAIWA_THEME_KEYS.includes(b.blockKey)
+        );
+        if (kaiwaBlocks[0]) setSelectedBlock(kaiwaBlocks[0]);
+        else if (sorted[0]) setSelectedBlock(sorted[0]);
       } else if (sorted[0]) setSelectedBlock(sorted[0]);
       if (themesRes?.ok) {
         const t = await themesRes.json();
@@ -122,17 +143,20 @@ function EditContent() {
   const addRow = () => {
     if (!selectedBlock) return;
     const isGroupCurriculum = GROUP_CURRICULUM_KEYS.includes(selectedBlock.blockKey);
-    const newRow = isGroupCurriculum
+    const isKaiwaTheme = KAIWA_THEME_KEYS.includes(selectedBlock.blockKey);
+    const newRow: CurriculumRow | GroupCurriculumRow | KaiwaThemeRow = isGroupCurriculum
       ? { kaisu: "", jigen: "", koumoku: "", shosai: "", nittei: "" }
-      : {
-          koma: "",
-          c12: "",
-          c24: "",
-          c48: "",
-          theme12: "",
-          theme24: "",
-          theme48: "",
-        };
+      : isKaiwaTheme
+        ? { themes: "" }
+        : {
+            koma: "",
+            c12: "",
+            c24: "",
+            c48: "",
+            theme12: "",
+            theme24: "",
+            theme48: "",
+          };
     setBlocks((prev) =>
       prev.map((b) => {
         if (b.id !== selectedBlock.id) return b;
@@ -617,7 +641,7 @@ function EditContent() {
       ) : (
         <>
           <div style={{ display: "flex", gap: 12, marginBottom: 16, flexWrap: "wrap", alignItems: "center" }}>
-            {(page === "kaiwa" ? curriculumBlocks : blocks).map((b) => (
+            {blocks.map((b) => (
               <button
                 key={b.id}
                 onClick={() => setSelectedBlock(b)}
@@ -639,14 +663,16 @@ function EditContent() {
                   onClick={async () => {
                     setSeeding(true);
                     try {
-                      const r = await fetch("/api/seed/kaiwa-curriculum", { method: "POST" });
+                      const r = await fetch("/api/seed/kaiwa-themes", { method: "POST" });
                       const j = await r.json();
                       if (r.ok) {
                         const res = await fetch(`/api/curriculum?page=kaiwa`);
                         const data = await res.json();
                         setBlocks(Array.isArray(data) ? data : []);
-                        const shokyu = (data || []).find((b: { blockKey: string }) => b.blockKey === "curriculum_shokyu");
-                        if (shokyu) setSelectedBlock(shokyu);
+                        const first = (data || []).find((b: { blockKey: string }) =>
+                          KAIWA_THEME_KEYS.includes(b.blockKey)
+                        );
+                        if (first) setSelectedBlock(first);
                       } else alert(j.error || "失敗");
                     } finally {
                       setSeeding(false);
@@ -655,7 +681,7 @@ function EditContent() {
                   disabled={seeding}
                   style={{ padding: "8px 14px", cursor: "pointer", borderRadius: 6, border: "1px solid #3d6b6b", background: "#fff", color: "#3d6b6b", fontSize: 13 }}
                 >
-                  {seeding ? "登録中…" : "会話カリキュラムを登録"}
+                  {seeding ? "登録中…" : "会話テーマ例を登録"}
                 </button>
               </>
             )}
@@ -712,7 +738,42 @@ function EditContent() {
           {selectedBlock && (
             <>
               <div style={{ overflowX: "auto", marginBottom: 16, minWidth: 0 }}>
-                {page === "group" ? (
+                {page === "kaiwa" && KAIWA_THEME_KEYS.includes(selectedBlock.blockKey) ? (
+                  <table style={{ width: "100%", borderCollapse: "collapse", background: "#fff", border: "1px solid #d0d0d0", tableLayout: "fixed" }}>
+                    <colgroup>
+                      <col style={{ width: "36px" }} />
+                      <col />
+                    </colgroup>
+                    <thead>
+                      <tr style={{ background: "#3d6b6b", color: "#fff" }}>
+                        <th style={thStyle}></th>
+                        <th style={thStyle}>テーマ例</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {selectedBlock.rows.map((row, i) => (
+                        <tr key={i}>
+                          <td style={tdCheckStyle}>
+                            <input
+                              type="checkbox"
+                              checked={checkedRows.has(i)}
+                              onChange={() => toggleCheckRow(i)}
+                              style={{ width: 18, height: 18, cursor: "pointer" }}
+                            />
+                          </td>
+                          <td style={{ padding: 8, borderBottom: "1px solid #e0e0e0" }}>
+                            <textarea
+                              value={(row as KaiwaThemeRow).themes ?? ""}
+                              onChange={(e) => updateRow(selectedBlock.id, i, "themes", e.target.value)}
+                              rows={3}
+                              style={{ width: "100%", padding: 8, fontSize: 14 }}
+                            />
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                ) : page === "group" ? (
                   <table style={{ width: "100%", minWidth: 800, borderCollapse: "collapse", background: "#fff", border: "1px solid #d0d0d0", tableLayout: "fixed" }}>
                     <colgroup>
                       <col style={{ width: "36px" }} />

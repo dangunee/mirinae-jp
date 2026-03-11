@@ -13,7 +13,7 @@ export type CurriculumBlock = {
   pageSlug: string;
   blockKey: string;
   title: string | null;
-  rows: CurriculumRow[];
+  rows: (CurriculumRow | GroupCurriculumRow)[];
 };
 
 export type CurriculumRow = {
@@ -29,6 +29,15 @@ export type CurriculumRow = {
   cellComplete?: number[];
 };
 
+/** グループ文法カリキュラム行（回数・時限・項目・概要・日程） */
+export type GroupCurriculumRow = {
+  kaisu: string;
+  jigen: string;
+  koumoku: string;
+  shosai: string;
+  nittei?: string;
+};
+
 /** カリキュラム表示用テーマ（タグのラベル・色） */
 export type CurriculumTheme = {
   slug: string;
@@ -37,7 +46,7 @@ export type CurriculumTheme = {
   bgColor: string;
 };
 
-function parseRowsJson(rowsJson: string): CurriculumRow[] {
+function parseRowsJson(rowsJson: string): (CurriculumRow | GroupCurriculumRow)[] {
   try {
     const raw = JSON.parse(rowsJson) as unknown;
     return Array.isArray(raw) ? raw : [];
@@ -80,7 +89,7 @@ export async function POST(req: NextRequest) {
     pageSlug: string;
     blockKey: string;
     title?: string | null;
-    rows: CurriculumRow[];
+    rows: (CurriculumRow | GroupCurriculumRow)[];
   };
   if (!pageSlug || !blockKey || !Array.isArray(rows)) {
     return NextResponse.json({ error: "pageSlug, blockKey, rows required" }, { status: 400 });

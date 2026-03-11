@@ -6,6 +6,7 @@ import type {
   CurriculumBlock,
   CurriculumRow,
   CurriculumTheme,
+  GroupCurriculumRow,
 } from "@/app/api/curriculum/route";
 
 const PAGE_LABELS: Record<string, string> = {
@@ -502,14 +503,14 @@ function EditContent() {
                               <td style={tdKomaStyle}>
                                 <input
                                   type="text"
-                                  value={row.koma}
+                                  value={(row as CurriculumRow).koma}
                                   onChange={(e) => updateRow(selectedBlock.id, i, "koma", e.target.value)}
                                   style={inputKomaStyle}
                                 />
                               </td>
                               <td style={tdStyle}>
                                 <select
-                                  value={row.theme12 ?? ""}
+                                  value={(row as CurriculumRow).theme12 ?? ""}
                                   onChange={(e) => updateRow(selectedBlock.id, i, "theme12", e.target.value)}
                                   style={{ width: "100%", padding: "6px 8px", fontSize: 13 }}
                                 >
@@ -520,11 +521,11 @@ function EditContent() {
                                 </select>
                               </td>
                               <td style={tdStyle}>
-                                <textarea value={row.c12} onChange={(e) => updateRow(selectedBlock.id, i, "c12", e.target.value)} rows={2} style={contentInputStyle} />
+                                <textarea value={(row as CurriculumRow).c12} onChange={(e) => updateRow(selectedBlock.id, i, "c12", e.target.value)} rows={2} style={contentInputStyle} />
                               </td>
                               <td style={tdStyle}>
                                 <select
-                                  value={row.theme24 ?? ""}
+                                  value={(row as CurriculumRow).theme24 ?? ""}
                                   onChange={(e) => updateRow(selectedBlock.id, i, "theme24", e.target.value)}
                                   style={{ width: "100%", padding: "6px 8px", fontSize: 13 }}
                                 >
@@ -535,11 +536,11 @@ function EditContent() {
                                 </select>
                               </td>
                               <td style={tdStyle}>
-                                <textarea value={row.c24} onChange={(e) => updateRow(selectedBlock.id, i, "c24", e.target.value)} rows={2} style={contentInputStyle} />
+                                <textarea value={(row as CurriculumRow).c24} onChange={(e) => updateRow(selectedBlock.id, i, "c24", e.target.value)} rows={2} style={contentInputStyle} />
                               </td>
                               <td style={tdStyle}>
                                 <select
-                                  value={row.theme48 ?? ""}
+                                  value={(row as CurriculumRow).theme48 ?? ""}
                                   onChange={(e) => updateRow(selectedBlock.id, i, "theme48", e.target.value)}
                                   style={{ width: "100%", padding: "6px 8px", fontSize: 13 }}
                                 >
@@ -550,7 +551,7 @@ function EditContent() {
                                 </select>
                               </td>
                               <td style={tdStyle}>
-                                <textarea value={row.c48} onChange={(e) => updateRow(selectedBlock.id, i, "c48", e.target.value)} rows={2} style={contentInputStyle} />
+                                <textarea value={(row as CurriculumRow).c48} onChange={(e) => updateRow(selectedBlock.id, i, "c48", e.target.value)} rows={2} style={contentInputStyle} />
                               </td>
                             </tr>
                           ))}
@@ -705,7 +706,7 @@ function EditContent() {
                       </tr>
                     </thead>
                     <tbody>
-                      {selectedBlock.rows.map((row: Record<string, string>, i: number) => (
+                      {selectedBlock.rows.map((row, i) => (
                         <tr key={i}>
                           <td style={tdCheckStyle}>
                             <input
@@ -718,7 +719,7 @@ function EditContent() {
                           <td style={tdStyle}>
                             <input
                               type="text"
-                              value={row.kaisu ?? ""}
+                              value={(row as GroupCurriculumRow).kaisu ?? ""}
                               onChange={(e) => updateRow(selectedBlock.id, i, "kaisu", e.target.value)}
                               style={{ width: "100%", padding: "6px 8px", fontSize: 13 }}
                             />
@@ -726,7 +727,7 @@ function EditContent() {
                           <td style={tdStyle}>
                             <input
                               type="text"
-                              value={row.jigen ?? ""}
+                              value={(row as GroupCurriculumRow).jigen ?? ""}
                               onChange={(e) => updateRow(selectedBlock.id, i, "jigen", e.target.value)}
                               style={{ width: "100%", padding: "6px 8px", fontSize: 13 }}
                             />
@@ -734,14 +735,14 @@ function EditContent() {
                           <td style={tdStyle}>
                             <input
                               type="text"
-                              value={row.koumoku ?? ""}
+                              value={(row as GroupCurriculumRow).koumoku ?? ""}
                               onChange={(e) => updateRow(selectedBlock.id, i, "koumoku", e.target.value)}
                               style={{ width: "100%", padding: "6px 8px", fontSize: 13 }}
                             />
                           </td>
                           <td style={tdStyle}>
                             <textarea
-                              value={row.shosai ?? ""}
+                              value={(row as GroupCurriculumRow).shosai ?? ""}
                               onChange={(e) => updateRow(selectedBlock.id, i, "shosai", e.target.value)}
                               rows={2}
                               style={contentInputStyle}
@@ -750,7 +751,7 @@ function EditContent() {
                           <td style={tdStyle}>
                             <input
                               type="text"
-                              value={row.nittei ?? ""}
+                              value={(row as GroupCurriculumRow).nittei ?? ""}
                               onChange={(e) => updateRow(selectedBlock.id, i, "nittei", e.target.value)}
                               style={{ width: "100%", padding: "6px 8px", fontSize: 13 }}
                             />
@@ -797,7 +798,7 @@ function EditContent() {
                         <td style={tdKomaStyle}>
                           <input
                             type="text"
-                            value={row.koma}
+                            value={(row as CurriculumRow).koma}
                             onChange={(e) => updateRow(selectedBlock.id, i, "koma", e.target.value)}
                             style={inputKomaStyle}
                           />
@@ -805,7 +806,7 @@ function EditContent() {
                         {showThemeColumns && (
                           <td style={tdStyle}>
                             <select
-                              value={row.theme12 ?? ""}
+                              value={(row as CurriculumRow).theme12 ?? ""}
                               onChange={(e) =>
                                 updateRow(selectedBlock.id, i, "theme12", e.target.value)
                               }
@@ -822,7 +823,7 @@ function EditContent() {
                         )}
                         <td style={tdStyle}>
                           <textarea
-                            value={row.c12}
+                            value={(row as CurriculumRow).c12}
                             onChange={(e) => updateRow(selectedBlock.id, i, "c12", e.target.value)}
                             rows={2}
                             style={contentInputStyle}
@@ -831,7 +832,7 @@ function EditContent() {
                         {showThemeColumns && (
                           <td style={tdStyle}>
                             <select
-                              value={row.theme24 ?? ""}
+                              value={(row as CurriculumRow).theme24 ?? ""}
                               onChange={(e) =>
                                 updateRow(selectedBlock.id, i, "theme24", e.target.value)
                               }
@@ -848,7 +849,7 @@ function EditContent() {
                         )}
                         <td style={tdStyle}>
                           <textarea
-                            value={row.c24}
+                            value={(row as CurriculumRow).c24}
                             onChange={(e) => updateRow(selectedBlock.id, i, "c24", e.target.value)}
                             rows={2}
                             style={contentInputStyle}
@@ -857,7 +858,7 @@ function EditContent() {
                         {showThemeColumns && (
                           <td style={tdStyle}>
                             <select
-                              value={row.theme48 ?? ""}
+                              value={(row as CurriculumRow).theme48 ?? ""}
                               onChange={(e) =>
                                 updateRow(selectedBlock.id, i, "theme48", e.target.value)
                               }
@@ -874,7 +875,7 @@ function EditContent() {
                         )}
                         <td style={tdStyle}>
                           <textarea
-                            value={row.c48}
+                            value={(row as CurriculumRow).c48}
                             onChange={(e) => updateRow(selectedBlock.id, i, "c48", e.target.value)}
                             rows={2}
                             style={contentInputStyle}

@@ -690,6 +690,38 @@
     }
     .kaiwa-theme-tab.active { color: var(--gold); border-bottom-color: var(--gold); font-weight: 500; }
     .kaiwa-theme-tab:hover:not(.active) { color: var(--mid); }
+    .kaiwa-theme-label {
+      font-size: 14px; font-weight: 600; color: var(--mid); margin-bottom: 12px; letter-spacing: .05em;
+    }
+    .kaiwa-theme-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 8px 16px;
+      font-size: 14px;
+      color: var(--mid);
+      line-height: 1.6;
+    }
+    @media (max-width: 900px) {
+      .kaiwa-theme-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .kaiwa-theme-grid { grid-template-columns: repeat(2, 1fr); font-size: 13px; }
+    }
+    .kaiwa-theme-item {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      padding: 6px 10px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+    }
+    .kaiwa-theme-num {
+      font-size: 11px;
+      color: var(--gold);
+      font-weight: 600;
+      flex-shrink: 0;
+    }
     .beg-tuition-table-wrap {
       border-radius: 10px;
       overflow: hidden;
@@ -907,15 +939,11 @@
               <button type="button" class="kaiwa-theme-tab" data-theme="jokyu">上級</button>
             </div>
             <div class="kaiwa-theme-content" id="kaiwa-theme-content">
-              <div class="beg-info-cards">
-                <div class="beg-info-card">
-                  <div class="beg-info-card-label" id="kaiwa-theme-label">初中級</div>
-                  <div class="beg-info-card-value" id="kaiwa-theme-value">読み込み中…</div>
-                </div>
-              </div>
+              <div class="kaiwa-theme-label" id="kaiwa-theme-label">初中級</div>
+              <div class="kaiwa-theme-grid" id="kaiwa-theme-grid">読み込み中…</div>
             </div>
           </div>
-          <p class="section-note" style="margin-bottom:24px;">※実際のカリキュラムでは約50テーマ以上を扱います。</p>
+          <p class="section-note" style="margin-bottom:24px;">各レベル50テーマを扱います。</p>
 
           <div class="beg-sec-header">
             <div class="beg-sec-label">Tuition</div>
@@ -1538,16 +1566,28 @@
 
       function renderKaiwaTheme(themeId) {
         var labelEl = document.getElementById('kaiwa-theme-label');
-        var valueEl = document.getElementById('kaiwa-theme-value');
-        if (!labelEl || !valueEl) return;
+        var gridEl = document.getElementById('kaiwa-theme-grid');
+        if (!labelEl || !gridEl) return;
         var block = kaiwaThemeData[themeBlockMap[themeId]];
-        if (block && block.rows && block.rows[0]) {
+        if (block && block.rows && block.rows.length) {
           labelEl.textContent = block.title || themeLabels[themeId];
-          valueEl.textContent = block.rows[0].themes || '（テーマなし）';
+          var html = '';
+          block.rows.forEach(function(row, i) {
+            var text = row.theme || row.themes || '';
+            if (text) {
+              html += '<div class="kaiwa-theme-item"><span class="kaiwa-theme-num">' + (i + 1) + '</span><span>' + escapeHtml(text) + '</span></div>';
+            }
+          });
+          gridEl.innerHTML = html || '（テーマなし）';
         } else {
           labelEl.textContent = themeLabels[themeId];
-          valueEl.textContent = '（データ未登録）';
+          gridEl.innerHTML = '（データ未登録）';
         }
+      }
+      function escapeHtml(s) {
+        var div = document.createElement('div');
+        div.textContent = s;
+        return div.innerHTML;
       }
 
       function switchKaiwaTheme(themeId) {
@@ -1573,7 +1613,8 @@
           switchKaiwaTheme('shuchukyu');
         })
         .catch(function() {
-          document.getElementById('kaiwa-theme-value').textContent = '読み込みに失敗しました。';
+          var el = document.getElementById('kaiwa-theme-grid');
+          if (el) el.textContent = '読み込みに失敗しました。';
         });
     })();
   </script>

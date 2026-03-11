@@ -38,8 +38,8 @@ export type GroupCurriculumRow = {
   nittei?: string;
 };
 
-/** 会話クラス主なテーマ例行 */
-export type KaiwaThemeRow = { themes: string };
+/** 会話クラス主なテーマ例行（1行1テーマ、50行/レベル） */
+export type KaiwaThemeRow = { theme?: string; themes?: string };
 
 /** カリキュラム表示用テーマ（タグのラベル・色） */
 export type CurriculumTheme = {

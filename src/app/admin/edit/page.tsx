@@ -147,7 +147,7 @@ function EditContent() {
     const newRow: CurriculumRow | GroupCurriculumRow | KaiwaThemeRow = isGroupCurriculum
       ? { kaisu: "", jigen: "", koumoku: "", shosai: "", nittei: "" }
       : isKaiwaTheme
-        ? { themes: "" }
+        ? { theme: "" }
         : {
             koma: "",
             c12: "",
@@ -788,10 +788,11 @@ function EditContent() {
                             />
                           </td>
                           <td style={{ padding: 8, borderBottom: "1px solid #e0e0e0" }}>
-                            <textarea
-                              value={(row as KaiwaThemeRow).themes ?? ""}
-                              onChange={(e) => updateRow(selectedBlock.id, i, "themes", e.target.value)}
-                              rows={3}
+                            <input
+                              type="text"
+                              value={(row as KaiwaThemeRow).theme ?? (row as KaiwaThemeRow).themes ?? ""}
+                              onChange={(e) => updateRow(selectedBlock.id, i, "theme", e.target.value)}
+                              placeholder="テーマ"
                               style={{ width: "100%", padding: 8, fontSize: 14 }}
                             />
                           </td>

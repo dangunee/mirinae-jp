@@ -30,7 +30,7 @@ export default function YouTubeAdminPage() {
   const [saving, setSaving] = useState(false);
   const [editing, setEditing] = useState<YouTubeVideo | null>(null);
   const [adding, setAdding] = useState(false);
-  const [form, setForm] = useState({ videoId: "", title: "", category: "", description: "", seoSummary: "", duration: "", sortOrder: 0 });
+  const [form, setForm] = useState({ videoId: "", title: "", category: "", categoryCustom: "", description: "", seoSummary: "", duration: "", sortOrder: 0 });
 
   const load = () => {
     setLoading(true);
@@ -45,16 +45,19 @@ export default function YouTubeAdminPage() {
   const startAdd = () => {
     setEditing(null);
     setAdding(true);
-    setForm({ videoId: "", title: "", category: "", description: "", seoSummary: "", duration: "", sortOrder: list.length });
+    setForm({ videoId: "", title: "", category: "", categoryCustom: "", description: "", seoSummary: "", duration: "", sortOrder: list.length });
   };
 
   const startEdit = (v: YouTubeVideo) => {
     setEditing(v);
     setAdding(false);
+    const cat = v.category || "";
+    const isPreset = YOUTUBE_CATEGORIES.includes(cat as (typeof YOUTUBE_CATEGORIES)[number]);
     setForm({
       videoId: v.videoId,
       title: v.title,
-      category: v.category || "",
+      category: isPreset ? cat : "_custom",
+      categoryCustom: isPreset ? "" : cat,
       description: v.description || "",
       seoSummary: v.seoSummary || "",
       duration: v.duration || "",
@@ -65,8 +68,11 @@ export default function YouTubeAdminPage() {
   const cancelEdit = () => {
     setEditing(null);
     setAdding(false);
-    setForm({ videoId: "", title: "", category: "", description: "", seoSummary: "", duration: "", sortOrder: 0 });
+    setForm({ videoId: "", title: "", category: "", categoryCustom: "", description: "", seoSummary: "", duration: "", sortOrder: 0 });
   };
+
+  const getCategoryValue = () =>
+    form.category === "_custom" ? form.categoryCustom.trim() : form.category;
 
   const save = async () => {
     if (!form.title.trim()) return alert("タイトルを入力してください");
@@ -82,7 +88,7 @@ export default function YouTubeAdminPage() {
             id: editing.id,
             videoId: vid,
             title: form.title.trim(),
-            category: form.category.trim() || null,
+            category: getCategoryValue() || null,
             description: form.description.trim() || null,
             seoSummary: form.seoSummary.trim() || null,
             duration: form.duration.trim() || null,
@@ -96,7 +102,7 @@ export default function YouTubeAdminPage() {
           body: JSON.stringify({
             videoId: vid,
             title: form.title.trim(),
-            category: form.category.trim() || null,
+            category: getCategoryValue() || null,
             description: form.description.trim() || null,
             seoSummary: form.seoSummary.trim() || null,
             duration: form.duration.trim() || null,
@@ -209,7 +215,17 @@ export default function YouTubeAdminPage() {
                     {YOUTUBE_CATEGORIES.map((c) => (
                       <option key={c} value={c}>{c}</option>
                     ))}
+                    <option value="_custom">その他（直接入力）</option>
                   </select>
+                  {form.category === "_custom" && (
+                    <input
+                      type="text"
+                      value={form.categoryCustom}
+                      onChange={(e) => setForm({ ...form, categoryCustom: e.target.value })}
+                      placeholder="分類名を入力"
+                      style={{ ...style.input, marginTop: 8 }}
+                    />
+                  )}
                 </div>
                 <div>
                   <label style={{ display: "block", marginBottom: 4, fontSize: 13, fontWeight: 500 }}>説明（カード表示用）</label>
@@ -291,11 +307,25 @@ export default function YouTubeAdminPage() {
                   style={{ width: 120, height: 68, objectFit: "cover", borderRadius: 6, flexShrink: 0 }}
                 />
                 <div style={{ flex: 1, minWidth: 0 }}>
-                  <h4 style={{ fontSize: 15, marginBottom: 4 }}>{v.title}</h4>
-                  <p style={{ fontSize: 12, color: "#666", marginBottom: 4 }}>
-                    {v.category && <span style={{ marginRight: 8 }}>分類: {v.category}</span>}
-                    ID: {v.videoId}
-                  </p>
+                  <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 6, flexWrap: "wrap" }}>
+                    {v.category && (
+                      <span
+                        style={{
+                          display: "inline-block",
+                          padding: "2px 8px",
+                          fontSize: 11,
+                          fontWeight: 600,
+                          color: "#3d6b6b",
+                          background: "#e8f0f0",
+                          borderRadius: 4,
+                        }}
+                      >
+                        {v.category}
+                      </span>
+                    )}
+                    <h4 style={{ fontSize: 15, margin: 0 }}>{v.title}</h4>
+                  </div>
+                  <p style={{ fontSize: 12, color: "#666", marginBottom: 4 }}>ID: {v.videoId}</p>
                   {v.seoSummary && <p style={{ fontSize: 12, color: "#555", lineHeight: 1.5 }}>{v.seoSummary}</p>}
                 </div>
                 <div style={{ display: "flex", gap: 8, flexShrink: 0 }}>

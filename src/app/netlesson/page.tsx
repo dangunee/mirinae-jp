@@ -88,6 +88,10 @@ export default async function NetlessonPage() {
         .netlesson-page .footer-bottom { text-align:center; padding-top:24px; border-top:1px solid rgba(255,255,255,.1); font-size:13px; }
         @media (max-width:900px) { .netlesson-page .group-main-grid { grid-template-columns:1fr; } .netlesson-page .sidebar { display:none; } }
         @media (max-width:560px) { .netlesson-page .tab-bar { grid-template-columns:1fr 1fr; } }
+        /* embed 내부의 "작문" 배경 텍스트 겹침 방지 */
+        .netlesson-page .embed-content .hero::after {
+          display: none;
+        }
       `}</style>
 
       <div className="page-wrapper">

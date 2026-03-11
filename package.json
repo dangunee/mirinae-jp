@@ -11,13 +11,15 @@
     "db:studio": "prisma studio",
     "seed:group-chubu": "node scripts/seed-group-chubu.cjs",
     "seed:group-jokyu": "node scripts/seed-group-jokyu.cjs",
-    "seed:group": "node scripts/seed-group-chubu.cjs && node scripts/seed-group-jokyu.cjs"
+    "seed:group": "node scripts/seed-group-chubu.cjs && node scripts/seed-group-jokyu.cjs",
+    "img:webp": "node scripts/convert-book-webp.cjs"
   },
   "dependencies": {
     "@prisma/client": "^5.22.0",
     "next": "^14.2.20",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "sharp": "^0.34.5"
   },
   "devDependencies": {
     "@types/node": "^20",

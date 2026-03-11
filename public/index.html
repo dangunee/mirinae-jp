@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lite-youtube-embed@0.3.4/src/lite-yt-embed.css">
   <style>
     :root {
       --gold: #B8963E;
@@ -1147,25 +1148,25 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    /* 著書 (rolling right → left) */
+    /* 著書（CSS Scroll Snap・JS不要） */
     .book-slider {
-      overflow: hidden;
+      overflow-x: auto;
+      overflow-y: hidden;
       margin-top: 0;
       padding-bottom: 12px;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
     }
+    .book-slider::-webkit-scrollbar { height: 8px; }
+    .book-slider::-webkit-scrollbar-track { background: var(--bg2); border-radius: 4px; }
+    .book-slider::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
     .book-track {
       display: flex;
-      gap: 16px;
+      gap: 20px;
       align-items: flex-start;
       width: max-content;
-      animation: bookRoll 40s linear infinite;
-    }
-    .book-track:hover {
-      animation-play-state: paused;
-    }
-    @keyframes bookRoll {
-      0%   { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
+      padding: 4px 0;
     }
     .book-card {
       flex-shrink: 0;
@@ -1175,6 +1176,11 @@
       gap: 10px;
       text-decoration: none;
       color: var(--text);
+      scroll-snap-align: start;
+    }
+    .book-card picture {
+      display: block;
+      line-height: 0;
     }
     .book-cover {
       width: 148px;
@@ -1225,7 +1231,6 @@
     .youtube-card .youtube-embed-wrap {
       position: relative;
       width: 100%;
-      padding-bottom: 56.25%;
       border-radius: 8px;
       overflow: hidden;
       background: var(--bg2);
@@ -1236,52 +1241,14 @@
       transform: translateY(-4px);
       box-shadow: 6px 12px 28px rgba(0,0,0,0.15);
     }
-    .youtube-card .youtube-facade {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .youtube-card .youtube-embed-wrap lite-youtube {
+      display: block;
+      aspect-ratio: 16 / 9;
     }
-    .youtube-card .youtube-facade img {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      object-fit: cover;
-    }
-    .youtube-card .youtube-play-btn {
-      position: relative;
-      z-index: 2;
-      width: 68px;
-      height: 48px;
-      background: rgba(255,0,0,0.9);
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background 0.2s, transform 0.2s;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    }
-    .youtube-card .youtube-play-btn:hover {
-      background: #f00;
-      transform: scale(1.05);
-    }
-    .youtube-card .youtube-play-btn::before {
-      content: '';
-      width: 0;
-      height: 0;
-      margin-left: 4px;
-      border-style: solid;
-      border-width: 12px 0 12px 20px;
-      border-color: transparent transparent transparent #fff;
-    }
-    .youtube-card iframe {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      border: none;
+    .youtube-card .youtube-lazy-placeholder {
+      aspect-ratio: 16 / 9;
+      background: var(--bg2);
+      min-height: 120px;
     }
     .youtube-info { padding: 0 2px; }
     .youtube-info h4 { font-size: 14px; font-weight: 700; line-height: 1.4; margin-bottom: 4px; color: var(--dark); }
@@ -2100,117 +2067,36 @@
   <div class="book-slider">
     <div class="book-track">
       <a href="book.html#tab01" class="book-card">
-        <img src="/img/textbook/book_han45.png" alt="韓国語単語 入門・初級編" class="book-cover" onerror="this.style.background='linear-gradient(135deg,#E8F5F3,#2A7F74)';this.style.display='block'">
-        <div class="book-info">
-          <h4>韓国語単語〈入門・初級編〉</h4>
-          <p>ハン検4・5級レベル</p>
-        </div>
+        <picture><source srcset="/img/textbook/book_han45.webp" type="image/webp"><img src="/img/textbook/book_han45.png" alt="韓国語単語 入門・初級編" class="book-cover" onerror="this.style.background='linear-gradient(135deg,#E8F5F3,#2A7F74)';this.style.display='block'"></picture>
+        <div class="book-info"><h4>韓国語単語〈入門・初級編〉</h4><p>ハン検4・5級レベル</p></div>
       </a>
       <a href="book.html#tab02" class="book-card">
-        <img src="/img/textbook/book_han3.jpg" alt="韓国語単語 初中級編" class="book-cover" onerror="this.style.background='linear-gradient(135deg,#FBF4E3,#B8963E)';this.style.display='block'">
-        <div class="book-info">
-          <h4>韓国語単語〈初中級編〉</h4>
-          <p>ハン検3級レベル</p>
-        </div>
+        <picture><source srcset="/img/textbook/book_han3.webp" type="image/webp"><img src="/img/textbook/book_han3.jpg" alt="韓国語単語 初中級編" class="book-cover" onerror="this.style.background='linear-gradient(135deg,#FBF4E3,#B8963E)';this.style.display='block'"></picture>
+        <div class="book-info"><h4>韓国語単語〈初中級編〉</h4><p>ハン検3級レベル</p></div>
       </a>
       <a href="book.html#tab03" class="book-card">
-        <img src="/img/textbook/book_hanjun2.jpg" alt="韓国語単語 中級編" class="book-cover" onerror="this.style.background='linear-gradient(135deg,#EDE8F5,#6B4EAA)';this.style.display='block'">
-        <div class="book-info">
-          <h4>韓国語単語〈中級編〉</h4>
-          <p>ハン検準2級レベル</p>
-        </div>
+        <picture><source srcset="/img/textbook/book_hanjun2.webp" type="image/webp"><img src="/img/textbook/book_hanjun2.jpg" alt="韓国語単語 中級編" class="book-cover" loading="lazy" onerror="this.style.background='linear-gradient(135deg,#EDE8F5,#6B4EAA)';this.style.display='block'"></picture>
+        <div class="book-info"><h4>韓国語単語〈中級編〉</h4><p>ハン検準2級レベル</p></div>
       </a>
       <a href="book.html#tab04" class="book-card">
-        <img src="/img/textbook/book_han12.jpg" alt="ハン検1・2級" class="book-cover" onerror="this.style.background='linear-gradient(135deg,#F5E8E8,#C0392B)';this.style.display='block'">
-        <div class="book-info">
-          <h4>ハン検1・2級対策</h4>
-          <p>上級レベル</p>
-        </div>
+        <picture><source srcset="/img/textbook/book_han12.webp" type="image/webp"><img src="/img/textbook/book_han12.jpg" alt="ハン検1・2級" class="book-cover" loading="lazy" onerror="this.style.background='linear-gradient(135deg,#F5E8E8,#C0392B)';this.style.display='block'"></picture>
+        <div class="book-info"><h4>ハン検1・2級対策</h4><p>上級レベル</p></div>
       </a>
       <a href="book.html#tab07" class="book-card">
-        <img src="/img/textbook/book_tanguni_nihon.jpg" alt="タングニの日本生活記" class="book-cover" onerror="this.style.background='linear-gradient(135deg,#E8F0F5,#2A5F8F)';this.style.display='block'">
-        <div class="book-info">
-          <h4>タングニの日本生活記</h4>
-          <p>韓国語リーディング</p>
-        </div>
+        <picture><source srcset="/img/textbook/book_tanguni_nihon.webp" type="image/webp"><img src="/img/textbook/book_tanguni_nihon.jpg" alt="タングニの日本生活記" class="book-cover" loading="lazy" onerror="this.style.background='linear-gradient(135deg,#E8F0F5,#2A5F8F)';this.style.display='block'"></picture>
+        <div class="book-info"><h4>タングニの日本生活記</h4><p>韓国語リーディング</p></div>
       </a>
       <a href="book.html#tab08" class="book-card">
-        <img src="/img/textbook/book_tanguni_ningen.jpg" alt="タングニの韓国人生劇場" class="book-cover" onerror="this.style.background='linear-gradient(135deg,#F5EBE8,#8F4A2A)';this.style.display='block'">
-        <div class="book-info">
-          <h4>タングニの韓国人生劇場</h4>
-          <p>韓国語リーディング</p>
-        </div>
+        <picture><source srcset="/img/textbook/book_tanguni_ningen.webp" type="image/webp"><img src="/img/textbook/book_tanguni_ningen.jpg" alt="タングニの韓国人生劇場" class="book-cover" loading="lazy" onerror="this.style.background='linear-gradient(135deg,#F5EBE8,#8F4A2A)';this.style.display='block'"></picture>
+        <div class="book-info"><h4>タングニの韓国人生劇場</h4><p>韓国語リーディング</p></div>
       </a>
       <a href="book.html#tab05" class="book-card">
-        <img src="/img/textbook/book_topik1.jpg" alt="TOPIK I対策" class="book-cover" onerror="this.style.background='linear-gradient(135deg,#E8F5F0,#27AE60)';this.style.display='block'">
-        <div class="book-info">
-          <h4>TOPIK I 対策</h4>
-          <p>初級〜中級</p>
-        </div>
+        <picture><source srcset="/img/textbook/book_topik1.webp" type="image/webp"><img src="/img/textbook/book_topik1.jpg" alt="TOPIK I対策" class="book-cover" loading="lazy" onerror="this.style.background='linear-gradient(135deg,#E8F5F0,#27AE60)';this.style.display='block'"></picture>
+        <div class="book-info"><h4>TOPIK I 対策</h4><p>初級〜中級</p></div>
       </a>
       <a href="book.html#tab06" class="book-card">
-        <img src="/img/textbook/book_topik2.jpg" alt="TOPIK II対策" class="book-cover" onerror="this.style.background='linear-gradient(135deg,#E8EEF5,#1A3A6B)';this.style.display='block'">
-        <div class="book-info">
-          <h4>TOPIK II 対策</h4>
-          <p>中級〜上級</p>
-        </div>
-      </a>
-      <!-- ループ用に同じ8冊を2セット目 -->
-      <a href="book.html#tab01" class="book-card">
-        <img src="/img/textbook/book_han45.png" alt="韓国語単語 入門・初級編" class="book-cover" onerror="this.style.background='linear-gradient(135deg,#E8F5F3,#2A7F74)';this.style.display='block'">
-        <div class="book-info">
-          <h4>韓国語単語〈入門・初級編〉</h4>
-          <p>ハン検4・5級レベル</p>
-        </div>
-      </a>
-      <a href="book.html#tab02" class="book-card">
-        <img src="/img/textbook/book_han3.jpg" alt="韓国語単語 初中級編" class="book-cover" onerror="this.style.background='linear-gradient(135deg,#FBF4E3,#B8963E)';this.style.display='block'">
-        <div class="book-info">
-          <h4>韓国語単語〈初中級編〉</h4>
-          <p>ハン検3級レベル</p>
-        </div>
-      </a>
-      <a href="book.html#tab03" class="book-card">
-        <img src="/img/textbook/book_hanjun2.jpg" alt="韓国語単語 中級編" class="book-cover" onerror="this.style.background='linear-gradient(135deg,#EDE8F5,#6B4EAA)';this.style.display='block'">
-        <div class="book-info">
-          <h4>韓国語単語〈中級編〉</h4>
-          <p>ハン検準2級レベル</p>
-        </div>
-      </a>
-      <a href="book.html#tab04" class="book-card">
-        <img src="/img/textbook/book_han12.jpg" alt="ハン検1・2級" class="book-cover" onerror="this.style.background='linear-gradient(135deg,#F5E8E8,#C0392B)';this.style.display='block'">
-        <div class="book-info">
-          <h4>ハン検1・2級対策</h4>
-          <p>上級レベル</p>
-        </div>
-      </a>
-      <a href="book.html#tab07" class="book-card">
-        <img src="/img/textbook/book_tanguni_nihon.jpg" alt="タングニの日本生活記" class="book-cover" onerror="this.style.background='linear-gradient(135deg,#E8F0F5,#2A5F8F)';this.style.display='block'">
-        <div class="book-info">
-          <h4>タングニの日本生活記</h4>
-          <p>韓国語リーディング</p>
-        </div>
-      </a>
-      <a href="book.html#tab08" class="book-card">
-        <img src="/img/textbook/book_tanguni_ningen.jpg" alt="タングニの韓国人生劇場" class="book-cover" onerror="this.style.background='linear-gradient(135deg,#F5EBE8,#8F4A2A)';this.style.display='block'">
-        <div class="book-info">
-          <h4>タングニの韓国人生劇場</h4>
-          <p>韓国語リーディング</p>
-        </div>
-      </a>
-      <a href="book.html#tab05" class="book-card">
-        <img src="/img/textbook/book_topik1.jpg" alt="TOPIK I対策" class="book-cover" onerror="this.style.background='linear-gradient(135deg,#E8F5F0,#27AE60)';this.style.display='block'">
-        <div class="book-info">
-          <h4>TOPIK I 対策</h4>
-          <p>初級〜中級</p>
-        </div>
-      </a>
-      <a href="book.html#tab06" class="book-card">
-        <img src="/img/textbook/book_topik2.jpg" alt="TOPIK II対策" class="book-cover" onerror="this.style.background='linear-gradient(135deg,#E8EEF5,#1A3A6B)';this.style.display='block'">
-        <div class="book-info">
-          <h4>TOPIK II 対策</h4>
-          <p>中級〜上級</p>
-        </div>
+        <picture><source srcset="/img/textbook/book_topik2.webp" type="image/webp"><img src="/img/textbook/book_topik2.jpg" alt="TOPIK II対策" class="book-cover" loading="lazy" onerror="this.style.background='linear-gradient(135deg,#E8EEF5,#1A3A6B)';this.style.display='block'"></picture>
+        <div class="book-info"><h4>TOPIK II 対策</h4><p>中級〜上級</p></div>
       </a>
     </div>
   </div>
@@ -2265,6 +2151,7 @@
   </div>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/lite-youtube-embed@0.3.4/src/lite-yt-embed.js"></script>
 <script>
   function toggleFaq(btn) {
     var item = btn.closest('.faq-item');
@@ -2409,17 +2296,44 @@
           var title = (v.title || '').replace(/</g, '&lt;').replace(/"/g, '&quot;');
           var desc = (v.description || '').replace(/</g, '&lt;').replace(/"/g, '&quot;');
           var seoSummary = (v.seoSummary || '').replace(/</g, '&lt;').replace(/"/g, '&quot;');
-          var thumb = 'https://img.youtube.com/vi/' + id + '/hqdefault.jpg';
-          return '<article class="youtube-card" data-video-id="' + id + '" data-video-title="' + title + '" data-video-summary="' + seoSummary + '" data-video-duration="' + (v.duration || '') + '">' +
+          var playlabel = 'Play: ' + title;
+          return '<article class="youtube-card">' +
             '<div class="youtube-embed-wrap">' +
-            '<div class="youtube-facade" role="button" tabindex="0" aria-label="' + title + 'を再生">' +
-            '<img src="' + thumb + '" alt="' + title + '" loading="lazy">' +
-            '<span class="youtube-play-btn"></span></div></div>' +
+            '<div class="youtube-lazy-placeholder" data-videoid="' + id + '" data-playlabel="' + playlabel + '"></div>' +
+            '</div>' +
             '<div class="youtube-info"><h4>' + title + '</h4><p>' + desc + '</p>' +
             (seoSummary ? '<p class="youtube-seo-summary">' + seoSummary + '</p>' : '') + '</div></article>';
         }
         var html = list.map(cardHtml).join('');
         track.innerHTML = html;
+        (function lazyLoadYoutube() {
+          var placeholders = track.querySelectorAll('.youtube-lazy-placeholder');
+          if (!placeholders.length) return;
+          var io = window.IntersectionObserver ? new IntersectionObserver(function(entries) {
+            entries.forEach(function(e) {
+              if (!e.isIntersecting) return;
+              var ph = e.target;
+              var id = ph.getAttribute('data-videoid');
+              var playlabel = ph.getAttribute('data-playlabel') || 'Play';
+              if (!id) return;
+              var lite = document.createElement('lite-youtube');
+              lite.setAttribute('videoid', id);
+              lite.setAttribute('playlabel', playlabel);
+              ph.parentNode.replaceChild(lite, ph);
+              io.unobserve(ph);
+            });
+          }, { rootMargin: '100px' }) : null;
+          if (io) placeholders.forEach(function(p) { io.observe(p); });
+          else placeholders.forEach(function(ph) {
+            var id = ph.getAttribute('data-videoid');
+            var playlabel = ph.getAttribute('data-playlabel') || 'Play';
+            if (!id) return;
+            var lite = document.createElement('lite-youtube');
+            lite.setAttribute('videoid', id);
+            lite.setAttribute('playlabel', playlabel);
+            ph.parentNode.replaceChild(lite, ph);
+          });
+        })();
         (function injectVideoSchema() {
           var schema = { '@context': 'https://schema.org', '@type': 'ItemList', itemListElement: list.map(function(v, i) {
             var id = (v.videoId || v.id || '').replace(/^.*(?:youtube\.com\/watch\?v=|youtu\.be\/|embed\/)([a-zA-Z0-9_-]{11}).*$/, '$1') || (v.videoId || v.id || '');
@@ -2437,25 +2351,6 @@
           script.text = JSON.stringify(schema);
           document.head.appendChild(script);
         })();
-        track.querySelectorAll('.youtube-facade').forEach(function(facade) {
-          var card = facade.closest('.youtube-card');
-          var id = card.getAttribute('data-video-id');
-          var title = card.getAttribute('data-video-title') || '';
-          function loadAndPlay() {
-            var wrap = facade.parentElement;
-            var iframe = document.createElement('iframe');
-            iframe.src = 'https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0';
-            iframe.allowFullscreen = true;
-            iframe.title = title;
-            iframe.setAttribute('allowfullscreen', '');
-            wrap.removeChild(facade);
-            wrap.appendChild(iframe);
-          }
-          facade.addEventListener('click', loadAndPlay);
-          facade.addEventListener('keydown', function(e) {
-            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); loadAndPlay(); }
-          });
-        });
       });
   })();
 </script>

@@ -19,25 +19,28 @@ export default function NetlessonPage() {
     <div className="netlesson-page">
       <link
         rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;700&display=swap"
       />
       <style>{`
         .netlesson-page { --beige:#f5f0e8; --taupe:#BD9962; --gold:#B8963E; --gold-light:#e8d5b0; --gold-pale:#f7f0e3; --dark:#1C1C1E; --white:#FFF; --gray-border:#E5E0D8; --text-dark:#2c2c2c; --text-muted:#8E8E93; --mid:#4a4438; }
         .netlesson-page * { margin:0; padding:0; box-sizing:border-box; }
         .netlesson-page { font-family:'Noto Sans JP',sans-serif; color:var(--text-dark); line-height:1.8; background:#FAFAF7; }
-        .netlesson-page .page-wrapper { max-width:1200px; margin:0 auto; min-height:100vh; }
+        .netlesson-page .page-wrapper { max-width:1200px; margin:0 auto; }
+        .netlesson-page .page-wrapper:has(main) { min-height:100vh; }
+        .netlesson-page .hero, .netlesson-page .tabs-bar { width:100%; }
         .netlesson-page .top-bar { background:var(--white); padding:12px 24px; font-size:12px; color:var(--text-muted); display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:16px; border-bottom:1px solid var(--gray-border); }
         .netlesson-page .top-bar a { color:var(--dark); text-decoration:none; font-weight:500; font-size:14px; }
         .netlesson-page .top-bar a:hover { color:var(--gold); }
         .netlesson-page .main-content { padding:0 24px 80px; }
-        .netlesson-page .page-header { padding:40px 0 24px; }
-        .netlesson-page .page-title { font-family:'Noto Serif JP',serif; font-size:clamp(28px,5vw,40px); font-weight:700; letter-spacing:0.04em; color:var(--dark); margin-bottom:12px; }
-        .netlesson-page .page-subtitle { color:var(--text-muted); font-size:14px; font-weight:300; }
-        .netlesson-page .tab-bar { display:grid; grid-template-columns:repeat(3,1fr); border-bottom:2px solid var(--gray-border); }
-        .netlesson-page .tab-btn { background:none; border:none; padding:14px 8px; font-size:13px; font-weight:500; color:var(--text-muted); cursor:pointer; position:relative; }
-        .netlesson-page .tab-btn::after { content:''; position:absolute; bottom:-2px; left:0; right:0; height:2px; background:var(--gold); transform:scaleX(0); transition:transform .25s; }
-        .netlesson-page .tab-btn.active { color:var(--gold); font-weight:700; }
-        .netlesson-page .tab-btn.active::after { transform:scaleX(1); }
+        .netlesson-page .hero { background:var(--white); padding:72px 80px 64px; border-bottom:1px solid var(--gray-border); position:relative; overflow:hidden; text-align:center; }
+        .netlesson-page .hero::after { content:"통신강좌"; position:absolute; right:48px; top:50%; transform:translateY(-50%); font-family:'Noto Sans KR',sans-serif; font-size:120px; font-weight:700; color:rgba(184,146,62,0.06); pointer-events:none; user-select:none; white-space:nowrap; }
+        .netlesson-page .hero-eyebrow { font-size:11px; letter-spacing:.25em; text-transform:uppercase; color:var(--gold); margin-bottom:20px; font-weight:500; }
+        .netlesson-page .hero h1 { font-family:'Noto Serif JP',serif; font-size:clamp(32px,4vw,52px); font-weight:300; letter-spacing:.08em; line-height:1.3; margin-bottom:16px; }
+        .netlesson-page .hero p { color:var(--text-muted); font-size:14px; letter-spacing:.05em; }
+        .netlesson-page .tabs-bar { background:var(--white); border-bottom:1px solid var(--gray-border); padding:0 80px; display:flex; gap:0; justify-content:center; }
+        .netlesson-page .tab-btn { padding:16px 28px; font-size:13px; color:var(--text-muted); cursor:pointer; border:none; border-bottom:2px solid transparent; background:none; transition:all .2s; letter-spacing:.05em; white-space:nowrap; user-select:none; font-family:inherit; }
+        .netlesson-page .tab-btn.active { color:var(--gold); border-bottom-color:var(--gold); font-weight:500; }
+        .netlesson-page .tab-btn:hover:not(.active) { color:var(--mid); }
         .netlesson-page .tab-panel { padding-top:32px; }
         .netlesson-page .section-header { background:var(--taupe); color:white; padding:16px 24px; font-size:18px; font-weight:600; border-radius:8px 8px 0 0; margin-bottom:0; }
         .netlesson-page .iframe-card { border-radius:0 0 8px 8px; border:1px solid var(--gray-border); border-top:none; background:var(--white); box-shadow:0 8px 24px rgba(0,0,0,.06); padding:18px 20px 24px; }
@@ -76,8 +79,8 @@ export default function NetlessonPage() {
         .netlesson-page .footer-column a { display:block; color:rgba(255,255,255,.8); text-decoration:none; font-size:14px; margin-bottom:8px; }
         .netlesson-page .footer-column a:hover { color:white; }
         .netlesson-page .footer-bottom { text-align:center; padding-top:24px; border-top:1px solid rgba(255,255,255,.1); font-size:13px; }
-        @media (max-width:900px) { .netlesson-page .group-main-grid { grid-template-columns:1fr; } .netlesson-page .sidebar { display:none; } }
-        @media (max-width:560px) { .netlesson-page .tab-bar { grid-template-columns:1fr 1fr; } }
+        @media (max-width:900px) { .netlesson-page .group-main-grid { grid-template-columns:1fr; } .netlesson-page .sidebar { display:none; } .netlesson-page .hero { padding:40px 16px 32px; } .netlesson-page .hero::after { display:none; } .netlesson-page .tabs-bar { padding:0 12px; overflow-x:auto; -webkit-overflow-scrolling:touch; justify-content:space-between; flex-wrap:nowrap; } .netlesson-page .tab-btn { flex:1 1 0; min-width:0; padding:12px 2px; font-size:11px; text-align:center; } }
+        @media (max-width:560px) { .netlesson-page .hero { padding:32px 12px 24px; } .netlesson-page .tabs-bar { padding:0 8px; } .netlesson-page .tab-btn { padding:10px 1px; font-size:10px; } }
       `}</style>
 
       <div className="page-wrapper">
@@ -95,65 +98,58 @@ export default function NetlessonPage() {
             <a href="/trial#tab04">お問い合わせ</a>
           </nav>
         </div>
-
-        <main className="main-content">
-          <div className="group-main-grid">
-            <div className="group-left">
-              <div className="page-header">
-                <h1 className="page-title">通信講座</h1>
-                <p className="page-subtitle">
-                  メール作文・音読トレーニング・TOPIKトレーニング
-                  など、ご自宅から受講できるオンライン講座のご案内です。
-                </p>
-              </div>
-
-              <NetlessonClient
-                writingUrl={IFRAME_URLS.writing}
-                ondokuUrl={IFRAME_URLS.ondoku}
-                topikUrl={IFRAME_URLS.topik}
-              />
-            </div>
-
-            <NetlessonSidebar />
-          </div>
-        </main>
-
-        <footer>
-          <div className="footer-grid">
-            <div className="footer-column">
-              <h4>メニュー</h4>
-              <a href="/">ホーム</a>
-              <a href="/about">会社概要</a>
-              <a href="/about#tab02">アクセス</a>
-            </div>
-            <div className="footer-column">
-              <h4>講座</h4>
-              <a href="/kojin">個人レッスン</a>
-              <a href="/group">グループレッスン</a>
-              <a href="/kaiwa">会話強化クラス</a>
-              <a href="/special">試験対策講座</a>
-              <a href="/syutyu">集中講座</a>
-              <a href="/netlesson">通信講座</a>
-            </div>
-            <div className="footer-column">
-              <h4>お申込み</h4>
-              <a href="/trial">体験申込</a>
-              <a href="/trial#tab02">講座申込</a>
-              <a href="/trial#tab04">お問い合わせ</a>
-            </div>
-            <div className="footer-column">
-              <h4>その他</h4>
-              <a href="/about#tab03">講師</a>
-              <a href="/book">著書</a>
-              <a href="/voice">「ミリネ教科書」の音声</a>
-              <a href="/cancel">キャンセル規定</a>
-            </div>
-          </div>
-          <div className="footer-bottom">
-            Copyright © (株)カオンヌリ All Rights Reserved.
-          </div>
-        </footer>
       </div>
+
+      <div className="hero">
+        <p className="hero-eyebrow">Online Course</p>
+        <h1>通信講座</h1>
+        <p>メール作文・音読トレーニング・TOPIKトレーニング など、ご自宅から受講できるオンライン講座のご案内です。</p>
+      </div>
+
+      <NetlessonClient
+        writingUrl={IFRAME_URLS.writing}
+        ondokuUrl={IFRAME_URLS.ondoku}
+        topikUrl={IFRAME_URLS.topik}
+        footer={
+          <footer>
+            <div className="footer-grid">
+              <div className="footer-column">
+                <h4>メニュー</h4>
+                <a href="/">ホーム</a>
+                <a href="/about">会社概要</a>
+                <a href="/about#tab02">アクセス</a>
+              </div>
+              <div className="footer-column">
+                <h4>講座</h4>
+                <a href="/kojin">個人レッスン</a>
+                <a href="/group">グループレッスン</a>
+                <a href="/kaiwa">会話強化クラス</a>
+                <a href="/special">試験対策講座</a>
+                <a href="/syutyu">集中講座</a>
+                <a href="/netlesson">通信講座</a>
+              </div>
+              <div className="footer-column">
+                <h4>お申込み</h4>
+                <a href="/trial">体験申込</a>
+                <a href="/trial#tab02">講座申込</a>
+                <a href="/trial#tab04">お問い合わせ</a>
+              </div>
+              <div className="footer-column">
+                <h4>その他</h4>
+                <a href="/about#tab03">講師</a>
+                <a href="/book">著書</a>
+                <a href="/voice">「ミリネ教科書」の音声</a>
+                <a href="/cancel">キャンセル規定</a>
+              </div>
+            </div>
+            <div className="footer-bottom">
+              Copyright © (株)カオンヌリ All Rights Reserved.
+            </div>
+          </footer>
+        }
+      >
+        <NetlessonSidebar />
+      </NetlessonClient>
     </div>
   );
 }

@@ -14,6 +14,8 @@ type Props = {
   writingUrl: string;
   ondokuUrl: string;
   topikUrl: string;
+  children?: React.ReactNode;
+  footer?: React.ReactNode;
 };
 
 const NOTES = [
@@ -32,6 +34,8 @@ export default function NetlessonClient({
   writingUrl,
   ondokuUrl,
   topikUrl,
+  children,
+  footer,
 }: Props) {
   const [activeTab, setActiveTab] = useState<TabId>("tab01");
 
@@ -65,7 +69,7 @@ export default function NetlessonClient({
 
   return (
     <>
-      <div className="tab-bar">
+      <div className="tabs-bar">
         {TABS.map(({ id, label }) => (
           <button
             key={id}
@@ -79,6 +83,10 @@ export default function NetlessonClient({
         ))}
       </div>
 
+      <div className="page-wrapper">
+        <main className="main-content">
+      <div className="group-main-grid">
+        <div className="group-left">
       {TABS.map(({ id, label }, i) => (
         <div
           key={id}
@@ -119,6 +127,12 @@ export default function NetlessonClient({
           </div>
         </div>
       ))}
+        </div>
+        {children}
+      </div>
+        </main>
+        {footer}
+      </div>
     </>
   );
 }

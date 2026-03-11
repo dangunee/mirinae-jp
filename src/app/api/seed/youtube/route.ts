@@ -1,10 +1,10 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
 
-const SEED: { videoId: string; title: string; description?: string; seoSummary?: string; duration?: string }[] = [
-  { videoId: "FEtiZL1n5ls", title: "役に立つ韓国語動画①", description: "", seoSummary: "生活韓国語「台所」の表現を紹介。知らないと損する韓国語の表現を学べます。", duration: "PT5M" },
-  { videoId: "fnNVSCc200w", title: "役に立つ韓国語動画②", description: "", seoSummary: "化粧道具に関する生活韓国語。ミリネ韓国語教室が日常で使える表現を解説します。", duration: "PT6M" },
-  { videoId: "G--wKHGNDyU", title: "役に立つ韓国語動画③", description: "", seoSummary: "TOPIK II上級単語「自然・学1-60」。例文と一緒に覚える効率的な学習法を紹介します。", duration: "PT8M" },
+const SEED: { videoId: string; title: string; category?: string; description?: string; seoSummary?: string; duration?: string }[] = [
+  { videoId: "FEtiZL1n5ls", title: "役に立つ韓国語動画①", category: "生活韓国語", description: "", seoSummary: "生活韓国語「台所」の表現を紹介。知らないと損する韓国語の表現を学べます。", duration: "PT5M" },
+  { videoId: "fnNVSCc200w", title: "役に立つ韓国語動画②", category: "生活韓国語", description: "", seoSummary: "化粧道具に関する生活韓国語。ミリネ韓国語教室が日常で使える表現を解説します。", duration: "PT6M" },
+  { videoId: "G--wKHGNDyU", title: "役に立つ韓国語動画③", category: "TOPIK上級", description: "", seoSummary: "TOPIK II上級単語「自然・学1-60」。例文と一緒に覚える効率的な学習法を紹介します。", duration: "PT8M" },
 ];
 
 export async function POST() {
@@ -18,6 +18,7 @@ export async function POST() {
           where: { id: existing.id },
           data: {
             title: v.title,
+            category: v.category || null,
             description: v.description || null,
             seoSummary: v.seoSummary || null,
             duration: v.duration || null,
@@ -29,6 +30,7 @@ export async function POST() {
           data: {
             videoId: v.videoId,
             title: v.title,
+            category: v.category || null,
             description: v.description || null,
             seoSummary: v.seoSummary || null,
             duration: v.duration || null,

@@ -31,6 +31,7 @@ model YouTubeVideo {
   id          String   @id @default(cuid())
   videoId     String   // YouTube動画ID（11文字）
   title       String
+  category    String?  // 分類：生活韓国語、TOPIK初級、TOPIK中級、TOPIK上級、役に立つ韓国語
   description String?  // カード用短い説明
   seoSummary  String?  // SEO用：2〜3文の要約（検索エンジン向け）
   duration    String?  // ISO 8601形式（例: PT5M30S = 5分30秒）

@@ -1251,6 +1251,7 @@
       min-height: 120px;
     }
     .youtube-info { padding: 0 2px; }
+    .youtube-category { display: inline-block; font-size: 11px; color: var(--teal); font-weight: 600; margin-bottom: 4px; }
     .youtube-info h4 { font-size: 14px; font-weight: 700; line-height: 1.4; margin-bottom: 4px; color: var(--dark); }
     .youtube-info p { font-size: 12px; color: var(--gray-desc); line-height: 1.5; }
     .youtube-empty {
@@ -2294,6 +2295,7 @@
           var id = (v.videoId || v.id || '').replace(/^.*(?:youtube\.com\/watch\?v=|youtu\.be\/|embed\/)([a-zA-Z0-9_-]{11}).*$/, '$1') || (v.videoId || v.id || '');
           if (!id) return '';
           var title = (v.title || '').replace(/</g, '&lt;').replace(/"/g, '&quot;');
+          var category = (v.category || '').replace(/</g, '&lt;').replace(/"/g, '&quot;');
           var desc = (v.description || '').replace(/</g, '&lt;').replace(/"/g, '&quot;');
           var seoSummary = (v.seoSummary || '').replace(/</g, '&lt;').replace(/"/g, '&quot;');
           var playlabel = 'Play: ' + title;
@@ -2301,7 +2303,9 @@
             '<div class="youtube-embed-wrap">' +
             '<div class="youtube-lazy-placeholder" data-videoid="' + id + '" data-playlabel="' + playlabel + '"></div>' +
             '</div>' +
-            '<div class="youtube-info"><h4>' + title + '</h4><p>' + desc + '</p>' +
+            '<div class="youtube-info">' +
+            (category ? '<span class="youtube-category">' + category + '</span>' : '') +
+            '<h4>' + title + '</h4><p>' + desc + '</p>' +
             (seoSummary ? '<p class="youtube-seo-summary">' + seoSummary + '</p>' : '') + '</div></article>';
         }
         var html = list.map(cardHtml).join('');

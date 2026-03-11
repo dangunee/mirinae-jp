@@ -12,9 +12,10 @@ export async function GET() {
 // POST /api/admin/youtube — 新規作成
 export async function POST(req: NextRequest) {
   const body = await req.json();
-  const { videoId, title, description, seoSummary, duration, sortOrder } = body as {
+  const { videoId, title, category, description, seoSummary, duration, sortOrder } = body as {
     videoId: string;
     title: string;
+    category?: string | null;
     description?: string | null;
     seoSummary?: string | null;
     duration?: string | null;
@@ -28,6 +29,7 @@ export async function POST(req: NextRequest) {
     data: {
       videoId: id,
       title: title.trim(),
+      category: category?.trim() || null,
       description: description?.trim() || null,
       seoSummary: seoSummary?.trim() || null,
       duration: duration?.trim() || null,
@@ -40,10 +42,11 @@ export async function POST(req: NextRequest) {
 // PUT /api/admin/youtube — 更新
 export async function PUT(req: NextRequest) {
   const body = await req.json();
-  const { id, videoId, title, description, seoSummary, duration, sortOrder } = body as {
+  const { id, videoId, title, category, description, seoSummary, duration, sortOrder } = body as {
     id: string;
     videoId?: string;
     title?: string;
+    category?: string | null;
     description?: string | null;
     seoSummary?: string | null;
     duration?: string | null;
@@ -56,6 +59,7 @@ export async function PUT(req: NextRequest) {
     data.videoId = extracted;
   }
   if (title !== undefined) data.title = title.trim();
+  if (category !== undefined) data.category = category?.trim() || null;
   if (description !== undefined) data.description = description?.trim() || null;
   if (seoSummary !== undefined) data.seoSummary = seoSummary?.trim() || null;
   if (duration !== undefined) data.duration = duration?.trim() || null;

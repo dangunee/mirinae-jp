@@ -2,10 +2,19 @@
 
 import { useEffect, useState } from "react";
 
+const YOUTUBE_CATEGORIES = [
+  "生活韓国語",
+  "TOPIK初級",
+  "TOPIK中級",
+  "TOPIK上級",
+  "役に立つ韓国語",
+] as const;
+
 type YouTubeVideo = {
   id: string;
   videoId: string;
   title: string;
+  category: string | null;
   description: string | null;
   seoSummary: string | null;
   duration: string | null;
@@ -21,7 +30,7 @@ export default function YouTubeAdminPage() {
   const [saving, setSaving] = useState(false);
   const [editing, setEditing] = useState<YouTubeVideo | null>(null);
   const [adding, setAdding] = useState(false);
-  const [form, setForm] = useState({ videoId: "", title: "", description: "", seoSummary: "", duration: "", sortOrder: 0 });
+  const [form, setForm] = useState({ videoId: "", title: "", category: "", description: "", seoSummary: "", duration: "", sortOrder: 0 });
 
   const load = () => {
     setLoading(true);
@@ -36,7 +45,7 @@ export default function YouTubeAdminPage() {
   const startAdd = () => {
     setEditing(null);
     setAdding(true);
-    setForm({ videoId: "", title: "", description: "", seoSummary: "", duration: "", sortOrder: list.length });
+    setForm({ videoId: "", title: "", category: "", description: "", seoSummary: "", duration: "", sortOrder: list.length });
   };
 
   const startEdit = (v: YouTubeVideo) => {
@@ -45,6 +54,7 @@ export default function YouTubeAdminPage() {
     setForm({
       videoId: v.videoId,
       title: v.title,
+      category: v.category || "",
       description: v.description || "",
       seoSummary: v.seoSummary || "",
       duration: v.duration || "",
@@ -55,7 +65,7 @@ export default function YouTubeAdminPage() {
   const cancelEdit = () => {
     setEditing(null);
     setAdding(false);
-    setForm({ videoId: "", title: "", description: "", seoSummary: "", duration: "", sortOrder: 0 });
+    setForm({ videoId: "", title: "", category: "", description: "", seoSummary: "", duration: "", sortOrder: 0 });
   };
 
   const save = async () => {
@@ -72,6 +82,7 @@ export default function YouTubeAdminPage() {
             id: editing.id,
             videoId: vid,
             title: form.title.trim(),
+            category: form.category.trim() || null,
             description: form.description.trim() || null,
             seoSummary: form.seoSummary.trim() || null,
             duration: form.duration.trim() || null,
@@ -85,6 +96,7 @@ export default function YouTubeAdminPage() {
           body: JSON.stringify({
             videoId: vid,
             title: form.title.trim(),
+            category: form.category.trim() || null,
             description: form.description.trim() || null,
             seoSummary: form.seoSummary.trim() || null,
             duration: form.duration.trim() || null,
@@ -187,6 +199,19 @@ export default function YouTubeAdminPage() {
                   />
                 </div>
                 <div>
+                  <label style={{ display: "block", marginBottom: 4, fontSize: 13, fontWeight: 500 }}>分類</label>
+                  <select
+                    value={form.category}
+                    onChange={(e) => setForm({ ...form, category: e.target.value })}
+                    style={style.input}
+                  >
+                    <option value="">— 選択 —</option>
+                    {YOUTUBE_CATEGORIES.map((c) => (
+                      <option key={c} value={c}>{c}</option>
+                    ))}
+                  </select>
+                </div>
+                <div>
                   <label style={{ display: "block", marginBottom: 4, fontSize: 13, fontWeight: 500 }}>説明（カード表示用）</label>
                   <input
                     type="text"
@@ -267,7 +292,10 @@ export default function YouTubeAdminPage() {
                 />
                 <div style={{ flex: 1, minWidth: 0 }}>
                   <h4 style={{ fontSize: 15, marginBottom: 4 }}>{v.title}</h4>
-                  <p style={{ fontSize: 12, color: "#666", marginBottom: 4 }}>ID: {v.videoId}</p>
+                  <p style={{ fontSize: 12, color: "#666", marginBottom: 4 }}>
+                    {v.category && <span style={{ marginRight: 8 }}>分類: {v.category}</span>}
+                    ID: {v.videoId}
+                  </p>
                   {v.seoSummary && <p style={{ fontSize: 12, color: "#555", lineHeight: 1.5 }}>{v.seoSummary}</p>}
                 </div>
                 <div style={{ display: "flex", gap: 8, flexShrink: 0 }}>

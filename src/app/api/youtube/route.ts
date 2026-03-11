@@ -7,6 +7,7 @@ export type YouTubeVideoItem = {
   id: string;
   videoId: string;
   title: string;
+  category: string | null;
   description: string | null;
   seoSummary: string | null;
   duration: string | null;
@@ -22,6 +23,7 @@ export async function GET() {
     id: v.id,
     videoId: v.videoId,
     title: v.title,
+    category: v.category,
     description: v.description,
     seoSummary: v.seoSummary,
     duration: v.duration,

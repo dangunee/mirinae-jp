@@ -561,11 +561,9 @@
       gap: 14px;
     }
     @media (max-width: 768px) {
-      .recruit-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+      .recruit-grid { grid-template-columns: 1fr; }
       .recruit-card .recruit-illust { height: 90px; object-fit: cover; }
-      .recruit-card .recruit-body { padding: 10px 12px 14px; }
-      .recruit-card h3 { font-size: 12px; }
-      .recruit-card p { font-size: 10px; }
+      .recruit-card .recruit-body { padding: 8px 18px 10px; }
     }
     .recruit-card {
       border-radius: 14px;
@@ -621,7 +619,7 @@
     }
     @media (max-width: 600px) { .featured-grid { grid-template-columns: 1fr; } }
     @media (max-width: 768px) {
-      .featured-grid { max-width: 80%; margin-left: auto; margin-right: auto; }
+      .featured-card { padding: 22px; gap: 8px; }
     }
     .featured-card {
       background: var(--white);
@@ -2075,7 +2073,7 @@
             <div class="voice-avatar-placeholder"><svg class="voice-avatar-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
             <div>
               <div class="voice-name">O様</div>
-              <div class="voice-duration"><span class="duration-badge">発音矯正</span>　2019.09</div>
+              <div class="voice-duration"><span class="duration-badge">発音矯正</span></div>
             </div>
           </div>
         </a>

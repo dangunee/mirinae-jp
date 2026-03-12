@@ -34,8 +34,10 @@
               html += '<div class="beg-testimonial-body">' + (row.content || "") + "</div>";
               html += "</div>";
             } else {
+              var header = (row.header || "").split(/[｜|]/);
+              var nameOnly = (header[0] || "").trim();
               html += '<div class="testimonial">';
-              html += '<div class="testimonial-header">' + escapeHtml(row.header || "") + "</div>";
+              html += '<div class="testimonial-header">' + escapeHtml(nameOnly) + "</div>";
               html += '<div class="testimonial-content">' + (row.content || "") + "</div>";
               html += "</div>";
             }

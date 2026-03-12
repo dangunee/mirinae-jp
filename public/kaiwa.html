@@ -703,6 +703,11 @@
       color: var(--mid);
       line-height: 1.6;
     }
+    @media (min-width: 901px) {
+      .kaiwa-theme-grid { font-size: 28px; gap: 12px 20px; }
+      .kaiwa-theme-num { font-size: 22px; }
+      .kaiwa-theme-item { padding: 10px 14px; }
+    }
     @media (max-width: 900px) {
       .kaiwa-theme-grid { grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(17, auto); }
     }
@@ -749,17 +754,17 @@
     #tab01 .kaiwa-hero-badge {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 16px;
       background: rgba(201,146,42,0.15);
       border: 1px solid rgba(201,146,42,0.35);
       border-radius: 100px;
-      padding: 6px 16px;
-      font-size: 12px;
+      padding: 12px 32px;
+      font-size: 24px;
       color: var(--gold-light);
       letter-spacing: 0.08em;
       margin-bottom: 16px;
     }
-    #tab01 .kaiwa-hero-badge::before { content: '✦'; font-size: 10px; }
+    #tab01 .kaiwa-hero-badge::before { content: '✦'; font-size: 20px; }
     #tab01 .kaiwa-hero-eyebrow {
       font-family: 'Bebas Neue', sans-serif;
       font-size: 13px;
@@ -791,19 +796,19 @@
     }
     #tab01 .kaiwa-hero-tags {
       display: flex;
-      gap: 8px;
+      gap: 16px;
       flex-wrap: wrap;
       margin-top: 24px;
     }
     #tab01 .kaiwa-hero-tag {
       display: inline-flex;
       align-items: center;
-      gap: 5px;
-      padding: 6px 14px;
+      gap: 10px;
+      padding: 12px 28px;
       background: rgba(201,146,42,0.15);
       border: 1px solid rgba(201,146,42,0.35);
       border-radius: 100px;
-      font-size: 12px;
+      font-size: 24px;
       color: var(--gold-light);
     }
     #tab01 .kaiwa-hero + .beg-sec-header {
@@ -1085,7 +1090,7 @@
       flex-shrink: 0;
     }
     .beg-testimonial-name { font-size: 15px; font-weight: 600; color: var(--mid); }
-    .beg-testimonial-date { font-size: 13px; color: var(--muted); }
+    .beg-testimonial-date { font-size: 13px; color: var(--muted); display: none; }
     .beg-testimonial-body { font-size: 16px; color: var(--mid); line-height: 1.75; padding-left: 4px; }
     .beg-cta-btn {
       display: flex;
@@ -1296,7 +1301,7 @@
               <h3>気になるテーマは見つかりましたか？</h3>
               <p>ミリネ韓国語教室では、これらのテーマを使った<br>個人レッスン・グループレッスンをご用意しています。</p>
             </div>
-            <a href="https://mirinae.jp/trial.html" class="kaiwa-cta-btn">お申し込みはこちら →</a>
+            <a href="https://mirinae-jp.vercel.app/trial.html" class="kaiwa-cta-btn">お申し込みはこちら →</a>
           </div>
 
           <div class="beg-sec-header">
@@ -1430,7 +1435,7 @@
             </table>
           </div>
 
-          <a href="https://mirinae.jp/trial.html" class="beg-cta-btn" style="text-decoration:none;">
+          <a href="https://mirinae-jp.vercel.app/trial.html" class="beg-cta-btn" style="text-decoration:none;">
             お申込みはこちら
             <svg viewBox="0 0 16 16" style="width:16px;height:16px;"><line x1="2" y1="8" x2="13" y2="8" stroke="currentColor" stroke-width="2.5" fill="none"/><polyline points="9,4 13,8 9,12" stroke="currentColor" stroke-width="2.5" fill="none"/></svg>
           </a>
@@ -1517,7 +1522,7 @@
             </table>
           </div>
 
-          <a href="https://mirinae.jp/trial.html" class="beg-cta-btn" style="text-decoration:none;">
+          <a href="https://mirinae-jp.vercel.app/trial.html" class="beg-cta-btn" style="text-decoration:none;">
             お申込みはこちら
             <svg viewBox="0 0 16 16" style="width:16px;height:16px;"><line x1="2" y1="8" x2="13" y2="8" stroke="currentColor" stroke-width="2.5" fill="none"/><polyline points="9,4 13,8 9,12" stroke="currentColor" stroke-width="2.5" fill="none"/></svg>
           </a>
@@ -1632,7 +1637,7 @@
             </table>
           </div>
 
-          <a href="https://mirinae.jp/trial.html" class="beg-cta-btn" style="text-decoration:none;">
+          <a href="https://mirinae-jp.vercel.app/trial.html" class="beg-cta-btn" style="text-decoration:none;">
             お申込みはこちら
             <svg viewBox="0 0 16 16" style="width:16px;height:16px;"><line x1="2" y1="8" x2="13" y2="8" stroke="currentColor" stroke-width="2.5" fill="none"/><polyline points="9,4 13,8 9,12" stroke="currentColor" stroke-width="2.5" fill="none"/></svg>
           </a>
@@ -1700,7 +1705,7 @@
             </table>
           </div>
 
-          <a href="https://mirinae.jp/trial.html" class="beg-cta-btn" style="text-decoration:none;">
+          <a href="https://mirinae-jp.vercel.app/trial.html" class="beg-cta-btn" style="text-decoration:none;">
             お申込みはこちら
             <svg viewBox="0 0 16 16" style="width:16px;height:16px;"><line x1="2" y1="8" x2="13" y2="8" stroke="currentColor" stroke-width="2.5" fill="none"/><polyline points="9,4 13,8 9,12" stroke="currentColor" stroke-width="2.5" fill="none"/></svg>
           </a>

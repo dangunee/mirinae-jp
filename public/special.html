@@ -1364,6 +1364,801 @@
       .hero { padding: 40px 16px 32px; }
       .hero::after { font-size: 60px; right: 16px; }
     }
+
+    /* ========== tab05 ハン検準2級 専用スタイル ========== */
+    #tab05 {
+      --navy: #0e1c38;
+      --navy-mid: #1a3060;
+      --navy-soft: #243d72;
+      --gold: #c8911e;
+      --gold-lt: #e8b84b;
+      --gold-pale: #fdf5e4;
+      --cream: #faf7f0;
+      --cream-dk: #f0ebe0;
+      --text: #1a1a2a;
+      --text-mid: #4a4438;
+      --muted: #9a9080;
+      --border: rgba(200,145,30,0.18);
+      --jun: #0f7a6e;
+      --jun-lt: #19a898;
+      --jun-pale: #e6f7f5;
+    }
+    #tab05 .jun-hero {
+      background: var(--navy);
+      position: relative;
+      overflow: hidden;
+      padding: 48px 32px 0;
+      border-radius: 16px;
+      margin-bottom: 0;
+    }
+    #tab05 .jun-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 55% 90% at 88% 35%, rgba(15,122,110,.18) 0%, transparent 60%),
+        radial-gradient(ellipse 45% 70% at 5% 85%, rgba(25,168,152,.12) 0%, transparent 55%),
+        radial-gradient(ellipse 30% 50% at 50% 0%, rgba(200,145,30,.07) 0%, transparent 55%);
+    }
+    #tab05 .jun-hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(200,145,30,.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(200,145,30,.05) 1px, transparent 1px);
+      background-size: 56px 56px;
+    }
+    #tab05 .jun-hero-kr {
+      position: absolute;
+      right: 24px;
+      top: 50%;
+      transform: translateY(-55%);
+      font-family: 'Noto Serif JP', serif;
+      font-size: 100px;
+      font-weight: 600;
+      color: rgba(255,255,255,.025);
+      letter-spacing: -4px;
+      pointer-events: none;
+      white-space: nowrap;
+    }
+    #tab05 .jun-hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 1080px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 40px;
+      align-items: end;
+    }
+    #tab05 .jun-hero-left { padding-bottom: 48px; }
+    #tab05 .jun-breadcrumb {
+      font-size: 11px;
+      color: rgba(255,255,255,.3);
+      letter-spacing: .08em;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    #tab05 .jun-breadcrumb span { color: rgba(255,255,255,.15); }
+    #tab05 .jun-hero-eyebrow {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 11px;
+      letter-spacing: .4em;
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    #tab05 .jun-hero-eyebrow::before {
+      content: '';
+      width: 28px;
+      height: 1px;
+      background: var(--gold);
+    }
+    #tab05 .jun-hero-year {
+      display: inline-block;
+      background: rgba(15,122,110,.2);
+      border: 1px solid rgba(15,122,110,.4);
+      color: #5de8d8;
+      font-size: 11px;
+      letter-spacing: .06em;
+      padding: 4px 14px;
+      border-radius: 100px;
+      margin-bottom: 12px;
+      font-family: 'Bebas Neue', sans-serif;
+    }
+    #tab05 .jun-hero-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(24px, 3.5vw, 42px);
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 10px;
+      font-weight: 400;
+    }
+    #tab05 .jun-hero-title em { color: #5de8d8; font-style: italic; }
+    #tab05 .jun-hero-subtitle {
+      font-size: 13px;
+      color: rgba(255,255,255,.5);
+      line-height: 1.85;
+      margin-bottom: 24px;
+      max-width: 480px;
+    }
+    #tab05 .jun-hero-chips {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+    #tab05 .jun-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 100px;
+      padding: 6px 14px;
+      font-size: 11px;
+      color: rgba(255,255,255,.75);
+      letter-spacing: .04em;
+    }
+    #tab05 .jun-hero-btns { display: flex; gap: 14px; align-items: center; }
+    #tab05 .jun-btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, var(--jun), var(--jun-lt));
+      color: #fff;
+      font-family: 'Noto Serif JP', serif;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 12px 28px;
+      border-radius: 100px;
+      text-decoration: none;
+      letter-spacing: .05em;
+      transition: all .25s;
+      box-shadow: 0 4px 20px rgba(15,122,110,.4);
+    }
+    #tab05 .jun-btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(15,122,110,.55);
+    }
+    #tab05 .jun-btn-ghost {
+      color: rgba(255,255,255,.55);
+      font-size: 12px;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,.2);
+      padding-bottom: 2px;
+      letter-spacing: .04em;
+      transition: color .2s, border-color .2s;
+    }
+    #tab05 .jun-btn-ghost:hover { color: #5de8d8; border-color: #5de8d8; }
+    #tab05 .jun-card {
+      background: rgba(15,122,110,.12);
+      border: 1px solid rgba(15,122,110,.3);
+      border-radius: 16px;
+      padding: 24px;
+      min-width: 200px;
+      position: relative;
+      overflow: hidden;
+    }
+    #tab05 .jun-card::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: linear-gradient(to bottom, var(--jun), var(--jun-lt));
+      border-radius: 4px 0 0 4px;
+    }
+    #tab05 .jun-card-icon { font-size: 32px; margin-bottom: 10px; }
+    #tab05 .jun-card-level {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 40px;
+      color: #5de8d8;
+      line-height: 1;
+      margin-bottom: 4px;
+      opacity: .85;
+    }
+    #tab05 .jun-card-name { font-size: 13px; color: rgba(255,255,255,.7); letter-spacing: .04em; margin-bottom: 6px; }
+    #tab05 .jun-card-time { font-size: 11px; color: rgba(255,255,255,.35); line-height: 1.7; }
+    #tab05 .jun-card-tag {
+      display: inline-block;
+      margin-top: 12px;
+      background: rgba(15,122,110,.25);
+      border: 1px solid rgba(93,232,216,.25);
+      color: #5de8d8;
+      font-size: 10px;
+      padding: 3px 10px;
+      border-radius: 100px;
+      letter-spacing: .04em;
+      font-family: 'Bebas Neue', sans-serif;
+    }
+    #tab05 .jun-tab-bar {
+      background: var(--navy);
+      border-top: 1px solid rgba(255,255,255,.07);
+      padding: 0 32px;
+      position: sticky;
+      top: 56px;
+      z-index: 50;
+      box-shadow: 0 4px 24px rgba(0,0,0,.22);
+    }
+    #tab05 .jun-tab-bar-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: flex;
+      gap: 0;
+    }
+    #tab05 .jun-tb-btn {
+      position: relative;
+      padding: 14px 20px;
+      font-family: 'Noto Serif JP', serif;
+      font-size: 13px;
+      color: rgba(255,255,255,.4);
+      background: none;
+      border: none;
+      cursor: pointer;
+      letter-spacing: .04em;
+      transition: color .25s;
+      white-space: nowrap;
+    }
+    #tab05 .jun-tb-btn::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%) scaleX(0);
+      width: 80%;
+      height: 2px;
+      background: var(--jun-lt);
+      border-radius: 2px;
+      transition: transform .3s cubic-bezier(.34,1.56,.64,1);
+    }
+    #tab05 .jun-tb-btn.active { color: #5de8d8; }
+    #tab05 .jun-tb-btn.active::after { transform: translateX(-50%) scaleX(1); }
+    #tab05 .jun-tb-btn:hover:not(.active) { color: rgba(255,255,255,.7); }
+    #tab05 .jun-tb-sep { color: rgba(255,255,255,.12); font-size: 11px; align-self: center; }
+    #tab05 .jun-section { padding: 48px 32px; }
+    #tab05 .jun-section-inner { max-width: 1080px; margin: 0 auto; }
+    #tab05 .jun-sec-ey {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 10px;
+      letter-spacing: .4em;
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+    #tab05 .jun-sec-ey::after { content: ''; width: 48px; height: 1px; background: var(--gold); opacity: .5; }
+    #tab05 .jun-sec-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(20px, 2.5vw, 28px);
+      color: var(--text);
+      margin-bottom: 4px;
+      font-weight: 400;
+      line-height: 1.4;
+    }
+    #tab05 .jun-sec-desc { font-size: 12px; color: var(--muted); line-height: 1.9; max-width: 520px; }
+    #tab05 .jun-about-lead {
+      margin-top: 24px;
+      background: linear-gradient(135deg, var(--jun-pale), rgba(230,247,245,.3));
+      border: 1px solid rgba(15,122,110,.18);
+      border-radius: 16px;
+      padding: 28px 32px;
+      position: relative;
+      overflow: hidden;
+    }
+    #tab05 .jun-about-lead::before {
+      content: '語彙';
+      position: absolute;
+      right: 28px;
+      bottom: -16px;
+      font-family: 'Noto Serif JP', serif;
+      font-size: 100px;
+      font-weight: 600;
+      color: rgba(15,122,110,.06);
+      pointer-events: none;
+    }
+    #tab05 .jun-about-lead p {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 15px;
+      color: var(--text);
+      line-height: 1.9;
+      max-width: 640px;
+      position: relative;
+      z-index: 1;
+    }
+    #tab05 .jun-about-lead strong { color: var(--jun); }
+    #tab05 .jun-features-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 28px;
+    }
+    #tab05 .jun-feat-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px 24px 22px;
+      position: relative;
+      overflow: hidden;
+      transition: transform .28s, box-shadow .28s;
+    }
+    #tab05 .jun-feat-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 40px rgba(14,28,56,.09);
+    }
+    #tab05 .jun-feat-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--jun), var(--jun-lt));
+    }
+    #tab05 .jun-feat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 10px;
+      letter-spacing: .3em;
+      color: var(--jun);
+      margin-bottom: 12px;
+    }
+    #tab05 .jun-feat-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--jun), var(--jun-lt));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      margin-bottom: 14px;
+      box-shadow: 0 4px 16px rgba(15,122,110,.25);
+    }
+    #tab05 .jun-feat-card h3 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+    #tab05 .jun-feat-card p { font-size: 12px; color: var(--text-mid); line-height: 1.9; }
+    #tab05 .jun-feat-tag {
+      display: inline-block;
+      margin-top: 12px;
+      background: var(--jun-pale);
+      border: 1px solid rgba(15,122,110,.2);
+      color: var(--jun);
+      font-size: 10px;
+      padding: 3px 10px;
+      border-radius: 100px;
+      letter-spacing: .04em;
+    }
+    #tab05 .jun-analysis-band {
+      background: linear-gradient(135deg, var(--navy), var(--navy-mid));
+      border-radius: 16px;
+      margin-top: 16px;
+      padding: 24px 28px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    #tab05 .jun-an-item { display: flex; align-items: flex-start; gap: 12px; }
+    #tab05 .jun-an-num {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      background: linear-gradient(135deg, var(--jun), var(--jun-lt));
+      color: #fff;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1px;
+    }
+    #tab05 .jun-an-text { font-size: 12px; color: rgba(255,255,255,.65); line-height: 1.8; }
+    #tab05 .jun-an-text strong { color: #5de8d8; font-weight: 500; }
+    #tab05 .jun-two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 28px;
+    }
+    #tab05 .jun-box-card {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    #tab05 .jun-box-head {
+      background: var(--navy);
+      padding: 14px 24px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 10px;
+      letter-spacing: .3em;
+      color: var(--gold);
+    }
+    #tab05 .jun-box-body { padding: 20px 24px; display: flex; flex-direction: column; gap: 10px; }
+    #tab05 .jun-goal-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 12px;
+      color: var(--text-mid);
+      line-height: 1.75;
+    }
+    #tab05 .jun-goal-num {
+      width: 24px;
+      height: 24px;
+      border-radius: 8px;
+      flex-shrink: 0;
+      background: linear-gradient(135deg, var(--jun), var(--jun-lt));
+      color: #fff;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1px;
+    }
+    #tab05 .jun-flow-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 12px;
+      color: var(--text-mid);
+      line-height: 1.75;
+      position: relative;
+      padding-bottom: 12px;
+    }
+    #tab05 .jun-flow-item:last-child { padding-bottom: 0; }
+    #tab05 .jun-flow-item::after {
+      content: '';
+      position: absolute;
+      left: 11px;
+      top: 26px;
+      width: 1px;
+      height: calc(100% - 14px);
+      background: repeating-linear-gradient(to bottom, var(--jun) 0, var(--jun) 4px, transparent 4px, transparent 8px);
+      opacity: .3;
+    }
+    #tab05 .jun-flow-item:last-child::after { display: none; }
+    #tab05 .jun-flow-dot {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      background: var(--cream-dk);
+      border: 2px solid var(--jun);
+      color: var(--jun);
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1px;
+      position: relative;
+      z-index: 1;
+    }
+    #tab05 .jun-rec-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(15,122,110,.1);
+      border: 1px solid rgba(15,122,110,.25);
+      color: var(--jun);
+      border-radius: 100px;
+      padding: 5px 12px;
+      font-size: 11px;
+      margin-top: 14px;
+    }
+    #tab05 .jun-sp-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin-top: 28px;
+      align-items: start;
+    }
+    #tab05 .jun-schedule-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    #tab05 .jun-schedule-card-head {
+      background: var(--navy);
+      padding: 14px 24px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 10px;
+      letter-spacing: .3em;
+      color: var(--gold);
+    }
+    #tab05 .jun-sch-body { padding: 20px 24px; }
+    #tab05 .jun-sch-row { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+    #tab05 .jun-sch-day {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: var(--navy);
+      color: var(--jun-lt);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Noto Serif JP', serif;
+      font-size: 14px;
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+    #tab05 .jun-sch-name { font-size: 12px; font-weight: 500; color: var(--text); margin-bottom: 2px; }
+    #tab05 .jun-sch-time { font-size: 11px; color: var(--muted); }
+    #tab05 .jun-dates-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 6px;
+      margin-top: 14px;
+    }
+    #tab05 .jun-date-pill {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 8px 6px;
+      text-align: center;
+      transition: all .2s;
+    }
+    #tab05 .jun-date-pill:hover { border-color: var(--jun); transform: translateY(-2px); }
+    #tab05 .jun-date-pill .dn {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 10px;
+      letter-spacing: .1em;
+      color: var(--jun);
+      margin-bottom: 2px;
+    }
+    #tab05 .jun-date-pill .dd { font-family: 'Cormorant Garamond', serif; font-size: 16px; color: var(--navy); line-height: 1; }
+    #tab05 .jun-date-pill .dm { font-size: 9px; color: var(--muted); margin-top: 2px; }
+    #tab05 .jun-deadline-box {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(15,122,110,.07);
+      border: 1px solid rgba(15,122,110,.2);
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin-top: 12px;
+      font-size: 11px;
+      color: var(--jun);
+    }
+    #tab05 .jun-deadline-box::before { content: '⏰'; font-size: 12px; }
+    #tab05 .jun-price-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      position: relative;
+      overflow: hidden;
+      transition: transform .25s, border-color .25s;
+      border-top: 3px solid var(--jun);
+    }
+    #tab05 .jun-price-card:hover { transform: translateY(-3px); }
+    #tab05 .jun-price-lv {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 10px;
+      letter-spacing: .3em;
+      color: var(--jun);
+      margin-bottom: 8px;
+    }
+    #tab05 .jun-price-name {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+    #tab05 .jun-price-rows { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+    #tab05 .jun-p-row { display: flex; justify-content: space-between; align-items: baseline; }
+    #tab05 .jun-p-row .k { font-size: 11px; color: var(--muted); }
+    #tab05 .jun-p-row .v { font-family: 'Cormorant Garamond', serif; font-size: 18px; color: var(--text); }
+    #tab05 .jun-p-row .v small { font-size: 11px; color: var(--muted); font-family: 'Noto Sans JP', sans-serif; }
+    #tab05 .jun-price-total {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+    }
+    #tab05 .jun-price-total .tl { font-size: 11px; color: var(--muted); }
+    #tab05 .jun-price-total .tv { font-family: 'Cormorant Garamond', serif; font-size: 32px; color: var(--jun); }
+    #tab05 .jun-price-note {
+      font-size: 10px;
+      color: var(--muted);
+      line-height: 1.9;
+      margin-top: 12px;
+      background: var(--cream);
+      border-radius: 8px;
+      padding: 12px 14px;
+    }
+    #tab05 .jun-textbook-band {
+      background: var(--navy);
+      padding: 32px 32px;
+    }
+    #tab05 .jun-textbook-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 28px;
+      align-items: center;
+    }
+    #tab05 .jun-book-mock {
+      width: 72px;
+      height: 96px;
+      flex-shrink: 0;
+      background: linear-gradient(145deg, #0a3d38, #072e2a);
+      border-radius: 4px 10px 10px 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 6px;
+      box-shadow: 4px 4px 18px rgba(0,0,0,.35), inset 2px 0 6px rgba(255,255,255,.04);
+      text-align: center;
+    }
+    #tab05 .jun-book-mock-inner {
+      color: rgba(93,232,216,.85);
+      font-size: 10px;
+      line-height: 1.5;
+      font-weight: 500;
+    }
+    #tab05 .jun-book-mock-inner .big { font-size: 16px; font-family: 'Cormorant Garamond', serif; line-height: 1.1; }
+    #tab05 .jun-book-ey { font-family: 'Bebas Neue', sans-serif; font-size: 9px; letter-spacing: .3em; color: var(--gold); margin-bottom: 4px; }
+    #tab05 .jun-book-title { font-family: 'Noto Serif JP', serif; font-size: 15px; color: #fff; margin-bottom: 4px; line-height: 1.5; }
+    #tab05 .jun-book-desc { font-size: 11px; color: rgba(255,255,255,.4); line-height: 1.8; max-width: 420px; }
+    #tab05 .jun-cta-link {
+      flex-shrink: 0;
+      background: linear-gradient(135deg, var(--jun), var(--jun-lt));
+      color: #fff;
+      font-family: 'Noto Serif JP', serif;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 11px 24px;
+      border-radius: 100px;
+      text-decoration: none;
+      letter-spacing: .04em;
+      transition: all .22s;
+      box-shadow: 0 3px 16px rgba(15,122,110,.35);
+      white-space: nowrap;
+    }
+    #tab05 .jun-cta-link:hover { transform: translateY(-2px); box-shadow: 0 7px 24px rgba(15,122,110,.5); }
+    #tab05 .jun-cta-section {
+      background: var(--navy);
+      padding: 56px 32px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    #tab05 .jun-cta-section::before {
+      content: '합격';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: 'Noto Serif JP', serif;
+      font-size: 180px;
+      font-weight: 600;
+      color: rgba(255,255,255,.02);
+      pointer-events: none;
+    }
+    #tab05 .jun-cta-inner { position: relative; z-index: 1; }
+    #tab05 .jun-cta-inner h2 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(22px, 3vw, 36px);
+      color: #fff;
+      margin-bottom: 10px;
+      line-height: 1.3;
+      font-weight: 400;
+    }
+    #tab05 .jun-cta-inner h2 em { color: #5de8d8; font-style: italic; }
+    #tab05 .jun-cta-inner p { font-size: 13px; color: rgba(255,255,255,.45); margin-bottom: 28px; line-height: 1.8; }
+    #tab05 .jun-cta-apply {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, var(--jun), var(--jun-lt));
+      color: #fff;
+      font-family: 'Noto Serif JP', serif;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 14px 40px;
+      border-radius: 100px;
+      text-decoration: none;
+      letter-spacing: .05em;
+      transition: all .25s;
+      box-shadow: 0 4px 24px rgba(15,122,110,.4);
+    }
+    #tab05 .jun-cta-apply:hover { transform: translateY(-3px); box-shadow: 0 10px 36px rgba(15,122,110,.55); }
+    #tab05 .jun-year-group { margin-bottom: 32px; }
+    #tab05 .jun-year-group:last-child { margin-bottom: 0; }
+    #tab05 .jun-year-label {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+    #tab05 .jun-year-label .yr { font-family: 'Cormorant Garamond', serif; font-size: 18px; color: var(--navy); }
+    #tab05 .jun-year-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+    #tab05 .jun-test-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    #tab05 .jun-test-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 22px;
+      position: relative;
+      overflow: hidden;
+      transition: transform .25s, box-shadow .25s;
+      border-left: 3px solid rgba(15,122,110,.25);
+    }
+    #tab05 .jun-test-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 32px rgba(14,28,56,.08);
+    }
+    #tab05 .jun-test-card::before {
+      content: '\201C';
+      position: absolute;
+      top: 10px;
+      left: 16px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 52px;
+      color: var(--jun);
+      opacity: .1;
+      line-height: 1;
+    }
+    #tab05 .jun-test-head { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+    #tab05 .jun-test-av {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      background: linear-gradient(135deg, var(--jun), var(--jun-lt));
+      color: #fff;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+    }
+    #tab05 .jun-test-name { font-size: 12px; font-weight: 500; color: var(--text); }
+    #tab05 .jun-test-from { font-size: 10px; color: var(--muted); margin-top: 1px; }
+    #tab05 .jun-test-badge {
+      margin-left: auto;
+      padding: 2px 8px;
+      border-radius: 100px;
+      font-size: 9px;
+      font-weight: 700;
+      background: rgba(15,122,110,.1);
+      color: var(--jun);
+    }
+    #tab05 .jun-test-body { font-size: 12px; color: var(--text-mid); line-height: 1.9; padding-top: 4px; }
+    @media (max-width: 768px) {
+      #tab05 .jun-hero-inner { grid-template-columns: 1fr; }
+      #tab05 .jun-hero-right { display: none; }
+      #tab05 .jun-features-grid { grid-template-columns: 1fr; }
+      #tab05 .jun-analysis-band { grid-template-columns: 1fr; }
+      #tab05 .jun-two-col { grid-template-columns: 1fr; }
+      #tab05 .jun-sp-grid { grid-template-columns: 1fr; }
+      #tab05 .jun-dates-grid { grid-template-columns: repeat(4, 1fr); }
+      #tab05 .jun-test-grid { grid-template-columns: 1fr; }
+      #tab05 .jun-textbook-inner { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -2854,95 +3649,388 @@
 
       <!-- ========== タブ5: ハン検準2級 ========== -->
       <div id="tab05" class="tab-panel">
-        <div class="beg-page">
-          <div class="beg-hero">
-            <div class="beg-hero-eyebrow">ハングル検定 — 準2級</div>
-            <div class="beg-hero-title">『ハングル検定<em>準2級講座</em>』</div>
-            <div class="beg-hero-desc">
-              <p>ハン検準2合格のカギは何といっても語彙！語彙力強化、さらには慣用句、ニュアンスの違いをしっかりと学べる講座を作りました。</p>
-              <p>語彙は覚えるしかありません。たくさん宿題を出しますのでしっかり家で覚えてきて、授業で確認します。なかなか覚えられない語彙や慣用句などネイティブがしっかりケアします。</p>
+        <section class="jun-hero">
+          <div class="jun-hero-grid"></div>
+          <div class="jun-hero-kr">준2급대책</div>
+          <div class="jun-hero-inner">
+            <div class="jun-hero-left">
+              <div class="jun-breadcrumb">ホーム <span>›</span> 講座 <span>›</span> 試験対策 <span>›</span> ハングル検定準2級</div>
+              <div class="jun-hero-eyebrow">HANGUL ABILITY TEST · JUNNIKYU PREPARATION</div>
+              <div class="jun-hero-year">最新傾向と対策を徹底分析</div>
+              <h1 class="jun-hero-title">ハングル検定<br><em>準2級</em> 対策講座</h1>
+              <p class="jun-hero-subtitle">語彙力強化・慣用句・ニュアンスの違いを<br>ネイティブ講師が丁寧にケア。最短で合格をつかむ講座です。</p>
+              <div class="jun-hero-chips">
+                <div class="jun-chip">👥 2〜9名</div>
+                <div class="jun-chip">💻 オンライン（Zoom）</div>
+                <div class="jun-chip">📅 毎週土曜・全8回</div>
+                <div class="jun-chip">🎬 録画あり（欠席も安心）</div>
+              </div>
+              <div class="jun-hero-btns">
+                <a href="trial.html" class="jun-btn-primary">お申込みはこちら →</a>
+                <a href="#jun-schedule" class="jun-btn-ghost">日程を確認する</a>
+              </div>
             </div>
-            <div class="beg-hero-tags">
-              <div class="beg-hero-tag">👥 <span>2～9人</span></div>
-              <div class="beg-hero-tag">⏱ <span>土 13:00～15:00</span></div>
-              <div class="beg-hero-tag">📅 <span>オンライン</span></div>
+            <div class="jun-hero-right">
+              <div class="jun-card">
+                <div class="jun-card-icon">🌿</div>
+                <div class="jun-card-level">準2級</div>
+                <div class="jun-card-name">ハングル検定 準2級対策</div>
+                <div class="jun-card-time">毎週土曜日 13:00〜15:00<br>1コマ50分 × 2コマ × 8回</div>
+                <div class="jun-card-tag">INTERMEDIATE UPPER</div>
+              </div>
             </div>
           </div>
+        </section>
 
-          <div class="beg-sec-header">
-            <div class="beg-sec-label">Points</div>
-            <div class="beg-sec-title">特徴</div>
-            <div class="beg-sec-line"></div>
+        <div class="jun-tab-bar">
+          <div class="jun-tab-bar-inner">
+            <button type="button" class="jun-tb-btn active" data-jun-scroll="#jun-about">講座について</button>
+            <span class="jun-tb-sep">|</span>
+            <button type="button" class="jun-tb-btn" data-jun-scroll="#jun-features">特徴</button>
+            <span class="jun-tb-sep">|</span>
+            <button type="button" class="jun-tb-btn" data-jun-scroll="#jun-goals">目標・授業の流れ</button>
+            <span class="jun-tb-sep">|</span>
+            <button type="button" class="jun-tb-btn" data-jun-scroll="#jun-schedule">日程・授業料</button>
+            <span class="jun-tb-sep">|</span>
+            <button type="button" class="jun-tb-btn" data-jun-scroll="#jun-testimonials">受講生の声</button>
           </div>
-          <div class="beg-flow-steps">
-            <div class="beg-flow-step"><span class="beg-flow-num">1</span><span class="beg-flow-text">語彙強化：トウミが覚えられるよう、ミリネが例文を準備し、宿題を出します。毎回覚えられたかの確認をするため、テストをします。</span></div>
-            <div class="beg-flow-step"><span class="beg-flow-num">2</span><span class="beg-flow-text">試験に慣れる：試験に出てくる形式の類似問題をたくさん解きます。</span></div>
-            <div class="beg-flow-step"><span class="beg-flow-num">3</span><span class="beg-flow-text">覚えづらい単語、似た単語は絵や画像を見せるなどにして記憶に残るようにします。</span></div>
-            <div class="beg-flow-step"><span class="beg-flow-num">4</span><span class="beg-flow-text">欠席した場合でも授業動画を見られるので安心。</span></div>
-          </div>
+        </div>
 
-          <div class="beg-sec-header">
-            <div class="beg-sec-label">Info</div>
-            <div class="beg-sec-title">クラス・教室・定員・日程</div>
-            <div class="beg-sec-line"></div>
-          </div>
-          <div class="beg-info-cards">
-            <div class="beg-info-card">
-              <div class="beg-info-card-label">クラス</div>
-              <div class="beg-info-card-value">準2級</div>
-            </div>
-            <div class="beg-info-card">
-              <div class="beg-info-card-label">定員</div>
-              <div class="beg-info-card-value">2～9人</div>
-            </div>
-            <div class="beg-info-card">
-              <div class="beg-info-card-label">日程</div>
-              <div class="beg-info-card-value">土曜日 13時～15時<small>2コマ×8回</small></div>
+        <section class="jun-section" id="jun-about">
+          <div class="jun-section-inner">
+            <div class="jun-sec-ey">ABOUT THIS COURSE</div>
+            <h2 class="jun-sec-title">ミリネのハン検準2級講座とは</h2>
+            <div class="jun-about-lead">
+              <p>ハン検準2級合格のカギは何といっても<strong>語彙力</strong>。語彙力強化、さらには慣用句、ニュアンスの違いをしっかりと学べる講座を作りました。語彙は覚えるしかありません。たくさん宿題を出しますのでしっかり家で覚えてきて、授業で確認します。なかなか覚えられない語彙や慣用句などは<strong>ネイティブがしっかりケア</strong>します。</p>
             </div>
           </div>
+        </section>
 
-          <div class="beg-sec-header">
-            <div class="beg-sec-label">Textbook</div>
-            <div class="beg-sec-title">テキスト</div>
-            <div class="beg-sec-line"></div>
-          </div>
-          <p style="margin-bottom:24px;color:var(--mid);">ミリネ韓国語教室執筆の本、ハン検準2級レベルの単語集。日本で受験できる韓国語の検定試験、「ハングル能力」検定試験（ハン検）の最新出題範囲に対応した例文付き単語集。ハン検準２級の出題範囲に指定された単語の中から、約1000語を取り上げました。</p>
-
-          <div class="beg-sec-header">
-            <div class="beg-sec-label">Tuition</div>
-            <div class="beg-sec-title">授業料</div>
-            <div class="beg-sec-line"></div>
-          </div>
-          <div class="beg-tuition-table-wrap">
-            <table class="beg-tuition-table">
-              <thead><tr><th>コマあたり</th><th>期間</th><th>授業料(税抜)</th><th>税込</th></tr></thead>
-              <tbody><tr><td>2,980円</td><td>8週間</td><td>47,680円</td><td>52,448円</td></tr></tbody>
-            </table>
-          </div>
-
-          <a href="trial.html" class="beg-cta-btn" style="text-decoration:none;">
-            お申込みはこちら
-            <svg viewBox="0 0 16 16" style="width:16px;height:16px;"><line x1="2" y1="8" x2="13" y2="8" stroke="currentColor" stroke-width="2.5" fill="none"/><polyline points="9,4 13,8 9,12" stroke="currentColor" stroke-width="2.5" fill="none"/></svg>
-          </a>
-
-          <div class="beg-sec-header">
-            <div class="beg-sec-label">Testimonial</div>
-            <div class="beg-sec-title">生徒の声</div>
-            <div class="beg-sec-line"></div>
-          </div>
-          <div class="beg-testimonial">
-            <div class="beg-testimonial-meta">
-              <div class="beg-testimonial-avatar">関</div>
-              <div><span class="beg-testimonial-name">関東在住・準２級</span><span class="beg-testimonial-date">2022.11</span></div>
+        <section class="jun-section" id="jun-features" style="background:var(--cream);">
+          <div class="jun-section-inner">
+            <div class="jun-sec-ey">COURSE FEATURES</div>
+            <h2 class="jun-sec-title">4つの特徴</h2>
+            <div class="jun-features-grid">
+              <div class="jun-feat-card">
+                <div class="jun-feat-num">FEATURE 01</div>
+                <div class="jun-feat-icon">📚</div>
+                <h3>語彙強化</h3>
+                <p>トウミが覚えられるようミリネが例文を準備し、宿題を出します。毎回確認テストを実施し、ネイティブ講師の丁寧な解説で単語を確実に定着させます。</p>
+                <div class="jun-feat-tag">毎回テスト実施</div>
+              </div>
+              <div class="jun-feat-card">
+                <div class="jun-feat-num">FEATURE 02</div>
+                <div class="jun-feat-icon">🎯</div>
+                <h3>試験形式に慣れる</h3>
+                <p>試験に出てくる形式の類似問題をたくさん解きます。問題タイプ別の対策と解答のポイントを詳しく解説し、出題内容を体系的に把握できるようにします。</p>
+                <div class="jun-feat-tag">類型別問題演習</div>
+              </div>
+              <div class="jun-feat-card">
+                <div class="jun-feat-num">FEATURE 03</div>
+                <div class="jun-feat-icon">🎨</div>
+                <h3>イラストで記憶に残す</h3>
+                <p>覚えづらい単語・似た単語は絵や画像を見せて記憶に残るように工夫します。ネイティブだからこそ伝えられる微妙なニュアンスの違いを丁寧に解説します。</p>
+                <div class="jun-feat-tag">ビジュアル学習</div>
+              </div>
+              <div class="jun-feat-card">
+                <div class="jun-feat-num">FEATURE 04</div>
+                <div class="jun-feat-icon">🎬</div>
+                <h3>録画で欠席しても安心</h3>
+                <p>授業の録画を後日送付します。欠席した場合でも授業動画をいつでも見返せるので安心。平日の復習にも活用できます。</p>
+                <div class="jun-feat-tag">動画配信あり</div>
+              </div>
             </div>
-            <div class="beg-testimonial-body">一度習った表現や文法が授業の中で何度も出てきて、自然に覚えることができ、語彙力アップにつながりました。語彙力アップに特化したクラスはあまりないと思いますので、とても勉強になりました。もっと勉強して、上級のクラスも受けてみたいです。</div>
-          </div>
-          <div class="beg-testimonial">
-            <div class="beg-testimonial-meta">
-              <div class="beg-testimonial-avatar">関</div>
-              <div><span class="beg-testimonial-name">関東在住・準2級</span><span class="beg-testimonial-date">2021.6</span></div>
+            <div class="jun-analysis-band">
+              <div class="jun-an-item">
+                <div class="jun-an-num">1</div>
+                <div class="jun-an-text"><strong>類型別問題の対策</strong>と解答のポイントを詳しく解説します。</div>
+              </div>
+              <div class="jun-an-item">
+                <div class="jun-an-num">2</div>
+                <div class="jun-an-text"><strong>語彙・文法・発音・漢字</strong>等をレベル別に分かりやすくまとめます。</div>
+              </div>
+              <div class="jun-an-item">
+                <div class="jun-an-num">3</div>
+                <div class="jun-an-text"><strong>出題内容を体系的に把握</strong>し、試験準備を効率よく進められます。</div>
+              </div>
             </div>
-            <div class="beg-testimonial-body">ニュアンスなどの違いをわかりやすく印象的に授業内で教えていただけたこと、授業のビデオと授業中の大事な追記も含め解答を改めて配布してくださり復習にとても役に立ちました。今回先生の授業を受けることができてよかったです。</div>
+          </div>
+        </section>
+
+        <section class="jun-section" id="jun-goals" style="background:#fff;">
+          <div class="jun-section-inner">
+            <div class="jun-sec-ey">GOALS & LESSON FLOW</div>
+            <h2 class="jun-sec-title">目標と授業の流れ</h2>
+            <div class="jun-two-col">
+              <div class="jun-box-card">
+                <div class="jun-box-head">GOALS / 目標</div>
+                <div class="jun-box-body">
+                  <div class="jun-goal-item">
+                    <div class="jun-goal-num">1</div>
+                    <span>準2級トウミに出ている単語と例文を全て暗記します。</span>
+                  </div>
+                  <div class="jun-goal-item">
+                    <div class="jun-goal-num">2</div>
+                    <span>授業中のテストで試験形式に慣れます。</span>
+                  </div>
+                  <div class="jun-goal-item">
+                    <div class="jun-goal-num">3</div>
+                    <span>関連用語・慣用句・ニュアンスの違いも習得します。</span>
+                  </div>
+                </div>
+              </div>
+              <div class="jun-box-card">
+                <div class="jun-box-head">LESSON FLOW / 授業の流れ</div>
+                <div class="jun-box-body">
+                  <div class="jun-flow-item">
+                    <div class="jun-flow-dot">1</div>
+                    <span>宿題の語彙を家でしっかり覚えてきます。</span>
+                  </div>
+                  <div class="jun-flow-item">
+                    <div class="jun-flow-dot">2</div>
+                    <span>授業前日にメールで送られた課題を解いておきます。</span>
+                  </div>
+                  <div class="jun-flow-item">
+                    <div class="jun-flow-dot">3</div>
+                    <span>授業中に確認テストと答え合わせをします。</span>
+                  </div>
+                  <div class="jun-flow-item">
+                    <div class="jun-flow-dot">4</div>
+                    <span>講師が絵や例文で語彙の理解を深める手助けをします。</span>
+                  </div>
+                  <div class="jun-flow-item">
+                    <div class="jun-flow-dot">5</div>
+                    <span>録画動画を後日送付。欠席しても安心して復習できます。</span>
+                  </div>
+                  <div class="jun-rec-badge">🎬 授業動画を後日配信 — 欠席・復習にご活用ください</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="jun-textbook-band">
+          <div class="jun-textbook-inner">
+            <div class="jun-book-mock">
+              <div class="jun-book-mock-inner">
+                <span>hana</span><br>
+                <span class="big">準2</span><br>
+                <span>単語集</span>
+              </div>
+            </div>
+            <div class="jun-book-info">
+              <div class="jun-book-ey">TEXTBOOK / 使用テキスト</div>
+              <div class="jun-book-title">『hanaの韓国語単語〈中級編〉<br>ハン検準2級レベル』</div>
+              <div class="jun-book-desc">ハン検準2級の出題範囲に指定された単語の中から約1000語を収録。準2〜5級の語彙と文法で作成した例文付き。すぐに会話で使える単語力が身につきます。</div>
+            </div>
+            <a href="trial.html" class="jun-cta-link">お申込みはこちら →</a>
+          </div>
+        </div>
+
+        <section class="jun-section" id="jun-schedule" style="background:var(--cream);">
+          <div class="jun-section-inner">
+            <div class="jun-sec-ey">SCHEDULE & TUITION</div>
+            <h2 class="jun-sec-title">日程・授業料</h2>
+            <div class="jun-sp-grid">
+              <div>
+                <div class="jun-schedule-card">
+                  <div class="jun-schedule-card-head">CLASS SCHEDULE / 日程</div>
+                  <div class="jun-sch-body">
+                    <div class="jun-sch-row">
+                      <div class="jun-sch-day">土</div>
+                      <div>
+                        <div class="jun-sch-name">ハングル検定 準2級 対策</div>
+                        <div class="jun-sch-time">毎週土曜日 13:00〜15:00（1コマ50分 × 2コマ）</div>
+                      </div>
+                    </div>
+                    <div class="jun-dates-grid">
+                      <div class="jun-date-pill"><div class="dn">❶</div><div class="dd">9/20</div><div class="dm">9月</div></div>
+                      <div class="jun-date-pill"><div class="dn">❷</div><div class="dd">9/27</div><div class="dm">9月</div></div>
+                      <div class="jun-date-pill"><div class="dn">❸</div><div class="dd">10/4</div><div class="dm">10月</div></div>
+                      <div class="jun-date-pill"><div class="dn">❹</div><div class="dd">10/11</div><div class="dm">10月</div></div>
+                      <div class="jun-date-pill"><div class="dn">❺</div><div class="dd">10/18</div><div class="dm">10月</div></div>
+                      <div class="jun-date-pill"><div class="dn">❻</div><div class="dd">10/25</div><div class="dm">10月</div></div>
+                      <div class="jun-date-pill"><div class="dn">❼</div><div class="dd">11/1</div><div class="dm">11月</div></div>
+                      <div class="jun-date-pill"><div class="dn">❽</div><div class="dd">11/8</div><div class="dm">11月</div></div>
+                    </div>
+                    <div class="jun-deadline-box">お申込み締切：9月12日（金）まで</div>
+                  </div>
+                </div>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px;">
+                  <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:12px 16px;">
+                    <div style="font-family:'Bebas Neue',sans-serif;font-size:9px;letter-spacing:.25em;color:var(--gold);margin-bottom:2px;">CAPACITY</div>
+                    <div style="font-size:13px;font-weight:500;color:var(--text);">2〜9名</div>
+                  </div>
+                  <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:12px 16px;">
+                    <div style="font-family:'Bebas Neue',sans-serif;font-size:9px;letter-spacing:.25em;color:var(--gold);margin-bottom:2px;">FORMAT</div>
+                    <div style="font-size:13px;font-weight:500;color:var(--text);">オンライン（Zoom）</div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div class="jun-price-card">
+                  <div class="jun-price-lv">JUNNIKYU / 準2級</div>
+                  <div class="jun-price-name">ハングル検定準2級 対策コース</div>
+                  <div class="jun-price-rows">
+                    <div class="jun-p-row"><span class="k">1コマあたり</span><span class="v">2,980<small>円</small></span></div>
+                    <div class="jun-p-row"><span class="k">コマ数</span><span class="v">2<small>コマ × 8回</small></span></div>
+                    <div class="jun-p-row"><span class="k">期間</span><span class="v">8<small>週間</small></span></div>
+                    <div class="jun-p-row"><span class="k">授業料（税抜）</span><span class="v">47,680<small>円</small></span></div>
+                  </div>
+                  <div class="jun-price-total">
+                    <span class="tl">税込合計</span>
+                    <span class="tv">52,448<small style="font-size:14px;"> 円</small></span>
+                  </div>
+                  <div class="jun-price-note">
+                    ※ お申込み締切：9月12日（金）<br>
+                    ※ 少人数制のため、定員になり次第締め切ります<br>
+                    ※ キャンセルの場合は規定に従います
+                  </div>
+                </div>
+                <div style="margin-top:18px;text-align:center;">
+                  <a href="trial.html" class="jun-cta-apply" style="font-size:14px;padding:14px 36px;display:inline-block;text-decoration:none;">お申込みはこちら →</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="jun-section" id="jun-testimonials" style="background:var(--cream-dk);">
+          <div class="jun-section-inner">
+            <div class="jun-sec-ey">TESTIMONIALS</div>
+            <h2 class="jun-sec-title">受講生の声</h2>
+            <p class="jun-sec-desc" style="margin-bottom:32px;">全国各地の受講生から届いた感想です。</p>
+
+            <div class="jun-year-group">
+              <div class="jun-year-label"><span class="yr">2022年11月</span></div>
+              <div class="jun-test-grid">
+                <div class="jun-test-card">
+                  <div class="jun-test-head">
+                    <div class="jun-test-av">関</div>
+                    <div>
+                      <div class="jun-test-name">関東在住 · 準２級</div>
+                      <div class="jun-test-from">2022.11</div>
+                    </div>
+                    <div class="jun-test-badge">準2級</div>
+                  </div>
+                  <div class="jun-test-body">一度習った表現や文法が授業の中で何度も出てきて、自然に覚えることができ、語彙力アップにつながりました。語彙力アップに特化したクラスはあまりないと思いますので、とても勉強になりました。もっと勉強して、上級のクラスも受けてみたいです。ありがとうございました。</div>
+                </div>
+                <div class="jun-test-card">
+                  <div class="jun-test-head">
+                    <div class="jun-test-av">東</div>
+                    <div>
+                      <div class="jun-test-name">東北在住 · 準2級</div>
+                      <div class="jun-test-from">2022.11</div>
+                    </div>
+                    <div class="jun-test-badge">準2級</div>
+                  </div>
+                  <div class="jun-test-body">自分の実力不足で授業のレベルが難しくてついていけないところもありましたが、分かりやすく教えてもらってよかったです。ニュアンスの違いや、慣用句についても勉強になりました。授業日の前日の夕方に授業で使う問題がメールで送られていたので２日前ぐらいに送られてきた方が余裕をもって勉強できるかなとは思いました。復習頑張って試験受けてきます。ありがとうございました。</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="jun-year-group">
+              <div class="jun-year-label"><span class="yr">2022年6月</span></div>
+              <div class="jun-test-grid">
+                <div class="jun-test-card">
+                  <div class="jun-test-head">
+                    <div class="jun-test-av">近</div>
+                    <div>
+                      <div class="jun-test-name">近畿在住 · 準２級</div>
+                      <div class="jun-test-from">2022.6</div>
+                    </div>
+                    <div class="jun-test-badge">準2級</div>
+                  </div>
+                  <div class="jun-test-body">良かった点は、懇切丁寧に解説してくれたこと、悪かった点は、基本的なことが分かっていない部分があり、そういうところは省略されがちだったこと。</div>
+                </div>
+                <div class="jun-test-card">
+                  <div class="jun-test-head">
+                    <div class="jun-test-av">関</div>
+                    <div>
+                      <div class="jun-test-name">関東在住 · 準2級</div>
+                      <div class="jun-test-from">2022.6</div>
+                    </div>
+                    <div class="jun-test-badge">準2級</div>
+                  </div>
+                  <div class="jun-test-body">とても丁寧にご指導いただきました。関連した事や例文もたくさん挙げてくださったのでわかりやすかったです。予習が前提のような形式だったので、まったく初めてこの級を目指す場合は何をどうしたらいいかわからずキツイかもしれません…（でも対策だからそういうものだとも思いますが^^）。毎回多岐にわたってしていただきましたが、予習しやすいように分野別に特化したレッスンがあってもいいかも？と思います。（1回目のレッスンはことわざ、2回目は四字熟語、3回目は助詞…といったふうに）まあそれも受験するなら自分でやっておくべきことだとも思います。頑張ります。</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="jun-year-group">
+              <div class="jun-year-label"><span class="yr">2021年11月</span></div>
+              <div class="jun-test-grid">
+                <div class="jun-test-card">
+                  <div class="jun-test-head">
+                    <div class="jun-test-av">関</div>
+                    <div>
+                      <div class="jun-test-name">関東在住 · 準２級</div>
+                      <div class="jun-test-from">2021.11</div>
+                    </div>
+                    <div class="jun-test-badge">準2級</div>
+                  </div>
+                  <div class="jun-test-body">分かりやすい授業でした。さらに勉強を続けたいと思いました。</div>
+                </div>
+                <div class="jun-test-card">
+                  <div class="jun-test-head">
+                    <div class="jun-test-av">近</div>
+                    <div>
+                      <div class="jun-test-name">近畿在住 · 準2級</div>
+                      <div class="jun-test-from">2021.11</div>
+                    </div>
+                    <div class="jun-test-badge">準2級</div>
+                  </div>
+                  <div class="jun-test-body">先生の豊富な知識とバラエティに飛んだ例えで楽しく学ぶ事ができました。ただ、試験はあまりにも範囲が広いので8回の授業で試験内容の何割くらいが理解できているのだろうかとは思いますが、授業での勉強を活かして自分でテキストなどを解くしかないのかなぁと思います。</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="jun-year-group">
+              <div class="jun-year-label"><span class="yr">2021年6月</span></div>
+              <div class="jun-test-grid">
+                <div class="jun-test-card">
+                  <div class="jun-test-head">
+                    <div class="jun-test-av">関</div>
+                    <div>
+                      <div class="jun-test-name">関東在住 · 準２級</div>
+                      <div class="jun-test-from">2021.6</div>
+                    </div>
+                    <div class="jun-test-badge">準2級</div>
+                  </div>
+                  <div class="jun-test-body">ニュアンスなどの違いをわかりやすく印象的に授業内で教えていただけたこと、授業のビデオと授業中の大事な追記も含め解答を改めて配布してくださり復習にとても役に立ちました。今回先生の授業を受けることができてよかったです。ありがとうございました。</div>
+                </div>
+                <div class="jun-test-card">
+                  <div class="jun-test-head">
+                    <div class="jun-test-av">関</div>
+                    <div>
+                      <div class="jun-test-name">関東在住 · 準2級</div>
+                      <div class="jun-test-from">2021.6</div>
+                    </div>
+                    <div class="jun-test-badge">準2級</div>
+                  </div>
+                  <div class="jun-test-body">ハン検に出やすい問題や例文も併せて教えてもらえたのが良かったです。授業の録画も復習や聞き逃した時に助かりました。</div>
+                </div>
+                <div class="jun-test-card">
+                  <div class="jun-test-head">
+                    <div class="jun-test-av">関</div>
+                    <div>
+                      <div class="jun-test-name">関東在住 · 準2級</div>
+                      <div class="jun-test-from">2021.6</div>
+                    </div>
+                    <div class="jun-test-badge">準2級</div>
+                  </div>
+                  <div class="jun-test-body">先生がわかりやすく、自分の実力不足はあるが、とても楽しく授業をうけることができた。先生はわかりやすく説明してくださり、プロだなと毎回感じていました。</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="jun-cta-section">
+          <div class="jun-cta-inner">
+            <h2>語彙力で、<em>準2級を突破する。</em></h2>
+            <p>ミリネの対策講座で、着実に実力をつけていきましょう。<br>お申込み・お問い合わせはお気軽にどうぞ。</p>
+            <a href="trial.html" class="jun-cta-apply">お申込みはこちら →</a>
           </div>
         </div>
       </div>

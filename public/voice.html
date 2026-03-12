@@ -198,6 +198,48 @@
     }
     .voice-play:hover { text-decoration: underline; }
     .voice-play::before { content: "▶ "; font-size: 0.85em; }
+    .voice-tabs-bar {
+      display: flex;
+      gap: 0;
+      margin-bottom: 24px;
+      border-bottom: 1px solid var(--gray-border);
+      padding: 0 4px;
+    }
+    .voice-tab-btn {
+      padding: 14px 24px;
+      font-size: 14px;
+      color: var(--text-muted);
+      cursor: pointer;
+      border: none;
+      border-bottom: 2px solid transparent;
+      background: none;
+      transition: all .2s;
+      font-family: inherit;
+    }
+    .voice-tab-btn.active { color: var(--gold); border-bottom-color: var(--gold); font-weight: 600; }
+    .voice-tab-btn:hover:not(.active) { color: var(--mid); }
+    .voice-tab-panel { display: none; }
+    .voice-tab-panel.active { display: block; }
+    .voice-tab-panel .section-header { margin-top: 0; }
+    .voice-all-play-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 20px;
+      padding: 12px 24px;
+      background: var(--dark);
+      color: var(--white);
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background .2s, transform .15s;
+    }
+    .voice-all-play-btn:hover { background: var(--gold); transform: translateY(-1px); }
+    .voice-all-play-btn.playing { background: var(--gold); }
+    .voice-all-play-btn::before { content: "▶"; font-size: 12px; }
+    .voice-all-play-btn.playing::before { content: "⏸"; }
     .footer {
       background: var(--text-dark);
       color: rgba(255,255,255,0.85);
@@ -255,60 +297,68 @@
         <audio id="voicePlayer" controls preload="metadata"></audio>
       </div>
 
-      <nav class="anchor-nav" style="display: flex; flex-wrap: wrap; gap: 12px 24px; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--gray-border);">
-        <a href="#1kyu">ミリネ1級</a>
-        <a href="#2kyu">ミリネ2級</a>
-        <a href="#3kyu">ミリネ3級</a>
-        <a href="#4kyu">ミリネ4級</a>
-      </nav>
+      <div class="voice-tabs-bar">
+        <button type="button" class="voice-tab-btn active" data-tab="voice-tab01">ミリネ1級</button>
+        <button type="button" class="voice-tab-btn" data-tab="voice-tab02">ミリネ2級</button>
+        <button type="button" class="voice-tab-btn" data-tab="voice-tab03">ミリネ3級</button>
+        <button type="button" class="voice-tab-btn" data-tab="voice-tab04">ミリネ4級</button>
+      </div>
 
-      <section id="1kyu">
-        <h2 class="section-header">ミリネ韓国語1級</h2>
-        <div class="content-block">
-          <p><strong>『ミリネ韓国語教科書1』 音声ファイル</strong><br>下のリンクをクリックすると『ミリネ韓国語教科書1』の音声をお聞きになれます。</p>
-          <table class="voice-table">
-            <thead><tr><th>課</th><th>本文</th><th>文法・語彙</th></tr></thead>
-            <tbody id="voice-1kyu"></tbody>
-          </table>
-          <p><a href="index.html">トップページへ戻る</a></p>
-        </div>
-      </section>
+      <div id="voice-tab01" class="voice-tab-panel active">
+        <section>
+          <h2 class="section-header">ミリネ韓国語1級</h2>
+          <div class="content-block">
+            <p><strong>『ミリネ韓国語教科書1』 音声ファイル</strong><br>下のリンクをクリックすると『ミリネ韓国語教科書1』の音声をお聞きになれます。</p>
+            <table class="voice-table">
+              <thead><tr><th>課</th><th>本文</th><th>文法・語彙</th></tr></thead>
+              <tbody id="voice-1kyu"></tbody>
+            </table>
+            <button type="button" class="voice-all-play-btn" data-level="1kyu">1課から最後まで全再生</button>
+          </div>
+        </section>
+      </div>
 
-      <section id="2kyu">
-        <h2 class="section-header">ミリネ韓国語2級</h2>
-        <div class="content-block">
-          <p><strong>『ミリネ韓国語教科書2』 音声ファイル</strong><br>下のリンクをクリックすると『ミリネ韓国語教科書2』の音声をお聞きになれます。</p>
-          <table class="voice-table">
-            <thead><tr><th>課</th><th>本文</th><th>文法</th><th>語彙</th></tr></thead>
-            <tbody id="voice-2kyu"></tbody>
-          </table>
-          <p><a href="index.html">トップページへ戻る</a></p>
-        </div>
-      </section>
+      <div id="voice-tab02" class="voice-tab-panel">
+        <section>
+          <h2 class="section-header">ミリネ韓国語2級</h2>
+          <div class="content-block">
+            <p><strong>『ミリネ韓国語教科書2』 音声ファイル</strong><br>下のリンクをクリックすると『ミリネ韓国語教科書2』の音声をお聞きになれます。</p>
+            <table class="voice-table">
+              <thead><tr><th>課</th><th>本文</th><th>文法</th><th>語彙</th></tr></thead>
+              <tbody id="voice-2kyu"></tbody>
+            </table>
+            <button type="button" class="voice-all-play-btn" data-level="2kyu">1課から最後まで全再生</button>
+          </div>
+        </section>
+      </div>
 
-      <section id="3kyu">
-        <h2 class="section-header">ミリネ韓国語3級</h2>
-        <div class="content-block">
-          <p><strong>『ミリネ韓国語教科書3』 音声ファイル</strong><br>下のリンクをクリックすると『ミリネ韓国語教科書3』の音声をお聞きになれます。</p>
-          <table class="voice-table">
-            <thead><tr><th>課</th><th>本文</th><th>文法・語彙</th></tr></thead>
-            <tbody id="voice-3kyu"></tbody>
-          </table>
-          <p><a href="index.html">トップページへ戻る</a></p>
-        </div>
-      </section>
+      <div id="voice-tab03" class="voice-tab-panel">
+        <section>
+          <h2 class="section-header">ミリネ韓国語3級</h2>
+          <div class="content-block">
+            <p><strong>『ミリネ韓国語教科書3』 音声ファイル</strong><br>下のリンクをクリックすると『ミリネ韓国語教科書3』の音声をお聞きになれます。</p>
+            <table class="voice-table">
+              <thead><tr><th>課</th><th>本文</th><th>文法・語彙</th></tr></thead>
+              <tbody id="voice-3kyu"></tbody>
+            </table>
+            <button type="button" class="voice-all-play-btn" data-level="3kyu">1課から最後まで全再生</button>
+          </div>
+        </section>
+      </div>
 
-      <section id="4kyu">
-        <h2 class="section-header">ミリネ韓国語4級</h2>
-        <div class="content-block">
-          <p><strong>『ミリネ韓国語教科書4』 音声ファイル</strong><br>下のリンクをクリックすると『ミリネ韓国語教科書4』の音声をお聞きになれます。</p>
-          <table class="voice-table">
-            <thead><tr><th>課</th><th>本文</th><th>文法・語彙</th></tr></thead>
-            <tbody id="voice-4kyu"></tbody>
-          </table>
-          <p><a href="index.html">トップページへ戻る</a></p>
-        </div>
-      </section>
+      <div id="voice-tab04" class="voice-tab-panel">
+        <section>
+          <h2 class="section-header">ミリネ韓国語4級</h2>
+          <div class="content-block">
+            <p><strong>『ミリネ韓国語教科書4』 音声ファイル</strong><br>下のリンクをクリックすると『ミリネ韓国語教科書4』の音声をお聞きになれます。</p>
+            <table class="voice-table">
+              <thead><tr><th>課</th><th>本文</th><th>文法・語彙</th></tr></thead>
+              <tbody id="voice-4kyu"></tbody>
+            </table>
+            <button type="button" class="voice-all-play-btn" data-level="4kyu">1課から最後まで全再生</button>
+          </div>
+        </section>
+      </div>
 
       <p style="margin-top: 32px;"><a href="index.html" style="color: var(--accent-blue); text-decoration: none;">← トップページへ戻る</a></p>
     </main>
@@ -491,6 +541,105 @@
         row.appendChild(cell(link("4kyu/Mi4-Sub" + i + ".mp3", "「ミリネ4」 " + i + "課 文法・語彙")));
         tbody.appendChild(row);
       }
+
+      // Tab switching
+      document.querySelectorAll('.voice-tab-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var tabId = this.getAttribute('data-tab');
+          document.querySelectorAll('.voice-tab-btn').forEach(function(b) { b.classList.remove('active'); });
+          document.querySelectorAll('.voice-tab-panel').forEach(function(p) { p.classList.remove('active'); });
+          this.classList.add('active');
+          var panel = document.getElementById(tabId);
+          if (panel) panel.classList.add('active');
+        });
+      });
+
+      // All-play: URL lists per level (1課から順に)
+      var ALL_PLAY_URLS = {
+        "1kyu": (function() {
+          var urls = [];
+          for (var k = 1; k <= 25; k++) {
+            urls.push(BASE + "1kyu/Mi1-Main" + k + ".mp3");
+            urls.push(BASE + "1kyu/Mi1-sub" + k + ".mp3");
+          }
+          return urls;
+        })(),
+        "2kyu": (function() {
+          var urls = [];
+          for (var k = 1; k <= 24; k++) {
+            urls.push(BASE + "2kyu/Mi2-Main" + k + ".mp3");
+            urls.push(BASE + "2kyu/Mi2-Bunpo" + k + ".mp3");
+            urls.push(BASE + "2kyu/Mi2-Goi" + k + ".mp3");
+          }
+          return urls;
+        })(),
+        "3kyu": (function() {
+          var urls = [];
+          for (var k = 1; k <= 24; k++) {
+            urls.push(BASE + "3kyu/Mi3-Main" + k + ".mp3");
+            urls.push(BASE + "3kyu/Mi3-Sub" + k + ".mp3");
+          }
+          return urls;
+        })(),
+        "4kyu": (function() {
+          var urls = [];
+          for (var k = 1; k <= 24; k++) {
+            urls.push(BASE + "4kyu/Mi4-Main" + k + ".mp3");
+            urls.push(BASE + "4kyu/Mi4-Sub" + k + ".mp3");
+          }
+          return urls;
+        })()
+      };
+
+      var allPlayQueue = [];
+      var allPlayIndex = 0;
+      var currentAllPlayBtn = null;
+
+      function stopAllPlay() {
+        if (player) {
+          player.pause();
+          player.removeEventListener('ended', allPlayNext);
+        }
+        allPlayQueue = [];
+        allPlayIndex = 0;
+        if (currentAllPlayBtn) {
+          currentAllPlayBtn.classList.remove('playing');
+          currentAllPlayBtn.textContent = '1課から最後まで全再生';
+          currentAllPlayBtn = null;
+        }
+      }
+
+      function allPlayNext() {
+        if (allPlayIndex >= allPlayQueue.length) {
+          stopAllPlay();
+          return;
+        }
+        player.src = allPlayQueue[allPlayIndex];
+        player.play().catch(function() { allPlayIndex++; allPlayNext(); });
+        allPlayIndex++;
+      }
+
+      document.querySelectorAll('.voice-all-play-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var level = this.getAttribute('data-level');
+          var urls = ALL_PLAY_URLS[level];
+          if (!urls || urls.length === 0) return;
+
+          if (currentAllPlayBtn === this && allPlayQueue.length > 0) {
+            stopAllPlay();
+            return;
+          }
+          stopAllPlay();
+          currentAllPlayBtn = this;
+          this.classList.add('playing');
+          this.textContent = '停止';
+          allPlayQueue = urls.slice();
+          allPlayIndex = 0;
+          player.addEventListener('ended', allPlayNext);
+          allPlayNext();
+        });
+      });
+
     })();
   </script>
   <script src="/admin-badge.js"></script>

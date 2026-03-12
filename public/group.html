@@ -1480,6 +1480,98 @@
       transition: transform 0.2s;
     }
     #tab02 .beg-cta-btn:hover svg, #tab03 .beg-cta-btn:hover svg, #tab04 .beg-cta-btn:hover svg, #tab05 .beg-cta-btn:hover svg, #tab06 .beg-cta-btn:hover svg { transform: translateX(3px); }
+
+    /* 生徒の声：個人レッスン風デザイン */
+    .tab-panel .section-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: var(--dark);
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .tab-panel .section-title .dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+    .tab-panel .reviews-list { display: flex; flex-direction: column; gap: 20px; }
+    .tab-panel .review-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px 32px;
+      transition: box-shadow .2s;
+    }
+    .tab-panel .review-card:hover {
+      box-shadow: 0 4px 24px rgba(184,146,74,0.1);
+    }
+    .tab-panel .review-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .tab-panel .review-avatar {
+      width: 40px; height: 40px;
+      background: var(--gold-pale);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      color: var(--gold);
+      font-weight: 600;
+      border: 1px solid var(--gold-light);
+      flex-shrink: 0;
+    }
+    .tab-panel .review-info .name { font-size: 14px; font-weight: 500; color: var(--dark); }
+    .tab-panel .review-info .badge-row { display: flex; gap: 8px; margin-top: 4px; }
+    .tab-panel .level-badge {
+      font-size: 11px;
+      background: var(--gold-pale);
+      color: var(--gold);
+      border: 1px solid var(--gold-light);
+      border-radius: 4px;
+      padding: 2px 8px;
+      letter-spacing: 0.05em;
+    }
+    .tab-panel .date-badge { font-size: 11px; color: var(--muted); }
+    .tab-panel .review-body {
+      font-size: 16px;
+      color: var(--mid);
+      line-height: 1.75;
+    }
+    .tab-panel .review-body p + p { margin-top: 12px; }
+    .tab-panel .review-collapsible .review-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      cursor: pointer;
+      margin-bottom: 0;
+      user-select: none;
+    }
+    .tab-panel .review-collapsible .review-header .review-meta { margin-bottom: 0; }
+    .tab-panel .review-collapsible .review-body {
+      display: none;
+      padding-top: 16px;
+      margin-top: 0;
+      border-top: 1px solid var(--border);
+    }
+    .tab-panel .review-collapsible.review-expanded .review-body { display: block; }
+    .tab-panel .review-collapsible .review-toggle {
+      flex-shrink: 0;
+      font-size: 12px;
+      color: var(--gold);
+      transition: transform .2s;
+    }
+    .tab-panel .review-collapsible.review-expanded .review-toggle { transform: rotate(180deg); }
   </style>
 </head>
 <body>
@@ -1921,57 +2013,58 @@
           </a>
 
           <!-- TESTIMONIAL (生徒の声 - mirinae.jpより) -->
-          <div class="beg-sec-header">
-            <div class="beg-sec-label">Testimonial</div>
-            <div class="beg-sec-title">生徒の声</div>
-            <div class="beg-sec-line"></div>
-          </div>
-          <div class="beg-testimonial">
-            <div class="beg-testimonial-meta">
-              <div class="beg-testimonial-avatar">Y</div>
-              <div>
-                <div class="beg-testimonial-name">Y様</div>
-                <div class="beg-testimonial-date">2022.08</div>
+          <h2 class="section-title"><span class="dot"></span>生徒の声</h2>
+          <div class="reviews-list">
+            <div class="review-card">
+              <div class="review-meta">
+                <div class="review-avatar">Y</div>
+                <div class="review-info">
+                  <div class="name">Y様</div>
+                  <div class="badge-row"><span class="date-badge">2022.08</span></div>
+                </div>
+              </div>
+              <div class="review-body">
+                先生の説明が丁寧でわかりやすく、最後まで投げ出さずに受講できた点が良かったと思います。
               </div>
             </div>
-            <div class="beg-testimonial-body">
-              先生の説明が丁寧でわかりやすく、最後まで投げ出さずに受講できた点が良かったと思います。
-            </div>
-          </div>
-          <div class="beg-testimonial">
-            <div class="beg-testimonial-meta">
-              <div class="beg-testimonial-avatar">F</div>
-              <div>
-                <div class="beg-testimonial-name">FU様</div>
-                <div class="beg-testimonial-date">2016.11</div>
+            <div class="review-card">
+              <div class="review-meta">
+                <div class="review-avatar">F</div>
+                <div class="review-info">
+                  <div class="name">FU様</div>
+                  <div class="badge-row"><span class="date-badge">2016.11</span></div>
+                </div>
+              </div>
+              <div class="review-body">
+                会話の授業の本文は今までのテキストにない様なくだけた文調のもにがものがあり文章そのものが楽しいです。作文も日常的使われる内容のものが多く実践に役立ちそうです。まだ４回の受講ですが先生が４人程いらしてその時々で違う先生とお話できるのは今までにない経験でやはり楽しいです。復習がなかなか追いつかづ大変ですが、毎回１コマも２コマも実際に使える表現も学んでいきたいと思っています。
               </div>
             </div>
-            <div class="beg-testimonial-body">
-              会話の授業の本文は今までのテキストにない様なくだけた文調のもにがものがあり文章そのものが楽しいです。作文も日常的使われる内容のものが多く実践に役立ちそうです。まだ４回の受講ですが先生が４人程いらしてその時々で違う先生とお話できるのは今までにない経験でやはり楽しいです。復習がなかなか追いつかづ大変ですが、毎回１コマも２コマも実際に使える表現も学んでいきたいと思っています。
-            </div>
-          </div>
-          <div class="beg-testimonial">
-            <div class="beg-testimonial-meta">
-              <div class="beg-testimonial-avatar">K</div>
-              <div>
-                <div class="beg-testimonial-name">KI様</div>
-                <div class="beg-testimonial-date">2016.11</div>
+            <div class="review-card">
+              <div class="review-meta">
+                <div class="review-avatar">K</div>
+                <div class="review-info">
+                  <div class="name">KI様</div>
+                  <div class="badge-row"><span class="date-badge">2016.11</span></div>
+                </div>
+              </div>
+              <div class="review-body">
+                独学では理解できない部分を直接聞いたり、くり返し添削して頂くことによって、慣用句に慣れてきた実感があります。またあえて「このような表現は可能か」と気になる点を作文して、違うならなぜ違うのかを知ることができるので勉強になります。会話や作文はまちがえに経験ほど頭に入ると思いました。それでもまたまちがえるので自分で驚くほどです。会話も口に出そうとするといつも想像以上に言葉に詰まります。」だたらこそ毎週２時間くり返し学習できるのがいい所だと思います。
               </div>
             </div>
-            <div class="beg-testimonial-body">
-              独学では理解できない部分を直接聞いたり、くり返し添削して頂くことによって、慣用句に慣れてきた実感があります。またあえて「このような表現は可能か」と気になる点を作文して、違うならなぜ違うのかを知ることができるので勉強になります。会話や作文はまちがえに経験ほど頭に入ると思いました。それでもまたまちがえるので自分で驚くほどです。会話も口に出そうとするといつも想像以上に言葉に詰まります。」だたらこそ毎週２時間くり返し学習できるのがいい所だと思います。
-            </div>
-          </div>
-          <div class="beg-testimonial">
-            <div class="beg-testimonial-meta">
-              <div class="beg-testimonial-avatar">K</div>
-              <div>
-                <div class="beg-testimonial-name">KA様</div>
-                <div class="beg-testimonial-date">2016.11</div>
+            <div class="review-card review-collapsible">
+              <div class="review-header" role="button" tabindex="0" aria-expanded="false">
+                <div class="review-meta">
+                  <div class="review-avatar">K</div>
+                  <div class="review-info">
+                    <div class="name">KA様</div>
+                    <div class="badge-row"><span class="date-badge">2016.11</span></div>
+                  </div>
+                </div>
+                <span class="review-toggle">▼</span>
               </div>
-            </div>
-            <div class="beg-testimonial-body">
-              楽しく受講させていただいてます。テキストにはないいろいろなことも学ぶことができ、毎回受講するのを楽しみにしています。先生も何人かいらっしゃて、その先生によって違う観点から教えてもらう点もとてもよいです。まだ聞き取りがよくできないですが、何とかついていってます。
+              <div class="review-body">
+                楽しく受講させていただいてます。テキストにはないいろいろなことも学ぶことができ、毎回受講するのを楽しみにしています。先生も何人かいらっしゃて、その先生によって違う観点から教えてもらう点もとてもよいです。まだ聞き取りがよくできないですが、何とかついていってます。
+              </div>
             </div>
           </div>
         </div>
@@ -2122,80 +2215,90 @@
             <svg viewBox="0 0 16 16"><line x1="2" y1="8" x2="13" y2="8" stroke="currentColor" stroke-width="2.5" fill="none"/><polyline points="9,4 13,8 9,12" stroke="currentColor" stroke-width="2.5" fill="none"/></svg>
           </a>
 
-          <div class="beg-sec-header">
-            <div class="beg-sec-label">Testimonial</div>
-            <div class="beg-sec-title">生徒の声</div>
-            <div class="beg-sec-line"></div>
-          </div>
-          <div class="beg-testimonial">
-            <div class="beg-testimonial-meta">
-              <div class="beg-testimonial-avatar">関</div>
-              <div>
-                <div class="beg-testimonial-name">関東地域</div>
-                <div class="beg-testimonial-date">2021.11</div>
+          <h2 class="section-title"><span class="dot"></span>生徒の声</h2>
+          <div class="reviews-list">
+            <div class="review-card">
+              <div class="review-meta">
+                <div class="review-avatar">関</div>
+                <div class="review-info">
+                  <div class="name">関東地域</div>
+                  <div class="badge-row"><span class="date-badge">2021.11</span></div>
+                </div>
               </div>
+              <div class="review-body">会話の授業の本文は今までのテキストにない様なくだけた文調のもにがものがあり文章そのものが楽しいです。作文も日常的使われる内容のものが多く実践に役立ちそうです。まだ４回の受講ですが先生が４人程いらしてその時々で違う先生とお話できるのは今までにない経験でやはり楽しいです。復習がなかなか追いつかづ大変ですが、毎回１コマも２コマも実際に使える表現も学んでいきたいと思っています。</div>
             </div>
-            <div class="beg-testimonial-body">会話の授業の本文は今までのテキストにない様なくだけた文調のもにがものがあり文章そのものが楽しいです。作文も日常的使われる内容のものが多く実践に役立ちそうです。まだ４回の受講ですが先生が４人程いらしてその時々で違う先生とお話できるのは今までにない経験でやはり楽しいです。復習がなかなか追いつかづ大変ですが、毎回１コマも２コマも実際に使える表現も学んでいきたいと思っています。</div>
-          </div>
-          <div class="beg-testimonial">
-            <div class="beg-testimonial-meta">
-              <div class="beg-testimonial-avatar">関</div>
-              <div>
-                <div class="beg-testimonial-name">関東地域</div>
-                <div class="beg-testimonial-date">2021.11</div>
+            <div class="review-card">
+              <div class="review-meta">
+                <div class="review-avatar">関</div>
+                <div class="review-info">
+                  <div class="name">関東地域</div>
+                  <div class="badge-row"><span class="date-badge">2021.11</span></div>
+                </div>
               </div>
+              <div class="review-body">この講座を受講することで気がついたのですが、中級文法が、こんなに多岐に渡る内容だったのか、いまさらながらに感じています。会話も決まった文法でしかできていなかったことにも気がつきました。その点が本当によかったです。박다정先生の細かい説明がわかりやすく、とても助かりました。時々おっしゃる冗談がより講座に花をそえてくれました！もう一度しっかり復習に時間をかけたいと思います。</div>
             </div>
-            <div class="beg-testimonial-body">この講座を受講することで気がついたのですが、中級文法が、こんなに多岐に渡る内容だったのか、いまさらながらに感じています。会話も決まった文法でしかできていなかったことにも気がつきました。その点が本当によかったです。박다정先生の細かい説明がわかりやすく、とても助かりました。時々おっしゃる冗談がより講座に花をそえてくれました！もう一度しっかり復習に時間をかけたいと思います。</div>
-          </div>
-          <div class="beg-testimonial">
-            <div class="beg-testimonial-meta">
-              <div class="beg-testimonial-avatar">関</div>
-              <div>
-                <div class="beg-testimonial-name">関東地域</div>
-                <div class="beg-testimonial-date">2021.11</div>
+            <div class="review-card">
+              <div class="review-meta">
+                <div class="review-avatar">関</div>
+                <div class="review-info">
+                  <div class="name">関東地域</div>
+                  <div class="badge-row"><span class="date-badge">2021.11</span></div>
+                </div>
               </div>
+              <div class="review-body">自分のレベルにちょうど合っていたことと、先生の教え方が非常にわかりやすく、かつ一方的でなかったので、気持ちよく授業を受けられました。悪い点は特にありませんが、強いて言えば、授業をあと4回程度増やして、一回の授業で学ぶ内容を少し減らせば、より深く身につくような気がします。</div>
             </div>
-            <div class="beg-testimonial-body">自分のレベルにちょうど合っていたことと、先生の教え方が非常にわかりやすく、かつ一方的でなかったので、気持ちよく授業を受けられました。悪い点は特にありませんが、強いて言えば、授業をあと4回程度増やして、一回の授業で学ぶ内容を少し減らせば、より深く身につくような気がします。</div>
-          </div>
-          <div class="beg-testimonial">
-            <div class="beg-testimonial-meta">
-              <div class="beg-testimonial-avatar">中</div>
-              <div>
-                <div class="beg-testimonial-name">中部地域</div>
-                <div class="beg-testimonial-date">2021.11</div>
+            <div class="review-card review-collapsible">
+              <div class="review-header" role="button" tabindex="0" aria-expanded="false">
+                <div class="review-meta">
+                  <div class="review-avatar">中</div>
+                  <div class="review-info">
+                    <div class="name">中部地域</div>
+                    <div class="badge-row"><span class="date-badge">2021.11</span></div>
+                  </div>
+                </div>
+                <span class="review-toggle">▼</span>
               </div>
+              <div class="review-body">レッスン中に本には記載のない注意点や自然な表現も教えて頂いたのが勉強になりました。習った文法を使っての文章作成の宿題も添削していただき、勉強になりました。文法以外の表現が難しかったです。文章作成はミリネ独自のと併せ、自分の身近なテーマでも文を作成して添削して頂けたらもっといいと思いました。</div>
             </div>
-            <div class="beg-testimonial-body">レッスン中に本には記載のない注意点や自然な表現も教えて頂いたのが勉強になりました。習った文法を使っての文章作成の宿題も添削していただき、勉強になりました。文法以外の表現が難しかったです。文章作成はミリネ独自のと併せ、自分の身近なテーマでも文を作成して添削して頂けたらもっといいと思いました。</div>
-          </div>
-          <div class="beg-testimonial">
-            <div class="beg-testimonial-meta">
-              <div class="beg-testimonial-avatar">F</div>
-              <div>
-                <div class="beg-testimonial-name">FU様</div>
-                <div class="beg-testimonial-date">2016.11</div>
+            <div class="review-card review-collapsible">
+              <div class="review-header" role="button" tabindex="0" aria-expanded="false">
+                <div class="review-meta">
+                  <div class="review-avatar">F</div>
+                  <div class="review-info">
+                    <div class="name">FU様</div>
+                    <div class="badge-row"><span class="date-badge">2016.11</span></div>
+                  </div>
+                </div>
+                <span class="review-toggle">▼</span>
               </div>
+              <div class="review-body">先生の解説がわかりやすかったです。少人数だったのも良かったです。勉強熱心なクラスの方にも恵まれていたと思います。教科書の例文だと、答えが予想できてしまうので、例文を越えた対話形式の質問があると、例文がその日のうちに身につきやすいと思いました。今回はオンライン授業なので申し込んだのですが、やはりオンラインだと対面と比べると吸収できる量が格段に違うように感じました。授業の間に挟み込まれる雑談情報が入ってきにくいように感じました。←オンラインだとどうしても余計な？話をしにくいのですが、語学を勉強する時は雑談から知識が広がることが多いと感じています。</div>
             </div>
-            <div class="beg-testimonial-body">先生の解説がわかりやすかったです。少人数だったのも良かったです。勉強熱心なクラスの方にも恵まれていたと思います。教科書の例文だと、答えが予想できてしまうので、例文を越えた対話形式の質問があると、例文がその日のうちに身につきやすいと思いました。今回はオンライン授業なので申し込んだのですが、やはりオンラインだと対面と比べると吸収できる量が格段に違うように感じました。授業の間に挟み込まれる雑談情報が入ってきにくいように感じました。←オンラインだとどうしても余計な？話をしにくいのですが、語学を勉強する時は雑談から知識が広がることが多いと感じています。</div>
-          </div>
-          <div class="beg-testimonial">
-            <div class="beg-testimonial-meta">
-              <div class="beg-testimonial-avatar">K</div>
-              <div>
-                <div class="beg-testimonial-name">KI様</div>
-                <div class="beg-testimonial-date">2016.11</div>
+            <div class="review-card review-collapsible">
+              <div class="review-header" role="button" tabindex="0" aria-expanded="false">
+                <div class="review-meta">
+                  <div class="review-avatar">K</div>
+                  <div class="review-info">
+                    <div class="name">KI様</div>
+                    <div class="badge-row"><span class="date-badge">2016.11</span></div>
+                  </div>
+                </div>
+                <span class="review-toggle">▼</span>
               </div>
+              <div class="review-body">独学では理解できない部分を直接聞いたり、くり返し添削して頂くことによって、慣用句に慣れてきた実感があります。またあえて「このような表現は可能か」と気になる点を作文して、違うならなぜ違うのかを知ることができるので勉強になります。会話や作文はまちがえに経験ほど頭に入ると思いました。それでもまたまちがえるので自分で驚くほどです。会話も口に出そうとするといつも想像以上に言葉に詰まります。」だたらこそ毎週２時間くり返し学習できるのがいい所だと思います。</div>
             </div>
-            <div class="beg-testimonial-body">独学では理解できない部分を直接聞いたり、くり返し添削して頂くことによって、慣用句に慣れてきた実感があります。またあえて「このような表現は可能か」と気になる点を作文して、違うならなぜ違うのかを知ることができるので勉強になります。会話や作文はまちがえに経験ほど頭に入ると思いました。それでもまたまちがえるので自分で驚くほどです。会話も口に出そうとするといつも想像以上に言葉に詰まります。」だたらこそ毎週２時間くり返し学習できるのがいい所だと思います。</div>
-          </div>
-          <div class="beg-testimonial">
-            <div class="beg-testimonial-meta">
-              <div class="beg-testimonial-avatar">K</div>
-              <div>
-                <div class="beg-testimonial-name">KA様</div>
-                <div class="beg-testimonial-date">2016.11</div>
+            <div class="review-card review-collapsible">
+              <div class="review-header" role="button" tabindex="0" aria-expanded="false">
+                <div class="review-meta">
+                  <div class="review-avatar">K</div>
+                  <div class="review-info">
+                    <div class="name">KA様</div>
+                    <div class="badge-row"><span class="date-badge">2016.11</span></div>
+                  </div>
+                </div>
+                <span class="review-toggle">▼</span>
               </div>
+              <div class="review-body">楽しく受講させていただいてます。テキストにはないいろいろなことも学ぶことができ、毎回受講するのを楽しみにしています。先生も何人かいらっしゃて、その先生によって違う観点から教えてもらう点もとてもよいです。まだ聞き取りがよくできないですが、何とかついていってます。</div>
             </div>
-            <div class="beg-testimonial-body">楽しく受講させていただいてます。テキストにはないいろいろなことも学ぶことができ、毎回受講するのを楽しみにしています。先生も何人かいらっしゃて、その先生によって違う観点から教えてもらう点もとてもよいです。まだ聞き取りがよくできないですが、何とかついていってます。</div>
           </div>
         </div>
       </div>
@@ -2322,80 +2425,90 @@
             <svg viewBox="0 0 16 16"><line x1="2" y1="8" x2="13" y2="8" stroke="currentColor" stroke-width="2.5" fill="none"/><polyline points="9,4 13,8 9,12" stroke="currentColor" stroke-width="2.5" fill="none"/></svg>
           </a>
 
-          <div class="beg-sec-header">
-            <div class="beg-sec-label">Testimonial</div>
-            <div class="beg-sec-title">生徒の声</div>
-            <div class="beg-sec-line"></div>
-          </div>
-          <div class="beg-testimonial">
-            <div class="beg-testimonial-meta">
-              <div class="beg-testimonial-avatar">関</div>
-              <div>
-                <div class="beg-testimonial-name">関東地域</div>
-                <div class="beg-testimonial-date">2021.11</div>
+          <h2 class="section-title"><span class="dot"></span>生徒の声</h2>
+          <div class="reviews-list">
+            <div class="review-card">
+              <div class="review-meta">
+                <div class="review-avatar">関</div>
+                <div class="review-info">
+                  <div class="name">関東地域</div>
+                  <div class="badge-row"><span class="date-badge">2021.11</span></div>
+                </div>
               </div>
+              <div class="review-body">会話の授業の本文は今までのテキストにない様なくだけた文調のもにがものがあり文章そのものが楽しいです。作文も日常的使われる内容のものが多く実践に役立ちそうです。まだ４回の受講ですが先生が４人程いらしてその時々で違う先生とお話できるのは今までにない経験でやはり楽しいです。復習がなかなか追いつかづ大変ですが、毎回１コマも２コマも実際に使える表現も学んでいきたいと思っています。</div>
             </div>
-            <div class="beg-testimonial-body">会話の授業の本文は今までのテキストにない様なくだけた文調のもにがものがあり文章そのものが楽しいです。作文も日常的使われる内容のものが多く実践に役立ちそうです。まだ４回の受講ですが先生が４人程いらしてその時々で違う先生とお話できるのは今までにない経験でやはり楽しいです。復習がなかなか追いつかづ大変ですが、毎回１コマも２コマも実際に使える表現も学んでいきたいと思っています。</div>
-          </div>
-          <div class="beg-testimonial">
-            <div class="beg-testimonial-meta">
-              <div class="beg-testimonial-avatar">関</div>
-              <div>
-                <div class="beg-testimonial-name">関東地域</div>
-                <div class="beg-testimonial-date">2021.11</div>
+            <div class="review-card">
+              <div class="review-meta">
+                <div class="review-avatar">関</div>
+                <div class="review-info">
+                  <div class="name">関東地域</div>
+                  <div class="badge-row"><span class="date-badge">2021.11</span></div>
+                </div>
               </div>
+              <div class="review-body">この講座を受講することで気がついたのですが、中級文法が、こんなに多岐に渡る内容だったのか、いまさらながらに感じています。会話も決まった文法でしかできていなかったことにも気がつきました。その点が本当によかったです。박다정先生の細かい説明がわかりやすく、とても助かりました。時々おっしゃる冗談がより講座に花をそえてくれました！もう一度しっかり復習に時間をかけたいと思います。</div>
             </div>
-            <div class="beg-testimonial-body">この講座を受講することで気がついたのですが、中級文法が、こんなに多岐に渡る内容だったのか、いまさらながらに感じています。会話も決まった文法でしかできていなかったことにも気がつきました。その点が本当によかったです。박다정先生の細かい説明がわかりやすく、とても助かりました。時々おっしゃる冗談がより講座に花をそえてくれました！もう一度しっかり復習に時間をかけたいと思います。</div>
-          </div>
-          <div class="beg-testimonial">
-            <div class="beg-testimonial-meta">
-              <div class="beg-testimonial-avatar">関</div>
-              <div>
-                <div class="beg-testimonial-name">関東地域</div>
-                <div class="beg-testimonial-date">2021.11</div>
+            <div class="review-card">
+              <div class="review-meta">
+                <div class="review-avatar">関</div>
+                <div class="review-info">
+                  <div class="name">関東地域</div>
+                  <div class="badge-row"><span class="date-badge">2021.11</span></div>
+                </div>
               </div>
+              <div class="review-body">自分のレベルにちょうど合っていたことと、先生の教え方が非常にわかりやすく、かつ一方的でなかったので、気持ちよく授業を受けられました。悪い点は特にありませんが、強いて言えば、授業をあと4回程度増やして、一回の授業で学ぶ内容を少し減らせば、より深く身につくような気がします。</div>
             </div>
-            <div class="beg-testimonial-body">自分のレベルにちょうど合っていたことと、先生の教え方が非常にわかりやすく、かつ一方的でなかったので、気持ちよく授業を受けられました。悪い点は特にありませんが、強いて言えば、授業をあと4回程度増やして、一回の授業で学ぶ内容を少し減らせば、より深く身につくような気がします。</div>
-          </div>
-          <div class="beg-testimonial">
-            <div class="beg-testimonial-meta">
-              <div class="beg-testimonial-avatar">中</div>
-              <div>
-                <div class="beg-testimonial-name">中部地域</div>
-                <div class="beg-testimonial-date">2021.11</div>
+            <div class="review-card review-collapsible">
+              <div class="review-header" role="button" tabindex="0" aria-expanded="false">
+                <div class="review-meta">
+                  <div class="review-avatar">中</div>
+                  <div class="review-info">
+                    <div class="name">中部地域</div>
+                    <div class="badge-row"><span class="date-badge">2021.11</span></div>
+                  </div>
+                </div>
+                <span class="review-toggle">▼</span>
               </div>
+              <div class="review-body">レッスン中に本には記載のない注意点や自然な表現も教えて頂いたのが勉強になりました。習った文法を使っての文章作成の宿題も添削していただき、勉強になりました。文法以外の表現が難しかったです。文章作成はミリネ独自のと併せ、自分の身近なテーマでも文を作成して添削して頂けたらもっといいと思いました。</div>
             </div>
-            <div class="beg-testimonial-body">レッスン中に本には記載のない注意点や自然な表現も教えて頂いたのが勉強になりました。習った文法を使っての文章作成の宿題も添削していただき、勉強になりました。文法以外の表現が難しかったです。文章作成はミリネ独自のと併せ、自分の身近なテーマでも文を作成して添削して頂けたらもっといいと思いました。</div>
-          </div>
-          <div class="beg-testimonial">
-            <div class="beg-testimonial-meta">
-              <div class="beg-testimonial-avatar">F</div>
-              <div>
-                <div class="beg-testimonial-name">FU様</div>
-                <div class="beg-testimonial-date">2016.11</div>
+            <div class="review-card review-collapsible">
+              <div class="review-header" role="button" tabindex="0" aria-expanded="false">
+                <div class="review-meta">
+                  <div class="review-avatar">F</div>
+                  <div class="review-info">
+                    <div class="name">FU様</div>
+                    <div class="badge-row"><span class="date-badge">2016.11</span></div>
+                  </div>
+                </div>
+                <span class="review-toggle">▼</span>
               </div>
+              <div class="review-body">先生の解説がわかりやすかったです。少人数だったのも良かったです。勉強熱心なクラスの方にも恵まれていたと思います。教科書の例文だと、答えが予想できてしまうので、例文を越えた対話形式の質問があると、例文がその日のうちに身につきやすいと思いました。今回はオンライン授業なので申し込んだのですが、やはりオンラインだと対面と比べると吸収できる量が格段に違うように感じました。授業の間に挟み込まれる雑談情報が入ってきにくいように感じました。←オンラインだとどうしても余計な？話をしにくいのですが、語学を勉強する時は雑談から知識が広がることが多いと感じています。</div>
             </div>
-            <div class="beg-testimonial-body">先生の解説がわかりやすかったです。少人数だったのも良かったです。勉強熱心なクラスの方にも恵まれていたと思います。教科書の例文だと、答えが予想できてしまうので、例文を越えた対話形式の質問があると、例文がその日のうちに身につきやすいと思いました。今回はオンライン授業なので申し込んだのですが、やはりオンラインだと対面と比べると吸収できる量が格段に違うように感じました。授業の間に挟み込まれる雑談情報が入ってきにくいように感じました。←オンラインだとどうしても余計な？話をしにくいのですが、語学を勉強する時は雑談から知識が広がることが多いと感じています。</div>
-          </div>
-          <div class="beg-testimonial">
-            <div class="beg-testimonial-meta">
-              <div class="beg-testimonial-avatar">K</div>
-              <div>
-                <div class="beg-testimonial-name">KI様</div>
-                <div class="beg-testimonial-date">2016.11</div>
+            <div class="review-card review-collapsible">
+              <div class="review-header" role="button" tabindex="0" aria-expanded="false">
+                <div class="review-meta">
+                  <div class="review-avatar">K</div>
+                  <div class="review-info">
+                    <div class="name">KI様</div>
+                    <div class="badge-row"><span class="date-badge">2016.11</span></div>
+                  </div>
+                </div>
+                <span class="review-toggle">▼</span>
               </div>
+              <div class="review-body">独学では理解できない部分を直接聞いたり、くり返し添削して頂くことによって、慣用句に慣れてきた実感があります。またあえて「このような表現は可能か」と気になる点を作文して、違うならなぜ違うのかを知ることができるので勉強になります。会話や作文はまちがえに経験ほど頭に入ると思いました。それでもまたまちがえるので自分で驚くほどです。会話も口に出そうとするといつも想像以上に言葉に詰まります。」だたらこそ毎週２時間くり返し学習できるのがいい所だと思います。</div>
             </div>
-            <div class="beg-testimonial-body">独学では理解できない部分を直接聞いたり、くり返し添削して頂くことによって、慣用句に慣れてきた実感があります。またあえて「このような表現は可能か」と気になる点を作文して、違うならなぜ違うのかを知ることができるので勉強になります。会話や作文はまちがえに経験ほど頭に入ると思いました。それでもまたまちがえるので自分で驚くほどです。会話も口に出そうとするといつも想像以上に言葉に詰まります。」だたらこそ毎週２時間くり返し学習できるのがいい所だと思います。</div>
-          </div>
-          <div class="beg-testimonial">
-            <div class="beg-testimonial-meta">
-              <div class="beg-testimonial-avatar">K</div>
-              <div>
-                <div class="beg-testimonial-name">KA様</div>
-                <div class="beg-testimonial-date">2016.11</div>
+            <div class="review-card review-collapsible">
+              <div class="review-header" role="button" tabindex="0" aria-expanded="false">
+                <div class="review-meta">
+                  <div class="review-avatar">K</div>
+                  <div class="review-info">
+                    <div class="name">KA様</div>
+                    <div class="badge-row"><span class="date-badge">2016.11</span></div>
+                  </div>
+                </div>
+                <span class="review-toggle">▼</span>
               </div>
+              <div class="review-body">楽しく受講させていただいてます。テキストにはないいろいろなことも学ぶことができ、毎回受講するのを楽しみにしています。先生も何人かいらっしゃて、その先生によって違う観点から教えてもらう点もとてもよいです。まだ聞き取りがよくできないですが、何とかついていってます。</div>
             </div>
-            <div class="beg-testimonial-body">楽しく受講させていただいてます。テキストにはないいろいろなことも学ぶことができ、毎回受講するのを楽しみにしています。先生も何人かいらっしゃて、その先生によって違う観点から教えてもらう点もとてもよいです。まだ聞き取りがよくできないですが、何とかついていってます。</div>
           </div>
         </div>
       </div>
@@ -2507,21 +2620,19 @@
             <svg viewBox="0 0 16 16"><line x1="2" y1="8" x2="13" y2="8" stroke="currentColor" stroke-width="2.5" fill="none"/><polyline points="9,4 13,8 9,12" stroke="currentColor" stroke-width="2.5" fill="none"/></svg>
           </a>
 
-          <div class="beg-sec-header">
-            <div class="beg-sec-label">Testimonial</div>
-            <div class="beg-sec-title">生徒の声</div>
-            <div class="beg-sec-line"></div>
-          </div>
-          <div class="beg-testimonial">
-            <div class="beg-testimonial-meta">
-              <div class="beg-testimonial-avatar">Y</div>
-              <div>
-                <div class="beg-testimonial-name">YH様</div>
-                <div class="beg-testimonial-date">2016.12（東京都）</div>
+          <h2 class="section-title"><span class="dot"></span>生徒の声</h2>
+          <div class="reviews-list">
+            <div class="review-card">
+              <div class="review-meta">
+                <div class="review-avatar">Y</div>
+                <div class="review-info">
+                  <div class="name">YH様</div>
+                  <div class="badge-row"><span class="date-badge">2016.12（東京都）</span></div>
+                </div>
               </div>
-            </div>
-            <div class="beg-testimonial-body">
-              かれこれこのクラスは、初級の頃から続けていてすでに今現在で5年近くになります。一か月に一回土曜日の夕方3時間だけのクラスなんですが、少しメンバーが変わったりクラス自体が半年程お休みの間もあったものの、こんなに長く続けてこれたのは、金玄謹先生のたいへんに親切でわかりやすい説明に韓国語への興味がどんどん沸き上がってくるせいだと思っています。単なる作文の添削だけで終わるのではなく、作った作文の単語や表現を膨らませて、独学や参考書ではなかなか知り得ないことまで教えて下さることが、本当に魅力的です。勿論、ソウル大のテキストやパダスギの個人授業も大好きですが、こちらのグループレッスンもとても楽しいので、ずっと続けていければと思っています。
+              <div class="review-body">
+                かれこれこのクラスは、初級の頃から続けていてすでに今現在で5年近くになります。一か月に一回土曜日の夕方3時間だけのクラスなんですが、少しメンバーが変わったりクラス自体が半年程お休みの間もあったものの、こんなに長く続けてこれたのは、金玄謹先生のたいへんに親切でわかりやすい説明に韓国語への興味がどんどん沸き上がってくるせいだと思っています。単なる作文の添削だけで終わるのではなく、作った作文の単語や表現を膨らませて、独学や参考書ではなかなか知り得ないことまで教えて下さることが、本当に魅力的です。勿論、ソウル大のテキストやパダスギの個人授業も大好きですが、こちらのグループレッスンもとても楽しいので、ずっと続けていければと思っています。
+              </div>
             </div>
           </div>
         </div>
@@ -2621,42 +2732,43 @@
             <svg viewBox="0 0 16 16"><line x1="2" y1="8" x2="13" y2="8" stroke="currentColor" stroke-width="2.5" fill="none"/><polyline points="9,4 13,8 9,12" stroke="currentColor" stroke-width="2.5" fill="none"/></svg>
           </a>
 
-          <div class="beg-sec-header">
-            <div class="beg-sec-label">Testimonial</div>
-            <div class="beg-sec-title">生徒の声</div>
-            <div class="beg-sec-line"></div>
-          </div>
-          <div class="beg-testimonial">
-            <div class="beg-testimonial-meta">
-              <div class="beg-testimonial-avatar">S</div>
-              <div>
-                <div class="beg-testimonial-name">SK様</div>
+          <h2 class="section-title"><span class="dot"></span>生徒の声</h2>
+          <div class="reviews-list">
+            <div class="review-card">
+              <div class="review-meta">
+                <div class="review-avatar">S</div>
+                <div class="review-info">
+                  <div class="name">SK様</div>
+                  <div class="badge-row"></div>
+                </div>
+              </div>
+              <div class="review-body">
+                添削の授業では自分が考えた文章の間違いを確認することはもちろんですが、他の方達の表現やより韓国語らしい表現を知ることができます。又、文法や細かいニュアンスの違い例文も交えて学ぶことができるので勉強になります。
               </div>
             </div>
-            <div class="beg-testimonial-body">
-              添削の授業では自分が考えた文章の間違いを確認することはもちろんですが、他の方達の表現やより韓国語らしい表現を知ることができます。又、文法や細かいニュアンスの違い例文も交えて学ぶことができるので勉強になります。
-            </div>
-          </div>
-          <div class="beg-testimonial">
-            <div class="beg-testimonial-meta">
-              <div class="beg-testimonial-avatar">S</div>
-              <div>
-                <div class="beg-testimonial-name">SN様</div>
+            <div class="review-card">
+              <div class="review-meta">
+                <div class="review-avatar">S</div>
+                <div class="review-info">
+                  <div class="name">SN様</div>
+                  <div class="badge-row"></div>
+                </div>
+              </div>
+              <div class="review-body">
+                今日初めて参加しました。서と고の説明をしていいただき、最近文法の勉強していなかったのでまだきちんとわかってないところがあると反省しました。文法の授業は単語の説明を詳しくして頂き、勉強になりました。읽기は内容がとてもわかりやすく楽しかったです。ダイエットについての話だったので身近な内容で理解しやすかったのもあるかもしれません。
               </div>
             </div>
-            <div class="beg-testimonial-body">
-              今日初めて参加しました。서と고の説明をしていいただき、最近文法の勉強していなかったのでまだきちんとわかってないところがあると反省しました。文法の授業は単語の説明を詳しくして頂き、勉強になりました。읽기は内容がとてもわかりやすく楽しかったです。ダイエットについての話だったので身近な内容で理解しやすかったのもあるかもしれません。
-            </div>
-          </div>
-          <div class="beg-testimonial">
-            <div class="beg-testimonial-meta">
-              <div class="beg-testimonial-avatar">S</div>
-              <div>
-                <div class="beg-testimonial-name">SW様</div>
+            <div class="review-card">
+              <div class="review-meta">
+                <div class="review-avatar">S</div>
+                <div class="review-info">
+                  <div class="name">SW様</div>
+                  <div class="badge-row"></div>
+                </div>
               </div>
-            </div>
-            <div class="beg-testimonial-body">
-              첨삭, 받아쓰기, 기사とバランスよく実力をつけることができるのがとても良いと思います。予習も無理なくできる分量で負担なく受けることができるのも良いです。
+              <div class="review-body">
+                첨삭, 받아쓰기, 기사とバランスよく実力をつけることができるのがとても良いと思います。予習も無理なくできる分量で負担なく受けることができるのも良いです。
+              </div>
             </div>
           </div>
         </div>
@@ -2755,55 +2867,53 @@
             <svg viewBox="0 0 16 16"><line x1="2" y1="8" x2="13" y2="8" stroke="currentColor" stroke-width="2.5" fill="none"/><polyline points="9,4 13,8 9,12" stroke="currentColor" stroke-width="2.5" fill="none"/></svg>
           </a>
 
-          <div class="beg-sec-header">
-            <div class="beg-sec-label">Testimonial</div>
-            <div class="beg-sec-title">生徒の声</div>
-            <div class="beg-sec-line"></div>
-          </div>
-          <div class="beg-testimonial">
-            <div class="beg-testimonial-meta">
-              <div class="beg-testimonial-avatar">M</div>
-              <div>
-                <div class="beg-testimonial-name">M様</div>
-                <div class="beg-testimonial-date">2015.3</div>
+          <h2 class="section-title"><span class="dot"></span>生徒の声</h2>
+          <div class="reviews-list">
+            <div class="review-card">
+              <div class="review-meta">
+                <div class="review-avatar">M</div>
+                <div class="review-info">
+                  <div class="name">M様</div>
+                  <div class="badge-row"><span class="date-badge">2015.3</span></div>
+                </div>
+              </div>
+              <div class="review-body">
+                <p>昨年の４月に土曜講座を受け始めてちょうど１年になりました。土曜講座は月に２回、１回が４時間ずつあり、がっつり勉強するという感じです。どんな内容かというと…始まるとまず順番に近況報告をします。普通、近況報告は勉強じゃないと思うでしょう？ところがこれが、もうすでに勉強なのです。それを聞きながら先生が一人一人の表現を直してくれたり、関連する単語や表現を教えてくれたりするのです。楽しくてためになります。</p>
+                <p>ちょっと気持ちがほぐれたところでテキストに使っている「韓国語トレーニングブック」の学習をします。１回に大体１課ずつ進みます。最初の頃は練習問題を全部やっていましたが、最近はその課の文法の説明と単作文を中心にやっています。普段からあいまいだった文法や表現の微妙なニュアンスの違いなどを質問すると、必ず納得できる答えが聞けるところがすごいところです。</p>
+                <p>それから、A４で４ページ分くらいのちょっと長い文章を読みます。毎回テーマが違っているので、語彙を増やすのに役立っています。前回は韓国の現代史に関する文章だったので、読む前に先生がざっと現代史を講義してくださいました。こんな講義を聞けるのもこの講座のよいところです。歴史を知らないといけないのはわかっていてもなかなか手をつけられなかった私ですが、この日帰ってから韓国の現代史をネットで検索しました。先生が説明してくださったのをメモしてきたノートを見ながら、ネットで読んでいると今まで頭に入らなかった内容もすうっと入ってきて分かりやすかったです。歴史や文化を知ることも韓国語を勉強する私たちにとって大切なことだと思います。</p>
+                <p>最後に宿題のパダスギの答え合わせをします。パダスギは１５分のラジオ番組の音声データを送ってくださるので、それを全部書き取って持っていくと、その場で解答をしながら、内容について話し合ったりします。聞き取ることはできてもいざ書こうとすると、単語の最後がㄴだったのかㅇだったのか分からなかったりすることが多くて辞書を引いては確認しています。聞き取りの練習にもなるし、あいまいな맞춤법の確認もできて一石二鳥なのがこのパダスギです。以上が土曜講座の内容です。どうですか？実に多岐に渡る内容ですね。前はこれに昔話の聞き取りもあったのです。昔話は子供に話しかける語り口調で、擬態語や擬声語が多く、漢字語でない固有の韓国語で語られていて、これもなかなかよかったです。</p>
+                <p>さて土曜講座の効果はどうかというと…これがすごいです。私は１年間この講座を受けて、しゃべるのに自信がついたし、ドラマのセリフがよく聞こえるようになりました。さらに前は文章を読むのが苦痛でしたが、今は楽になり、いろいろな文章を読むのがとても楽しいです。それも皆この講座の幅広い内容のおかげだと思っています。１回４時間のちょっときつい講座ですが、それだけ内容が濃く、実力を伸ばせる講座だと思います。</p>
               </div>
             </div>
-            <div class="beg-testimonial-body">
-              <p>昨年の４月に土曜講座を受け始めてちょうど１年になりました。土曜講座は月に２回、１回が４時間ずつあり、がっつり勉強するという感じです。どんな内容かというと…始まるとまず順番に近況報告をします。普通、近況報告は勉強じゃないと思うでしょう？ところがこれが、もうすでに勉強なのです。それを聞きながら先生が一人一人の表現を直してくれたり、関連する単語や表現を教えてくれたりするのです。楽しくてためになります。</p>
-              <p>ちょっと気持ちがほぐれたところでテキストに使っている「韓国語トレーニングブック」の学習をします。１回に大体１課ずつ進みます。最初の頃は練習問題を全部やっていましたが、最近はその課の文法の説明と単作文を中心にやっています。普段からあいまいだった文法や表現の微妙なニュアンスの違いなどを質問すると、必ず納得できる答えが聞けるところがすごいところです。</p>
-              <p>それから、A４で４ページ分くらいのちょっと長い文章を読みます。毎回テーマが違っているので、語彙を増やすのに役立っています。前回は韓国の現代史に関する文章だったので、読む前に先生がざっと現代史を講義してくださいました。こんな講義を聞けるのもこの講座のよいところです。歴史を知らないといけないのはわかっていてもなかなか手をつけられなかった私ですが、この日帰ってから韓国の現代史をネットで検索しました。先生が説明してくださったのをメモしてきたノートを見ながら、ネットで読んでいると今まで頭に入らなかった内容もすうっと入ってきて分かりやすかったです。歴史や文化を知ることも韓国語を勉強する私たちにとって大切なことだと思います。</p>
-              <p>最後に宿題のパダスギの答え合わせをします。パダスギは１５分のラジオ番組の音声データを送ってくださるので、それを全部書き取って持っていくと、その場で解答をしながら、内容について話し合ったりします。聞き取ることはできてもいざ書こうとすると、単語の最後がㄴだったのかㅇだったのか分からなかったりすることが多くて辞書を引いては確認しています。聞き取りの練習にもなるし、あいまいな맞춤법の確認もできて一石二鳥なのがこのパダスギです。以上が土曜講座の内容です。どうですか？実に多岐に渡る内容ですね。前はこれに昔話の聞き取りもあったのです。昔話は子供に話しかける語り口調で、擬態語や擬声語が多く、漢字語でない固有の韓国語で語られていて、これもなかなかよかったです。</p>
-              <p>さて土曜講座の効果はどうかというと…これがすごいです。私は１年間この講座を受けて、しゃべるのに自信がついたし、ドラマのセリフがよく聞こえるようになりました。さらに前は文章を読むのが苦痛でしたが、今は楽になり、いろいろな文章を読むのがとても楽しいです。それも皆この講座の幅広い内容のおかげだと思っています。１回４時間のちょっときつい講座ですが、それだけ内容が濃く、実力を伸ばせる講座だと思います。</p>
-            </div>
-          </div>
-          <div class="beg-testimonial">
-            <div class="beg-testimonial-meta">
-              <div class="beg-testimonial-avatar">T</div>
-              <div>
-                <div class="beg-testimonial-name">T様</div>
-                <div class="beg-testimonial-date">2015.3</div>
+            <div class="review-card">
+              <div class="review-meta">
+                <div class="review-avatar">T</div>
+                <div class="review-info">
+                  <div class="name">T様</div>
+                  <div class="badge-row"><span class="date-badge">2015.3</span></div>
+                </div>
+              </div>
+              <div class="review-body">
+                <p>ミリネでは作文の授業の時一人一人が自分の答えを発表したものを先生がまずホワイトボードに全部書く。それからそれらに対してどこが間違っているか、ぎこちないかを先生が丁寧に解説する。みんなも質問をしながら最終的に最も自然な模範解答を示してくれるというスタイル。</p>
+                <p>例えば、昨日のレッスンでやった短作文。※いろいろ珍しいものが見られて大変面白かったです。여러 가지 신기한 물건들을 볼 수 있어서 정말 재미있었어요. 対して難しくない問題だと思うが、この中で話題になったのが「もの」と「大変」「もの」に対しては 것、물건、「大変」に至っては、매우, 아주, 굉장히, 몹시, 무척, 정말, 참, 멈청, 진짜, 너무, 대단히, 대따, 기막히게 ... もっとあったかもしれなかったがそれらを、ニュアンスがどう違ってどう使い分けるかを解説してくれた。</p>
+                <p>いつも凄いと思うのが 김 先生が韓国語の違いがわかるのは当然だとしてもそれを言葉で、しかも母国語以外でわかりやすく説明できるということ。私には「非常」にと「大変」の違いは日本語でもうまく説明できない。</p>
+                <p>韓国語の使い分けは本当に難しい。頭ではわかっていることでも、実際それを消化していざという時適切に使い分けるにはまだまだ修行が足りないな、日本語も含めて。</p>
               </div>
             </div>
-            <div class="beg-testimonial-body">
-              <p>ミリネでは作文の授業の時一人一人が自分の答えを発表したものを先生がまずホワイトボードに全部書く。それからそれらに対してどこが間違っているか、ぎこちないかを先生が丁寧に解説する。みんなも質問をしながら最終的に最も自然な模範解答を示してくれるというスタイル。</p>
-              <p>例えば、昨日のレッスンでやった短作文。※いろいろ珍しいものが見られて大変面白かったです。여러 가지 신기한 물건들을 볼 수 있어서 정말 재미있었어요. 対して難しくない問題だと思うが、この中で話題になったのが「もの」と「大変」「もの」に対しては 것、물건、「大変」に至っては、매우, 아주, 굉장히, 몹시, 무척, 정말, 참, 멈청, 진짜, 너무, 대단히, 대따, 기막히게 ... もっとあったかもしれなかったがそれらを、ニュアンスがどう違ってどう使い分けるかを解説してくれた。</p>
-              <p>いつも凄いと思うのが 김 先生が韓国語の違いがわかるのは当然だとしてもそれを言葉で、しかも母国語以外でわかりやすく説明できるということ。私には「非常」にと「大変」の違いは日本語でもうまく説明できない。</p>
-              <p>韓国語の使い分けは本当に難しい。頭ではわかっていることでも、実際それを消化していざという時適切に使い分けるにはまだまだ修行が足りないな、日本語も含めて。</p>
-            </div>
-          </div>
-          <div class="beg-testimonial">
-            <div class="beg-testimonial-meta">
-              <div class="beg-testimonial-avatar">Y</div>
-              <div>
-                <div class="beg-testimonial-name">Y様</div>
-                <div class="beg-testimonial-date">2013.11</div>
+            <div class="review-card">
+              <div class="review-meta">
+                <div class="review-avatar">Y</div>
+                <div class="review-info">
+                  <div class="name">Y様</div>
+                  <div class="badge-row"><span class="date-badge">2013.11</span></div>
+                </div>
               </div>
-            </div>
-            <div class="beg-testimonial-body">
-              <p>ミリネ先生の発信するTwitterやFacebookでの解説が的確でわかりやすい所に惹かれミリネの上級クラスを選びました。特にためになる授業は作文の時間です。</p>
-              <p>宿題として自宅で行ってきた10個くらいの短作文を一文ずつ生徒一人一人が発表し、先生がホワイトボードに板書します。（例えば生徒が5人いるとし課題の短作文が「これはペンです」だとすると、5通りの「これはペンです」の作文（翻訳）が板書されるのです。）</p>
-              <p>書き出された作文のどこが正しくどこが違うのか丁寧に解説されます。日本人が何度も誤って使ってしまう表現が毎回数多く登場し、その都度違いや例文を書き綴ることで、韓国語の文法を正しく覚え直す事ができ、微妙なニュアンスを感じ取る事が可能です。今まで他所で何度かネイティブチェックを受けた事がありますが、惜身につくほど指摘されたことはなく、また何がどう違うのかをこの作文の授業の様にわかることはありませんでした。</p>
-              <p>学院長の言語に対するセンスと韓国語と日本語への深い理解があってこそ成り立つ授業なので、まさにミリネでしか体験できない授業だと思います。</p>
+              <div class="review-body">
+                <p>ミリネ先生の発信するTwitterやFacebookでの解説が的確でわかりやすい所に惹かれミリネの上級クラスを選びました。特にためになる授業は作文の時間です。</p>
+                <p>宿題として自宅で行ってきた10個くらいの短作文を一文ずつ生徒一人一人が発表し、先生がホワイトボードに板書します。（例えば生徒が5人いるとし課題の短作文が「これはペンです」だとすると、5通りの「これはペンです」の作文（翻訳）が板書されるのです。）</p>
+                <p>書き出された作文のどこが正しくどこが違うのか丁寧に解説されます。日本人が何度も誤って使ってしまう表現が毎回数多く登場し、その都度違いや例文を書き綴ることで、韓国語の文法を正しく覚え直す事ができ、微妙なニュアンスを感じ取る事が可能です。今まで他所で何度かネイティブチェックを受けた事がありますが、惜身につくほど指摘されたことはなく、また何がどう違うのかをこの作文の授業の様にわかることはありませんでした。</p>
+                <p>学院長の言語に対するセンスと韓国語と日本語への深い理解があってこそ成り立つ授業なので、まさにミリネでしか体験できない授業だと思います。</p>
+              </div>
             </div>
           </div>
         </div>
@@ -3028,6 +3138,23 @@
           }
         })
         .catch(function() {});
+    })();
+
+    (function() {
+      document.querySelectorAll('.review-collapsible .review-header').forEach(function(header) {
+        header.addEventListener('click', function() {
+          var card = header.closest('.review-card');
+          if (!card) return;
+          var expanded = card.classList.toggle('review-expanded');
+          header.setAttribute('aria-expanded', expanded);
+        });
+        header.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            header.click();
+          }
+        });
+      });
     })();
   </script>
   <script src="/testimonials.js"></script>

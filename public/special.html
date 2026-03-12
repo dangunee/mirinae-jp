@@ -1169,6 +1169,15 @@
       transition: all .25s; box-shadow: 0 4px 20px rgba(200,145,30,.35);
     }
     #tab04 .tab04-hero-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(200,145,30,.5); }
+    #tab04 .tab04-hero-cta-wrap {
+      display: flex; align-items: center; gap: 20px; margin-top: 36px; flex-wrap: wrap;
+    }
+    #tab04 .tab04-hero-schedule-link {
+      font-size: 14px; color: rgba(255,255,255,.5);
+      text-decoration: underline; text-underline-offset: 4px;
+      letter-spacing: .04em; transition: color .2s;
+    }
+    #tab04 .tab04-hero-schedule-link:hover { color: var(--t-gold-lt); }
     #tab04 .tab04-level-selector { display: flex; flex-direction: column; gap: 12px; padding-bottom: 64px; }
     #tab04 .tab04-lv-card {
       background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1);
@@ -3291,6 +3300,10 @@
                   <div class="tab04-chip">💻 オンライン（Zoom）</div>
                   <div class="tab04-chip">📅 隔週土曜日・全10回</div>
                   <div class="tab04-chip">🎬 録画あり（欠席も安心）</div>
+                </div>
+                <div class="tab04-hero-cta-wrap">
+                  <a href="trial.html" class="tab04-hero-cta">お申込みはこちら →</a>
+                  <a href="#tab04-schedule" class="tab04-hero-schedule-link">日程を確認する</a>
                 </div>
               </div>
               <div class="tab04-level-selector">

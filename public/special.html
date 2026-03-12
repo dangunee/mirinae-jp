@@ -1091,7 +1091,7 @@
     #tab02 { --t02-gold: var(--t-gold); --t02-gold-lt: var(--t-gold-lt); --t02-gold-pale: var(--t-gold-pale); --t02-cream: var(--t-cream); --t02-cream-dk: var(--t-cream-dk); --t02-text: var(--t-text); --t02-text-mid: var(--t-text-mid); --t02-muted: var(--t-muted); --t02-border: var(--t-border); --t02-reading: var(--t-reading); --t02-writing: var(--t-writing); --t02-listening: var(--t-listening); }
 
     /* ========== tab04: ハン検1・2級 専用デザイン ========== */
-    #tab04 { --t04-lv1: #9b3dbf; --t04-lv2: #1a6fa5; }
+    #tab04 { --t04-lv1: #007291; --t04-lv2: #007291; --t04-bg: #e8f5e9; }
     #tab04 .tab04-wrap { margin: 0 -24px; }
     #tab04 .tab04-hero {
       background: var(--navy); position: relative; overflow: hidden;
@@ -1100,8 +1100,8 @@
     #tab04 .tab04-hero::before {
       content: ''; position: absolute; inset: 0;
       background:
-        radial-gradient(ellipse 55% 90% at 88% 35%, rgba(155,61,191,.14) 0%, transparent 60%),
-        radial-gradient(ellipse 45% 70% at 5% 85%, rgba(26,111,165,.2) 0%, transparent 55%),
+        radial-gradient(ellipse 55% 90% at 88% 35%, rgba(0,114,145,.12) 0%, transparent 60%),
+        radial-gradient(ellipse 45% 70% at 5% 85%, rgba(0,114,145,.15) 0%, transparent 55%),
         radial-gradient(ellipse 30% 50% at 50% 0%, rgba(200,145,30,.08) 0%, transparent 55%);
     }
     #tab04 .tab04-hero-grid {
@@ -1159,11 +1159,11 @@
     #tab04 .tab04-lv-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; border-radius: 4px 0 0 4px; }
     #tab04 .tab04-lv-card.lv1::before { background: var(--t04-lv1); }
     #tab04 .tab04-lv-card.lv2::before { background: var(--t04-lv2); }
-    #tab04 .tab04-lv-card.active.lv1 { background: rgba(155,61,191,.12); border-color: rgba(155,61,191,.35); }
-    #tab04 .tab04-lv-card.active.lv2 { background: rgba(26,111,165,.12); border-color: rgba(26,111,165,.35); }
+    #tab04 .tab04-lv-card.active.lv1 { background: rgba(0,114,145,.12); border-color: rgba(0,114,145,.35); }
+    #tab04 .tab04-lv-card.active.lv2 { background: rgba(0,114,145,.12); border-color: rgba(0,114,145,.35); }
     #tab04 .tab04-lv-card .tab04-lv-num { font-family: 'Noto Serif JP', serif; font-size: 36px; line-height: 1; margin-bottom: 4px; }
-    #tab04 .tab04-lv-card.lv1 .tab04-lv-num { color: rgba(200,150,255,.8); }
-    #tab04 .tab04-lv-card.lv2 .tab04-lv-num { color: rgba(100,180,255,.8); }
+    #tab04 .tab04-lv-card.lv1 .tab04-lv-num { color: rgba(0,114,145,.9); }
+    #tab04 .tab04-lv-card.lv2 .tab04-lv-num { color: rgba(0,114,145,.9); }
     #tab04 .tab04-lv-card .tab04-lv-label { font-size: 12px; color: rgba(255,255,255,.5); letter-spacing: .04em; }
     #tab04 .tab04-lv-card .tab04-lv-time { font-size: 11px; color: rgba(255,255,255,.3); margin-top: 6px; }
     #tab04 .tab04-lv-card.active .tab04-lv-label { color: rgba(255,255,255,.8); }
@@ -1175,38 +1175,38 @@
     #tab04 .tab04-lv-badge .lv-num { font-size: 20px; line-height: 1; }
     #tab04 .tab04-section { padding: 72px 48px; }
     #tab04 .tab04-section-inner { max-width: 1080px; margin: 0 auto; }
-    #tab04 .tab04-sec-eyebrow { font-family: 'Bebas Neue', sans-serif; font-size: 11px; letter-spacing: .4em; color: var(--t-gold); display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
-    #tab04 .tab04-sec-eyebrow::after { content: ''; width: 48px; height: 1px; background: var(--t-gold); opacity: .5; }
+    #tab04 .tab04-sec-eyebrow { font-family: 'Bebas Neue', sans-serif; font-size: 11px; letter-spacing: .4em; color: var(--t04-lv1); display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+    #tab04 .tab04-sec-eyebrow::after { content: ''; width: 48px; height: 1px; background: var(--t04-lv1); opacity: .6; }
     #tab04 .tab04-sec-title { font-family: 'Noto Serif JP', serif; font-size: clamp(22px, 3vw, 32px); color: var(--t-text); margin-bottom: 6px; font-weight: 400; line-height: 1.4; }
     #tab04 .tab04-sec-desc { font-size: 13px; color: var(--t-muted); line-height: 1.9; max-width: 580px; }
-    #tab04 .tab04-features-section { background: #fff; }
+    #tab04 .tab04-features-section { background: var(--t04-bg); }
     #tab04 .tab04-features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 40px; }
     #tab04 .tab04-feat-card {
-      background: var(--t-cream); border: 1px solid var(--t-border); border-radius: 18px; padding: 30px 28px 26px;
+      background: #fff; border: 1px solid rgba(0,114,145,.15); border-radius: 18px; padding: 30px 28px 26px;
       position: relative; overflow: hidden; transition: transform .28s, box-shadow .28s;
     }
     #tab04 .tab04-feat-card:hover { transform: translateY(-4px); box-shadow: 0 14px 40px rgba(14,28,56,.09); }
-    #tab04 .tab04-feat-card::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--t-gold), var(--t-gold-lt)); }
-    #tab04 .tab04-feat-num { font-family: 'Bebas Neue', sans-serif; font-size: 11px; letter-spacing: .3em; color: var(--t-gold); margin-bottom: 14px; }
+    #tab04 .tab04-feat-card::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--t04-lv1), #0096b3); }
+    #tab04 .tab04-feat-num { font-family: 'Bebas Neue', sans-serif; font-size: 11px; letter-spacing: .3em; color: var(--t04-lv1); margin-bottom: 14px; }
     #tab04 .tab04-feat-icon { width: 52px; height: 52px; border-radius: 14px; background: linear-gradient(135deg, var(--navy), var(--navy-mid)); display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 18px; box-shadow: 0 4px 16px rgba(14,28,56,.18); }
     #tab04 .tab04-feat-card h3 { font-family: 'Noto Serif JP', serif; font-size: 16px; font-weight: 600; color: var(--t-text); margin-bottom: 10px; line-height: 1.5; }
     #tab04 .tab04-feat-card p { font-size: 13px; color: var(--t-text-mid); line-height: 1.9; }
-    #tab04 .tab04-feat-tag { display: inline-block; margin-top: 14px; background: var(--t-gold-pale); border: 1px solid rgba(200,145,30,.25); color: var(--t-gold); font-size: 11px; padding: 4px 12px; border-radius: 100px; letter-spacing: .04em; }
-    #tab04 .tab04-goals-section { background: var(--t-cream); }
+    #tab04 .tab04-feat-tag { display: inline-block; margin-top: 14px; background: rgba(0,114,145,.08); border: 1px solid rgba(0,114,145,.25); color: var(--t04-lv1); font-size: 11px; padding: 4px 12px; border-radius: 100px; letter-spacing: .04em; }
+    #tab04 .tab04-goals-section { background: var(--t04-bg); }
     #tab04 .tab04-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 40px; }
-    #tab04 .tab04-box-card { background: #fff; border: 1px solid var(--t-border); border-radius: 18px; overflow: hidden; }
+    #tab04 .tab04-box-card { background: #fff; border: 1px solid rgba(0,114,145,.15); border-radius: 18px; overflow: hidden; }
     #tab04 .tab04-box-head { background: var(--navy); padding: 18px 28px; font-family: 'Bebas Neue', sans-serif; font-size: 11px; letter-spacing: .3em; color: var(--t-gold); }
     #tab04 .tab04-box-body { padding: 24px 28px; display: flex; flex-direction: column; gap: 12px; }
     #tab04 .tab04-goal-item { display: flex; align-items: flex-start; gap: 12px; font-size: 13px; color: var(--t-text-mid); line-height: 1.75; }
-    #tab04 .tab04-goal-num { width: 28px; height: 28px; border-radius: 8px; flex-shrink: 0; background: linear-gradient(135deg, var(--t-gold), var(--t-gold-lt)); color: var(--navy); font-family: 'Bebas Neue', sans-serif; font-size: 13px; display: flex; align-items: center; justify-content: center; margin-top: 1px; }
+    #tab04 .tab04-goal-num { width: 28px; height: 28px; border-radius: 8px; flex-shrink: 0; background: linear-gradient(135deg, var(--t04-lv1), #0096b3); color: #fff; font-family: 'Bebas Neue', sans-serif; font-size: 13px; display: flex; align-items: center; justify-content: center; margin-top: 1px; }
     #tab04 .tab04-flow-item { display: flex; align-items: flex-start; gap: 12px; font-size: 13px; color: var(--t-text-mid); line-height: 1.75; position: relative; padding-bottom: 14px; }
     #tab04 .tab04-flow-item:last-child { padding-bottom: 0; }
-    #tab04 .tab04-flow-item::after { content: ''; position: absolute; left: 13px; top: 30px; width: 1px; height: calc(100% - 16px); background: repeating-linear-gradient(to bottom, var(--t-gold) 0, var(--t-gold) 4px, transparent 4px, transparent 8px); opacity: .35; }
+    #tab04 .tab04-flow-item::after { content: ''; position: absolute; left: 13px; top: 30px; width: 1px; height: calc(100% - 16px); background: repeating-linear-gradient(to bottom, var(--t04-lv1) 0, var(--t04-lv1) 4px, transparent 4px, transparent 8px); opacity: .35; }
     #tab04 .tab04-flow-item:last-child::after { display: none; }
-    #tab04 .tab04-flow-dot { width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0; background: var(--t-cream-dk); border: 2px solid var(--t-gold); color: var(--t-gold); font-family: 'Bebas Neue', sans-serif; font-size: 13px; display: flex; align-items: center; justify-content: center; margin-top: 1px; position: relative; z-index: 1; }
-    #tab04 .tab04-rec-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(26,111,165,.1); border: 1px solid rgba(26,111,165,.25); color: #1a6fa5; border-radius: 100px; padding: 6px 14px; font-size: 12px; margin-top: 16px; }
-    #tab04 .tab04-schedule-section { background: #fff; }
-    #tab04 .tab04-sch-tabs { display: flex; gap: 4px; background: var(--t-cream-dk); border: 1px solid var(--t-border); border-radius: 12px; padding: 4px; width: fit-content; margin: 28px 0 32px; }
+    #tab04 .tab04-flow-dot { width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0; background: rgba(0,114,145,.1); border: 2px solid var(--t04-lv1); color: var(--t04-lv1); font-family: 'Bebas Neue', sans-serif; font-size: 13px; display: flex; align-items: center; justify-content: center; margin-top: 1px; position: relative; z-index: 1; }
+    #tab04 .tab04-rec-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(0,114,145,.1); border: 1px solid rgba(0,114,145,.25); color: #007291; border-radius: 100px; padding: 6px 14px; font-size: 12px; margin-top: 16px; }
+    #tab04 .tab04-schedule-section { background: var(--t04-bg); }
+    #tab04 .tab04-sch-tabs { display: flex; gap: 4px; background: rgba(255,255,255,.7); border: 1px solid rgba(0,114,145,.2); border-radius: 12px; padding: 4px; width: fit-content; margin: 28px 0 32px; }
     #tab04 .tab04-sch-tab { padding: 10px 32px; border-radius: 8px; background: none; border: none; cursor: pointer; font-family: 'Noto Serif JP', serif; font-size: 14px; color: var(--t-muted); letter-spacing: .04em; transition: all .22s; }
     #tab04 .tab04-sch-tab.active { background: var(--navy); color: var(--t-gold-lt); box-shadow: 0 2px 10px rgba(14,28,56,.2); }
     #tab04 .tab04-sch-tab.lv1.active { background: var(--t04-lv1); }
@@ -1215,21 +1215,21 @@
     #tab04 .tab04-sch-panel.active { display: block; animation: tab04FadeUp .3s ease both; }
     @keyframes tab04FadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     #tab04 .tab04-sch-header { border-radius: 16px; padding: 24px 32px; display: flex; align-items: center; gap: 20px; margin-bottom: 24px; }
-    #tab04 .tab04-sch-header.lv1 { background: linear-gradient(135deg, rgba(155,61,191,.12), rgba(155,61,191,.04)); border: 1px solid rgba(155,61,191,.2); }
-    #tab04 .tab04-sch-header.lv2 { background: linear-gradient(135deg, rgba(26,111,165,.12), rgba(26,111,165,.04)); border: 1px solid rgba(26,111,165,.2); }
+    #tab04 .tab04-sch-header.lv1 { background: linear-gradient(135deg, rgba(0,114,145,.12), rgba(0,114,145,.04)); border: 1px solid rgba(0,114,145,.25); }
+    #tab04 .tab04-sch-header.lv2 { background: linear-gradient(135deg, rgba(0,114,145,.12), rgba(0,114,145,.04)); border: 1px solid rgba(0,114,145,.25); }
     #tab04 .tab04-sch-lv-circle { width: 60px; height: 60px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-family: 'Noto Serif JP', serif; font-size: 30px; color: #fff; }
-    #tab04 .tab04-sch-lv-circle.lv1 { background: linear-gradient(135deg, var(--t04-lv1), #c060f0); }
-    #tab04 .tab04-sch-lv-circle.lv2 { background: linear-gradient(135deg, var(--t04-lv2), #3090d0); }
+    #tab04 .tab04-sch-lv-circle.lv1 { background: linear-gradient(135deg, var(--t04-lv1), #0096b3); }
+    #tab04 .tab04-sch-lv-circle.lv2 { background: linear-gradient(135deg, var(--t04-lv2), #0096b3); }
     #tab04 .tab04-sch-lv-name { font-family: 'Noto Serif JP', serif; font-size: 18px; color: var(--t-text); margin-bottom: 4px; }
     #tab04 .tab04-sch-lv-time { font-size: 13px; color: var(--t-muted); }
     #tab04 .tab04-dates-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-bottom: 20px; }
-    #tab04 .tab04-date-pill { background: var(--t-cream); border: 1px solid var(--t-border); border-radius: 12px; padding: 12px 10px; text-align: center; }
-    #tab04 .tab04-date-pill .dn { font-family: 'Bebas Neue', sans-serif; font-size: 12px; letter-spacing: .15em; color: var(--t-gold); margin-bottom: 4px; }
+    #tab04 .tab04-date-pill { background: rgba(255,255,255,.8); border: 1px solid rgba(0,114,145,.25); border-radius: 12px; padding: 12px 10px; text-align: center; }
+    #tab04 .tab04-date-pill .dn { font-family: 'Bebas Neue', sans-serif; font-size: 12px; letter-spacing: .15em; color: var(--t04-lv1); margin-bottom: 4px; }
     #tab04 .tab04-date-pill .dd { font-family: 'Noto Serif JP', serif; font-size: 20px; color: var(--navy); line-height: 1; }
     #tab04 .tab04-date-pill .dm { font-size: 10px; color: var(--t-muted); margin-top: 2px; }
     #tab04 .tab04-sch-info-row { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 24px; }
-    #tab04 .tab04-sch-info-box { background: var(--t-cream); border: 1px solid var(--t-border); border-radius: 12px; padding: 14px 20px; flex: 1; min-width: 130px; }
-    #tab04 .tab04-sch-info-box .k { font-size: 10px; letter-spacing: .2em; font-family: 'Bebas Neue', sans-serif; color: var(--t-gold); margin-bottom: 5px; }
+    #tab04 .tab04-sch-info-box { background: rgba(255,255,255,.8); border: 1px solid rgba(0,114,145,.2); border-radius: 12px; padding: 14px 20px; flex: 1; min-width: 130px; }
+    #tab04 .tab04-sch-info-box .k { font-size: 10px; letter-spacing: .2em; font-family: 'Bebas Neue', sans-serif; color: var(--t04-lv1); margin-bottom: 5px; }
     #tab04 .tab04-sch-info-box .v { font-size: 14px; color: var(--t-text); font-weight: 500; }
     #tab04 .tab04-textbook-band { background: var(--navy); padding: 40px 48px; }
     #tab04 .tab04-textbook-inner { max-width: 1080px; margin: 0 auto; display: flex; align-items: center; gap: 32px; }
@@ -1239,9 +1239,9 @@
     #tab04 .tab04-book-sub { font-size: 12px; color: rgba(255,255,255,.4); }
     #tab04 .tab04-textbook-inner .tab04-cta-link { margin-left: auto; flex-shrink: 0; background: linear-gradient(135deg, var(--t-gold), var(--t-gold-lt)); color: var(--navy); font-family: 'Noto Serif JP', serif; font-size: 14px; font-weight: 600; padding: 13px 28px; border-radius: 100px; text-decoration: none; letter-spacing: .04em; transition: all .22s; }
     #tab04 .tab04-textbook-inner .tab04-cta-link:hover { transform: translateY(-2px); }
-    #tab04 .tab04-price-section { background: var(--t-cream); }
+    #tab04 .tab04-price-section { background: var(--t04-bg); }
     #tab04 .tab04-price-wrap { margin-top: 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-    #tab04 .tab04-price-card { background: #fff; border: 1px solid var(--t-border); border-radius: 18px; padding: 28px; overflow: hidden; position: relative; transition: transform .25s; }
+    #tab04 .tab04-price-card { background: #fff; border: 1px solid rgba(0,114,145,.15); border-radius: 18px; padding: 28px; overflow: hidden; position: relative; transition: transform .25s; }
     #tab04 .tab04-price-card:hover { transform: translateY(-3px); }
     #tab04 .tab04-price-card.lv1 { border-top: 3px solid var(--t04-lv1); }
     #tab04 .tab04-price-card.lv2 { border-top: 3px solid var(--t04-lv2); }
@@ -1256,25 +1256,25 @@
     #tab04 .tab04-p-row .v small { font-size: 12px; color: var(--t-muted); font-family: 'Noto Sans JP', sans-serif; }
     #tab04 .tab04-price-total { display: flex; justify-content: space-between; align-items: baseline; padding-top: 16px; border-top: 1px solid var(--t-border); }
     #tab04 .tab04-price-total .tl { font-size: 12px; color: var(--t-muted); }
-    #tab04 .tab04-price-total .tv { font-family: 'Noto Serif JP', serif; font-size: 36px; color: var(--t-gold); }
+    #tab04 .tab04-price-total .tv { font-family: 'Noto Serif JP', serif; font-size: 36px; color: var(--t04-lv1); }
     #tab04 .tab04-cta-apply { display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(135deg, var(--t-gold), var(--t-gold-lt)); color: var(--navy); font-family: 'Noto Serif JP', serif; font-size: 16px; font-weight: 600; padding: 18px 52px; border-radius: 100px; text-decoration: none; letter-spacing: .05em; transition: all .25s; box-shadow: 0 4px 24px rgba(200,145,30,.35); margin-top: 28px; }
     #tab04 .tab04-cta-apply:hover { transform: translateY(-3px); box-shadow: 0 10px 36px rgba(200,145,30,.5); }
-    #tab04 .tab04-test-section { background: var(--t-cream-dk); }
+    #tab04 .tab04-test-section { background: var(--t04-bg); }
     #tab04 .tab04-year-group { margin-bottom: 48px; }
     #tab04 .tab04-year-group:last-child { margin-bottom: 0; }
     #tab04 .tab04-year-label { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
     #tab04 .tab04-year-label .yr { font-family: 'Noto Serif JP', serif; font-size: 24px; color: var(--navy); }
-    #tab04 .tab04-year-label::after { content: ''; flex: 1; height: 1px; background: var(--t-border); }
+    #tab04 .tab04-year-label::after { content: ''; flex: 1; height: 1px; background: rgba(0,114,145,.2); }
     #tab04 .tab04-test-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    #tab04 .tab04-test-card { background: #fff; border: 1px solid var(--t-border); border-radius: 16px; padding: 28px; position: relative; transition: transform .25s, box-shadow .25s; }
+    #tab04 .tab04-test-card { background: #fff; border: 1px solid rgba(0,114,145,.15); border-radius: 16px; padding: 28px; position: relative; transition: transform .25s, box-shadow .25s; }
     #tab04 .tab04-test-card:hover { transform: translateY(-3px); box-shadow: 0 10px 32px rgba(14,28,56,.08); }
-    #tab04 .tab04-test-card.lv1 { border-left: 3px solid rgba(155,61,191,.3); }
-    #tab04 .tab04-test-card.lv2 { border-left: 3px solid rgba(26,111,165,.3); }
+    #tab04 .tab04-test-card.lv1 { border-left: 3px solid rgba(0,114,145,.4); }
+    #tab04 .tab04-test-card.lv2 { border-left: 3px solid rgba(0,114,145,.4); }
     #tab04 .tab04-test-card.featured { background: linear-gradient(135deg, rgba(200,145,30,.04), rgba(200,145,30,.01)); border-color: rgba(200,145,30,.3); grid-column: 1 / -1; }
     #tab04 .tab04-test-head { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
     #tab04 .tab04-test-av { width: 38px; height: 38px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-family: 'Noto Serif JP', serif; font-size: 16px; color: #fff; font-weight: 600; }
-    #tab04 .tab04-test-av.lv1 { background: linear-gradient(135deg, var(--t04-lv1), #c060f0); }
-    #tab04 .tab04-test-av.lv2 { background: linear-gradient(135deg, var(--t04-lv2), #3090d0); }
+    #tab04 .tab04-test-av.lv1 { background: linear-gradient(135deg, var(--t04-lv1), #0096b3); }
+    #tab04 .tab04-test-av.lv2 { background: linear-gradient(135deg, var(--t04-lv2), #0096b3); }
     #tab04 .tab04-test-name { font-size: 13px; font-weight: 500; color: var(--t-text); }
     #tab04 .tab04-test-from-lv { font-size: 11px; color: var(--t-muted); margin-top: 1px; }
     #tab04 .tab04-test-lv-badge { margin-left: auto; padding: 3px 10px; border-radius: 100px; font-size: 10px; font-weight: 700; }

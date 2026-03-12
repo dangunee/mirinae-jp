@@ -1434,6 +1434,8 @@
     #schedule-section .day-cell:last-child { border-right: none; }
     #schedule-section .day-cell:hover { background: rgba(200,145,30,0.03); }
     #schedule-section .day-cell.other-month .day-num { color: rgba(0,0,0,0.15); }
+    #schedule-section .day-cell.day-cell-empty { background: transparent; pointer-events: none; }
+    #schedule-section .day-cell.day-cell-empty .day-num { visibility: hidden; }
     #schedule-section .day-cell.today { background: rgba(200,145,30,0.04); }
     #schedule-section .day-cell.today .day-num {
       background: linear-gradient(135deg, var(--cal-gold), var(--cal-gold-lt));
@@ -2725,50 +2727,54 @@
       body.innerHTML = '';
       var firstDow = new Date(y, m, 1).getDay();
       var daysInM = new Date(y, m+1, 0).getDate();
-      var daysInP = new Date(y, m, 0).getDate();
       var cells = [];
-      for (var i = firstDow - 1; i >= 0; i--) cells.push({ day: daysInP - i, cur: false, prevM: true });
+      for (var i = 0; i < firstDow; i++) cells.push({ empty: true });
       for (var d = 1; d <= daysInM; d++) cells.push({ day: d, cur: true });
-      var remaining = 42 - cells.length;
-      for (var k = 1; k <= remaining; k++) cells.push({ day: k, cur: false, nextM: true });
-      for (var w = 0; w < 6; w++) {
+      var rowCount = Math.ceil(cells.length / 7);
+      for (var w = 0; w < rowCount; w++) {
         var weekRow = document.createElement('div');
         weekRow.className = 'week-row';
         for (var c = 0; c < 7; c++) {
           var cell = cells[w*7 + c];
           var dayCell = document.createElement('div');
           dayCell.className = 'day-cell';
-          var cy = y, cm = m;
-          if (cell.prevM) { cm = m - 1; if (cm < 0) { cy--; cm = 11; } dayCell.classList.add('other-month'); }
-          if (cell.nextM) { cm = m + 1; if (cm > 11) { cy++; cm = 0; } dayCell.classList.add('other-month'); }
-          if (cell.cur && isToday(cy, cm, cell.day)) dayCell.classList.add('today');
-          var numEl = document.createElement('div');
-          numEl.className = 'day-num';
-          numEl.textContent = cell.day + '日';
-          dayCell.appendChild(numEl);
-          var evts = getEventsFor(cy, cm, cell.day);
-          if (evts.length) {
-            var list = document.createElement('div');
-            list.className = 'event-list';
-            for (var e = 0; e < Math.min(3, evts.length); e++) {
-              (function(evData) {
-                var pill = document.createElement('a');
-                pill.className = 'event-pill ' + evData.cat;
-                pill.textContent = evData.label;
-                pill.href = evData.url || '#';
-                pill.setAttribute('aria-label', (cy + '年' + (cm+1) + '月' + cell.day + '日 ' + evData.label + ' ' + (evData.detail || '')));
-                pill.addEventListener('mouseenter', function(evt) { scheduleShowTooltip(evt, evData); });
-                pill.addEventListener('mouseleave', scheduleHideTooltip);
-                list.appendChild(pill);
-              })(evts[e]);
+          if (!cell || cell.empty) {
+            dayCell.classList.add('day-cell-empty');
+            var numEl = document.createElement('div');
+            numEl.className = 'day-num';
+            numEl.textContent = '';
+            dayCell.appendChild(numEl);
+          } else {
+            var cy = y, cm = m;
+            if (cell.cur && isToday(cy, cm, cell.day)) dayCell.classList.add('today');
+            var numEl = document.createElement('div');
+            numEl.className = 'day-num';
+            numEl.textContent = cell.day + '日';
+            dayCell.appendChild(numEl);
+            var evts = getEventsFor(cy, cm, cell.day);
+            if (evts.length) {
+              var list = document.createElement('div');
+              list.className = 'event-list';
+              for (var e = 0; e < Math.min(3, evts.length); e++) {
+                (function(evData) {
+                  var pill = document.createElement('a');
+                  pill.className = 'event-pill ' + evData.cat;
+                  pill.textContent = evData.label;
+                  pill.href = evData.url || '#';
+                  pill.setAttribute('aria-label', (cy + '年' + (cm+1) + '月' + cell.day + '日 ' + evData.label + ' ' + (evData.detail || '')));
+                  pill.addEventListener('mouseenter', function(evt) { scheduleShowTooltip(evt, evData); });
+                  pill.addEventListener('mouseleave', scheduleHideTooltip);
+                  list.appendChild(pill);
+                })(evts[e]);
+              }
+              if (evts.length > 3) {
+                var more = document.createElement('span');
+                more.style.cssText = 'font-size:10px;color:var(--cal-muted);padding:2px 8px;';
+                more.textContent = '+' + (evts.length - 3) + '件';
+                list.appendChild(more);
+              }
+              dayCell.appendChild(list);
             }
-            if (evts.length > 3) {
-              var more = document.createElement('span');
-              more.style.cssText = 'font-size:10px;color:var(--cal-muted);padding:2px 8px;';
-              more.textContent = '+' + (evts.length - 3) + '件';
-              list.appendChild(more);
-            }
-            dayCell.appendChild(list);
           }
           weekRow.appendChild(dayCell);
         }

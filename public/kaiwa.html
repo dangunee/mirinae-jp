@@ -287,7 +287,7 @@
       .hero { padding: 40px 16px 32px; }
       .hero::after { display: none; }
       .tabs-bar { padding: 0 12px; overflow-x: auto; -webkit-overflow-scrolling: touch; justify-content: space-between; flex-wrap: nowrap; }
-      .tabs-bar .tab-btn { flex: 1 1 0; min-width: 0; padding: 12px 2px; font-size: 11px; text-align: center; }
+      .tabs-bar .tab-btn { flex: 1 1 0; min-width: 0; padding: 12px 2px; font-size: 16px; text-align: center; }
       .main-content { padding: 24px 16px 80px; }
       #tab01 .beg-hero, #tab02 .beg-hero, #tab03 .beg-hero, #tab04 .beg-hero, #tab05 .beg-hero { padding: 28px 20px; }
       .beg-tuition-table thead th { font-size: 14px; }
@@ -298,7 +298,7 @@
       .nav-logo { font-size: 13px; white-space: nowrap; }
       .hero { padding: 32px 12px 24px; }
       .tabs-bar { padding: 0 8px; }
-      .tabs-bar .tab-btn { padding: 10px 1px; font-size: 10px; }
+      .tabs-bar .tab-btn { padding: 10px 1px; font-size: 15px; }
       .main-content { padding: 20px 12px 80px; }
       #tab01 .beg-hero, #tab02 .beg-hero, #tab03 .beg-hero, #tab04 .beg-hero, #tab05 .beg-hero { padding: 24px 16px; }
       .beg-tuition-table thead th { font-size: 13px; }
@@ -995,7 +995,7 @@
     }
     #tab01 .kaiwa-card-text {
       font-family: 'Noto Serif JP', serif;
-      font-size: 20px;
+      font-size: 16px;
       color: var(--dark);
       font-weight: 400;
     }
@@ -1058,6 +1058,23 @@
       transform: translateY(-2px);
       box-shadow: 0 8px 24px rgba(201,146,42,0.4);
     }
+    @media (max-width: 768px) {
+      #tab01 .kaiwa-cta-strip {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+        padding: 24px 20px;
+        gap: 20px;
+      }
+      #tab01 .kaiwa-cta-strip::before { display: none; }
+      #tab01 .kaiwa-cta-text h3 { font-size: 18px; margin-bottom: 4px; }
+      #tab01 .kaiwa-cta-text p {
+        font-size: 12px;
+        line-height: 1.6;
+        max-width: 100%;
+      }
+      #tab01 .kaiwa-cta-btn { justify-content: center; }
+    }
     .beg-tuition-table-wrap {
       border-radius: 10px;
       overflow: hidden;
@@ -1090,6 +1107,40 @@
       text-align: center;
     }
     .beg-tuition-table td:first-child { text-align: left; font-weight: 500; }
+    #tab02 .beg-textbook-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 20px;
+      margin-bottom: 32px;
+    }
+    #tab02 .beg-textbook-icon {
+      width: 36px; height: 36px;
+      background: var(--dark);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+    #tab02 .beg-textbook-content { flex: 1; }
+    #tab02 .beg-textbook-label {
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      margin-bottom: 2px;
+    }
+    #tab02 .beg-textbook-title { font-size: 16px; font-weight: 500; color: var(--mid); }
+    #tab02 .beg-textbook-cover {
+      display: block;
+      max-width: 120px;
+      height: auto;
+      margin-top: 12px;
+      border-radius: 4px;
+      box-shadow: 0 2px 8px rgba(28,26,23,0.12);
+    }
     .beg-testimonial {
       background: var(--white);
       border: 1px solid var(--border);
@@ -1428,6 +1479,20 @@
           </div>
 
           <div class="beg-sec-header">
+            <div class="beg-sec-label">Textbook</div>
+            <div class="beg-sec-title">テキスト</div>
+            <div class="beg-sec-line"></div>
+          </div>
+          <div class="beg-textbook-row">
+            <div class="beg-textbook-icon">📖</div>
+            <div class="beg-textbook-content">
+              <div class="beg-textbook-label">【初中級】</div>
+              <div class="beg-textbook-title">韓国語リーディング タングニの日本生活記</div>
+              <a href="https://www.amazon.co.jp/dp/4560086923/" target="_blank" rel="noopener"><img src="/img/textbook/book_tanguni_nihon.jpg" alt="タングニの日本生活記" class="beg-textbook-cover" loading="lazy"></a>
+            </div>
+          </div>
+
+          <div class="beg-sec-header">
             <div class="beg-sec-label">Lesson Flow</div>
             <div class="beg-sec-title">授業の流れ</div>
             <div class="beg-sec-line"></div>
@@ -1481,7 +1546,17 @@
                 <span class="beg-testimonial-date">2018.11</span>
               </div>
             </div>
-            <div class="beg-testimonial-body">今までのどの授業よりも大変でしたが、その分集中した時間でした。パダスギで聞き取れなかった細かいところが聞き取れるようになり、苦手だった音読が少し好きになりました。</div>
+            <div class="beg-testimonial-body">今までのどの授業よりも大変（つらい）な経験をしました。通常の個人レッスンの予習や復習やパダスギだけでもいっぱいいっぱいなところに音読クラスが加わったためです。しかし大変だった反面、どのクラスよりも集中した時間でした。人前より先生方にきちんと発音できてこそ、聞き取ることができるという意味がとてもよくわかりました。確かにパダスギで今まで聞き取れなかった細かいところが聞き取れるようになったことは大きな進歩だったと思います。そして今まで苦手としていた音読が少し好きになりました。今日までの経験を活かして声に出してたくさん音読練習をしたいと思います。</div>
+          </div>
+          <div class="beg-testimonial">
+            <div class="beg-testimonial-meta">
+              <div class="beg-testimonial-avatar">O</div>
+              <div>
+                <span class="beg-testimonial-name">O様</span>
+                <span class="beg-testimonial-date">2018.11</span>
+              </div>
+            </div>
+            <div class="beg-testimonial-body">間違いに対して妥協することなく、チェックを入れて下さることがとてもありがたく感じました。完璧への道はまだまだ遠いですが、これからも得た知識を積み上げてきれいな音読を心がけます。発音・抑揚などについて成績表などで数値化してフィードバックしてくださると励みになると思います。サンプル音声も「音読」に特化したものがあるといいと思います。（受講生だけが聴けるように）</div>
           </div>
           <div class="beg-testimonial">
             <div class="beg-testimonial-meta">
@@ -1491,7 +1566,27 @@
                 <span class="beg-testimonial-date">2018.2</span>
               </div>
             </div>
-            <div class="beg-testimonial-body">独学では気づけなかった発音のポイントをたくさん学べました。先生方がとても熱心で、ここで音読を教えていただいて本当によかったです。</div>
+            <div class="beg-testimonial-body">音読クラスは初めて受けました。今までほぼ独学で勉強してきたので発音の事はあまりわかっていませんでした。今回10回コースを受講して'目からウロコ'のものがたくさんあり、遠くまで通ってきた甲斐がありました。先生方も発音に関してはベテランの方ばかりで大きい김先生は日本に来てから韓国の発音の勉強をした…とか言っていた様な。それほど、人に教えるのに再度勉強するほど熱心な先生で、ここで音読を教えていただいて本当によかったです。TOPIKが終わってからも少しづつ、又受講したいなと思っております。</div>
+          </div>
+          <div class="beg-testimonial">
+            <div class="beg-testimonial-meta">
+              <div class="beg-testimonial-avatar">K</div>
+              <div>
+                <span class="beg-testimonial-name">K様</span>
+                <span class="beg-testimonial-date">2018.2</span>
+              </div>
+            </div>
+            <div class="beg-testimonial-body">途中からの講義の参加でしたが、今までどれほど知らないことが多かったかが、よくわかりました。"なんとなく"で発音していたことの間違いに気付けたことが大きかったです。しかし身につくには時間が足りなかったです。"抑揚"に意識が向くようになり、TVなどで日本語が上手な韓国人が韓国語の"抑揚"で日本語を話していることもわかりました。</div>
+          </div>
+          <div class="beg-testimonial">
+            <div class="beg-testimonial-meta">
+              <div class="beg-testimonial-avatar">A</div>
+              <div>
+                <span class="beg-testimonial-name">A様</span>
+                <span class="beg-testimonial-date">2018.2</span>
+              </div>
+            </div>
+            <div class="beg-testimonial-body">今までイントネーションの法則は韓国語にないと思っていましたが、このクラスで本当に多くの法則を教えて頂き、驚きの連続でした。今まで 지방 사람이세요? 경상도에서 오셨어요?と何度も言われてきた理由がわかりました。独学で勉強していると、自分のまちがったところを指摘してくれる人もいないし、友達も特に何も言ってくれないので、このクラスで自分が今までまちがっていたところを指摘してもらい、今後学習していく中での新たな目標ができ、とても良いモチベーションとなりました。本を読む時は意識できるようになりましたが、友だちと会話する時は元に戻ってしまうので、それを直していくのがこれからの課題です。すっごく良い経験になりました。もう終わりなのが淋しいです。</div>
           </div>
         </div>
       </div>
@@ -1565,20 +1660,90 @@
               <div class="beg-testimonial-avatar">初</div>
               <div>
                 <span class="beg-testimonial-name">初級</span>
-                <span class="beg-testimonial-date">中部在住</span>
+                <span class="beg-testimonial-date">中部在住 2021.11</span>
               </div>
             </div>
-            <div class="beg-testimonial-body">口や舌の動きを実際に見ることができ、自分では気づけなかった発音のクセを知ることができました。発音の大切さを改めて実感しました。</div>
+            <div class="beg-testimonial-body">良かった点 実際に口や舌の動きを見ることができ、自分で勉強するだけでは気づかなかったことを知ることができました。自信のない発音はやはり伝わらないことも実感でき、改めて発音の大切さを学びました。先生のお人柄も良く、失敗しても自信を失わせないよう丁寧なご指導を頂けて感謝いっぱいです。何より楽しく受講できたことが、より一層やる気を持たせてもらい、次へのモチベーションに繋がりました。</div>
+          </div>
+          <div class="beg-testimonial">
+            <div class="beg-testimonial-meta">
+              <div class="beg-testimonial-avatar">初</div>
+              <div>
+                <span class="beg-testimonial-name">初級</span>
+                <span class="beg-testimonial-date">関東在住 2021.11</span>
+              </div>
+            </div>
+            <div class="beg-testimonial-body">初めてだったので緊張しましたが、先生も生徒の皆さんも和やかで温かい雰囲気の中で学ぶことができてよかったです。激音や母音など自分の弱点をフィードバックしていただき、独学ではなかなか気づけなかった部分なので非常にありがたかったです。これからの勉強に役立てていきたいと思います。</div>
           </div>
           <div class="beg-testimonial">
             <div class="beg-testimonial-meta">
               <div class="beg-testimonial-avatar">中</div>
               <div>
                 <span class="beg-testimonial-name">中級</span>
-                <span class="beg-testimonial-date">関東在住</span>
+                <span class="beg-testimonial-date">関東在住 2021.11</span>
               </div>
             </div>
-            <div class="beg-testimonial-body">抑揚の基本ルールを初めて理解できました。長めの文章の読み方を細かく直していただき、自分のクセを知る良い機会になりました。</div>
+            <div class="beg-testimonial-body">自分のぶつ切りの読み方の特徴が自覚できてよかった。できていない発音に関しての改善点の説明も具体的でわかりやすかったです。</div>
+          </div>
+          <div class="beg-testimonial">
+            <div class="beg-testimonial-meta">
+              <div class="beg-testimonial-avatar">上</div>
+              <div>
+                <span class="beg-testimonial-name">上級</span>
+                <span class="beg-testimonial-date">関東在住 2021.11</span>
+              </div>
+            </div>
+            <div class="beg-testimonial-body">一つ一つは、発音は出来ますが文章になるとなかなか意識しないと出来ないです。抑揚は日本語と違うことが最近は良く分かるようになりました。エッセイと小説は訳文をもう少し丁寧に教えてもらったら良かったと思います。</div>
+          </div>
+          <div class="beg-testimonial">
+            <div class="beg-testimonial-meta">
+              <div class="beg-testimonial-avatar">初</div>
+              <div>
+                <span class="beg-testimonial-name">初中級</span>
+                <span class="beg-testimonial-date">関東在住 2020.11</span>
+              </div>
+            </div>
+            <div class="beg-testimonial-body">少人数のため一人一人発音チェックして直してもらえてコツが掴めました。単発でしたが盛り沢山の充実の内容でした。オンラインというのも楽で良いです。その場限りだとすぐに忘れてしまうことも自分で反復できるように助けてくれるお教室だと感じました。</div>
+          </div>
+          <div class="beg-testimonial">
+            <div class="beg-testimonial-meta">
+              <div class="beg-testimonial-avatar">中</div>
+              <div>
+                <span class="beg-testimonial-name">中級</span>
+                <span class="beg-testimonial-date">関東在住 2020.11</span>
+              </div>
+            </div>
+            <div class="beg-testimonial-body">まず、ほぼ韓国語による授業が嬉しかったです。それだけで耳と脳が一生懸命韓国語を聞こうとしている感じがしました。また初日、平音激音濃音から丁寧に教えていただけたのがよかったです。ハングルを覚えた頃は独学で、今まで自分ではまあまあできている、と思っていたのがそうではないとわかりとても勉強になりました。２日目の授業も、抑揚を中心に細かい点まで指摘してくださりありがとうございました。たぶん、発音や抑揚をこんなに意識して音読したことはありません。また授業動画などをあとで送っていただけたのが大変ありがたいです。</div>
+          </div>
+          <div class="beg-testimonial">
+            <div class="beg-testimonial-meta">
+              <div class="beg-testimonial-avatar">N</div>
+              <div>
+                <span class="beg-testimonial-name">N様</span>
+                <span class="beg-testimonial-date">初級 2019.12</span>
+              </div>
+            </div>
+            <div class="beg-testimonial-body">とってもわかりやすかったです。日本人が間違いやすい抑揚の比較がとてもよかったです。抑揚の授業の時間がもうちょっと多くあるとうれしいです。先生の授業はとってもわかりやすいのでまた機会があったら受講したいと思います。今回もありがとうございました。</div>
+          </div>
+          <div class="beg-testimonial">
+            <div class="beg-testimonial-meta">
+              <div class="beg-testimonial-avatar">T</div>
+              <div>
+                <span class="beg-testimonial-name">T様</span>
+                <span class="beg-testimonial-date">初級 2019.12</span>
+              </div>
+            </div>
+            <div class="beg-testimonial-body">これまで発音のことで疑問に思っていたことが解決されました。抑揚に気を付けることで苦手な激音や濃音もそれらしく聞こえることを学べたのは嬉しかったです。ひとつの単語では発音できても文章になるとできないことが多いので、文を読んで発音を修正していただけるクラスがあったら受けたいです。</div>
+          </div>
+          <div class="beg-testimonial">
+            <div class="beg-testimonial-meta">
+              <div class="beg-testimonial-avatar">M</div>
+              <div>
+                <span class="beg-testimonial-name">M様</span>
+                <span class="beg-testimonial-date">2017年4週コース</span>
+              </div>
+            </div>
+            <div class="beg-testimonial-body">今まで発音抑揚に興味がありましたが本などで独学してたので実際自分の発音があっているのかわからなかったので今回色々教えていただき、授業料以上の知識をおることができました。</div>
           </div>
         </div>
       </div>
@@ -1669,6 +1834,82 @@
             お申込みはこちら
             <svg viewBox="0 0 16 16" style="width:16px;height:16px;"><line x1="2" y1="8" x2="13" y2="8" stroke="currentColor" stroke-width="2.5" fill="none"/><polyline points="9,4 13,8 9,12" stroke="currentColor" stroke-width="2.5" fill="none"/></svg>
           </a>
+
+          <div class="beg-sec-header">
+            <div class="beg-sec-label">Testimonial</div>
+            <div class="beg-sec-title">生徒の声</div>
+            <div class="beg-sec-line"></div>
+          </div>
+          <div class="beg-testimonial">
+            <div class="beg-testimonial-meta">
+              <div class="beg-testimonial-avatar">受</div>
+              <div>
+                <span class="beg-testimonial-name">受講生</span>
+                <span class="beg-testimonial-date">2023年6月-11月</span>
+              </div>
+            </div>
+            <div class="beg-testimonial-body">事前にこの授業を受講された方の感想を読んでから申し込みましたが、まず、いつ自分が当てられるか分からないので、zoomとはいえボッーとしてる時間はありません。文中に出てくる語の意味はもちろん、似たような単語、反対の意味のある単語、慣用句様々な質問が飛んできます。音読、要約もあり、予習をしっかりやったつもりでも、いつも予習不足を感じて、授業が終わります。ノートを書ききれず、進みが早いなぁと感じることもありますが、後で授業を録画した動画を送って頂けるので、復習もしっかり出来て良いと思いました。対面で受ける授業と同じくらい濃い内容でした。</div>
+          </div>
+          <div class="beg-testimonial">
+            <div class="beg-testimonial-meta">
+              <div class="beg-testimonial-avatar">受</div>
+              <div>
+                <span class="beg-testimonial-name">受講生</span>
+                <span class="beg-testimonial-date">2023年6月-11月</span>
+              </div>
+            </div>
+            <div class="beg-testimonial-body">4ヶ月間、どうもありがとうございました。授業では小説に出てきた単語だけではなく、類義語やことわざ、日本人には馴染みのないニュアンスなどもイラストを交えて教えていただきました。授業についてすごく欲張りな事を言えば、ネイティブの方の音源があると、音読の練習の助けになると思いました。自分の語彙力が足りておらず、予習だけで精一杯の状態でしたが、それでもハングル検定に出てくる単語にたくさん触れることができ、役立ちました。小説の内容も面白いので、難しくても苦にならず続けられた点も良かったです。これから授業で教えていただいた語彙を復習して、しっかり身に付けたいと思います。どうもありがとうございました。</div>
+          </div>
+          <div class="beg-testimonial">
+            <div class="beg-testimonial-meta">
+              <div class="beg-testimonial-avatar">受</div>
+              <div>
+                <span class="beg-testimonial-name">受講生</span>
+                <span class="beg-testimonial-date">2023年6月-11月</span>
+              </div>
+            </div>
+            <div class="beg-testimonial-body">少人数で発音、語彙表現、文化的背景、意見交換を網羅する上級講座として非常に充実した内容でした。毎回、時間が足りないと思うほど楽しく勉強できました。</div>
+          </div>
+          <div class="beg-testimonial">
+            <div class="beg-testimonial-meta">
+              <div class="beg-testimonial-avatar">受</div>
+              <div>
+                <span class="beg-testimonial-name">受講生</span>
+                <span class="beg-testimonial-date">2023年6月-11月</span>
+              </div>
+            </div>
+            <div class="beg-testimonial-body">同じ意味を持つ慣用表現やことわざ等も教えてくださるので語彙力向上に繋がっていると思います。</div>
+          </div>
+          <div class="beg-testimonial">
+            <div class="beg-testimonial-meta">
+              <div class="beg-testimonial-avatar">受</div>
+              <div>
+                <span class="beg-testimonial-name">受講生</span>
+                <span class="beg-testimonial-date">2022年11月-2023年2月</span>
+              </div>
+            </div>
+            <div class="beg-testimonial-body">ハン検1・2級目標で語彙力を高めたくて、でもトウミとかで単語を淡々と覚えるのは苦手、特に擬態語・擬声語が辛い……という人は全員このレッスン受ければ良いと思います。ネイティブの先生と一緒に小説を読みながらハン検の表現をチェックしていくんですけど、関連語彙までまとめて解説してもらえます。今日は망설이다, 미적거리다, 우물쭈물하다 の違いが分かってスッキリしました。超楽しいです。</div>
+          </div>
+          <div class="beg-testimonial">
+            <div class="beg-testimonial-meta">
+              <div class="beg-testimonial-avatar">受</div>
+              <div>
+                <span class="beg-testimonial-name">受講生</span>
+                <span class="beg-testimonial-date">2022年7月-10月</span>
+              </div>
+            </div>
+            <div class="beg-testimonial-body">大変に興味深い内容で、教科書では学びにくいいろいろな表現や文化的なものを学べた点が何よりも良かったと思います。ただ如何せんまだまだ私自信の実力が足りなくて自信もどかしい部分も多く、もう少し実力があればもっともっと授業を楽しめたと思います。ただやはり韓国小説の奥深い世界を知ることができて、ますます読書が好きになりそうです。</div>
+          </div>
+          <div class="beg-testimonial">
+            <div class="beg-testimonial-meta">
+              <div class="beg-testimonial-avatar">受</div>
+              <div>
+                <span class="beg-testimonial-name">受講生</span>
+                <span class="beg-testimonial-date">2022年7月-10月</span>
+              </div>
+            </div>
+            <div class="beg-testimonial-body">良かった点：読む人、要約する人、質問に答える人がいるので、自分の番でなくても適度な緊張感を維持できるし、他の人が質問されたり答えたりしているのが頭に入って勉強になった。グループ学習の良いところだと思う。ミリネはそういう進め方が多くてとてもいいと思っています。悪かった点：特にありません。その他：朗読講座だけど、朗読については自分で練習してきて読むだけなので、朗読の仕方についても練習の仕方や改善点などが聞ければもっと良かった。</div>
+          </div>
         </div>
       </div>
 
@@ -1748,14 +1989,56 @@
               <div class="beg-testimonial-avatar">B</div>
               <div><span class="beg-testimonial-name">Bクラス</span><span class="beg-testimonial-date">2023年7-11月</span></div>
             </div>
-            <div class="beg-testimonial-body">教材に出てくる単語だけではなく、類義語や反対語、発音や例文の文法まで教えていただいて、とても充実した講義内容でした。また、授業の動画を送っていただけるので、復習するのにも良かったです。いつも途中で挫折していた単語の本を最後までやり切ることができたので、達成感もあります。韓国のドラマなどを観ていても、受講前と比較するとかなり理解できるようになったので、確実に語彙力はアップしたと感じています。</div>
+            <div class="beg-testimonial-body">教材に出てくる単語だけではなく、類義語や反対語、発音や例文の文法まで教えていただいて、とても充実した講義内容でした。また、授業の動画を送っていただけるので、復習するのにも良かったです。いつも途中で挫折していた単語の本を最後までやり切ることができたので、達成感もあります。韓国のドラマなどを観ていても、受講前と比較するとかなり理解できるようになったので、確実に語彙力はアップしたと感じています。先生の説明もわかりやすく、楽しい授業でした。どうもありがとうございました。</div>
+          </div>
+          <div class="beg-testimonial">
+            <div class="beg-testimonial-meta">
+              <div class="beg-testimonial-avatar">B</div>
+              <div><span class="beg-testimonial-name">Bクラス</span><span class="beg-testimonial-date">2023年7-11月</span></div>
+            </div>
+            <div class="beg-testimonial-body">語彙の説明が詳しく、勉強になりました。（なかなかすべてが自分の身につかないのが悲しいですが）。あと、いろいろな質問にもお答えいただいたこともありがたかったです。すべて基本的に韓国語で行われたのも良かったですが、時々、何を言われたのかが分からない時があり、もう少しゆっくり話してほしいと思うこともありました。</div>
+          </div>
+          <div class="beg-testimonial">
+            <div class="beg-testimonial-meta">
+              <div class="beg-testimonial-avatar">B</div>
+              <div><span class="beg-testimonial-name">Bクラス</span><span class="beg-testimonial-date">2023年7-11月</span></div>
+            </div>
+            <div class="beg-testimonial-body">色々覚えられなく苦戦しましたが、先生が丁寧に教えてくださったので、少しは成長したかなぁと思ったりしています。とにかく覚えることが多すぎて大変でした。</div>
+          </div>
+          <div class="beg-testimonial">
+            <div class="beg-testimonial-meta">
+              <div class="beg-testimonial-avatar">A</div>
+              <div><span class="beg-testimonial-name">Aクラス</span><span class="beg-testimonial-date">2023年2-6月</span></div>
+            </div>
+            <div class="beg-testimonial-body">丁寧に教えていただき、単語だけではなく文法も理解できました。授業も毎週楽しかったので、無理なく半年続けることができました。大変感謝しています。</div>
+          </div>
+          <div class="beg-testimonial">
+            <div class="beg-testimonial-meta">
+              <div class="beg-testimonial-avatar">A</div>
+              <div><span class="beg-testimonial-name">Aクラス</span><span class="beg-testimonial-date">2023年2-6月</span></div>
+            </div>
+            <div class="beg-testimonial-body">ただ単語を覚えるのではなく、文章で発音や文法も交えて学べたのが良かったです。</div>
           </div>
           <div class="beg-testimonial">
             <div class="beg-testimonial-meta">
               <div class="beg-testimonial-avatar">K</div>
               <div><span class="beg-testimonial-name">K様-Bクラス</span><span class="beg-testimonial-date">2018年6-8月</span></div>
             </div>
-            <div class="beg-testimonial-body">今までの中で一番成果が感じられた講座だったと思います。単語を覚えるという単純な勉強も一人ではなかなかできず、半年間本棚に眠っていた本がようやく日の目を見、８００近くの単語で例文が一通り覚えられたことは私にとってとても有意義な時間でした。</div>
+            <div class="beg-testimonial-body">今までの中で一番成果が感じられた講座だったと思います。単語を覚えるという単純な勉強も一人ではなかなかできず、半年間本棚に眠っていた本がようやく日の目を見、８００近くの単語で例文が一通り覚えられたことは私にとってとても有意義な時間でした。せっかく覚えたこれらの単語や文を忘れられないよう、復習していきたいと思います。</div>
+          </div>
+          <div class="beg-testimonial">
+            <div class="beg-testimonial-meta">
+              <div class="beg-testimonial-avatar">H</div>
+              <div><span class="beg-testimonial-name">H様-Bクラス</span><span class="beg-testimonial-date">2018年6-8月</span></div>
+            </div>
+            <div class="beg-testimonial-body">単語を覚えることが苦手でどのように勉強すれば良いのか、自分なりの方法で勉強を始めても三日坊主で続かない事が多かったのでこの講習を受けてみようと思いました。実際に講習を受けて１２週間で、単語集、約１冊をだいたい覚えられたこと、またどのように単語を勉強すれば良いかという事も学べました。ありがとうございました。</div>
+          </div>
+          <div class="beg-testimonial">
+            <div class="beg-testimonial-meta">
+              <div class="beg-testimonial-avatar">M</div>
+              <div><span class="beg-testimonial-name">M様-Bクラス</span><span class="beg-testimonial-date">2018年6-8月</span></div>
+            </div>
+            <div class="beg-testimonial-body">単語だけ集中的に勉強できたことはこれまでしたことがなかったので、とても新鮮で、ためになる授業だと思いました。日頃の授業では文法を中心にしていて単語の記憶することはほとんどなかったので、知っている言葉だと思っていても誤解していたこともわかりました。似ている単語の意味の違い、使い分け、本で読んでいるだけでは学べない点を考えていただいたことがとても良かったです。できれば、テストは毎週してくださるといいかもしれないです！５週分のテストの勉強は厳しかったです。とても有意義な１２週でした。</div>
           </div>
         </div>
       </div>

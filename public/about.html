@@ -268,11 +268,25 @@
       padding: 48px 24px 24px;
       margin-top: 48px;
     }
-    .footer-columns { display: flex; flex-wrap: wrap; gap: 32px 48px; margin-bottom: 24px; }
+    .footer-columns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 32px 48px;
+      margin-bottom: 24px;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
     .footer-column h4 { font-size: 14px; margin-bottom: 12px; color: white; }
     .footer-column a { display: block; color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; margin-bottom: 8px; }
     .footer-column a:hover { color: white; }
-    .footer-bottom { font-size: 13px; opacity: 0.9; }
+    .footer-bottom {
+      font-size: 13px;
+      opacity: 0.9;
+      text-align: center;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
     .back-link { color: var(--gold); text-decoration: none; font-size: 14px; font-weight: 500; }
     .back-link:hover { text-decoration: underline; }
 

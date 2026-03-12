@@ -1573,6 +1573,21 @@
       margin-bottom: 3px;
     }
     #tab01 .t01-test-label { font-size: 11px; color: var(--gold); letter-spacing: 0.05em; }
+    #tab01 .t01-test-card.t01-test-collapsible .t01-test-header {
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      cursor: pointer; user-select: none; margin-bottom: 0;
+    }
+    #tab01 .t01-test-card.t01-test-collapsible .t01-test-header .t01-test-author { margin-bottom: 0; }
+    #tab01 .t01-test-card.t01-test-collapsible .t01-test-body {
+      display: none; padding-top: 16px; margin-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+    #tab01 .t01-test-card.t01-test-collapsible.t01-test-expanded .t01-test-body { display: block; }
+    #tab01 .t01-test-card.t01-test-collapsible .t01-test-toggle {
+      flex-shrink: 0; font-size: 12px; color: var(--gold);
+      transition: transform .2s;
+    }
+    #tab01 .t01-test-card.t01-test-collapsible.t01-test-expanded .t01-test-toggle { transform: rotate(180deg); }
     @media (max-width: 900px) {
       #tab01 .t01-hero-inner { grid-template-columns: 1fr; }
       #tab01 .t01-hero-kr-bg { display: none; }
@@ -2146,35 +2161,44 @@
                 </div>
               </div>
             </div>
-            <div class="t01-test-card">
+            <div class="t01-test-card t01-test-collapsible">
+              <div class="t01-test-header" role="button" tabindex="0" aria-expanded="false">
+                <div class="t01-test-author">
+                  <div class="t01-test-avatar">S</div>
+                  <div>
+                    <div class="t01-test-name">S様</div>
+                    <div class="t01-test-label">2017.7.29</div>
+                  </div>
+                </div>
+                <span class="t01-test-toggle">▼</span>
+              </div>
               <div class="t01-test-body">途中からこの教科書を使い始めたので全ては見れていませんが、様々なテーマがあったので楽しいことができました。ただ、時々テーマによっては話すことがあまりなくて困るときもありました。例えば、郵便局。次回から、実際にあった悩み相談ということで、より口語的、一般の人々の話し方(書き方）も見れるのかなと思うと楽しみです。</div>
-              <div class="t01-test-author">
-                <div class="t01-test-avatar">S</div>
-                <div>
-                  <div class="t01-test-name">S様</div>
-                  <div class="t01-test-label">2017.7.29</div>
-                </div>
-              </div>
             </div>
-            <div class="t01-test-card">
+            <div class="t01-test-card t01-test-collapsible">
+              <div class="t01-test-header" role="button" tabindex="0" aria-expanded="false">
+                <div class="t01-test-author">
+                  <div class="t01-test-avatar">M</div>
+                  <div>
+                    <div class="t01-test-name">M様</div>
+                    <div class="t01-test-label">会話トレーニング受講生</div>
+                  </div>
+                </div>
+                <span class="t01-test-toggle">▼</span>
+              </div>
               <div class="t01-test-body">この会話トレーニングを受けて、自分から韓国語で発言する自身が持てるようになりました。フリートーキングと違い毎回話すテーマが変わり、今まで自分が知っている単語や、自分に関心がある話しか出来ませんでしたがこのトレーニングを受けてから話す内容が広がりました。</div>
-              <div class="t01-test-author">
-                <div class="t01-test-avatar">M</div>
-                <div>
-                  <div class="t01-test-name">M様</div>
-                  <div class="t01-test-label">会話トレーニング受講生</div>
-                </div>
-              </div>
             </div>
-            <div class="t01-test-card">
-              <div class="t01-test-body"><strong>１．会話トレーニングを受けた感想をお願いします。</strong><br>－３ヶ月間でしたが、素晴らしい先生と優秀なメンバーと一緒に授業を受け、楽しく、またとても刺激になりました。毎週の主題が身近なことなので、考えた事、話したことが今後も使えてよいと思いました。<br><br><strong>２．会話トレーニングで勉強されて、以前と変わったところや進展がありましたか？あれば詳しく教えてください。</strong><br>－会話を上達させたくて始めたのが、会話はもちろん作文も（少しずつですが）良くなってきたと思います。<br><br><strong>３．いろいろなレッスンの中、会話トレーニングレッスンを選択した理由を教えてください。</strong><br>－話す機会をたくさん持ちたかったため。<br><br><strong>４．会話トレーニングの進め方について。</strong><br>－いろいろとみなさんとお話した後、作文も見てもらえてよかったです。<br><br><strong>５．改善してほしいところはありますか。</strong><br>－先生によっては主題に関した単語をたくさん提示してくださったので、ほかの先生もそうしていただければよりよいと思います。<br><br><strong>６．ミリネで勉強しようと思ったきっかけは？</strong><br>－会話を中心にした授業を受けたくて、いろいろ探したところ、リーズナブルな料金で個人レッスンを行っているミリネを見つけました。自分がやりたい授業にアレンジしていただけると聞いて決めました。<br><br><strong>７．これからの目標を教えてください。</strong><br>－韓国ドラマ８０％理解と旅行の時のスムーズな会話を出来る様にがんばります。</div>
-              <div class="t01-test-author">
-                <div class="t01-test-avatar">S</div>
-                <div>
-                  <div class="t01-test-name">S様</div>
-                  <div class="t01-test-label">会話トレーニング受講生</div>
+            <div class="t01-test-card t01-test-collapsible">
+              <div class="t01-test-header" role="button" tabindex="0" aria-expanded="false">
+                <div class="t01-test-author">
+                  <div class="t01-test-avatar">S</div>
+                  <div>
+                    <div class="t01-test-name">S様</div>
+                    <div class="t01-test-label">会話トレーニング受講生</div>
+                  </div>
                 </div>
+                <span class="t01-test-toggle">▼</span>
               </div>
+              <div class="t01-test-body"><strong>１．会話トレーニングを受けた感想をお願いします。</strong><br>－３ヶ月間でしたが、素晴らしい先生と優秀なメンバーと一緒に授業を受け、楽しく、またとても刺激になりました。毎週の主題が身近なことなので、考えた事、話したことが今後も使えてよいと思いました。<br><br><strong>２．会話トレーニングで勉強されて、以前と変わったところや進展がありましたか？あれば詳しく教えてください。</strong><br>－会話を上達させたくて始めたのが、会話はもちろん作文も（少しずつですが）良くなってきたと思います。<br><br><strong>３．いろいろなレッスンの中、会話トレーニングレッスンを選択した理由を教えてください。</strong><br>－話す機会をたくさん持ちたかったため。<br><br><strong>４．会話トレーニングの進め方について。</strong><br>－いろいろとみなさんとお話した後、作文も見てもらえてよかったです。<br><br><strong>５．改善してほしいところはありますか。</strong><br>－先生によっては主題に関した単語をたくさん提示してくださったので、ほかの先生もそうしていただければよりよいと思います。<br><br><strong>６．ミリネで勉強しようと思ったきっかけは？</strong><br>－会話を中心にした授業を受けたくて、いろいろ探したところ、リーズナブルな料金で個人レッスンを行っているミリネを見つけました。自分がやりたい授業にアレンジしていただけると聞いて決めました。<br><br><strong>７．これからの目標を教えてください。</strong><br>－韓国ドラマ８０％理解と旅行の時のスムーズな会話を出来る様にがんばります。</div>
             </div>
           </div>
         </div>
@@ -3137,6 +3161,23 @@
           var card = header.closest('.review-card');
           if (!card) return;
           var expanded = card.classList.toggle('review-expanded');
+          header.setAttribute('aria-expanded', expanded);
+        });
+        header.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            header.click();
+          }
+        });
+      });
+    })();
+
+    (function() {
+      document.querySelectorAll('.t01-test-collapsible .t01-test-header').forEach(function(header) {
+        header.addEventListener('click', function() {
+          var card = header.closest('.t01-test-card');
+          if (!card) return;
+          var expanded = card.classList.toggle('t01-test-expanded');
           header.setAttribute('aria-expanded', expanded);
         });
         header.addEventListener('keydown', function(e) {

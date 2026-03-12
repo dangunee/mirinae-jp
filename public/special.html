@@ -793,6 +793,15 @@
       transition: all .25s; box-shadow: 0 4px 20px rgba(200,145,30,.35);
     }
     #tab01 .tab01-hero-cta:hover, #tab02 .tab02-hero-cta:hover, #tab03 .tab03-hero-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(200,145,30,.5); }
+    #tab01 .tab01-hero-cta-wrap, #tab02 .tab02-hero-cta-wrap, #tab03 .tab03-hero-cta-wrap {
+      display: flex; align-items: center; gap: 20px; margin-top: 28px; flex-wrap: wrap;
+    }
+    #tab01 .tab01-hero-schedule-link, #tab02 .tab02-hero-schedule-link, #tab03 .tab03-hero-schedule-link {
+      font-size: 14px; color: rgba(255,255,255,.5);
+      text-decoration: underline; text-underline-offset: 4px;
+      letter-spacing: .04em; transition: color .2s;
+    }
+    #tab01 .tab01-hero-schedule-link:hover, #tab02 .tab02-hero-schedule-link:hover, #tab03 .tab03-hero-schedule-link:hover { color: var(--t-gold-lt); }
     #tab01 .tab01-level-badges, #tab02 .tab02-level-badges, #tab03 .tab03-level-badges {
       position: absolute; right: 48px; bottom: -1px;
       display: flex; gap: 0; z-index: 1;
@@ -2235,7 +2244,10 @@
                 <div class="tab01-chip"><span class="ic">📅</span> 毎週土曜日 10:00〜12:00</div>
                 <div class="tab01-chip"><span class="ic">📖</span> 全8回</div>
               </div>
-              <a href="trial.html" class="tab01-hero-cta">お申込みはこちら →</a>
+              <div class="tab01-hero-cta-wrap">
+                <a href="trial.html" class="tab01-hero-cta">お申込みはこちら →</a>
+                <a href="#tab01-apply" class="tab01-hero-schedule-link">日程を確認する</a>
+              </div>
             </div>
           </section>
 
@@ -2421,7 +2433,7 @@
             </div>
           </section>
 
-          <section class="tab01-section tab01-price-section">
+          <section class="tab01-section tab01-price-section" id="tab01-apply">
             <div class="tab01-section-inner">
               <div class="tab01-sec-eyebrow tab01-reveal">SCHEDULE & TUITION</div>
               <h2 class="tab01-sec-title tab01-reveal">日程・授業料</h2>
@@ -2535,7 +2547,10 @@
                 <div class="tab02-chip"><span class="ic">📅</span> 毎週土曜日 10:00〜12:00</div>
                 <div class="tab02-chip"><span class="ic">📖</span> 全7回</div>
               </div>
-              <a href="trial.html" class="tab02-hero-cta">お申込みはこちら →</a>
+              <div class="tab02-hero-cta-wrap">
+                <a href="trial.html" class="tab02-hero-cta">お申込みはこちら →</a>
+                <a href="#tab02-apply" class="tab02-hero-schedule-link">日程を確認する</a>
+              </div>
             </div>
           </section>
 
@@ -2901,7 +2916,10 @@
                 <div class="tab03-chip"><span class="ic">📅</span> 毎週土曜日 16:00〜18:00</div>
                 <div class="tab03-chip"><span class="ic">📖</span> 全7回</div>
               </div>
-              <a href="trial.html" class="tab03-hero-cta">お申込みはこちら →</a>
+              <div class="tab03-hero-cta-wrap">
+                <a href="trial.html" class="tab03-hero-cta">お申込みはこちら →</a>
+                <a href="#tab03-apply" class="tab03-hero-schedule-link">日程を確認する</a>
+              </div>
             </div>
           </section>
 

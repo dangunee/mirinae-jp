@@ -407,7 +407,7 @@
     }
     #tab01 .beg-page, #tab02 .beg-page, #tab03 .beg-page, #tab04 .beg-page { padding: 0 0 40px; }
     #tab01 .beg-hero, #tab02 .beg-hero, #tab03 .beg-hero, #tab04 .beg-hero {
-      background: var(--dark);
+      background: linear-gradient(150deg, #0ea5e9 0%, #0284c7 35%, #0369a1 70%, #075985 100%);
       border-radius: 16px;
       padding: 40px 48px;
       margin-bottom: 32px;
@@ -417,16 +417,18 @@
     #tab01 .beg-hero::before, #tab02 .beg-hero::before, #tab03 .beg-hero::before, #tab04 .beg-hero::before {
       content: '';
       position: absolute; inset: 0;
-      background: repeating-linear-gradient(-50deg, transparent, transparent 38px, rgba(255,255,255,0.016) 38px, rgba(255,255,255,0.016) 39px);
+      background:
+        radial-gradient(ellipse 65% 75% at 92% 10%, rgba(255,255,255,.22) 0%, transparent 50%),
+        radial-gradient(ellipse 50% 60% at -5% 85%, rgba(14,165,233,.5) 0%, transparent 55%),
+        radial-gradient(ellipse 35% 50% at 55% 55%, rgba(255,255,255,.08) 0%, transparent 55%);
       pointer-events: none;
     }
     #tab01 .beg-hero::after, #tab02 .beg-hero::after, #tab03 .beg-hero::after, #tab04 .beg-hero::after {
       content: '';
       position: absolute;
-      top: -60px; right: -60px;
-      width: 280px; height: 280px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(184,146,42,0.14) 0%, transparent 65%);
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(255,255,255,.18) 1px, transparent 1px);
+      background-size: 36px 36px;
       pointer-events: none;
     }
     #tab01 .beg-hero-eyebrow, #tab02 .beg-hero-eyebrow, #tab03 .beg-hero-eyebrow, #tab04 .beg-hero-eyebrow {
@@ -434,7 +436,7 @@
       font-size: 12px;
       letter-spacing: 0.24em;
       text-transform: uppercase;
-      color: var(--gold-light);
+      color: rgba(255,255,255,.85);
       margin-bottom: 10px;
     }
     #tab01 .beg-hero-title, #tab02 .beg-hero-title, #tab03 .beg-hero-title, #tab04 .beg-hero-title {
@@ -445,7 +447,7 @@
       margin-bottom: 18px;
       position: relative; z-index: 1;
     }
-    #tab01 .beg-hero-title em, #tab02 .beg-hero-title em, #tab03 .beg-hero-title em, #tab04 .beg-hero-title em { font-style: normal; color: var(--gold-light); }
+    #tab01 .beg-hero-title em, #tab02 .beg-hero-title em, #tab03 .beg-hero-title em, #tab04 .beg-hero-title em { font-style: italic; color: #fde68a; }
     #tab01 .beg-hero-desc, #tab02 .beg-hero-desc, #tab03 .beg-hero-desc, #tab04 .beg-hero-desc {
       display: flex;
       flex-direction: column;
@@ -478,13 +480,13 @@
       align-items: center;
       gap: 5px;
       padding: 5px 12px;
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.35);
       border-radius: 20px;
       font-size: 14px;
-      color: rgba(255,255,255,0.75);
+      color: #fff;
     }
-    #tab01 .beg-hero-tag span, #tab02 .beg-hero-tag span, #tab03 .beg-hero-tag span, #tab04 .beg-hero-tag span { color: var(--gold-light); font-weight: 600; }
+    #tab01 .beg-hero-tag span, #tab02 .beg-hero-tag span, #tab03 .beg-hero-tag span, #tab04 .beg-hero-tag span { color: #fff; font-weight: 600; }
     .beg-sec-header {
       display: flex;
       align-items: center;

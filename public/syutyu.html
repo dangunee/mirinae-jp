@@ -628,12 +628,66 @@
       box-shadow: 0 8px 28px rgba(184,146,42,0.5);
     }
 
+    /* Timetable (tt-wrap) design */
+    .tt-wrap { background: var(--white); border: 1px solid var(--border); border-radius: 18px; overflow: hidden; box-shadow: 0 4px 24px rgba(14,28,56,.06); margin-bottom: 32px; }
+    .tt-header { display: grid; background: var(--dark); }
+    .tt-th { padding: 14px 18px; font-family: 'Cormorant Garamond', serif; font-size: 11px; letter-spacing: .2em; color: rgba(255,255,255,.45); }
+    .tt-th:first-child { color: var(--gold-light); }
+    .tt-row { display: grid; border-top: 1px solid rgba(200,145,30,.08); transition: background .15s; }
+    .tt-row:hover { background: rgba(200,145,30,.02); }
+    .tt-cell { padding: 16px 18px; border-right: 1px solid rgba(200,145,30,.08); display: flex; flex-direction: column; justify-content: center; gap: 4px; }
+    .tt-cell:last-child { border-right: none; }
+    .tt-time-num { font-family: 'Cormorant Garamond', serif; font-size: 20px; color: var(--gold); line-height: 1; }
+    .tt-time-label { font-size: 10px; color: var(--muted); letter-spacing: .1em; }
+    .tt-topic { font-size: 13px; font-weight: 500; color: var(--mid); line-height: 1.5; margin-bottom: 3px; }
+    .tt-items { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
+    .tt-pill { font-size: 10.5px; padding: 2px 8px; border-radius: 5px; border: 1px solid; }
+    #tab01 .tt-pill, .tt-row.nyumon .tt-pill { background: rgba(109,40,217,.08); color: #6d28d9; border-color: rgba(109,40,217,.2); }
+    #tab02 .tt-pill, .tt-row.shokyu .tt-pill { background: rgba(15,122,110,.08); color: #0f7a6e; border-color: rgba(15,122,110,.2); }
+    #tab03 .tt-pill, .tt-row.chukyu .tt-pill { background: rgba(26,111,165,.08); color: #1a6fa5; border-color: rgba(26,111,165,.2); }
+    #tab04 .tt-pill, .tt-row.jokyu .tt-pill { background: rgba(180,83,9,.08); color: #b45309; border-color: rgba(180,83,9,.2); }
+
+    /* Lesson flow (授業の流れ) */
+    .beg-flow-section { margin-bottom: 32px; }
+    .beg-flow-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 20px; }
+    .beg-flow-card { background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 24px 28px; display: flex; gap: 18px; align-items: flex-start; }
+    .beg-flow-card-num { width: 40px; height: 40px; border-radius: 10px; background: linear-gradient(135deg, var(--dark), #1a3060); color: var(--gold-light); font-family: 'Cormorant Garamond', serif; font-size: 18px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 3px 12px rgba(14,28,56,.18); }
+    .beg-flow-card-body h4 { font-family: 'Noto Serif JP', serif; font-size: 15px; color: var(--mid); margin-bottom: 6px; font-weight: 600; }
+    .beg-flow-card-body p { font-size: 13px; color: var(--mid); line-height: 1.8; opacity: .9; }
+
+    /* Price cards */
+    .beg-price-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 24px; margin-bottom: 32px; }
+    .beg-price-card { background: var(--cream); border: 1px solid var(--border); border-radius: 18px; padding: 28px; position: relative; overflow: hidden; transition: transform .25s, border-color .25s; }
+    .beg-price-card:hover { transform: translateY(-3px); }
+    .beg-price-card.featured { background: linear-gradient(135deg, var(--dark), #1a3060); border-color: rgba(200,145,30,.4); }
+    .beg-price-card.featured::after { content: 'おすすめ'; position: absolute; top: 16px; right: 16px; background: linear-gradient(135deg, var(--gold), var(--gold-light)); color: var(--dark); font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 100px; }
+    .beg-price-card-top { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; }
+    .beg-price-days { font-family: 'Cormorant Garamond', serif; font-size: 52px; color: var(--gold); line-height: 1; }
+    .beg-price-card.featured .beg-price-days { color: var(--gold-light); }
+    .beg-price-days-unit { font-family: 'Noto Serif JP', serif; font-size: 15px; color: var(--mid); align-self: flex-end; padding-bottom: 8px; }
+    .beg-price-card.featured .beg-price-days-unit { color: rgba(255,255,255,.5); }
+    .beg-price-komas { font-size: 12px; color: var(--muted); margin-bottom: 16px; }
+    .beg-price-card.featured .beg-price-komas { color: rgba(255,255,255,.4); }
+    .beg-price-break { font-size: 13px; color: var(--mid); margin-bottom: 14px; line-height: 1.7; }
+    .beg-price-card.featured .beg-price-break { color: rgba(255,255,255,.55); }
+    .beg-price-total-row { display: flex; justify-content: space-between; align-items: baseline; padding-top: 14px; border-top: 1px solid rgba(200,145,30,.15); }
+    .beg-price-card.featured .beg-price-total-row { border-top-color: rgba(255,255,255,.1); }
+    .beg-price-total-label { font-size: 11px; color: var(--muted); }
+    .beg-price-card.featured .beg-price-total-label { color: rgba(255,255,255,.4); }
+    .beg-price-total-num { font-family: 'Cormorant Garamond', serif; font-size: 32px; color: var(--gold); }
+    .beg-price-card.featured .beg-price-total-num { color: var(--gold-light); }
+    .beg-price-grid-2 { grid-template-columns: repeat(2, 1fr); }
+
     @media (max-width: 900px) {
       nav { padding: 0 24px; }
       .hero { padding: 48px 24px 40px; }
       .hero::after { font-size: 80px; right: 24px; }
       .tabs-bar { padding: 0 24px; overflow-x: auto; }
       .tab-btn { flex: 1 0 auto; padding: 14px 16px; font-size: 12px; }
+      .beg-flow-cards { grid-template-columns: 1fr; }
+      .beg-price-grid { grid-template-columns: 1fr; }
+      .beg-price-grid-2 { grid-template-columns: 1fr; }
+      .tt-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
     }
     @media (max-width: 600px) {
       .main-content { padding: 24px 16px 40px; }
@@ -735,15 +789,51 @@
             <div class="beg-sec-title">日程・時間割（例）</div>
             <div class="beg-sec-line"></div>
           </div>
-          <div class="beg-tuition-table-wrap" style="overflow-x:auto;">
-            <table class="beg-tuition-table">
-              <thead><tr><th>入門</th><th>1日目</th><th>2日目</th></tr></thead>
-              <tbody>
-                <tr><td>13時</td><td style="text-align:left;font-size:14px;">文字と発音[1] 母音①②／子音①②</td><td style="text-align:left;font-size:14px;">基本文法[1] 助詞①、名詞＋です</td></tr>
-                <tr><td>14時</td><td style="text-align:left;font-size:14px;">文字と発音[2] 濃音・激音、合成母音、パッチム</td><td style="text-align:left;font-size:14px;">基本文法[2] 助詞②、動詞／形容詞～ます</td></tr>
-                <tr><td>15時</td><td style="text-align:left;font-size:14px;">発音の変化：連音化／濃音化／激音化</td><td style="text-align:left;font-size:14px;">基本文法のまとめと、基本フレーズのハングル読み確認</td></tr>
-              </tbody>
-            </table>
+          <div class="tt-wrap">
+            <div class="tt-header" style="grid-template-columns:90px 1fr 1fr;">
+              <div class="tt-th">時間</div>
+              <div class="tt-th">1/3 (土)</div>
+              <div class="tt-th">1/4 (日)</div>
+            </div>
+            <div class="tt-row nyumon" style="grid-template-columns:90px 1fr 1fr;">
+              <div class="tt-cell"><div class="tt-time-num">13</div><div class="tt-time-label">1コマ目</div></div>
+              <div class="tt-cell"><div class="tt-topic">文字と発音[1]</div><div class="tt-items"><span class="tt-pill">母音①②</span><span class="tt-pill">子音①②</span><span class="tt-pill">二つの音を持つ子音字</span></div></div>
+              <div class="tt-cell"><div class="tt-topic">基本文法[1]</div><div class="tt-items"><span class="tt-pill">助詞①</span><span class="tt-pill">名詞+です</span><span class="tt-pill">ではありません</span></div></div>
+            </div>
+            <div class="tt-row nyumon" style="grid-template-columns:90px 1fr 1fr;">
+              <div class="tt-cell"><div class="tt-time-num">14</div><div class="tt-time-label">2コマ目</div></div>
+              <div class="tt-cell"><div class="tt-topic">文字と発音[2]</div><div class="tt-items"><span class="tt-pill">子音③濃音・激音</span><span class="tt-pill">母音③合成母音</span><span class="tt-pill">子音④パッチム</span><span class="tt-pill">子音⑤複合パッチム</span></div></div>
+              <div class="tt-cell"><div class="tt-topic">基本文法[2]</div><div class="tt-items"><span class="tt-pill">助詞②</span><span class="tt-pill">動詞/形容詞～ます(합니다体)</span><span class="tt-pill">〜しません(否定)</span></div></div>
+            </div>
+            <div class="tt-row nyumon" style="grid-template-columns:90px 1fr 1fr;">
+              <div class="tt-cell"><div class="tt-time-num">15</div><div class="tt-time-label">3コマ目</div></div>
+              <div class="tt-cell"><div class="tt-topic">発音の変化</div><div class="tt-items"><span class="tt-pill">子音のまとめ</span><span class="tt-pill">連音化</span><span class="tt-pill">濃音化</span><span class="tt-pill">激音化</span></div></div>
+              <div class="tt-cell"><div class="tt-topic">基本文法のまとめ</div><div class="tt-items"><span class="tt-pill">基本フレーズのハングル読み確認</span></div></div>
+            </div>
+          </div>
+
+          <div class="beg-sec-header">
+            <div class="beg-sec-label">Lesson Flow</div>
+            <div class="beg-sec-title">授業の流れ</div>
+            <div class="beg-sec-line"></div>
+          </div>
+          <div class="beg-flow-section">
+            <div class="beg-flow-cards">
+              <div class="beg-flow-card">
+                <div class="beg-flow-card-num">1</div>
+                <div class="beg-flow-card-body">
+                  <h4>事前に課題をお送りします</h4>
+                  <p>練習問題は授業の前に解いていただきます。事前に自分の弱点を把握し、より充実した授業にしましょう。</p>
+                </div>
+              </div>
+              <div class="beg-flow-card">
+                <div class="beg-flow-card-num">2</div>
+                <div class="beg-flow-card-body">
+                  <h4>講師が文法・表現を丁寧に解説</h4>
+                  <p>授業中に講師が文法表現や使い方を丁寧に解説します。疑問点について質疑応答の時間を持ち、明確に内容を把握します。</p>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div class="beg-sec-header">
@@ -751,14 +841,31 @@
             <div class="beg-sec-title">授業料</div>
             <div class="beg-sec-line"></div>
           </div>
-          <div class="beg-tuition-table-wrap">
-            <table class="beg-tuition-table">
-              <thead><tr><th>レベル</th><th>コマ数</th><th>授業料（税抜）</th><th>税込</th></tr></thead>
-              <tbody>
-                <tr><td>入門</td><td>3コマ（1日間）</td><td>1コマ 3,680円 × 3 = 11,040円</td><td>12,144円</td></tr>
-                <tr><td>入門</td><td>6コマ（2日間）</td><td>1コマ 3,180円 × 6 = 19,080円</td><td>20,988円</td></tr>
-              </tbody>
-            </table>
+          <div class="beg-price-grid beg-price-grid-2">
+            <div class="beg-price-card">
+              <div class="beg-price-card-top">
+                <div class="beg-price-days">1</div>
+                <div class="beg-price-days-unit">日間</div>
+              </div>
+              <div class="beg-price-komas">3コマ</div>
+              <div class="beg-price-break">1コマ 3,680円 × 3<br>= 11,040円（税抜）</div>
+              <div class="beg-price-total-row">
+                <span class="beg-price-total-label">税込</span>
+                <span class="beg-price-total-num">12,144<small style="font-size:14px;"> 円</small></span>
+              </div>
+            </div>
+            <div class="beg-price-card featured">
+              <div class="beg-price-card-top">
+                <div class="beg-price-days">2</div>
+                <div class="beg-price-days-unit">日間</div>
+              </div>
+              <div class="beg-price-komas">6コマ</div>
+              <div class="beg-price-break">1コマ 3,180円 × 6<br>= 19,080円（税抜）</div>
+              <div class="beg-price-total-row">
+                <span class="beg-price-total-label">税込</span>
+                <span class="beg-price-total-num">20,988<small style="font-size:14px;"> 円</small></span>
+              </div>
+            </div>
           </div>
 
           <a href="https://mirinae.jp/trial.html?tab=tab02" class="beg-cta-btn" style="text-decoration:none;">
@@ -831,19 +938,103 @@
           </div>
 
           <div class="beg-sec-header">
+            <div class="beg-sec-label">Schedule</div>
+            <div class="beg-sec-title">日程・時間割（例）</div>
+            <div class="beg-sec-line"></div>
+          </div>
+          <div class="tt-wrap">
+            <div class="tt-header" style="grid-template-columns:90px 1fr 1fr 1fr;">
+              <div class="tt-th">時間</div>
+              <div class="tt-th">1/10 (土)</div>
+              <div class="tt-th">1/11 (日)</div>
+              <div class="tt-th">1/12 (月・祝)</div>
+            </div>
+            <div class="tt-row shokyu" style="grid-template-columns:90px 1fr 1fr 1fr;">
+              <div class="tt-cell"><div class="tt-time-num">10-11</div><div class="tt-time-label">1コマ目</div></div>
+              <div class="tt-cell"><div class="tt-topic">発音変化のまとめ</div><div class="tt-items"><span class="tt-pill">有声音化</span><span class="tt-pill">連音化</span><span class="tt-pill">鼻音化</span><span class="tt-pill">濃音化</span></div></div>
+              <div class="tt-cell"><div class="tt-topic">変則のまとめ</div><div class="tt-items"><span class="tt-pill">ㄹ語幹</span><span class="tt-pill">ㅂ変則</span><span class="tt-pill">ㄷ変則</span><span class="tt-pill">으変則</span><span class="tt-pill">르変則</span></div></div>
+              <div class="tt-cell"><div class="tt-topic">語尾の現・過・未来 ＋ 尊敬語</div><div class="tt-items"><span class="tt-pill">갔어요?</span><span class="tt-pill">가시다</span><span class="tt-pill">드시다</span><span class="tt-pill">주무시다</span></div></div>
+            </div>
+            <div class="tt-row shokyu" style="grid-template-columns:90px 1fr 1fr 1fr;">
+              <div class="tt-cell"><div class="tt-time-num">11-12</div><div class="tt-time-label">2コマ目</div></div>
+              <div class="tt-cell"><div class="tt-topic">助詞のまとめ</div><div class="tt-items"><span class="tt-pill">은/는・이/가</span><span class="tt-pill">를/을</span><span class="tt-pill">와/과</span><span class="tt-pill">에/에게</span><span class="tt-pill">부터/까지</span></div></div>
+              <div class="tt-cell"><div class="tt-topic">連体形のまとめ</div><div class="tt-items"><span class="tt-pill">動詞 vs 形容詞</span><span class="tt-pill">現在形</span><span class="tt-pill">過去形</span><span class="tt-pill">未来形</span></div></div>
+              <div class="tt-cell"><div class="tt-topic">語尾❶ 接続語尾</div><div class="tt-items"><span class="tt-pill">-고</span><span class="tt-pill">-아/어서</span><span class="tt-pill">-니까</span><span class="tt-pill">-지만</span><span class="tt-pill">-기 때문에</span></div></div>
+            </div>
+            <div class="tt-row shokyu" style="grid-template-columns:90px 1fr 1fr 1fr;">
+              <div class="tt-cell"><div class="tt-time-num">12-13</div><div class="tt-time-label">3コマ目</div></div>
+              <div class="tt-cell"><div class="tt-topic">합니다体 と 해요体</div><div class="tt-items"><span class="tt-pill">갑니다/갑니까</span><span class="tt-pill">가요/와요</span></div></div>
+              <div class="tt-cell"><div class="tt-topic">副詞のまとめ</div><div class="tt-items"><span class="tt-pill">같이/다</span><span class="tt-pill">잘/아주</span><span class="tt-pill">빨리</span><span class="tt-pill">너무</span><span class="tt-pill">더/덜/좀</span></div></div>
+              <div class="tt-cell"><div class="tt-topic">語尾❷ 終結語尾</div><div class="tt-items"><span class="tt-pill">-세요</span><span class="tt-pill">-을까요</span><span class="tt-pill">-을 수가 있다</span><span class="tt-pill">-네요</span><span class="tt-pill">-겠지요</span></div></div>
+            </div>
+          </div>
+
+          <div class="beg-sec-header">
+            <div class="beg-sec-label">Lesson Flow</div>
+            <div class="beg-sec-title">授業の流れ</div>
+            <div class="beg-sec-line"></div>
+          </div>
+          <div class="beg-flow-section">
+            <div class="beg-flow-cards">
+              <div class="beg-flow-card">
+                <div class="beg-flow-card-num">1</div>
+                <div class="beg-flow-card-body">
+                  <h4>事前に課題をお送りします</h4>
+                  <p>練習問題は授業の前に解いていただきます。事前に自分の弱点を把握し、より充実した授業にしましょう。</p>
+                </div>
+              </div>
+              <div class="beg-flow-card">
+                <div class="beg-flow-card-num">2</div>
+                <div class="beg-flow-card-body">
+                  <h4>講師が文法・表現を丁寧に解説</h4>
+                  <p>授業中に講師が文法表現や使い方を丁寧に解説します。疑問点について質疑応答の時間を持ち、明確に内容を把握します。</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="beg-sec-header">
             <div class="beg-sec-label">Tuition</div>
             <div class="beg-sec-title">授業料</div>
             <div class="beg-sec-line"></div>
           </div>
-          <div class="beg-tuition-table-wrap">
-            <table class="beg-tuition-table">
-              <thead><tr><th>レベル</th><th>コマ数</th><th>授業料（税抜）</th><th>税込</th></tr></thead>
-              <tbody>
-                <tr><td>初級</td><td>3コマ（1日間）</td><td>1コマ 4,180円 × 3 = 12,540円</td><td>13,794円</td></tr>
-                <tr><td>初級</td><td>6コマ（2日間）</td><td>1コマ 3,680円 × 6 = 22,080円</td><td>24,288円</td></tr>
-                <tr><td>初級</td><td>9コマ（3日間）</td><td>1コマ 3,180円 × 9 = 28,620円</td><td>31,482円</td></tr>
-              </tbody>
-            </table>
+          <div class="beg-price-grid">
+            <div class="beg-price-card">
+              <div class="beg-price-card-top">
+                <div class="beg-price-days">1</div>
+                <div class="beg-price-days-unit">日間</div>
+              </div>
+              <div class="beg-price-komas">3コマ</div>
+              <div class="beg-price-break">1コマ 4,180円 × 3<br>= 12,540円（税抜）</div>
+              <div class="beg-price-total-row">
+                <span class="beg-price-total-label">税込</span>
+                <span class="beg-price-total-num">13,794<small style="font-size:14px;"> 円</small></span>
+              </div>
+            </div>
+            <div class="beg-price-card featured">
+              <div class="beg-price-card-top">
+                <div class="beg-price-days">2</div>
+                <div class="beg-price-days-unit">日間</div>
+              </div>
+              <div class="beg-price-komas">6コマ</div>
+              <div class="beg-price-break">1コマ 3,680円 × 6<br>= 22,080円（税抜）</div>
+              <div class="beg-price-total-row">
+                <span class="beg-price-total-label">税込</span>
+                <span class="beg-price-total-num">24,288<small style="font-size:14px;"> 円</small></span>
+              </div>
+            </div>
+            <div class="beg-price-card">
+              <div class="beg-price-card-top">
+                <div class="beg-price-days">3</div>
+                <div class="beg-price-days-unit">日間</div>
+              </div>
+              <div class="beg-price-komas">9コマ</div>
+              <div class="beg-price-break">1コマ 3,180円 × 9<br>= 28,620円（税抜）</div>
+              <div class="beg-price-total-row">
+                <span class="beg-price-total-label">税込</span>
+                <span class="beg-price-total-num">31,482<small style="font-size:14px;"> 円</small></span>
+              </div>
+            </div>
           </div>
 
           <a href="https://mirinae.jp/trial.html?tab=tab02" class="beg-cta-btn" style="text-decoration:none;">
@@ -915,19 +1106,103 @@
           </div>
 
           <div class="beg-sec-header">
+            <div class="beg-sec-label">Schedule</div>
+            <div class="beg-sec-title">日程・時間割（例）</div>
+            <div class="beg-sec-line"></div>
+          </div>
+          <div class="tt-wrap">
+            <div class="tt-header" style="grid-template-columns:90px 1fr 1fr 1fr;">
+              <div class="tt-th">時間</div>
+              <div class="tt-th">1/10 (土)</div>
+              <div class="tt-th">1/11 (日)</div>
+              <div class="tt-th">1/12 (月・祝)</div>
+            </div>
+            <div class="tt-row chukyu" style="grid-template-columns:90px 1fr 1fr 1fr;">
+              <div class="tt-cell"><div class="tt-time-num">14-15</div><div class="tt-time-label">1コマ目</div></div>
+              <div class="tt-cell"><div class="tt-topic">中級文法①</div><div class="tt-items"><span class="tt-pill">接続語尾の整理</span><span class="tt-pill">類似表現比較</span></div></div>
+              <div class="tt-cell"><div class="tt-topic">中級文法③</div><div class="tt-items"><span class="tt-pill">間接話法</span><span class="tt-pill">내다/버리다</span></div></div>
+              <div class="tt-cell"><div class="tt-topic">中級文法⑤</div><div class="tt-items"><span class="tt-pill">受身・使役</span><span class="tt-pill">複合語尾</span></div></div>
+            </div>
+            <div class="tt-row chukyu" style="grid-template-columns:90px 1fr 1fr 1fr;">
+              <div class="tt-cell"><div class="tt-time-num">15-16</div><div class="tt-time-label">2コマ目</div></div>
+              <div class="tt-cell"><div class="tt-topic">中級文法②</div><div class="tt-items"><span class="tt-pill">-는데 vs -지만</span><span class="tt-pill">-도록 vs -게</span></div></div>
+              <div class="tt-cell"><div class="tt-topic">中級文法④</div><div class="tt-items"><span class="tt-pill">形式名詞</span><span class="tt-pill">것/데/줄</span></div></div>
+              <div class="tt-cell"><div class="tt-topic">中級文法⑥</div><div class="tt-items"><span class="tt-pill">慣用表現</span><span class="tt-pill">まとめ演習</span></div></div>
+            </div>
+            <div class="tt-row chukyu" style="grid-template-columns:90px 1fr 1fr 1fr;">
+              <div class="tt-cell"><div class="tt-time-num">16-17</div><div class="tt-time-label">3コマ目</div></div>
+              <div class="tt-cell"><div class="tt-topic">練習・Q&A</div><div class="tt-items"><span class="tt-pill">練習問題</span><span class="tt-pill">質疑応答</span></div></div>
+              <div class="tt-cell"><div class="tt-topic">練習・Q&A</div><div class="tt-items"><span class="tt-pill">練習問題</span><span class="tt-pill">質疑応答</span></div></div>
+              <div class="tt-cell"><div class="tt-topic">総まとめ</div><div class="tt-items"><span class="tt-pill">復習演習</span><span class="tt-pill">Q&A</span></div></div>
+            </div>
+          </div>
+
+          <div class="beg-sec-header">
+            <div class="beg-sec-label">Lesson Flow</div>
+            <div class="beg-sec-title">授業の流れ</div>
+            <div class="beg-sec-line"></div>
+          </div>
+          <div class="beg-flow-section">
+            <div class="beg-flow-cards">
+              <div class="beg-flow-card">
+                <div class="beg-flow-card-num">1</div>
+                <div class="beg-flow-card-body">
+                  <h4>事前に課題をお送りします</h4>
+                  <p>練習問題は授業の前に解いていただきます。事前に自分の弱点を把握し、より充実した授業にしましょう。</p>
+                </div>
+              </div>
+              <div class="beg-flow-card">
+                <div class="beg-flow-card-num">2</div>
+                <div class="beg-flow-card-body">
+                  <h4>講師が文法・表現を丁寧に解説</h4>
+                  <p>授業中に講師が文法表現や使い方を丁寧に解説します。疑問点について質疑応答の時間を持ち、明確に内容を把握します。</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="beg-sec-header">
             <div class="beg-sec-label">Tuition</div>
             <div class="beg-sec-title">授業料</div>
             <div class="beg-sec-line"></div>
           </div>
-          <div class="beg-tuition-table-wrap">
-            <table class="beg-tuition-table">
-              <thead><tr><th>レベル</th><th>コマ数</th><th>授業料（税抜）</th><th>税込</th></tr></thead>
-              <tbody>
-                <tr><td>中級</td><td>3コマ（1日間）</td><td>1コマ 4,180円 × 3 = 12,540円</td><td>13,794円</td></tr>
-                <tr><td>中級</td><td>6コマ（2日間）</td><td>1コマ 3,680円 × 6 = 22,080円</td><td>24,288円</td></tr>
-                <tr><td>中級</td><td>9コマ（3日間）</td><td>1コマ 3,180円 × 9 = 28,620円</td><td>31,482円</td></tr>
-              </tbody>
-            </table>
+          <div class="beg-price-grid">
+            <div class="beg-price-card">
+              <div class="beg-price-card-top">
+                <div class="beg-price-days">1</div>
+                <div class="beg-price-days-unit">日間</div>
+              </div>
+              <div class="beg-price-komas">3コマ</div>
+              <div class="beg-price-break">1コマ 4,180円 × 3<br>= 12,540円（税抜）</div>
+              <div class="beg-price-total-row">
+                <span class="beg-price-total-label">税込</span>
+                <span class="beg-price-total-num">13,794<small style="font-size:14px;"> 円</small></span>
+              </div>
+            </div>
+            <div class="beg-price-card featured">
+              <div class="beg-price-card-top">
+                <div class="beg-price-days">2</div>
+                <div class="beg-price-days-unit">日間</div>
+              </div>
+              <div class="beg-price-komas">6コマ</div>
+              <div class="beg-price-break">1コマ 3,680円 × 6<br>= 22,080円（税抜）</div>
+              <div class="beg-price-total-row">
+                <span class="beg-price-total-label">税込</span>
+                <span class="beg-price-total-num">24,288<small style="font-size:14px;"> 円</small></span>
+              </div>
+            </div>
+            <div class="beg-price-card">
+              <div class="beg-price-card-top">
+                <div class="beg-price-days">3</div>
+                <div class="beg-price-days-unit">日間</div>
+              </div>
+              <div class="beg-price-komas">9コマ</div>
+              <div class="beg-price-break">1コマ 3,180円 × 9<br>= 28,620円（税抜）</div>
+              <div class="beg-price-total-row">
+                <span class="beg-price-total-label">税込</span>
+                <span class="beg-price-total-num">31,482<small style="font-size:14px;"> 円</small></span>
+              </div>
+            </div>
           </div>
 
           <a href="https://mirinae.jp/trial.html?tab=tab02" class="beg-cta-btn" style="text-decoration:none;">
@@ -999,19 +1274,103 @@
           </div>
 
           <div class="beg-sec-header">
+            <div class="beg-sec-label">Schedule</div>
+            <div class="beg-sec-title">日程・時間割（例）</div>
+            <div class="beg-sec-line"></div>
+          </div>
+          <div class="tt-wrap">
+            <div class="tt-header" style="grid-template-columns:90px 1fr 1fr 1fr;">
+              <div class="tt-th">時間</div>
+              <div class="tt-th">1/10 (土)</div>
+              <div class="tt-th">1/11 (日)</div>
+              <div class="tt-th">1/12 (月・祝)</div>
+            </div>
+            <div class="tt-row jokyu" style="grid-template-columns:90px 1fr 1fr 1fr;">
+              <div class="tt-cell"><div class="tt-time-num">10-11</div><div class="tt-time-label">1コマ目</div></div>
+              <div class="tt-cell"><div class="tt-topic">上級文法①</div><div class="tt-items"><span class="tt-pill">고급 語尾</span><span class="tt-pill">-는 법이다</span></div></div>
+              <div class="tt-cell"><div class="tt-topic">上級文法③</div><div class="tt-items"><span class="tt-pill">慣用句</span><span class="tt-pill">諺</span></div></div>
+              <div class="tt-cell"><div class="tt-topic">上級文法⑤</div><div class="tt-items"><span class="tt-pill">語彙強化</span><span class="tt-pill">類義語</span></div></div>
+            </div>
+            <div class="tt-row jokyu" style="grid-template-columns:90px 1fr 1fr 1fr;">
+              <div class="tt-cell"><div class="tt-time-num">11-12</div><div class="tt-time-label">2コマ目</div></div>
+              <div class="tt-cell"><div class="tt-topic">上級文法②</div><div class="tt-items"><span class="tt-pill">書き言葉表現</span><span class="tt-pill">ニュアンス比較</span></div></div>
+              <div class="tt-cell"><div class="tt-topic">上級文法④</div><div class="tt-items"><span class="tt-pill">한다体</span><span class="tt-pill">ニュース表現</span></div></div>
+              <div class="tt-cell"><div class="tt-topic">上級文法⑥</div><div class="tt-items"><span class="tt-pill">고급 表現まとめ</span></div></div>
+            </div>
+            <div class="tt-row jokyu" style="grid-template-columns:90px 1fr 1fr 1fr;">
+              <div class="tt-cell"><div class="tt-time-num">12-13</div><div class="tt-time-label">3コマ目</div></div>
+              <div class="tt-cell"><div class="tt-topic">練習・Q&A</div><div class="tt-items"><span class="tt-pill">練習問題</span></div></div>
+              <div class="tt-cell"><div class="tt-topic">練習・Q&A</div><div class="tt-items"><span class="tt-pill">練習問題</span></div></div>
+              <div class="tt-cell"><div class="tt-topic">総まとめ</div><div class="tt-items"><span class="tt-pill">総復習</span><span class="tt-pill">Q&A</span></div></div>
+            </div>
+          </div>
+
+          <div class="beg-sec-header">
+            <div class="beg-sec-label">Lesson Flow</div>
+            <div class="beg-sec-title">授業の流れ</div>
+            <div class="beg-sec-line"></div>
+          </div>
+          <div class="beg-flow-section">
+            <div class="beg-flow-cards">
+              <div class="beg-flow-card">
+                <div class="beg-flow-card-num">1</div>
+                <div class="beg-flow-card-body">
+                  <h4>事前に課題をお送りします</h4>
+                  <p>練習問題は授業の前に解いていただきます。事前に自分の弱点を把握し、より充実した授業にしましょう。</p>
+                </div>
+              </div>
+              <div class="beg-flow-card">
+                <div class="beg-flow-card-num">2</div>
+                <div class="beg-flow-card-body">
+                  <h4>講師が文法・表現を丁寧に解説</h4>
+                  <p>授業中に講師が文法表現や使い方を丁寧に解説します。疑問点について質疑応答の時間を持ち、明確に内容を把握します。</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="beg-sec-header">
             <div class="beg-sec-label">Tuition</div>
             <div class="beg-sec-title">授業料</div>
             <div class="beg-sec-line"></div>
           </div>
-          <div class="beg-tuition-table-wrap">
-            <table class="beg-tuition-table">
-              <thead><tr><th>レベル</th><th>コマ数</th><th>授業料（税抜）</th><th>税込</th></tr></thead>
-              <tbody>
-                <tr><td>上級</td><td>3コマ（1日間）</td><td>1コマ 4,180円 × 3 = 12,540円</td><td>13,794円</td></tr>
-                <tr><td>上級</td><td>6コマ（2日間）</td><td>1コマ 3,680円 × 6 = 22,080円</td><td>24,288円</td></tr>
-                <tr><td>上級</td><td>9コマ（3日間）</td><td>1コマ 3,180円 × 9 = 28,620円</td><td>31,482円</td></tr>
-              </tbody>
-            </table>
+          <div class="beg-price-grid">
+            <div class="beg-price-card">
+              <div class="beg-price-card-top">
+                <div class="beg-price-days">1</div>
+                <div class="beg-price-days-unit">日間</div>
+              </div>
+              <div class="beg-price-komas">3コマ</div>
+              <div class="beg-price-break">1コマ 4,180円 × 3<br>= 12,540円（税抜）</div>
+              <div class="beg-price-total-row">
+                <span class="beg-price-total-label">税込</span>
+                <span class="beg-price-total-num">13,794<small style="font-size:14px;"> 円</small></span>
+              </div>
+            </div>
+            <div class="beg-price-card featured">
+              <div class="beg-price-card-top">
+                <div class="beg-price-days">2</div>
+                <div class="beg-price-days-unit">日間</div>
+              </div>
+              <div class="beg-price-komas">6コマ</div>
+              <div class="beg-price-break">1コマ 3,680円 × 6<br>= 22,080円（税抜）</div>
+              <div class="beg-price-total-row">
+                <span class="beg-price-total-label">税込</span>
+                <span class="beg-price-total-num">24,288<small style="font-size:14px;"> 円</small></span>
+              </div>
+            </div>
+            <div class="beg-price-card">
+              <div class="beg-price-card-top">
+                <div class="beg-price-days">3</div>
+                <div class="beg-price-days-unit">日間</div>
+              </div>
+              <div class="beg-price-komas">9コマ</div>
+              <div class="beg-price-break">1コマ 3,180円 × 9<br>= 28,620円（税抜）</div>
+              <div class="beg-price-total-row">
+                <span class="beg-price-total-label">税込</span>
+                <span class="beg-price-total-num">31,482<small style="font-size:14px;"> 円</small></span>
+              </div>
+            </div>
           </div>
 
           <a href="https://mirinae.jp/trial.html?tab=tab02" class="beg-cta-btn" style="text-decoration:none;">

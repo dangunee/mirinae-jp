@@ -25,11 +25,144 @@
       --white: #FFFFFF;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { overflow-x: hidden; max-width: 100vw; }
     body {
       font-family: 'Noto Sans JP', sans-serif;
       color: var(--text-dark);
       line-height: 1.8;
       background: #FAFAF7;
+      overflow-x: hidden;
+      max-width: 100vw;
+    }
+    nav {
+      background: var(--white);
+      border-bottom: 1px solid var(--gray-border);
+      padding: 0 48px;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      height: 56px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav a { text-decoration: none; color: var(--mid); font-size: 13px; letter-spacing: 0.05em; transition: color .2s; }
+    nav a:hover { color: var(--gold); }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px;
+      color: var(--dark);
+      letter-spacing: 0.1em;
+      margin-right: auto;
+      white-space: nowrap;
+    }
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 44px;
+      height: 44px;
+      padding: 10px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 101;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--dark);
+      transition: transform .25s, opacity .25s;
+    }
+    nav.nav-open .nav-hamburger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    nav.nav-open .nav-hamburger span:nth-child(2) { opacity: 0; }
+    nav.nav-open .nav-hamburger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .nav-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      z-index: 99;
+      opacity: 0;
+      transition: opacity .3s;
+      pointer-events: none;
+    }
+    @media (max-width: 900px) {
+      .nav-overlay { display: block; }
+      nav.nav-open .nav-overlay { opacity: 1; pointer-events: auto; }
+    }
+    .nav-links { display: flex; align-items: center; gap: 2px; list-style: none; margin: 0; padding: 0; }
+    .nav-links > li { position: relative; }
+    .nav-links > li.nav-has-dropdown::after { content: ''; position: absolute; top: 100%; left: 0; right: 0; height: 14px; }
+    .nav-links a {
+      display: block;
+      padding: 8px 12px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--mid);
+      text-decoration: none;
+      border-radius: 6px;
+      transition: background .15s, color .15s;
+      white-space: nowrap;
+    }
+    .nav-links > li > a:hover { background: var(--gold-pale); color: var(--gold); }
+    .nav-dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 180px;
+      background: var(--white);
+      border-radius: 8px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+      padding: 8px 0;
+      list-style: none;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity .2s, visibility .15s;
+      z-index: 9999;
+      margin-top: 0;
+      border: 1px solid var(--gray-border);
+      pointer-events: none;
+    }
+    .nav-links > li:hover .nav-dropdown { opacity: 1; visibility: visible; pointer-events: auto; }
+    .nav-dropdown a { padding: 10px 20px; font-size: 13px; border-radius: 0; white-space: nowrap; }
+    .nav-dropdown a:hover { background: var(--gold-pale); color: var(--gold); }
+    @media (max-width: 900px) {
+      nav { padding: 0 16px; }
+      .nav-hamburger { display: flex; margin-left: auto; }
+      .nav-links {
+        position: fixed;
+        top: 0; right: 0;
+        width: min(320px, 85vw);
+        height: 100vh;
+        background: var(--white);
+        flex-direction: column;
+        align-items: stretch;
+        padding: 72px 24px 24px;
+        box-shadow: -4px 0 24px rgba(0,0,0,0.12);
+        overflow-y: auto;
+        transform: translateX(100%);
+        transition: transform .3s ease;
+        z-index: 100;
+      }
+      nav.nav-open .nav-links { transform: translateX(0); }
+      .nav-links > li.nav-has-dropdown .nav-dropdown {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        box-shadow: none;
+        border: none;
+        padding: 0 0 0 16px;
+        margin-top: 4px;
+        display: block;
+      }
+      .nav-links > li.nav-has-dropdown::after { display: none; }
+      .nav-links > li { border-bottom: 1px solid var(--gray-border); }
+      .nav-links > li > a, .nav-links .nav-dropdown a { padding: 14px 0; }
+      .nav-logo { font-size: 14px; margin-right: 0; flex-shrink: 0; white-space: nowrap; }
     }
     .page-wrapper {
       max-width: 1100px;
@@ -38,7 +171,7 @@
     }
     .main-with-sidebar { display: grid; grid-template-columns: 1fr 300px; gap: 32px; align-items: start; }
     @media (max-width: 900px) { .main-with-sidebar { grid-template-columns: 1fr; } .main-with-sidebar .sidebar { display: none; } }
-    .sidebar { position: sticky; top: 80px; padding-top: 200px; }
+    .sidebar { position: sticky; top: 80px; }
     .course-nav-card.courses-nav-box { background: var(--white); border: 1px solid var(--gray-border); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
     .courses-nav-header { background: var(--dark); padding: 20px 18px; color: var(--white); }
     .courses-nav-header .courses-nav-label { font-size: 10px; letter-spacing: 0.2em; color: var(--gold-light); margin-bottom: 4px; }
@@ -556,6 +689,14 @@
         hamburger.addEventListener('click', function() {
           nav.classList.toggle('nav-open');
           document.body.style.overflow = nav.classList.contains('nav-open') ? 'hidden' : '';
+        });
+        document.querySelectorAll('.nav-links a').forEach(function(a) {
+          a.addEventListener('click', function() {
+            if (window.innerWidth <= 900) {
+              nav.classList.remove('nav-open');
+              document.body.style.overflow = '';
+            }
+          });
         });
         var overlay = document.querySelector('.nav-overlay');
         if (overlay) overlay.addEventListener('click', function() {

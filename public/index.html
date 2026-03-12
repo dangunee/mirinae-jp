@@ -1522,10 +1522,11 @@
       font-weight: 500; color: var(--cal-gold-lt); margin-bottom: 4px;
     }
     #schedule-section .tooltip .tt-info { color: rgba(255,255,255,0.6); }
-    /* SEO: 検索ロボット向けテキスト一覧（常に表示・display:none禁止） */
+    /* SEO: 検索ロボット向けテキスト一覧（一覧タブ選択時のみ表示） */
     #schedule-section .schedule-seo-list {
       list-style: none; margin: 24px 0 0; padding: 0; display: flex; flex-direction: column; gap: 10px;
     }
+    #schedule-section .schedule-seo-list.schedule-seo-list-hidden { display: none !important; }
     #schedule-section .schedule-seo-list li a {
       display: block; padding: 14px 18px; background: var(--bg2);
       border: 1px solid var(--border); border-radius: 10px; text-decoration: none;
@@ -2381,8 +2382,8 @@
     <div class="tooltip" id="schedule-tooltip"></div>
   </div>
 
-  <!-- SEO: 検索ロボット向けテキスト一覧（常に表示・display:none禁止・セマンティックHTML） -->
-  <ul class="schedule-seo-list" itemscope itemtype="https://schema.org/ItemList">
+  <!-- SEO: 検索ロボット向けテキスト一覧（一覧タブ選択時のみ表示） -->
+  <ul class="schedule-seo-list" id="schedule-seo-list" itemscope itemtype="https://schema.org/ItemList">
     <li itemprop="itemListElement" itemscope itemtype="https://schema.org/Course">
       <a href="netlesson.html#tab02" itemprop="url">
         <time datetime="2026-04-01" itemprop="startDate">4月1日</time>
@@ -2855,15 +2856,18 @@
       var btnList = document.getElementById('btn-list');
       var calView = document.getElementById('cal-view');
       var listView = document.getElementById('list-view');
+      var seoList = document.getElementById('schedule-seo-list');
       if (btnCal) btnCal.classList.toggle('active', v === 'cal');
       if (btnList) btnList.classList.toggle('active', v === 'list');
       if (calView) calView.classList.toggle('hidden', v !== 'cal');
       if (listView) listView.classList.toggle('active', v === 'list');
       if (listView) listView.setAttribute('aria-hidden', v !== 'list');
       if (calView) calView.setAttribute('aria-hidden', v !== 'cal');
+      if (seoList) seoList.classList.toggle('schedule-seo-list-hidden', v === 'cal');
       if (v === 'list') scheduleRenderList();
     };
     scheduleRenderCalendar();
+    scheduleShowView('cal');
     var btnCal = document.getElementById('btn-cal');
     var btnList = document.getElementById('btn-list');
     if (btnCal) btnCal.addEventListener('click', function() { scheduleShowView('cal'); });

@@ -735,6 +735,101 @@
       box-shadow: 0 8px 28px rgba(184,146,42,0.5);
     }
 
+    /* Course Concept section */
+    .concept-section {
+      background: var(--white);
+      padding: 72px 48px;
+    }
+    .concept-inner { max-width: 1080px; margin: 0 auto; }
+    .concept-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .concept-eyebrow::after {
+      content: '';
+      width: 48px;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.5;
+    }
+    .concept-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(22px, 3vw, 32px);
+      color: var(--text-dark);
+      margin-bottom: 6px;
+      font-weight: 400;
+      line-height: 1.4;
+    }
+    .concept-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.9;
+      max-width: 580px;
+      margin-bottom: 40px;
+    }
+    .concept-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .concept-card {
+      background: var(--beige);
+      border: 1px solid var(--gray-border);
+      border-radius: 18px;
+      padding: 28px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.28s, box-shadow 0.28s;
+    }
+    .concept-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 40px rgba(14,28,56,0.09);
+    }
+    .concept-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+    }
+    .concept-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--dark), #1a3060);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: 16px;
+      box-shadow: 0 4px 16px rgba(14,28,56,0.18);
+    }
+    .concept-card h3 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+    .concept-card p {
+      font-size: 13px;
+      color: var(--mid);
+      line-height: 1.9;
+    }
+    @media (max-width: 900px) {
+      .concept-section { padding: 48px 24px; }
+      .concept-grid { grid-template-columns: 1fr; }
+    }
+
     /* Timetable (tt-wrap) design */
     .tt-wrap { background: var(--white); border: 1px solid var(--border); border-radius: 18px; overflow: hidden; box-shadow: 0 4px 24px rgba(14,28,56,.06); margin-bottom: 32px; }
     .tt-header { display: grid; background: var(--dark); }
@@ -838,6 +933,31 @@
     <p>入門・初級・中級・上級、レベル別に短期集中で学べる講座です。</p>
   </div>
 
+  <section class="concept-section">
+    <div class="concept-inner">
+      <div class="concept-eyebrow">COURSE CONCEPT</div>
+      <h2 class="concept-title">集中講座とは</h2>
+      <p class="concept-desc">連休を使って韓国語を一気に伸ばす、ミリネの人気プログラム。1日3コマで学習における弱点や、なかなか抜け出せない現状への解決策を見つける手助けをします。</p>
+      <div class="concept-grid">
+        <div class="concept-card">
+          <div class="concept-icon">🎯</div>
+          <h3>重要ポイントを凝縮</h3>
+          <p>各レベルの必須文法・表現を厳選し、短時間で効率よく習得。似ている表現の違いや間違えやすいポイントを集中的に整理します。</p>
+        </div>
+        <div class="concept-card">
+          <div class="concept-icon">🔄</div>
+          <h3>比較して理解を深める</h3>
+          <p>似ている文法・表現を並べて比較し、ニュアンスの違いを明確に。独学では気づけない細かいポイントをネイティブ講師が丁寧に解説します。</p>
+        </div>
+        <div class="concept-card">
+          <div class="concept-icon">💡</div>
+          <h3>弱点を発見し克服する</h3>
+          <p>事前課題で自分の弱点を把握し、授業で徹底的に克服。曖昧に理解していた部分に自信をつけて、次のステップへ進みましょう。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <div class="tabs-bar">
     <button type="button" class="tab-btn active" data-tab="tab01">入門講座</button>
     <button type="button" class="tab-btn" data-tab="tab02">初級講座</button>
@@ -874,7 +994,7 @@
               <div class="beg-hero-stats">
                 <div class="beg-hero-stat-card"><div class="beg-hero-stat-num">4</div><div class="beg-hero-stat-unit">LEVELS</div></div>
                 <div class="beg-hero-stat-card"><div class="beg-hero-stat-num">3</div><div class="beg-hero-stat-unit">DAYS MAX</div></div>
-                <div class="beg-hero-stat-card"><div class="beg-hero-stat-num">9</div><div class="beg-hero-stat-unit">KOMAS MAX</div></div>
+                <div class="beg-hero-stat-card"><div class="beg-hero-stat-num">9</div><div class="beg-hero-stat-unit">CLASSES MAX</div></div>
               </div>
             </div>
           </div>
@@ -1041,7 +1161,7 @@
               <div class="beg-hero-stats">
                 <div class="beg-hero-stat-card"><div class="beg-hero-stat-num">4</div><div class="beg-hero-stat-unit">LEVELS</div></div>
                 <div class="beg-hero-stat-card"><div class="beg-hero-stat-num">3</div><div class="beg-hero-stat-unit">DAYS MAX</div></div>
-                <div class="beg-hero-stat-card"><div class="beg-hero-stat-num">9</div><div class="beg-hero-stat-unit">KOMAS MAX</div></div>
+                <div class="beg-hero-stat-card"><div class="beg-hero-stat-num">9</div><div class="beg-hero-stat-unit">CLASSES MAX</div></div>
               </div>
             </div>
           </div>
@@ -1146,7 +1266,7 @@
                 <span class="beg-price-total-num">13,794<small style="font-size:14px;"> 円</small></span>
               </div>
             </div>
-            <div class="beg-price-card featured">
+            <div class="beg-price-card">
               <div class="beg-price-card-top">
                 <div class="beg-price-days">2</div>
                 <div class="beg-price-days-unit">日間</div>
@@ -1158,7 +1278,7 @@
                 <span class="beg-price-total-num">24,288<small style="font-size:14px;"> 円</small></span>
               </div>
             </div>
-            <div class="beg-price-card">
+            <div class="beg-price-card featured">
               <div class="beg-price-card-top">
                 <div class="beg-price-days">3</div>
                 <div class="beg-price-days-unit">日間</div>
@@ -1223,7 +1343,7 @@
               <div class="beg-hero-stats">
                 <div class="beg-hero-stat-card"><div class="beg-hero-stat-num">4</div><div class="beg-hero-stat-unit">LEVELS</div></div>
                 <div class="beg-hero-stat-card"><div class="beg-hero-stat-num">3</div><div class="beg-hero-stat-unit">DAYS MAX</div></div>
-                <div class="beg-hero-stat-card"><div class="beg-hero-stat-num">9</div><div class="beg-hero-stat-unit">KOMAS MAX</div></div>
+                <div class="beg-hero-stat-card"><div class="beg-hero-stat-num">9</div><div class="beg-hero-stat-unit">CLASSES MAX</div></div>
               </div>
             </div>
           </div>
@@ -1327,7 +1447,7 @@
                 <span class="beg-price-total-num">13,794<small style="font-size:14px;"> 円</small></span>
               </div>
             </div>
-            <div class="beg-price-card featured">
+            <div class="beg-price-card">
               <div class="beg-price-card-top">
                 <div class="beg-price-days">2</div>
                 <div class="beg-price-days-unit">日間</div>
@@ -1339,7 +1459,7 @@
                 <span class="beg-price-total-num">24,288<small style="font-size:14px;"> 円</small></span>
               </div>
             </div>
-            <div class="beg-price-card">
+            <div class="beg-price-card featured">
               <div class="beg-price-card-top">
                 <div class="beg-price-days">3</div>
                 <div class="beg-price-days-unit">日間</div>
@@ -1404,7 +1524,7 @@
               <div class="beg-hero-stats">
                 <div class="beg-hero-stat-card"><div class="beg-hero-stat-num">4</div><div class="beg-hero-stat-unit">LEVELS</div></div>
                 <div class="beg-hero-stat-card"><div class="beg-hero-stat-num">3</div><div class="beg-hero-stat-unit">DAYS MAX</div></div>
-                <div class="beg-hero-stat-card"><div class="beg-hero-stat-num">9</div><div class="beg-hero-stat-unit">KOMAS MAX</div></div>
+                <div class="beg-hero-stat-card"><div class="beg-hero-stat-num">9</div><div class="beg-hero-stat-unit">CLASSES MAX</div></div>
               </div>
             </div>
           </div>
@@ -1508,7 +1628,7 @@
                 <span class="beg-price-total-num">13,794<small style="font-size:14px;"> 円</small></span>
               </div>
             </div>
-            <div class="beg-price-card featured">
+            <div class="beg-price-card">
               <div class="beg-price-card-top">
                 <div class="beg-price-days">2</div>
                 <div class="beg-price-days-unit">日間</div>
@@ -1520,7 +1640,7 @@
                 <span class="beg-price-total-num">24,288<small style="font-size:14px;"> 円</small></span>
               </div>
             </div>
-            <div class="beg-price-card">
+            <div class="beg-price-card featured">
               <div class="beg-price-card-top">
                 <div class="beg-price-days">3</div>
                 <div class="beg-price-days-unit">日間</div>

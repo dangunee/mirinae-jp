@@ -1521,16 +1521,23 @@
                   <div>
                     <div class="tab01-criteria-lv-badge">LEVEL 2 · ELEMENTARY</div>
                     <div class="tab01-criteria-lv-title">2級評価基準</div>
-                    <div class="tab01-criteria-lv-desc">日常生活と関連する個人的な対話や談話はもちろん、社会的テーマを扱う対話や談話を聞き、その内容を把握し、推論できるかを評価。約1,500～2,000語程度の語彙を用いた文章を理解でき、使用できる。</div>
+                    <div class="tab01-criteria-lv-desc">日常生活と関連する個人的な対話や談話はもちろん、社会的テーマを扱う対話や談話を聞き、その内容を把握し、推論できるかを評価し、簡単な実用文を理解できるかを評価する。</div>
                   </div>
                 </div>
                 <div class="tab01-criteria-grid">
                   <div class="tab01-criteria-item">
                     <div class="tab01-criteria-item-head">
+                      <div class="tab01-criteria-skill-dot" style="background:var(--t-writing);"></div>
+                      <div class="tab01-criteria-skill-name" style="color:var(--t-writing);">全般</div>
+                    </div>
+                    <p>日常生活と関連する個人的な対話や談話はもちろん、社会的テーマを扱う対話や談話を聞き、その内容を把握し、推論できるかを評価し、簡単な実用文を理解できるかを評価する。</p>
+                  </div>
+                  <div class="tab01-criteria-item">
+                    <div class="tab01-criteria-item-head">
                       <div class="tab01-criteria-skill-dot" style="background:var(--t-listening);"></div>
                       <div class="tab01-criteria-skill-name" style="color:var(--t-listening);">LISTENING / 聞き取り</div>
                     </div>
-                    <p>電話やお願い程度の日常生活に必要な言語や、郵便局、銀行などの公共機関での会話ができる。公式的な状況か非公式的な状況かの言語を区分し、使用できる。</p>
+                    <p>電話やお願い程度の日常生活に必要な言語（ハングル）や、郵便局、銀行などの公共機関での会話ができる。約1,500～2,000語程度の語彙を用いた文章を理解でき、使用できる。公式的な状況か非公式的な状況かの言語（ハングル）を区分し、使用できる。</p>
                   </div>
                   <div class="tab01-criteria-item">
                     <div class="tab01-criteria-item-head">
@@ -1538,13 +1545,6 @@
                       <div class="tab01-criteria-skill-name" style="color:var(--t-reading);">READING / 読解</div>
                     </div>
                     <p>日常生活と関連する生活文や説明文を読み、その内容を把握でき、実生活で頻繁に接する簡単な広告文や案内文などの実用文を読んで情報を把握できるか評価する。</p>
-                  </div>
-                  <div class="tab01-criteria-item">
-                    <div class="tab01-criteria-item-head">
-                      <div class="tab01-criteria-skill-dot" style="background:var(--t-writing);"></div>
-                      <div class="tab01-criteria-skill-name" style="color:var(--t-writing);">全般</div>
-                    </div>
-                    <p>簡単な実用文を理解できるかを評価する。</p>
                   </div>
                 </div>
               </div>
@@ -2947,7 +2947,6 @@
         </div>
       </div>
 
-      <h2 class="section-header" style="margin-top: 48px;">『生徒の声』</h2>
       <div class="testimonials-container" data-page="special" data-block="testimonials_special_main"></div>
 
         </div>
@@ -3111,32 +3110,26 @@
       }
 
       function tab04SwitchSch(btn, id) {
-        var wrap = btn.closest('#tab04');
-        if (!wrap) return;
-        wrap.querySelectorAll('.tab04-sch-tab').forEach(function(b) { b.classList.remove('active'); });
-        wrap.querySelectorAll('.tab04-sch-panel').forEach(function(p) { p.classList.remove('active'); });
+        document.querySelectorAll('#tab04 .tab04-sch-tab').forEach(function(b) { b.classList.remove('active'); });
+        document.querySelectorAll('#tab04 .tab04-sch-panel').forEach(function(p) { p.classList.remove('active'); });
         btn.classList.add('active');
-        var panel = wrap.querySelector('#' + id);
+        var panel = document.getElementById(id);
         if (panel) panel.classList.add('active');
       }
 
       function tab01SwitchLevel(btn, id) {
-        var wrap = btn.closest('#tab01');
-        if (!wrap) return;
-        wrap.querySelectorAll('.tab01-lt-btn').forEach(function(b) { b.classList.remove('active'); });
-        wrap.querySelectorAll('.tab01-criteria-panel').forEach(function(p) { p.classList.remove('active'); });
+        document.querySelectorAll('#tab01 .tab01-lt-btn').forEach(function(b) { b.classList.remove('active'); });
+        document.querySelectorAll('#tab01 .tab01-criteria-panel').forEach(function(p) { p.classList.remove('active'); });
         btn.classList.add('active');
-        var panel = wrap.querySelector('#' + id);
+        var panel = document.getElementById(id);
         if (panel) panel.classList.add('active');
       }
 
       function tab02SwitchLevel(btn, id) {
-        var wrap = btn.closest('#tab02');
-        if (!wrap) return;
-        wrap.querySelectorAll('.tab02-lt-btn').forEach(function(b) { b.classList.remove('active'); });
-        wrap.querySelectorAll('.tab02-criteria-panel').forEach(function(p) { p.classList.remove('active'); });
+        document.querySelectorAll('#tab02 .tab02-lt-btn').forEach(function(b) { b.classList.remove('active'); });
+        document.querySelectorAll('#tab02 .tab02-criteria-panel').forEach(function(p) { p.classList.remove('active'); });
         btn.classList.add('active');
-        var panel = wrap.querySelector('#' + id);
+        var panel = document.getElementById(id);
         if (panel) panel.classList.add('active');
       }
 

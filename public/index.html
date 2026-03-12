@@ -2676,20 +2676,9 @@
     updateDots();
   })();
   (function() {
-    /* ═══ SCHEDULE CALENDAR (SEO: テキストはHTMLで・イベントはリンク化) ═══ */
-    var recurringEvents = [
-      { dow: 3, label: '通信音読トレーニング', cat: 'cat-tsushin', time: '随時受付中', detail: '毎週水曜日・通信講座', url: 'netlesson.html#tab02' },
-      { dow: 3, label: '通信作文トレーニング', cat: 'cat-tsushin', time: '随時受付中', detail: '毎週水曜日・通信講座', url: 'netlesson.html#tab01' },
-      { dow: 0, label: '上級文法＆会話講座', cat: 'cat-jokyu', time: '隔週日曜日', detail: '隔週日曜・上級クラス', url: 'group.html#tab05' },
-      { dow: 6, label: '会話強化クラス', cat: 'cat-jokyu', time: '14:00〜', detail: '毎週土曜 14:00〜 会話強化', url: 'kaiwa.html' },
-      { dow: 4, label: 'グループレッスン', cat: 'cat-group', time: '19:00〜', detail: '毎週木曜 19:00〜 グループ', url: 'group.html' }
-    ];
-    var singleEvents = [
-      { date: '2026-04-12', label: '春期集中講座（初級）', cat: 'cat-special', time: '10:00〜16:00', detail: '春期集中講座・初級コース', url: 'syutyu.html#tab02' },
-      { date: '2026-04-19', label: '春期集中講座（中級）', cat: 'cat-special', time: '10:00〜16:00', detail: '春期集中講座・中級コース', url: 'syutyu.html#tab03' },
-      { date: '2026-05-03', label: 'GW特別講座', cat: 'cat-special', time: '13:00〜', detail: 'ゴールデンウィーク特別講座', url: 'syutyu.html' }
-    ];
-    var jokuBiweeklyStart = new Date(2026, 3, 5);
+    /* ═══ SCHEDULE CALENDAR (APIから取得・SEO: テキストはHTMLで・イベントはリンク化) ═══ */
+    var recurringEvents = [];
+    var singleEvents = [];
     var scheduleYear = new Date().getFullYear();
     var scheduleMonth = new Date().getMonth();
     function pad(n) { return String(n).padStart(2, '0'); }
@@ -2698,9 +2687,11 @@
       var t = new Date();
       return t.getFullYear()===y && t.getMonth()===m && t.getDate()===d;
     }
-    function isBiweekly(y,m,d) {
+    function isBiweeklyForEvent(y,m,d, startStr) {
+      if (!startStr) return true;
       var dt = new Date(y,m,d);
-      var diff = Math.round((dt - jokuBiweeklyStart) / 86400000);
+      var start = new Date(startStr);
+      var diff = Math.round((dt - start) / 86400000);
       return diff >= 0 && diff % 14 === 0;
     }
     function getEventsFor(y,m,d) {
@@ -2710,7 +2701,7 @@
       for (var i = 0; i < recurringEvents.length; i++) {
         var e = recurringEvents[i];
         if (e.dow !== dow) continue;
-        if (e.label === '上級文法＆会話講座' && !isBiweekly(y,m,d)) continue;
+        if (e.biweekly && !isBiweeklyForEvent(y,m,d, e.biweeklyStartDate)) continue;
         evts.push(e);
       }
       for (var j = 0; j < singleEvents.length; j++) {
@@ -2866,13 +2857,23 @@
       if (seoList) seoList.classList.toggle('schedule-seo-list-hidden', v === 'cal');
       if (v === 'list') scheduleRenderList();
     };
-    scheduleRenderCalendar();
-    scheduleShowView('cal');
-    var btnCal = document.getElementById('btn-cal');
-    var btnList = document.getElementById('btn-list');
-    if (btnCal) btnCal.addEventListener('click', function() { scheduleShowView('cal'); });
-    if (btnList) btnList.addEventListener('click', function() { scheduleShowView('list'); });
-    document.addEventListener('mousemove', scheduleMoveTooltip);
+    function scheduleInit() {
+      scheduleRenderCalendar();
+      scheduleShowView('cal');
+      var btnCal = document.getElementById('btn-cal');
+      var btnList = document.getElementById('btn-list');
+      if (btnCal) btnCal.addEventListener('click', function() { scheduleShowView('cal'); });
+      if (btnList) btnList.addEventListener('click', function() { scheduleShowView('list'); });
+      document.addEventListener('mousemove', scheduleMoveTooltip);
+    }
+    fetch('/api/schedule')
+      .then(function(r) { return r.ok ? r.json() : { recurring: [], single: [] }; })
+      .catch(function() { return { recurring: [], single: [] }; })
+      .then(function(data) {
+        recurringEvents = data.recurring || [];
+        singleEvents = data.single || [];
+        scheduleInit();
+      });
   })();
   (function() {
     var wrap = document.getElementById('youtube-section-wrap');

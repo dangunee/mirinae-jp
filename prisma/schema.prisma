@@ -3,12 +3,14 @@
 // 예: DATABASE_URL="postgresql://user:pass@host:5432/dbname"
 
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
+  previewFeatures = ["multiSchema"]
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  schemas   = ["public", "auth"]
 }
 // .env: DATABASE_URL="file:./dev.db" （prisma フォルダ内に dev.db が作られます）
 // 퀴즈앱과 같은 PostgreSQL: provider を "postgresql" に変更し DATABASE_URL を 퀴즈앱과 동일하게 설정
@@ -24,6 +26,7 @@ model SiteTable {
 
   @@unique([pageSlug, blockKey])
   @@map("site_tables")
+  @@schema("public")
 }
 
 // メインページのYouTube動画（SEO用・管理画面で編集）
@@ -40,4 +43,26 @@ model YouTubeVideo {
   updatedAt   DateTime @updatedAt
 
   @@map("youtube_videos")
+  @@schema("public")
+}
+
+// 講座スケジュール（メインページカレンダー）
+model ScheduleEvent {
+  id                String   @id @default(cuid())
+  eventType         String   // "recurring" | "single"
+  label             String   // 講座名
+  cat               String   // cat-tsushin, cat-jokyu, cat-group, cat-kojin, cat-special
+  time              String?  // 表示用: 14:00〜, 随時受付中 など
+  detail            String?  // ツールチップ・詳細
+  url               String?  // リンク先: group.html#tab05 など
+  dow               Int?     // 曜日 0-6 (recurring用)
+  biweekly          Boolean  @default(false) // 隔週か
+  biweeklyStartDate DateTime? // 隔週の基準日 (recurring用)
+  date              String?  // YYYY-MM-DD (single用)
+  sortOrder         Int      @default(0)
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  @@map("schedule_events")
+  @@schema("public")
 }

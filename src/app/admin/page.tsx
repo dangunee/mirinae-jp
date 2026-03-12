@@ -57,6 +57,20 @@ export default function AdminPage() {
         >
           生徒の声
         </a>
+        <a
+          href="/admin/schedule"
+          style={{
+            display: "inline-block",
+            padding: "12px 20px",
+            background: "#2c2c2c",
+            color: "#fff",
+            borderRadius: 8,
+            textDecoration: "none",
+            fontWeight: 500,
+          }}
+        >
+          講座スケジュール
+        </a>
       </p>
       <ul style={{ listStyle: "none", padding: 0 }}>
         {PAGES.map((p) => (

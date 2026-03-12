@@ -53,6 +53,22 @@ const defaultForm: {
   sortOrder: 0,
 };
 
+function pad(n: number) {
+  return String(n).padStart(2, "0");
+}
+
+function dateKey(y: number, m: number, d: number) {
+  return `${y}-${pad(m + 1)}-${pad(d)}`;
+}
+
+function isBiweekly(y: number, m: number, d: number, startStr: string | null) {
+  if (!startStr) return true;
+  const dt = new Date(y, m, d);
+  const start = new Date(startStr);
+  const diff = Math.round((dt.getTime() - start.getTime()) / 86400000);
+  return diff >= 0 && diff % 14 === 0;
+}
+
 export default function ScheduleAdminPage() {
   const [list, setList] = useState<ScheduleEvent[]>([]);
   const [loading, setLoading] = useState(true);
@@ -60,6 +76,8 @@ export default function ScheduleAdminPage() {
   const [editing, setEditing] = useState<ScheduleEvent | null>(null);
   const [adding, setAdding] = useState(false);
   const [form, setForm] = useState(defaultForm);
+  const [calYear, setCalYear] = useState(new Date().getFullYear());
+  const [calMonth, setCalMonth] = useState(new Date().getMonth());
 
   const load = () => {
     setLoading(true);
@@ -75,6 +93,33 @@ export default function ScheduleAdminPage() {
     setEditing(null);
     setAdding(true);
     setForm({ ...defaultForm, sortOrder: list.length });
+  };
+
+  const startAddForDate = (y: number, m: number, d: number) => {
+    const dateStr = dateKey(y, m, d);
+    setEditing(null);
+    setAdding(true);
+    setForm({
+      ...defaultForm,
+      eventType: "single",
+      date: dateStr,
+      sortOrder: list.length,
+    });
+  };
+
+  const getEventsForDate = (y: number, m: number, d: number) => {
+    const dow = new Date(y, m, d).getDay();
+    const key = dateKey(y, m, d);
+    const evts: ScheduleEvent[] = [];
+    for (const e of list) {
+      if (e.eventType === "recurring" && e.dow === dow) {
+        if (e.biweekly && !isBiweekly(y, m, d, e.biweeklyStartDate)) continue;
+        evts.push(e);
+      } else if (e.eventType === "single" && e.date === key) {
+        evts.push(e);
+      }
+    }
+    return evts;
   };
 
   const startEdit = (e: ScheduleEvent) => {
@@ -162,8 +207,112 @@ export default function ScheduleAdminPage() {
       </p>
       <h1 style={{ fontSize: 24, marginBottom: 24 }}>講座スケジュール</h1>
       <p style={{ marginBottom: 24, color: "#666", fontSize: 14 }}>
-        メインページのカレンダーに表示する講座イベントを管理します。定期（毎週・隔週）と単発を登録できます。
+        メインページのカレンダーに表示する講座イベントを管理します。日付をクリックして単発イベントを追加できます。
       </p>
+
+      {/* 月別カレンダー */}
+      {!loading && (
+        <div style={{ marginBottom: 32, background: "#fff", border: "1px solid #e5e5e5", borderRadius: 12, overflow: "hidden", boxShadow: "0 1px 3px rgba(0,0,0,0.06)" }}>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "12px 16px", background: "#f8f8f8", borderBottom: "1px solid #e5e5e5" }}>
+            <button
+              type="button"
+              onClick={() => {
+                if (calMonth === 0) {
+                  setCalMonth(11);
+                  setCalYear(calYear - 1);
+                } else setCalMonth(calMonth - 1);
+              }}
+              style={{ padding: "6px 12px", border: "1px solid #ddd", borderRadius: 6, background: "#fff", cursor: "pointer", fontSize: 14 }}
+            >
+              ←
+            </button>
+            <span style={{ fontWeight: 600, fontSize: 16 }}>{calYear}年{calMonth + 1}月</span>
+            <button
+              type="button"
+              onClick={() => {
+                if (calMonth === 11) {
+                  setCalMonth(0);
+                  setCalYear(calYear + 1);
+                } else setCalMonth(calMonth + 1);
+              }}
+              style={{ padding: "6px 12px", border: "1px solid #ddd", borderRadius: 6, background: "#fff", cursor: "pointer", fontSize: 14 }}
+            >
+              →
+            </button>
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(7, 1fr)", padding: 12 }}>
+            {["日", "月", "火", "水", "木", "金", "土"].map((d) => (
+              <div key={d} style={{ textAlign: "center", fontSize: 11, fontWeight: 600, color: "#666", padding: "8px 0" }}>{d}</div>
+            ))}
+            {(() => {
+              const firstDow = new Date(calYear, calMonth, 1).getDay();
+              const daysInM = new Date(calYear, calMonth + 1, 0).getDate();
+              const daysInP = new Date(calYear, calMonth, 0).getDate();
+              const cells: { day: number; y: number; m: number; isCur: boolean }[] = [];
+              for (let i = firstDow - 1; i >= 0; i--) {
+                const d = daysInP - i;
+                const pm = calMonth - 1;
+                const py = pm < 0 ? calYear - 1 : calYear;
+                cells.push({ day: d, y: py, m: pm < 0 ? 11 : pm, isCur: false });
+              }
+              for (let d = 1; d <= daysInM; d++) cells.push({ day: d, y: calYear, m: calMonth, isCur: true });
+              const remain = 42 - cells.length;
+              for (let i = 1; i <= remain; i++) {
+                const nm = calMonth + 1;
+                const ny = nm > 11 ? calYear + 1 : calYear;
+                cells.push({ day: i, y: ny, m: nm > 11 ? 0 : nm, isCur: false });
+              }
+              return cells.map((c, i) => {
+                const evts = getEventsForDate(c.y, c.m, c.day);
+                return (
+                  <button
+                    key={i}
+                    type="button"
+                    onClick={() => startAddForDate(c.y, c.m, c.day)}
+                    style={{
+                      minHeight: 56,
+                      padding: "6px 4px",
+                      border: "1px solid #eee",
+                      borderRadius: 8,
+                      background: c.isCur ? "#fff" : "#fafafa",
+                      cursor: "pointer",
+                      textAlign: "left",
+                      fontSize: 12,
+                      color: c.isCur ? "#333" : "#999",
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      gap: 2,
+                    }}
+                  >
+                    <span style={{ fontWeight: 600 }}>{c.day}</span>
+                    {evts.slice(0, 2).map((e) => (
+                      <span
+                        key={e.id}
+                        style={{
+                          fontSize: 9,
+                          padding: "1px 4px",
+                          borderRadius: 4,
+                          background: e.cat === "cat-tsushin" ? "#dbeafe" : e.cat === "cat-jokyu" ? "#cffafe" : e.cat === "cat-group" ? "#ede9fe" : e.cat === "cat-kojin" ? "#d1fae5" : e.cat === "cat-special" ? "#fee2e2" : "#e5e7eb",
+                          whiteSpace: "nowrap",
+                          overflow: "hidden",
+                          maxWidth: "100%",
+                          textOverflow: "ellipsis",
+                        }}
+                        title={e.label}
+                        onClick={(ev) => { ev.stopPropagation(); startEdit(e); }}
+                      >
+                        {e.label.slice(0, 6)}
+                      </span>
+                    ))}
+                    {evts.length > 2 && <span style={{ fontSize: 9, color: "#999" }}>+{evts.length - 2}</span>}
+                  </button>
+                );
+              });
+            })()}
+          </div>
+        </div>
+      )}
 
       <button
         type="button"

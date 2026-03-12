@@ -840,7 +840,7 @@
       font-family: 'Noto Serif JP', serif;
       font-size: 28px;
       font-weight: 400;
-      color: rgba(255,255,255,0.9);
+      color: rgba(255,255,255,0.45);
       background: none;
       border: none;
       cursor: pointer;
@@ -859,10 +859,9 @@
       border-radius: 2px;
       transition: transform 0.3s;
     }
-    #tab01 .kaiwa-tab-btn.active { color: #fff; }
+    #tab01 .kaiwa-tab-btn.active { color: var(--gold-light); }
     #tab01 .kaiwa-tab-btn.active::after { transform: translateX(-50%) scaleX(1); }
-    #tab01 .kaiwa-tab-btn:hover { color: var(--gold-light); }
-    #tab01 .kaiwa-tabs-wrapper:hover .kaiwa-tab-btn:not(:hover) { color: rgba(255,255,255,0.35); }
+    #tab01 .kaiwa-tab-btn:hover:not(.active) { color: rgba(255,255,255,0.7); }
     #tab01 .kaiwa-tab-count {
       font-size: 10px;
       font-family: 'Bebas Neue', sans-serif;
@@ -873,6 +872,10 @@
       padding: 2px 8px;
       margin-left: 6px;
       vertical-align: middle;
+    }
+    #tab01 .kaiwa-tab-btn:not(.active) .kaiwa-tab-count {
+      background: rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.5);
     }
     @media (max-width: 768px) {
       #tab01 .kaiwa-tabs-wrapper {
@@ -894,6 +897,7 @@
         margin-left: 4px;
       }
     }
+    #tab01 .kaiwa-theme-content { margin-top: 32px; }
     #tab01 .kaiwa-level-panel { display: none; animation: kaiwaFadeUp 0.4s ease both; }
     #tab01 .kaiwa-level-panel.active { display: block; }
     @keyframes kaiwaFadeUp {
@@ -949,11 +953,6 @@
     }
     #tab01 .kaiwa-topic-card {
       position: relative;
-      display: flex;
-      flex-direction: row;
-      align-items: baseline;
-      gap: 0.5em;
-      flex-wrap: wrap;
       background: var(--white);
       border: 1px solid rgba(0,0,0,0.06);
       border-radius: 12px;
@@ -984,17 +983,19 @@
     }
     #tab01 .kaiwa-topic-card.featured .kaiwa-card-num { color: var(--gold-light); opacity: 0.7; }
     #tab01 .kaiwa-topic-card.featured .kaiwa-card-text { color: rgba(255,255,255,0.9); }
+    #tab01 .kaiwa-card-content {
+      display: block;
+      line-height: 1.65;
+    }
     #tab01 .kaiwa-card-num {
       font-family: 'Bebas Neue', sans-serif;
       font-size: 11px;
       letter-spacing: 0.15em;
       color: var(--gold);
-      flex-shrink: 0;
     }
     #tab01 .kaiwa-card-text {
       font-family: 'Noto Serif JP', serif;
       font-size: 20px;
-      line-height: 1.65;
       color: var(--dark);
       font-weight: 400;
     }
@@ -1362,7 +1363,7 @@
                 <span class="beg-testimonial-date">会話トレーニング</span>
               </div>
             </div>
-            <div class="beg-testimonial-body">この会話トレーニングを受けて、自分から韓国語で発言する自信が持てるようになりました。毎回テーマが変わるので、話せる内容の幅が広がりました。</div>
+            <div class="beg-testimonial-body">この会話トレーニングを受けて、自分から韓国語で発言する自身が持てるようになりました。フリートーキングと違い毎回話すテーマが変わり、今まで自分が知っている単語や、自分に関心がある話しか出来ませんでしたがこのトレーニングを受けてから話す内容が広がりました。</div>
           </div>
           <div class="beg-testimonial">
             <div class="beg-testimonial-meta">
@@ -1372,7 +1373,7 @@
                 <span class="beg-testimonial-date">会話トレーニング</span>
               </div>
             </div>
-            <div class="beg-testimonial-body">作文を通して似ている文型の違いを教えていただき、会話も作文も少しずつ良くなってきたと感じています。身近なテーマなので、習った表現をそのまま使えるのが嬉しいです。</div>
+            <div class="beg-testimonial-body">１．会話トレーニングを受けた感想をお願いします。 －３ヶ月間でしたが、素晴らしい先生と優秀なメンバーと一緒に授業を受け、楽しく、またとても刺激になりました。毎週の主題が身近なことなので、考えた事、話したことが今後も使えてよいと思いました。 ２．会話トレーニングで勉強されて、以前と変わったところや進展がありましたか？あれば詳しく教えてください。 －会話を上達させたくて始めたのが、会話はもちろん作文も（少しずつですが）良くなってきたと思います。 ３．いろいろなレッスンの中、会話トレーニングレッスンを選択した理由を教えてください。 －話す機会をたくさん持ちたかったため。 ４．会話トレーニングの進め方について。 －いろいろとみなさんとお話した後、作文も見てもらえてよかったです。 ５．改善してほしいところはありますか。 －先生によっては主題に関した単語をたくさん提示してくださったので、ほかの先生もそうしていただければよりよいと思います。 ６．ミリネで勉強しようと思ったきっかけは？ －会話を中心にした授業を受けたくて、いろいろ探したところ、リーズナブルな料金で個人レッスンを行っているミリネを見つけました。自分がやりたい授業にアレンジしていただけると聞いて決めました。 ７．これからの目標を教えてください。 －韓国ドラマ８０％理解と旅行の時のスムーズな会話を出来る様にがんばります。</div>
           </div>
         </div>
       </div>
@@ -1973,8 +1974,7 @@
               var num = i + 1;
               var isFeatured = (num % 10 === 0);
               html += '<div class="kaiwa-topic-card' + (isFeatured ? ' featured' : '') + '">';
-              html += '<span class="kaiwa-card-num">' + String(num).padStart(2, '0') + '</span>';
-              html += '<span class="kaiwa-card-text">' + escapeHtml(text) + '</span>';
+              html += '<span class="kaiwa-card-content"><span class="kaiwa-card-num">' + String(num).padStart(2, '0') + '</span>\u00A0<span class="kaiwa-card-text">' + escapeHtml(text) + '</span></span>';
               html += '</div>';
             }
           });

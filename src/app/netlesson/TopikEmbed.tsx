@@ -1,49 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useCallback, useEffect, useRef } from "react";
-
-function topikTbScroll(sel: string) {
-  const el = document.querySelector(sel);
-  if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-}
 
 export default function TopikEmbed() {
-  const tabBarRef = useRef<HTMLDivElement>(null);
-  const activeRef = useRef<string>("#topik-about");
-
-  const setActive = useCallback((sel: string) => {
-    tabBarRef.current?.querySelectorAll(".topik-tb-btn").forEach((btn) => {
-      btn.classList.toggle("active", btn.getAttribute("data-scroll") === sel);
-    });
-    activeRef.current = sel;
-  }, []);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (!e.isIntersecting) return;
-          const id = (e.target as HTMLElement).id;
-          if (id?.startsWith("topik-")) setActive(`#${id}`);
-        });
-      },
-      { threshold: 0.2, rootMargin: "-80px 0px -60% 0px" }
-    );
-    ["topik-about", "topik-features", "topik-sample", "topik-apply", "topik-testimonials"].forEach(
-      (id) => {
-        const el = document.getElementById(id);
-        if (el) observer.observe(el);
-      }
-    );
-    return () => observer.disconnect();
-  }, [setActive]);
-
-  const handleTbClick = (sel: string) => {
-    topikTbScroll(sel);
-    setActive(sel);
-  };
-
   return (
     <div className="topik-embed">
       <section className="topik-hero">
@@ -115,55 +74,6 @@ export default function TopikEmbed() {
           </div>
         </div>
       </section>
-
-      <div className="topik-tab-bar" ref={tabBarRef}>
-        <div className="topik-tab-bar-inner">
-          <button
-            type="button"
-            className="topik-tb-btn active"
-            data-scroll="#topik-about"
-            onClick={() => handleTbClick("#topik-about")}
-          >
-            講座について
-          </button>
-          <span className="topik-tb-sep">|</span>
-          <button
-            type="button"
-            className="topik-tb-btn"
-            data-scroll="#topik-features"
-            onClick={() => handleTbClick("#topik-features")}
-          >
-            コース内容
-          </button>
-          <span className="topik-tb-sep">|</span>
-          <button
-            type="button"
-            className="topik-tb-btn"
-            data-scroll="#topik-sample"
-            onClick={() => handleTbClick("#topik-sample")}
-          >
-            課題参考例
-          </button>
-          <span className="topik-tb-sep">|</span>
-          <button
-            type="button"
-            className="topik-tb-btn"
-            data-scroll="#topik-apply"
-            onClick={() => handleTbClick("#topik-apply")}
-          >
-            授業料
-          </button>
-          <span className="topik-tb-sep">|</span>
-          <button
-            type="button"
-            className="topik-tb-btn"
-            data-scroll="#topik-testimonials"
-            onClick={() => handleTbClick("#topik-testimonials")}
-          >
-            受講生の声
-          </button>
-        </div>
-      </div>
 
       <section className="topik-section topik-about-section" id="topik-about">
         <div className="topik-section-inner">

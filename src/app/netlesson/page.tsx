@@ -82,9 +82,9 @@ export default function NetlessonPage() {
         @media (max-width:900px) { .netlesson-page .group-main-grid { grid-template-columns:1fr; } .netlesson-page .sidebar { display:none; } .netlesson-page .hero { padding:40px 16px 32px; } .netlesson-page .hero::after { display:none; } .netlesson-page .tabs-bar { padding:0 12px; overflow-x:auto; -webkit-overflow-scrolling:touch; justify-content:space-between; flex-wrap:nowrap; } .netlesson-page .tab-btn { flex:1 1 0; min-width:0; padding:12px 2px; font-size:11px; text-align:center; } }
         @media (max-width:560px) { .netlesson-page .hero { padding:32px 12px 24px; } .netlesson-page .tabs-bar { padding:0 8px; } .netlesson-page .tab-btn { padding:10px 1px; font-size:10px; } }
         /* TOPIK embedded */
-        .netlesson-page #tab03.tab-panel { padding-top:0; }
+        .netlesson-page #tab03.tab-panel { padding-top:32px; }
         .netlesson-page #tab03 .topik-embed { --topik-navy:#0e1c38; --topik-navy-mid:#1a3060; --topik-gold:#c8911e; --topik-gold-lt:#e8b84b; --topik-gold-pale:#fdf5e4; --topik-cream:#faf7f0; --topik-cream-dk:#f0ebe0; --topik-text:#1a1a2a; --topik-text-mid:#4a4438; --topik-muted:#9a9080; --topik-border:rgba(200,145,30,.18); --topik-red:#c0392b; --topik-red-lt:#e05a4a; --topik-red-pale:#fdf1f0; --topik-ink:#1a1225; font-family:'Noto Sans JP',sans-serif; }
-        .netlesson-page #tab03 .topik-hero { background:linear-gradient(145deg,#2a1e06 0%,#3d2a08 25%,#1e1508 60%,#0e1c38 100%); position:relative; overflow:hidden; padding:88px 48px 0; margin:0 -20px 24px -20px; }
+        .netlesson-page #tab03 .topik-hero { background:linear-gradient(145deg,#2a1e06 0%,#3d2a08 25%,#1e1508 60%,#0e1c38 100%); position:relative; overflow:hidden; padding:88px 48px 0; margin:0 -20px 24px -20px; border-radius:20px; }
         .netlesson-page #tab03 .topik-hero-lines { position:absolute; inset:0; background:radial-gradient(ellipse 80% 60% at 60% -10%,rgba(232,184,75,.28) 0%,transparent 55%),radial-gradient(ellipse 50% 40% at 100% 60%,rgba(200,145,30,.18) 0%,transparent 50%),radial-gradient(ellipse 40% 50% at 0% 80%,rgba(232,184,75,.1) 0%,transparent 50%); }
         .netlesson-page #tab03 .topik-hero::before { content:''; position:absolute; inset:0; background-image:repeating-linear-gradient(-45deg,transparent 0,transparent 28px,rgba(200,145,30,.06) 28px,rgba(200,145,30,.06) 29px); }
         .netlesson-page #tab03 .topik-hero-redline { position:absolute; left:44px; top:0; bottom:0; width:2px; background:linear-gradient(to bottom,transparent,rgba(232,184,75,.5) 30%,rgba(200,145,30,.8) 60%,transparent); }
@@ -117,14 +117,6 @@ export default function NetlessonPage() {
         .netlesson-page #tab03 .topik-hpc-total .tl { font-size:11px; color:rgba(255,255,255,.35); }
         .netlesson-page #tab03 .topik-hpc-total .tv { font-family:'Cormorant Garamond',serif; font-size:32px; color:var(--topik-gold-lt); }
         .netlesson-page #tab03 .topik-hpc-note { font-size:10.5px; color:rgba(232,184,75,.35); line-height:1.7; margin-top:12px; }
-        .netlesson-page #tab03 .topik-tab-bar { background:var(--topik-navy); border-top:1px solid rgba(255,255,255,.07); padding:0 48px; position:sticky; top:56px; z-index:99; box-shadow:0 4px 24px rgba(0,0,0,.22); margin:0 -20px 0; }
-        .netlesson-page #tab03 .topik-tab-bar-inner { max-width:1080px; margin:0 auto; display:flex; gap:0; }
-        .netlesson-page #tab03 .topik-tb-btn { position:relative; padding:18px 24px; font-family:'Noto Serif JP',serif; font-size:14px; color:rgba(255,255,255,.4); background:none; border:none; cursor:pointer; letter-spacing:.04em; transition:color .25s; white-space:nowrap; }
-        .netlesson-page #tab03 .topik-tb-btn::after { content:''; position:absolute; bottom:0; left:50%; transform:translateX(-50%) scaleX(0); width:80%; height:2px; background:var(--topik-gold-lt); border-radius:2px; transition:transform .3s cubic-bezier(.34,1.56,.64,1); }
-        .netlesson-page #tab03 .topik-tb-btn.active { color:var(--topik-gold-lt); }
-        .netlesson-page #tab03 .topik-tb-btn.active::after { transform:translateX(-50%) scaleX(1); }
-        .netlesson-page #tab03 .topik-tb-btn:hover:not(.active) { color:rgba(255,255,255,.7); }
-        .netlesson-page #tab03 .topik-tb-sep { color:rgba(255,255,255,.12); font-size:12px; align-self:center; }
         .netlesson-page #tab03 .topik-section { padding:72px 48px; }
         .netlesson-page #tab03 .topik-section-inner { max-width:1080px; margin:0 auto; }
         .netlesson-page #tab03 .topik-sec-ey { font-family:'Bebas Neue',sans-serif; font-size:11px; letter-spacing:.4em; color:var(--topik-gold); display:flex; align-items:center; gap:10px; margin-bottom:10px; }
@@ -220,7 +212,7 @@ export default function NetlessonPage() {
         .netlesson-page #tab03 .topik-test-body-kr { font-size:12.5px; line-height:2; }
         .netlesson-page #tab03 .topik-test-date { font-size:11px; color:var(--topik-muted); margin-top:12px; font-style:italic; }
         @media (max-width:900px) { .netlesson-page #tab03 .topik-hero-top { grid-template-columns:1fr; } .netlesson-page #tab03 .topik-steps-grid { grid-template-columns:1fr 1fr; } .netlesson-page #tab03 .topik-steps-row2 { grid-template-columns:1fr; } .netlesson-page #tab03 .topik-price-card { grid-template-columns:1fr; } .netlesson-page #tab03 .topik-test-grid { grid-template-columns:1fr; } }
-        @media (max-width:600px) { .netlesson-page #tab03 .topik-hero { padding:48px 24px 0; margin:0 -18px 24px -18px; } .netlesson-page #tab03 .topik-tab-bar { padding:0 24px; top:56px; margin:0 -18px 0; } .netlesson-page #tab03 .topik-tb-btn { padding:14px 16px; font-size:12px; } .netlesson-page #tab03 .topik-section { padding:48px 24px; } .netlesson-page #tab03 .topik-steps-grid { grid-template-columns:1fr; } .netlesson-page #tab03 .topik-features-3 { grid-template-columns:1fr !important; } }
+        @media (max-width:600px) { .netlesson-page #tab03 .topik-hero { padding:48px 24px 0; margin:0 -18px 24px -18px; } .netlesson-page #tab03 .topik-section { padding:48px 24px; } .netlesson-page #tab03 .topik-steps-grid { grid-template-columns:1fr; } .netlesson-page #tab03 .topik-features-3 { grid-template-columns:1fr !important; } }
       `}</style>
 
       <div className="page-wrapper">

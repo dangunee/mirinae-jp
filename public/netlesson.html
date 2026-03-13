@@ -465,6 +465,7 @@
       background: linear-gradient(145deg, #2a1e06 0%, #3d2a08 25%, #1e1508 60%, #0e1c38 100%);
       position: relative; overflow: hidden;
       padding: 88px 48px 0; margin: 0 -20px 24px -20px;
+      border-radius: 20px;
     }
     #tab03 .topik-hero-lines {
       position: absolute; inset: 0;
@@ -521,14 +522,6 @@
     #tab03 .topik-hpc-total .tl { font-size: 11px; color: rgba(255,255,255,.35); }
     #tab03 .topik-hpc-total .tv { font-family: 'Cormorant Garamond', serif; font-size: 32px; color: var(--topik-gold-lt); }
     #tab03 .topik-hpc-note { font-size: 10.5px; color: rgba(232,184,75,.35); line-height: 1.7; margin-top: 12px; }
-    #tab03 .topik-tab-bar { background: var(--topik-navy); border-top: 1px solid rgba(255,255,255,.07); padding: 0 48px; position: sticky; top: 56px; z-index: 99; box-shadow: 0 4px 24px rgba(0,0,0,.22); margin: 0 -20px 0; }
-    #tab03 .topik-tab-bar-inner { max-width: 1080px; margin: 0 auto; display: flex; gap: 0; }
-    #tab03 .topik-tb-btn { position: relative; padding: 18px 24px; font-family: 'Noto Serif JP', serif; font-size: 14px; color: rgba(255,255,255,.4); background: none; border: none; cursor: pointer; letter-spacing: .04em; transition: color .25s; white-space: nowrap; }
-    #tab03 .topik-tb-btn::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%) scaleX(0); width: 80%; height: 2px; background: var(--topik-gold-lt); border-radius: 2px; transition: transform .3s cubic-bezier(.34,1.56,.64,1); }
-    #tab03 .topik-tb-btn.active { color: var(--topik-gold-lt); }
-    #tab03 .topik-tb-btn.active::after { transform: translateX(-50%) scaleX(1); }
-    #tab03 .topik-tb-btn:hover:not(.active) { color: rgba(255,255,255,.7); }
-    #tab03 .topik-tb-sep { color: rgba(255,255,255,.12); font-size: 12px; align-self: center; }
     #tab03 .topik-section { padding: 72px 48px; }
     #tab03 .topik-section-inner { max-width: 1080px; margin: 0 auto; }
     #tab03 .topik-sec-ey { font-family: 'Bebas Neue', sans-serif; font-size: 11px; letter-spacing: .4em; color: var(--topik-gold); display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
@@ -655,8 +648,6 @@
     }
     @media (max-width: 600px) {
       #tab03 .topik-hero { padding: 48px 24px 0; margin: 0 -18px 24px -18px; }
-      #tab03 .topik-tab-bar { padding: 0 24px; top: 56px; margin: 0 -18px 0; }
-      #tab03 .topik-tb-btn { padding: 14px 16px; font-size: 12px; }
       #tab03 .topik-section { padding: 48px 24px; }
       #tab03 .topik-steps-grid { grid-template-columns: 1fr; }
       #tab03 .topik-features-3 { grid-template-columns: 1fr !important; }
@@ -810,20 +801,6 @@
     </div>
   </div>
 </section>
-<!-- TAB BAR -->
-<div class="topik-tab-bar">
-  <div class="topik-tab-bar-inner">
-    <button class="topik-tb-btn active" onclick="topikTbScroll('#topik-about')">講座について</button>
-    <span class="topik-tb-sep">|</span>
-    <button class="topik-tb-btn" onclick="topikTbScroll('#topik-features')">コース内容</button>
-    <span class="topik-tb-sep">|</span>
-    <button class="topik-tb-btn" onclick="topikTbScroll('#topik-sample')">課題参考例</button>
-    <span class="topik-tb-sep">|</span>
-    <button class="topik-tb-btn" onclick="topikTbScroll('#topik-apply')">授業料</button>
-    <span class="topik-tb-sep">|</span>
-    <button class="topik-tb-btn" onclick="topikTbScroll('#topik-testimonials')">受講生の声</button>
-  </div>
-</div>
 <!-- ABOUT -->
 <section class="topik-section topik-about-section" id="topik-about">
   <div class="topik-section-inner">
@@ -1259,11 +1236,6 @@
         var h = location.hash.replace('#', '');
         if (['tab01', 'tab02', 'tab03'].indexOf(h) !== -1) switchTab(h);
       });
-
-      window.topikTbScroll = function(sel) {
-        var el = document.querySelector(sel);
-        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      };
     })();
   </script>
   <script src="/admin-badge.js"></script>

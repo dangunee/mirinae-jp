@@ -542,7 +542,7 @@
       color: var(--gold-light);
       margin-bottom: 10px;
     }
-    #tab01 .beg-hero-title, #tab02 .beg-hero-title, #tab03 .beg-hero-title, #tab04 .beg-hero, #tab05 .beg-hero-title {
+    #tab01 .beg-hero-title, #tab02 .beg-hero-title, #tab03 .beg-hero-title, #tab04 .beg-hero-title, #tab05 .beg-hero-title {
       font-size: 34px;
       font-weight: 700;
       color: #fff;
@@ -551,13 +551,13 @@
       position: relative; z-index: 1;
     }
     #tab01 .beg-hero-title em, #tab02 .beg-hero-title em, #tab03 .beg-hero-title em, #tab04 .beg-hero-title em, #tab05 .beg-hero-title em { font-style: normal; color: var(--gold-light); }
-    #tab01 .beg-hero-desc, #tab02 .beg-hero-desc, #tab03 .beg-hero-desc, #tab04 .beg-hero, #tab05 .beg-hero-desc {
+    #tab01 .beg-hero-desc, #tab02 .beg-hero-desc, #tab03 .beg-hero-desc, #tab04 .beg-hero-desc, #tab05 .beg-hero-desc {
       display: flex;
       flex-direction: column;
       gap: 6px;
       position: relative; z-index: 1;
     }
-    #tab01 .beg-hero-desc p, #tab02 .beg-hero-desc p, #tab03 .beg-hero-desc p, #tab04 .beg-hero, #tab05 .beg-hero-desc p {
+    #tab01 .beg-hero-desc p, #tab02 .beg-hero-desc p, #tab03 .beg-hero-desc p, #tab04 .beg-hero-desc p, #tab05 .beg-hero-desc p {
       font-size: 16px;
       color: rgba(255,255,255,0.65);
       display: flex;
@@ -578,7 +578,7 @@
       margin-top: 22px;
       position: relative; z-index: 1;
     }
-    #tab01 .beg-hero-tag, #tab02 .beg-hero-tag, #tab03 .beg-hero-tag, #tab04 .beg-hero, #tab05 .beg-hero-tag {
+    #tab01 .beg-hero-tag, #tab02 .beg-hero-tag, #tab03 .beg-hero-tag, #tab04 .beg-hero-tag, #tab05 .beg-hero-tag {
       display: inline-flex;
       align-items: center;
       gap: 5px;
@@ -594,8 +594,11 @@
       display: flex;
       align-items: center;
       gap: 14px;
+      margin-top: 32px;
       margin-bottom: 16px;
     }
+    .beg-hero + .beg-sec-header,
+    .beg-intro-block + .beg-sec-header { margin-top: 0; }
     .beg-sec-line { flex: 1; height: 1px; background: #e4ddd2; }
     .beg-sec-title {
       font-size: 16px;
@@ -662,6 +665,18 @@
       margin-top: 1px;
     }
     .beg-flow-text { font-size: 16px; color: var(--mid); }
+    .beg-intro-block {
+      margin-bottom: 32px;
+      padding: 24px;
+      background: var(--white);
+      border: 1px solid var(--gray-border);
+      border-radius: 10px;
+      font-size: 15px;
+      color: var(--mid);
+      line-height: 1.9;
+    }
+    .beg-intro-block p { margin-bottom: 12px; }
+    .beg-intro-block p:last-child { margin-bottom: 0; }
     .beg-info-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-bottom: 32px; }
     .beg-info-card {
       background: var(--white);
@@ -1677,7 +1692,10 @@
       text-align: center;
     }
     .beg-tuition-table td:first-child { text-align: left; font-weight: 500; }
-    #tab02 .beg-textbook-row {
+    #tab02 .beg-textbook-row,
+    #tab03 .beg-textbook-row,
+    #tab04 .beg-textbook-row,
+    #tab05 .beg-textbook-row {
       display: flex;
       align-items: flex-start;
       gap: 14px;
@@ -1687,7 +1705,10 @@
       padding: 14px 20px;
       margin-bottom: 32px;
     }
-    #tab02 .beg-textbook-icon {
+    #tab02 .beg-textbook-icon,
+    #tab03 .beg-textbook-icon,
+    #tab04 .beg-textbook-icon,
+    #tab05 .beg-textbook-icon {
       width: 36px; height: 36px;
       background: var(--dark);
       border-radius: 8px;
@@ -1695,15 +1716,21 @@
       font-size: 18px;
       flex-shrink: 0;
     }
-    #tab02 .beg-textbook-content { flex: 1; }
-    #tab02 .beg-textbook-label {
+    #tab02 .beg-textbook-content, #tab03 .beg-textbook-content, #tab04 .beg-textbook-content, #tab05 .beg-textbook-content { flex: 1; }
+    #tab02 .beg-textbook-label,
+    #tab03 .beg-textbook-label,
+    #tab04 .beg-textbook-label,
+    #tab05 .beg-textbook-label {
       font-size: 12px;
       color: var(--muted);
       letter-spacing: 0.08em;
       margin-bottom: 2px;
     }
-    #tab02 .beg-textbook-title { font-size: 16px; font-weight: 500; color: var(--mid); }
-    #tab02 .beg-textbook-cover {
+    #tab02 .beg-textbook-title, #tab03 .beg-textbook-title, #tab04 .beg-textbook-title, #tab05 .beg-textbook-title { font-size: 16px; font-weight: 500; color: var(--mid); }
+    #tab02 .beg-textbook-cover,
+    #tab03 .beg-textbook-cover,
+    #tab04 .beg-textbook-cover,
+    #tab05 .beg-textbook-cover {
       display: block;
       max-width: 120px;
       height: auto;
@@ -2238,7 +2265,7 @@
             </div>
           </div>
 
-          <div class="beg-intro-block" style="margin-bottom:32px;padding:24px;background:var(--white);border:1px solid var(--gray-border);border-radius:10px;font-size:15px;color:var(--mid);line-height:1.9;">
+          <div class="beg-intro-block">
             <p style="margin-bottom:16px;"><strong>A:</strong> 田中さんは韓国語をどれぐらい勉強しましたか。<br><strong>B:</strong> 6年ぐらい勉強しましたが、未だに中級で伸び悩んでいます。</p>
             <p style="margin-bottom:16px;"><strong>A:</strong> 学習の中で何が一番のお悩みですか。<br><strong>B:</strong> 初級時は意欲もあり、単語もよく覚えられましたが、中級へ上がったら、語彙や表現があまりにもたくさん出てきて、全て覚えることが難しく、伸び悩んでおります。</p>
             <p style="margin-bottom:16px;"><strong>A:</strong> 勉強時間はどのぐらいになりますか。<br><strong>B:</strong> 毎日ではないですが、二日に一回は勉強しています。</p>
@@ -2428,7 +2455,9 @@
             <div class="beg-sec-title">短期集中 多読・発音トレーニング</div>
             <div class="beg-sec-line"></div>
           </div>
-          <p style="margin-bottom:16px;color:var(--mid);">日本の名作文学や韓国の昔話をやさしい韓国語で多読しながら、発音の基礎と抑揚を徹底的に練習する集中講座も開講しています。</p>
+          <div class="beg-intro-block">
+            <p>日本の名作文学や韓国の昔話をやさしい韓国語で多読しながら、発音の基礎と抑揚を徹底的に練習する集中講座も開講しています。</p>
+          </div>
           <div class="beg-tuition-table-wrap">
             <table class="beg-tuition-table">
               <thead>
@@ -2602,7 +2631,9 @@
             <div class="beg-sec-title">日程・授業の流れ</div>
             <div class="beg-sec-line"></div>
           </div>
-          <p style="margin-bottom:16px;color:var(--mid);">日程：2月7日開始、隔週土曜日 12:00〜14:00（1コマ50分、4ヶ月更新制）</p>
+          <div class="beg-intro-block">
+            <p>日程：2月7日開始、隔週土曜日 12:00〜14:00（1コマ50分、4ヶ月更新制）</p>
+          </div>
           <div class="beg-flow-steps">
             <div class="beg-flow-step">
               <span class="beg-flow-num">1</span>
@@ -2762,7 +2793,9 @@
             <div class="beg-flow-step"><span class="beg-flow-num">2</span><span class="beg-flow-text">テスト課題を音読し、発音チェックをします。</span></div>
             <div class="beg-flow-step"><span class="beg-flow-num">3</span><span class="beg-flow-text">課題を解くことでニュアンスの違いについて勉強します。</span></div>
           </div>
-          <p class="section-note" style="margin-bottom:24px;color:var(--muted);">※ 単語集１冊分の単語を覚えるとともに発音や関連文法まで学ぶことができる講座です。</p>
+          <div class="beg-intro-block">
+            <p>※ 単語集１冊分の単語を覚えるとともに発音や関連文法まで学ぶことができる講座です。</p>
+          </div>
 
           <div class="beg-sec-header">
             <div class="beg-sec-label">Info</div>
@@ -2906,7 +2939,7 @@
         </div>
 
         <aside class="sidebar" id="sidebar">
-          <a href="group.html#tab06" class="sidebar-promo-card" style="background-image: url('/img/student/kaiwa.png');" aria-label="土曜上級対面講座"></a>
+          <a href="kaiwa.html" class="sidebar-promo-card" style="background-image: url('/img/student/kaiwa.png');" aria-label="会話強化クラス"></a>
           <div class="course-nav-card courses-nav-box">
             <div class="courses-nav-header">
               <div class="courses-nav-label">Courses</div>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import TopikEmbed from "./TopikEmbed";
 
 type TabId = "tab01" | "tab02" | "tab03";
 
@@ -94,19 +95,25 @@ export default function NetlessonClient({
           className={`tab-panel ${activeTab === id ? "active" : ""}`}
           style={{ display: activeTab === id ? "block" : "none" }}
         >
-          <h2 className="section-header">『{label}』</h2>
-          <div className="iframe-card">
-            <p className="form-note">{NOTES[i]}</p>
-            <div className="iframe-wrap">
-              <iframe
-                className="iframe-frame"
-                title={titles[i]}
-                src={activeTab === id ? urls[i] : undefined}
-                loading="lazy"
-              />
-            </div>
-            <p className="iframe-note">{IFRAME_NOTES[i]}</p>
-          </div>
+          {id === "tab03" ? (
+            <TopikEmbed />
+          ) : (
+            <>
+              <h2 className="section-header">『{label}』</h2>
+              <div className="iframe-card">
+                <p className="form-note">{NOTES[i]}</p>
+                <div className="iframe-wrap">
+                  <iframe
+                    className="iframe-frame"
+                    title={titles[i]}
+                    src={activeTab === id ? urls[i] : undefined}
+                    loading="lazy"
+                  />
+                </div>
+                <p className="iframe-note">{IFRAME_NOTES[i]}</p>
+              </div>
+            </>
+          )}
         </div>
       ))}
         </div>

@@ -1489,12 +1489,45 @@
       transform: translateY(-3px);
       box-shadow: 0 10px 36px rgba(200,145,30,0.45);
     }
+    #tab01 .t01-schedule-cta-row {
+      display: flex;
+      flex-direction: row;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    #tab01 .t01-schedule-cta-row .t01-schedule-box {
+      flex: 1 1 280px;
+      min-width: 0;
+    }
+    #tab01 .t01-cta-box {
+      flex: 1 1 280px;
+      min-width: 0;
+      background: var(--beige);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    #tab01 .t01-cta-box .t01-cta-big {
+      margin-top: 0;
+      width: 100%;
+    }
+    #tab01 .t01-cta-box .t01-tuition-notes {
+      margin-top: 0;
+      padding: 0;
+      background: none;
+      border-left: none;
+      font-size: 11px;
+      color: var(--text-muted);
+      line-height: 1.9;
+    }
     #tab01 .t01-schedule-box {
       background: var(--beige);
       border: 1px solid var(--border);
       border-radius: 14px;
       padding: 24px 28px;
-      width: 100%;
     }
     #tab01 .t01-schedule-box h3 {
       font-family: 'Bebas Neue', sans-serif;
@@ -1601,6 +1634,9 @@
       #tab01 .t01-flow-steps { grid-template-columns: 1fr 1fr; }
       #tab01 .t01-price-cards { flex-direction: column; }
       #tab01 .t01-price-card { flex: 1 1 auto; }
+      #tab01 .t01-schedule-cta-row { flex-direction: column; }
+      #tab01 .t01-schedule-cta-row .t01-schedule-box,
+      #tab01 .t01-schedule-cta-row .t01-cta-box { flex: 1 1 auto; }
       #tab01 .t01-test-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 600px) {
@@ -2047,6 +2083,21 @@
           </div>
           <div class="t01-tuition-grid">
             <div class="t01-price-cards">
+              <div class="t01-price-card">
+                <div class="t01-price-plan">月3回コース</div>
+                <div class="t01-price-row">
+                  <span class="key">1回あたり</span>
+                  <span class="val">3,500<small>円</small></span>
+                </div>
+                <div class="t01-price-row">
+                  <span class="key">回数</span>
+                  <span class="val">9<small>回</small></span>
+                </div>
+                <div class="t01-price-total">
+                  <span class="total-label">税込合計</span>
+                  <span class="total-val">34,650<small style="font-size:14px;"> 円</small></span>
+                </div>
+              </div>
               <div class="t01-price-card featured">
                 <div class="t01-price-plan">通常プラン（月4回）</div>
                 <div class="t01-price-row">
@@ -2066,40 +2117,29 @@
                   <span class="total-val">39,237<small style="font-size:14px;"> 円</small></span>
                 </div>
               </div>
-              <div class="t01-price-card">
-                <div class="t01-price-plan">月3回コース</div>
-                <div class="t01-price-row">
-                  <span class="key">1回あたり</span>
-                  <span class="val">3,500<small>円</small></span>
+            </div>
+            <div class="t01-schedule-cta-row">
+              <div class="t01-schedule-box">
+                <h3>CLASS SCHEDULE / 開講スケジュール</h3>
+                <div class="t01-schedule-rows">
+                  <div class="t01-schedule-row">
+                    <div class="day">水</div>
+                    <span>毎週水曜日 11:00〜11:50</span>
+                  </div>
+                  <div class="t01-schedule-row">
+                    <div class="day">土</div>
+                    <span>毎週土曜日 14:00〜14:50</span>
+                  </div>
                 </div>
-                <div class="t01-price-row">
-                  <span class="key">回数</span>
-                  <span class="val">9<small>回</small></span>
-                </div>
-                <div class="t01-price-total">
-                  <span class="total-label">税込合計</span>
-                  <span class="total-val">34,650<small style="font-size:14px;"> 円</small></span>
+              </div>
+              <div class="t01-cta-box">
+                <a href="trial.html" class="t01-cta-big">お申込みはこちら →</a>
+                <div class="t01-tuition-notes">
+                  ※回数券の場合、予約は1週間前まで。キャンセル不可。<br>
+                  ※一人からスタート可能です。
                 </div>
               </div>
             </div>
-            <div class="t01-schedule-box">
-              <h3>CLASS SCHEDULE / 開講スケジュール</h3>
-              <div class="t01-schedule-rows">
-                <div class="t01-schedule-row">
-                  <div class="day">水</div>
-                  <span>毎週水曜日 11:00〜11:50</span>
-                </div>
-                <div class="t01-schedule-row">
-                  <div class="day">土</div>
-                  <span>毎週土曜日 14:00〜14:50</span>
-                </div>
-              </div>
-            </div>
-            <div class="t01-tuition-notes">
-              ※回数券の場合、予約は1週間前まで。キャンセル不可。<br>
-              ※一人からスタート可能です。
-            </div>
-            <a href="trial.html" class="t01-cta-big">お申込みはこちら →</a>
           </div>
 
           <div class="beg-sec-header">

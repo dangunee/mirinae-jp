@@ -598,7 +598,9 @@
       margin-bottom: 16px;
     }
     .beg-hero + .beg-sec-header,
-    .beg-intro-block + .beg-sec-header { margin-top: 0; }
+    .beg-intro-block + .beg-sec-header,
+    .t01-hero + .beg-sec-header { margin-top: 0; }
+    .t01-hero + .beg-intro-block { margin-top: 32px; }
     .beg-sec-line { flex: 1; height: 1px; background: #e4ddd2; }
     .beg-sec-title {
       font-size: 16px;
@@ -1092,8 +1094,8 @@
       }
       #tab01 .kaiwa-cta-btn { justify-content: center; }
     }
-    /* ── tab01 新デザイン (provided code) ── */
-    #tab01 .t01-hero {
+    /* ── tab01 新デザイン (会話クラス) + tab02-05 共通ヒーロー ── */
+    #tab01 .t01-hero, #tab02 .t01-hero, #tab03 .t01-hero, #tab04 .t01-hero, #tab05 .t01-hero {
       position: relative;
       background: var(--navy);
       padding: 56px 48px 48px;
@@ -1101,8 +1103,8 @@
       overflow: hidden;
       border-radius: 16px;
     }
-    #tab01 .t01-hero-bg { position: absolute; inset: 0; overflow: hidden; }
-    #tab01 .t01-hero-bg::before {
+    #tab01 .t01-hero-bg, #tab02 .t01-hero-bg, #tab03 .t01-hero-bg, #tab04 .t01-hero-bg, #tab05 .t01-hero-bg { position: absolute; inset: 0; overflow: hidden; }
+    #tab01 .t01-hero-bg::before, #tab02 .t01-hero-bg::before, #tab03 .t01-hero-bg::before, #tab04 .t01-hero-bg::before, #tab05 .t01-hero-bg::before {
       content: '';
       position: absolute;
       width: 600px; height: 600px;
@@ -1110,7 +1112,7 @@
       background: radial-gradient(circle, rgba(200,145,30,0.12) 0%, transparent 65%);
       top: -150px; right: -80px;
     }
-    #tab01 .t01-hero-grid {
+    #tab01 .t01-hero-grid, #tab02 .t01-hero-grid, #tab03 .t01-hero-grid, #tab04 .t01-hero-grid, #tab05 .t01-hero-grid {
       position: absolute;
       inset: 0;
       background-image:
@@ -1118,7 +1120,7 @@
         linear-gradient(90deg, rgba(200,145,30,0.05) 1px, transparent 1px);
       background-size: 48px 48px;
     }
-    #tab01 .t01-hero-kr-bg {
+    #tab01 .t01-hero-kr-bg, #tab02 .t01-hero-kr-bg, #tab03 .t01-hero-kr-bg, #tab04 .t01-hero-kr-bg, #tab05 .t01-hero-kr-bg {
       position: absolute;
       right: 24px;
       top: 50%;
@@ -1131,7 +1133,7 @@
       pointer-events: none;
       white-space: nowrap;
     }
-    #tab01 .t01-hero-inner {
+    #tab01 .t01-hero-inner, #tab02 .t01-hero-inner, #tab03 .t01-hero-inner, #tab04 .t01-hero-inner, #tab05 .t01-hero-inner {
       position: relative;
       z-index: 1;
       display: grid;
@@ -1139,7 +1141,7 @@
       gap: 48px;
       align-items: center;
     }
-    #tab01 .t01-hero-eyebrow {
+    #tab01 .t01-hero-eyebrow, #tab02 .t01-hero-eyebrow, #tab03 .t01-hero-eyebrow, #tab04 .t01-hero-eyebrow, #tab05 .t01-hero-eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 10px;
@@ -1149,12 +1151,12 @@
       color: var(--gold);
       margin-bottom: 16px;
     }
-    #tab01 .t01-hero-eyebrow::before {
+    #tab01 .t01-hero-eyebrow::before, #tab02 .t01-hero-eyebrow::before, #tab03 .t01-hero-eyebrow::before, #tab04 .t01-hero-eyebrow::before, #tab05 .t01-hero-eyebrow::before {
       content: '';
       width: 28px; height: 1px;
       background: var(--gold);
     }
-    #tab01 .t01-hero-title-en {
+    #tab01 .t01-hero-title-en, #tab02 .t01-hero-title-en, #tab03 .t01-hero-title-en, #tab04 .t01-hero-title-en, #tab05 .t01-hero-title-en {
       font-family: 'DM Serif Display', serif;
       font-size: 14px;
       color: rgba(255,255,255,0.35);
@@ -1162,7 +1164,7 @@
       margin-bottom: 8px;
       font-style: italic;
     }
-    #tab01 .t01-hero-title-ja {
+    #tab01 .t01-hero-title-ja, #tab02 .t01-hero-title-ja, #tab03 .t01-hero-title-ja, #tab04 .t01-hero-title-ja, #tab05 .t01-hero-title-ja {
       font-family: 'Noto Serif JP', serif;
       font-size: clamp(32px, 4vw, 48px);
       color: #fff;
@@ -1170,16 +1172,16 @@
       margin-bottom: 8px;
       font-weight: 400;
     }
-    #tab01 .t01-hero-title-ja span { color: var(--gold-light); font-style: italic; }
-    #tab01 .t01-hero-subtitle {
+    #tab01 .t01-hero-title-ja span, #tab02 .t01-hero-title-ja span, #tab03 .t01-hero-title-ja span, #tab04 .t01-hero-title-ja span, #tab05 .t01-hero-title-ja span { color: var(--gold-light); font-style: italic; }
+    #tab01 .t01-hero-subtitle, #tab02 .t01-hero-subtitle, #tab03 .t01-hero-subtitle, #tab04 .t01-hero-subtitle, #tab05 .t01-hero-subtitle {
       font-size: 14px;
       color: rgba(255,255,255,0.45);
       letter-spacing: 0.06em;
       margin-bottom: 24px;
       line-height: 1.8;
     }
-    #tab01 .t01-hero-meta { display: flex; gap: 12px; margin-bottom: 28px; flex-wrap: wrap; }
-    #tab01 .t01-hero-chip {
+    #tab01 .t01-hero-meta, #tab02 .t01-hero-meta, #tab03 .t01-hero-meta, #tab04 .t01-hero-meta, #tab05 .t01-hero-meta { display: flex; gap: 12px; margin-bottom: 28px; flex-wrap: wrap; }
+    #tab01 .t01-hero-chip, #tab02 .t01-hero-chip, #tab03 .t01-hero-chip, #tab04 .t01-hero-chip, #tab05 .t01-hero-chip {
       display: inline-flex;
       align-items: center;
       gap: 6px;
@@ -1191,8 +1193,8 @@
       color: rgba(255,255,255,0.7);
       letter-spacing: 0.04em;
     }
-    #tab01 .t01-hero-btns { display: flex; gap: 14px; align-items: center; }
-    #tab01 .t01-btn-primary {
+    #tab01 .t01-hero-btns, #tab02 .t01-hero-btns, #tab03 .t01-hero-btns, #tab04 .t01-hero-btns, #tab05 .t01-hero-btns { display: flex; gap: 14px; align-items: center; }
+    #tab01 .t01-btn-primary, #tab02 .t01-btn-primary, #tab03 .t01-btn-primary, #tab04 .t01-btn-primary, #tab05 .t01-btn-primary {
       background: linear-gradient(135deg, var(--gold), var(--gold-light));
       color: var(--navy);
       font-family: 'Noto Serif JP', serif;
@@ -1207,11 +1209,11 @@
       transition: all 0.25s;
       box-shadow: 0 4px 20px rgba(200,145,30,0.3);
     }
-    #tab01 .t01-btn-primary:hover {
+    #tab01 .t01-btn-primary:hover, #tab02 .t01-btn-primary:hover, #tab03 .t01-btn-primary:hover, #tab04 .t01-btn-primary:hover, #tab05 .t01-btn-primary:hover {
       transform: translateY(-2px);
       box-shadow: 0 8px 32px rgba(200,145,30,0.45);
     }
-    #tab01 .t01-btn-secondary {
+    #tab01 .t01-btn-secondary, #tab02 .t01-btn-secondary, #tab03 .t01-btn-secondary, #tab04 .t01-btn-secondary, #tab05 .t01-btn-secondary {
       color: rgba(255,255,255,0.6);
       font-size: 13px;
       text-decoration: none;
@@ -1220,8 +1222,8 @@
       letter-spacing: 0.04em;
       transition: color 0.2s, border-color 0.2s;
     }
-    #tab01 .t01-btn-secondary:hover { color: var(--gold-light); border-color: var(--gold-light); }
-    #tab01 .t01-info-card {
+    #tab01 .t01-btn-secondary:hover, #tab02 .t01-btn-secondary:hover, #tab03 .t01-btn-secondary:hover, #tab04 .t01-btn-secondary:hover, #tab05 .t01-btn-secondary:hover { color: var(--gold-light); border-color: var(--gold-light); }
+    #tab01 .t01-info-card, #tab02 .t01-info-card, #tab03 .t01-info-card, #tab04 .t01-info-card, #tab05 .t01-info-card {
       background: rgba(255,255,255,0.04);
       border: 1px solid rgba(255,255,255,0.08);
       border-radius: 14px;
@@ -1230,11 +1232,11 @@
       overflow: hidden;
       transition: border-color 0.3s, background 0.3s;
     }
-    #tab01 .t01-info-card:hover {
+    #tab01 .t01-info-card:hover, #tab02 .t01-info-card:hover, #tab03 .t01-info-card:hover, #tab04 .t01-info-card:hover, #tab05 .t01-info-card:hover {
       background: rgba(255,255,255,0.07);
       border-color: rgba(200,145,30,0.25);
     }
-    #tab01 .t01-info-card::before {
+    #tab01 .t01-info-card::before, #tab02 .t01-info-card::before, #tab03 .t01-info-card::before, #tab04 .t01-info-card::before, #tab05 .t01-info-card::before {
       content: '';
       position: absolute;
       left: 0; top: 0; bottom: 0;
@@ -1242,21 +1244,21 @@
       background: linear-gradient(to bottom, var(--gold), transparent);
       border-radius: 3px 0 0 3px;
     }
-    #tab01 .t01-info-card-label {
+    #tab01 .t01-info-card-label, #tab02 .t01-info-card-label, #tab03 .t01-info-card-label, #tab04 .t01-info-card-label, #tab05 .t01-info-card-label {
       font-family: 'Bebas Neue', sans-serif;
       font-size: 10px;
       letter-spacing: 0.3em;
       color: var(--gold);
       margin-bottom: 8px;
     }
-    #tab01 .t01-info-card-title {
+    #tab01 .t01-info-card-title, #tab02 .t01-info-card-title, #tab03 .t01-info-card-title, #tab04 .t01-info-card-title, #tab05 .t01-info-card-title {
       font-family: 'Noto Serif JP', serif;
       font-size: 15px;
       color: #fff;
       margin-bottom: 6px;
       line-height: 1.5;
     }
-    #tab01 .t01-info-card-body {
+    #tab01 .t01-info-card-body, #tab02 .t01-info-card-body, #tab03 .t01-info-card-body, #tab04 .t01-info-card-body, #tab05 .t01-info-card-body {
       font-size: 12px;
       color: rgba(255,255,255,0.5);
       line-height: 1.8;
@@ -1646,8 +1648,8 @@
     }
     #tab01 .t01-test-card.t01-test-collapsible.t01-test-expanded .t01-test-toggle { transform: rotate(180deg); }
     @media (max-width: 900px) {
-      #tab01 .t01-hero-inner { grid-template-columns: 1fr; }
-      #tab01 .t01-hero-kr-bg { display: none; }
+      #tab01 .t01-hero-inner, #tab02 .t01-hero-inner, #tab03 .t01-hero-inner, #tab04 .t01-hero-inner, #tab05 .t01-hero-inner { grid-template-columns: 1fr; }
+      #tab01 .t01-hero-kr-bg, #tab02 .t01-hero-kr-bg, #tab03 .t01-hero-kr-bg, #tab04 .t01-hero-kr-bg, #tab05 .t01-hero-kr-bg { display: none; }
       #tab01 .t01-target-grid { grid-template-columns: 1fr; }
       #tab01 .t01-flow-steps { grid-template-columns: 1fr 1fr; }
       #tab01 .t01-price-cards { flex-direction: column; }
@@ -2251,17 +2253,43 @@
       <!-- ========== タブ2: 音読クラス ========== -->
       <div id="tab02" class="tab-panel">
         <div class="beg-page">
-          <div class="beg-hero">
-            <div class="beg-hero-eyebrow">Reading Aloud — Class</div>
-            <div class="beg-hero-title">『音読<em>クラス</em>』</div>
-            <div class="beg-hero-desc">
-              <p>黙読だけではなかなか伸びない中級レベルの壁を、「音読」で突破するクラスです。</p>
-              <p>専門講師の発音チェックを受けながら音読の習慣をつけることで、綺麗な発音と抑揚を身につけ、会話力・聞き取り力を同時に伸ばします。</p>
-            </div>
-            <div class="beg-hero-tags">
-              <div class="beg-hero-tag">👥 <span>初中級 2〜5人</span></div>
-              <div class="beg-hero-tag">📅 <span>日 11:00〜12:00</span></div>
-              <div class="beg-hero-tag">💻 <span>オンライン</span></div>
+          <div class="t01-hero">
+            <div class="t01-hero-bg"></div>
+            <div class="t01-hero-grid"></div>
+            <div class="t01-hero-kr-bg">음독</div>
+            <div class="t01-hero-inner">
+              <div class="t01-hero-left">
+                <div class="t01-hero-eyebrow">READING ALOUD</div>
+                <div class="t01-hero-title-en">Read Aloud. Fluently.</div>
+                <h2 class="t01-hero-title-ja">音読<br><span>クラス</span></h2>
+                <p class="t01-hero-subtitle">黙読だけではなかなか伸びない中級レベルの壁を、「音読」で突破するクラスです。専門講師の発音チェックを受けながら音読の習慣をつけることで、綺麗な発音と抑揚を身につけ、会話力・聞き取り力を同時に伸ばします。</p>
+                <div class="t01-hero-meta">
+                  <div class="t01-hero-chip"><span class="icon">👥</span> 初中級 2〜5人</div>
+                  <div class="t01-hero-chip"><span class="icon">📅</span> 日 11:00〜12:00</div>
+                  <div class="t01-hero-chip"><span class="icon">💻</span> オンライン</div>
+                </div>
+                <div class="t01-hero-btns">
+                  <a href="trial.html" class="t01-btn-primary">無料体験に申し込む →</a>
+                  <a href="#tab02-points" class="t01-btn-secondary">ポイントを見る</a>
+                </div>
+              </div>
+              <div class="t01-hero-right">
+                <div class="t01-info-card">
+                  <div class="t01-info-card-label">CONCEPT</div>
+                  <div class="t01-info-card-title">『音読クラス』</div>
+                  <div class="t01-info-card-body">黙読だけではなかなか伸びない中級レベルの壁を、「音読」で突破するクラスです。専門講師の発音チェックを受けながら音読の習慣をつけることで、綺麗な発音と抑揚を身につけ、会話力・聞き取り力を同時に伸ばします。</div>
+                </div>
+                <div class="t01-info-card">
+                  <div class="t01-info-card-label">CLASS TYPES</div>
+                  <div class="t01-info-card-title">5つのクラス</div>
+                  <div class="t01-info-card-body">会話クラス · 音読クラス · 発音・抑揚<br>小説朗読 · 語彙力強化</div>
+                </div>
+                <div class="t01-info-card">
+                  <div class="t01-info-card-label">LEVEL</div>
+                  <div class="t01-info-card-title">初中級対象</div>
+                  <div class="t01-info-card-body">正しい発音・抑揚を習得しながら、長文でも自然に読めるようになります。</div>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -2277,7 +2305,7 @@
             <p style="margin-bottom:0;"><strong>専門講師に発音チェックを受けた上で、音読の習慣をつければ、綺麗な韓国語を習得できるだけでなく、難なくレベルアップすることができます。</strong></p>
           </div>
 
-          <div class="beg-sec-header">
+          <div class="beg-sec-header" id="tab02-points">
             <div class="beg-sec-label">Points</div>
             <div class="beg-sec-title">ポイント</div>
             <div class="beg-sec-line"></div>
@@ -2417,20 +2445,46 @@
       <!-- ========== タブ3: 発音・抑揚 ========== -->
       <div id="tab03" class="tab-panel">
         <div class="beg-page">
-          <div class="beg-hero">
-            <div class="beg-hero-eyebrow">Pronunciation — Intonation</div>
-            <div class="beg-hero-title">『発音・抑揚<em>クラス</em>』</div>
-            <div class="beg-hero-desc">
-              <p>日本語ネイティブがつまずきやすい韓国語の発音と抑揚を集中的にトレーニングするクラスです。</p>
-              <p>平音・激音・濃音、パッチム、発音変化のルールを体系的に学び、長文でも自然なイントネーションで読めるようにします。</p>
-            </div>
-            <div class="beg-hero-tags">
-              <div class="beg-hero-tag">📚 <span>発音5大ルール</span></div>
-              <div class="beg-hero-tag">📖 <span>長文音読</span></div>
+          <div class="t01-hero">
+            <div class="t01-hero-bg"></div>
+            <div class="t01-hero-grid"></div>
+            <div class="t01-hero-kr-bg">발음</div>
+            <div class="t01-hero-inner">
+              <div class="t01-hero-left">
+                <div class="t01-hero-eyebrow">PRONUNCIATION — INTONATION</div>
+                <div class="t01-hero-title-en">Speak Clearly. Naturally.</div>
+                <h2 class="t01-hero-title-ja">発音・抑揚<br><span>クラス</span></h2>
+                <p class="t01-hero-subtitle">日本語ネイティブがつまずきやすい韓国語の発音と抑揚を集中的にトレーニングするクラスです。平音・激音・濃音、パッチム、発音変化のルールを体系的に学び、長文でも自然なイントネーションで読めるようにします。</p>
+                <div class="t01-hero-meta">
+                  <div class="t01-hero-chip"><span class="icon">📚</span> 発音5大ルール</div>
+                  <div class="t01-hero-chip"><span class="icon">📖</span> 長文音読</div>
+                </div>
+                <div class="t01-hero-btns">
+                  <a href="trial.html" class="t01-btn-primary">無料体験に申し込む →</a>
+                  <a href="#tab03-content" class="t01-btn-secondary">内容を見る</a>
+                </div>
+              </div>
+              <div class="t01-hero-right">
+                <div class="t01-info-card">
+                  <div class="t01-info-card-label">CONCEPT</div>
+                  <div class="t01-info-card-title">『発音・抑揚クラス』</div>
+                  <div class="t01-info-card-body">日本語ネイティブがつまずきやすい韓国語の発音と抑揚を集中的にトレーニングするクラスです。平音・激音・濃音、パッチム、発音変化のルールを体系的に学び、長文でも自然なイントネーションで読めるようにします。</div>
+                </div>
+                <div class="t01-info-card">
+                  <div class="t01-info-card-label">CLASS TYPES</div>
+                  <div class="t01-info-card-title">5つのクラス</div>
+                  <div class="t01-info-card-body">会話クラス · 音読クラス · 発音・抑揚<br>小説朗読 · 語彙力強化</div>
+                </div>
+                <div class="t01-info-card">
+                  <div class="t01-info-card-label">LEVEL</div>
+                  <div class="t01-info-card-title">初級〜上級対象</div>
+                  <div class="t01-info-card-body">発音5大ルールを習得し、ニュース・エッセイ・小説など長めの文章の音読に挑戦します。</div>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div class="beg-sec-header">
+          <div class="beg-sec-header" id="tab03-content">
             <div class="beg-sec-label">Content</div>
             <div class="beg-sec-title">内容の一例</div>
             <div class="beg-sec-line"></div>
@@ -2592,21 +2646,47 @@
       <!-- ========== タブ4: 小説朗読 ========== -->
       <div id="tab04" class="tab-panel">
         <div class="beg-page">
-          <div class="beg-hero">
-            <div class="beg-hero-eyebrow">Novel — Reading & Discussion</div>
-            <div class="beg-hero-title">『小説朗読<em>討論クラス</em>』</div>
-            <div class="beg-hero-desc">
-              <p>小説を朗読し、要約し、内容について討論する上級向けクラスです。</p>
-              <p>教科書的な文章を離れ、実生活に近い生きた韓国語に触れながら、語彙力・会話力・聞き取り力の3つをバランス良く伸ばします。</p>
-            </div>
-            <div class="beg-hero-tags">
-              <div class="beg-hero-tag">👥 <span>定員 2〜8人</span></div>
-              <div class="beg-hero-tag">📅 <span>隔週土曜 12:00〜14:00</span></div>
-              <div class="beg-hero-tag">💻 <span>Zoom</span></div>
+          <div class="t01-hero">
+            <div class="t01-hero-bg"></div>
+            <div class="t01-hero-grid"></div>
+            <div class="t01-hero-kr-bg">소설</div>
+            <div class="t01-hero-inner">
+              <div class="t01-hero-left">
+                <div class="t01-hero-eyebrow">NOVEL — READING & DISCUSSION</div>
+                <div class="t01-hero-title-en">Read. Discuss. Grow.</div>
+                <h2 class="t01-hero-title-ja">小説朗読<br><span>討論クラス</span></h2>
+                <p class="t01-hero-subtitle">小説を朗読し、要約し、内容について討論する上級向けクラスです。教科書的な文章を離れ、実生活に近い生きた韓国語に触れながら、語彙力・会話力・聞き取り力の3つをバランス良く伸ばします。</p>
+                <div class="t01-hero-meta">
+                  <div class="t01-hero-chip"><span class="icon">👥</span> 定員 2〜8人</div>
+                  <div class="t01-hero-chip"><span class="icon">📅</span> 隔週土曜 12:00〜14:00</div>
+                  <div class="t01-hero-chip"><span class="icon">💻</span> Zoom</div>
+                </div>
+                <div class="t01-hero-btns">
+                  <a href="trial.html" class="t01-btn-primary">無料体験に申し込む →</a>
+                  <a href="#tab04-target" class="t01-btn-secondary">対象・テキストを見る</a>
+                </div>
+              </div>
+              <div class="t01-hero-right">
+                <div class="t01-info-card">
+                  <div class="t01-info-card-label">CONCEPT</div>
+                  <div class="t01-info-card-title">『小説朗読討論クラス』</div>
+                  <div class="t01-info-card-body">小説を朗読し、要約し、内容について討論する上級向けクラスです。教科書的な文章を離れ、実生活に近い生きた韓国語に触れながら、語彙力・会話力・聞き取り力の3つをバランス良く伸ばします。</div>
+                </div>
+                <div class="t01-info-card">
+                  <div class="t01-info-card-label">CLASS TYPES</div>
+                  <div class="t01-info-card-title">5つのクラス</div>
+                  <div class="t01-info-card-body">会話クラス · 音読クラス · 発音・抑揚<br>小説朗読 · 語彙力強化</div>
+                </div>
+                <div class="t01-info-card">
+                  <div class="t01-info-card-label">LEVEL</div>
+                  <div class="t01-info-card-title">上級対象</div>
+                  <div class="t01-info-card-body">定員2〜8人。Zoomで隔週土曜日12:00〜14:00開講。</div>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div class="beg-sec-header">
+          <div class="beg-sec-header" id="tab04-target">
             <div class="beg-sec-label">Target & Textbook</div>
             <div class="beg-sec-title">対象・テキスト</div>
             <div class="beg-sec-line"></div>
@@ -2769,21 +2849,47 @@
       <!-- ========== タブ5: 語彙力強化 ========== -->
       <div id="tab05" class="tab-panel">
         <div class="beg-page">
-          <div class="beg-hero">
-            <div class="beg-hero-eyebrow">Vocabulary — 語彙力強化</div>
-            <div class="beg-hero-title">『語彙力<em>強化クラス</em>』</div>
-            <div class="beg-hero-desc">
-              <p>一人だといつも途中で断念してしまう学習者のための講座です。一つの単語だけを覚えるのではなく、その単語に関連する類似語、反意語、活用、文法、語源まで勉強し、語彙力を強化します。</p>
-              <p>韓国語で話したいけど、言葉が上手く出ないのは発音のせいではありません。ドラマをいくら見ても聞こえないのは聞き取りのせいではありません。全ての外国語は単語が一番重要です。単語帳を買っても１０ページで諦めた経験のある方、ぜひミリネにお越しください。</p>
-            </div>
-            <div class="beg-hero-tags">
-              <div class="beg-hero-tag">👥 <span>2～6人</span></div>
-              <div class="beg-hero-tag">⏱ <span>毎週火曜 20:00～21:00</span></div>
-              <div class="beg-hero-tag">💻 <span>Zoom</span></div>
+          <div class="t01-hero">
+            <div class="t01-hero-bg"></div>
+            <div class="t01-hero-grid"></div>
+            <div class="t01-hero-kr-bg">어휘</div>
+            <div class="t01-hero-inner">
+              <div class="t01-hero-left">
+                <div class="t01-hero-eyebrow">VOCABULARY — 語彙力強化</div>
+                <div class="t01-hero-title-en">Build Your Word Power.</div>
+                <h2 class="t01-hero-title-ja">語彙力<br><span>強化クラス</span></h2>
+                <p class="t01-hero-subtitle">一人だといつも途中で断念してしまう学習者のための講座です。一つの単語だけを覚えるのではなく、その単語に関連する類似語、反意語、活用、文法、語源まで勉強し、語彙力を強化します。単語帳を買っても１０ページで諦めた経験のある方、ぜひミリネにお越しください。</p>
+                <div class="t01-hero-meta">
+                  <div class="t01-hero-chip"><span class="icon">👥</span> 2～6人</div>
+                  <div class="t01-hero-chip"><span class="icon">⏱</span> 毎週火曜 20:00～21:00</div>
+                  <div class="t01-hero-chip"><span class="icon">💻</span> Zoom</div>
+                </div>
+                <div class="t01-hero-btns">
+                  <a href="trial.html" class="t01-btn-primary">無料体験に申し込む →</a>
+                  <a href="#tab05-flow" class="t01-btn-secondary">進め方を見る</a>
+                </div>
+              </div>
+              <div class="t01-hero-right">
+                <div class="t01-info-card">
+                  <div class="t01-info-card-label">CONCEPT</div>
+                  <div class="t01-info-card-title">『語彙力強化クラス』</div>
+                  <div class="t01-info-card-body">一人だといつも途中で断念してしまう学習者のための講座です。一つの単語だけを覚えるのではなく、その単語に関連する類似語、反意語、活用、文法、語源まで勉強し、語彙力を強化します。</div>
+                </div>
+                <div class="t01-info-card">
+                  <div class="t01-info-card-label">CLASS TYPES</div>
+                  <div class="t01-info-card-title">5つのクラス</div>
+                  <div class="t01-info-card-body">会話クラス · 音読クラス · 発音・抑揚<br>小説朗読 · 語彙力強化</div>
+                </div>
+                <div class="t01-info-card">
+                  <div class="t01-info-card-label">LEVEL</div>
+                  <div class="t01-info-card-title">中級対象</div>
+                  <div class="t01-info-card-body">2～6人。Zoomで毎週火曜20:00～21:00開講。</div>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div class="beg-sec-header">
+          <div class="beg-sec-header" id="tab05-flow">
             <div class="beg-sec-label">Lesson Flow</div>
             <div class="beg-sec-title">進め方</div>
             <div class="beg-sec-line"></div>

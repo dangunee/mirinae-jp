@@ -801,9 +801,9 @@
       transform: translateY(-3px);
       box-shadow: 0 10px 36px rgba(184,146,42,.5);
     }
-    /* Testimonials — new design, hero colors */
+    /* Testimonials — beige background */
     .syutyu-test-section {
-      background: linear-gradient(135deg, var(--syutyu-hero), var(--syutyu-hero-dark));
+      background: #f0ebe0;
       padding: 72px 48px;
       border-radius: 16px;
     }
@@ -811,7 +811,7 @@
     .syutyu-test-eyebrow {
       font-size: 11px;
       letter-spacing: .4em;
-      color: #fde68a;
+      color: var(--gold);
       display: flex;
       align-items: center;
       gap: 10px;
@@ -821,19 +821,20 @@
       content: '';
       width: 48px;
       height: 1px;
-      background: rgba(253,230,138,.6);
+      background: var(--gold);
+      opacity: .5;
     }
     .syutyu-test-title {
       font-family: 'Noto Serif JP', serif;
       font-size: clamp(22px,3vw,32px);
-      color: #fff;
+      color: var(--text-dark);
       font-weight: 400;
       line-height: 1.4;
       margin-bottom: 6px;
     }
     .syutyu-test-desc {
       font-size: 13px;
-      color: rgba(255,255,255,.7);
+      color: var(--muted);
       line-height: 1.9;
     }
     .syutyu-year-group { margin-bottom: 44px; }
@@ -847,14 +848,31 @@
     .syutyu-year-label .yr {
       font-family: 'Cormorant Garamond', serif;
       font-size: 22px;
-      color: rgba(255,255,255,.95);
+      color: var(--dark);
     }
     .syutyu-year-label::after {
       content: '';
       flex: 1;
       height: 1px;
-      background: rgba(255,255,255,.25);
+      background: var(--gray-border);
     }
+    /* Collapsed year groups — 3회차부터 접기 */
+    .syutyu-year-group.collapsed .syutyu-test-grid { display: none; }
+    .syutyu-year-group.collapsed .syutyu-year-label {
+      cursor: pointer;
+      margin-bottom: 0;
+    }
+    .syutyu-year-group.collapsed .syutyu-year-label::before {
+      content: '▸';
+      font-size: 12px;
+      color: var(--gold);
+      transition: transform .25s;
+      margin-right: 4px;
+    }
+    .syutyu-year-group:not(.collapsed) .syutyu-year-label::before { display: none; }
+    .syutyu-year-group.collapsed.expanded .syutyu-year-label::before { content: '▾'; transform: none; }
+    .syutyu-year-group.collapsed.expanded .syutyu-test-grid { display: grid; }
+    .syutyu-year-group.collapsed.expanded .syutyu-year-label { margin-bottom: 18px; }
     .syutyu-test-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -862,7 +880,7 @@
     }
     .syutyu-test-card {
       background: #fff;
-      border: 1px solid rgba(3,105,161,.15);
+      border: 1px solid var(--gray-border);
       border-radius: 16px;
       padding: 26px;
       position: relative;
@@ -871,7 +889,7 @@
     }
     .syutyu-test-card:hover {
       transform: translateY(-3px);
-      box-shadow: 0 10px 32px rgba(3,105,161,.15);
+      box-shadow: 0 10px 32px rgba(28,26,23,.08);
     }
     .syutyu-test-card::before {
       content: '\201C';
@@ -880,8 +898,8 @@
       left: 20px;
       font-family: 'Cormorant Garamond', serif;
       font-size: 64px;
-      color: var(--syutyu-hero);
-      opacity: .12;
+      color: var(--gold);
+      opacity: .15;
       line-height: 1;
     }
     .syutyu-test-card.nyumon { border-left: 3px solid rgba(109,40,217,.5); }
@@ -1363,8 +1381,8 @@
                 </div>
               </div>
             </div>
-            <div class="syutyu-year-group">
-              <div class="syutyu-year-label"><span class="yr">2021年5月</span></div>
+            <div class="syutyu-year-group collapsed">
+              <div class="syutyu-year-label" role="button" tabindex="0"><span class="yr">2021年5月</span></div>
               <div class="syutyu-test-grid">
                 <div class="syutyu-test-card nyumon">
                   <div class="syutyu-test-head"><div class="syutyu-test-av">入</div><div><div class="syutyu-test-name">入門｜近畿在住</div><div class="syutyu-test-from">2021年5月</div></div><div class="syutyu-test-lv nyumon">入門</div></div>
@@ -1384,8 +1402,8 @@
                 </div>
               </div>
             </div>
-            <div class="syutyu-year-group">
-              <div class="syutyu-year-label"><span class="yr">2020年5月</span></div>
+            <div class="syutyu-year-group collapsed">
+              <div class="syutyu-year-label" role="button" tabindex="0"><span class="yr">2020年5月</span></div>
               <div class="syutyu-test-grid">
                 <div class="syutyu-test-card nyumon">
                   <div class="syutyu-test-head"><div class="syutyu-test-av">入</div><div><div class="syutyu-test-name">入門｜5月</div><div class="syutyu-test-from">2020年5月</div></div><div class="syutyu-test-lv nyumon">入門</div></div>
@@ -1393,8 +1411,8 @@
                 </div>
               </div>
             </div>
-            <div class="syutyu-year-group">
-              <div class="syutyu-year-label"><span class="yr">2020年2月</span></div>
+            <div class="syutyu-year-group collapsed">
+              <div class="syutyu-year-label" role="button" tabindex="0"><span class="yr">2020年2月</span></div>
               <div class="syutyu-test-grid">
                 <div class="syutyu-test-card nyumon">
                   <div class="syutyu-test-head"><div class="syutyu-test-av">S</div><div><div class="syutyu-test-name">S様｜入門｜2月</div><div class="syutyu-test-from">2020年2月</div></div><div class="syutyu-test-lv nyumon">入門</div></div>
@@ -1406,8 +1424,8 @@
                 </div>
               </div>
             </div>
-            <div class="syutyu-year-group">
-              <div class="syutyu-year-label"><span class="yr">2020年1月</span></div>
+            <div class="syutyu-year-group collapsed">
+              <div class="syutyu-year-label" role="button" tabindex="0"><span class="yr">2020年1月</span></div>
               <div class="syutyu-test-grid">
                 <div class="syutyu-test-card nyumon">
                   <div class="syutyu-test-head"><div class="syutyu-test-av">N</div><div><div class="syutyu-test-name">NM様｜入門｜1月</div><div class="syutyu-test-from">2020年1月</div></div><div class="syutyu-test-lv nyumon">入門</div></div>
@@ -2236,6 +2254,18 @@
         btn.addEventListener('click', function() {
           var group = this.closest('.nav-group');
           group.classList.toggle('open');
+        });
+      });
+
+      document.querySelectorAll('.syutyu-year-group.collapsed .syutyu-year-label').forEach(function(label) {
+        label.addEventListener('click', function() {
+          this.closest('.syutyu-year-group').classList.toggle('expanded');
+        });
+        label.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            this.closest('.syutyu-year-group').classList.toggle('expanded');
+          }
         });
       });
 

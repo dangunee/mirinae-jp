@@ -286,8 +286,8 @@
       .nav-logo { font-size: 14px; margin-right: 0; flex-shrink: 0; white-space: nowrap; }
       .hero { padding: 40px 16px 32px; }
       .hero::after { display: none; }
-      .tabs-bar { padding: 0 12px; overflow-x: auto; -webkit-overflow-scrolling: touch; justify-content: space-between; flex-wrap: nowrap; }
-      .tabs-bar .tab-btn { flex: 1 1 0; min-width: 0; padding: 12px 2px; font-size: 16px; text-align: center; }
+      .tabs-bar { padding: 0 12px; overflow-x: auto; -webkit-overflow-scrolling: touch; justify-content: flex-start; flex-wrap: nowrap; }
+      .tabs-bar .tab-btn { flex: 0 0 auto; min-width: max-content; padding: 12px 14px; font-size: 14px; text-align: center; }
       .main-content { padding: 24px 16px 80px; }
       #tab01 .beg-hero, #tab02 .beg-hero, #tab03 .beg-hero, #tab04 .beg-hero, #tab05 .beg-hero { padding: 28px 20px; }
       .beg-tuition-table thead th { font-size: 14px; }
@@ -298,7 +298,7 @@
       .nav-logo { font-size: 13px; white-space: nowrap; }
       .hero { padding: 32px 12px 24px; }
       .tabs-bar { padding: 0 8px; }
-      .tabs-bar .tab-btn { padding: 10px 1px; font-size: 15px; }
+      .tabs-bar .tab-btn { padding: 10px 12px; font-size: 13px; }
       .main-content { padding: 20px 12px 80px; }
       #tab01 .beg-hero, #tab02 .beg-hero, #tab03 .beg-hero, #tab04 .beg-hero, #tab05 .beg-hero { padding: 24px 16px; }
       .beg-tuition-table thead th { font-size: 13px; }
@@ -1816,13 +1816,14 @@
       nav { padding: 0 24px; }
       .hero { padding: 48px 24px 40px; }
       .hero::after { font-size: 80px; right: 24px; }
-      .tabs-bar { padding: 0 24px; overflow-x: auto; }
-      .tab-btn { flex: 1 0 auto; padding: 14px 16px; font-size: 12px; }
+      .tabs-bar { padding: 0 24px; overflow-x: auto; -webkit-overflow-scrolling: touch; justify-content: flex-start; }
+      .tab-btn { flex: 0 0 auto; min-width: max-content; padding: 14px 16px; font-size: 13px; }
     }
     @media (max-width: 600px) {
       .main-content { padding: 24px 16px 40px; }
       .hero { padding: 40px 16px 32px; }
       .hero::after { font-size: 60px; right: 16px; }
+      .tabs-bar .tab-btn { padding: 10px 12px; font-size: 12px; }
     }
   </style>
 </head>
@@ -2034,17 +2035,11 @@
 
           <div class="beg-sec-header">
             <div class="beg-sec-label">Tuition</div>
-            <div class="beg-sec-title">入学金・授業料</div>
+            <div class="beg-sec-title">授業料</div>
             <div class="beg-sec-line"></div>
           </div>
           <div class="t01-tuition-grid">
             <div class="t01-tuition-left">
-              <div class="t01-entry-fee-box">
-                <div>
-                  <div class="t01-label">ENROLLMENT FEE / 入学金</div>
-                  <div class="t01-amount">9,800<span>円</span></div>
-                </div>
-              </div>
               <div class="t01-price-cards">
                 <div class="t01-price-card featured">
                   <div class="t01-price-plan">通常プラン（月4回）</div>
@@ -2098,27 +2093,6 @@
                   <div class="t01-schedule-row">
                     <div class="day">土</div>
                     <span>毎週土曜日 14:00〜14:50</span>
-                  </div>
-                </div>
-              </div>
-              <div class="t01-info-card" style="background:var(--beige);border-color:var(--border);">
-                <div class="t01-info-card-label" style="color:var(--gold);">CLASS TYPES / 受講クラス</div>
-                <div class="t01-info-card-title" style="color:var(--text-dark);">5つのクラスから選べます</div>
-                <div style="margin-top:14px;display:flex;flex-direction:column;gap:8px;">
-                  <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:var(--mid);">
-                    <span style="width:8px;height:8px;border-radius:50%;background:var(--gold);flex-shrink:0;"></span>会話クラス
-                  </div>
-                  <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:var(--mid);">
-                    <span style="width:8px;height:8px;border-radius:50%;background:var(--gold);flex-shrink:0;"></span>音読クラス
-                  </div>
-                  <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:var(--mid);">
-                    <span style="width:8px;height:8px;border-radius:50%;background:var(--gold);flex-shrink:0;"></span>発音・抑揚
-                  </div>
-                  <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:var(--mid);">
-                    <span style="width:8px;height:8px;border-radius:50%;background:var(--gold);flex-shrink:0;"></span>小説朗読
-                  </div>
-                  <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:var(--mid);">
-                    <span style="width:8px;height:8px;border-radius:50%;background:var(--gold);flex-shrink:0;"></span>語彙力強化
                   </div>
                 </div>
               </div>
@@ -2289,7 +2263,7 @@
 
           <div class="beg-sec-header">
             <div class="beg-sec-label">Tuition</div>
-            <div class="beg-sec-title">入学金・授業料</div>
+            <div class="beg-sec-title">授業料</div>
             <div class="beg-sec-line"></div>
           </div>
           <div class="beg-tuition-table-wrap">

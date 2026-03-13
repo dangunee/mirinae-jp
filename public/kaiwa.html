@@ -1018,7 +1018,7 @@
       color: var(--dark);
       font-weight: 400;
     }
-    #tab01 .kaiwa-cta-strip {
+    #tab01 .kaiwa-cta-strip, #tab02 .kaiwa-cta-strip {
       margin-top: 48px;
       margin-bottom: 32px;
       background: linear-gradient(135deg, var(--navy) 0%, #1a3060 100%);
@@ -1043,18 +1043,30 @@
       white-space: nowrap;
       pointer-events: none;
     }
-    #tab01 .kaiwa-cta-text h3 {
+    #tab02 .kaiwa-cta-strip::before {
+      content: '음독';
+      position: absolute;
+      right: 120px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: 'DM Serif Display', serif;
+      font-size: 100px;
+      color: rgba(255,255,255,0.03);
+      white-space: nowrap;
+      pointer-events: none;
+    }
+    #tab01 .kaiwa-cta-text h3, #tab02 .kaiwa-cta-text h3 {
       font-family: 'DM Serif Display', serif;
       font-size: 22px;
       color: white;
       margin-bottom: 6px;
     }
-    #tab01 .kaiwa-cta-text p {
+    #tab01 .kaiwa-cta-text p, #tab02 .kaiwa-cta-text p {
       font-size: 13px;
       color: rgba(255,255,255,0.5);
       line-height: 1.7;
     }
-    #tab01 .kaiwa-cta-btn {
+    #tab01 .kaiwa-cta-btn, #tab02 .kaiwa-cta-btn {
       flex-shrink: 0;
       background: linear-gradient(135deg, var(--gold), var(--gold-light));
       color: var(--navy);
@@ -1073,26 +1085,26 @@
       transition: transform 0.2s, box-shadow 0.2s;
       white-space: nowrap;
     }
-    #tab01 .kaiwa-cta-btn:hover {
+    #tab01 .kaiwa-cta-btn:hover, #tab02 .kaiwa-cta-btn:hover {
       transform: translateY(-2px);
       box-shadow: 0 8px 24px rgba(201,146,42,0.4);
     }
     @media (max-width: 768px) {
-      #tab01 .kaiwa-cta-strip {
+      #tab01 .kaiwa-cta-strip, #tab02 .kaiwa-cta-strip {
         flex-direction: column;
         align-items: stretch;
         text-align: center;
         padding: 24px 20px;
         gap: 20px;
       }
-      #tab01 .kaiwa-cta-strip::before { display: none; }
-      #tab01 .kaiwa-cta-text h3 { font-size: 18px; margin-bottom: 4px; }
-      #tab01 .kaiwa-cta-text p {
+      #tab01 .kaiwa-cta-strip::before, #tab02 .kaiwa-cta-strip::before { display: none; }
+      #tab01 .kaiwa-cta-text h3, #tab02 .kaiwa-cta-text h3 { font-size: 18px; margin-bottom: 4px; }
+      #tab01 .kaiwa-cta-text p, #tab02 .kaiwa-cta-text p {
         font-size: 12px;
         line-height: 1.6;
         max-width: 100%;
       }
-      #tab01 .kaiwa-cta-btn { justify-content: center; }
+      #tab01 .kaiwa-cta-btn, #tab02 .kaiwa-cta-btn { justify-content: center; }
     }
     /* ── tab01 新デザイン (会話クラス) + tab02-05 共通ヒーロー ── */
     #tab01 .t01-hero, #tab02 .t01-hero, #tab03 .t01-hero, #tab04 .t01-hero, #tab05 .t01-hero {
@@ -1263,13 +1275,13 @@
       color: rgba(255,255,255,0.5);
       line-height: 1.8;
     }
-    #tab01 .t01-target-grid {
+    #tab01 .t01-target-grid, #tab02 .t01-target-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 24px;
       margin-top: 40px;
     }
-    #tab01 .t01-target-card {
+    #tab01 .t01-target-card, #tab02 .t01-target-card {
       position: relative;
       border: 1px solid var(--border);
       border-radius: 20px;
@@ -1278,18 +1290,18 @@
       overflow: hidden;
       transition: transform 0.3s, box-shadow 0.3s;
     }
-    #tab01 .t01-target-card:hover {
+    #tab01 .t01-target-card:hover, #tab02 .t01-target-card:hover {
       transform: translateY(-4px);
       box-shadow: 0 16px 48px rgba(14,28,56,0.08);
     }
-    #tab01 .t01-target-card::after {
+    #tab01 .t01-target-card::after, #tab02 .t01-target-card::after {
       content: '';
       position: absolute;
       top: 0; left: 0; right: 0;
       height: 3px;
       background: linear-gradient(90deg, var(--gold), var(--gold-light));
     }
-    #tab01 .t01-target-icon {
+    #tab01 .t01-target-icon, #tab02 .t01-target-icon {
       width: 48px; height: 48px;
       background: linear-gradient(135deg, var(--navy), var(--navy-mid));
       border-radius: 12px;
@@ -1300,7 +1312,7 @@
       margin-bottom: 16px;
       box-shadow: 0 4px 16px rgba(14,28,56,0.2);
     }
-    #tab01 .t01-target-card h3 {
+    #tab01 .t01-target-card h3, #tab02 .t01-target-card h3 {
       font-family: 'Noto Serif JP', serif;
       font-size: 15px;
       font-weight: 600;
@@ -1308,12 +1320,12 @@
       margin-bottom: 10px;
       line-height: 1.5;
     }
-    #tab01 .t01-target-card p {
+    #tab01 .t01-target-card p, #tab02 .t01-target-card p {
       font-size: 13px;
       color: var(--text-muted);
       line-height: 1.9;
     }
-    #tab01 .t01-flow-section {
+    #tab01 .t01-flow-section, #tab02 .t01-flow-section {
       background: var(--navy);
       position: relative;
       overflow: hidden;
@@ -1321,16 +1333,16 @@
       padding: 56px 48px;
       border-radius: 16px;
     }
-    #tab01 .t01-flow-section::before {
+    #tab01 .t01-flow-section::before, #tab02 .t01-flow-section::before {
       content: '';
       position: absolute;
       inset: 0;
       background: radial-gradient(ellipse 50% 80% at 90% 50%, rgba(200,145,30,0.08) 0%, transparent 60%);
     }
-    #tab01 .t01-flow-section .beg-sec-label { color: var(--gold); }
-    #tab01 .t01-flow-section .beg-sec-title { color: #fff; }
-    #tab01 .t01-flow-section .beg-sec-line { background: rgba(255,255,255,0.2); }
-    #tab01 .t01-flow-steps {
+    #tab01 .t01-flow-section .beg-sec-label, #tab02 .t01-flow-section .beg-sec-label { color: var(--gold); }
+    #tab01 .t01-flow-section .beg-sec-title, #tab02 .t01-flow-section .beg-sec-title { color: #fff; }
+    #tab01 .t01-flow-section .beg-sec-line, #tab02 .t01-flow-section .beg-sec-line { background: rgba(255,255,255,0.2); }
+    #tab01 .t01-flow-steps, #tab02 .t01-flow-steps {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 20px;
@@ -1338,12 +1350,12 @@
       position: relative;
       z-index: 1;
     }
-    #tab01 .t01-flow-step {
+    #tab01 .t01-flow-step, #tab02 .t01-flow-step {
       position: relative;
       text-align: center;
       padding: 0 8px;
     }
-    #tab01 .t01-flow-num {
+    #tab01 .t01-flow-num, #tab02 .t01-flow-num {
       width: 56px; height: 56px;
       border-radius: 50%;
       background: linear-gradient(135deg, var(--gold), var(--gold-light));
@@ -1358,29 +1370,32 @@
       z-index: 1;
       box-shadow: 0 4px 20px rgba(200,145,30,0.35);
     }
-    #tab01 .t01-flow-step h3 {
+    #tab01 .t01-flow-step h3, #tab02 .t01-flow-step h3 {
       font-family: 'Noto Serif JP', serif;
       font-size: 13px;
       color: var(--gold-light);
       margin-bottom: 8px;
       line-height: 1.4;
     }
-    #tab01 .t01-flow-step p {
+    #tab01 .t01-flow-step p, #tab02 .t01-flow-step p {
       font-size: 12px;
       color: rgba(255,255,255,0.45);
       line-height: 1.8;
     }
     #tab01 .t01-flow-section + .beg-sec-header,
     #tab01 .kaiwa-cta-strip + .beg-sec-header,
-    #tab01 .t01-tuition-grid + .beg-sec-header { margin-top: 48px; }
-    #tab01 .t01-tuition-grid {
+    #tab01 .t01-tuition-grid + .beg-sec-header,
+    #tab02 .t01-flow-section + .beg-sec-header,
+    #tab02 .kaiwa-cta-strip + .beg-sec-header,
+    #tab02 .t01-tuition-grid + .beg-sec-header { margin-top: 48px; }
+    #tab01 .t01-tuition-grid, #tab02 .t01-tuition-grid {
       display: flex;
       flex-direction: column;
       gap: 24px;
       margin-top: 40px;
       width: 100%;
     }
-    #tab01 .t01-entry-fee-box {
+    #tab01 .t01-entry-fee-box, #tab02 .t01-entry-fee-box {
       background: var(--beige);
       border-radius: 14px;
       padding: 24px 28px;
@@ -1390,22 +1405,22 @@
       gap: 20px;
       margin-bottom: 20px;
     }
-    #tab01 .t01-entry-fee-box .t01-label {
+    #tab01 .t01-entry-fee-box .t01-label, #tab02 .t01-entry-fee-box .t01-label {
       font-family: 'Bebas Neue', sans-serif;
       font-size: 10px;
       letter-spacing: 0.25em;
       color: var(--gold);
       margin-bottom: 4px;
     }
-    #tab01 .t01-entry-fee-box .t01-amount {
+    #tab01 .t01-entry-fee-box .t01-amount, #tab02 .t01-entry-fee-box .t01-amount {
       font-family: 'Cormorant Garamond', serif;
       font-size: 36px;
       color: var(--navy);
       line-height: 1;
     }
-    #tab01 .t01-entry-fee-box .t01-amount span { font-size: 16px; color: var(--text-muted); }
-    #tab01 .t01-price-cards { display: flex; flex-direction: row; gap: 20px; flex-wrap: wrap; }
-    #tab01 .t01-price-card {
+    #tab01 .t01-entry-fee-box .t01-amount span, #tab02 .t01-entry-fee-box .t01-amount span { font-size: 16px; color: var(--text-muted); }
+    #tab01 .t01-price-cards, #tab02 .t01-price-cards { display: flex; flex-direction: row; gap: 20px; flex-wrap: wrap; }
+    #tab01 .t01-price-card, #tab02 .t01-price-card {
       flex: 1 1 280px;
       min-width: 0;
       background: var(--beige);
@@ -1415,15 +1430,15 @@
       position: relative;
       transition: border-color 0.3s, transform 0.3s;
     }
-    #tab01 .t01-price-card:hover {
+    #tab01 .t01-price-card:hover, #tab02 .t01-price-card:hover {
       border-color: var(--gold);
       transform: translateY(-2px);
     }
-    #tab01 .t01-price-card.featured {
+    #tab01 .t01-price-card.featured, #tab02 .t01-price-card.featured {
       background: linear-gradient(135deg, var(--navy), var(--navy-mid));
       border-color: rgba(200,145,30,0.4);
     }
-    #tab01 .t01-price-card.featured::after {
+    #tab01 .t01-price-card.featured::after, #tab02 .t01-price-card.featured::after {
       content: 'おすすめ';
       position: absolute;
       top: -10px; right: 20px;
@@ -1435,30 +1450,30 @@
       border-radius: 100px;
       letter-spacing: 0.05em;
     }
-    #tab01 .t01-price-plan {
+    #tab01 .t01-price-plan, #tab02 .t01-price-plan {
       font-family: 'Noto Serif JP', serif;
       font-size: 14px;
       font-weight: 600;
       color: var(--text-dark);
       margin-bottom: 10px;
     }
-    #tab01 .t01-price-card.featured .t01-price-plan { color: var(--gold-light); }
-    #tab01 .t01-price-row {
+    #tab01 .t01-price-card.featured .t01-price-plan, #tab02 .t01-price-card.featured .t01-price-plan { color: var(--gold-light); }
+    #tab01 .t01-price-row, #tab02 .t01-price-row {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
       margin-bottom: 4px;
     }
-    #tab01 .t01-price-row .key { font-size: 12px; color: var(--text-muted); }
-    #tab01 .t01-price-card.featured .t01-price-row .key { color: rgba(255,255,255,0.45); }
-    #tab01 .t01-price-row .val {
+    #tab01 .t01-price-row .key, #tab02 .t01-price-row .key { font-size: 12px; color: var(--text-muted); }
+    #tab01 .t01-price-card.featured .t01-price-row .key, #tab02 .t01-price-card.featured .t01-price-row .key { color: rgba(255,255,255,0.45); }
+    #tab01 .t01-price-row .val, #tab02 .t01-price-row .val {
       font-family: 'Cormorant Garamond', serif;
       font-size: 20px;
       color: var(--navy);
     }
-    #tab01 .t01-price-card.featured .t01-price-row .val { color: #fff; }
-    #tab01 .t01-price-row .val small { font-size: 12px; color: var(--text-muted); font-family: 'Noto Sans JP', sans-serif; }
-    #tab01 .t01-price-total {
+    #tab01 .t01-price-card.featured .t01-price-row .val, #tab02 .t01-price-card.featured .t01-price-row .val { color: #fff; }
+    #tab01 .t01-price-row .val small, #tab02 .t01-price-row .val small { font-size: 12px; color: var(--text-muted); font-family: 'Noto Sans JP', sans-serif; }
+    #tab01 .t01-price-total, #tab02 .t01-price-total {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
@@ -1466,16 +1481,16 @@
       padding-top: 14px;
       border-top: 1px solid var(--border);
     }
-    #tab01 .t01-price-card.featured .t01-price-total { border-top-color: rgba(255,255,255,0.1); }
-    #tab01 .t01-price-total .total-label { font-size: 12px; color: var(--text-muted); }
-    #tab01 .t01-price-card.featured .t01-price-total .total-label { color: rgba(255,255,255,0.45); }
-    #tab01 .t01-price-total .total-val {
+    #tab01 .t01-price-card.featured .t01-price-total, #tab02 .t01-price-card.featured .t01-price-total { border-top-color: rgba(255,255,255,0.1); }
+    #tab01 .t01-price-total .total-label, #tab02 .t01-price-total .total-label { font-size: 12px; color: var(--text-muted); }
+    #tab01 .t01-price-card.featured .t01-price-total .total-label, #tab02 .t01-price-card.featured .t01-price-total .total-label { color: rgba(255,255,255,0.45); }
+    #tab01 .t01-price-total .total-val, #tab02 .t01-price-total .total-val {
       font-family: 'Cormorant Garamond', serif;
       font-size: 28px;
       color: var(--gold);
     }
-    #tab01 .t01-price-card.featured .t01-price-total .total-val { color: var(--gold-light); }
-    #tab01 .t01-tuition-notes {
+    #tab01 .t01-price-card.featured .t01-price-total .total-val, #tab02 .t01-price-card.featured .t01-price-total .total-val { color: var(--gold-light); }
+    #tab01 .t01-tuition-notes, #tab02 .t01-tuition-notes {
       font-size: 11px;
       color: var(--text-muted);
       line-height: 1.9;
@@ -1486,7 +1501,7 @@
       width: 100%;
       box-sizing: border-box;
     }
-    #tab01 .t01-cta-big {
+    #tab01 .t01-cta-big, #tab02 .t01-cta-big {
       display: block;
       width: 100%;
       text-align: center;
@@ -1502,21 +1517,21 @@
       transition: all 0.25s;
       box-shadow: 0 4px 24px rgba(200,145,30,0.3);
     }
-    #tab01 .t01-cta-big:hover {
+    #tab01 .t01-cta-big:hover, #tab02 .t01-cta-big:hover {
       transform: translateY(-3px);
       box-shadow: 0 10px 36px rgba(200,145,30,0.45);
     }
-    #tab01 .t01-schedule-cta-row {
+    #tab01 .t01-schedule-cta-row, #tab02 .t01-schedule-cta-row {
       display: flex;
       flex-direction: row;
       gap: 24px;
       flex-wrap: wrap;
     }
-    #tab01 .t01-schedule-cta-row .t01-schedule-box {
+    #tab01 .t01-schedule-cta-row .t01-schedule-box, #tab02 .t01-schedule-cta-row .t01-schedule-box {
       flex: 1 1 280px;
       min-width: 0;
     }
-    #tab01 .t01-cta-box {
+    #tab01 .t01-cta-box, #tab02 .t01-cta-box {
       flex: 1 1 280px;
       min-width: 0;
       background: var(--beige);
@@ -1527,11 +1542,11 @@
       flex-direction: column;
       gap: 16px;
     }
-    #tab01 .t01-cta-box .t01-cta-big {
+    #tab01 .t01-cta-box .t01-cta-big, #tab02 .t01-cta-box .t01-cta-big {
       margin-top: 0;
       width: 100%;
     }
-    #tab01 .t01-cta-box .t01-tuition-notes {
+    #tab01 .t01-cta-box .t01-tuition-notes, #tab02 .t01-cta-box .t01-tuition-notes {
       margin-top: 0;
       padding: 0;
       background: none;
@@ -1540,28 +1555,28 @@
       color: var(--text-muted);
       line-height: 1.9;
     }
-    #tab01 .t01-schedule-box {
+    #tab01 .t01-schedule-box, #tab02 .t01-schedule-box {
       background: var(--beige);
       border: 1px solid var(--border);
       border-radius: 14px;
       padding: 24px 28px;
     }
-    #tab01 .t01-schedule-box h3 {
+    #tab01 .t01-schedule-box h3, #tab02 .t01-schedule-box h3 {
       font-family: 'Bebas Neue', sans-serif;
       font-size: 11px;
       letter-spacing: 0.25em;
       color: var(--gold);
       margin-bottom: 14px;
     }
-    #tab01 .t01-schedule-rows { display: flex; flex-direction: row; flex-wrap: wrap; gap: 16px 24px; }
-    #tab01 .t01-schedule-row {
+    #tab01 .t01-schedule-rows, #tab02 .t01-schedule-rows { display: flex; flex-direction: row; flex-wrap: wrap; gap: 16px 24px; }
+    #tab01 .t01-schedule-row, #tab02 .t01-schedule-row {
       display: flex;
       align-items: center;
       gap: 12px;
       font-size: 13px;
       color: var(--mid);
     }
-    #tab01 .t01-schedule-row .day {
+    #tab01 .t01-schedule-row .day, #tab02 .t01-schedule-row .day {
       width: 36px; height: 36px;
       background: var(--navy);
       color: var(--gold-light);
@@ -1574,16 +1589,16 @@
       font-weight: 600;
       flex-shrink: 0;
     }
-    #tab01 .t01-test-grid {
+    #tab01 .t01-test-grid, #tab02 .t01-test-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 24px;
       margin-top: 40px;
     }
-    #tab01 .t01-test-card:nth-child(n+5) {
+    #tab01 .t01-test-card:nth-child(n+5), #tab02 .t01-test-card:nth-child(n+5) {
       grid-column: 1 / -1;
     }
-    #tab01 .t01-test-card {
+    #tab01 .t01-test-card, #tab02 .t01-test-card {
       background: var(--white);
       border: 1px solid var(--border);
       border-radius: 20px;
@@ -1591,11 +1606,11 @@
       position: relative;
       transition: transform 0.3s, box-shadow 0.3s;
     }
-    #tab01 .t01-test-card:hover {
+    #tab01 .t01-test-card:hover, #tab02 .t01-test-card:hover {
       transform: translateY(-4px);
       box-shadow: 0 16px 48px rgba(14,28,56,0.08);
     }
-    #tab01 .t01-test-card::before {
+    #tab01 .t01-test-card::before, #tab02 .t01-test-card::before {
       content: '\201C';
       position: absolute;
       top: 18px; left: 26px;
@@ -1605,15 +1620,15 @@
       opacity: 0.15;
       line-height: 1;
     }
-    #tab01 .t01-test-body {
+    #tab01 .t01-test-body, #tab02 .t01-test-body {
       font-size: 14px;
       line-height: 1.9;
       color: var(--mid);
       margin-bottom: 20px;
       padding-top: 14px;
     }
-    #tab01 .t01-test-author { display: flex; align-items: center; gap: 12px; }
-    #tab01 .t01-test-avatar {
+    #tab01 .t01-test-author, #tab02 .t01-test-author { display: flex; align-items: center; gap: 12px; }
+    #tab01 .t01-test-avatar, #tab02 .t01-test-avatar {
       width: 44px; height: 44px;
       border-radius: 50%;
       background: linear-gradient(135deg, var(--navy), var(--navy-mid));
@@ -1625,42 +1640,44 @@
       justify-content: center;
       font-weight: 600;
     }
-    #tab01 .t01-test-name {
+    #tab01 .t01-test-name, #tab02 .t01-test-name {
       font-family: 'Noto Serif JP', serif;
       font-size: 13px;
       color: var(--text-dark);
       margin-bottom: 3px;
     }
-    #tab01 .t01-test-label { font-size: 11px; color: var(--gold); letter-spacing: 0.05em; }
-    #tab01 .t01-test-card.t01-test-collapsible .t01-test-header {
+    #tab01 .t01-test-label, #tab02 .t01-test-label { font-size: 11px; color: var(--gold); letter-spacing: 0.05em; }
+    #tab01 .t01-test-card.t01-test-collapsible .t01-test-header, #tab02 .t01-test-card.t01-test-collapsible .t01-test-header {
       display: flex; align-items: center; justify-content: space-between; gap: 12px;
       cursor: pointer; user-select: none; margin-bottom: 0;
     }
-    #tab01 .t01-test-card.t01-test-collapsible .t01-test-header .t01-test-author { margin-bottom: 0; }
-    #tab01 .t01-test-card.t01-test-collapsible .t01-test-body {
+    #tab01 .t01-test-card.t01-test-collapsible .t01-test-header .t01-test-author, #tab02 .t01-test-card.t01-test-collapsible .t01-test-header .t01-test-author { margin-bottom: 0; }
+    #tab01 .t01-test-card.t01-test-collapsible .t01-test-body, #tab02 .t01-test-card.t01-test-collapsible .t01-test-body {
       display: none; padding-top: 16px; margin-top: 16px;
       border-top: 1px solid var(--border);
     }
-    #tab01 .t01-test-card.t01-test-collapsible.t01-test-expanded .t01-test-body { display: block; }
-    #tab01 .t01-test-card.t01-test-collapsible .t01-test-toggle {
+    #tab01 .t01-test-card.t01-test-collapsible.t01-test-expanded .t01-test-body, #tab02 .t01-test-card.t01-test-collapsible.t01-test-expanded .t01-test-body { display: block; }
+    #tab01 .t01-test-card.t01-test-collapsible .t01-test-toggle, #tab02 .t01-test-card.t01-test-collapsible .t01-test-toggle {
       flex-shrink: 0; font-size: 12px; color: var(--gold);
       transition: transform .2s;
     }
-    #tab01 .t01-test-card.t01-test-collapsible.t01-test-expanded .t01-test-toggle { transform: rotate(180deg); }
+    #tab01 .t01-test-card.t01-test-collapsible.t01-test-expanded .t01-test-toggle, #tab02 .t01-test-card.t01-test-collapsible.t01-test-expanded .t01-test-toggle { transform: rotate(180deg); }
     @media (max-width: 900px) {
       #tab01 .t01-hero-inner, #tab02 .t01-hero-inner, #tab03 .t01-hero-inner, #tab04 .t01-hero-inner, #tab05 .t01-hero-inner { grid-template-columns: 1fr; }
       #tab01 .t01-hero-kr-bg, #tab02 .t01-hero-kr-bg, #tab03 .t01-hero-kr-bg, #tab04 .t01-hero-kr-bg, #tab05 .t01-hero-kr-bg { display: none; }
-      #tab01 .t01-target-grid { grid-template-columns: 1fr; }
-      #tab01 .t01-flow-steps { grid-template-columns: 1fr 1fr; }
-      #tab01 .t01-price-cards { flex-direction: column; }
-      #tab01 .t01-price-card { flex: 1 1 auto; }
-      #tab01 .t01-schedule-cta-row { flex-direction: column; }
+      #tab01 .t01-target-grid, #tab02 .t01-target-grid { grid-template-columns: 1fr; }
+      #tab01 .t01-flow-steps, #tab02 .t01-flow-steps { grid-template-columns: 1fr 1fr; }
+      #tab01 .t01-price-cards, #tab02 .t01-price-cards { flex-direction: column; }
+      #tab01 .t01-price-card, #tab02 .t01-price-card { flex: 1 1 auto; }
+      #tab01 .t01-schedule-cta-row, #tab02 .t01-schedule-cta-row { flex-direction: column; }
       #tab01 .t01-schedule-cta-row .t01-schedule-box,
-      #tab01 .t01-schedule-cta-row .t01-cta-box { flex: 1 1 auto; }
-      #tab01 .t01-test-grid { grid-template-columns: 1fr; }
+      #tab01 .t01-schedule-cta-row .t01-cta-box,
+      #tab02 .t01-schedule-cta-row .t01-schedule-box,
+      #tab02 .t01-schedule-cta-row .t01-cta-box { flex: 1 1 auto; }
+      #tab01 .t01-test-grid, #tab02 .t01-test-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 600px) {
-      #tab01 .t01-flow-steps { grid-template-columns: 1fr; }
+      #tab01 .t01-flow-steps, #tab02 .t01-flow-steps { grid-template-columns: 1fr; }
     }
     .beg-tuition-table-wrap {
       border-radius: 10px;
@@ -2293,35 +2310,46 @@
             </div>
           </div>
 
-          <div class="beg-intro-block">
-            <p style="margin-bottom:16px;"><strong>A:</strong> 田中さんは韓国語をどれぐらい勉強しましたか。<br><strong>B:</strong> 6年ぐらい勉強しましたが、未だに中級で伸び悩んでいます。</p>
-            <p style="margin-bottom:16px;"><strong>A:</strong> 学習の中で何が一番のお悩みですか。<br><strong>B:</strong> 初級時は意欲もあり、単語もよく覚えられましたが、中級へ上がったら、語彙や表現があまりにもたくさん出てきて、全て覚えることが難しく、伸び悩んでおります。</p>
-            <p style="margin-bottom:16px;"><strong>A:</strong> 勉強時間はどのぐらいになりますか。<br><strong>B:</strong> 毎日ではないですが、二日に一回は勉強しています。</p>
-            <p style="margin-bottom:12px;">田中さんは真面目な方で、勉強する時間も他の方より多いのに関わらず、初中級から抜け出せないケースでした。二日に一回勉強する時間を作るのというのは、平均よりもはるかに勉強する時間が多いのに、果たして何が問題なのでしょうか。</p>
-            <p style="margin-bottom:12px;">彼女の勉強方法を聞いてみると、カフェで2時間ほど座って黙読し、訳をノートに書きながら単語を覚えていくという方法でした。また帰り道や電車に乗っているとき、韓国語CDを聞いてもいました。<br>ここで皆さんはどんな問題点を発見しましたか。</p>
-            <p style="margin-bottom:12px;">よく語学をスポーツに喩えます。スポーツは他の分野とは違って努力によって結果がついてきます。もちろん、才能とセンスがある人もいますが、それに加えて反復的なトレーニングをしなければよい成果をあげることはできません。反復的な学習を通じて体に馴染ませていくのが何より重要だと言えます。しかし、反復学習にもかかわらず、伸びない理由は何でしょうか。</p>
-            <p style="margin-bottom:12px;">多くの学習者たちの共通の悩みは、単語や表現がよく覚えられないこと、そして覚えても忘れてしまい、会話まで繋いでいけないことです。黙読は、半分しかできてない勉強法です。全部知っていると考えて、全部覚えたと思っても、1日、2日経ち、1週間、1ヵ月後には結局、記憶に残るのは10%も達しないと言います。</p>
-            <p style="margin-bottom:12px;">たとえ一生懸命勉強していても、音読の習慣が全くない状態では頭の中に残るのは努力と比例しない結果となります。音読の重要性を認識していても、音読練習は、正確な発音で学習しなければ、むしろ間違った発音に慣れてしまうという逆効果が生じる恐れもあります。</p>
-            <p style="margin-bottom:0;"><strong>専門講師に発音チェックを受けた上で、音読の習慣をつければ、綺麗な韓国語を習得できるだけでなく、難なくレベルアップすることができます。</strong></p>
-          </div>
-
-          <div class="beg-sec-header" id="tab02-points">
-            <div class="beg-sec-label">Points</div>
-            <div class="beg-sec-title">ポイント</div>
+          <div class="beg-sec-header">
+            <div class="beg-sec-label">Targets</div>
+            <div class="beg-sec-title">対象・目標</div>
             <div class="beg-sec-line"></div>
           </div>
-          <div class="beg-flow-steps">
-            <div class="beg-flow-step">
-              <span class="beg-flow-num">1</span>
-              <span class="beg-flow-text">毎回、発音・抑揚・話すスピードをチェック</span>
+          <div class="t01-target-grid">
+            <div class="t01-target-card">
+              <div class="t01-target-icon">🗣️</div>
+              <h3>黙読では伸び悩んでいる方</h3>
+              <p>音読クラスで、専門講師の発音チェックを受けながら音読の習慣をつけることで、綺麗な発音と抑揚を身につけ、会話力・聞き取り力を同時に伸ばします。</p>
             </div>
-            <div class="beg-flow-step">
-              <span class="beg-flow-num">2</span>
-              <span class="beg-flow-text">正しい抑揚と発音をイメージトレーニングで定着</span>
+            <div class="t01-target-card">
+              <div class="t01-target-icon">✍️</div>
+              <h3>発音・抑揚を正しく身につけたい方</h3>
+              <p>オーバーラッピングとシャドーイングで、長い文章も自然に読めるように。正しい抑揚と発音をイメージトレーニングで定着させます。</p>
             </div>
-            <div class="beg-flow-step">
-              <span class="beg-flow-num">3</span>
-              <span class="beg-flow-text">オーバーラッピングとシャドーイングで、長い文章も自然に読めるように</span>
+          </div>
+
+          <div class="t01-flow-section" id="tab02-points">
+            <div class="beg-sec-header">
+              <div class="beg-sec-label">Points</div>
+              <div class="beg-sec-title">ポイント</div>
+              <div class="beg-sec-line"></div>
+            </div>
+            <div class="t01-flow-steps">
+              <div class="t01-flow-step">
+                <span class="t01-flow-num">1</span>
+                <h3>発音・抑揚・スピードチェック</h3>
+                <p>毎回、発音・抑揚・話すスピードをチェック</p>
+              </div>
+              <div class="t01-flow-step">
+                <span class="t01-flow-num">2</span>
+                <h3>イメージトレーニング</h3>
+                <p>正しい抑揚と発音をイメージトレーニングで定着</p>
+              </div>
+              <div class="t01-flow-step">
+                <span class="t01-flow-num">3</span>
+                <h3>オーバーラッピング＆シャドーイング</h3>
+                <p>長い文章も自然に読めるように</p>
+              </div>
             </div>
           </div>
 
@@ -2339,24 +2367,37 @@
             </div>
           </div>
 
-          <div class="beg-sec-header">
-            <div class="beg-sec-label">Lesson Flow</div>
-            <div class="beg-sec-title">授業の流れ</div>
-            <div class="beg-sec-line"></div>
+          <div class="t01-flow-section">
+            <div class="beg-sec-header">
+              <div class="beg-sec-label">Lesson Flow</div>
+              <div class="beg-sec-title">授業の流れ</div>
+              <div class="beg-sec-line"></div>
+            </div>
+            <div class="t01-flow-steps">
+              <div class="t01-flow-step">
+                <span class="t01-flow-num">1</span>
+                <h3>音読記録シート</h3>
+                <p>進捗を見える化</p>
+              </div>
+              <div class="t01-flow-step">
+                <span class="t01-flow-num">2</span>
+                <h3>意味・文法・音の変化</h3>
+                <p>文章の意味・文法要素・音の変化を確認</p>
+              </div>
+              <div class="t01-flow-step">
+                <span class="t01-flow-num">3</span>
+                <h3>オーバーラッピング→シャドーイング</h3>
+                <p>音声を聞き、イメージトレーニングまで</p>
+              </div>
+            </div>
           </div>
-          <div class="beg-flow-steps">
-            <div class="beg-flow-step">
-              <span class="beg-flow-num">1</span>
-              <span class="beg-flow-text">音読記録シートを作成し、進捗を見える化</span>
+
+          <div class="kaiwa-cta-strip">
+            <div class="kaiwa-cta-text">
+              <h3>音読クラスに興味がありますか？</h3>
+              <p>ミリネ韓国語教室では、専門講師の発音チェックを受けながら<br>音読の習慣をつけるクラスをご用意しています。</p>
             </div>
-            <div class="beg-flow-step">
-              <span class="beg-flow-num">2</span>
-              <span class="beg-flow-text">文章の意味・文法要素・音の変化を確認</span>
-            </div>
-            <div class="beg-flow-step">
-              <span class="beg-flow-num">3</span>
-              <span class="beg-flow-text">音声を聞き、オーバーラッピング → シャドーイング → イメージトレーニング</span>
-            </div>
+            <a href="https://mirinae-jp.vercel.app/trial.html" class="kaiwa-cta-btn">お申し込みはこちら →</a>
           </div>
 
           <div class="beg-sec-header">
@@ -2364,79 +2405,104 @@
             <div class="beg-sec-title">授業料</div>
             <div class="beg-sec-line"></div>
           </div>
-          <div class="beg-tuition-table-wrap">
-            <table class="beg-tuition-table">
-              <thead>
-                <tr><th>レベル</th><th>曜日</th><th>時間</th><th>教室</th><th>1コマあたり</th><th>回数</th><th>授業料（税抜）</th><th>税込</th></tr>
-              </thead>
-              <tbody>
-                <tr><td>初中級</td><td>日</td><td>11:00〜12:00</td><td>オンライン</td><td>2,980円</td><td>10回</td><td>29,800円</td><td>32,780円</td></tr>
-              </tbody>
-            </table>
+          <div class="t01-tuition-grid">
+            <div class="t01-price-cards">
+              <div class="t01-price-card featured">
+                <div class="t01-price-plan">初中級 10回コース</div>
+                <div class="t01-price-row">
+                  <span class="key">1コマあたり</span>
+                  <span class="val">2,980<small>円</small></span>
+                </div>
+                <div class="t01-price-row">
+                  <span class="key">回数</span>
+                  <span class="val">10<small>回</small></span>
+                </div>
+                <div class="t01-price-total">
+                  <span class="total-label">税込合計</span>
+                  <span class="total-val">32,780<small style="font-size:14px;"> 円</small></span>
+                </div>
+              </div>
+            </div>
+            <div class="t01-schedule-cta-row">
+              <div class="t01-schedule-box">
+                <h3>CLASS SCHEDULE / 開講スケジュール</h3>
+                <div class="t01-schedule-rows">
+                  <div class="t01-schedule-row">
+                    <div class="day">日</div>
+                    <span>毎週日曜日 11:00〜12:00（オンライン）</span>
+                  </div>
+                </div>
+              </div>
+              <div class="t01-cta-box">
+                <a href="trial.html" class="t01-cta-big">お申込みはこちら →</a>
+                <div class="t01-tuition-notes">
+                  ※初中級 2〜5人で開講
+                </div>
+              </div>
+            </div>
           </div>
 
-          <a href="https://mirinae-jp.vercel.app/trial.html" class="beg-cta-btn" style="text-decoration:none;">
-            お申込みはこちら
-            <svg viewBox="0 0 16 16" style="width:16px;height:16px;"><line x1="2" y1="8" x2="13" y2="8" stroke="currentColor" stroke-width="2.5" fill="none"/><polyline points="9,4 13,8 9,12" stroke="currentColor" stroke-width="2.5" fill="none"/></svg>
-          </a>
-
-          <h2 class="section-title"><span class="dot"></span>生徒の声</h2>
-          <div class="reviews-list">
-            <div class="review-card">
-              <div class="review-meta">
-                <div class="review-avatar">Y</div>
-                <div class="review-info">
-                  <div class="name">Y様</div>
-                  <div class="badge-row"><span class="date-badge">2018.11</span></div>
+          <div class="beg-sec-header">
+            <div class="beg-sec-label">Testimonials</div>
+            <div class="beg-sec-title">生徒の声</div>
+            <div class="beg-sec-line"></div>
+          </div>
+          <div class="t01-test-grid">
+            <div class="t01-test-card">
+              <div class="t01-test-body">今までのどの授業よりも大変（つらい）な経験をしました。通常の個人レッスンの予習や復習やパダスギだけでもいっぱいいっぱいなところに音読クラスが加わったためです。<br>しかし大変だった反面、どのクラスよりも集中した時間でした。人前より先生方にきちんと発音できてこそ、聞き取ることができるという意味がとてもよくわかりました。確かにパダスギで今まで聞き取れなかった細かいところが聞き取れるようになったことは大きな進歩だったと思います。<br>そして今まで苦手としていた音読が少し好きになりました。今日までの経験を活かして声に出してたくさん音読練習をしたいと思います。</div>
+              <div class="t01-test-author">
+                <div class="t01-test-avatar">Y</div>
+                <div>
+                  <div class="t01-test-name">Y様</div>
+                  <div class="t01-test-label">2018.11</div>
                 </div>
               </div>
-              <div class="review-body">今までのどの授業よりも大変（つらい）な経験をしました。通常の個人レッスンの予習や復習やパダスギだけでもいっぱいいっぱいなところに音読クラスが加わったためです。<br>しかし大変だった反面、どのクラスよりも集中した時間でした。人前より先生方にきちんと発音できてこそ、聞き取ることができるという意味がとてもよくわかりました。確かにパダスギで今まで聞き取れなかった細かいところが聞き取れるようになったことは大きな進歩だったと思います。<br>そして今まで苦手としていた音読が少し好きになりました。今日までの経験を活かして声に出してたくさん音読練習をしたいと思います。</div>
             </div>
-            <div class="review-card">
-              <div class="review-meta">
-                <div class="review-avatar">O</div>
-                <div class="review-info">
-                  <div class="name">O様</div>
-                  <div class="badge-row"><span class="date-badge">2018.11</span></div>
+            <div class="t01-test-card">
+              <div class="t01-test-body">間違いに対して妥協することなく、チェックを入れて下さることがとてもありがたく感じました。完璧への道はまだまだ遠いですが、これからも得た知識を積み上げてきれいな音読を心がけます。<br>発音・抑揚などについて成績表などで数値化してフィードバックしてくださると励みになると思います。サンプル音声も「音読」に特化したものがあるといいと思います。（受講生だけが聴けるように）</div>
+              <div class="t01-test-author">
+                <div class="t01-test-avatar">O</div>
+                <div>
+                  <div class="t01-test-name">O様</div>
+                  <div class="t01-test-label">2018.11</div>
                 </div>
               </div>
-              <div class="review-body">間違いに対して妥協することなく、チェックを入れて下さることがとてもありがたく感じました。完璧への道はまだまだ遠いですが、これからも得た知識を積み上げてきれいな音読を心がけます。<br>発音・抑揚などについて成績表などで数値化してフィードバックしてくださると励みになると思います。サンプル音声も「音読」に特化したものがあるといいと思います。（受講生だけが聴けるように）</div>
             </div>
-            <div class="review-card">
-              <div class="review-meta">
-                <div class="review-avatar">M</div>
-                <div class="review-info">
-                  <div class="name">M様</div>
-                  <div class="badge-row"><span class="date-badge">2018.2</span></div>
+            <div class="t01-test-card">
+              <div class="t01-test-body">音読クラスは初めて受けました。今までほぼ独学で勉強してきたので発音の事はあまりわかっていませんでした。<br>今回10回コースを受講して'目からウロコ'のものがたくさんあり、遠くまで通ってきた甲斐がありました。先生方も発音に関してはベテランの方ばかりで、ここで音読を教えていただいて本当によかったです。<br>TOPIKが終わってからも少しづつ、又受講したいなと思っております。</div>
+              <div class="t01-test-author">
+                <div class="t01-test-avatar">M</div>
+                <div>
+                  <div class="t01-test-name">M様</div>
+                  <div class="t01-test-label">2018.2</div>
                 </div>
               </div>
-              <div class="review-body">音読クラスは初めて受けました。今までほぼ独学で勉強してきたので発音の事はあまりわかっていませんでした。<br>今回10回コースを受講して'目からウロコ'のものがたくさんあり、遠くまで通ってきた甲斐がありました。先生方も発音に関してはベテランの方ばかりで大きい김先生は日本に来てから韓国の発音の勉強をした…とか言っていた様な。それほど、人に教えるのに再度勉強するほど熱心な先生で、ここで音読を教えていただいて本当によかったです。<br>TOPIKが終わってからも少しづつ、又受講したいなと思っております。</div>
             </div>
-            <div class="review-card review-collapsible review-expanded">
-              <div class="review-header" role="button" tabindex="0" aria-expanded="true">
-                <div class="review-meta">
-                  <div class="review-avatar">K</div>
-                  <div class="review-info">
-                    <div class="name">K様</div>
-                    <div class="badge-row"><span class="date-badge">2018.2</span></div>
+            <div class="t01-test-card t01-test-collapsible">
+              <div class="t01-test-header" role="button" tabindex="0" aria-expanded="false">
+                <div class="t01-test-author">
+                  <div class="t01-test-avatar">K</div>
+                  <div>
+                    <div class="t01-test-name">K様</div>
+                    <div class="t01-test-label">2018.2</div>
                   </div>
                 </div>
-                <span class="review-toggle">▼</span>
+                <span class="t01-test-toggle">▼</span>
               </div>
-              <div class="review-body">途中からの講義の参加でしたが、今までどれほど知らないことが多かったかが、よくわかりました。"なんとなく"で発音していたことの間違いに気付けたことが大きかったです。<br>しかし身につくには時間が足りなかったです。"抑揚"に意識が向くようになり、TVなどで日本語が上手な韓国人が韓国語の"抑揚"で日本語を話していることもわかりました。</div>
+              <div class="t01-test-body">途中からの講義の参加でしたが、今までどれほど知らないことが多かったかが、よくわかりました。"なんとなく"で発音していたことの間違いに気付けたことが大きかったです。<br>しかし身につくには時間が足りなかったです。"抑揚"に意識が向くようになり、TVなどで日本語が上手な韓国人が韓国語の"抑揚"で日本語を話していることもわかりました。</div>
             </div>
-            <div class="review-card review-collapsible">
-              <div class="review-header" role="button" tabindex="0" aria-expanded="false">
-                <div class="review-meta">
-                  <div class="review-avatar">A</div>
-                  <div class="review-info">
-                    <div class="name">A様</div>
-                    <div class="badge-row"><span class="date-badge">2018.2</span></div>
+            <div class="t01-test-card t01-test-collapsible">
+              <div class="t01-test-header" role="button" tabindex="0" aria-expanded="false">
+                <div class="t01-test-author">
+                  <div class="t01-test-avatar">A</div>
+                  <div>
+                    <div class="t01-test-name">A様</div>
+                    <div class="t01-test-label">2018.2</div>
                   </div>
                 </div>
-                <span class="review-toggle">▼</span>
+                <span class="t01-test-toggle">▼</span>
               </div>
-              <div class="review-body">今までイントネーションの法則は韓国語にないと思っていましたが、このクラスで本当に多くの法則を教えて頂き、驚きの連続でした。今まで 지방 사람이세요? 경상도에서 오셨어요?と何度も言われてきた理由がわかりました。<br>独学で勉強していると、自分のまちがったところを指摘してくれる人もいないし、友達も特に何も言ってくれないので、このクラスで自分が今までまちがっていたところを指摘してもらい、今後学習していく中での新たな目標ができ、とても良いモチベーションとなりました。<br>本を読む時は意識できるようになりましたが、友だちと会話する時は元に戻ってしまうので、それを直していくのがこれからの課題です。すっごく良い経験になりました。もう終わりなのが淋しいです。</div>
+              <div class="t01-test-body">今までイントネーションの法則は韓国語にないと思っていましたが、このクラスで本当に多くの法則を教えて頂き、驚きの連続でした。今まで 지방 사람이세요? 경상도에서 오셨어요?と何度も言われてきた理由がわかりました。<br>独学で勉強していると、自分のまちがったところを指摘してくれる人もいないし、友達も特に何も言ってくれないので、このクラスで自分が今までまちがっていたところを指摘してもらい、今後学習していく中での新たな目標ができ、とても良いモチベーションとなりました。<br>本を読む時は意識できるようになりましたが、友だちと会話する時は元に戻ってしまうので、それを直していくのがこれからの課題です。すっごく良い経験になりました。もう終わりなのが淋しいです。</div>
             </div>
           </div>
         </div>

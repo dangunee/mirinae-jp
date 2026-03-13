@@ -29,7 +29,6 @@
               html += '<div class="beg-testimonial-meta">';
               html += '<div class="beg-testimonial-avatar">' + escapeHtml(avatar) + "</div>";
               html += '<div><span class="beg-testimonial-name">' + escapeHtml(name) + "</span>";
-              if (date) html += ' <span class="beg-testimonial-date">' + escapeHtml(date) + "</span>";
               html += "</div></div>";
               html += '<div class="beg-testimonial-body">' + (row.content || "") + "</div>";
               html += "</div>";

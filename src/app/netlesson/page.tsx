@@ -210,7 +210,8 @@ export default function NetlessonPage() {
         .netlesson-page #tab03 .topik-test-badge { margin-left:auto; background:var(--topik-red-pale); border:1px solid rgba(192,57,43,.2); color:var(--topik-red); font-size:10px; font-weight:700; padding:3px 10px; border-radius:100px; }
         .netlesson-page #tab03 .topik-test-body { font-size:13px; color:var(--topik-text-mid); line-height:1.9; }
         .netlesson-page #tab03 .topik-test-body-kr { font-size:12.5px; line-height:2; }
-        .netlesson-page #tab03 .topik-test-date { font-size:11px; color:var(--topik-muted); margin-top:12px; font-style:italic; }
+        .netlesson-page #tab03 .topik-test-date { display:none; }
+        .netlesson-page #tab03 .topik-year-label .topik-yr { display:none; }
         @media (max-width:900px) { .netlesson-page #tab03 .topik-hero-top { grid-template-columns:1fr; } .netlesson-page #tab03 .topik-steps-grid { grid-template-columns:1fr 1fr; } .netlesson-page #tab03 .topik-steps-row2 { grid-template-columns:1fr; } .netlesson-page #tab03 .topik-price-card { grid-template-columns:1fr; } .netlesson-page #tab03 .topik-test-grid { grid-template-columns:1fr; } }
         @media (max-width:600px) { .netlesson-page #tab03 .topik-hero { padding:48px 24px 0; margin:0 0 24px 0; } .netlesson-page #tab03 .topik-section { padding:48px 24px; } .netlesson-page #tab03 .topik-steps-grid { grid-template-columns:1fr; } .netlesson-page #tab03 .topik-features-3 { grid-template-columns:1fr !important; } }
       `}</style>

@@ -404,6 +404,8 @@
       --gold-pale: rgba(184,146,42,0.1);
       --muted: #8a7f72;
       --border: #e4ddd2;
+      --syutyu-hero: #0369a1;
+      --syutyu-hero-dark: #075985;
     }
     #tab01 .beg-page, #tab02 .beg-page, #tab03 .beg-page, #tab04 .beg-page { padding: 0 0 40px; }
     #tab01 .beg-hero, #tab02 .beg-hero, #tab03 .beg-hero, #tab04 .beg-hero {
@@ -599,6 +601,7 @@
       margin-bottom: 16px;
     }
     .beg-sec-line { flex: 1; height: 1px; background: #e4ddd2; }
+    #tab01 .beg-sec-line, #tab02 .beg-sec-line, #tab03 .beg-sec-line, #tab04 .beg-sec-line { background: linear-gradient(90deg, rgba(3,105,161,.3), rgba(3,105,161,.1)); }
     .beg-sec-title {
       font-size: 16px;
       font-weight: 600;
@@ -646,6 +649,9 @@
       flex-shrink: 0;
       margin-top: 1px;
     }
+    #tab01 .beg-flow-num, #tab02 .beg-flow-num, #tab03 .beg-flow-num, #tab04 .beg-flow-num {
+      background: linear-gradient(135deg, var(--syutyu-hero), var(--syutyu-hero-dark));
+    }
     .beg-flow-text { font-size: 16px; color: var(--mid); }
     .beg-tuition-table-wrap {
       border-radius: 10px;
@@ -660,6 +666,7 @@
       background: var(--white);
     }
     .beg-tuition-table thead tr { background: var(--dark); }
+    #tab01 .beg-tuition-table thead tr, #tab02 .beg-tuition-table thead tr, #tab03 .beg-tuition-table thead tr, #tab04 .beg-tuition-table thead tr { background: linear-gradient(135deg, var(--syutyu-hero), var(--syutyu-hero-dark)); }
     .beg-tuition-table thead th {
       padding: 11px 18px;
       font-size: 13px;
@@ -735,6 +742,13 @@
       transform: translateY(-2px);
       box-shadow: 0 8px 28px rgba(184,146,42,0.5);
     }
+    #tab01 .beg-cta-btn, #tab02 .beg-cta-btn, #tab03 .beg-cta-btn, #tab04 .beg-cta-btn {
+      background: linear-gradient(135deg, var(--syutyu-hero), var(--syutyu-hero-dark));
+      box-shadow: 0 4px 20px rgba(3,105,161,0.4);
+    }
+    #tab01 .beg-cta-btn:hover, #tab02 .beg-cta-btn:hover, #tab03 .beg-cta-btn:hover, #tab04 .beg-cta-btn:hover {
+      box-shadow: 0 8px 28px rgba(3,105,161,0.5);
+    }
 
     /* Course Concept section */
     .concept-section {
@@ -758,6 +772,11 @@
       height: 1px;
       background: var(--gold);
       opacity: 0.5;
+    }
+    #tab01 .concept-eyebrow, #tab02 .concept-eyebrow, #tab03 .concept-eyebrow, #tab04 .concept-eyebrow { color: var(--syutyu-hero); }
+    #tab01 .concept-eyebrow::after, #tab02 .concept-eyebrow::after, #tab03 .concept-eyebrow::after, #tab04 .concept-eyebrow::after {
+      background: var(--syutyu-hero);
+      opacity: 0.6;
     }
     .concept-title {
       font-family: 'Noto Serif JP', serif;
@@ -801,6 +820,9 @@
       height: 3px;
       background: linear-gradient(90deg, var(--gold), var(--gold-light));
     }
+    #tab01 .concept-card::after, #tab02 .concept-card::after, #tab03 .concept-card::after, #tab04 .concept-card::after {
+      background: linear-gradient(90deg, var(--syutyu-hero), var(--syutyu-hero-dark));
+    }
     .concept-icon {
       width: 52px;
       height: 52px;
@@ -813,6 +835,7 @@
       margin-bottom: 16px;
       box-shadow: 0 4px 16px rgba(14,28,56,0.18);
     }
+    #tab01 .concept-icon, #tab02 .concept-icon, #tab03 .concept-icon, #tab04 .concept-icon { background: linear-gradient(135deg, var(--syutyu-hero), var(--syutyu-hero-dark)); box-shadow: 0 4px 16px rgba(3,105,161,.25); }
     .concept-card h3 {
       font-family: 'Noto Serif JP', serif;
       font-size: 16px;
@@ -834,6 +857,7 @@
     /* Timetable (tt-wrap) design */
     .tt-wrap { background: var(--white); border: 1px solid var(--border); border-radius: 18px; overflow: hidden; box-shadow: 0 4px 24px rgba(14,28,56,.06); margin-bottom: 32px; }
     .tt-header { display: grid; background: var(--dark); }
+    #tab01 .tt-header, #tab02 .tt-header, #tab03 .tt-header, #tab04 .tt-header { background: linear-gradient(135deg, var(--syutyu-hero), var(--syutyu-hero-dark)); }
     .tt-th { padding: 14px 18px; font-family: 'Cormorant Garamond', serif; font-size: 11px; letter-spacing: .2em; color: rgba(255,255,255,.45); }
     .tt-th:first-child { color: var(--gold-light); }
     .tt-row { display: grid; border-top: 1px solid rgba(200,145,30,.08); transition: background .15s; }
@@ -845,16 +869,17 @@
     .tt-topic { font-size: 13px; font-weight: 500; color: var(--mid); line-height: 1.5; margin-bottom: 3px; }
     .tt-items { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
     .tt-pill { font-size: 10.5px; padding: 2px 8px; border-radius: 5px; border: 1px solid; }
-    #tab01 .tt-pill, .tt-row.nyumon .tt-pill { background: rgba(109,40,217,.08); color: #6d28d9; border-color: rgba(109,40,217,.2); }
-    #tab02 .tt-pill, .tt-row.shokyu .tt-pill { background: rgba(15,122,110,.08); color: #0f7a6e; border-color: rgba(15,122,110,.2); }
-    #tab03 .tt-pill, .tt-row.chukyu .tt-pill { background: rgba(26,111,165,.08); color: #1a6fa5; border-color: rgba(26,111,165,.2); }
-    #tab04 .tt-pill, .tt-row.jokyu .tt-pill { background: rgba(180,83,9,.08); color: #b45309; border-color: rgba(180,83,9,.2); }
+    #tab01 .tt-pill, #tab02 .tt-pill, #tab03 .tt-pill, #tab04 .tt-pill,
+    .tt-row.nyumon .tt-pill, .tt-row.shokyu .tt-pill, .tt-row.chukyu .tt-pill, .tt-row.jokyu .tt-pill {
+      background: rgba(3,105,161,.12); color: var(--syutyu-hero); border-color: rgba(3,105,161,.25);
+    }
 
     /* Lesson flow (授業の流れ) */
     .beg-flow-section { margin-bottom: 32px; }
     .beg-flow-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 20px; }
     .beg-flow-card { background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 24px 28px; display: flex; gap: 18px; align-items: flex-start; }
     .beg-flow-card-num { width: 40px; height: 40px; border-radius: 10px; background: linear-gradient(135deg, var(--dark), #1a3060); color: var(--gold-light); font-family: 'Cormorant Garamond', serif; font-size: 18px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 3px 12px rgba(14,28,56,.18); }
+    #tab01 .beg-flow-card-num, #tab02 .beg-flow-card-num, #tab03 .beg-flow-card-num, #tab04 .beg-flow-card-num { background: linear-gradient(135deg, var(--syutyu-hero), var(--syutyu-hero-dark)); box-shadow: 0 3px 12px rgba(3,105,161,.3); }
     .beg-flow-card-body h4 { font-family: 'Noto Serif JP', serif; font-size: 15px; color: var(--mid); margin-bottom: 6px; font-weight: 600; }
     .beg-flow-card-body p { font-size: 13px; color: var(--mid); line-height: 1.8; opacity: .9; }
 
@@ -863,6 +888,7 @@
     .beg-price-card { background: var(--cream); border: 1px solid var(--border); border-radius: 18px; padding: 28px; position: relative; overflow: hidden; transition: transform .25s, border-color .25s; }
     .beg-price-card:hover { transform: translateY(-3px); }
     .beg-price-card.featured { background: linear-gradient(135deg, var(--dark), #1a3060); border-color: rgba(200,145,30,.4); }
+    #tab01 .beg-price-card.featured, #tab02 .beg-price-card.featured, #tab03 .beg-price-card.featured, #tab04 .beg-price-card.featured { background: linear-gradient(135deg, var(--syutyu-hero), var(--syutyu-hero-dark)); border-color: rgba(255,255,255,.2); }
     .beg-price-card.featured::after { content: 'おすすめ'; position: absolute; top: 16px; right: 16px; background: linear-gradient(135deg, var(--gold), var(--gold-light)); color: var(--dark); font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 100px; }
     .beg-price-card-top { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; }
     .beg-price-days { font-family: 'Cormorant Garamond', serif; font-size: 52px; color: var(--gold); line-height: 1; }

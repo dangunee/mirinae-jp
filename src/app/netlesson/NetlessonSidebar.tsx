@@ -73,7 +73,6 @@ export default function NetlessonSidebar() {
                 <a href="/group#tab01" className="nav-item">入門＆初級講座</a>
                 <a href="/group#tab02" className="nav-item">中級文法講座</a>
                 <a href="/group#tab03" className="nav-item">上級文法講座</a>
-                <a href="/group#tab04" className="nav-item">中級月1講座</a>
                 <a href="/group#tab05" className="nav-item">上級1土曜講座</a>
                 <a href="/group#tab06" className="nav-item">上級2土曜講座</a>
               </div>

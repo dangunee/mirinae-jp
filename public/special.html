@@ -2023,8 +2023,9 @@
     }
     #tab05 .jun-book-ey { font-family: 'Bebas Neue', sans-serif; font-size: 9px; letter-spacing: .3em; color: var(--gold); margin-bottom: 4px; }
     #tab05 .jun-book-title { font-family: 'Noto Serif JP', serif; font-size: 15px; color: #fff; margin-bottom: 12px; line-height: 1.5; }
-    #tab05 .jun-book-img { display: block; width: 100px; height: auto; border-radius: 4px 8px 8px 4px; box-shadow: 4px 4px 16px rgba(0,0,0,.3); margin-bottom: 12px; }
-    #tab05 .jun-book-desc { font-size: 11px; color: rgba(255,255,255,.4); line-height: 1.8; max-width: 420px; }
+    #tab05 .jun-book-row { display: flex; gap: 20px; align-items: flex-start; margin-top: 12px; }
+    #tab05 .jun-book-img { display: block; width: 100px; height: auto; flex-shrink: 0; border-radius: 4px 8px 8px 4px; box-shadow: 4px 4px 16px rgba(0,0,0,.3); }
+    #tab05 .jun-book-desc { font-size: 11px; color: rgba(255,255,255,.4); line-height: 1.8; flex: 1; min-width: 0; }
     #tab05 .jun-cta-link {
       flex-shrink: 0;
       background: linear-gradient(135deg, var(--jun), var(--jun-lt));
@@ -3792,8 +3793,10 @@
             <div class="jun-book-info">
               <div class="jun-book-ey">TEXTBOOK / 使用テキスト</div>
               <div class="jun-book-title">『hanaの韓国語単語〈中級編〉<br>ハン検準2級レベル』</div>
-              <img src="/img/textbook/book_hanjun2.jpg" alt="hanaの韓国語単語〈中級編〉 ハン検準2級レベル" class="jun-book-img">
-              <div class="jun-book-desc">ハン検準2級の出題範囲に指定された単語の中から約1000語を収録。準2〜5級の語彙と文法で作成した例文付き。すぐに会話で使える単語力が身につきます。</div>
+              <div class="jun-book-row">
+                <img src="/img/textbook/book_hanjun2.jpg" alt="hanaの韓国語単語〈中級編〉 ハン検準2級レベル" class="jun-book-img">
+                <div class="jun-book-desc">ハン検準2級の出題範囲に指定された単語の中から約1000語を収録。準2〜5級の語彙と文法で作成した例文付き。すぐに会話で使える単語力が身につきます。</div>
+              </div>
             </div>
             <a href="trial.html" class="jun-cta-link">お申込みはこちら →</a>
           </div>

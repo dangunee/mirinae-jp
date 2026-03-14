@@ -271,7 +271,7 @@ export default function NetlessonPage() {
                 <h4>その他</h4>
                 <a href="/about#tab03">講師</a>
                 <a href="/book">著書</a>
-                <a href="/voice">「ミリネ教科書」の音声</a>
+                <a href="/voice">『ミリネ教科書』音声</a>
                 <a href="/cancel">キャンセル規定</a>
               </div>
             </div>

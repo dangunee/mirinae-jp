@@ -16,6 +16,7 @@
       --gold-light: #e8d5b0;
       --gold-pale: #f7f0e3;
       --dark: #1e1a14;
+      --navy: #0e1c38;
       --white: #FFFFFF;
       --gray-light: #f8f8f8;
       --gray-border: #E4DDD2;
@@ -299,7 +300,7 @@
       box-shadow: 0 4px 20px rgba(0,0,0,0.06);
     }
     .courses-nav-header {
-      background: var(--dark);
+      background: var(--navy);
       padding: 20px 18px;
       color: var(--white);
     }
@@ -2168,6 +2169,8 @@
       color: var(--jun);
     }
     #tab05 .jun-test-body { font-size: 12px; color: var(--text-mid); line-height: 1.9; padding-top: 4px; }
+    #tab05 .jun-reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s, transform .6s; }
+    #tab05 .jun-reveal.visible { opacity: 1; transform: none; }
     @media (max-width: 768px) {
       #tab05 .jun-hero-inner { grid-template-columns: 1fr; }
       #tab05 .jun-hero-right { display: none; }
@@ -3687,9 +3690,9 @@
 
         <section class="jun-section" id="jun-about">
           <div class="jun-section-inner">
-            <div class="jun-sec-ey">ABOUT THIS COURSE</div>
-            <h2 class="jun-sec-title">ミリネのハン検準2級講座とは</h2>
-            <div class="jun-about-lead">
+            <div class="jun-sec-ey jun-reveal">ABOUT THIS COURSE</div>
+            <h2 class="jun-sec-title jun-reveal">ミリネのハン検準2級講座とは</h2>
+            <div class="jun-about-lead jun-reveal">
               <p>ハン検準2級合格のカギは何といっても<strong>語彙力</strong>。語彙力強化、さらには慣用句、ニュアンスの違いをしっかりと学べる講座を作りました。語彙は覚えるしかありません。たくさん宿題を出しますのでしっかり家で覚えてきて、授業で確認します。なかなか覚えられない語彙や慣用句などは<strong>ネイティブがしっかりケア</strong>します。</p>
             </div>
           </div>
@@ -3697,31 +3700,31 @@
 
         <section class="jun-section" id="jun-features" style="background:var(--cream);">
           <div class="jun-section-inner">
-            <div class="jun-sec-ey">COURSE FEATURES</div>
-            <h2 class="jun-sec-title">4つの特徴</h2>
+            <div class="jun-sec-ey jun-reveal">COURSE FEATURES</div>
+            <h2 class="jun-sec-title jun-reveal">4つの特徴</h2>
             <div class="jun-features-grid">
-              <div class="jun-feat-card">
+              <div class="jun-feat-card jun-reveal">
                 <div class="jun-feat-num">FEATURE 01</div>
                 <div class="jun-feat-icon">📚</div>
                 <h3>語彙強化</h3>
                 <p>トウミが覚えられるようミリネが例文を準備し、宿題を出します。毎回確認テストを実施し、ネイティブ講師の丁寧な解説で単語を確実に定着させます。</p>
                 <div class="jun-feat-tag">毎回テスト実施</div>
               </div>
-              <div class="jun-feat-card">
+              <div class="jun-feat-card jun-reveal">
                 <div class="jun-feat-num">FEATURE 02</div>
                 <div class="jun-feat-icon">🎯</div>
                 <h3>試験形式に慣れる</h3>
                 <p>試験に出てくる形式の類似問題をたくさん解きます。問題タイプ別の対策と解答のポイントを詳しく解説し、出題内容を体系的に把握できるようにします。</p>
                 <div class="jun-feat-tag">類型別問題演習</div>
               </div>
-              <div class="jun-feat-card">
+              <div class="jun-feat-card jun-reveal">
                 <div class="jun-feat-num">FEATURE 03</div>
                 <div class="jun-feat-icon">🎨</div>
                 <h3>イラストで記憶に残す</h3>
                 <p>覚えづらい単語・似た単語は絵や画像を見せて記憶に残るように工夫します。ネイティブだからこそ伝えられる微妙なニュアンスの違いを丁寧に解説します。</p>
                 <div class="jun-feat-tag">ビジュアル学習</div>
               </div>
-              <div class="jun-feat-card">
+              <div class="jun-feat-card jun-reveal">
                 <div class="jun-feat-num">FEATURE 04</div>
                 <div class="jun-feat-icon">🎬</div>
                 <h3>録画で欠席しても安心</h3>
@@ -3730,15 +3733,15 @@
               </div>
             </div>
             <div class="jun-analysis-band">
-              <div class="jun-an-item">
+              <div class="jun-an-item jun-reveal">
                 <div class="jun-an-num">1</div>
                 <div class="jun-an-text"><strong>類型別問題の対策</strong>と解答のポイントを詳しく解説します。</div>
               </div>
-              <div class="jun-an-item">
+              <div class="jun-an-item jun-reveal">
                 <div class="jun-an-num">2</div>
                 <div class="jun-an-text"><strong>語彙・文法・発音・漢字</strong>等をレベル別に分かりやすくまとめます。</div>
               </div>
-              <div class="jun-an-item">
+              <div class="jun-an-item jun-reveal">
                 <div class="jun-an-num">3</div>
                 <div class="jun-an-text"><strong>出題内容を体系的に把握</strong>し、試験準備を効率よく進められます。</div>
               </div>
@@ -3748,10 +3751,10 @@
 
         <section class="jun-section" id="jun-goals" style="background:#fff;">
           <div class="jun-section-inner">
-            <div class="jun-sec-ey">GOALS & LESSON FLOW</div>
-            <h2 class="jun-sec-title">目標と授業の流れ</h2>
+            <div class="jun-sec-ey jun-reveal">GOALS & LESSON FLOW</div>
+            <h2 class="jun-sec-title jun-reveal">目標と授業の流れ</h2>
             <div class="jun-two-col">
-              <div class="jun-box-card">
+              <div class="jun-box-card jun-reveal">
                 <div class="jun-box-head">GOALS / 目標</div>
                 <div class="jun-box-body">
                   <div class="jun-goal-item">
@@ -3768,7 +3771,7 @@
                   </div>
                 </div>
               </div>
-              <div class="jun-box-card">
+              <div class="jun-box-card jun-reveal">
                 <div class="jun-box-head">LESSON FLOW / 授業の流れ</div>
                 <div class="jun-box-body">
                   <div class="jun-flow-item">
@@ -3798,7 +3801,7 @@
           </div>
         </section>
 
-        <div class="jun-textbook-band">
+        <div class="jun-textbook-band jun-reveal">
           <div class="jun-textbook-inner">
             <div class="jun-book-mock">
               <div class="jun-book-mock-inner">
@@ -3818,10 +3821,10 @@
 
         <section class="jun-section" id="jun-schedule" style="background:var(--cream);">
           <div class="jun-section-inner">
-            <div class="jun-sec-ey">SCHEDULE & TUITION</div>
-            <h2 class="jun-sec-title">日程・授業料</h2>
+            <div class="jun-sec-ey jun-reveal">SCHEDULE & TUITION</div>
+            <h2 class="jun-sec-title jun-reveal">日程・授業料</h2>
             <div class="jun-sp-grid">
-              <div>
+              <div class="jun-reveal">
                 <div class="jun-schedule-card">
                   <div class="jun-schedule-card-head">CLASS SCHEDULE / 日程</div>
                   <div class="jun-sch-body">
@@ -3856,7 +3859,7 @@
                   </div>
                 </div>
               </div>
-              <div>
+              <div class="jun-reveal">
                 <div class="jun-price-card">
                   <div class="jun-price-lv">JUNNIKYU / 準2級</div>
                   <div class="jun-price-name">ハングル検定準2級 対策コース</div>
@@ -3886,11 +3889,11 @@
 
         <section class="jun-section" id="jun-testimonials" style="background:var(--cream-dk);">
           <div class="jun-section-inner">
-            <div class="jun-sec-ey">TESTIMONIALS</div>
-            <h2 class="jun-sec-title">受講生の声</h2>
-            <p class="jun-sec-desc" style="margin-bottom:32px;">全国各地の受講生から届いた感想です。</p>
+            <div class="jun-sec-ey jun-reveal">TESTIMONIALS</div>
+            <h2 class="jun-sec-title jun-reveal">受講生の声</h2>
+            <p class="jun-sec-desc jun-reveal" style="margin-bottom:32px;">全国各地の受講生から届いた感想です。</p>
 
-            <div class="jun-year-group">
+            <div class="jun-year-group jun-reveal">
               <div class="jun-year-label"><span class="yr">2022年11月</span></div>
               <div class="jun-test-grid">
                 <div class="jun-test-card">
@@ -3918,7 +3921,7 @@
               </div>
             </div>
 
-            <div class="jun-year-group">
+            <div class="jun-year-group jun-reveal">
               <div class="jun-year-label"><span class="yr">2022年6月</span></div>
               <div class="jun-test-grid">
                 <div class="jun-test-card">
@@ -3946,7 +3949,7 @@
               </div>
             </div>
 
-            <div class="jun-year-group">
+            <div class="jun-year-group jun-reveal">
               <div class="jun-year-label"><span class="yr">2021年11月</span></div>
               <div class="jun-test-grid">
                 <div class="jun-test-card">
@@ -3974,7 +3977,7 @@
               </div>
             </div>
 
-            <div class="jun-year-group">
+            <div class="jun-year-group jun-reveal">
               <div class="jun-year-label"><span class="yr">2021年6月</span></div>
               <div class="jun-test-grid">
                 <div class="jun-test-card">
@@ -4183,6 +4186,7 @@
         if (tabId === 'tab02') initTab02Reveal();
         if (tabId === 'tab03') initTab03Reveal();
         if (tabId === 'tab04') initTab04Reveal();
+        if (tabId === 'tab05') initTab05Reveal();
       }
 
       function tab04SwitchSch(btn, id) {
@@ -4301,6 +4305,26 @@
         });
       }
 
+      var tab05RevealDone = false;
+      function initTab05Reveal() {
+        if (tab05RevealDone) return;
+        tab05RevealDone = true;
+        var els = document.querySelectorAll('#tab05 .jun-reveal');
+        if (!els.length) return;
+        var obs = new IntersectionObserver(function(entries) {
+          entries.forEach(function(e) {
+            if (e.isIntersecting) {
+              e.target.classList.add('visible');
+              obs.unobserve(e.target);
+            }
+          });
+        }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+        els.forEach(function(el, i) {
+          el.style.transitionDelay = (i % 5 * 0.09) + 's';
+          obs.observe(el);
+        });
+      }
+
       tabBtns.forEach(function(btn) {
         btn.addEventListener('click', function() {
           switchTab(btn.getAttribute('data-tab'));
@@ -4324,6 +4348,7 @@
           a.classList.toggle('active', href === 'special.html#' + activeTab);
         });
         if (activeTab === 'tab01') initTab01Reveal();
+        if (activeTab === 'tab05') initTab05Reveal();
       }
 
       window.addEventListener('hashchange', function() {

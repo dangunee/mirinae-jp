@@ -249,6 +249,9 @@
     .tab-panel { display: none; padding-top: 32px; }
     .tab-panel.active { display: block; }
 
+    .group-reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s, transform .6s; }
+    .group-reveal.visible { opacity: 1; transform: none; }
+
     .group-main-grid {
       display: grid;
       grid-template-columns: 1fr 300px;
@@ -1625,7 +1628,7 @@
       <div id="tab01" class="tab-panel active">
         <div class="beg-page">
           <!-- HERO -->
-          <div class="beg-hero">
+          <div class="beg-hero group-reveal">
             <div class="beg-hero-eyebrow">Group Lesson — Beginner Course</div>
             <div class="beg-hero-title">『入門＆初級<em>マスター</em>講座』</div>
             <div class="beg-hero-desc">
@@ -1643,12 +1646,12 @@
           </div>
 
           <!-- TARGETS -->
-          <div class="beg-sec-header">
+          <div class="beg-sec-header group-reveal">
             <div class="beg-sec-label">Targets</div>
             <div class="beg-sec-title">対象・目標</div>
             <div class="beg-sec-line"></div>
           </div>
-          <div class="beg-targets-grid">
+          <div class="beg-targets-grid group-reveal">
             <div class="beg-target-card">
               <span class="beg-target-icon">🌱</span>
               <span class="beg-target-text">全くの初心者・入門の方</span>
@@ -1664,12 +1667,12 @@
           </div>
 
           <!-- FLOW -->
-          <div class="beg-sec-header">
+          <div class="beg-sec-header group-reveal">
             <div class="beg-sec-label">Lesson Flow</div>
             <div class="beg-sec-title">授業の流れ</div>
             <div class="beg-sec-line"></div>
           </div>
-          <div class="beg-flow-steps">
+          <div class="beg-flow-steps group-reveal">
             <div class="beg-flow-step">
               <span class="beg-flow-num">1</span>
               <span class="beg-flow-text">授業の前に教科書の練習問題を解いて、予習します。</span>
@@ -1685,12 +1688,12 @@
           </div>
 
           <!-- INFO CARDS -->
-          <div class="beg-sec-header">
+          <div class="beg-sec-header group-reveal">
             <div class="beg-sec-label">Schedule</div>
             <div class="beg-sec-title">日程・教室・定員</div>
             <div class="beg-sec-line"></div>
           </div>
-          <div class="beg-info-cards">
+          <div class="beg-info-cards group-reveal">
             <div class="beg-info-card">
               <div class="beg-info-card-label">Schedule</div>
               <div class="beg-info-card-value">2024年9月22日 開始<small>毎週日曜 10時〜12時（50分×2コマ）</small></div>
@@ -1706,12 +1709,12 @@
           </div>
 
           <!-- TEXTBOOK -->
-          <div class="beg-sec-header">
+          <div class="beg-sec-header group-reveal">
             <div class="beg-sec-label">Textbook</div>
             <div class="beg-sec-title">テキスト</div>
             <div class="beg-sec-line"></div>
           </div>
-          <div class="beg-textbook-row">
+          <div class="beg-textbook-row group-reveal">
             <div class="beg-textbook-icon">📖</div>
             <div class="beg-textbook-content">
               <div class="beg-textbook-label">使用教材</div>
@@ -1721,12 +1724,12 @@
           </div>
 
           <!-- SYLLABUS -->
-          <div class="beg-sec-header">
+          <div class="beg-sec-header group-reveal">
             <div class="beg-sec-label">Syllabus</div>
             <div class="beg-sec-title">授業内容（シラバス）</div>
             <div class="beg-sec-line"></div>
           </div>
-          <div class="beg-syllabus-table-wrap">
+          <div class="beg-syllabus-table-wrap group-reveal">
             <table class="beg-syllabus-table">
               <thead>
                 <tr>
@@ -1943,12 +1946,12 @@
           </div>
 
           <!-- TUITION -->
-          <div class="beg-sec-header">
+          <div class="beg-sec-header group-reveal">
             <div class="beg-sec-label">Tuition</div>
             <div class="beg-sec-title">授業料</div>
             <div class="beg-sec-line"></div>
           </div>
-          <div class="beg-tuition-table-wrap">
+          <div class="beg-tuition-table-wrap group-reveal">
             <table class="beg-tuition-table">
               <thead>
                 <tr>
@@ -1989,7 +1992,7 @@
           </div>
 
           <!-- RECRUITMENT -->
-          <div class="beg-sec-header">
+          <div class="beg-sec-header group-reveal">
             <div class="beg-sec-label">Recruitment</div>
             <div class="beg-sec-title">募集期間</div>
             <div class="beg-sec-line"></div>
@@ -2012,8 +2015,8 @@
           </a>
 
           <!-- TESTIMONIAL (生徒の声 - mirinae.jpより) -->
-          <h2 class="section-title"><span class="dot"></span>生徒の声</h2>
-          <div class="reviews-list">
+          <h2 class="section-title group-reveal"><span class="dot"></span>生徒の声</h2>
+          <div class="reviews-list group-reveal">
             <div class="review-card">
               <div class="review-meta">
                 <div class="review-avatar">Y</div>
@@ -2072,7 +2075,7 @@
       <!-- ========== タブ2: 中級文法講座 ========== -->
       <div id="tab02" class="tab-panel">
         <div class="beg-page">
-          <div class="beg-hero">
+          <div class="beg-hero group-reveal">
             <div class="beg-hero-eyebrow">Group Lesson — Intermediate Grammar</div>
             <div class="beg-hero-title">『中級｜<em>文法まとめ</em>講座』</div>
             <div class="beg-hero-desc">
@@ -2089,12 +2092,12 @@
             </div>
           </div>
 
-          <div class="beg-sec-header">
+          <div class="beg-sec-header group-reveal">
             <div class="beg-sec-label">Targets</div>
             <div class="beg-sec-title">対象・目標</div>
             <div class="beg-sec-line"></div>
           </div>
-          <div class="beg-targets-grid">
+          <div class="beg-targets-grid group-reveal">
             <div class="beg-target-card">
               <span class="beg-target-icon">📚</span>
               <span class="beg-target-text">中級文法をまとめて学びたい方（TOPIK3～5級レベル）</span>
@@ -2109,12 +2112,12 @@
             </div>
           </div>
 
-          <div class="beg-sec-header">
+          <div class="beg-sec-header group-reveal">
             <div class="beg-sec-label">Lesson Flow</div>
             <div class="beg-sec-title">授業の流れ</div>
             <div class="beg-sec-line"></div>
           </div>
-          <div class="beg-flow-steps">
+          <div class="beg-flow-steps group-reveal">
             <div class="beg-flow-step">
               <span class="beg-flow-num">1</span>
               <span class="beg-flow-text">授業の前に添削課題をお送りします。テキストの分からない単語などは事前に調べ、問題を解いておきます。</span>
@@ -2125,12 +2128,12 @@
             </div>
           </div>
 
-          <div class="beg-sec-header">
+          <div class="beg-sec-header group-reveal">
             <div class="beg-sec-label">Schedule</div>
             <div class="beg-sec-title">日程・教室</div>
             <div class="beg-sec-line"></div>
           </div>
-          <div class="beg-info-cards">
+          <div class="beg-info-cards group-reveal">
             <div class="beg-info-card">
               <div class="beg-info-card-label">Schedule</div>
               <div class="beg-info-card-value">2月7日開始<small>土 10時〜12時（50分×2コマ）</small></div>
@@ -2145,12 +2148,12 @@
             </div>
           </div>
 
-          <div class="beg-sec-header">
+          <div class="beg-sec-header group-reveal">
             <div class="beg-sec-label">Textbook</div>
             <div class="beg-sec-title">テキスト</div>
             <div class="beg-sec-line"></div>
           </div>
-          <div class="beg-textbook-row">
+          <div class="beg-textbook-row group-reveal">
             <div class="beg-textbook-icon">📖</div>
             <div class="beg-textbook-content">
               <div class="beg-textbook-label">使用教材</div>
@@ -2158,12 +2161,12 @@
             </div>
           </div>
 
-          <div class="beg-sec-header">
+          <div class="beg-sec-header group-reveal">
             <div class="beg-sec-label">Syllabus</div>
             <div class="beg-sec-title">主なカリキュラム</div>
             <div class="beg-sec-line"></div>
           </div>
-          <div class="beg-syllabus-table-wrap">
+          <div class="beg-syllabus-table-wrap group-reveal">
             <table class="beg-syllabus-table" id="tab02-syllabus-table">
               <thead>
                 <tr><th>回数</th><th>時限</th><th>項目</th><th>概要</th><th>日程</th></tr>
@@ -2193,12 +2196,12 @@
             </table>
           </div>
 
-          <div class="beg-sec-header">
+          <div class="beg-sec-header group-reveal">
             <div class="beg-sec-label">Tuition</div>
             <div class="beg-sec-title">授業料</div>
             <div class="beg-sec-line"></div>
           </div>
-          <div class="beg-tuition-table-wrap">
+          <div class="beg-tuition-table-wrap group-reveal">
             <table class="beg-tuition-table">
               <thead>
                 <tr><th>回数</th><th>1回あたり</th><th>納入額</th><th>税込</th></tr>
@@ -2214,8 +2217,8 @@
             <svg viewBox="0 0 16 16"><line x1="2" y1="8" x2="13" y2="8" stroke="currentColor" stroke-width="2.5" fill="none"/><polyline points="9,4 13,8 9,12" stroke="currentColor" stroke-width="2.5" fill="none"/></svg>
           </a>
 
-          <h2 class="section-title"><span class="dot"></span>生徒の声</h2>
-          <div class="reviews-list">
+          <h2 class="section-title group-reveal"><span class="dot"></span>生徒の声</h2>
+          <div class="reviews-list group-reveal">
             <div class="review-card">
               <div class="review-meta">
                 <div class="review-avatar">関</div>
@@ -2305,7 +2308,7 @@
       <!-- ========== タブ3: 上級文法講座 ========== -->
       <div id="tab03" class="tab-panel">
         <div class="beg-page">
-          <div class="beg-hero">
+          <div class="beg-hero group-reveal">
             <div class="beg-hero-eyebrow">Group Lesson — Advanced Grammar</div>
             <div class="beg-hero-title">『上級｜<em>文法まとめ</em>講座』</div>
             <div class="beg-hero-desc">
@@ -2323,12 +2326,12 @@
             </div>
           </div>
 
-          <div class="beg-sec-header">
+          <div class="beg-sec-header group-reveal">
             <div class="beg-sec-label">Targets</div>
             <div class="beg-sec-title">対象・目標</div>
             <div class="beg-sec-line"></div>
           </div>
-          <div class="beg-targets-grid">
+          <div class="beg-targets-grid group-reveal">
             <div class="beg-target-card">
               <span class="beg-target-icon">🎓</span>
               <span class="beg-target-text">上級文法をまとめて学びたい方（TOPIK5～6級レベル）</span>
@@ -2339,12 +2342,12 @@
             </div>
           </div>
 
-          <div class="beg-sec-header">
+          <div class="beg-sec-header group-reveal">
             <div class="beg-sec-label">Schedule</div>
             <div class="beg-sec-title">日程・教室</div>
             <div class="beg-sec-line"></div>
           </div>
-          <div class="beg-info-cards">
+          <div class="beg-info-cards group-reveal">
             <div class="beg-info-card">
               <div class="beg-info-card-label">Schedule</div>
               <div class="beg-info-card-value">10月4日開始<small>土 12時〜14時（50分×2コマ）</small></div>
@@ -2359,12 +2362,12 @@
             </div>
           </div>
 
-          <div class="beg-sec-header">
+          <div class="beg-sec-header group-reveal">
             <div class="beg-sec-label">Textbook</div>
             <div class="beg-sec-title">テキスト</div>
             <div class="beg-sec-line"></div>
           </div>
-          <div class="beg-textbook-row">
+          <div class="beg-textbook-row group-reveal">
             <div class="beg-textbook-icon">📖</div>
             <div class="beg-textbook-content">
               <div class="beg-textbook-label">使用教材</div>
@@ -2372,12 +2375,12 @@
             </div>
           </div>
 
-          <div class="beg-sec-header">
+          <div class="beg-sec-header group-reveal">
             <div class="beg-sec-label">Syllabus</div>
             <div class="beg-sec-title">主なカリキュラム</div>
             <div class="beg-sec-line"></div>
           </div>
-          <div class="beg-syllabus-table-wrap">
+          <div class="beg-syllabus-table-wrap group-reveal">
             <table class="beg-syllabus-table" id="tab03-syllabus-table">
               <thead>
                 <tr><th>回数</th><th>時限</th><th>項目</th><th>概要</th><th>日程</th></tr>
@@ -2403,12 +2406,12 @@
             </table>
           </div>
 
-          <div class="beg-sec-header">
+          <div class="beg-sec-header group-reveal">
             <div class="beg-sec-label">Tuition</div>
             <div class="beg-sec-title">授業料</div>
             <div class="beg-sec-line"></div>
           </div>
-          <div class="beg-tuition-table-wrap">
+          <div class="beg-tuition-table-wrap group-reveal">
             <table class="beg-tuition-table">
               <thead>
                 <tr><th>回数</th><th>1回あたり</th><th>納入額</th><th>税込</th></tr>
@@ -2424,8 +2427,8 @@
             <svg viewBox="0 0 16 16"><line x1="2" y1="8" x2="13" y2="8" stroke="currentColor" stroke-width="2.5" fill="none"/><polyline points="9,4 13,8 9,12" stroke="currentColor" stroke-width="2.5" fill="none"/></svg>
           </a>
 
-          <h2 class="section-title"><span class="dot"></span>生徒の声</h2>
-          <div class="reviews-list">
+          <h2 class="section-title group-reveal"><span class="dot"></span>生徒の声</h2>
+          <div class="reviews-list group-reveal">
             <div class="review-card">
               <div class="review-meta">
                 <div class="review-avatar">関</div>
@@ -2515,7 +2518,7 @@
       <!-- ========== タブ5: 上級1土曜講座 ========== -->
       <div id="tab05" class="tab-panel">
         <div class="beg-page">
-          <div class="beg-hero">
+          <div class="beg-hero group-reveal">
             <div class="beg-hero-eyebrow">Group Lesson — Advanced I Saturday</div>
             <div class="beg-hero-title">『上級文法＆会話講座（<em>上級Ⅰ</em>／3ヶ月コース）』</div>
             <div class="beg-hero-desc">
@@ -2531,12 +2534,12 @@
             </div>
           </div>
 
-          <div class="beg-sec-header">
+          <div class="beg-sec-header group-reveal">
             <div class="beg-sec-label">Targets</div>
             <div class="beg-sec-title">対象・目標</div>
             <div class="beg-sec-line"></div>
           </div>
-          <div class="beg-targets-grid">
+          <div class="beg-targets-grid group-reveal">
             <div class="beg-target-card">
               <span class="beg-target-icon">🎯</span>
               <span class="beg-target-text">ハングル検定準2級・TOPIK5級以上、上級を目指す方</span>
@@ -2547,12 +2550,12 @@
             </div>
           </div>
 
-          <div class="beg-sec-header">
+          <div class="beg-sec-header group-reveal">
             <div class="beg-sec-label">Schedule</div>
             <div class="beg-sec-title">教室・日程</div>
             <div class="beg-sec-line"></div>
           </div>
-          <div class="beg-info-cards">
+          <div class="beg-info-cards group-reveal">
             <div class="beg-info-card">
               <div class="beg-info-card-label">Classroom</div>
               <div class="beg-info-card-value">Zoomレッスン</div>
@@ -2567,12 +2570,12 @@
             </div>
           </div>
 
-          <div class="beg-sec-header">
+          <div class="beg-sec-header group-reveal">
             <div class="beg-sec-label">Lesson Content</div>
             <div class="beg-sec-title">レッスン内容</div>
             <div class="beg-sec-line"></div>
           </div>
-          <div class="beg-syllabus-table-wrap">
+          <div class="beg-syllabus-table-wrap group-reveal">
             <table class="beg-syllabus-table">
               <thead>
                 <tr><th>時限</th><th>レッスン名</th><th>内容</th></tr>
@@ -2584,12 +2587,12 @@
             </table>
           </div>
 
-          <div class="beg-sec-header">
+          <div class="beg-sec-header group-reveal">
             <div class="beg-sec-label">Tuition</div>
             <div class="beg-sec-title">授業料・体験レッスン</div>
             <div class="beg-sec-line"></div>
           </div>
-          <div class="beg-tuition-table-wrap">
+          <div class="beg-tuition-table-wrap group-reveal">
             <table class="beg-tuition-table">
               <thead>
                 <tr><th>プラン</th><th>1回あたり</th><th>回数</th><th>納入額</th><th>振替</th></tr>
@@ -2606,8 +2609,8 @@
             <svg viewBox="0 0 16 16"><line x1="2" y1="8" x2="13" y2="8" stroke="currentColor" stroke-width="2.5" fill="none"/><polyline points="9,4 13,8 9,12" stroke="currentColor" stroke-width="2.5" fill="none"/></svg>
           </a>
 
-          <h2 class="section-title"><span class="dot"></span>生徒の声</h2>
-          <div class="reviews-list">
+          <h2 class="section-title group-reveal"><span class="dot"></span>生徒の声</h2>
+          <div class="reviews-list group-reveal">
             <div class="review-card">
               <div class="review-meta">
                 <div class="review-avatar">S</div>
@@ -2651,7 +2654,7 @@
       <!-- ========== タブ6: 上級2土曜講座 ========== -->
       <div id="tab06" class="tab-panel">
         <div class="beg-page">
-          <div class="beg-hero">
+          <div class="beg-hero group-reveal">
             <div class="beg-hero-eyebrow">Group Lesson — Advanced II Saturday</div>
             <div class="beg-hero-title">『上級者のための<em>総合能力養成</em>講座（上級Ⅱ）』</div>
             <div class="beg-hero-desc">
@@ -2666,12 +2669,12 @@
             </div>
           </div>
 
-          <div class="beg-sec-header">
+          <div class="beg-sec-header group-reveal">
             <div class="beg-sec-label">Targets</div>
             <div class="beg-sec-title">対象・目標</div>
             <div class="beg-sec-line"></div>
           </div>
-          <div class="beg-targets-grid">
+          <div class="beg-targets-grid group-reveal">
             <div class="beg-target-card">
               <span class="beg-target-icon">🎯</span>
               <span class="beg-target-text">TOPIK6級以上、ハングル検定2級・1級合格を目指す方、流暢に韓国語を話したい方</span>
@@ -2682,12 +2685,12 @@
             </div>
           </div>
 
-          <div class="beg-sec-header">
+          <div class="beg-sec-header group-reveal">
             <div class="beg-sec-label">Schedule</div>
             <div class="beg-sec-title">教室・日程</div>
             <div class="beg-sec-line"></div>
           </div>
-          <div class="beg-info-cards">
+          <div class="beg-info-cards group-reveal">
             <div class="beg-info-card">
               <div class="beg-info-card-label">Classroom</div>
               <div class="beg-info-card-value">新宿教室</div>
@@ -2702,12 +2705,12 @@
             </div>
           </div>
 
-          <div class="beg-sec-header">
+          <div class="beg-sec-header group-reveal">
             <div class="beg-sec-label">Lesson Content</div>
             <div class="beg-sec-title">レッスン内容</div>
             <div class="beg-sec-line"></div>
           </div>
-          <div class="beg-syllabus-table-wrap">
+          <div class="beg-syllabus-table-wrap group-reveal">
             <table class="beg-syllabus-table">
               <thead>
                 <tr><th>時限</th><th>レッスン名</th><th>内容</th></tr>
@@ -2719,12 +2722,12 @@
             </table>
           </div>
 
-          <div class="beg-sec-header">
+          <div class="beg-sec-header group-reveal">
             <div class="beg-sec-label">Tuition</div>
             <div class="beg-sec-title">授業料・体験レッスン</div>
             <div class="beg-sec-line"></div>
           </div>
-          <div class="beg-tuition-table-wrap">
+          <div class="beg-tuition-table-wrap group-reveal">
             <table class="beg-tuition-table">
               <thead>
                 <tr><th>1回あたり</th><th>回数</th><th>授業料</th><th>税込</th><th>振替</th></tr>
@@ -2741,8 +2744,8 @@
             <svg viewBox="0 0 16 16"><line x1="2" y1="8" x2="13" y2="8" stroke="currentColor" stroke-width="2.5" fill="none"/><polyline points="9,4 13,8 9,12" stroke="currentColor" stroke-width="2.5" fill="none"/></svg>
           </a>
 
-          <h2 class="section-title"><span class="dot"></span>生徒の声</h2>
-          <div class="reviews-list">
+          <h2 class="section-title group-reveal"><span class="dot"></span>生徒の声</h2>
+          <div class="reviews-list group-reveal">
             <div class="review-card">
               <div class="review-meta">
                 <div class="review-avatar">M</div>
@@ -2936,6 +2939,25 @@
       var tabPanels = document.querySelectorAll('.tab-panel');
       var tabIds = ['tab01', 'tab02', 'tab03', 'tab04', 'tab05', 'tab06'];
 
+      var groupRevealDone = {};
+      function initGroupReveal(tabId) {
+        if (groupRevealDone[tabId]) return;
+        groupRevealDone[tabId] = true;
+        var els = document.querySelectorAll('#' + tabId + ' .group-reveal');
+        if (!els.length) return;
+        var obs = new IntersectionObserver(function(entries) {
+          entries.forEach(function(e) {
+            if (e.isIntersecting) {
+              e.target.classList.add('visible');
+              obs.unobserve(e.target);
+            }
+          });
+        }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+        els.forEach(function(el, i) {
+          el.style.transitionDelay = (i % 5 * 0.09) + 's';
+          obs.observe(el);
+        });
+      }
       function switchTab(tabId) {
         tabBtns.forEach(function(btn) {
           btn.classList.toggle('active', btn.getAttribute('data-tab') === tabId);
@@ -2950,6 +2972,7 @@
         if (tabIds.indexOf(tabId) !== -1) {
           history.replaceState(null, '', 'group.html#' + tabId);
         }
+        initGroupReveal(tabId);
       }
 
       function updateSidebarActive(tabId) {

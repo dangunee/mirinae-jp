@@ -1401,6 +1401,9 @@
     .delay-2 { animation-delay: .2s; }
     .delay-3 { animation-delay: .3s; }
 
+    .kojin-reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s, transform .6s; }
+    .kojin-reveal.visible { opacity: 1; transform: none; }
+
     /* Legacy: tab02, tab03, tab04 panels */
     .content-block { margin-bottom: 32px; }
     .content-block h3 {
@@ -2493,7 +2496,7 @@
   <div class="main" id="main-wrap">
     <div class="content">
       <div id="tab01" class="tab-panel active">
-        <section class="fade-in delay-1">
+        <section class="kojin-reveal">
           <div class="overview-card overview-card-dark">
             <div class="overview-inner">
               <div class="overview-top">
@@ -2526,7 +2529,7 @@
           </div>
         </section>
 
-        <section class="fade-in delay-2">
+        <section class="kojin-reveal">
           <h2 class="section-title"><span class="dot"></span>対象</h2>
           <div class="target-grid">
             <div class="target-item"><span class="ti-icon">🎓</span>入門・初級・中級、上級 全レベル対象</div>
@@ -2536,7 +2539,7 @@
           </div>
         </section>
 
-        <section class="fade-in">
+        <section class="kojin-reveal">
           <h2 class="section-title"><span class="dot"></span>授業形式</h2>
           <div class="format-list">
             <div class="format-badge"><span class="fb-icon">🏫</span>新宿教室での対面授業</div>
@@ -2545,7 +2548,7 @@
           <p class="format-note">※対面・オンラインどちらでも受講可能</p>
         </section>
 
-        <section class="fade-in">
+        <section class="kojin-reveal">
           <h2 class="section-title"><span class="dot"></span>日程</h2>
           <div class="schedule-grid">
             <div class="schedule-item"><div class="day">火〜金</div><div class="time">10:00 – 21:00</div></div>
@@ -2555,7 +2558,7 @@
           <div class="schedule-note">🗓 予約制（50分）</div>
         </section>
 
-        <section class="fade-in">
+        <section class="kojin-reveal">
           <h2 class="section-title"><span class="dot"></span>テキスト</h2>
           <div class="textbook-grid">
             <div class="mi-textbook-section">
@@ -2724,7 +2727,7 @@
           <p class="textbook-note">その他、学習ニーズに合わせて教材を選定いたします。</p>
         </section>
 
-        <section class="fade-in">
+        <section class="kojin-reveal">
           <h2 class="section-title"><span class="dot"></span>進め方</h2>
           <div class="steps-flow">
             <div class="step"><div class="step-num">①</div><div class="step-label">本文理解</div></div>
@@ -2740,7 +2743,7 @@
           </div>
         </section>
 
-        <section class="fade-in">
+        <section class="kojin-reveal">
           <h2 class="section-title"><span class="dot"></span>内容</h2>
           <div class="steps-flow steps-flow-5">
             <div class="step"><div class="step-num">①</div><div class="step-label">音読中心</div></div>
@@ -2758,7 +2761,7 @@
           </div>
         </section>
 
-        <section class="fade-in content-price-block">
+        <section class="kojin-reveal content-price-block">
           <div class="price-card-main">
             <div class="price-card-header">
               <div class="pch-label">Tuition Fee</div>
@@ -2805,7 +2808,7 @@
           </div>
         </section>
 
-        <section class="fade-in">
+        <section class="kojin-reveal">
           <h2 class="section-title"><span class="dot"></span>生徒の声</h2>
           <div class="reviews-list">
             <div class="review-card" id="review-ns">
@@ -2890,7 +2893,7 @@
 
       <!-- ========== タブ2: 短期集中個人 ========== -->
       <div id="tab02" class="tab-panel">
-        <section>
+        <section class="kojin-reveal">
           <div class="overview-card overview-card-dark">
             <div class="ov-top">
               <div class="ov-top-left">
@@ -2932,7 +2935,7 @@
           </div>
         </section>
 
-        <section>
+        <section class="kojin-reveal">
           <h2 class="section-title"><span class="dot"></span>対象</h2>
           <div class="target-grid">
             <div class="target-item">🎓 入門・初級・中級・上級 全レベル対象</div>
@@ -2943,7 +2946,7 @@
           <p class="format-note" style="margin-top:10px;">※対面・オンラインどちらでも受講可能</p>
         </section>
 
-        <section>
+        <section class="kojin-reveal">
           <h2 class="section-title"><span class="dot"></span>日程</h2>
           <div class="sched-row">
             <div class="sched-item">
@@ -2954,7 +2957,7 @@
           <div class="sched-note">🗓 予約制（50分 / 1コマ）</div>
         </section>
 
-        <section>
+        <section class="kojin-reveal">
           <h2 class="section-title"><span class="dot"></span>カリキュラム</h2>
           <div class="level-tabs">
             <div class="level-tab active-beg" data-level="beg">初級</div>
@@ -3130,7 +3133,7 @@
           </div>
         </section>
 
-        <section>
+        <section class="kojin-reveal">
           <h2 class="section-title"><span class="dot"></span>テキスト</h2>
           <div class="mi-textbook-section">
             <div class="section-header">
@@ -3296,7 +3299,7 @@
           </div>
         </section>
 
-        <section>
+        <section class="kojin-reveal">
           <h2 class="section-title"><span class="dot"></span>進め方</h2>
           <div class="tanki-steps-row">
             <div class="tanki-step-node"><div class="tanki-step-circle">①</div><div class="tanki-step-label">本文理解</div></div>
@@ -3315,7 +3318,7 @@
           </div>
         </section>
 
-        <section class="fade-in content-price-block">
+        <section class="kojin-reveal content-price-block">
           <div class="price-card-main">
             <div class="price-card-header">
               <div class="pch-label">Tuition Fee</div>
@@ -3362,7 +3365,7 @@
           </div>
         </section>
 
-        <section class="fade-in">
+        <section class="kojin-reveal">
           <h2 class="section-title"><span class="dot"></span>生徒の声</h2>
           <div class="reviews-list">
             <div class="review-card" id="review-it">
@@ -3474,7 +3477,7 @@
 
       <!-- ========== タブ3: 発音矯正 ========== -->
       <div id="tab03" class="tab-panel">
-        <section>
+        <section class="kojin-reveal">
           <div class="overview-card overview-card-dark">
             <div class="ov-top">
               <div class="ov-top-left">
@@ -3510,7 +3513,7 @@
           </div>
         </section>
 
-        <section>
+        <section class="kojin-reveal">
           <h2 class="section-title"><span class="dot"></span>対象</h2>
           <div class="target-grid">
             <div class="target-item">🎓 入門・初級・中級、上級 全レベル対象</div>
@@ -3521,7 +3524,7 @@
           <p class="format-note" style="margin-top:10px;">※対面・オンラインどちらでも受講可能</p>
         </section>
 
-        <section>
+        <section class="kojin-reveal">
           <h2 class="section-title"><span class="dot"></span>日程</h2>
           <div class="sched-row">
             <div class="sched-item">
@@ -3540,7 +3543,7 @@
           <div class="sched-note">🗓 予約制（50分 / 1コマ）</div>
         </section>
 
-        <section>
+        <section class="kojin-reveal">
           <h2 class="section-title"><span class="dot"></span>内容</h2>
           <div class="curriculum-wrap curriculum-table-wrap phonetic-curriculum-wrap">
             <table class="curriculum-table phonetic-curriculum-table">
@@ -3654,7 +3657,7 @@
           </div>
         </section>
 
-        <section class="fade-in content-price-block">
+        <section class="kojin-reveal content-price-block">
           <div class="price-card-main">
             <div class="price-card-header">
               <div class="pch-label">Tuition Fee</div>
@@ -3687,7 +3690,7 @@
           </div>
         </section>
 
-        <section class="fade-in">
+        <section class="kojin-reveal">
           <h2 class="section-title"><span class="dot"></span>生徒の声</h2>
           <div class="reviews-list">
             <div class="review-card" id="review-o">
@@ -3765,7 +3768,7 @@
 
       <!-- ========== タブ4: レベルテスト ========== -->
       <div id="tab04" class="tab-panel">
-        <section>
+        <section class="kojin-reveal">
           <div class="overview-card overview-card-dark">
             <div class="ov-top">
               <div class="ov-top-left">
@@ -3831,7 +3834,7 @@
           </div>
         </section>
 
-        <section>
+        <section class="kojin-reveal">
           <h2 class="section-title"><span class="dot"></span>日程・時間</h2>
           <div class="sched-row">
             <div class="sched-item">
@@ -3849,7 +3852,7 @@
           </div>
         </section>
 
-        <section>
+        <section class="kojin-reveal">
           <h2 class="section-title"><span class="dot"></span>相談の流れ</h2>
           <div class="tanki-steps-row">
             <div class="tanki-step-node"><div class="tanki-step-circle">①</div><div class="tanki-step-label">お悩み相談 10分間</div></div>
@@ -3860,7 +3863,7 @@
           </div>
         </section>
 
-        <section>
+        <section class="kojin-reveal">
           <h2 class="section-title"><span class="dot"></span>テスト内容</h2>
           <div class="detail-list">
             <div class="detail-item"><div class="di-num">初級</div>語彙、基本文型、発音矯正など</div>
@@ -3869,7 +3872,7 @@
           </div>
         </section>
 
-        <section>
+        <section class="kojin-reveal">
           <div class="result-section">
             <div class="result-section-head">
               <span class="result-section-dot"></span>
@@ -3996,7 +3999,7 @@
           </div>
         </section>
 
-        <section class="fade-in">
+        <section class="kojin-reveal">
           <div class="fee-section">
             <div class="fee-card">
               <div class="fee-left">
@@ -4027,7 +4030,7 @@
           </div>
         </section>
 
-        <section class="fade-in">
+        <section class="kojin-reveal">
           <h2 class="section-title"><span class="dot"></span>生徒の声</h2>
           <div class="reviews-list">
             <div class="review-card">
@@ -4232,6 +4235,25 @@
           a.classList.toggle('active', a.getAttribute('data-tab') === tabId);
         });
       }
+      var kojinRevealDone = {};
+      function initKojinReveal(tabId) {
+        if (kojinRevealDone[tabId]) return;
+        kojinRevealDone[tabId] = true;
+        var els = document.querySelectorAll('#' + tabId + ' .kojin-reveal');
+        if (!els.length) return;
+        var obs = new IntersectionObserver(function(entries) {
+          entries.forEach(function(e) {
+            if (e.isIntersecting) {
+              e.target.classList.add('visible');
+              obs.unobserve(e.target);
+            }
+          });
+        }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+        els.forEach(function(el, i) {
+          el.style.transitionDelay = (i % 5 * 0.09) + 's';
+          obs.observe(el);
+        });
+      }
       function switchTab(tabId) {
         tabBtns.forEach(function(btn) {
           btn.classList.toggle('active', btn.getAttribute('data-tab') === tabId);
@@ -4243,6 +4265,7 @@
         history.replaceState(null, '', 'kojin.html#' + tabId);
         ctaBtns.forEach(function(btn) { btn.href = getTrialUrlForTab(tabId); });
         setCourseNavActive(tabId);
+        initKojinReveal(tabId);
       }
 
       tabBtns.forEach(function(btn) {

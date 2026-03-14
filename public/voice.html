@@ -241,16 +241,18 @@
     .voice-all-play-btn::before { content: "▶"; font-size: 12px; }
     .voice-all-play-btn.playing::before { content: "⏸"; }
     .footer {
-      background: var(--text-dark);
+      background: #2c2c2c;
       color: rgba(255,255,255,0.85);
-      padding: 40px 32px 24px;
+      padding: 48px 24px 24px;
       margin-top: 48px;
     }
-    .footer-columns { display: flex; flex-wrap: wrap; gap: 32px 48px; margin-bottom: 24px; }
-    .footer-column h4 { font-size: 14px; margin-bottom: 12px; color: white; }
+    .footer-inner { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    .footer-columns { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; margin-bottom: 40px; }
+    @media (max-width: 768px) { .footer-columns { grid-template-columns: repeat(2, 1fr); } }
+    .footer-column h4 { font-size: 14px; margin-bottom: 16px; opacity: 0.9; }
     .footer-column a { display: block; color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; margin-bottom: 8px; }
     .footer-column a:hover { color: white; }
-    .footer-bottom { font-size: 13px; opacity: 0.9; }
+    .footer-bottom { text-align: center; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 13px; opacity: 0.8; }
     @media (max-width: 640px) {
       .voice-table { font-size: 12px; }
       .voice-table th, .voice-table td { padding: 8px; }

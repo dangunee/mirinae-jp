@@ -502,6 +502,17 @@
     .content-block ul { margin: 8px 0 8px 24px; }
     .content-block li { margin-bottom: 6px; }
 
+    /* スクロール reveal アニメーション */
+    #tab01 .kaiwa-reveal, #tab02 .kaiwa-reveal, #tab03 .kaiwa-reveal, #tab04 .kaiwa-reveal, #tab05 .kaiwa-reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity .6s, transform .6s;
+    }
+    #tab01 .kaiwa-reveal.visible, #tab02 .kaiwa-reveal.visible, #tab03 .kaiwa-reveal.visible, #tab04 .kaiwa-reveal.visible, #tab05 .kaiwa-reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
     /* beg-* design (group.html style) */
     #tab01, #tab02, #tab03, #tab04, #tab05 {
       --cream: #f5f2ec;
@@ -2584,7 +2595,7 @@
       <!-- ========== タブ1: 会話クラス ========== -->
       <div id="tab01" class="tab-panel active">
         <div class="beg-page">
-          <div class="t01-hero">
+          <div class="t01-hero kaiwa-reveal">
             <div class="t01-hero-bg"></div>
             <div class="t01-hero-grid"></div>
             <div class="t01-hero-kr-bg">회화강화</div>
@@ -2624,48 +2635,48 @@
             </div>
           </div>
 
-          <div class="beg-sec-header">
+          <div class="beg-sec-header kaiwa-reveal">
             <div class="beg-sec-label">Targets</div>
             <div class="beg-sec-title">対象・目標</div>
             <div class="beg-sec-line"></div>
           </div>
           <div class="t01-target-grid">
-            <div class="t01-target-card">
+            <div class="t01-target-card kaiwa-reveal">
               <div class="t01-target-icon">🗣️</div>
               <h3>韓国語で不自由なく<br>話せるようになりたい方</h3>
               <p>会話クラス（初中級〜上級）で、実践的な会話力を集中的に鍛えます。毎回異なるテーマで、話せる内容の幅を広げていきましょう。</p>
             </div>
-            <div class="t01-target-card">
+            <div class="t01-target-card kaiwa-reveal">
               <div class="t01-target-icon">✍️</div>
               <h3>会話だけでなく、文法と<br>表現の違いも学びたい方</h3>
               <p>短い作文を添削しながら、似た文型の微妙な違いをしっかり習得。会話も作文も同時に上達できます。</p>
             </div>
           </div>
 
-          <div class="t01-flow-section">
-            <div class="beg-sec-header">
+          <div class="t01-flow-section kaiwa-reveal">
+            <div class="beg-sec-header kaiwa-reveal">
               <div class="beg-sec-label">Lesson Flow</div>
               <div class="beg-sec-title">授業の進め方</div>
               <div class="beg-sec-line"></div>
             </div>
             <p class="section-desc" style="color:rgba(255,255,255,0.45);font-size:14px;margin-top:12px;">毎回のレッスンは4つのステップで構成。予習から復習まで、無理なく表現を定着させます。</p>
-            <div class="t01-flow-steps">
-              <div class="t01-flow-step">
+            <div class="t01-flow-steps kaiwa-reveal">
+              <div class="t01-flow-step kaiwa-reveal">
                 <div class="t01-flow-num">01</div>
                 <h3>事前作文</h3>
                 <p>本日のテーマを確認し、指定された文型で事前に作文してきます。</p>
               </div>
-              <div class="t01-flow-step">
+              <div class="t01-flow-step kaiwa-reveal">
                 <div class="t01-flow-num">02</div>
                 <h3>語彙・発音チェック</h3>
                 <p>授業で新しい単語や表現を確認し、発音チェックを行います。</p>
               </div>
-              <div class="t01-flow-step">
+              <div class="t01-flow-step kaiwa-reveal">
                 <div class="t01-flow-num">03</div>
                 <h3>会話＆添削</h3>
                 <p>準備してきた内容をもとに会話しながら、随時表現を修正します。</p>
               </div>
-              <div class="t01-flow-step">
+              <div class="t01-flow-step kaiwa-reveal">
                 <div class="t01-flow-num">04</div>
                 <h3>まとめ・整理</h3>
                 <p>最後に、本日のテーマで学んだ表現をまとめて整理します。</p>
@@ -2673,12 +2684,12 @@
             </div>
           </div>
 
-          <div class="beg-sec-header">
+          <div class="beg-sec-header kaiwa-reveal">
             <div class="beg-sec-label">Theme Examples</div>
             <div class="beg-sec-title">主なテーマ例</div>
             <div class="beg-sec-line"></div>
           </div>
-          <div class="kaiwa-tabs-wrapper">
+          <div class="kaiwa-tabs-wrapper kaiwa-reveal">
             <div class="kaiwa-tabs">
               <button type="button" class="kaiwa-tab-btn active" data-theme="shuchukyu">初中級<span class="kaiwa-tab-count">50</span></button>
               <button type="button" class="kaiwa-tab-btn" data-theme="chukyu1">中級1<span class="kaiwa-tab-count">50</span></button>
@@ -2686,7 +2697,7 @@
               <button type="button" class="kaiwa-tab-btn" data-theme="jokyu">上級<span class="kaiwa-tab-count">50</span></button>
             </div>
           </div>
-          <div class="kaiwa-theme-content" id="kaiwa-theme-content">
+          <div class="kaiwa-theme-content kaiwa-reveal" id="kaiwa-theme-content">
             <div class="kaiwa-level-panel active" id="panel-shuchukyu">
               <div class="kaiwa-level-header">
                 <div class="kaiwa-level-num">01</div>
@@ -2733,7 +2744,7 @@
             </div>
           </div>
 
-          <div class="kaiwa-cta-strip">
+          <div class="kaiwa-cta-strip kaiwa-reveal">
             <div class="kaiwa-cta-text">
               <h3>気になるテーマは見つかりましたか？</h3>
               <p>ミリネ韓国語教室では、これらのテーマを使った<br>個人レッスン・グループレッスンをご用意しています。</p>
@@ -2741,14 +2752,14 @@
             <a href="https://mirinae-jp.vercel.app/trial.html" class="kaiwa-cta-btn">お申し込みはこちら →</a>
           </div>
 
-          <div class="beg-sec-header">
+          <div class="beg-sec-header kaiwa-reveal">
             <div class="beg-sec-label">Tuition</div>
             <div class="beg-sec-title">授業料</div>
             <div class="beg-sec-line"></div>
           </div>
-          <div class="t01-tuition-grid">
+          <div class="t01-tuition-grid kaiwa-reveal">
             <div class="t01-price-cards">
-              <div class="t01-price-card">
+              <div class="t01-price-card kaiwa-reveal">
                 <div class="t01-price-plan">月3回コース</div>
                 <div class="t01-price-row">
                   <span class="key">1回あたり</span>
@@ -2763,7 +2774,7 @@
                   <span class="total-val">34,650<small style="font-size:14px;"> 円</small></span>
                 </div>
               </div>
-              <div class="t01-price-card featured">
+              <div class="t01-price-card featured kaiwa-reveal">
                 <div class="t01-price-plan">通常プラン（月4回）</div>
                 <div class="t01-price-row">
                   <span class="key">1回あたり</span>
@@ -2807,13 +2818,13 @@
             </div>
           </div>
 
-          <div class="beg-sec-header">
+          <div class="beg-sec-header kaiwa-reveal">
             <div class="beg-sec-label">Testimonials</div>
             <div class="beg-sec-title">生徒の声</div>
             <div class="beg-sec-line"></div>
           </div>
           <div class="t01-test-grid">
-            <div class="t01-test-card">
+            <div class="t01-test-card kaiwa-reveal">
               <div class="t01-test-body">途中からこの教科書を使い始めたので全ては見れていませんが、様々なテーマがあったので楽しいことができました。ただ、時々テーマによっては話すことがあまりなくて困るときもありました。例えば、郵便局。次回から、実際にあった悩み相談ということで、より口語的、一般の人々の話し方(書き方）も見れるのかなと思うと楽しみです。</div>
               <div class="t01-test-author">
                 <div class="t01-test-avatar">S</div>
@@ -2823,7 +2834,7 @@
                 </div>
               </div>
             </div>
-            <div class="t01-test-card">
+            <div class="t01-test-card kaiwa-reveal">
               <div class="t01-test-body">보통 교과서에서는 배울 수 없는 내용이 많아서 재미있었어요. 실제로 쓸 수 있는 표현도 많고 수업 후에 바로 친구에게 그 표현을 썼어요. 문형을 써서 문장을 만드는 것이 어렵고 시간이 걸렸는데, 결과적으로 TOPIK 시험에 아주 도움이 됐어요. 선생님들의 이야기도 매주 재미있고 만족스러운 수업 이었어요. 감사합니다.</div>
               <div class="t01-test-author">
                 <div class="t01-test-avatar">O</div>
@@ -2833,7 +2844,7 @@
                 </div>
               </div>
             </div>
-            <div class="t01-test-card">
+            <div class="t01-test-card kaiwa-reveal">
               <div class="t01-test-body">例文を作る時に文法が良く分からない時（ここでどういう意味で使えば良いか）があった。内容が日常生活にあまり結びがつかず話が難しい題があった。教科書の印刷がおかしく、ページが変になって使いにくかった。</div>
               <div class="t01-test-author">
                 <div class="t01-test-avatar">K</div>
@@ -2843,7 +2854,7 @@
                 </div>
               </div>
             </div>
-            <div class="t01-test-card">
+            <div class="t01-test-card kaiwa-reveal">
               <div class="t01-test-body">途中からこの教科書を使い始めたので全ては見れていませんが、様々なテーマがあったので楽しいことができました。ただ、時々テーマによっては話すことがあまりなくて困るときもありました。例えば、郵便局。次回から、実際にあった悩み相談ということで、より口語的、一般の人々の話し方(書き方）も見れるのかなと思うと楽しみです。</div>
               <div class="t01-test-author">
                 <div class="t01-test-avatar">S</div>
@@ -2853,7 +2864,7 @@
                 </div>
               </div>
             </div>
-            <div class="t01-test-card t01-test-collapsible">
+            <div class="t01-test-card t01-test-collapsible kaiwa-reveal">
               <div class="t01-test-header" role="button" tabindex="0" aria-expanded="false">
                 <div class="t01-test-author">
                   <div class="t01-test-avatar">M</div>
@@ -2866,7 +2877,7 @@
               </div>
               <div class="t01-test-body">この会話トレーニングを受けて、自分から韓国語で発言する自身が持てるようになりました。フリートーキングと違い毎回話すテーマが変わり、今まで自分が知っている単語や、自分に関心がある話しか出来ませんでしたがこのトレーニングを受けてから話す内容が広がりました。</div>
             </div>
-            <div class="t01-test-card t01-test-collapsible">
+            <div class="t01-test-card t01-test-collapsible kaiwa-reveal">
               <div class="t01-test-header" role="button" tabindex="0" aria-expanded="false">
                 <div class="t01-test-author">
                   <div class="t01-test-avatar">S</div>
@@ -2886,7 +2897,7 @@
       <!-- ========== タブ2: 音読クラス ========== -->
       <div id="tab02" class="tab-panel">
         <div class="beg-page">
-          <div class="t01-hero">
+          <div class="t01-hero kaiwa-reveal">
             <div class="t01-hero-bg"></div>
             <div class="t01-hero-grid"></div>
             <div class="t01-hero-kr-bg">음독</div>
@@ -2940,23 +2951,23 @@
             <p><strong>専門講師に発音チェックを受けた上で、音読の習慣をつければ、綺麗な韓国語を習得できるだけでなく、難なくレベルアップすることができます。</strong></p>
           </div>
 
-          <div class="beg-sec-header">
+          <div class="beg-sec-header kaiwa-reveal">
             <div class="beg-sec-label">Targets</div>
             <div class="beg-sec-title">対象・目標</div>
             <div class="beg-sec-line"></div>
           </div>
           <div class="t01-target-grid">
-            <div class="t01-target-card">
+            <div class="t01-target-card kaiwa-reveal">
               <div class="t01-target-icon">🗣️</div>
               <h3>黙読では伸び悩んでいる方</h3>
               <p>音読クラスで、専門講師の発音チェックを受けながら音読の習慣をつけることで、綺麗な発音と抑揚を身につけ、会話力・聞き取り力を同時に伸ばします。</p>
             </div>
-            <div class="t01-target-card">
+            <div class="t01-target-card kaiwa-reveal">
               <div class="t01-target-icon">✍️</div>
               <h3>発音・抑揚を正しく身につけたい方</h3>
               <p>オーバーラッピングとシャドーイングで、長い文章も自然に読めるように。正しい抑揚と発音をイメージトレーニングで定着させます。</p>
             </div>
-            <div class="t01-target-card ondoku-effect-card">
+            <div class="t01-target-card ondoku-effect-card kaiwa-reveal">
               <div class="t01-target-icon">💡</div>
               <h3>音読の効果</h3>
               <ul class="ondoku-effect-list">
@@ -2968,24 +2979,24 @@
             </div>
           </div>
 
-          <div class="t01-flow-section" id="tab02-points">
-            <div class="beg-sec-header">
+          <div class="t01-flow-section kaiwa-reveal" id="tab02-points">
+            <div class="beg-sec-header kaiwa-reveal">
               <div class="beg-sec-label">Points</div>
               <div class="beg-sec-title">ポイント</div>
               <div class="beg-sec-line"></div>
             </div>
             <div class="t01-flow-steps">
-              <div class="t01-flow-step">
+              <div class="t01-flow-step kaiwa-reveal">
                 <span class="t01-flow-num">1</span>
                 <h3>発音・抑揚・スピードチェック</h3>
                 <p>毎回、発音・抑揚・話すスピードをチェック</p>
               </div>
-              <div class="t01-flow-step">
+              <div class="t01-flow-step kaiwa-reveal">
                 <span class="t01-flow-num">2</span>
                 <h3>イメージトレーニング</h3>
                 <p>正しい抑揚と発音をイメージトレーニングで定着</p>
               </div>
-              <div class="t01-flow-step">
+              <div class="t01-flow-step kaiwa-reveal">
                 <span class="t01-flow-num">3</span>
                 <h3>オーバーラッピング＆シャドーイング</h3>
                 <p>長い文章も自然に読めるように</p>
@@ -2993,24 +3004,24 @@
             </div>
           </div>
 
-          <div class="t01-flow-section">
-            <div class="beg-sec-header">
+          <div class="t01-flow-section kaiwa-reveal">
+            <div class="beg-sec-header kaiwa-reveal">
               <div class="beg-sec-label">Lesson Flow</div>
               <div class="beg-sec-title">授業の流れ</div>
               <div class="beg-sec-line"></div>
             </div>
             <div class="t01-flow-steps">
-              <div class="t01-flow-step">
+              <div class="t01-flow-step kaiwa-reveal">
                 <span class="t01-flow-num">1</span>
                 <h3>音読記録シート</h3>
                 <p>進捗を見える化</p>
               </div>
-              <div class="t01-flow-step">
+              <div class="t01-flow-step kaiwa-reveal">
                 <span class="t01-flow-num">2</span>
                 <h3>意味・文法・音の変化</h3>
                 <p>文章の意味・文法要素・音の変化を確認</p>
               </div>
-              <div class="t01-flow-step">
+              <div class="t01-flow-step kaiwa-reveal">
                 <span class="t01-flow-num">3</span>
                 <h3>オーバーラッピング→シャドーイング</h3>
                 <p>音声を聞き、イメージトレーニングまで</p>
@@ -3018,12 +3029,12 @@
             </div>
           </div>
 
-          <div class="beg-sec-header">
+          <div class="beg-sec-header kaiwa-reveal">
             <div class="beg-sec-label">Textbook</div>
             <div class="beg-sec-title">テキスト</div>
             <div class="beg-sec-line"></div>
           </div>
-          <div class="beg-textbook-row">
+          <div class="beg-textbook-row kaiwa-reveal">
             <div class="beg-textbook-icon">📖</div>
             <div class="beg-textbook-content">
               <div class="beg-textbook-label">【初中級】</div>
@@ -3032,14 +3043,14 @@
             </div>
           </div>
 
-          <div class="beg-sec-header">
+          <div class="beg-sec-header kaiwa-reveal">
             <div class="beg-sec-label">Tuition</div>
             <div class="beg-sec-title">授業料</div>
             <div class="beg-sec-line"></div>
           </div>
-          <div class="t01-tuition-grid">
+          <div class="t01-tuition-grid kaiwa-reveal">
             <div class="t01-price-cards">
-              <div class="t01-price-card featured">
+              <div class="t01-price-card featured kaiwa-reveal">
                 <div class="t01-price-plan">初中級 10回コース</div>
                 <div class="t01-price-row">
                   <span class="key">1コマあたり</span>
@@ -3074,13 +3085,13 @@
             </div>
           </div>
 
-          <div class="beg-sec-header">
+          <div class="beg-sec-header kaiwa-reveal">
             <div class="beg-sec-label">Testimonials</div>
             <div class="beg-sec-title">生徒の声</div>
             <div class="beg-sec-line"></div>
           </div>
           <div class="t01-test-grid">
-            <div class="t01-test-card">
+            <div class="t01-test-card kaiwa-reveal">
               <div class="t01-test-body">今までのどの授業よりも大変（つらい）な経験をしました。通常の個人レッスンの予習や復習やパダスギだけでもいっぱいいっぱいなところに音読クラスが加わったためです。<br>しかし大変だった反面、どのクラスよりも集中した時間でした。人前より先生方にきちんと発音できてこそ、聞き取ることができるという意味がとてもよくわかりました。確かにパダスギで今まで聞き取れなかった細かいところが聞き取れるようになったことは大きな進歩だったと思います。<br>そして今まで苦手としていた音読が少し好きになりました。今日までの経験を活かして声に出してたくさん音読練習をしたいと思います。</div>
               <div class="t01-test-author">
                 <div class="t01-test-avatar">Y</div>
@@ -3090,7 +3101,7 @@
                 </div>
               </div>
             </div>
-            <div class="t01-test-card">
+            <div class="t01-test-card kaiwa-reveal">
               <div class="t01-test-body">間違いに対して妥協することなく、チェックを入れて下さることがとてもありがたく感じました。完璧への道はまだまだ遠いですが、これからも得た知識を積み上げてきれいな音読を心がけます。<br>発音・抑揚などについて成績表などで数値化してフィードバックしてくださると励みになると思います。サンプル音声も「音読」に特化したものがあるといいと思います。（受講生だけが聴けるように）</div>
               <div class="t01-test-author">
                 <div class="t01-test-avatar">O</div>
@@ -3100,7 +3111,7 @@
                 </div>
               </div>
             </div>
-            <div class="t01-test-card">
+            <div class="t01-test-card kaiwa-reveal">
               <div class="t01-test-body">音読クラスは初めて受けました。今までほぼ独学で勉強してきたので発音の事はあまりわかっていませんでした。<br>今回10回コースを受講して'目からウロコ'のものがたくさんあり、遠くまで通ってきた甲斐がありました。先生方も発音に関してはベテランの方ばかりで、ここで音読を教えていただいて本当によかったです。<br>TOPIKが終わってからも少しづつ、又受講したいなと思っております。</div>
               <div class="t01-test-author">
                 <div class="t01-test-avatar">M</div>
@@ -3110,7 +3121,7 @@
                 </div>
               </div>
             </div>
-            <div class="t01-test-card">
+            <div class="t01-test-card kaiwa-reveal">
               <div class="t01-test-body">途中からの講義の参加でしたが、今までどれほど知らないことが多かったかが、よくわかりました。"なんとなく"で発音していたことの間違いに気付けたことが大きかったです。<br>しかし身につくには時間が足りなかったです。"抑揚"に意識が向くようになり、TVなどで日本語が上手な韓国人が韓国語の"抑揚"で日本語を話していることもわかりました。</div>
               <div class="t01-test-author">
                 <div class="t01-test-avatar">K</div>
@@ -3120,7 +3131,7 @@
                 </div>
               </div>
             </div>
-            <div class="t01-test-card t01-test-collapsible">
+            <div class="t01-test-card t01-test-collapsible kaiwa-reveal">
               <div class="t01-test-header" role="button" tabindex="0" aria-expanded="false">
                 <div class="t01-test-author">
                   <div class="t01-test-avatar">A</div>
@@ -3140,7 +3151,7 @@
       <!-- ========== タブ3: 発音・抑揚 ========== -->
       <div id="tab03" class="tab-panel">
         <div class="beg-page">
-          <div class="t01-hero">
+          <div class="t01-hero kaiwa-reveal">
             <div class="t01-hero-bg"></div>
             <div class="t01-hero-grid"></div>
             <div class="t01-hero-kr-bg">발음</div>
@@ -3180,7 +3191,7 @@
           </div>
 
           <!-- ABOUT -->
-          <section class="t03-section t03-about-section" id="tab03-about">
+          <section class="t03-section t03-about-section kaiwa-reveal" id="tab03-about">
             <div class="t03-section-inner">
               <div class="t03-sec-ey">ABOUT THIS COURSE</div>
               <h2 class="t03-sec-title">講座について</h2>
@@ -3195,7 +3206,7 @@
           </section>
 
           <!-- FEATURES -->
-          <section class="t03-section t03-features-section" id="tab03-features">
+          <section class="t03-section t03-features-section kaiwa-reveal" id="tab03-features">
             <div class="t03-section-inner">
               <div class="t03-sec-ey">FEATURES</div>
               <h2 class="t03-sec-title">特徴</h2>
@@ -3225,7 +3236,7 @@
           </section>
 
           <!-- DETAILS -->
-          <section class="t03-section t03-details-section" id="tab03-details">
+          <section class="t03-section t03-details-section kaiwa-reveal" id="tab03-details">
             <div class="t03-section-inner">
               <div class="t03-sec-ey">DETAILS</div>
               <h2 class="t03-sec-title">詳細</h2>
@@ -3311,7 +3322,7 @@
           </section>
 
           <!-- CTA -->
-          <section class="t03-cta-section" id="tab03-apply">
+          <section class="t03-cta-section kaiwa-reveal" id="tab03-apply">
             <div class="t03-cta-inner">
               <h2>声に出して読めば、<em>韓国語は伸びる。</em></h2>
               <p>多読×発音トレーニングで、語彙・文法・発音を同時に鍛えましょう。<br>募集期間：〜2/20（金）定員になり次第締め切り。</p>
@@ -3319,15 +3330,15 @@
             </div>
           </section>
 
-          <div class="t03-section" style="background:#fff;padding-top:72px;padding-bottom:80px;">
+          <div class="t03-section kaiwa-reveal" style="background:#fff;padding-top:72px;padding-bottom:80px;">
             <div class="t03-section-inner">
-              <div class="beg-sec-header">
+              <div class="beg-sec-header kaiwa-reveal">
                 <div class="beg-sec-label">Testimonials</div>
                 <div class="beg-sec-title">生徒の声</div>
                 <div class="beg-sec-line"></div>
               </div>
               <div class="t01-test-grid">
-            <div class="t01-test-card">
+            <div class="t01-test-card kaiwa-reveal">
               <div class="t01-test-body">良かった点 実際に口や舌の動きを見ることができ、自分で勉強するだけでは気づかなかったことを知ることができました。自信のない発音はやはり伝わらないことも実感でき、改めて発音の大切さを学びました。先生のお人柄も良く、失敗しても自信を失わせないよう丁寧なご指導を頂けて感謝いっぱいです。何より楽しく受講できたことが、より一層やる気を持たせてもらい、次へのモチベーションに繋がりました。</div>
               <div class="t01-test-author">
                 <div class="t01-test-avatar">初</div>
@@ -3337,7 +3348,7 @@
                 </div>
               </div>
             </div>
-            <div class="t01-test-card">
+            <div class="t01-test-card kaiwa-reveal">
               <div class="t01-test-body">初めてだったので緊張しましたが、先生も生徒の皆さんも和やかで温かい雰囲気の中で学ぶことができてよかったです。激音や母音など自分の弱点をフィードバックしていただき、独学ではなかなか気づけなかった部分なので非常にありがたかったです。これからの勉強に役立てていきたいと思います。</div>
               <div class="t01-test-author">
                 <div class="t01-test-avatar">初</div>
@@ -3347,7 +3358,7 @@
                 </div>
               </div>
             </div>
-            <div class="t01-test-card">
+            <div class="t01-test-card kaiwa-reveal">
               <div class="t01-test-body">自分のぶつ切りの読み方の特徴が自覚できてよかった。できていない発音に関しての改善点の説明も具体的でわかりやすかったです。</div>
               <div class="t01-test-author">
                 <div class="t01-test-avatar">中</div>
@@ -3357,7 +3368,7 @@
                 </div>
               </div>
             </div>
-            <div class="t01-test-card">
+            <div class="t01-test-card kaiwa-reveal">
               <div class="t01-test-body">一つ一つは、発音は出来ますが文章になるとなかなか意識しないと出来ないです。抑揚は日本語と違うことが最近は良く分かるようになりました。エッセイと小説は訳文をもう少し丁寧に教えてもらったら良かったと思います。</div>
               <div class="t01-test-author">
                 <div class="t01-test-avatar">上</div>
@@ -3367,7 +3378,7 @@
                 </div>
               </div>
             </div>
-            <div class="t01-test-card t01-test-collapsible">
+            <div class="t01-test-card t01-test-collapsible kaiwa-reveal">
               <div class="t01-test-header" role="button" tabindex="0" aria-expanded="false">
                 <div class="t01-test-author">
                   <div class="t01-test-avatar">初</div>
@@ -3380,7 +3391,7 @@
               </div>
               <div class="t01-test-body">少人数のため一人一人発音チェックして直してもらえてコツが掴めました。単発でしたが盛り沢山の充実の内容でした。オンラインというのも楽で良いです。その場限りだとすぐに忘れてしまうことも自分で反復できるように助けてくれるお教室だと感じました。</div>
             </div>
-            <div class="t01-test-card t01-test-collapsible">
+            <div class="t01-test-card t01-test-collapsible kaiwa-reveal">
               <div class="t01-test-header" role="button" tabindex="0" aria-expanded="false">
                 <div class="t01-test-author">
                   <div class="t01-test-avatar">中</div>
@@ -3393,7 +3404,7 @@
               </div>
               <div class="t01-test-body">まず、ほぼ韓国語による授業が嬉しかったです。それだけで耳と脳が一生懸命韓国語を聞こうとしている感じがしました。また初日、平音激音濃音から丁寧に教えていただけたのがよかったです。ハングルを覚えた頃は独学で、今まで自分ではまあまあできている、と思っていたのがそうではないとわかりとても勉強になりました。２日目の授業も、抑揚を中心に細かい点まで指摘してくださりありがとうございました。たぶん、発音や抑揚をこんなに意識して音読したことはありません。また授業動画などをあとで送っていただけたのが大変ありがたいです。</div>
             </div>
-            <div class="t01-test-card t01-test-collapsible">
+            <div class="t01-test-card t01-test-collapsible kaiwa-reveal">
               <div class="t01-test-header" role="button" tabindex="0" aria-expanded="false">
                 <div class="t01-test-author">
                   <div class="t01-test-avatar">N</div>
@@ -3406,7 +3417,7 @@
               </div>
               <div class="t01-test-body">とってもわかりやすかったです。日本人が間違いやすい抑揚の比較がとてもよかったです。抑揚の授業の時間がもうちょっと多くあるとうれしいです。先生の授業はとってもわかりやすいのでまた機会があったら受講したいと思います。今回もありがとうございました。</div>
             </div>
-            <div class="t01-test-card t01-test-collapsible">
+            <div class="t01-test-card t01-test-collapsible kaiwa-reveal">
               <div class="t01-test-header" role="button" tabindex="0" aria-expanded="false">
                 <div class="t01-test-author">
                   <div class="t01-test-avatar">T</div>
@@ -3419,7 +3430,7 @@
               </div>
               <div class="t01-test-body">これまで発音のことで疑問に思っていたことが解決されました。抑揚に気を付けることで苦手な激音や濃音もそれらしく聞こえることを学べたのは嬉しかったです。ひとつの単語では発音できても文章になるとできないことが多いので、文を読んで発音を修正していただけるクラスがあったら受けたいです。</div>
             </div>
-            <div class="t01-test-card t01-test-collapsible">
+            <div class="t01-test-card t01-test-collapsible kaiwa-reveal">
               <div class="t01-test-header" role="button" tabindex="0" aria-expanded="false">
                 <div class="t01-test-author">
                   <div class="t01-test-avatar">M</div>
@@ -3441,7 +3452,7 @@
       <!-- ========== タブ4: 小説朗読 ========== -->
       <div id="tab04" class="tab-panel">
         <div class="beg-page">
-          <div class="t01-hero">
+          <div class="t01-hero kaiwa-reveal">
             <div class="t01-hero-bg"></div>
             <div class="t01-hero-grid"></div>
             <div class="t01-hero-kr-bg">소설</div>
@@ -3482,7 +3493,7 @@
           </div>
 
           <!-- ABOUT -->
-          <section class="t04-section" id="tab04-about" style="background:var(--white);">
+          <section class="t04-section kaiwa-reveal" id="tab04-about" style="background:var(--white);">
             <div class="t04-section-inner">
               <div class="t04-sec-ey">ABOUT THIS COURSE</div>
               <h2 class="t04-sec-title">講座について</h2>
@@ -3498,22 +3509,22 @@
           </section>
 
           <!-- TARGET -->
-          <section class="t04-section" id="tab04-target" style="background:var(--beige);">
+          <section class="t04-section kaiwa-reveal" id="tab04-target" style="background:var(--beige);">
             <div class="t04-section-inner">
               <div class="t04-sec-ey">TARGET & TEXTBOOK</div>
               <h2 class="t04-sec-title">対象・テキスト</h2>
               <div class="t04-target-grid">
-                <div class="t04-target-card">
+                <div class="t04-target-card kaiwa-reveal">
                   <div class="t04-target-card-icon">🎯</div>
                   <h3>対象</h3>
                   <p>韓国語の小説を読み、討論しながら会話練習をしたい方（上級）</p>
                 </div>
-                <div class="t04-target-card">
+                <div class="t04-target-card kaiwa-reveal">
                   <div class="t04-target-card-icon">👥</div>
                   <h3>定員・教室</h3>
                   <p>2〜8名<br>Zoom（オンライン）</p>
                 </div>
-                <div class="t04-target-card">
+                <div class="t04-target-card kaiwa-reveal">
                   <div class="t04-target-card-icon">📖</div>
                   <h3>テキスト</h3>
                   <p>『いらっしゃいませ、ヒュナム洞書店です』ほか<br><span style="font-size:11.5px;color:var(--muted);">※ 受講時に詳細をご案内します</span></p>
@@ -3523,7 +3534,7 @@
           </section>
 
           <!-- FLOW -->
-          <section class="t04-section t04-flow-section" id="tab04-flow">
+          <section class="t04-section t04-flow-section kaiwa-reveal" id="tab04-flow">
             <div class="t04-section-inner">
               <div class="t04-sec-ey">LESSON FLOW</div>
               <h2 class="t04-sec-title">日程・授業の流れ</h2>
@@ -3537,35 +3548,35 @@
               </div>
 
               <div class="t04-flow-steps">
-                <div class="t04-flow-step">
+                <div class="t04-flow-step kaiwa-reveal">
                   <div class="t04-flow-step-num-box"><div class="t04-flow-step-num">1</div></div>
                   <div class="t04-flow-step-body">
                     <h4>事前予習</h4>
                     <p>授業前に指定範囲を予習（単語・表現を調べておく）</p>
                   </div>
                 </div>
-                <div class="t04-flow-step">
+                <div class="t04-flow-step kaiwa-reveal">
                   <div class="t04-flow-step-num-box"><div class="t04-flow-step-num">2</div></div>
                   <div class="t04-flow-step-body">
                     <h4>朗読 & 発音チェック</h4>
                     <p>授業中に順番に朗読し、発音・イントネーションをチェック</p>
                   </div>
                 </div>
-                <div class="t04-flow-step">
+                <div class="t04-flow-step kaiwa-reveal">
                   <div class="t04-flow-step-num-box"><div class="t04-flow-step-num">3</div></div>
                   <div class="t04-flow-step-body">
                     <h4>韓国語で要約</h4>
                     <p>読んだ箇所を韓国語で要約し、表現力を鍛える</p>
                   </div>
                 </div>
-                <div class="t04-flow-step">
+                <div class="t04-flow-step kaiwa-reveal">
                   <div class="t04-flow-step-num-box"><div class="t04-flow-step-num">4</div></div>
                   <div class="t04-flow-step-body">
                     <h4>ディスカッション</h4>
                     <p>内容について韓国語で討論し、会話練習を行う</p>
                   </div>
                 </div>
-                <div class="t04-flow-step">
+                <div class="t04-flow-step kaiwa-reveal">
                   <div class="t04-flow-step-num-box"><div class="t04-flow-step-num">5</div></div>
                   <div class="t04-flow-step-body">
                     <h4>録画で復習</h4>
@@ -3577,13 +3588,13 @@
           </section>
 
           <!-- DETAILS + PRICE -->
-          <section class="t04-section" id="tab04-apply" style="background:var(--beige);">
+          <section class="t04-section kaiwa-reveal" id="tab04-apply" style="background:var(--beige);">
             <div class="t04-section-inner">
               <div class="t04-sec-ey">TUITION</div>
               <h2 class="t04-sec-title">授業料</h2>
               <div class="t04-details-grid">
 
-                <div class="t04-info-bar">
+                <div class="t04-info-bar kaiwa-reveal">
                   <div class="t04-info-bar-inner">
                     <div class="t04-ib-item">
                       <div class="t04-ib-label">SCHEDULE / 日程</div>
@@ -3604,7 +3615,7 @@
                   </div>
                 </div>
 
-                <div class="t04-textbook-band">
+                <div class="t04-textbook-band kaiwa-reveal">
                   <div class="t04-tb-icon">📚</div>
                   <div class="t04-tb-content">
                     <div class="t04-tb-label">TEXTBOOK / テキスト</div>
@@ -3615,7 +3626,7 @@
                   </div>
                 </div>
 
-                <div class="t04-price-table-wrap">
+                <div class="t04-price-table-wrap kaiwa-reveal">
                   <div class="t04-pt-head">
                     <div class="t04-pt-th">コマあたり</div>
                     <div class="t04-pt-th">期間</div>
@@ -3635,7 +3646,7 @@
           </section>
 
           <!-- CTA -->
-          <section class="t04-cta-section">
+          <section class="t04-cta-section kaiwa-reveal">
             <div class="t04-cta-inner">
               <h2>小説を読めば、<em>韓国語は深まる。</em></h2>
               <p>朗読×ディスカッションで、発音・語彙・会話力を同時に鍛えましょう。<br>隔週土曜日 12:00〜 Zoomにて。</p>
@@ -3739,7 +3750,7 @@
       <!-- ========== タブ5: 語彙力強化 ========== -->
       <div id="tab05" class="tab-panel">
         <div class="beg-page">
-          <div class="t01-hero">
+          <div class="t01-hero kaiwa-reveal">
             <div class="t01-hero-bg"></div>
             <div class="t01-hero-grid"></div>
             <div class="t01-hero-kr-bg">어휘</div>
@@ -3780,7 +3791,7 @@
           </div>
 
           <!-- ABOUT -->
-          <section class="t04-section" id="tab05-about" style="background:var(--white);">
+          <section class="t04-section kaiwa-reveal" id="tab05-about" style="background:var(--white);">
             <div class="t04-section-inner">
               <div class="t04-sec-ey">ABOUT THIS COURSE</div>
               <h2 class="t04-sec-title">講座について</h2>
@@ -3797,22 +3808,22 @@
           </section>
 
           <!-- TARGET -->
-          <section class="t04-section" id="tab05-target" style="background:var(--beige);">
+          <section class="t04-section kaiwa-reveal" id="tab05-target" style="background:var(--beige);">
             <div class="t04-section-inner">
               <div class="t04-sec-ey">TARGET & TEXTBOOK</div>
               <h2 class="t04-sec-title">対象・テキスト</h2>
               <div class="t04-target-grid">
-                <div class="t04-target-card">
+                <div class="t04-target-card kaiwa-reveal">
                   <div class="t04-target-card-icon">🎯</div>
                   <h3>対象</h3>
                   <p>単語帳を買っても１０ページで諦めた経験のある方、勉強する時間に比べて覚えられる単語の数が少ないと感じた経験のある方、ぜひミリネにお越しください。</p>
                 </div>
-                <div class="t04-target-card">
+                <div class="t04-target-card kaiwa-reveal">
                   <div class="t04-target-card-icon">👥</div>
                   <h3>定員・教室</h3>
                   <p>2～6人（2人から開講）<br>Zoom（オンライン）</p>
                 </div>
-                <div class="t04-target-card">
+                <div class="t04-target-card kaiwa-reveal">
                   <div class="t04-target-card-icon">📖</div>
                   <h3>テキスト</h3>
                   <p>hanaの韓国語単語〈中級編〉</p>
@@ -3822,7 +3833,7 @@
           </section>
 
           <!-- FLOW -->
-          <section class="t04-section t04-flow-section" id="tab05-flow">
+          <section class="t04-section t04-flow-section kaiwa-reveal" id="tab05-flow">
             <div class="t04-section-inner">
               <div class="t04-sec-ey">LESSON FLOW</div>
               <h2 class="t04-sec-title">進め方</h2>
@@ -3835,21 +3846,21 @@
               </div>
 
               <div class="t04-flow-steps">
-                <div class="t04-flow-step">
+                <div class="t04-flow-step kaiwa-reveal">
                   <div class="t04-flow-step-num-box"><div class="t04-flow-step-num">1</div></div>
                   <div class="t04-flow-step-body">
                     <h4>語彙テスト・文法解説</h4>
                     <p>毎週決まった範囲の単語をテストし、その単語と例文に関連する類似語、反意語、活用、文法などを勉強します。</p>
                   </div>
                 </div>
-                <div class="t04-flow-step">
+                <div class="t04-flow-step kaiwa-reveal">
                   <div class="t04-flow-step-num-box"><div class="t04-flow-step-num">2</div></div>
                   <div class="t04-flow-step-body">
                     <h4>音読・発音チェック</h4>
                     <p>テスト課題を音読し、発音チェックをします。</p>
                   </div>
                 </div>
-                <div class="t04-flow-step">
+                <div class="t04-flow-step kaiwa-reveal">
                   <div class="t04-flow-step-num-box"><div class="t04-flow-step-num">3</div></div>
                   <div class="t04-flow-step-body">
                     <h4>ニュアンスの違い</h4>
@@ -3862,13 +3873,13 @@
           </section>
 
           <!-- DETAILS + PRICE -->
-          <section class="t04-section" id="tab05-apply" style="background:var(--beige);">
+          <section class="t04-section kaiwa-reveal" id="tab05-apply" style="background:var(--beige);">
             <div class="t04-section-inner">
               <div class="t04-sec-ey">TUITION</div>
               <h2 class="t04-sec-title">授業料</h2>
               <div class="t04-details-grid">
 
-                <div class="t04-info-bar">
+                <div class="t04-info-bar kaiwa-reveal">
                   <div class="t04-info-bar-inner">
                     <div class="t04-ib-item">
                       <div class="t04-ib-label">SCHEDULE / 日程</div>
@@ -3889,7 +3900,7 @@
                   </div>
                 </div>
 
-                <div class="t04-textbook-band">
+                <div class="t04-textbook-band kaiwa-reveal">
                   <div class="t04-tb-icon">📚</div>
                   <div class="t04-tb-content">
                     <div class="t04-tb-label">TEXTBOOK / テキスト</div>
@@ -3899,7 +3910,7 @@
                   </div>
                 </div>
 
-                <div class="t04-price-table-wrap">
+                <div class="t04-price-table-wrap kaiwa-reveal">
                   <div class="t04-pt-head">
                     <div class="t04-pt-th">コマあたり</div>
                     <div class="t04-pt-th">期間</div>
@@ -3919,7 +3930,7 @@
           </section>
 
           <!-- CTA -->
-          <section class="t04-cta-section">
+          <section class="t04-cta-section kaiwa-reveal">
             <div class="t04-cta-inner">
               <h2>語彙を増やせば、<em>韓国語は広がる。</em></h2>
               <p>語彙力強化で、発音・文法・ニュアンスを同時に鍛えましょう。<br>毎週火曜日 20:00～ Zoomにて。</p>
@@ -4179,6 +4190,28 @@
       var tabPanels = document.querySelectorAll('.tab-panel');
       var tabIds = ['tab01', 'tab02', 'tab03', 'tab04', 'tab05'];
 
+      var kaiwaRevealDone = {};
+      function initKaiwaReveal(tabId) {
+        if (kaiwaRevealDone[tabId]) return;
+        kaiwaRevealDone[tabId] = true;
+        var panel = document.getElementById(tabId);
+        if (!panel) return;
+        var els = panel.querySelectorAll('.kaiwa-reveal');
+        if (!els.length) return;
+        var obs = new IntersectionObserver(function(entries) {
+          entries.forEach(function(e) {
+            if (e.isIntersecting) {
+              e.target.classList.add('visible');
+              obs.unobserve(e.target);
+            }
+          });
+        }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+        els.forEach(function(el, i) {
+          el.style.transitionDelay = (i % 5 * 0.09) + 's';
+          obs.observe(el);
+        });
+      }
+
       function switchTab(tabId) {
         tabBtns.forEach(function(btn) {
           btn.classList.toggle('active', btn.getAttribute('data-tab') === tabId);
@@ -4193,6 +4226,7 @@
         if (tabIds.indexOf(tabId) !== -1) {
           history.replaceState(null, '', 'kaiwa.html#' + tabId);
         }
+        initKaiwaReveal(tabId);
       }
 
       tabBtns.forEach(function(btn) {
@@ -4217,6 +4251,7 @@
           var href = a.getAttribute('href');
           a.classList.toggle('active', href === 'kaiwa.html#' + activeTab);
         });
+        initKaiwaReveal(activeTab);
       }
 
       window.addEventListener('hashchange', function() {

@@ -1396,35 +1396,24 @@
     #tab01 .kaiwa-cta-strip + .beg-sec-header,
     #tab01 .t01-tuition-grid + .beg-sec-header,
     #tab02 .t01-flow-section + .beg-sec-header,
-    #tab02 .ondoku-effect-section + .beg-sec-header,
     #tab02 .t01-tuition-grid + .beg-sec-header,
     #tab03 .t01-flow-section + .beg-sec-header,
     #tab03 .t01-tuition-grid + .beg-sec-header,
     #tab03 .beg-intro-block + .beg-sec-header { margin-top: 48px; }
-    #tab02 .ondoku-effect-section {
-      margin-top: 48px;
-      background: var(--beige);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 40px 48px;
+    #tab02 .ondoku-effect-card {
+      grid-column: 1 / -1;
     }
-    #tab02 .ondoku-effect-title {
-      font-family: 'Noto Serif JP', serif;
-      font-size: 18px;
-      color: var(--taupe);
-      margin-bottom: 24px;
-      font-weight: 600;
-    }
-    #tab02 .ondoku-effect-list {
+    #tab02 .ondoku-effect-card .ondoku-effect-list {
       list-style: none;
       padding: 0;
       margin: 0;
     }
-    #tab02 .ondoku-effect-list li {
-      font-size: 14px;
-      color: var(--text-dark);
-      line-height: 2;
+    #tab02 .ondoku-effect-card .ondoku-effect-list li {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.9;
       padding-left: 0;
+      margin-bottom: 6px;
     }
     #tab01 .t01-tuition-grid, #tab02 .t01-tuition-grid, #tab03 .t01-tuition-grid {
       display: flex;
@@ -1716,9 +1705,6 @@
     }
     @media (max-width: 600px) {
       #tab01 .t01-flow-steps, #tab02 .t01-flow-steps, #tab03 .t01-flow-steps { grid-template-columns: 1fr; }
-      #tab02 .ondoku-effect-section { padding: 28px 24px; }
-      #tab02 .ondoku-effect-title { font-size: 16px; margin-bottom: 20px; }
-      #tab02 .ondoku-effect-list li { font-size: 13px; }
     }
     .beg-tuition-table-wrap {
       border-radius: 10px;
@@ -2381,6 +2367,16 @@
               <h3>発音・抑揚を正しく身につけたい方</h3>
               <p>オーバーラッピングとシャドーイングで、長い文章も自然に読めるように。正しい抑揚と発音をイメージトレーニングで定着させます。</p>
             </div>
+            <div class="t01-target-card ondoku-effect-card">
+              <div class="t01-target-icon">💡</div>
+              <h3>音読の効果</h3>
+              <ul class="ondoku-effect-list">
+                <li>① 覚えようとしなくても自然に覚えられる。</li>
+                <li>② 書きながら覚えるより結果的に長く記憶に残る。</li>
+                <li>③ 発声練習であるため、会話につながりやすい。</li>
+                <li>④ イメージトレーニングをすることで、状況に適切な表現を使うことができる。</li>
+              </ul>
+            </div>
           </div>
 
           <div class="t01-flow-section" id="tab02-points">
@@ -2406,16 +2402,6 @@
                 <p>長い文章も自然に読めるように</p>
               </div>
             </div>
-          </div>
-
-          <div class="ondoku-effect-section">
-            <h3 class="ondoku-effect-title">音読の効果</h3>
-            <ul class="ondoku-effect-list">
-              <li>① 覚えようとしなくても自然に覚えられる。</li>
-              <li>② 書きながら覚えるより結果的に長く記憶に残る。</li>
-              <li>③ 発声練習であるため、会話につながりやすい。</li>
-              <li>④ イメージトレーニングをすることで、状況に適切な表現を使うことができる。</li>
-            </ul>
           </div>
 
           <div class="t01-flow-section">

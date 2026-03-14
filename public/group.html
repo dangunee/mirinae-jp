@@ -3007,6 +3007,7 @@
       } else {
         var activeTab = tabIds.find(function(id) { return document.getElementById(id).classList.contains('active'); }) || 'tab01';
         updateSidebarActive(activeTab);
+        initGroupReveal(activeTab);
       }
 
       window.addEventListener('hashchange', function() {

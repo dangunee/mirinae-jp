@@ -1287,7 +1287,7 @@
     #tab04 .tab04-sch-info-box { background: #F7F4EC; border: 1px solid rgba(184,156,111,.3); border-radius: 12px; padding: 14px 20px; flex: 1; min-width: 130px; }
     #tab04 .tab04-sch-info-box .k { font-size: 10px; letter-spacing: .2em; font-family: 'Bebas Neue', sans-serif; color: #B89C6F; margin-bottom: 5px; }
     #tab04 .tab04-sch-info-box .v { font-size: 14px; color: #363636; font-weight: 500; }
-    #tab04 .tab04-textbook-band { background: var(--navy); padding: 40px 48px; }
+    #tab04 .tab04-textbook-band { background: var(--navy); padding: 40px 48px; border-radius: 16px; }
     #tab04 .tab04-textbook-inner { max-width: 1080px; margin: 0 auto; display: flex; align-items: center; gap: 32px; }
     #tab04 .tab04-book-mock { width: 80px; height: 110px; flex-shrink: 0; background: linear-gradient(145deg, #2a1a4e, #1a1035); border-radius: 4px 10px 10px 4px; display: flex; align-items: center; justify-content: center; color: rgba(200,150,255,.8); font-size: 11px; text-align: center; line-height: 1.4; padding: 8px 6px; font-weight: 500; }
     #tab04 .tab04-book-ey { font-family: 'Bebas Neue', sans-serif; font-size: 10px; letter-spacing: .3em; color: var(--t-gold); margin-bottom: 6px; }
@@ -1340,7 +1340,7 @@
     #tab04 .tab04-test-body.featured-text { font-size: 14px; line-height: 2; }
     #tab04 .tab04-reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s, transform .6s; }
     #tab04 .tab04-reveal.visible { opacity: 1; transform: none; }
-    #tab04 .tab04-cta-section { background: var(--navy); padding: 88px 48px; text-align: center; position: relative; overflow: hidden; }
+    #tab04 .tab04-cta-section { background: var(--navy); padding: 88px 48px; text-align: center; position: relative; overflow: hidden; border-radius: 16px; }
     #tab04 .tab04-cta-section::before { content: '합격'; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); font-family: 'Noto Serif JP', serif; font-size: 240px; font-weight: 600; color: rgba(255,255,255,.022); pointer-events: none; white-space: nowrap; }
     #tab04 .tab04-cta-inner { position: relative; z-index: 1; }
     #tab04 .tab04-cta-inner h2 { font-family: 'Noto Serif JP', serif; font-size: clamp(26px, 4vw, 46px); color: #fff; margin-bottom: 12px; line-height: 1.3; font-weight: 400; }
@@ -2009,6 +2009,7 @@
     #tab05 .jun-textbook-band {
       background: var(--navy);
       padding: 32px 32px;
+      border-radius: 16px;
     }
     #tab05 .jun-textbook-inner {
       max-width: 1080px;
@@ -2039,7 +2040,8 @@
     }
     #tab05 .jun-book-mock-inner .big { font-size: 16px; font-family: 'Cormorant Garamond', serif; line-height: 1.1; }
     #tab05 .jun-book-ey { font-family: 'Bebas Neue', sans-serif; font-size: 9px; letter-spacing: .3em; color: var(--gold); margin-bottom: 4px; }
-    #tab05 .jun-book-title { font-family: 'Noto Serif JP', serif; font-size: 15px; color: #fff; margin-bottom: 4px; line-height: 1.5; }
+    #tab05 .jun-book-title { font-family: 'Noto Serif JP', serif; font-size: 15px; color: #fff; margin-bottom: 12px; line-height: 1.5; }
+    #tab05 .jun-book-img { display: block; width: 100px; height: auto; border-radius: 4px 8px 8px 4px; box-shadow: 4px 4px 16px rgba(0,0,0,.3); margin-bottom: 12px; }
     #tab05 .jun-book-desc { font-size: 11px; color: rgba(255,255,255,.4); line-height: 1.8; max-width: 420px; }
     #tab05 .jun-cta-link {
       flex-shrink: 0;
@@ -2063,6 +2065,7 @@
       text-align: center;
       position: relative;
       overflow: hidden;
+      border-radius: 16px;
     }
     #tab05 .jun-cta-section::before {
       content: '합격';
@@ -3814,6 +3817,7 @@
             <div class="jun-book-info">
               <div class="jun-book-ey">TEXTBOOK / 使用テキスト</div>
               <div class="jun-book-title">『hanaの韓国語単語〈中級編〉<br>ハン検準2級レベル』</div>
+              <img src="/img/textbook/book_hanjun2.jpg" alt="hanaの韓国語単語〈中級編〉 ハン検準2級レベル" class="jun-book-img">
               <div class="jun-book-desc">ハン検準2級の出題範囲に指定された単語の中から約1000語を収録。準2〜5級の語彙と文法で作成した例文付き。すぐに会話で使える単語力が身につきます。</div>
             </div>
             <a href="trial.html" class="jun-cta-link">お申込みはこちら →</a>

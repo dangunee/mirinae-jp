@@ -1627,10 +1627,10 @@
       #tab03 .t03-features-grid { grid-template-columns: 1fr; }
     }
 
-    /* ══ TAB04: 小説朗読 (navy/gold layout) ══ */
-    #tab04 .t04-section { padding: 20px 48px; }
-    #tab04 .t04-section-inner { max-width: 1080px; margin: 0 auto; }
-    #tab04 .t04-sec-ey {
+    /* ══ TAB04/TAB05: 小説朗読・語彙力強化 (navy/gold layout) ══ */
+    #tab04 .t04-section, #tab05 .t04-section { padding: 20px 48px; }
+    #tab04 .t04-section-inner, #tab05 .t04-section-inner { max-width: 1080px; margin: 0 auto; }
+    #tab04 .t04-sec-ey, #tab05 .t04-sec-ey {
       font-family: 'Bebas Neue', sans-serif;
       font-size: 11px;
       letter-spacing: .4em;
@@ -1640,8 +1640,8 @@
       gap: 10px;
       margin-bottom: 10px;
     }
-    #tab04 .t04-sec-ey::after { content: ''; width: 48px; height: 1px; background: var(--gold); opacity: .5; }
-    #tab04 .t04-sec-title {
+    #tab04 .t04-sec-ey::after, #tab05 .t04-sec-ey::after { content: ''; width: 48px; height: 1px; background: var(--gold); opacity: .5; }
+    #tab04 .t04-sec-title, #tab05 .t04-sec-title {
       font-family: 'Noto Serif JP', serif;
       font-size: clamp(22px, 3vw, 32px);
       color: var(--text-dark);
@@ -1649,8 +1649,8 @@
       font-weight: 400;
       line-height: 1.4;
     }
-    #tab04 .t04-sec-desc { font-size: 13px; color: var(--muted); line-height: 1.9; max-width: 680px; }
-    #tab04 .t04-about-lead {
+    #tab04 .t04-sec-desc, #tab05 .t04-sec-desc { font-size: 13px; color: var(--muted); line-height: 1.9; max-width: 680px; }
+    #tab04 .t04-about-lead, #tab05 .t04-about-lead {
       margin-top: 20px;
       background: linear-gradient(135deg, rgba(184,146,74,.08), rgba(184,146,74,.02));
       border: 1px solid rgba(184,146,74,.18);
@@ -1671,7 +1671,8 @@
       pointer-events: none;
       line-height: 1;
     }
-    #tab04 .t04-about-lead p {
+    #tab05 .t04-about-lead::after { content: '語彙'; }
+    #tab04 .t04-about-lead p, #tab05 .t04-about-lead p {
       font-family: 'Noto Serif JP', serif;
       font-size: 16px;
       color: var(--text-dark);
@@ -1679,14 +1680,14 @@
       position: relative;
       z-index: 1;
     }
-    #tab04 .t04-about-lead strong { color: var(--navy); }
-    #tab04 .t04-target-grid {
+    #tab04 .t04-about-lead strong, #tab05 .t04-about-lead strong { color: var(--navy); }
+    #tab04 .t04-target-grid, #tab05 .t04-target-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 18px;
       margin-top: 20px;
     }
-    #tab04 .t04-target-card {
+    #tab04 .t04-target-card, #tab05 .t04-target-card {
       background: var(--white);
       border: 1px solid var(--border);
       border-radius: 18px;
@@ -1695,11 +1696,11 @@
       overflow: hidden;
       transition: transform .28s, box-shadow .28s;
     }
-    #tab04 .t04-target-card:hover {
+    #tab04 .t04-target-card:hover, #tab05 .t04-target-card:hover {
       transform: translateY(-4px);
       box-shadow: 0 14px 40px rgba(14,28,56,.09);
     }
-    #tab04 .t04-target-card::after {
+    #tab04 .t04-target-card::after, #tab05 .t04-target-card::after {
       content: '';
       position: absolute;
       top: 0;
@@ -1708,7 +1709,7 @@
       height: 3px;
       background: linear-gradient(90deg, var(--gold), var(--gold-light));
     }
-    #tab04 .t04-target-card-icon {
+    #tab04 .t04-target-card-icon, #tab05 .t04-target-card-icon {
       width: 48px;
       height: 48px;
       border-radius: 12px;
@@ -1720,7 +1721,7 @@
       margin-bottom: 16px;
       box-shadow: 0 4px 14px rgba(184,146,74,.3);
     }
-    #tab04 .t04-target-card h3 {
+    #tab04 .t04-target-card h3, #tab05 .t04-target-card h3 {
       font-family: 'Noto Serif JP', serif;
       font-size: 15px;
       font-weight: 600;
@@ -1728,12 +1729,12 @@
       margin-bottom: 8px;
       line-height: 1.5;
     }
-    #tab04 .t04-target-card p { font-size: 12.5px; color: var(--mid); line-height: 1.85; }
-    #tab04 .t04-flow-section { background: var(--beige); }
-    #tab04 .t04-flow-section .t04-sec-ey { color: var(--gold); }
-    #tab04 .t04-flow-section .t04-sec-title { color: var(--text-dark); }
-    #tab04 .t04-flow-section .t04-sec-desc { color: var(--muted); }
-    #tab04 .t04-date-band {
+    #tab04 .t04-target-card p, #tab05 .t04-target-card p { font-size: 12.5px; color: var(--mid); line-height: 1.85; }
+    #tab04 .t04-flow-section, #tab05 .t04-flow-section { background: var(--beige); }
+    #tab04 .t04-flow-section .t04-sec-ey, #tab05 .t04-flow-section .t04-sec-ey { color: var(--gold); }
+    #tab04 .t04-flow-section .t04-sec-title, #tab05 .t04-flow-section .t04-sec-title { color: var(--text-dark); }
+    #tab04 .t04-flow-section .t04-sec-desc, #tab05 .t04-flow-section .t04-sec-desc { color: var(--muted); }
+    #tab04 .t04-date-band, #tab05 .t04-date-band {
       display: flex;
       align-items: center;
       gap: 20px;
@@ -1744,15 +1745,15 @@
       border-radius: 14px;
       padding: 18px 28px;
     }
-    #tab04 .t04-date-band-icon { font-size: 20px; flex-shrink: 0; }
-    #tab04 .t04-date-band-text {
+    #tab04 .t04-date-band-icon, #tab05 .t04-date-band-icon { font-size: 20px; flex-shrink: 0; }
+    #tab04 .t04-date-band-text, #tab05 .t04-date-band-text {
       font-family: 'Noto Serif JP', serif;
       font-size: 15px;
       color: var(--text-dark);
       line-height: 1.6;
     }
-    #tab04 .t04-date-band-text strong { color: var(--gold); }
-    #tab04 .t04-flow-steps {
+    #tab04 .t04-date-band-text strong, #tab05 .t04-date-band-text strong { color: var(--gold); }
+    #tab04 .t04-flow-steps, #tab05 .t04-flow-steps {
       display: flex;
       flex-direction: column;
       gap: 0;
@@ -1761,23 +1762,23 @@
       border-radius: 18px;
       overflow: hidden;
     }
-    #tab04 .t04-flow-step {
+    #tab04 .t04-flow-step, #tab05 .t04-flow-step {
       display: grid;
       grid-template-columns: 72px 1fr;
       background: var(--white);
       border-bottom: 1px solid var(--border);
       transition: background .18s;
     }
-    #tab04 .t04-flow-step:last-child { border-bottom: none; }
-    #tab04 .t04-flow-step:hover { background: var(--gold-pale); }
-    #tab04 .t04-flow-step-num-box {
+    #tab04 .t04-flow-step:last-child, #tab05 .t04-flow-step:last-child { border-bottom: none; }
+    #tab04 .t04-flow-step:hover, #tab05 .t04-flow-step:hover { background: var(--gold-pale); }
+    #tab04 .t04-flow-step-num-box, #tab05 .t04-flow-step-num-box {
       display: flex;
       align-items: center;
       justify-content: center;
       border-right: 1px solid var(--border);
       padding: 24px 0;
     }
-    #tab04 .t04-flow-step-num {
+    #tab04 .t04-flow-step-num, #tab05 .t04-flow-step-num {
       width: 36px;
       height: 36px;
       border-radius: 50%;
@@ -1790,50 +1791,50 @@
       justify-content: center;
       box-shadow: 0 3px 12px rgba(184,146,74,.4);
     }
-    #tab04 .t04-flow-step-body {
+    #tab04 .t04-flow-step-body, #tab05 .t04-flow-step-body {
       padding: 22px 28px;
       display: flex;
       flex-direction: column;
       justify-content: center;
       gap: 4px;
     }
-    #tab04 .t04-flow-step-body h4 {
+    #tab04 .t04-flow-step-body h4, #tab05 .t04-flow-step-body h4 {
       font-family: 'Noto Serif JP', serif;
       font-size: 15px;
       color: var(--text-dark);
       font-weight: 600;
       line-height: 1.5;
     }
-    #tab04 .t04-flow-step-body p { font-size: 12.5px; color: var(--muted); line-height: 1.7; }
-    #tab04 .t04-details-grid {
+    #tab04 .t04-flow-step-body p, #tab05 .t04-flow-step-body p { font-size: 12.5px; color: var(--muted); line-height: 1.7; }
+    #tab04 .t04-details-grid, #tab05 .t04-details-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 20px;
       margin-top: 20px;
     }
-    #tab04 .t04-info-bar {
+    #tab04 .t04-info-bar, #tab05 .t04-info-bar {
       grid-column: 1 / -1;
       background: var(--white);
       border: 1px solid var(--border);
       border-radius: 18px;
       overflow: hidden;
     }
-    #tab04 .t04-info-bar-inner { display: grid; grid-template-columns: repeat(4, 1fr); }
-    #tab04 .t04-ib-item {
+    #tab04 .t04-info-bar-inner, #tab05 .t04-info-bar-inner { display: grid; grid-template-columns: repeat(4, 1fr); }
+    #tab04 .t04-ib-item, #tab05 .t04-ib-item {
       padding: 22px 24px;
       border-right: 1px solid var(--border);
     }
-    #tab04 .t04-ib-item:last-child { border-right: none; }
-    #tab04 .t04-ib-label {
+    #tab04 .t04-ib-item:last-child, #tab05 .t04-ib-item:last-child { border-right: none; }
+    #tab04 .t04-ib-label, #tab05 .t04-ib-label {
       font-family: 'Bebas Neue', sans-serif;
       font-size: 10px;
       letter-spacing: .3em;
       color: var(--gold);
       margin-bottom: 6px;
     }
-    #tab04 .t04-ib-value { font-size: 14px; color: var(--text-dark); font-weight: 500; line-height: 1.6; }
-    #tab04 .t04-ib-value small { display: block; font-size: 12px; color: var(--muted); font-weight: 300; margin-top: 2px; }
-    #tab04 .t04-textbook-band {
+    #tab04 .t04-ib-value, #tab05 .t04-ib-value { font-size: 14px; color: var(--text-dark); font-weight: 500; line-height: 1.6; }
+    #tab04 .t04-ib-value small, #tab05 .t04-ib-value small { display: block; font-size: 12px; color: var(--muted); font-weight: 300; margin-top: 2px; }
+    #tab04 .t04-textbook-band, #tab05 .t04-textbook-band {
       grid-column: 1 / -1;
       background: var(--navy);
       border-radius: 18px;
@@ -1842,48 +1843,48 @@
       align-items: center;
       gap: 28px;
     }
-    #tab04 .t04-tb-icon { font-size: 32px; flex-shrink: 0; }
-    #tab04 .t04-tb-content { flex: 1; }
-    #tab04 .t04-tb-label {
+    #tab04 .t04-tb-icon, #tab05 .t04-tb-icon { font-size: 32px; flex-shrink: 0; }
+    #tab04 .t04-tb-content, #tab05 .t04-tb-content { flex: 1; }
+    #tab04 .t04-tb-label, #tab05 .t04-tb-label {
       font-family: 'Bebas Neue', sans-serif;
       font-size: 10px;
       letter-spacing: .3em;
       color: var(--gold);
       margin-bottom: 10px;
     }
-    #tab04 .t04-tb-title {
+    #tab04 .t04-tb-title, #tab05 .t04-tb-title {
       font-family: 'Noto Serif JP', serif;
       font-size: 16px;
       color: rgba(255,255,255,.85);
       line-height: 1.6;
     }
-    #tab04 .t04-tb-title em { font-style: normal; color: var(--gold-light); }
-    #tab04 .t04-price-table-wrap {
+    #tab04 .t04-tb-title em, #tab05 .t04-tb-title em { font-style: normal; color: var(--gold-light); }
+    #tab04 .t04-price-table-wrap, #tab05 .t04-price-table-wrap {
       grid-column: 1 / -1;
       background: var(--white);
       border: 1px solid var(--border);
       border-radius: 18px;
       overflow: hidden;
     }
-    #tab04 .t04-pt-head {
+    #tab04 .t04-pt-head, #tab05 .t04-pt-head {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr 1fr;
       background: var(--navy);
     }
-    #tab04 .t04-pt-th {
+    #tab04 .t04-pt-th, #tab05 .t04-pt-th {
       padding: 14px 20px;
       font-family: 'Bebas Neue', sans-serif;
       font-size: 11px;
       letter-spacing: .2em;
       color: rgba(232,213,176,.7);
     }
-    #tab04 .t04-pt-row {
+    #tab04 .t04-pt-row, #tab05 .t04-pt-row {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr 1fr;
       border-top: 1px solid var(--border);
     }
-    #tab04 .t04-pt-td { padding: 20px 20px; font-size: 14px; color: var(--mid); }
-    #tab04 .t04-pt-td.highlight {
+    #tab04 .t04-pt-td, #tab05 .t04-pt-td { padding: 20px 20px; font-size: 14px; color: var(--mid); }
+    #tab04 .t04-pt-td.highlight, #tab05 .t04-pt-td.highlight {
       font-family: 'Cormorant Garamond', serif;
       font-size: 26px;
       color: var(--navy);
@@ -1900,13 +1901,13 @@
       gap: 24px;
       box-shadow: 0 6px 28px rgba(184,146,74,.35);
     }
-    #tab04 .t04-cta-bar-text {
+    #tab04 .t04-cta-bar-text, #tab05 .t04-cta-bar-text {
       font-family: 'Noto Serif JP', serif;
       font-size: 17px;
       color: var(--navy);
       font-weight: 600;
     }
-    #tab04 .t04-cta-bar-btn {
+    #tab04 .t04-cta-bar-btn, #tab05 .t04-cta-bar-btn {
       display: inline-flex;
       align-items: center;
       gap: 8px;
@@ -1923,11 +1924,11 @@
       letter-spacing: .04em;
       box-shadow: 0 4px 16px rgba(0,0,0,.15);
     }
-    #tab04 .t04-cta-bar-btn:hover {
+    #tab04 .t04-cta-bar-btn:hover, #tab05 .t04-cta-bar-btn:hover {
       transform: translateY(-2px);
       box-shadow: 0 8px 24px rgba(0,0,0,.2);
     }
-    #tab04 .t04-cta-section {
+    #tab04 .t04-cta-section, #tab05 .t04-cta-section {
       background: var(--navy);
       padding: 88px 48px;
       text-align: center;
@@ -1946,8 +1947,9 @@
       color: rgba(255,255,255,.04);
       pointer-events: none;
     }
-    #tab04 .t04-cta-inner { position: relative; z-index: 1; }
-    #tab04 .t04-cta-inner h2 {
+    #tab05 .t04-cta-section::before { content: '語彙'; }
+    #tab04 .t04-cta-inner, #tab05 .t04-cta-inner { position: relative; z-index: 1; }
+    #tab04 .t04-cta-inner h2, #tab05 .t04-cta-inner h2 {
       font-family: 'Noto Serif JP', serif;
       font-size: clamp(24px, 3.8vw, 46px);
       color: #fff;
@@ -1955,9 +1957,9 @@
       line-height: 1.3;
       font-weight: 400;
     }
-    #tab04 .t04-cta-inner h2 em { color: var(--gold-light); font-style: italic; }
-    #tab04 .t04-cta-inner p { font-size: 14px; color: rgba(255,255,255,.45); margin-bottom: 36px; line-height: 1.9; }
-    #tab04 .t04-cta-apply {
+    #tab04 .t04-cta-inner h2 em, #tab05 .t04-cta-inner h2 em { color: var(--gold-light); font-style: italic; }
+    #tab04 .t04-cta-inner p, #tab05 .t04-cta-inner p { font-size: 14px; color: rgba(255,255,255,.45); margin-bottom: 36px; line-height: 1.9; }
+    #tab04 .t04-cta-apply, #tab05 .t04-cta-apply {
       display: inline-flex;
       align-items: center;
       gap: 10px;
@@ -1973,23 +1975,23 @@
       transition: all .25s;
       box-shadow: 0 4px 24px rgba(184,146,74,.4);
     }
-    #tab04 .t04-cta-apply:hover { transform: translateY(-3px); box-shadow: 0 10px 36px rgba(184,146,74,.55); }
+    #tab04 .t04-cta-apply:hover, #tab05 .t04-cta-apply:hover { transform: translateY(-3px); box-shadow: 0 10px 36px rgba(184,146,74,.55); }
     @media (max-width: 900px) {
-      #tab04 .t04-section { padding: 20px 24px; }
-      #tab04 .t04-target-grid { grid-template-columns: 1fr; }
-      #tab04 .t04-details-grid { grid-template-columns: 1fr; }
-      #tab04 .t04-info-bar-inner { grid-template-columns: 1fr 1fr; }
-      #tab04 .t04-ib-item { border-right: none; border-bottom: 1px solid var(--border); }
-      #tab04 .t04-ib-item:nth-child(2n) { border-right: 1px solid var(--border); }
-      #tab04 .t04-section-inner { padding: 0; }
+      #tab04 .t04-section, #tab05 .t04-section { padding: 20px 24px; }
+      #tab04 .t04-target-grid, #tab05 .t04-target-grid { grid-template-columns: 1fr; }
+      #tab04 .t04-details-grid, #tab05 .t04-details-grid { grid-template-columns: 1fr; }
+      #tab04 .t04-info-bar-inner, #tab05 .t04-info-bar-inner { grid-template-columns: 1fr 1fr; }
+      #tab04 .t04-ib-item, #tab05 .t04-ib-item { border-right: none; border-bottom: 1px solid var(--border); }
+      #tab04 .t04-ib-item:nth-child(2n), #tab05 .t04-ib-item:nth-child(2n) { border-right: 1px solid var(--border); }
+      #tab04 .t04-section-inner, #tab05 .t04-section-inner { padding: 0; }
     }
     @media (max-width: 600px) {
-      #tab04 .t04-info-bar-inner { grid-template-columns: 1fr; }
-      #tab04 .t04-ib-item:nth-child(2n) { border-right: none; }
-      #tab04 .t04-pt-head, #tab04 .t04-pt-row { grid-template-columns: 1fr 1fr; }
-      #tab04 .t04-pt-th:nth-child(3), #tab04 .t04-pt-th:nth-child(4),
-      #tab04 .t04-pt-td:nth-child(3), #tab04 .t04-pt-td:nth-child(4) { display: none; }
-      #tab04 .t04-cta-bar { flex-direction: column; }
+      #tab04 .t04-info-bar-inner, #tab05 .t04-info-bar-inner { grid-template-columns: 1fr; }
+      #tab04 .t04-ib-item:nth-child(2n), #tab05 .t04-ib-item:nth-child(2n) { border-right: none; }
+      #tab04 .t04-pt-head, #tab04 .t04-pt-row, #tab05 .t04-pt-head, #tab05 .t04-pt-row { grid-template-columns: 1fr 1fr; }
+      #tab04 .t04-pt-th:nth-child(3), #tab04 .t04-pt-th:nth-child(4), #tab05 .t04-pt-th:nth-child(3), #tab05 .t04-pt-th:nth-child(4),
+      #tab04 .t04-pt-td:nth-child(3), #tab04 .t04-pt-td:nth-child(4), #tab05 .t04-pt-td:nth-child(3), #tab05 .t04-pt-td:nth-child(4) { display: none; }
+      #tab04 .t04-cta-bar, #tab05 .t04-cta-bar { flex-direction: column; }
     }
 
     #tab01 .t01-tuition-grid, #tab02 .t01-tuition-grid, #tab03 .t01-tuition-grid {
@@ -3749,7 +3751,7 @@
                 </div>
                 <div class="t01-hero-btns">
                   <a href="trial.html" class="t01-btn-primary">お申し込み→</a>
-                  <a href="#tab05-flow" class="t01-btn-secondary">進め方を見る</a>
+                  <a href="#tab05-target" class="t01-btn-secondary">対象・テキストを見る</a>
                 </div>
               </div>
               <div class="t01-hero-right">
@@ -3772,59 +3774,164 @@
             </div>
           </div>
 
-          <div class="beg-sec-header" id="tab05-flow">
-            <div class="beg-sec-label">Lesson Flow</div>
-            <div class="beg-sec-title">進め方</div>
-            <div class="beg-sec-line"></div>
-          </div>
-          <div class="beg-flow-steps">
-            <div class="beg-flow-step"><span class="beg-flow-num">1</span><span class="beg-flow-text">毎週決まった範囲の単語をテストし、その単語と例文に関連する類似語、反意語、活用、文法などを勉強します。</span></div>
-            <div class="beg-flow-step"><span class="beg-flow-num">2</span><span class="beg-flow-text">テスト課題を音読し、発音チェックをします。</span></div>
-            <div class="beg-flow-step"><span class="beg-flow-num">3</span><span class="beg-flow-text">課題を解くことでニュアンスの違いについて勉強します。</span></div>
-          </div>
-          <div class="beg-intro-block">
-            <p>※ 単語集１冊分の単語を覚えるとともに発音や関連文法まで学ぶことができる講座です。</p>
-          </div>
-
-          <div class="beg-sec-header">
-            <div class="beg-sec-label">Info</div>
-            <div class="beg-sec-title">教室・定員・テキスト</div>
-            <div class="beg-sec-line"></div>
-          </div>
-          <div class="beg-info-cards">
-            <div class="beg-info-card">
-              <div class="beg-info-card-label">教室</div>
-              <div class="beg-info-card-value">Zoom</div>
+          <!-- ABOUT -->
+          <section class="t04-section" id="tab05-about" style="background:var(--white);">
+            <div class="t04-section-inner">
+              <div class="t04-sec-ey">ABOUT THIS COURSE</div>
+              <h2 class="t04-sec-title">講座について</h2>
+              <div class="t04-about-lead">
+                <p>
+                  <strong>一人だといつも途中で断念してしまう学習者のための講座です。</strong><br><br>
+                  一つの単語だけを覚えるのではなく、その単語に関連する類似語、反意語、活用、文法、語源まで勉強し、語彙力を強化します。<br><br>
+                  韓国語で話したいけど、言葉が上手く出ないのは、発音がきちんとできていないからではありません。ドラマをいくら見ても、字幕なしでは全然聞こえないのは、聞き取り練習が足りないからではありません。試験の時、時間内に問題を最後まで読めないのは、文法を知らないからではありません。<br><br>
+                  <strong>全ての外国語は単語が一番重要です。</strong>しかし重要なものこそ退屈で面倒です。毎日新しいものを学びますが、全て消化しきれず覚えられていない単語はたまっていきます。そうすると勉強するのがもっと負担になります。<br><br>
+                  単語帳を買っても、１０ページ勉強したらすぐ諦めた経験のある方、勉強する時間に比べて覚えられる単語の数が少ないと感じた経験のある方、ぜひミリネにお越しください。単語の語源、類似語と反対語、単語の使い方などを講座内で学習し、初級・初中級の文法を用いながら、応用練習をすることで、初級・初中級の必須単語を覚えられるようにお手伝いします。ミリネでも執筆に携わった単語集を用い、自信をもって進めていきます。教室で一緒に必須単語をマスターし、ステップアップを目ざしましょう！
+                </p>
+              </div>
             </div>
-            <div class="beg-info-card">
-              <div class="beg-info-card-label">定員</div>
-              <div class="beg-info-card-value">2～6人<small>2人から開講</small></div>
+          </section>
+
+          <!-- TARGET -->
+          <section class="t04-section" id="tab05-target" style="background:var(--beige);">
+            <div class="t04-section-inner">
+              <div class="t04-sec-ey">TARGET & TEXTBOOK</div>
+              <h2 class="t04-sec-title">対象・テキスト</h2>
+              <div class="t04-target-grid">
+                <div class="t04-target-card">
+                  <div class="t04-target-card-icon">🎯</div>
+                  <h3>対象</h3>
+                  <p>単語帳を買っても１０ページで諦めた経験のある方、勉強する時間に比べて覚えられる単語の数が少ないと感じた経験のある方、ぜひミリネにお越しください。</p>
+                </div>
+                <div class="t04-target-card">
+                  <div class="t04-target-card-icon">👥</div>
+                  <h3>定員・教室</h3>
+                  <p>2～6人（2人から開講）<br>Zoom（オンライン）</p>
+                </div>
+                <div class="t04-target-card">
+                  <div class="t04-target-card-icon">📖</div>
+                  <h3>テキスト</h3>
+                  <p>hanaの韓国語単語〈中級編〉</p>
+                </div>
+              </div>
             </div>
-            <div class="beg-info-card">
-              <div class="beg-info-card-label">テキスト</div>
-              <div class="beg-info-card-value">hanaの韓国語単語〈中級編〉</div>
+          </section>
+
+          <!-- FLOW -->
+          <section class="t04-section t04-flow-section" id="tab05-flow">
+            <div class="t04-section-inner">
+              <div class="t04-sec-ey">LESSON FLOW</div>
+              <h2 class="t04-sec-title">進め方</h2>
+
+              <div class="t04-date-band">
+                <div class="t04-date-band-icon">⏱</div>
+                <div class="t04-date-band-text">
+                  毎週火曜日 <strong>20:00～21:00</strong>　／　Zoom（オンライン）
+                </div>
+              </div>
+
+              <div class="t04-flow-steps">
+                <div class="t04-flow-step">
+                  <div class="t04-flow-step-num-box"><div class="t04-flow-step-num">1</div></div>
+                  <div class="t04-flow-step-body">
+                    <h4>語彙テスト・文法解説</h4>
+                    <p>毎週決まった範囲の単語をテストし、その単語と例文に関連する類似語、反意語、活用、文法などを勉強します。</p>
+                  </div>
+                </div>
+                <div class="t04-flow-step">
+                  <div class="t04-flow-step-num-box"><div class="t04-flow-step-num">2</div></div>
+                  <div class="t04-flow-step-body">
+                    <h4>音読・発音チェック</h4>
+                    <p>テスト課題を音読し、発音チェックをします。</p>
+                  </div>
+                </div>
+                <div class="t04-flow-step">
+                  <div class="t04-flow-step-num-box"><div class="t04-flow-step-num">3</div></div>
+                  <div class="t04-flow-step-body">
+                    <h4>ニュアンスの違い</h4>
+                    <p>課題を解くことでニュアンスの違いについて勉強します。</p>
+                  </div>
+                </div>
+              </div>
+              <p style="margin-top:16px;font-size:13px;color:var(--muted);">※ 単語集１冊分の単語を覚えるとともに発音や関連文法まで学ぶことができる講座です。</p>
             </div>
-          </div>
+          </section>
 
-          <div class="beg-sec-header">
-            <div class="beg-sec-label">Tuition</div>
-            <div class="beg-sec-title">授業料</div>
-            <div class="beg-sec-line"></div>
-          </div>
-          <div class="beg-tuition-table-wrap">
-            <table class="beg-tuition-table">
-              <thead><tr><th>コマあたり</th><th>期間</th><th>授業料(税抜)</th><th>税込</th></tr></thead>
-              <tbody><tr><td>2,980円</td><td>20コマ(5か月)</td><td>59,600円</td><td>65,560円</td></tr></tbody>
-            </table>
-          </div>
+          <!-- DETAILS + PRICE -->
+          <section class="t04-section" id="tab05-apply" style="background:var(--beige);">
+            <div class="t04-section-inner">
+              <div class="t04-sec-ey">TUITION</div>
+              <h2 class="t04-sec-title">授業料</h2>
+              <div class="t04-details-grid">
 
-          <a href="https://mirinae-jp.vercel.app/trial.html" class="beg-cta-btn" style="text-decoration:none;">
-            お申込みはこちら
-            <svg viewBox="0 0 16 16" style="width:16px;height:16px;"><line x1="2" y1="8" x2="13" y2="8" stroke="currentColor" stroke-width="2.5" fill="none"/><polyline points="9,4 13,8 9,12" stroke="currentColor" stroke-width="2.5" fill="none"/></svg>
-          </a>
+                <div class="t04-info-bar">
+                  <div class="t04-info-bar-inner">
+                    <div class="t04-ib-item">
+                      <div class="t04-ib-label">SCHEDULE / 日程</div>
+                      <div class="t04-ib-value">毎週火曜日 20:00～21:00<small>Zoom（オンライン）</small></div>
+                    </div>
+                    <div class="t04-ib-item">
+                      <div class="t04-ib-label">CAPACITY / 定員</div>
+                      <div class="t04-ib-value">2～6名<small>2人から開講</small></div>
+                    </div>
+                    <div class="t04-ib-item">
+                      <div class="t04-ib-label">KOMAS / コマ数</div>
+                      <div class="t04-ib-value">20コマ<small>1コマ 約60分</small></div>
+                    </div>
+                    <div class="t04-ib-item">
+                      <div class="t04-ib-label">PERIOD / 期間</div>
+                      <div class="t04-ib-value">5ヶ月<small>単語集１冊分</small></div>
+                    </div>
+                  </div>
+                </div>
 
-          <h2 class="section-title"><span class="dot"></span>生徒の声</h2>
-          <div class="reviews-list">
+                <div class="t04-textbook-band">
+                  <div class="t04-tb-icon">📚</div>
+                  <div class="t04-tb-content">
+                    <div class="t04-tb-label">TEXTBOOK / テキスト</div>
+                    <div class="t04-tb-title">
+                      <em>hanaの韓国語単語〈中級編〉</em>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="t04-price-table-wrap">
+                  <div class="t04-pt-head">
+                    <div class="t04-pt-th">コマあたり</div>
+                    <div class="t04-pt-th">期間</div>
+                    <div class="t04-pt-th">授業料（税抜）</div>
+                    <div class="t04-pt-th">税込</div>
+                  </div>
+                  <div class="t04-pt-row">
+                    <div class="t04-pt-td">2,980円</div>
+                    <div class="t04-pt-td">20コマ（5か月）</div>
+                    <div class="t04-pt-td">59,600円</div>
+                    <div class="t04-pt-td highlight">65,560円</div>
+                  </div>
+                </div>
+
+                <div class="t04-cta-bar">
+                  <div class="t04-cta-bar-text">お申込み・お問い合わせはこちら</div>
+                  <a href="trial.html" class="t04-cta-bar-btn">お申込みはこちら →</a>
+                </div>
+
+              </div>
+            </div>
+          </section>
+
+          <!-- CTA -->
+          <section class="t04-cta-section">
+            <div class="t04-cta-inner">
+              <h2>単語を覚えれば、<em>韓国語は広がる。</em></h2>
+              <p>語彙力強化で、発音・文法・ニュアンスを同時に鍛えましょう。<br>毎週火曜日 20:00～ Zoomにて。</p>
+              <a href="trial.html" class="t04-cta-apply">お申込みはこちら →</a>
+            </div>
+          </section>
+
+          <div class="t04-section" style="background:#fff;padding-top:72px;padding-bottom:80px;">
+            <div class="t04-section-inner">
+              <div class="t04-sec-ey">TESTIMONIALS</div>
+              <h2 class="t04-sec-title">生徒の声</h2>
+              <div class="reviews-list" style="margin-top:32px;">
             <div class="review-card">
               <div class="review-meta">
                 <div class="review-avatar">B</div>
@@ -3921,7 +4028,9 @@
               <div class="review-body">単語だけ集中的に勉強できたことはこれまでしたことがなかったので、とても新鮮で、ためになる授業だと思いました。<br>日頃の授業では文法を中心にしていて単語の記憶することはほとんどなかったので、知っている言葉だと思っていても誤解していたこともわかりました。<br>似ている単語の意味の違い、使い分け、本で読んでいるだけでは学べない点を考えていただいたことがとても良かったです。<br>できれば、テストは毎週してくださるといいかもしれないです！５週分のテストの勉強は厳しかったです。とても有意義な１２週でした。</div>
             </div>
           </div>
+          </div>
         </div>
+      </div>
       </div>
 
       <a href="index.html" class="back-link">← トップページへ戻る</a>

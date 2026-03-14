@@ -658,6 +658,8 @@
       background: #2c2c2c;
       color: white;
       padding: 48px 24px 24px;
+      max-width: 1100px;
+      margin: 0 auto;
     }
     .footer-grid {
       display: grid;
@@ -1142,9 +1144,12 @@
         </div>
       </div>
       <div class="footer-bottom">
-        Copyright © (株)カオンヌリ All Rights Reserved.
+        Copyright © 2010-<span id="footer-year"></span> 株式会社 カオンヌリ All Rights Reserved.
       </div>
     </footer>
+    <script>
+(function(){var y=document.getElementById('footer-year');if(y)y.textContent=new Date().getFullYear();})();
+</script>
   </div>
 
   <script>

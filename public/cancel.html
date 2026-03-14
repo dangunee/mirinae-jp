@@ -273,14 +273,19 @@
       color: rgba(255,255,255,0.85);
       padding: 48px 24px 24px;
       margin-top: 48px;
-      width: 100%;
+      max-width: 1100px;
+      margin: 48px auto 0;
+    }
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
     }
     .footer-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 32px;
-      max-width: 1200px;
-      margin: 0 auto 40px;
+      margin-bottom: 40px;
     }
     @media (max-width: 768px) {
       .footer-grid { grid-template-columns: repeat(2, 1fr); }
@@ -300,8 +305,6 @@
       border-top: 1px solid rgba(255,255,255,0.1);
       font-size: 13px;
       opacity: 0.8;
-      max-width: 1200px;
-      margin: 0 auto;
     }
 
     .tab-bar {
@@ -648,6 +651,7 @@
   </div>
 
   <footer class="footer">
+    <div class="footer-inner">
     <div class="footer-grid">
       <div class="footer-column">
         <h4>メニュー</h4>
@@ -679,9 +683,13 @@
       </div>
     </div>
     <div class="footer-bottom">
-      Copyright © (株)カオンヌリ All Rights Reserved.
+      Copyright © 2010-<span id="footer-year"></span> 株式会社 カオンヌリ All Rights Reserved.
+    </div>
     </div>
   </footer>
+  <script>
+(function(){var y=document.getElementById('footer-year');if(y)y.textContent=new Date().getFullYear();})();
+</script>
   <script>
     (function() {
       var nav = document.querySelector('nav');

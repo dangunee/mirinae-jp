@@ -128,8 +128,11 @@
 
   <div class="footer-bottom">
     <a href="index.html" style="color:var(--gold);text-decoration:none;">← トップページへ戻る</a><br><br>
-    Copyright © (株)カオンヌリ · ミリネ韓国語教室 All Rights Reserved.
+    Copyright © 2010-<span id="footer-year"></span> 株式会社 カオンヌリ All Rights Reserved.
   </div>
+  <script>
+(function(){var y=document.getElementById('footer-year');if(y)y.textContent=new Date().getFullYear();})();
+</script>
 </div>
 </body>
 </html>

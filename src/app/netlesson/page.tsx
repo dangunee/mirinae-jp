@@ -73,7 +73,7 @@ export default function NetlessonPage() {
         .netlesson-page .nav-item:hover { color:var(--gold); background:rgba(255,255,255,0.6); border-left-color:var(--gold); }
         .netlesson-page .nav-item.active { color:var(--gold); background:rgba(255,255,255,0.6); border-left-color:var(--gold); font-weight:500; }
         .netlesson-page .nav-divider { height:1px; background:var(--gray-border); margin:0; }
-        .netlesson-page footer { background:#2c2c2c; color:white; padding:48px 24px 24px; }
+        .netlesson-page footer { background:#2c2c2c; color:white; padding:48px 24px 24px; max-width:1100px; margin:0 auto; }
         .netlesson-page .footer-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:32px; max-width:1200px; margin:0 auto 40px; }
         .netlesson-page .footer-column h4 { font-size:14px; margin-bottom:16px; }
         .netlesson-page .footer-column a { display:block; color:rgba(255,255,255,.8); text-decoration:none; font-size:14px; margin-bottom:8px; }
@@ -276,7 +276,7 @@ export default function NetlessonPage() {
               </div>
             </div>
             <div className="footer-bottom">
-              Copyright © (株)カオンヌリ All Rights Reserved.
+              Copyright © 2010-{new Date().getFullYear()} 株式会社 カオンヌリ All Rights Reserved.
             </div>
           </footer>
         }

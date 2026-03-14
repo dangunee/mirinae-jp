@@ -399,6 +399,17 @@
     .footer-column a:hover { color: white; }
     .footer-bottom { text-align: center; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 13px; opacity: 0.8; }
 
+    /* 섹션 상승 애니메이션 (시험대책강좌와 동일) */
+    #tab01 .syutyu-reveal, #tab02 .syutyu-reveal, #tab03 .syutyu-reveal, #tab04 .syutyu-reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity .65s, transform .65s;
+    }
+    #tab01 .syutyu-reveal.visible, #tab02 .syutyu-reveal.visible, #tab03 .syutyu-reveal.visible, #tab04 .syutyu-reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
     /* beg-* design */
     #tab01, #tab02, #tab03, #tab04 {
       --cream: #f5f2ec;
@@ -1250,7 +1261,7 @@
             </div>
           </div>
 
-          <section class="concept-section">
+          <section class="concept-section syutyu-reveal">
             <div class="concept-inner">
               <div class="concept-eyebrow">COURSE CONCEPT</div>
               <h2 class="concept-title">集中講座とは</h2>
@@ -1275,23 +1286,23 @@
             </div>
           </section>
 
-          <div class="beg-sec-header">
+          <div class="beg-sec-header syutyu-reveal">
             <div class="beg-sec-label">Points</div>
             <div class="beg-sec-title">ポイント</div>
             <div class="beg-sec-line"></div>
           </div>
-          <div class="beg-flow-steps">
+          <div class="beg-flow-steps syutyu-reveal">
             <div class="beg-flow-step"><span class="beg-flow-num">1</span><span class="beg-flow-text">2日間で入門を終わらせます。</span></div>
             <div class="beg-flow-step"><span class="beg-flow-num">2</span><span class="beg-flow-text">ハングルの読み書きからよく使う文法（～です・ます、助詞など）までマスターします。</span></div>
             <div class="beg-flow-step"><span class="beg-flow-num">3</span><span class="beg-flow-text">入門段階で最も重要な発音ルールだけ学習し、発音に自信をつけます。</span></div>
           </div>
 
-          <div class="beg-sec-header">
+          <div class="beg-sec-header syutyu-reveal">
             <div class="beg-sec-label">Details</div>
             <div class="beg-sec-title">詳細</div>
             <div class="beg-sec-line"></div>
           </div>
-          <div class="beg-details-table">
+          <div class="beg-details-table syutyu-reveal">
             <div class="beg-details-row">
               <div class="beg-details-label"><span class="beg-details-label-icon">🎯</span><span class="beg-details-label-text">対象</span></div>
               <div class="beg-details-value">全くの初心者／ハングルの発音をしっかり学びたい方</div>
@@ -1325,12 +1336,12 @@
             </div>
           </div>
 
-          <div class="beg-sec-header" id="timetable-nyumon">
+          <div class="beg-sec-header syutyu-reveal" id="timetable-nyumon">
             <div class="beg-sec-label">Schedule</div>
             <div class="beg-sec-title">日程・時間割（例）</div>
             <div class="beg-sec-line"></div>
           </div>
-          <div class="tt-wrap">
+          <div class="tt-wrap syutyu-reveal">
             <div class="tt-header" style="grid-template-columns:90px 1fr 1fr;">
               <div class="tt-th">時間</div>
               <div class="tt-th">1/3 (土)</div>
@@ -1353,12 +1364,12 @@
             </div>
           </div>
 
-          <div class="beg-sec-header">
+          <div class="beg-sec-header syutyu-reveal">
             <div class="beg-sec-label">Lesson Flow</div>
             <div class="beg-sec-title">授業の流れ</div>
             <div class="beg-sec-line"></div>
           </div>
-          <div class="beg-flow-section">
+          <div class="beg-flow-section syutyu-reveal">
             <div class="beg-flow-cards">
               <div class="beg-flow-card">
                 <div class="beg-flow-card-num">1</div>
@@ -1377,12 +1388,12 @@
             </div>
           </div>
 
-          <div class="beg-sec-header">
+          <div class="beg-sec-header syutyu-reveal">
             <div class="beg-sec-label">Tuition</div>
             <div class="beg-sec-title">授業料</div>
             <div class="beg-sec-line"></div>
           </div>
-          <div class="beg-price-grid beg-price-grid-2">
+          <div class="beg-price-grid beg-price-grid-2 syutyu-reveal">
             <div class="beg-price-card">
               <div class="beg-price-card-top">
                 <div class="beg-price-days">1</div>
@@ -1417,7 +1428,7 @@
             </div>
           </div>
 
-          <div class="syutyu-test-section">
+          <div class="syutyu-test-section syutyu-reveal">
             <div class="syutyu-test-header">
               <div class="syutyu-test-eyebrow">TESTIMONIALS</div>
               <h2 class="syutyu-test-title">受講生の声</h2>
@@ -1546,7 +1557,7 @@
             </div>
           </div>
 
-          <section class="concept-section">
+          <section class="concept-section syutyu-reveal">
             <div class="concept-inner">
               <div class="concept-eyebrow">COURSE CONCEPT</div>
               <h2 class="concept-title">集中講座とは</h2>
@@ -1571,23 +1582,23 @@
             </div>
           </section>
 
-          <div class="beg-sec-header">
+          <div class="beg-sec-header syutyu-reveal">
             <div class="beg-sec-label">Points</div>
             <div class="beg-sec-title">ポイント</div>
             <div class="beg-sec-line"></div>
           </div>
-          <div class="beg-flow-steps">
+          <div class="beg-flow-steps syutyu-reveal">
             <div class="beg-flow-step"><span class="beg-flow-num">1</span><span class="beg-flow-text">初級学習者が知っておくべき重要な初級文法48個をまとめます。</span></div>
             <div class="beg-flow-step"><span class="beg-flow-num">2</span><span class="beg-flow-text">似ている文法と表現を比較し、ニュアンスの違いを理解します。</span></div>
             <div class="beg-flow-step"><span class="beg-flow-num">3</span><span class="beg-flow-text">初級学習者が間違えやすい文法や表現を整理します。</span></div>
           </div>
 
-          <div class="beg-sec-header">
+          <div class="beg-sec-header syutyu-reveal">
             <div class="beg-sec-label">Details</div>
             <div class="beg-sec-title">詳細</div>
             <div class="beg-sec-line"></div>
           </div>
-          <div class="beg-details-table">
+          <div class="beg-details-table syutyu-reveal">
             <div class="beg-details-row">
               <div class="beg-details-label"><span class="beg-details-label-icon">🎯</span><span class="beg-details-label-text">対象</span></div>
               <div class="beg-details-value">初級の文法ポイントをまとめて勉強したい方</div>
@@ -1610,12 +1621,12 @@
             </div>
           </div>
 
-          <div class="beg-sec-header" id="timetable-shokyu">
+          <div class="beg-sec-header syutyu-reveal" id="timetable-shokyu">
             <div class="beg-sec-label">Schedule</div>
             <div class="beg-sec-title">日程・時間割（例）</div>
             <div class="beg-sec-line"></div>
           </div>
-          <div class="tt-wrap">
+          <div class="tt-wrap syutyu-reveal">
             <div class="tt-header" style="grid-template-columns:90px 1fr 1fr 1fr;">
               <div class="tt-th">時間</div>
               <div class="tt-th">1/10 (土)</div>
@@ -1642,12 +1653,12 @@
             </div>
           </div>
 
-          <div class="beg-sec-header">
+          <div class="beg-sec-header syutyu-reveal">
             <div class="beg-sec-label">Lesson Flow</div>
             <div class="beg-sec-title">授業の流れ</div>
             <div class="beg-sec-line"></div>
           </div>
-          <div class="beg-flow-section">
+          <div class="beg-flow-section syutyu-reveal">
             <div class="beg-flow-cards">
               <div class="beg-flow-card">
                 <div class="beg-flow-card-num">1</div>
@@ -1666,12 +1677,12 @@
             </div>
           </div>
 
-          <div class="beg-sec-header">
+          <div class="beg-sec-header syutyu-reveal">
             <div class="beg-sec-label">Tuition</div>
             <div class="beg-sec-title">授業料</div>
             <div class="beg-sec-line"></div>
           </div>
-          <div class="beg-price-grid">
+          <div class="beg-price-grid syutyu-reveal">
             <div class="beg-price-card">
               <div class="beg-price-card-top">
                 <div class="beg-price-days">1</div>
@@ -1718,7 +1729,7 @@
             </div>
           </div>
 
-          <div class="syutyu-test-section">
+          <div class="syutyu-test-section syutyu-reveal">
             <div class="syutyu-test-header">
               <div class="syutyu-test-eyebrow">TESTIMONIALS</div>
               <h2 class="syutyu-test-title">受講生の声</h2>
@@ -1775,7 +1786,7 @@
             </div>
           </div>
 
-          <section class="concept-section">
+          <section class="concept-section syutyu-reveal">
             <div class="concept-inner">
               <div class="concept-eyebrow">COURSE CONCEPT</div>
               <h2 class="concept-title">集中講座とは</h2>
@@ -1800,22 +1811,22 @@
             </div>
           </section>
 
-          <div class="beg-sec-header">
+          <div class="beg-sec-header syutyu-reveal">
             <div class="beg-sec-label">Points</div>
             <div class="beg-sec-title">ポイント</div>
             <div class="beg-sec-line"></div>
           </div>
-          <div class="beg-flow-steps">
+          <div class="beg-flow-steps syutyu-reveal">
             <div class="beg-flow-step"><span class="beg-flow-num">1</span><span class="beg-flow-text">中級者が必ず知っておくべき文法を問題を解きながらまとめます。</span></div>
             <div class="beg-flow-step"><span class="beg-flow-num">2</span><span class="beg-flow-text">似ている表現を比較し、ニュアンスの違いを理解します。</span></div>
           </div>
 
-          <div class="beg-sec-header">
+          <div class="beg-sec-header syutyu-reveal">
             <div class="beg-sec-label">Details</div>
             <div class="beg-sec-title">詳細</div>
             <div class="beg-sec-line"></div>
           </div>
-          <div class="beg-details-table">
+          <div class="beg-details-table syutyu-reveal">
             <div class="beg-details-row">
               <div class="beg-details-label"><span class="beg-details-label-icon">🎯</span><span class="beg-details-label-text">対象</span></div>
               <div class="beg-details-value">学習歴3〜6年程度／TOPIK 3〜4級レベルの方</div>
@@ -1839,12 +1850,12 @@
             </div>
           </div>
 
-          <div class="beg-sec-header" id="timetable-chukyu">
+          <div class="beg-sec-header syutyu-reveal" id="timetable-chukyu">
             <div class="beg-sec-label">Schedule</div>
             <div class="beg-sec-title">日程・時間割（例）</div>
             <div class="beg-sec-line"></div>
           </div>
-          <div class="tt-wrap">
+          <div class="tt-wrap syutyu-reveal">
             <div class="tt-header" style="grid-template-columns:90px 1fr 1fr 1fr;">
               <div class="tt-th">時間</div>
               <div class="tt-th">1/10 (土)</div>
@@ -1871,12 +1882,12 @@
             </div>
           </div>
 
-          <div class="beg-sec-header">
+          <div class="beg-sec-header syutyu-reveal">
             <div class="beg-sec-label">Lesson Flow</div>
             <div class="beg-sec-title">授業の流れ</div>
             <div class="beg-sec-line"></div>
           </div>
-          <div class="beg-flow-section">
+          <div class="beg-flow-section syutyu-reveal">
             <div class="beg-flow-cards">
               <div class="beg-flow-card">
                 <div class="beg-flow-card-num">1</div>
@@ -1895,12 +1906,12 @@
             </div>
           </div>
 
-          <div class="beg-sec-header">
+          <div class="beg-sec-header syutyu-reveal">
             <div class="beg-sec-label">Tuition</div>
             <div class="beg-sec-title">授業料</div>
             <div class="beg-sec-line"></div>
           </div>
-          <div class="beg-price-grid">
+          <div class="beg-price-grid syutyu-reveal">
             <div class="beg-price-card">
               <div class="beg-price-card-top">
                 <div class="beg-price-days">1</div>
@@ -1947,7 +1958,7 @@
             </div>
           </div>
 
-          <div class="syutyu-test-section">
+          <div class="syutyu-test-section syutyu-reveal">
             <div class="syutyu-test-header">
               <div class="syutyu-test-eyebrow">TESTIMONIALS</div>
               <h2 class="syutyu-test-title">受講生の声</h2>
@@ -2004,7 +2015,7 @@
             </div>
           </div>
 
-          <section class="concept-section">
+          <section class="concept-section syutyu-reveal">
             <div class="concept-inner">
               <div class="concept-eyebrow">COURSE CONCEPT</div>
               <h2 class="concept-title">集中講座とは</h2>
@@ -2029,22 +2040,22 @@
             </div>
           </section>
 
-          <div class="beg-sec-header">
+          <div class="beg-sec-header syutyu-reveal">
             <div class="beg-sec-label">Points</div>
             <div class="beg-sec-title">ポイント</div>
             <div class="beg-sec-line"></div>
           </div>
-          <div class="beg-flow-steps">
+          <div class="beg-flow-steps syutyu-reveal">
             <div class="beg-flow-step"><span class="beg-flow-num">1</span><span class="beg-flow-text">上級者なら必ず知っておくべき文法を身につけます。</span></div>
             <div class="beg-flow-step"><span class="beg-flow-num">2</span><span class="beg-flow-text">直訳すると不自然・誤解を招く表現を学び、ネイティブがよく使う自然な言い回しを身につけます。</span></div>
           </div>
 
-          <div class="beg-sec-header">
+          <div class="beg-sec-header syutyu-reveal">
             <div class="beg-sec-label">Details</div>
             <div class="beg-sec-title">詳細</div>
             <div class="beg-sec-line"></div>
           </div>
-          <div class="beg-details-table">
+          <div class="beg-details-table syutyu-reveal">
             <div class="beg-details-row">
               <div class="beg-details-label"><span class="beg-details-label-icon">🎯</span><span class="beg-details-label-text">対象</span></div>
               <div class="beg-details-value">総合的な力をつけたい上級レベルを目指している方／韓国語能力試験6級を目指す方・取得した方など</div>
@@ -2066,12 +2077,12 @@
             </div>
           </div>
 
-          <div class="beg-sec-header" id="timetable-jokyu">
+          <div class="beg-sec-header syutyu-reveal" id="timetable-jokyu">
             <div class="beg-sec-label">Schedule</div>
             <div class="beg-sec-title">日程・時間割（例）</div>
             <div class="beg-sec-line"></div>
           </div>
-          <div class="tt-wrap">
+          <div class="tt-wrap syutyu-reveal">
             <div class="tt-header" style="grid-template-columns:90px 1fr 1fr 1fr;">
               <div class="tt-th">時間</div>
               <div class="tt-th">1/10 (土)</div>
@@ -2098,12 +2109,12 @@
             </div>
           </div>
 
-          <div class="beg-sec-header">
+          <div class="beg-sec-header syutyu-reveal">
             <div class="beg-sec-label">Lesson Flow</div>
             <div class="beg-sec-title">授業の流れ</div>
             <div class="beg-sec-line"></div>
           </div>
-          <div class="beg-flow-section">
+          <div class="beg-flow-section syutyu-reveal">
             <div class="beg-flow-cards">
               <div class="beg-flow-card">
                 <div class="beg-flow-card-num">1</div>
@@ -2122,12 +2133,12 @@
             </div>
           </div>
 
-          <div class="beg-sec-header">
+          <div class="beg-sec-header syutyu-reveal">
             <div class="beg-sec-label">Tuition</div>
             <div class="beg-sec-title">授業料</div>
             <div class="beg-sec-line"></div>
           </div>
-          <div class="beg-price-grid">
+          <div class="beg-price-grid syutyu-reveal">
             <div class="beg-price-card">
               <div class="beg-price-card-top">
                 <div class="beg-price-days">1</div>
@@ -2174,7 +2185,7 @@
             </div>
           </div>
 
-          <div class="syutyu-test-section">
+          <div class="syutyu-test-section syutyu-reveal">
             <div class="syutyu-test-header">
               <div class="syutyu-test-eyebrow">TESTIMONIALS</div>
               <h2 class="syutyu-test-title">受講生の声</h2>
@@ -2341,6 +2352,28 @@
       var tabPanels = document.querySelectorAll('.tab-panel');
       var tabIds = ['tab01', 'tab02', 'tab03', 'tab04'];
 
+      var syutyuRevealDone = {};
+      function initSyutyuReveal(tabId) {
+        if (syutyuRevealDone[tabId]) return;
+        syutyuRevealDone[tabId] = true;
+        var panel = document.getElementById(tabId);
+        if (!panel) return;
+        var els = panel.querySelectorAll('.syutyu-reveal');
+        if (!els.length) return;
+        var obs = new IntersectionObserver(function(entries) {
+          entries.forEach(function(e) {
+            if (e.isIntersecting) {
+              e.target.classList.add('visible');
+              obs.unobserve(e.target);
+            }
+          });
+        }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+        els.forEach(function(el, i) {
+          el.style.transitionDelay = (i % 5 * 0.09) + 's';
+          obs.observe(el);
+        });
+      }
+
       function switchTab(tabId) {
         tabBtns.forEach(function(btn) {
           btn.classList.toggle('active', btn.getAttribute('data-tab') === tabId);
@@ -2355,6 +2388,7 @@
         if (tabIds.indexOf(tabId) !== -1) {
           history.replaceState(null, '', 'syutyu.html#' + tabId);
         }
+        initSyutyuReveal(tabId);
       }
 
       tabBtns.forEach(function(btn) {
@@ -2391,6 +2425,7 @@
           var href = a.getAttribute('href');
           a.classList.toggle('active', href === 'syutyu.html#' + activeTab);
         });
+        initSyutyuReveal(activeTab);
       }
 
       window.addEventListener('hashchange', function() {

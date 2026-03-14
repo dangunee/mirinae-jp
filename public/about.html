@@ -6,7 +6,7 @@
   <title>会社概要・アクセス・講師｜ミリネ韓国語教室</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600&display=swap" rel="stylesheet">
   <style>
     :root {
       --beige: #f5f0e8;
@@ -41,7 +41,7 @@
       .main-with-sidebar { grid-template-columns: 1fr; }
       .main-with-sidebar .sidebar { display: none; }
     }
-    .sidebar { position: sticky; top: 80px; padding-top: 210px; }
+    .sidebar { position: sticky; top: 80px; padding-top: 32px; }
     .course-nav-card.courses-nav-box {
       background: var(--white);
       border: 1px solid var(--gray-border);
@@ -350,6 +350,92 @@
     .nav-links > li:hover .nav-dropdown { opacity: 1; visibility: visible; pointer-events: auto; }
     .nav-dropdown a { padding: 10px 20px; font-size: 13px; border-radius: 0; white-space: nowrap; }
     .nav-dropdown a:hover { background: var(--gold-pale); color: var(--gold); }
+
+    .hero {
+      background: var(--white);
+      padding: 72px 80px 64px;
+      border-bottom: 1px solid var(--gray-border);
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+    .hero::after {
+      content: "회사개요";
+      position: absolute;
+      right: 48px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 120px;
+      font-weight: 700;
+      color: rgba(184,146,74,0.06);
+      pointer-events: none;
+      user-select: none;
+      white-space: nowrap;
+    }
+    .hero-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+      font-weight: 500;
+    }
+    .hero h1 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      line-height: 1.3;
+      margin-bottom: 16px;
+    }
+    .hero p {
+      color: var(--text-muted);
+      font-size: 14px;
+      letter-spacing: 0.05em;
+    }
+    .tabs-bar {
+      background: var(--white);
+      border-bottom: 1px solid var(--gray-border);
+      padding: 0 80px;
+      display: flex;
+      gap: 0;
+      justify-content: center;
+    }
+    .tabs-bar .tab-btn {
+      padding: 16px 28px;
+      font-size: 13px;
+      color: var(--text-muted);
+      cursor: pointer;
+      border: none;
+      border-bottom: 2px solid transparent;
+      background: none;
+      transition: all .2s;
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+      user-select: none;
+      font-family: inherit;
+    }
+    .tabs-bar .tab-btn.active {
+      color: var(--gold);
+      font-weight: 600;
+    }
+    .tabs-bar .tab-btn {
+      position: relative;
+    }
+    @media (max-width: 900px) {
+      .hero { padding: 48px 24px 40px; }
+      .hero::after { font-size: 80px; right: 24px; }
+      .tabs-bar { padding: 0 24px; overflow-x: auto; -webkit-overflow-scrolling: touch; justify-content: flex-start; }
+      .tabs-bar .tab-btn { flex: 0 0 auto; min-width: max-content; padding: 12px 14px; }
+    }
+    @media (max-width: 600px) {
+      .hero { padding: 40px 16px 32px; }
+      .hero::after { display: none; }
+      .tabs-bar { padding: 0 12px; }
+      .tabs-bar .tab-btn { padding: 10px 12px; font-size: 12px; }
+    }
+
     @media (max-width: 900px) {
       .nav-overlay { display: block; }
       nav.nav-open .nav-overlay { opacity: 1; pointer-events: auto; }
@@ -424,22 +510,21 @@
     </ul>
   </nav>
 
+  <div class="hero">
+    <p class="hero-eyebrow">Company Overview</p>
+    <h1>会社概要</h1>
+    <p>会社情報、教室へのアクセス、韓国語講師のご紹介はこちらから。</p>
+  </div>
+
+  <div class="tabs-bar" role="tablist">
+    <button type="button" class="tab-btn active" data-tab="tab01" role="tab" aria-selected="true">会社概要・口座</button>
+    <button type="button" class="tab-btn" data-tab="tab02" role="tab" aria-selected="false">アクセス</button>
+    <button type="button" class="tab-btn" data-tab="tab03" role="tab" aria-selected="false">講師</button>
+  </div>
+
   <div class="page-wrapper">
     <div class="main-with-sidebar">
     <main class="main-content">
-      <div class="page-header">
-        <h1 class="page-title">会社概要</h1>
-        <p class="page-subtitle">会社情報、教室へのアクセス、韓国語講師のご紹介はこちらから。</p>
-      </div>
-
-      <div class="tab-wrap">
-        <div class="tab-bar" role="tablist">
-          <button type="button" class="tab-btn active" data-tab="tab01" role="tab" aria-selected="true">会社概要・口座</button>
-          <button type="button" class="tab-btn" data-tab="tab02" role="tab" aria-selected="false">アクセス</button>
-          <button type="button" class="tab-btn" data-tab="tab03" role="tab" aria-selected="false">講師</button>
-        </div>
-      </div>
-
       <div id="tab01" class="tab-panel active">
         <h2 class="section-header">『会社概要・口座』</h2>
         <div class="content-block">

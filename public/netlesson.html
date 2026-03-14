@@ -659,12 +659,12 @@
       color: white;
       padding: 48px 24px 24px;
     }
+    .footer-inner { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
     .footer-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 32px;
-      max-width: 1200px;
-      margin: 0 auto 40px;
+      margin-bottom: 40px;
     }
     @media (max-width: 768px) { .footer-grid { grid-template-columns: repeat(2, 1fr); } }
     .footer-column h4 { font-size: 14px; margin-bottom: 16px; opacity: 0.9; }
@@ -1109,8 +1109,9 @@
         </aside>
       </div>
     </main>
-
-    <footer>
+  </div>
+  <footer>
+    <div class="footer-inner">
       <div class="footer-grid">
         <div class="footer-column">
           <h4>メニュー</h4>
@@ -1144,11 +1145,11 @@
       <div class="footer-bottom">
         Copyright © 2010-<span id="footer-year"></span> 株式会社 カオンヌリ All Rights Reserved.
       </div>
-    </footer>
-    <script>
+    </div>
+  </footer>
+  <script>
 (function(){var y=document.getElementById('footer-year');if(y)y.textContent=new Date().getFullYear();})();
 </script>
-  </div>
 
   <script>
     (function () {

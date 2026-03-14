@@ -120,8 +120,8 @@ export default function NetlessonClient({
         {children}
       </div>
         </main>
-        {footer}
       </div>
+      {footer}
     </>
   );
 }

@@ -210,23 +210,26 @@ export default function ScheduleAdminPage() {
         monthlyWeeks: form.eventType === "recurring" && form.monthlyWeeks ? form.monthlyWeeks : null,
         endDate: form.eventType === "recurring" && form.endDate ? form.endDate : null,
       };
-      if (editing) {
-        await fetch("/api/admin/schedule", {
-          method: "PUT",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ id: editing.id, ...payload }),
-        });
-      } else {
-        await fetch("/api/admin/schedule", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload),
-        });
+      const r = editing
+        ? await fetch("/api/admin/schedule", {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ id: editing.id, ...payload }),
+          })
+        : await fetch("/api/admin/schedule", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+          });
+      const data = await r.json().catch(() => ({}));
+      if (!r.ok) {
+        throw new Error(data.error || data.message || `エラー (${r.status})`);
       }
       cancelEdit();
       load();
-    } catch {
-      alert("保存に失敗しました");
+    } catch (e) {
+      const msg = e instanceof Error ? e.message : "保存に失敗しました";
+      alert(msg);
     } finally {
       setSaving(false);
     }
@@ -285,9 +288,10 @@ export default function ScheduleAdminPage() {
         throw new Error(msg);
       }
       await load();
-      setForm({ ...form, cat: data.value });
+      setForm((prev) => ({ ...prev, cat: data.value }));
       setShowInlineCatAdd(false);
       setInlineCatForm({ value: "", label: "", color: "#e5e7eb" });
+      alert("カテゴリを追加しました。イベントを保存するには「保存」ボタンを押してください。");
     } catch (e) {
       const msg = e instanceof Error ? e.message : "カテゴリの追加に失敗しました";
       alert(msg);
@@ -516,6 +520,27 @@ export default function ScheduleAdminPage() {
       )}
 
       <div style={{ display: "flex", gap: 12, marginBottom: 16, flexWrap: "wrap" }}>
+        <button
+          type="button"
+          onClick={async () => {
+            setSaving(true);
+            try {
+              const r = await fetch("/api/admin/db-sync", { method: "POST" });
+              const j = await r.json();
+              if (r.ok) alert(j.message || "DBスキーマを適用しました");
+              else alert(j.error || "失敗");
+              load();
+            } catch {
+              alert("失敗");
+            } finally {
+              setSaving(false);
+            }
+          }}
+          disabled={saving || loading}
+          style={{ ...style.btn, background: "#fff", color: "#6b3d3d", border: "1px solid #6b3d3d" }}
+        >
+          DBスキーマ適用
+        </button>
         <button
           type="button"
           onClick={async () => {

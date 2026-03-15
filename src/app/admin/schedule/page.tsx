@@ -498,15 +498,23 @@ export default function ScheduleAdminPage() {
                 <div style={{ display: "grid", gap: 8, marginBottom: 8 }}>
                   <div style={{ minWidth: 0 }}>
                     <label style={{ display: "block", fontSize: 12, marginBottom: 4 }}>カテゴリID（英小文字・ハイフン）</label>
-                    <input type="text" value={catForm.value} onChange={(e) => setCatForm({ ...catForm, value: e.target.value })} placeholder="例: cat-tsushin" style={{ ...style.input }} disabled={!!catEditing} />
+                    <input type="text" value={catForm.value} onChange={(e) => setCatForm((prev) => ({ ...prev, value: e.target.value }))} placeholder="例: cat-tsushin" style={{ ...style.input }} autoComplete="off" />
                   </div>
                   <div style={{ minWidth: 0 }}>
                     <label style={{ display: "block", fontSize: 12, marginBottom: 4 }}>表示名（カレンダーに表示）</label>
-                    <input type="text" value={catForm.label} onChange={(e) => setCatForm({ ...catForm, label: e.target.value })} placeholder="例: 通信講座" style={{ ...style.input }} />
+                    <input type="text" value={catForm.label} onChange={(e) => setCatForm((prev) => ({ ...prev, label: e.target.value }))} placeholder="例: 通信講座" style={{ ...style.input }} autoComplete="off" />
                   </div>
                   <div style={{ minWidth: 0 }}>
                     <label style={{ display: "block", fontSize: 12, marginBottom: 4 }}>表示色</label>
-                    <input type="text" value={catForm.color} onChange={(e) => setCatForm({ ...catForm, color: e.target.value })} placeholder="例: #2563eb" style={{ ...style.input, maxWidth: 140 }} />
+                    <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
+                      <input
+                        type="color"
+                        value={/^#[0-9A-Fa-f]{6}$/.test(catForm.color) ? catForm.color : "#e5e7eb"}
+                        onChange={(e) => setCatForm((prev) => ({ ...prev, color: e.target.value }))}
+                        style={{ width: 40, height: 36, padding: 2, border: "1px solid #ddd", borderRadius: 6, cursor: "pointer" }}
+                      />
+                      <input type="text" value={catForm.color} onChange={(e) => setCatForm((prev) => ({ ...prev, color: e.target.value }))} placeholder="例: #2563eb" style={{ ...style.input, maxWidth: 120 }} autoComplete="off" />
+                    </div>
                   </div>
                 </div>
                 <div style={{ display: "flex", gap: 8 }}>
@@ -697,7 +705,15 @@ export default function ScheduleAdminPage() {
                           </div>
                           <div>
                             <label style={{ fontSize: 12, display: "block", marginBottom: 2 }}>表示色</label>
-                            <input type="text" value={inlineCatForm.color} onChange={(e) => setInlineCatForm({ ...inlineCatForm, color: e.target.value })} placeholder="例: #0891b2" style={{ ...style.input, maxWidth: 120 }} />
+                            <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
+                              <input
+                                type="color"
+                                value={/^#[0-9A-Fa-f]{6}$/.test(inlineCatForm.color) ? inlineCatForm.color : "#e5e7eb"}
+                                onChange={(e) => setInlineCatForm({ ...inlineCatForm, color: e.target.value })}
+                                style={{ width: 40, height: 36, padding: 2, border: "1px solid #ddd", borderRadius: 6, cursor: "pointer" }}
+                              />
+                              <input type="text" value={inlineCatForm.color} onChange={(e) => setInlineCatForm({ ...inlineCatForm, color: e.target.value })} placeholder="例: #0891b2" style={{ ...style.input, maxWidth: 100 }} />
+                            </div>
                           </div>
                         </div>
                         <div style={{ display: "flex", gap: 8 }}>

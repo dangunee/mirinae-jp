@@ -1,25 +1,68 @@
 import { NextResponse } from "next/server";
-import { execSync } from "child_process";
-import path from "path";
+import { prisma } from "@/lib/db";
 
 /**
  * POST /api/admin/db-sync
- * Prisma 스키마를 DB에 적용합니다.
- * 터미널에서 npx prisma db push 가 안 될 때,
- * 앱 서버(DB 연결 가능)에서 실행합니다.
+ * schedule_categories, schedule_events 테이블을 생성/업데이트합니다.
+ * 서버리스 환경(Vercel 등)에서도 동작합니다。
  */
 export async function POST() {
   try {
-    const projectRoot = path.resolve(process.cwd());
-    execSync("npx prisma db push", {
-      cwd: projectRoot,
-      env: process.env,
-      encoding: "utf-8",
-    });
+    // schedule_categories 테이블 생성
+    await prisma.$executeRawUnsafe(`
+      CREATE TABLE IF NOT EXISTS "public"."schedule_categories" (
+        "id" TEXT NOT NULL,
+        "value" TEXT NOT NULL,
+        "label" TEXT NOT NULL,
+        "color" TEXT NOT NULL DEFAULT '#e5e7eb',
+        "sortOrder" INTEGER NOT NULL DEFAULT 0,
+        "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        "updatedAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        CONSTRAINT "schedule_categories_pkey" PRIMARY KEY ("id")
+      );
+    `);
+    await prisma.$executeRawUnsafe(`
+      CREATE UNIQUE INDEX IF NOT EXISTS "schedule_categories_value_key" ON "public"."schedule_categories"("value");
+    `);
+
+    // schedule_events 테이블 생성 (없으면)
+    await prisma.$executeRawUnsafe(`
+      CREATE TABLE IF NOT EXISTS "public"."schedule_events" (
+        "id" TEXT NOT NULL,
+        "eventType" TEXT NOT NULL,
+        "label" TEXT NOT NULL,
+        "cat" TEXT NOT NULL,
+        "time" TEXT,
+        "detail" TEXT,
+        "url" TEXT,
+        "dow" INTEGER,
+        "biweekly" BOOLEAN NOT NULL DEFAULT false,
+        "biweeklyStartDate" TIMESTAMP(3),
+        "monthlyWeeks" TEXT,
+        "endDate" TEXT,
+        "date" TEXT,
+        "sortOrder" INTEGER NOT NULL DEFAULT 0,
+        "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        "updatedAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        CONSTRAINT "schedule_events_pkey" PRIMARY KEY ("id")
+      );
+    `);
+
+    // 기존 schedule_events에 monthlyWeeks, endDate 컬럼 추가 (있으면 스킵)
+    try {
+      await prisma.$executeRawUnsafe(`
+        ALTER TABLE "public"."schedule_events" ADD COLUMN IF NOT EXISTS "monthlyWeeks" TEXT;
+      `);
+      await prisma.$executeRawUnsafe(`
+        ALTER TABLE "public"."schedule_events" ADD COLUMN IF NOT EXISTS "endDate" TEXT;
+      `);
+    } catch {
+      // 컬럼이 이미 있거나 테이블 구조가 다를 수 있음 - 무시
+    }
+
     return NextResponse.json({ ok: true, message: "DBスキーマを適用しました" });
   } catch (e) {
-    const err = e as { stderr?: string; stdout?: string; message?: string };
-    const msg = err.stderr || err.stdout || err.message || String(e);
+    const msg = e instanceof Error ? e.message : String(e);
     return NextResponse.json({ ok: false, error: msg }, { status: 500 });
   }
 }

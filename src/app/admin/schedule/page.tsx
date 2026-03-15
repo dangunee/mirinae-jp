@@ -122,7 +122,9 @@ export default function ScheduleAdminPage() {
       .finally(() => setLoading(false));
   };
 
-  useEffect(() => load(), []);
+  useEffect(() => {
+    load();
+  }, []);
 
   useEffect(() => {
     if (!editing && !adding) return;

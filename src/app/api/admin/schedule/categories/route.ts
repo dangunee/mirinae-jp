@@ -13,20 +13,27 @@ export async function GET() {
 
 // POST — 新規作成
 export async function POST(req: NextRequest) {
-  const body = (await req.json()) as CategoryInput;
-  const { value, label, color, sortOrder } = body;
-  if (!value?.trim() || !label?.trim()) {
-    return NextResponse.json({ error: "value, label required" }, { status: 400 });
+  try {
+    const body = (await req.json()) as CategoryInput;
+    const { value, label, color, sortOrder } = body;
+    if (!value?.trim() || !label?.trim()) {
+      return NextResponse.json({ error: "カテゴリIDと表示名を入力してください" }, { status: 400 });
+    }
+    const created = await prisma.scheduleCategory.create({
+      data: {
+        value: value.trim(),
+        label: label.trim(),
+        color: color?.trim() || "#e5e7eb",
+        sortOrder: typeof sortOrder === "number" ? sortOrder : 0,
+      },
+    });
+    return NextResponse.json(created);
+  } catch (e: unknown) {
+    const msg = e && typeof e === "object" && "code" in e && (e as { code: string }).code === "P2002"
+      ? "このカテゴリIDは既に使用されています。別のIDを入力してください。"
+      : e instanceof Error ? e.message : "データベースエラー";
+    return NextResponse.json({ error: msg }, { status: 500 });
   }
-  const created = await prisma.scheduleCategory.create({
-    data: {
-      value: value.trim(),
-      label: label.trim(),
-      color: color?.trim() || "#e5e7eb",
-      sortOrder: typeof sortOrder === "number" ? sortOrder : 0,
-    },
-  });
-  return NextResponse.json(created);
 }
 
 // PUT — 更新

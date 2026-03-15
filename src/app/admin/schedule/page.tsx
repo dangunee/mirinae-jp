@@ -243,7 +243,7 @@ export default function ScheduleAdminPage() {
   };
 
   const saveCategory = async () => {
-    if (!catForm.value.trim() || !catForm.label.trim()) return alert("value, label を入力してください");
+    if (!catForm.value.trim() || !catForm.label.trim()) return alert("カテゴリIDと表示名を入力してください");
     setSaving(true);
     try {
       if (catEditing) {
@@ -271,7 +271,7 @@ export default function ScheduleAdminPage() {
   };
 
   const addCategoryFromDialog = async () => {
-    if (!inlineCatForm.value.trim() || !inlineCatForm.label.trim()) return alert("value, label を入力してください");
+    if (!inlineCatForm.value.trim() || !inlineCatForm.label.trim()) return alert("カテゴリIDと表示名を入力してください");
     setSaving(true);
     try {
       const r = await fetch("/api/admin/schedule/categories", {
@@ -279,14 +279,18 @@ export default function ScheduleAdminPage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(inlineCatForm),
       });
-      const created = await r.json();
-      if (!r.ok) throw new Error(created.error || "失敗");
+      const data = await r.json().catch(() => ({}));
+      if (!r.ok) {
+        const msg = data.error || data.message || `エラー (${r.status})`;
+        throw new Error(msg);
+      }
       await load();
-      setForm({ ...form, cat: created.value });
+      setForm({ ...form, cat: data.value });
       setShowInlineCatAdd(false);
       setInlineCatForm({ value: "", label: "", color: "#e5e7eb" });
     } catch (e) {
-      alert("カテゴリの追加に失敗しました");
+      const msg = e instanceof Error ? e.message : "カテゴリの追加に失敗しました";
+      alert(msg);
     } finally {
       setSaving(false);
     }
@@ -489,16 +493,16 @@ export default function ScheduleAdminPage() {
                 <div style={{ fontSize: 12, fontWeight: 600, color: "#666", marginBottom: 8 }}>{catEditing ? "編集" : "新規追加"}</div>
                 <div style={{ display: "grid", gap: 8, marginBottom: 8 }}>
                   <div style={{ minWidth: 0 }}>
-                    <label style={{ display: "block", fontSize: 12, marginBottom: 4 }}>value</label>
-                    <input type="text" value={catForm.value} onChange={(e) => setCatForm({ ...catForm, value: e.target.value })} placeholder="cat-tsushin" style={{ ...style.input }} disabled={!!catEditing} />
+                    <label style={{ display: "block", fontSize: 12, marginBottom: 4 }}>カテゴリID（英小文字・ハイフン）</label>
+                    <input type="text" value={catForm.value} onChange={(e) => setCatForm({ ...catForm, value: e.target.value })} placeholder="例: cat-tsushin" style={{ ...style.input }} disabled={!!catEditing} />
                   </div>
                   <div style={{ minWidth: 0 }}>
-                    <label style={{ display: "block", fontSize: 12, marginBottom: 4 }}>label</label>
-                    <input type="text" value={catForm.label} onChange={(e) => setCatForm({ ...catForm, label: e.target.value })} placeholder="通信講座" style={{ ...style.input }} />
+                    <label style={{ display: "block", fontSize: 12, marginBottom: 4 }}>表示名（カレンダーに表示）</label>
+                    <input type="text" value={catForm.label} onChange={(e) => setCatForm({ ...catForm, label: e.target.value })} placeholder="例: 通信講座" style={{ ...style.input }} />
                   </div>
                   <div style={{ minWidth: 0 }}>
-                    <label style={{ display: "block", fontSize: 12, marginBottom: 4 }}>color</label>
-                    <input type="text" value={catForm.color} onChange={(e) => setCatForm({ ...catForm, color: e.target.value })} placeholder="#e5e7eb" style={{ ...style.input, maxWidth: 140 }} />
+                    <label style={{ display: "block", fontSize: 12, marginBottom: 4 }}>表示色</label>
+                    <input type="text" value={catForm.color} onChange={(e) => setCatForm({ ...catForm, color: e.target.value })} placeholder="例: #2563eb" style={{ ...style.input, maxWidth: 140 }} />
                   </div>
                 </div>
                 <div style={{ display: "flex", gap: 8 }}>
@@ -659,16 +663,16 @@ export default function ScheduleAdminPage() {
                         <div style={{ fontSize: 12, fontWeight: 600, marginBottom: 8 }}>新規カテゴリ追加</div>
                         <div style={{ display: "grid", gap: 8, marginBottom: 8 }}>
                           <div>
-                            <label style={{ fontSize: 11, display: "block", marginBottom: 2 }}>value</label>
-                            <input type="text" value={inlineCatForm.value} onChange={(e) => setInlineCatForm({ ...inlineCatForm, value: e.target.value })} placeholder="cat-xxx" style={{ ...style.input }} />
+                            <label style={{ fontSize: 12, display: "block", marginBottom: 2 }}>カテゴリID（英小文字・ハイフン）</label>
+                            <input type="text" value={inlineCatForm.value} onChange={(e) => setInlineCatForm({ ...inlineCatForm, value: e.target.value })} placeholder="例: cat-jokyu1" style={{ ...style.input }} />
                           </div>
                           <div>
-                            <label style={{ fontSize: 11, display: "block", marginBottom: 2 }}>label</label>
-                            <input type="text" value={inlineCatForm.label} onChange={(e) => setInlineCatForm({ ...inlineCatForm, label: e.target.value })} placeholder="通信講座" style={{ ...style.input }} />
+                            <label style={{ fontSize: 12, display: "block", marginBottom: 2 }}>表示名（カレンダーに表示）</label>
+                            <input type="text" value={inlineCatForm.label} onChange={(e) => setInlineCatForm({ ...inlineCatForm, label: e.target.value })} placeholder="例: 上級・会話強化" style={{ ...style.input }} />
                           </div>
                           <div>
-                            <label style={{ fontSize: 11, display: "block", marginBottom: 2 }}>color</label>
-                            <input type="text" value={inlineCatForm.color} onChange={(e) => setInlineCatForm({ ...inlineCatForm, color: e.target.value })} placeholder="#e5e7eb" style={{ ...style.input, maxWidth: 120 }} />
+                            <label style={{ fontSize: 12, display: "block", marginBottom: 2 }}>表示色</label>
+                            <input type="text" value={inlineCatForm.color} onChange={(e) => setInlineCatForm({ ...inlineCatForm, color: e.target.value })} placeholder="例: #0891b2" style={{ ...style.input, maxWidth: 120 }} />
                           </div>
                         </div>
                         <div style={{ display: "flex", gap: 8 }}>

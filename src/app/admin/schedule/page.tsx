@@ -89,6 +89,15 @@ export default function ScheduleAdminPage() {
 
   useEffect(() => load(), []);
 
+  useEffect(() => {
+    if (!editing && !adding) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") cancelEdit();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [editing, adding]);
+
   const startAdd = () => {
     setEditing(null);
     setAdding(true);
@@ -351,126 +360,165 @@ export default function ScheduleAdminPage() {
           </div>
 
           {(editing || adding) && (
-            <div style={{ background: "#f8f8f8", padding: 24, borderRadius: 12, marginBottom: 24, border: "1px solid #e5e5e5" }}>
-              <h3 style={{ marginBottom: 16, fontSize: 16 }}>{editing ? "編集" : "新規追加"}</h3>
-              <div style={{ display: "grid", gap: 16, maxWidth: 600 }}>
-                <div>
-                  <label style={{ display: "block", marginBottom: 4, fontSize: 13, fontWeight: 500 }}>種別</label>
-                  <select
-                    value={form.eventType}
-                    onChange={(e) => setForm({ ...form, eventType: e.target.value as "recurring" | "single" })}
-                    style={style.input}
+            <div
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="form-title"
+              onClick={(e) => e.target === e.currentTarget && cancelEdit()}
+              style={{
+                position: "fixed",
+                inset: 0,
+                background: "rgba(0,0,0,0.4)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                zIndex: 1000,
+                padding: 24,
+              }}
+            >
+              <div
+                onClick={(e) => e.stopPropagation()}
+                style={{
+                  background: "#fff",
+                  padding: 24,
+                  borderRadius: 12,
+                  maxWidth: 560,
+                  width: "100%",
+                  maxHeight: "90vh",
+                  overflowY: "auto",
+                  boxShadow: "0 4px 24px rgba(0,0,0,0.15)",
+                }}
+              >
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16 }}>
+                  <h3 id="form-title" style={{ margin: 0, fontSize: 18, fontWeight: 600 }}>{editing ? "編集" : "新規追加"}</h3>
+                  <button
+                    type="button"
+                    onClick={cancelEdit}
+                    style={{ padding: "4px 8px", border: "none", background: "transparent", cursor: "pointer", fontSize: 20, lineHeight: 1, color: "#666" }}
+                    aria-label="閉じる"
                   >
-                    <option value="recurring">定期（毎週・隔週）</option>
-                    <option value="single">単発</option>
-                  </select>
+                    ×
+                  </button>
                 </div>
-                <div>
-                  <label style={{ display: "block", marginBottom: 4, fontSize: 13, fontWeight: 500 }}>講座名</label>
-                  <input
-                    type="text"
-                    value={form.label}
-                    onChange={(e) => setForm({ ...form, label: e.target.value })}
-                    placeholder="例: 通信音読トレーニング"
-                    style={style.input}
-                  />
-                </div>
-                <div>
-                  <label style={{ display: "block", marginBottom: 4, fontSize: 13, fontWeight: 500 }}>カテゴリ（色）</label>
-                  <select value={form.cat} onChange={(e) => setForm({ ...form, cat: e.target.value })} style={style.input}>
-                    {CAT_OPTIONS.map((c) => (
-                      <option key={c.value} value={c.value}>{c.label}</option>
-                    ))}
-                  </select>
-                </div>
-                <div>
-                  <label style={{ display: "block", marginBottom: 4, fontSize: 13, fontWeight: 500 }}>時間・備考</label>
-                  <input
-                    type="text"
-                    value={form.time}
-                    onChange={(e) => setForm({ ...form, time: e.target.value })}
-                    placeholder="例: 14:00〜, 随時受付中"
-                    style={style.input}
-                  />
-                </div>
-                <div>
-                  <label style={{ display: "block", marginBottom: 4, fontSize: 13, fontWeight: 500 }}>詳細（ツールチップ）</label>
-                  <input
-                    type="text"
-                    value={form.detail}
-                    onChange={(e) => setForm({ ...form, detail: e.target.value })}
-                    placeholder="例: 毎週土曜 14:00〜 会話強化"
-                    style={style.input}
-                  />
-                </div>
-                <div>
-                  <label style={{ display: "block", marginBottom: 4, fontSize: 13, fontWeight: 500 }}>リンク先</label>
-                  <input
-                    type="text"
-                    value={form.url}
-                    onChange={(e) => setForm({ ...form, url: e.target.value })}
-                    placeholder="例: kaiwa.html, group.html#tab05"
-                    style={style.input}
-                  />
-                </div>
-                {form.eventType === "recurring" && (
-                  <>
-                    <div>
-                      <label style={{ display: "block", marginBottom: 4, fontSize: 13, fontWeight: 500 }}>曜日</label>
-                      <select value={form.dow} onChange={(e) => setForm({ ...form, dow: parseInt(e.target.value, 10) })} style={style.input}>
-                        {DOW_LABELS.map((l, i) => (
-                          <option key={i} value={i}>{l}曜日</option>
-                        ))}
-                      </select>
-                    </div>
-                    <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-                      <label style={{ display: "flex", alignItems: "center", gap: 6, cursor: "pointer" }}>
-                        <input
-                          type="checkbox"
-                          checked={form.biweekly}
-                          onChange={(e) => setForm({ ...form, biweekly: e.target.checked })}
-                        />
-                        隔週
-                      </label>
-                      {form.biweekly && (
-                        <input
-                          type="date"
-                          value={form.biweeklyStartDate}
-                          onChange={(e) => setForm({ ...form, biweeklyStartDate: e.target.value })}
-                          style={{ ...style.input, width: 160 }}
-                          placeholder="基準日"
-                        />
-                      )}
-                    </div>
-                  </>
-                )}
-                {form.eventType === "single" && (
+                <div style={{ display: "grid", gap: 16 }}>
                   <div>
-                    <label style={{ display: "block", marginBottom: 4, fontSize: 13, fontWeight: 500 }}>日付</label>
+                    <label style={{ display: "block", marginBottom: 4, fontSize: 13, fontWeight: 500 }}>種別</label>
+                    <select
+                      value={form.eventType}
+                      onChange={(e) => setForm({ ...form, eventType: e.target.value as "recurring" | "single" })}
+                      style={style.input}
+                    >
+                      <option value="recurring">定期（毎週・隔週）</option>
+                      <option value="single">単発</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label style={{ display: "block", marginBottom: 4, fontSize: 13, fontWeight: 500 }}>講座名</label>
                     <input
-                      type="date"
-                      value={form.date}
-                      onChange={(e) => setForm({ ...form, date: e.target.value })}
+                      type="text"
+                      value={form.label}
+                      onChange={(e) => setForm({ ...form, label: e.target.value })}
+                      placeholder="例: 通信音読トレーニング"
                       style={style.input}
                     />
                   </div>
-                )}
-                <div>
-                  <label style={{ display: "block", marginBottom: 4, fontSize: 13, fontWeight: 500 }}>表示順</label>
-                  <input
-                    type="number"
-                    value={form.sortOrder}
-                    onChange={(e) => setForm({ ...form, sortOrder: parseInt(e.target.value, 10) || 0 })}
-                    style={{ ...style.input, width: 100 }}
-                  />
-                </div>
-                <div style={{ display: "flex", gap: 12 }}>
-                  <button type="button" onClick={save} disabled={saving} style={{ ...style.btn, background: "#3d6b6b", color: "#fff", border: "none" }}>
-                    {saving ? "保存中…" : "保存"}
-                  </button>
-                  <button type="button" onClick={cancelEdit} style={{ ...style.btn, background: "#fff", color: "#3d6b6b", border: "1px solid #3d6b6b" }}>
-                    キャンセル
-                  </button>
+                  <div>
+                    <label style={{ display: "block", marginBottom: 4, fontSize: 13, fontWeight: 500 }}>カテゴリ（色）</label>
+                    <select value={form.cat} onChange={(e) => setForm({ ...form, cat: e.target.value })} style={style.input}>
+                      {CAT_OPTIONS.map((c) => (
+                        <option key={c.value} value={c.value}>{c.label}</option>
+                      ))}
+                    </select>
+                  </div>
+                  <div>
+                    <label style={{ display: "block", marginBottom: 4, fontSize: 13, fontWeight: 500 }}>時間・備考</label>
+                    <input
+                      type="text"
+                      value={form.time}
+                      onChange={(e) => setForm({ ...form, time: e.target.value })}
+                      placeholder="例: 14:00〜, 随時受付中"
+                      style={style.input}
+                    />
+                  </div>
+                  <div>
+                    <label style={{ display: "block", marginBottom: 4, fontSize: 13, fontWeight: 500 }}>詳細（ツールチップ）</label>
+                    <input
+                      type="text"
+                      value={form.detail}
+                      onChange={(e) => setForm({ ...form, detail: e.target.value })}
+                      placeholder="例: 毎週土曜 14:00〜 会話強化"
+                      style={style.input}
+                    />
+                  </div>
+                  <div>
+                    <label style={{ display: "block", marginBottom: 4, fontSize: 13, fontWeight: 500 }}>リンク先</label>
+                    <input
+                      type="text"
+                      value={form.url}
+                      onChange={(e) => setForm({ ...form, url: e.target.value })}
+                      placeholder="例: kaiwa.html, group.html#tab05"
+                      style={style.input}
+                    />
+                  </div>
+                  {form.eventType === "recurring" && (
+                    <>
+                      <div>
+                        <label style={{ display: "block", marginBottom: 4, fontSize: 13, fontWeight: 500 }}>曜日</label>
+                        <select value={form.dow} onChange={(e) => setForm({ ...form, dow: parseInt(e.target.value, 10) })} style={style.input}>
+                          {DOW_LABELS.map((l, i) => (
+                            <option key={i} value={i}>{l}曜日</option>
+                          ))}
+                        </select>
+                      </div>
+                      <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+                        <label style={{ display: "flex", alignItems: "center", gap: 6, cursor: "pointer" }}>
+                          <input
+                            type="checkbox"
+                            checked={form.biweekly}
+                            onChange={(e) => setForm({ ...form, biweekly: e.target.checked })}
+                          />
+                          隔週
+                        </label>
+                        {form.biweekly && (
+                          <input
+                            type="date"
+                            value={form.biweeklyStartDate}
+                            onChange={(e) => setForm({ ...form, biweeklyStartDate: e.target.value })}
+                            style={{ ...style.input, width: 160 }}
+                            placeholder="基準日"
+                          />
+                        )}
+                      </div>
+                    </>
+                  )}
+                  {form.eventType === "single" && (
+                    <div>
+                      <label style={{ display: "block", marginBottom: 4, fontSize: 13, fontWeight: 500 }}>日付</label>
+                      <input
+                        type="date"
+                        value={form.date}
+                        onChange={(e) => setForm({ ...form, date: e.target.value })}
+                        style={style.input}
+                      />
+                    </div>
+                  )}
+                  <div>
+                    <label style={{ display: "block", marginBottom: 4, fontSize: 13, fontWeight: 500 }}>表示順</label>
+                    <input
+                      type="number"
+                      value={form.sortOrder}
+                      onChange={(e) => setForm({ ...form, sortOrder: parseInt(e.target.value, 10) || 0 })}
+                      style={{ ...style.input, width: 100 }}
+                    />
+                  </div>
+                  <div style={{ display: "flex", gap: 12, marginTop: 8 }}>
+                    <button type="button" onClick={save} disabled={saving} style={{ ...style.btn, background: "#3d6b6b", color: "#fff", border: "none" }}>
+                      {saving ? "保存中…" : "保存"}
+                    </button>
+                    <button type="button" onClick={cancelEdit} style={{ ...style.btn, background: "#fff", color: "#3d6b6b", border: "1px solid #3d6b6b" }}>
+                      キャンセル
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>

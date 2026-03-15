@@ -10,12 +10,12 @@ export const metadata = {
     url: MIRINAE_SITE_URL,
     siteName: "ミリネ韓国語教室",
     images: [
-      { url: `${MIRINAE_SITE_URL}/og-mirinae.png`, width: 1200, height: 630, alt: "ミリネ韓国語教室" },
+      { url: `${MIRINAE_SITE_URL}/favicon.png`, width: 64, height: 64, alt: "ミリネ韓国語教室" },
     ],
   },
   twitter: {
-    card: "summary_large_image",
-    images: [`${MIRINAE_SITE_URL}/og-mirinae.png`],
+    card: "summary",
+    images: [`${MIRINAE_SITE_URL}/favicon.png`],
   },
 };
 

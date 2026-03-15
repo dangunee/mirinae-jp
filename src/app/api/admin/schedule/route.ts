@@ -5,6 +5,7 @@ type ScheduleEventInput = {
   eventType: "recurring" | "single";
   label: string;
   cat: string;
+  categoryLabel?: string | null;
   time?: string | null;
   detail?: string | null;
   url?: string | null;
@@ -28,7 +29,7 @@ export async function GET() {
 // POST /api/admin/schedule — 新規作成
 export async function POST(req: NextRequest) {
   const body = (await req.json()) as ScheduleEventInput;
-  const { eventType, label, cat, time, detail, url, dow, biweekly, biweeklyStartDate, monthlyWeeks, endDate, date, sortOrder } = body;
+  const { eventType, label, cat, categoryLabel, time, detail, url, dow, biweekly, biweeklyStartDate, monthlyWeeks, endDate, date, sortOrder } = body;
   if (!eventType || !label?.trim() || !cat?.trim()) {
     return NextResponse.json({ error: "eventType, label, cat required" }, { status: 400 });
   }
@@ -42,6 +43,7 @@ export async function POST(req: NextRequest) {
     eventType,
     label: label.trim(),
     cat: cat.trim(),
+    categoryLabel: categoryLabel?.trim() || null,
     time: time?.trim() || null,
     detail: detail?.trim() || null,
     url: url?.trim() || null,
@@ -62,9 +64,9 @@ export async function POST(req: NextRequest) {
 // PUT /api/admin/schedule — 更新
 export async function PUT(req: NextRequest) {
   const body = (await req.json()) as ScheduleEventInput & { id: string };
-  const { id, eventType, label, cat, time, detail, url, dow, biweekly, biweeklyStartDate, monthlyWeeks, endDate, date, sortOrder } = body;
+  const { id, eventType, label, cat, categoryLabel, time, detail, url, dow, biweekly, biweeklyStartDate, monthlyWeeks, endDate, date, sortOrder } = body;
   if (!id) return NextResponse.json({ error: "id required" }, { status: 400 });
-  const data = {
+  const data: Record<string, unknown> = {
     eventType: eventType || "recurring",
     label: label?.trim() || "",
     cat: cat?.trim() || "",
@@ -79,6 +81,7 @@ export async function PUT(req: NextRequest) {
     date: eventType === "single" ? (date?.trim() || null) : null,
     sortOrder: typeof sortOrder === "number" ? sortOrder : 0,
   };
+  if (categoryLabel !== undefined) data.categoryLabel = categoryLabel?.trim() || null;
   const updated = await prisma.scheduleEvent.update({
     where: { id },
     data,

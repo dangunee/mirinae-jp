@@ -32,6 +32,7 @@ export async function POST() {
         "eventType" TEXT NOT NULL,
         "label" TEXT NOT NULL,
         "cat" TEXT NOT NULL,
+        "categoryLabel" TEXT,
         "time" TEXT,
         "detail" TEXT,
         "url" TEXT,
@@ -48,16 +49,13 @@ export async function POST() {
       );
     `);
 
-    // 기존 schedule_events에 monthlyWeeks, endDate 컬럼 추가 (있으면 스킵)
+    // 기존 schedule_events에 컬럼 추가 (있으면 스킵)
     try {
-      await prisma.$executeRawUnsafe(`
-        ALTER TABLE "public"."schedule_events" ADD COLUMN IF NOT EXISTS "monthlyWeeks" TEXT;
-      `);
-      await prisma.$executeRawUnsafe(`
-        ALTER TABLE "public"."schedule_events" ADD COLUMN IF NOT EXISTS "endDate" TEXT;
-      `);
+      await prisma.$executeRawUnsafe(`ALTER TABLE "public"."schedule_events" ADD COLUMN IF NOT EXISTS "monthlyWeeks" TEXT;`);
+      await prisma.$executeRawUnsafe(`ALTER TABLE "public"."schedule_events" ADD COLUMN IF NOT EXISTS "endDate" TEXT;`);
+      await prisma.$executeRawUnsafe(`ALTER TABLE "public"."schedule_events" ADD COLUMN IF NOT EXISTS "categoryLabel" TEXT;`);
     } catch {
-      // 컬럼이 이미 있거나 테이블 구조가 다를 수 있음 - 무시
+      // 무시
     }
 
     return NextResponse.json({ ok: true, message: "DBスキーマを適用しました" });

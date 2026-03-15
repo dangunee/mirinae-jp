@@ -7,6 +7,7 @@ export type RecurringEvent = {
   dow: number;
   label: string;
   cat: string;
+  categoryLabel?: string | null;
   time: string;
   detail: string;
   url: string;
@@ -20,6 +21,7 @@ export type SingleEvent = {
   date: string;
   label: string;
   cat: string;
+  categoryLabel?: string | null;
   time: string;
   detail: string;
   url: string;
@@ -48,6 +50,7 @@ export async function GET() {
     const item = {
       label: e.label,
       cat: e.cat,
+      categoryLabel: e.categoryLabel || null,
       time: e.time || "",
       detail: e.detail || "",
       url: e.url || "",

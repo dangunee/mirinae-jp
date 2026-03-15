@@ -66,6 +66,7 @@ model ScheduleEvent {
   eventType         String   // "recurring" | "single"
   label             String   // 講座名
   cat               String   // カテゴリvalue（ScheduleCategory.value）
+  categoryLabel     String?  // 表示名オーバーライド（空ならカテゴリのlabelを使用）
   time              String?  // 表示用: 14:00〜, 随時受付中 など
   detail            String?  // ツールチップ・詳細
   url               String?  // リンク先: group.html#tab05 など

@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
 
+export const dynamic = "force-dynamic";
+
 type CategoryInput = { value: string; label: string; color?: string; sortOrder?: number };
 
 // GET — カテゴリ一覧

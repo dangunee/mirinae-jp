@@ -2835,7 +2835,7 @@
           var evts = getEventsFor(y, m, d);
           for (var i = 0; i < evts.length; i++) {
             var e = evts[i];
-            monthItems.push({ y: y, m: m, d: d, dow: new Date(y,m,d).getDay(), label: e.label, cat: e.cat, time: e.time, url: e.url });
+            monthItems.push({ y: y, m: m, d: d, dow: new Date(y,m,d).getDay(), label: e.label, cat: e.cat, categoryLabel: e.categoryLabel, time: e.time, url: e.url });
           }
         }
         if (!monthItems.length) continue;
@@ -2854,7 +2854,7 @@
           var it = monthItems[j];
           var catInfo = scheduleCategories.find(function(c){ return c.value === it.cat; });
           var col = catInfo ? catInfo.color : (it.cat === 'cat-tsushin' ? '#2563eb' : it.cat === 'cat-jokyu' ? '#0891b2' : it.cat === 'cat-group' ? '#7c3aed' : it.cat === 'cat-kojin' ? '#059669' : '#dc2626');
-          var lbl = (catInfo && catInfo.label) ? catInfo.label : (catLabels[it.cat] || '');
+          var lbl = (it.categoryLabel && it.categoryLabel.trim()) ? it.categoryLabel.trim() : ((catInfo && catInfo.label) ? catInfo.label : (catLabels[it.cat] || ''));
           var item = document.createElement('a');
           item.className = 'list-item';
           item.href = it.url || '#';

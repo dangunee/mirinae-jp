@@ -17,6 +17,7 @@ type ScheduleEvent = {
   eventType: string;
   label: string;
   cat: string;
+  categoryLabel: string | null;
   time: string | null;
   detail: string | null;
   url: string | null;
@@ -33,6 +34,7 @@ const defaultForm: {
   eventType: "recurring" | "single";
   label: string;
   cat: string;
+  categoryLabel: string;
   time: string;
   detail: string;
   url: string;
@@ -47,6 +49,7 @@ const defaultForm: {
   eventType: "recurring",
   label: "",
   cat: "",
+  categoryLabel: "",
   time: "",
   detail: "",
   url: "",
@@ -108,9 +111,9 @@ export default function ScheduleAdminPage() {
 
   const load = () => {
     setLoading(true);
-    Promise.all([
-      fetch("/api/admin/schedule").then((r) => r.json()),
-      fetch("/api/admin/schedule/categories").then((r) => r.json()),
+    return Promise.all([
+      fetch("/api/admin/schedule", { cache: "no-store" }).then((r) => r.json()),
+      fetch("/api/admin/schedule/categories", { cache: "no-store" }).then((r) => r.json()),
     ])
       .then(([scheduleData, catData]) => {
         setList(Array.isArray(scheduleData) ? scheduleData : []);
@@ -177,6 +180,7 @@ export default function ScheduleAdminPage() {
       eventType: e.eventType === "single" ? "single" : "recurring",
       label: e.label,
       cat: e.cat,
+      categoryLabel: e.categoryLabel || "",
       time: e.time || "",
       detail: e.detail || "",
       url: e.url || "",
@@ -240,34 +244,37 @@ export default function ScheduleAdminPage() {
     return c?.color || "#e5e7eb";
   };
 
-  const getCatLabel = (catValue: string) => {
-    const c = categories.find((x) => x.value === catValue);
-    return c?.label || catValue;
+  const getCatLabel = (e: ScheduleEvent) => {
+    if (e.categoryLabel?.trim()) return e.categoryLabel.trim();
+    const c = categories.find((x) => x.value === e.cat);
+    return c?.label || e.cat;
   };
 
   const saveCategory = async () => {
     if (!catForm.value.trim() || !catForm.label.trim()) return alert("カテゴリIDと表示名を入力してください");
     setSaving(true);
     try {
-      if (catEditing) {
-        await fetch("/api/admin/schedule/categories", {
-          method: "PUT",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ id: catEditing.id, ...catForm }),
-        });
-      } else {
-        await fetch("/api/admin/schedule/categories", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(catForm),
-        });
+      const r = catEditing
+        ? await fetch("/api/admin/schedule/categories", {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ id: catEditing.id, value: catForm.value, label: catForm.label, color: catForm.color }),
+          })
+        : await fetch("/api/admin/schedule/categories", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(catForm),
+          });
+      const data = await r.json().catch(() => ({}));
+      if (!r.ok) {
+        throw new Error(data.error || `エラー (${r.status})`);
       }
       setCatEditing(null);
       setCatAdding(false);
       setCatForm({ value: "", label: "", color: "#e5e7eb" });
-      load();
-    } catch {
-      alert("カテゴリの保存に失敗しました");
+      await load();
+    } catch (e) {
+      alert(e instanceof Error ? e.message : "カテゴリの保存に失敗しました");
     } finally {
       setSaving(false);
     }
@@ -724,6 +731,16 @@ export default function ScheduleAdminPage() {
                     )}
                   </div>
                   <div>
+                    <label style={{ display: "block", marginBottom: 4, fontSize: 13, fontWeight: 500 }}>表示名（このイベント用・空欄ならカテゴリの表示名を使用）</label>
+                    <input
+                      type="text"
+                      value={form.categoryLabel}
+                      onChange={(e) => setForm((prev) => ({ ...prev, categoryLabel: e.target.value }))}
+                      placeholder="例: 상급1, 상급2, 상급문법（同じカテゴリで表示名だけ変えたい場合）"
+                      style={style.input}
+                    />
+                  </div>
+                  <div>
                     <label style={{ display: "block", marginBottom: 4, fontSize: 13, fontWeight: 500 }}>時間・備考</label>
                     <input
                       type="text"
@@ -856,7 +873,7 @@ export default function ScheduleAdminPage() {
                 <span style={{ fontWeight: 600, flex: 1, minWidth: 140 }}>{v.label}</span>
                 <span style={{ fontSize: 12, color: "#666" }}>{v.time || "-"}</span>
                 <span style={{ fontSize: 11, padding: "2px 8px", background: getCatColor(v.cat) + "33", borderRadius: 4, color: getCatColor(v.cat) }}>
-                  {getCatLabel(v.cat)}
+                  {getCatLabel(v)}
                 </span>
                 {v.biweekly && <span style={{ fontSize: 11, color: "#c00" }}>隔週</span>}
                 {v.monthlyWeeks && <span style={{ fontSize: 11, color: "#666" }}>{v.monthlyWeeks === "1,3" ? "1・3週" : v.monthlyWeeks === "2,4" ? "2・4週" : ""}</span>}
@@ -890,7 +907,7 @@ export default function ScheduleAdminPage() {
                 <span style={{ fontWeight: 600, flex: 1, minWidth: 140 }}>{v.label}</span>
                 <span style={{ fontSize: 12, color: "#666" }}>{v.time || "-"}</span>
                 <span style={{ fontSize: 11, padding: "2px 8px", background: getCatColor(v.cat) + "33", borderRadius: 4, color: getCatColor(v.cat) }}>
-                  {getCatLabel(v.cat)}
+                  {getCatLabel(v)}
                 </span>
                 <div style={{ display: "flex", gap: 8 }}>
                   <button type="button" onClick={() => startEdit(v)} style={{ ...style.btn, padding: "6px 12px", fontSize: 13, background: "#fff", color: "#3d6b6b", border: "1px solid #3d6b6b" }}>編集</button>

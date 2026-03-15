@@ -1010,6 +1010,22 @@
       line-height: 1.9;
       padding-top: 4px;
     }
+    /* 집중강좌: 학생 목소리·날짜만 표시 (아바타·이름·레벨 숨김) */
+    .page-syutyu .syutyu-test-av,
+    .page-syutyu .syutyu-test-name,
+    .page-syutyu .syutyu-test-lv {
+      display: none !important;
+    }
+    .page-syutyu .syutyu-test-from {
+      display: block !important;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .page-syutyu .syutyu-test-head {
+      margin-bottom: 8px;
+    }
     @media (max-width: 768px) {
       .syutyu-test-grid { grid-template-columns: 1fr; }
       .syutyu-cta-section { padding: 56px 24px; }

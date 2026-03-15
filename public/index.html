@@ -2711,6 +2711,7 @@
     /* ═══ SCHEDULE CALENDAR (APIから取得・SEO: テキストはHTMLで・イベントはリンク化) ═══ */
     var recurringEvents = [];
     var singleEvents = [];
+    var scheduleCategories = [];
     var scheduleYear = new Date().getFullYear();
     var scheduleMonth = new Date().getMonth();
     function pad(n) { return String(n).padStart(2, '0'); }
@@ -2726,6 +2727,19 @@
       var diff = Math.round((dt - start) / 86400000);
       return diff >= 0 && diff % 14 === 0;
     }
+    function getOccurrenceInMonth(y,m,d,dow) {
+      var occ = 0;
+      for (var i = 1; i <= d; i++) {
+        if (new Date(y,m,i).getDay() === dow) occ++;
+      }
+      return occ;
+    }
+    function matchesMonthlyWeeks(y,m,d,dow,weeklyStr) {
+      if (!weeklyStr) return true;
+      var occ = getOccurrenceInMonth(y,m,d,dow);
+      var parts = weeklyStr.split(',').map(function(p){ return parseInt(p.trim(),10); });
+      return parts.indexOf(occ) !== -1;
+    }
     function getEventsFor(y,m,d) {
       var dow = new Date(y,m,d).getDay();
       var key = dateKey(y,m,d);
@@ -2734,6 +2748,8 @@
         var e = recurringEvents[i];
         if (e.dow !== dow) continue;
         if (e.biweekly && !isBiweeklyForEvent(y,m,d, e.biweeklyStartDate)) continue;
+        if (e.endDate && key > e.endDate) continue;
+        if (e.monthlyWeeks && !matchesMonthlyWeeks(y,m,d,dow,e.monthlyWeeks)) continue;
         evts.push(e);
       }
       for (var j = 0; j < singleEvents.length; j++) {
@@ -2782,6 +2798,8 @@
                 (function(evData) {
                   var pill = document.createElement('a');
                   pill.className = 'event-pill ' + evData.cat;
+                  var catInfo = scheduleCategories.find(function(c){ return c.value === evData.cat; });
+                  if (catInfo) pill.style.cssText = 'background:' + catInfo.color + '22;color:' + catInfo.color + ';border-left:3px solid ' + catInfo.color + ';';
                   pill.textContent = evData.label;
                   pill.href = evData.url || '#';
                   pill.setAttribute('aria-label', (cy + '年' + (cm+1) + '月' + cell.day + '日 ' + evData.label + ' ' + (evData.detail || '')));
@@ -2834,11 +2852,13 @@
         var catLabels = { 'cat-tsushin':'通信','cat-jokyu':'会話強化','cat-group':'グループ','cat-kojin':'個人','cat-special':'特別' };
         for (var j = 0; j < monthItems.length; j++) {
           var it = monthItems[j];
+          var catInfo = scheduleCategories.find(function(c){ return c.value === it.cat; });
+          var col = catInfo ? catInfo.color : (it.cat === 'cat-tsushin' ? '#2563eb' : it.cat === 'cat-jokyu' ? '#0891b2' : it.cat === 'cat-group' ? '#7c3aed' : it.cat === 'cat-kojin' ? '#059669' : '#dc2626');
+          var lbl = (catInfo && catInfo.label) ? catInfo.label : (catLabels[it.cat] || '');
           var item = document.createElement('a');
           item.className = 'list-item';
           item.href = it.url || '#';
-          var col = it.cat === 'cat-tsushin' ? '#2563eb' : it.cat === 'cat-jokyu' ? '#0891b2' : it.cat === 'cat-group' ? '#7c3aed' : it.cat === 'cat-kojin' ? '#059669' : '#dc2626';
-          item.innerHTML = '<div class="list-date"><div class="md" style="color:' + dowColors[it.dow] + ';">' + (it.m+1) + '/' + it.d + '</div><div class="dow" style="color:' + dowColors[it.dow] + ';">' + dows[it.dow] + '</div></div><div class="list-divider" style="background:' + col + '33;"></div><div class="list-course"><div class="list-course-name">' + it.label + '</div><div class="list-course-time">' + (it.time || '') + '</div></div><div class="list-badge" style="background:' + col + '18;color:' + col + ';">' + (catLabels[it.cat] || '') + '</div>';
+          item.innerHTML = '<div class="list-date"><div class="md" style="color:' + dowColors[it.dow] + ';">' + (it.m+1) + '/' + it.d + '</div><div class="dow" style="color:' + dowColors[it.dow] + ';">' + dows[it.dow] + '</div></div><div class="list-divider" style="background:' + col + '33;"></div><div class="list-course"><div class="list-course-name">' + it.label + '</div><div class="list-course-time">' + (it.time || '') + '</div></div><div class="list-badge" style="background:' + col + '18;color:' + col + ';">' + lbl + '</div>';
           itemsWrap.appendChild(item);
         }
         group.appendChild(itemsWrap);
@@ -2908,6 +2928,7 @@
       .then(function(data) {
         recurringEvents = data.recurring || [];
         singleEvents = data.single || [];
+        scheduleCategories = data.categories || [];
         scheduleInit();
       });
   })();

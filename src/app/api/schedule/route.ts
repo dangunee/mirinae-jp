@@ -12,6 +12,8 @@ export type RecurringEvent = {
   url: string;
   biweekly?: boolean;
   biweeklyStartDate?: string;
+  monthlyWeeks?: string | null;
+  endDate?: string | null;
 };
 
 export type SingleEvent = {
@@ -23,18 +25,25 @@ export type SingleEvent = {
   url: string;
 };
 
+export type CategoryInfo = { value: string; label: string; color: string };
+
 export type ScheduleResponse = {
   recurring: RecurringEvent[];
   single: SingleEvent[];
+  categories: CategoryInfo[];
 };
 
 // GET /api/schedule — メインページ用（公開）
 export async function GET() {
-  const list = await prisma.scheduleEvent.findMany({
-    orderBy: [{ eventType: "asc" }, { sortOrder: "asc" }, { dow: "asc" }, { date: "asc" }],
-  });
+  const [list, categories] = await Promise.all([
+    prisma.scheduleEvent.findMany({
+      orderBy: [{ eventType: "asc" }, { sortOrder: "asc" }, { dow: "asc" }, { date: "asc" }],
+    }),
+    prisma.scheduleCategory.findMany({ orderBy: { sortOrder: "asc" } }),
+  ]);
   const recurring: RecurringEvent[] = [];
   const single: SingleEvent[] = [];
+  const categoryMap: CategoryInfo[] = categories.map((c) => ({ value: c.value, label: c.label, color: c.color }));
   for (const e of list) {
     const item = {
       label: e.label,
@@ -49,10 +58,12 @@ export async function GET() {
         dow: e.dow,
         biweekly: e.biweekly,
         biweeklyStartDate: e.biweeklyStartDate?.toISOString().slice(0, 10),
+        monthlyWeeks: e.monthlyWeeks || null,
+        endDate: e.endDate || null,
       });
     } else if (e.eventType === "single" && e.date) {
       single.push({ ...item, date: e.date });
     }
   }
-  return NextResponse.json({ recurring, single });
+  return NextResponse.json({ recurring, single, categories: categoryMap });
 }

@@ -46,18 +46,34 @@ model YouTubeVideo {
   @@schema("public")
 }
 
+// 講座スケジュールのカテゴリ（管理画面で編集・追加可能）
+model ScheduleCategory {
+  id        String   @id @default(cuid())
+  value     String   @unique // cat-tsushin など
+  label     String   // 通信講座 など
+  color     String   @default("#e5e7eb") // カレンダー表示用
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("schedule_categories")
+  @@schema("public")
+}
+
 // 講座スケジュール（メインページカレンダー）
 model ScheduleEvent {
   id                String   @id @default(cuid())
   eventType         String   // "recurring" | "single"
   label             String   // 講座名
-  cat               String   // cat-tsushin, cat-jokyu, cat-group, cat-kojin, cat-special
+  cat               String   // カテゴリvalue（ScheduleCategory.value）
   time              String?  // 表示用: 14:00〜, 随時受付中 など
   detail            String?  // ツールチップ・詳細
   url               String?  // リンク先: group.html#tab05 など
   dow               Int?     // 曜日 0-6 (recurring用)
   biweekly          Boolean  @default(false) // 隔週か
   biweeklyStartDate DateTime? // 隔週の基準日 (recurring用)
+  monthlyWeeks      String?  // 毎月の週: "1,3"=1・3週, "2,4"=2・4週, null=毎週
+  endDate           String?  // YYYY-MM-DD 終了日 (recurring用)
   date              String?  // YYYY-MM-DD (single用)
   sortOrder         Int      @default(0)
   createdAt         DateTime @default(now())

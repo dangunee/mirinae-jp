@@ -1,12 +1,26 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
 
+const DEFAULT_CATEGORIES = [
+  { value: "cat-tsushin", label: "通信講座", color: "#2563eb", sortOrder: 0 },
+  { value: "cat-jokyu", label: "上級・会話強化", color: "#0891b2", sortOrder: 1 },
+  { value: "cat-group", label: "グループレッスン", color: "#7c3aed", sortOrder: 2 },
+  { value: "cat-kojin", label: "個人レッスン", color: "#059669", sortOrder: 3 },
+  { value: "cat-special", label: "集中・特別講座", color: "#dc2626", sortOrder: 4 },
+];
+
 // POST /api/seed/schedule — 初期データ登録
 export async function POST() {
   try {
     const existing = await prisma.scheduleEvent.count();
     if (existing > 0) {
       return NextResponse.json({ error: "既にデータがあります。削除してから再実行してください。", recurring: 0, single: 0 }, { status: 400 });
+    }
+    const catCount = await prisma.scheduleCategory.count();
+    if (catCount === 0) {
+      for (const c of DEFAULT_CATEGORIES) {
+        await prisma.scheduleCategory.create({ data: c });
+      }
     }
     const recurring = [
       { eventType: "recurring" as const, label: "通信音読トレーニング", cat: "cat-tsushin", time: "随時受付中", detail: "毎週水曜日・通信講座", url: "netlesson.html#tab02", dow: 3, biweekly: false, sortOrder: 0 },

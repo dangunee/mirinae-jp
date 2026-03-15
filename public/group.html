@@ -517,7 +517,9 @@
     .testimonial-header { font-weight: 600; font-size: 15px; margin-bottom: 12px; color: var(--dark); }
     .testimonial-content { font-size: 14px; color: var(--muted); line-height: 1.9; }
 
-    .back-link { display: inline-block; margin-top: 24px; color: #4a6fa5; text-decoration: none; font-size: 14px; }
+    .back-link-wrap { text-align: center; margin-top: 24px; }
+    .back-link { display: inline-block; color: #4a6fa5; text-decoration: none; font-size: 14px; }
+    .back-link:hover { text-decoration: underline; }
 
     /* Footer */
     footer { background: #2c2c2c; color: white; padding: 48px 24px 24px; }
@@ -2798,7 +2800,7 @@
         </div>
       </div>
 
-      <a href="index.html" class="back-link">← トップページへ戻る</a>
+      <div class="back-link-wrap"><a href="#" class="back-link" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">PAGE TOP ↑</a></div>
         </div>
 
         <aside class="sidebar" id="sidebar">

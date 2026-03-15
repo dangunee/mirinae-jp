@@ -431,7 +431,8 @@
     .testimonial-header { font-weight: 600; font-size: 15px; margin-bottom: 12px; color: var(--dark); }
     .testimonial-content { font-size: 14px; color: var(--text-muted); line-height: 1.9; }
 
-    .back-link { display: inline-block; margin-top: 24px; color: var(--gold); text-decoration: none; font-size: 14px; font-weight: 500; }
+    .back-link-wrap { text-align: center; margin-top: 24px; }
+    .back-link { display: inline-block; color: var(--gold); text-decoration: none; font-size: 14px; font-weight: 500; }
     .back-link:hover { text-decoration: underline; }
 
     /* Footer */
@@ -997,7 +998,7 @@
         </div>
       </div>
 
-      <a href="index.html" class="back-link">← トップページへ戻る</a>
+      <div class="back-link-wrap"><a href="#" class="back-link" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">PAGE TOP ↑</a></div>
     </div>
     <aside class="sidebar" id="sidebar">
       <div class="course-nav-card courses-nav-box">

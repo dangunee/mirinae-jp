@@ -506,7 +506,7 @@ export default function ScheduleAdminPage() {
                 <div style={{ fontSize: 12, fontWeight: 600, color: "#666", marginBottom: 8 }}>{catEditing ? "編集" : "新規追加"}</div>
                 <div style={{ display: "grid", gap: 8, marginBottom: 8 }}>
                   <div style={{ minWidth: 0 }}>
-                    <label style={{ display: "block", fontSize: 12, marginBottom: 4 }}>カテゴリID（英小文字・ハイフン）</label>
+                    <label style={{ display: "block", fontSize: 12, marginBottom: 4 }}>カテゴリID（英小文字・数字・ハイフン可）</label>
                     <input type="text" value={catForm.value} onChange={(e) => setCatForm((prev) => ({ ...prev, value: e.target.value }))} placeholder="例: cat-tsushin" style={{ ...style.input }} autoComplete="off" />
                   </div>
                   <div style={{ minWidth: 0 }}>
@@ -705,7 +705,7 @@ export default function ScheduleAdminPage() {
                         <div style={{ fontSize: 12, fontWeight: 600, marginBottom: 8 }}>新規カテゴリ追加</div>
                         <div style={{ display: "grid", gap: 8, marginBottom: 8 }}>
                           <div>
-                            <label style={{ fontSize: 12, display: "block", marginBottom: 2 }}>カテゴリID（英小文字・ハイフン）</label>
+                            <label style={{ fontSize: 12, display: "block", marginBottom: 2 }}>カテゴリID（英小文字・数字・ハイフン可）</label>
                             <input type="text" value={inlineCatForm.value} onChange={(e) => setInlineCatForm({ ...inlineCatForm, value: e.target.value })} placeholder="例: cat-jokyu1" style={{ ...style.input }} />
                           </div>
                           <div>

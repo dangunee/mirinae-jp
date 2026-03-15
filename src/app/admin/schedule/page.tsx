@@ -292,8 +292,8 @@ export default function ScheduleAdminPage() {
   };
 
   const style = {
-    input: { width: "100%", padding: "8px 12px", fontSize: 14, border: "1px solid #ddd", borderRadius: 6 } as React.CSSProperties,
-    textarea: { width: "100%", padding: "8px 12px", fontSize: 14, border: "1px solid #ddd", borderRadius: 6, minHeight: 60 } as React.CSSProperties,
+    input: { width: "100%", maxWidth: "100%", padding: "8px 12px", fontSize: 14, border: "1px solid #ddd", borderRadius: 6, boxSizing: "border-box" as const } as React.CSSProperties,
+    textarea: { width: "100%", maxWidth: "100%", padding: "8px 12px", fontSize: 14, border: "1px solid #ddd", borderRadius: 6, minHeight: 60, boxSizing: "border-box" as const } as React.CSSProperties,
     btn: { padding: "8px 16px", borderRadius: 6, cursor: "pointer", fontWeight: 500 } as React.CSSProperties,
   };
 
@@ -414,7 +414,7 @@ export default function ScheduleAdminPage() {
 
       {/* カテゴリ管理 */}
       {!loading && (
-        <div style={{ marginBottom: 24, padding: 16, background: "#f8f9fa", borderRadius: 12, border: "1px solid #e5e5e5" }}>
+        <div style={{ marginBottom: 24, padding: 16, background: "#f8f9fa", borderRadius: 12, border: "1px solid #e5e5e5", overflow: "hidden", minWidth: 0 }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12 }}>
             <span style={{ fontWeight: 600, fontSize: 14 }}>カテゴリ管理</span>
             <button
@@ -424,55 +424,65 @@ export default function ScheduleAdminPage() {
                 setCatAdding(true);
                 setCatForm({ value: "", label: "", color: "#e5e7eb" });
               }}
-              style={{ ...style.btn, padding: "6px 12px", fontSize: 13, background: "#3d6b6b", color: "#fff", border: "none" }}
+              style={{ ...style.btn, padding: "6px 12px", fontSize: 13, background: "#3d6b6b", color: "#fff", border: "none", flexShrink: 0 }}
             >
               ＋ カテゴリ追加
             </button>
           </div>
-          <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexWrap: "wrap", gap: 8 }}>
-            {categories.map((c) => (
-              <li
-                key={c.id}
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 8,
-                  padding: "8px 12px",
-                  background: "#fff",
-                  borderRadius: 8,
-                  border: "1px solid #e5e5e5",
-                }}
-              >
-                <span style={{ width: 16, height: 16, borderRadius: 4, background: c.color }} />
-                <span style={{ fontSize: 13 }}>{c.label}</span>
-                <span style={{ fontSize: 11, color: "#888" }}>({c.value})</span>
-                <button type="button" onClick={() => { setCatAdding(false); setCatEditing(c); setCatForm({ value: c.value, label: c.label, color: c.color }); }} style={{ ...style.btn, padding: "4px 8px", fontSize: 12, background: "#fff", color: "#3d6b6b", border: "1px solid #3d6b6b" }}>編集</button>
-                <button type="button" onClick={() => removeCategory(c.id)} disabled={saving} style={{ ...style.btn, padding: "4px 8px", fontSize: 12, background: "#fff", color: "#c00", border: "1px solid #c00" }}>削除</button>
-              </li>
-            ))}
-          </ul>
-          {(catAdding || catEditing) && (
-            <div style={{ marginTop: 12, padding: 12, background: "#fff", borderRadius: 8, border: "1px solid #e5e5e5" }}>
-              <div style={{ display: "grid", gap: 8, marginBottom: 8 }}>
-                <div>
-                  <label style={{ fontSize: 12 }}>value</label>
-                  <input type="text" value={catForm.value} onChange={(e) => setCatForm({ ...catForm, value: e.target.value })} placeholder="cat-tsushin" style={{ ...style.input, marginLeft: 8 }} disabled={!!catEditing} />
-                </div>
-                <div>
-                  <label style={{ fontSize: 12 }}>label</label>
-                  <input type="text" value={catForm.label} onChange={(e) => setCatForm({ ...catForm, label: e.target.value })} placeholder="通信講座" style={{ ...style.input, marginLeft: 8 }} />
-                </div>
-                <div>
-                  <label style={{ fontSize: 12 }}>color</label>
-                  <input type="text" value={catForm.color} onChange={(e) => setCatForm({ ...catForm, color: e.target.value })} placeholder="#e5e7eb" style={{ ...style.input, marginLeft: 8, width: 120 }} />
-                </div>
-              </div>
-              <div style={{ display: "flex", gap: 8 }}>
-                <button type="button" onClick={saveCategory} disabled={saving} style={{ ...style.btn, padding: "6px 12px", background: "#3d6b6b", color: "#fff", border: "none" }}>保存</button>
-                <button type="button" onClick={() => { setCatEditing(null); setCatAdding(false); }} style={{ ...style.btn, padding: "6px 12px", background: "#fff", color: "#666", border: "1px solid #ddd" }}>キャンセル</button>
-              </div>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 16, alignItems: "flex-start", minWidth: 0 }}>
+            {/* 既存カテゴリ一覧 */}
+            <div style={{ flex: "1 1 200px", minWidth: 0 }}>
+              <div style={{ fontSize: 12, fontWeight: 600, color: "#666", marginBottom: 8 }}>既存カテゴリ</div>
+              <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexWrap: "wrap", gap: 8 }}>
+                {categories.map((c) => (
+                  <li
+                    key={c.id}
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 8,
+                      padding: "8px 12px",
+                      background: "#fff",
+                      borderRadius: 8,
+                      border: "1px solid #e5e5e5",
+                      flexShrink: 0,
+                    }}
+                  >
+                    <span style={{ width: 16, height: 16, borderRadius: 4, background: c.color, flexShrink: 0 }} />
+                    <span style={{ fontSize: 13, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{c.label}</span>
+                    <span style={{ fontSize: 11, color: "#888", flexShrink: 0 }}>({c.value})</span>
+                    <button type="button" onClick={() => { setCatAdding(false); setCatEditing(c); setCatForm({ value: c.value, label: c.label, color: c.color }); }} style={{ ...style.btn, padding: "4px 8px", fontSize: 12, background: "#fff", color: "#3d6b6b", border: "1px solid #3d6b6b", flexShrink: 0 }}>編集</button>
+                    <button type="button" onClick={() => removeCategory(c.id)} disabled={saving} style={{ ...style.btn, padding: "4px 8px", fontSize: 12, background: "#fff", color: "#c00", border: "1px solid #c00", flexShrink: 0 }}>削除</button>
+                  </li>
+                ))}
+                {categories.length === 0 && <span style={{ fontSize: 13, color: "#999" }}>カテゴリがありません</span>}
+              </ul>
             </div>
-          )}
+            {/* 追加・編集フォーム */}
+            {(catAdding || catEditing) && (
+              <div style={{ flex: "1 1 280px", minWidth: 0, padding: 12, background: "#fff", borderRadius: 8, border: "1px solid #e5e5e5", overflow: "hidden" }}>
+                <div style={{ fontSize: 12, fontWeight: 600, color: "#666", marginBottom: 8 }}>{catEditing ? "編集" : "新規追加"}</div>
+                <div style={{ display: "grid", gap: 8, marginBottom: 8 }}>
+                  <div style={{ minWidth: 0 }}>
+                    <label style={{ display: "block", fontSize: 12, marginBottom: 4 }}>value</label>
+                    <input type="text" value={catForm.value} onChange={(e) => setCatForm({ ...catForm, value: e.target.value })} placeholder="cat-tsushin" style={{ ...style.input }} disabled={!!catEditing} />
+                  </div>
+                  <div style={{ minWidth: 0 }}>
+                    <label style={{ display: "block", fontSize: 12, marginBottom: 4 }}>label</label>
+                    <input type="text" value={catForm.label} onChange={(e) => setCatForm({ ...catForm, label: e.target.value })} placeholder="通信講座" style={{ ...style.input }} />
+                  </div>
+                  <div style={{ minWidth: 0 }}>
+                    <label style={{ display: "block", fontSize: 12, marginBottom: 4 }}>color</label>
+                    <input type="text" value={catForm.color} onChange={(e) => setCatForm({ ...catForm, color: e.target.value })} placeholder="#e5e7eb" style={{ ...style.input, maxWidth: 140 }} />
+                  </div>
+                </div>
+                <div style={{ display: "flex", gap: 8 }}>
+                  <button type="button" onClick={saveCategory} disabled={saving} style={{ ...style.btn, padding: "6px 12px", background: "#3d6b6b", color: "#fff", border: "none" }}>保存</button>
+                  <button type="button" onClick={() => { setCatEditing(null); setCatAdding(false); }} style={{ ...style.btn, padding: "6px 12px", background: "#fff", color: "#666", border: "1px solid #ddd" }}>キャンセル</button>
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       )}
 
@@ -540,7 +550,7 @@ export default function ScheduleAdminPage() {
               role="dialog"
               aria-modal="true"
               aria-labelledby="form-title"
-              onClick={(e) => e.target === e.currentTarget && cancelEdit()}
+              onMouseDown={(e) => e.target === e.currentTarget && cancelEdit()}
               style={{
                 position: "fixed",
                 inset: 0,

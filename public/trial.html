@@ -335,6 +335,9 @@
     .form-table { width: 100%; border-collapse: collapse; font-size: 14px; margin-bottom: 8px; }
     .form-table th, .form-table td { border: 1px solid var(--gray-border); padding: 12px 14px; vertical-align: top; }
     .form-table th { width: 32%; background: var(--bg); font-weight: 600; color: var(--mid); font-size: 13px; }
+    #tab03 .form-table th { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
+    #tab03 .form-table th .th-label { flex: 0 0 auto; }
+    #tab03 .form-table th .required { flex: 0 0 auto; margin-left: auto; }
     .form-table .required {
       display: inline-block;
       background: var(--red);
@@ -828,18 +831,18 @@
             <table class="form-table">
               <tbody>
                 <tr>
-                  <th>メールアドレス<span class="required">必須</span></th>
+                  <th><span class="th-label">メールアドレス</span><span class="required">必須</span></th>
                   <td>
                     <input type="email">
                     <small>※ハングルが文字化けする可能性があるため、「docomo」「ezweb」以外のアドレスでのご登録をおすすめします。</small>
                   </td>
                 </tr>
                 <tr>
-                  <th>お名前<span class="required">必須</span></th>
+                  <th><span class="th-label">お名前</span><span class="required">必須</span></th>
                   <td><input type="text" placeholder="全角でご入力ください"></td>
                 </tr>
                 <tr>
-                  <th>都道府県<span class="required">必須</span></th>
+                  <th><span class="th-label">都道府県</span><span class="required">必須</span></th>
                   <td>
                     <select>
                       <option>選択してください</option>
@@ -855,7 +858,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <th>韓国語レベル<span class="required">必須</span></th>
+                  <th><span class="th-label">韓国語レベル</span><span class="required">必須</span></th>
                   <td>
                     <select>
                       <option>選択してください</option>
@@ -869,7 +872,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <th>興味のあるレッスン<span class="required">必須</span></th>
+                  <th><span class="th-label">興味のあるレッスン</span><span class="required">必須</span></th>
                   <td>
                     <select>
                       <option selected>選択してください</option>
@@ -885,7 +888,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <th>メルマガ申込のきっかけ<span class="required">必須</span></th>
+                  <th><span class="th-label">メルマガ申込のきっかけ</span><span class="required">必須</span></th>
                   <td>
                     <select>
                       <option selected>選択してください</option>

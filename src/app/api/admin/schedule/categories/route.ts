@@ -40,26 +40,43 @@ export async function POST(req: NextRequest) {
 
 // PUT — 更新
 export async function PUT(req: NextRequest) {
-  const body = (await req.json()) as CategoryInput & { id: string };
-  const { id, value, label, color, sortOrder } = body;
-  if (!id) return NextResponse.json({ error: "id required" }, { status: 400 });
-  const data: { value?: string; label?: string; color?: string; sortOrder?: number } = {};
-  if (value !== undefined) data.value = value.trim();
-  if (label !== undefined) data.label = label.trim();
-  if (color !== undefined) data.color = color?.trim() || "#e5e7eb";
-  if (typeof sortOrder === "number") data.sortOrder = sortOrder;
-  const updated = await prisma.scheduleCategory.update({
-    where: { id },
-    data,
-  });
-  return NextResponse.json(updated);
+  try {
+    const body = (await req.json()) as CategoryInput & { id: string };
+    const { id, value, label, color, sortOrder } = body;
+    if (!id) return NextResponse.json({ error: "id required" }, { status: 400 });
+    const data: { value?: string; label?: string; color?: string; sortOrder?: number } = {};
+    if (value !== undefined) data.value = value.trim();
+    if (label !== undefined) data.label = label.trim();
+    if (color !== undefined) data.color = color?.trim() || "#e5e7eb";
+    if (typeof sortOrder === "number") data.sortOrder = sortOrder;
+    const updated = await prisma.scheduleCategory.update({
+      where: { id },
+      data,
+    });
+    return NextResponse.json(updated);
+  } catch (e: unknown) {
+    const err = e as { code?: string; message?: string };
+    const msg =
+      err?.code === "P2002"
+        ? "このカテゴリIDは既に使用されています。別のIDを入力してください。"
+        : err?.code === "P2025"
+          ? "カテゴリが見つかりません。"
+          : err?.message || "データベースエラー";
+    return NextResponse.json({ error: msg }, { status: 500 });
+  }
 }
 
 // DELETE — 削除
 export async function DELETE(req: NextRequest) {
-  const { searchParams } = new URL(req.url);
-  const id = searchParams.get("id");
-  if (!id) return NextResponse.json({ error: "id required" }, { status: 400 });
-  await prisma.scheduleCategory.delete({ where: { id } });
-  return NextResponse.json({ ok: true });
+  try {
+    const { searchParams } = new URL(req.url);
+    const id = searchParams.get("id");
+    if (!id) return NextResponse.json({ error: "id required" }, { status: 400 });
+    await prisma.scheduleCategory.delete({ where: { id } });
+    return NextResponse.json({ ok: true });
+  } catch (e: unknown) {
+    const err = e as { code?: string; message?: string };
+    const msg = err?.message || "削除に失敗しました";
+    return NextResponse.json({ error: msg }, { status: 500 });
+  }
 }

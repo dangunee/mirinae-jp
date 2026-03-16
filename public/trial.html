@@ -349,10 +349,10 @@
 
     .form-table { width: 100%; border-collapse: collapse; font-size: 14px; margin-bottom: 8px; }
     .form-table th, .form-table td { border: 1px solid var(--gray-border); padding: 12px 14px; vertical-align: top; }
-    .form-table th { width: 32%; background: var(--bg); font-weight: 600; color: var(--mid); font-size: 13px; }
-    #tab03 .form-table th { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
+    .form-table th { width: 32%; background: var(--bg); font-weight: 600; color: var(--mid); font-size: 13px; display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: flex-start; gap: 8px; }
+    .form-table th small { width: 100%; text-align: left; order: 10; margin-top: 4px; }
     #tab03 .form-table th .th-label { flex: 0 0 auto; }
-    #tab03 .form-table th .required { flex: 0 0 auto; margin-left: auto; }
+    #tab03 .form-table th .required { margin-left: 0; }
     .form-table .required {
       display: inline-block;
       background: var(--red);
@@ -362,7 +362,6 @@
       border-radius: 4px;
       font-weight: 700;
       letter-spacing: 0.5px;
-      margin-left: 6px;
       vertical-align: middle;
     }
     .form-table .optional {
@@ -374,7 +373,6 @@
       border-radius: 4px;
       font-weight: 700;
       letter-spacing: 0.5px;
-      margin-left: 6px;
       vertical-align: middle;
     }
     .form-table td { background: white; }

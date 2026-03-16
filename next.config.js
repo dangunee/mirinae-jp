@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  trailingSlash: true, // /b/ を /b にリダイレクトしない（ループ防止）
   // www.mirinae.jp のトップ・各ページは public/*.html をクリーンURLで表示
   async rewrites() {
     const htmlRoutes = [

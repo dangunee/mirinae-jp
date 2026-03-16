@@ -293,11 +293,14 @@
       margin: 0 auto;
       padding: 0 24px;
     }
-    .footer-columns {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 32px 48px;
-      margin-bottom: 24px;
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      margin-bottom: 40px;
+    }
+    @media (max-width: 768px) {
+      .footer-grid { grid-template-columns: repeat(2, 1fr); }
     }
     .footer-column h4 { font-size: 14px; margin-bottom: 12px; color: white; }
     .footer-column a { display: block; color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; margin-bottom: 8px; }
@@ -785,7 +788,7 @@
 
   <footer class="footer">
     <div class="footer-inner">
-      <div class="footer-columns">
+      <div class="footer-grid">
         <div class="footer-column"><h4>メニュー</h4><a href="index.html">ホーム</a><a href="about.html">会社概要</a><a href="about.html#tab02">アクセス</a></div>
         <div class="footer-column"><h4>講座</h4><a href="kojin.html">個人レッスン</a><a href="group.html">グループレッスン</a><a href="kaiwa.html">会話強化クラス</a><a href="special.html">試験対策講座</a><a href="syutyu.html">集中講座</a><a href="netlesson.html">通信講座</a></div>
         <div class="footer-column"><h4>お申込み</h4><a href="trial.html#tab01">体験申込</a><a href="trial.html#tab02">講座申込</a><a href="trial.html#tab04">お問い合わせ</a></div>

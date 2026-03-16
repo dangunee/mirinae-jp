@@ -1,0 +1,135 @@
+.main .container {
+    background-color: transparent;
+}
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
+@media (max-width: 768px) {
+	.main .container {
+		padding-left: 15px !important;
+		padding-right: 15px !important;
+	}
+}
+.parallax {
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+}
+.pi-parallax-top {
+    background-image: url("../images/marvel-1.png");
+	height: 480px;
+	margin-bottom: 50px;
+}
+@media (max-width: 992px) {
+	.pi-parallax-top {
+		height: 400px;
+	}
+}
+
+.pi-parallax-top .container {
+	display: table;
+	height: 100%;
+	padding: 0;
+}
+.pi-parallax-top .intro {
+	display: table-cell;
+	font-size: 16px;
+	font-weight: 400;
+	vertical-align: middle;
+}
+.intro h1 {
+	font-family: 'Roboto Slab', serif;
+	font-size: 60px;
+	color: #fff;
+	text-transform: uppercase;
+}
+.title-choice {
+	text-transform: uppercase;
+	font-weight: 600;
+	line-height: 30px;
+	margin-bottom: 100px;
+}
+.item-demo {
+	margin-bottom: 100px;
+}
+.item-demo h3 {
+	margin: 20px 0;
+}
+.item-demo h3 a {
+	text-transform: uppercase;
+	font-weight: 600;
+	font-size: 18px;
+	color: #333;
+}
+.item-demo img {
+	margin: 0 auto;
+	-webkit-transition: all 0.4s;
+	-moz-transition: all 0.4s;
+	-ms-transition: all 0.4s;
+	transition: all 0.4s;
+}
+.item-demo img:hover {
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+}
+.pi-parallax-intro {
+	background-image: url("../images/marvel-2.png");
+	height: 378px;
+}
+@media (max-width: 992px) {
+	.pi-parallax-intro {
+		height: 300px;
+	}
+}
+.pi-parallax-intro .container {
+	display: table;
+	height: 100%;
+	padding: 0;
+}
+.pi-parallax-intro blockquote {
+	display: table-cell;
+	font-size: 28px;
+	text-align: center;
+	font-family: 'Roboto Slab', serif;
+	font-weight: 200;
+	color: #fff;
+	vertical-align: middle;
+	border-left: none;
+	margin: 0;
+	padding: 0 80px;
+}
+@media (max-width: 1024px) {
+	.pi-parallax-intro blockquote {
+		padding: 0;
+	}
+}
+.user-purchase {
+	background-color: #f64242;
+	padding: 68px 0;
+}
+.user-purchase h3 {
+	color: #fff;
+	margin: 10px 0 0;
+}
+@media (max-width: 767px) {
+	.user-purchase {
+		text-align: center;
+	}
+	.user-purchase h3 {
+		margin: 0 0 20px;
+	}
+}
+#footer.bg-color6 {
+	background-color: #222;
+	padding: 30px 0 0;
+}
+
+#footer.bg-color6 .container {
+    padding: 0;
+}

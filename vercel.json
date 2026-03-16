@@ -1,12 +1,6 @@
 {
   "redirects": [
-    { "source": "/b", "destination": "/b/", "permanent": true },
-    {
-      "source": "/:path*",
-      "has": [{ "type": "host", "value": "www.mirinae.jp" }],
-      "destination": "https://mirinae.jp/:path*",
-      "permanent": true
-    }
+    { "source": "/b", "destination": "/b/", "permanent": true }
   ],
   "rewrites": [
     {

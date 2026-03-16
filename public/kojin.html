@@ -13,6 +13,7 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:image" content="https://mirinae.jp/favicon-64.png">
   <link rel="icon" href="/favicon-64.png" type="image/png">
+  <link rel="stylesheet" href="/css/mobile-overflow.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600;700&family=Noto+Serif+KR:wght@300;400;600&family=Noto+Sans+JP:wght@300;400;500&family=Noto+Sans+KR:wght@300;400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
@@ -40,6 +41,9 @@
 
     html { scroll-behavior: smooth; overflow-x: hidden; }
     body { overflow-x: hidden; max-width: 100vw; }
+    /* モバイル: テキスト・コンテンツがフレーム外に出ないように */
+    body, .main, .main .content, .overview-card, .tab-panel { overflow-wrap: break-word; word-wrap: break-word; }
+    img { max-width: 100%; height: auto; }
 
     body {
       background: var(--bg);
@@ -256,7 +260,7 @@
     .tab:hover:not(.active) { color: var(--mid); }
 
     .main {
-      max-width: 1440px; /* 1200 × 1.2: 메인 내용 카드 영역 1.2배 */
+      max-width: min(1440px, 100vw);
       margin: 0 auto;
       padding: 64px 80px;
       display: grid;
@@ -1658,7 +1662,7 @@
     .curriculum-table col.col-12 { width: 30%; }
     .curriculum-table col.col-24 { width: 30%; }
     .curriculum-table col.col-48 { width: 30%; }
-    .curriculum-wrap { overflow-x: auto; margin: 16px 0; }
+    .curriculum-wrap { overflow-x: auto; max-width: 100%; margin: 16px 0; -webkit-overflow-scrolling: touch; }
     .curriculum-table th, .curriculum-table td {
       border: 1px solid #d0d0d0;
       padding: 10px 12px;
@@ -1780,21 +1784,21 @@
       font-size: 24px;
     }
     @media (max-width: 900px) {
-      #tab01 .overview-card.overview-card-dark .overview-top { margin: -28px -20px 20px -20px; padding: 28px 28px; width: calc(100% + 40px); min-width: calc(100% + 40px); gap: 24px; }
+      #tab01 .overview-card.overview-card-dark .overview-top { margin: 0 0 20px 0; padding: 28px 20px; width: 100%; min-width: 0; gap: 24px; }
       #tab01 .overview-card.overview-card-dark .overview-top .progress-ring { width: 96px; height: 96px; }
       #tab01 .overview-card.overview-card-dark .overview-top .skill-icon { width: 50px; height: 50px; font-size: 22px; }
-      #tab02 .overview-card.overview-card-dark .ov-top, #tab03 .overview-card.overview-card-dark .ov-top, #tab04 .overview-card.overview-card-dark .ov-top { margin: -28px -20px 20px -20px; padding: 28px 28px; width: calc(100% + 40px); min-width: calc(100% + 40px); gap: 24px; }
+      #tab02 .overview-card.overview-card-dark .ov-top, #tab03 .overview-card.overview-card-dark .ov-top, #tab04 .overview-card.overview-card-dark .ov-top { margin: 0 0 20px 0; padding: 28px 20px; width: 100%; min-width: 0; gap: 24px; }
       #tab02 .overview-card.overview-card-dark .ov-top .progress-ring, #tab03 .overview-card.overview-card-dark .ov-top .progress-ring, #tab04 .overview-card.overview-card-dark .ov-top .progress-ring { width: 96px; height: 96px; }
       #tab02 .overview-card.overview-card-dark .ov-top .skill-icon, #tab03 .overview-card.overview-card-dark .ov-top .skill-icon, #tab04 .overview-card.overview-card-dark .ov-top .skill-icon { width: 50px; height: 50px; font-size: 22px; }
     }
     @media (max-width: 600px) {
-      #tab01 .overview-card.overview-card-dark .overview-top { margin: -24px -20px 16px -20px; padding: 24px 24px; width: calc(100% + 40px); min-width: calc(100% + 40px); flex-wrap: wrap; justify-content: flex-start; gap: 20px; }
+      #tab01 .overview-card.overview-card-dark .overview-top { margin: 0 0 16px 0; padding: 24px 20px; width: 100%; min-width: 0; flex-wrap: wrap; justify-content: flex-start; gap: 20px; }
       #tab01 .overview-card.overview-card-dark .overview-top .ov-top-left { flex-wrap: nowrap; }
       #tab01 .overview-card.overview-card-dark .overview-top .progress-ring { width: 88px; height: 88px; }
       #tab01 .overview-card.overview-card-dark .overview-top .overview-label { font-size: 20px; }
       #tab01 .overview-card.overview-card-dark .overview-top .skills-row { justify-content: center; width: 100%; }
       #tab01 .overview-card.overview-card-dark .overview-top .skill-icon { width: 46px; height: 46px; font-size: 20px; }
-      #tab02 .overview-card.overview-card-dark .ov-top, #tab03 .overview-card.overview-card-dark .ov-top, #tab04 .overview-card.overview-card-dark .ov-top { margin: -24px -20px 16px -20px; padding: 24px 24px; width: calc(100% + 40px); min-width: calc(100% + 40px); flex-wrap: wrap; gap: 20px; }
+      #tab02 .overview-card.overview-card-dark .ov-top, #tab03 .overview-card.overview-card-dark .ov-top, #tab04 .overview-card.overview-card-dark .ov-top { margin: 0 0 16px 0; padding: 24px 20px; width: 100%; min-width: 0; flex-wrap: wrap; gap: 20px; }
       #tab02 .overview-card.overview-card-dark .ov-top .ov-top-left, #tab03 .overview-card.overview-card-dark .ov-top .ov-top-left, #tab04 .overview-card.overview-card-dark .ov-top .ov-top-left { flex-wrap: nowrap; }
       #tab02 .overview-card.overview-card-dark .ov-top .progress-ring, #tab03 .overview-card.overview-card-dark .ov-top .progress-ring, #tab04 .overview-card.overview-card-dark .ov-top .progress-ring { width: 88px; height: 88px; }
       #tab02 .overview-card.overview-card-dark .ov-top .label, #tab03 .overview-card.overview-card-dark .ov-top .label, #tab04 .overview-card.overview-card-dark .ov-top .label { font-size: 22px; }
@@ -1865,7 +1869,7 @@
     #tab02 .overview-card .ov-top { display: flex; align-items: center; gap: 20px; margin-bottom: 24px; }
     #tab02 .overview-card .ov-top .label { font-size: 14px; color: var(--muted); }
     #tab02 .overview-card .ov-top .ov-subtitle { font-size: 16px; color: var(--mid); margin-top: 4px; }
-    #tab02 .overview-card .ov-body p { font-size: 17px; color: var(--mid); line-height: 1.9; margin-bottom: 12px; }
+    #tab02 .overview-card .ov-body p { font-size: 17px; color: var(--mid); line-height: 1.9; margin-bottom: 12px; overflow-wrap: break-word; word-wrap: break-word; }
     #tab02 .overview-card .ov-body p:last-child { margin-bottom: 0; }
     #tab02 .overview-card .ov-note { margin-top: 16px; background: rgba(255,255,255,0.6); border-radius: 8px; padding: 12px 16px; font-size: 14px; color: var(--muted); line-height: 1.7; }
     #tab02 .tanki-worry-heading { font-size: 20px !important; font-weight: 600 !important; color: var(--dark) !important; margin-bottom: 12px !important; }
@@ -1900,7 +1904,7 @@
     #tab02 .overview-card.overview-card-dark .tanki-worry-list { color: rgba(255,255,255,0.9); }
     #tab02 .overview-card.overview-card-dark .tanki-worry-list li { color: rgba(255,255,255,0.9); }
     #tab02 .overview-card.overview-card-dark .ov-note { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.8); }
-    #tab02 .tanki-worry-list { margin: 0 0 20px 20px; padding: 0; list-style: disc; font-size: 17px; color: var(--mid); line-height: 1.9; }
+    #tab02 .tanki-worry-list { margin: 0 0 20px 20px; padding: 0; list-style: disc; font-size: 17px; color: var(--mid); line-height: 1.9; overflow-wrap: break-word; word-wrap: break-word; }
     #tab02 .tanki-worry-list li { margin-bottom: 6px; }
     #tab02 .sched-row { display: flex; gap: 16px; flex-wrap: wrap; }
     #tab02 .sched-item { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 16px 24px; font-size: 16px; color: var(--mid); }
@@ -1918,7 +1922,7 @@
     #tab02 .course-tabs { display: flex; gap: 6px; margin-bottom: 20px; }
     #tab02 .course-tab { padding: 6px 16px; border-radius: 6px; font-size: 14px; cursor: pointer; border: 1px solid var(--border); color: var(--muted); background: var(--white); transition: all .15s; user-select: none; font-weight: 500; }
     #tab02 .course-tab.active { background: var(--dark); color: #fff; border-color: var(--dark); }
-    #tab02 .cur-table-wrap { border-radius: 14px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 2px 16px rgba(30,26,20,0.06); margin-bottom: 20px; }
+    #tab02 .cur-table-wrap { border-radius: 14px; overflow-x: auto; overflow-y: hidden; max-width: 100%; -webkit-overflow-scrolling: touch; border: 1px solid var(--border); box-shadow: 0 2px 16px rgba(30,26,20,0.06); margin-bottom: 20px; }
     #tab02 .cur-table-wrap[style*="display: none"] { display: none !important; }
     #tab02 .cur-table { width: 100%; border-collapse: collapse; font-size: 16px; }
     #tab02 .cur-table thead tr { background: var(--dark); color: #fff; }

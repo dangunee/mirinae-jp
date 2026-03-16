@@ -86,7 +86,7 @@ export async function GET(req: NextRequest) {
       if (published?.dataJson) {
         const data = JSON.parse(published.dataJson) as CurriculumBlock[];
         return NextResponse.json(data, {
-          headers: { "Cache-Control": "public, max-age=3600, s-maxage=3600" },
+          headers: { "Cache-Control": "public, max-age=60, s-maxage=60" },
         });
       }
     } catch {

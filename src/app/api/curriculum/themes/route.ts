@@ -46,7 +46,7 @@ export async function GET(req: NextRequest) {
       if (published?.dataJson) {
         const themes = parseThemesJson(published.dataJson) as CurriculumTheme[];
         return NextResponse.json(themes, {
-          headers: { "Cache-Control": "public, max-age=3600, s-maxage=3600" },
+          headers: { "Cache-Control": "public, max-age=60, s-maxage=60" },
         });
       }
     } catch {

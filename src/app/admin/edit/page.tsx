@@ -75,13 +75,18 @@ function EditContent() {
 
   useEffect(() => {
     const load = async () => {
-      // raw=1: 管理画面は常にDB(site_table)から取得。スナップショットはスキップ
-      const [blocksRes, themesRes] = await Promise.all([
-        fetch(`/api/curriculum?page=${page}&raw=1`),
-        page === "kojin" ? fetch("/api/curriculum/themes?raw=1") : null,
-      ]);
-      const blocksData = await blocksRes.json();
-      const list = Array.isArray(blocksData) ? blocksData : [];
+      try {
+        // raw=1: 管理画面は常にDB(site_table)から取得。スナップショットはスキップ
+        const [blocksRes, themesRes] = await Promise.all([
+          fetch(`/api/curriculum?page=${page}&raw=1`),
+          page === "kojin" ? fetch("/api/curriculum/themes?raw=1") : null,
+        ]);
+        if (!blocksRes.ok) {
+          const err = await blocksRes.json().catch(() => ({}));
+          throw new Error(err.error || `API error ${blocksRes.status}`);
+        }
+        const blocksData = await blocksRes.json();
+        const list = Array.isArray(blocksData) ? blocksData : [];
       const sorted =
         page === "kojin"
           ? [...list].sort(
@@ -122,7 +127,14 @@ function EditContent() {
         const t = await themesRes.json();
         setThemes(Array.isArray(t) ? t : []);
       }
-      setLoading(false);
+      } catch (e) {
+        console.error("Load error:", e);
+        setBlocks([]);
+        setThemes([]);
+        alert("データの読み込みに失敗しました。\n" + (e instanceof Error ? e.message : String(e)) + "\n\nDATABASE_URL（Transaction pooler）の設定を確認してください。");
+      } finally {
+        setLoading(false);
+      }
     };
     load();
   }, [page]);

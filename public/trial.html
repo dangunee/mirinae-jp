@@ -351,6 +351,9 @@
     }
 
     .form-note { font-size: 13px; color: var(--text-muted); margin-bottom: 20px; }
+    .form-note-wrap { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 20px; flex-wrap: wrap; }
+    .form-note-wrap .form-note { margin-bottom: 0; }
+    .mailmaga-banner { width: 180px; height: auto; flex-shrink: 0; }
 
     .form-table { width: 100%; border-collapse: collapse; font-size: 14px; margin-bottom: 8px; }
     .form-table th, .form-table td { border: 1px solid var(--gray-border); padding: 12px 14px; vertical-align: top; }
@@ -861,7 +864,10 @@
         <div class="content-card">
           <h2 class="section-header">『メールマガジン』</h2>
           <div class="content-inner">
-          <p class="form-note"><strong>役に立つ韓国語情報がいっぱい！</strong><br>以下のフォームにメールアドレスを入力して「登録する」ボタンを押してください。メールアドレス宛に確認のメールを送信します。</p>
+          <div class="form-note-wrap">
+            <img src="img/mailmaga-banner.png" alt="メールマガジン" class="mailmaga-banner">
+            <p class="form-note"><strong>役に立つ韓国語情報がいっぱい！</strong><br>以下のフォームにメールアドレスを入力して「登録する」ボタンを押してください。メールアドレス宛に確認のメールを送信します。</p>
+          </div>
 
           <form method="post" action="https://m2-v2.mgzn.jp/sys/mailVerificatinCheck.php">
             <input type="hidden" name="cid" value="F4061543">

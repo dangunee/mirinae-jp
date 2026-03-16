@@ -22,7 +22,6 @@ export default function WritingPage() {
       <header
         style={{
           width: "100%",
-          maxWidth: "52.75rem",
           backgroundColor: "#146382",
           color: "white",
           padding: "1rem 1.5rem",

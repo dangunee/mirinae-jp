@@ -356,9 +356,9 @@
     .form-note-wrap .form-note-sub { font-size: 80%; }
     .mailmaga-banner { width: 320px; max-width: 100%; height: auto; flex-shrink: 0; }
 
-    .form-table { width: 100%; border-collapse: collapse; font-size: 14px; margin-bottom: 8px; }
+    .form-table { width: 100%; border-collapse: collapse; font-size: 14px; margin-bottom: 8px; table-layout: fixed; }
     .form-table th, .form-table td { border: 1px solid var(--gray-border); padding: 12px 14px; vertical-align: top; }
-    .form-table th { width: 32%; background: var(--bg); font-weight: 600; color: var(--mid); font-size: 13px; }
+    .form-table th { width: 32%; max-width: 32%; background: var(--bg); font-weight: 600; color: var(--mid); font-size: 13px; overflow-wrap: break-word; word-wrap: break-word; }
     .form-table .required {
       display: inline-block;
       background: var(--red);
@@ -368,7 +368,7 @@
       border-radius: 4px;
       font-weight: 700;
       letter-spacing: 0.5px;
-      margin-left: 6px;
+      margin-left: 12px;
       vertical-align: middle;
     }
     .form-table .optional {
@@ -380,7 +380,7 @@
       border-radius: 4px;
       font-weight: 700;
       letter-spacing: 0.5px;
-      margin-left: 6px;
+      margin-left: 12px;
       vertical-align: middle;
     }
     .form-table td { background: white; }

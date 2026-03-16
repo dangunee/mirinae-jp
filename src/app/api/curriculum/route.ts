@@ -69,25 +69,29 @@ function parseRowsJson(
 }
 
 // GET /api/curriculum?page=kojin
-// 公開スナップショットを優先。未反映の場合はDBから直接取得
+// raw=1: 管理画面用。常にDB(site_table)から取得（スナップショットをスキップ）
+// 通常: 公開スナップショットを優先。未反映の場合はDBから直接取得
 export async function GET(req: NextRequest) {
   const page = req.nextUrl.searchParams.get("page");
+  const raw = req.nextUrl.searchParams.get("raw") === "1";
   if (!page) {
     return NextResponse.json({ error: "page required" }, { status: 400 });
   }
 
-  try {
-    const published = await prisma.curriculumPublished.findUnique({
-      where: { id: `curriculum_${page}` },
-    });
-    if (published?.dataJson) {
-      const data = JSON.parse(published.dataJson) as CurriculumBlock[];
-      return NextResponse.json(data, {
-        headers: { "Cache-Control": "public, max-age=3600, s-maxage=3600" },
+  if (!raw) {
+    try {
+      const published = await prisma.curriculumPublished.findUnique({
+        where: { id: `curriculum_${page}` },
       });
+      if (published?.dataJson) {
+        const data = JSON.parse(published.dataJson) as CurriculumBlock[];
+        return NextResponse.json(data, {
+          headers: { "Cache-Control": "public, max-age=3600, s-maxage=3600" },
+        });
+      }
+    } catch {
+      // スナップショット未作成 or パースエラー → DBから取得
     }
-  } catch {
-    // スナップショット未作成 or パースエラー → DBから取得
   }
 
   if (page === "kojin" && curriculumCache && Date.now() - curriculumCache.ts < CACHE_TTL_MS) {

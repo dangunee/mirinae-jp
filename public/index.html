@@ -1537,6 +1537,7 @@
       padding: 10px 14px; border-radius: 10px; font-size: 12px; pointer-events: none;
       opacity: 0; transition: opacity 0.15s; box-shadow: 0 4px 20px rgba(0,0,0,0.2);
       border: 1px solid rgba(200,145,30,0.25); max-width: 220px; line-height: 1.6;
+      overflow-wrap: break-word; word-break: break-word;
     }
     #schedule-section .tooltip.show { opacity: 1; }
     #schedule-section .tooltip .tt-title {
@@ -1572,6 +1573,7 @@
       #schedule-section .day-cell:last-child { padding-right: 14px; }
       #schedule-section .event-list { min-width: 0; overflow: hidden; }
       #schedule-section .event-pill { max-width: 100%; }
+      #schedule-section .tooltip { max-width: min(220px, calc(100vw - 40px)); }
     }
 
     /* CTA banner */
@@ -2870,6 +2872,16 @@
         container.appendChild(group);
       }
     }
+    function scheduleClampTooltipPos(el, x, y) {
+      if (!el) return;
+      var pad = 16, vw = window.innerWidth, vh = window.innerHeight;
+      var rect = el.getBoundingClientRect();
+      var w = rect.width, h = rect.height;
+      var left = Math.max(pad, Math.min(x + 14, vw - w - pad));
+      var top = Math.max(pad, Math.min(y - 10, vh - h - pad));
+      el.style.left = left + 'px';
+      el.style.top = top + 'px';
+    }
     function scheduleShowTooltip(ev, e) {
       var scheduleTtEl = document.getElementById('schedule-tooltip');
       if (scheduleTtEl) {
@@ -2877,6 +2889,7 @@
         scheduleTtEl.classList.add('show');
         scheduleTtEl.style.left = (ev.clientX + 14) + 'px';
         scheduleTtEl.style.top = (ev.clientY - 10) + 'px';
+        requestAnimationFrame(function() { scheduleClampTooltipPos(scheduleTtEl, ev.clientX, ev.clientY); });
       }
     }
     function scheduleHideTooltip() {
@@ -2886,8 +2899,7 @@
     function scheduleMoveTooltip(ev) {
       var t = document.getElementById('schedule-tooltip');
       if (t && t.classList.contains('show')) {
-        t.style.left = (ev.clientX + 14) + 'px';
-        t.style.top = (ev.clientY - 10) + 'px';
+        scheduleClampTooltipPos(t, ev.clientX, ev.clientY);
       }
     }
     window.schedulePrevMonth = function() {

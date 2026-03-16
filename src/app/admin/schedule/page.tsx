@@ -2,7 +2,17 @@
 
 import { useEffect, useState } from "react";
 
-const DOW_LABELS = ["日", "月", "火", "水", "木", "金", "土"];
+const DOW_LABELS = ["月", "火", "水", "木", "金", "土", "日"];
+const DOW_BY_GETDAY = ["日", "月", "火", "水", "木", "金", "土"];
+const DOW_OPTIONS = [
+  { label: "月", value: 1 },
+  { label: "火", value: 2 },
+  { label: "水", value: 3 },
+  { label: "木", value: 4 },
+  { label: "金", value: 5 },
+  { label: "土", value: 6 },
+  { label: "日", value: 0 },
+];
 
 const MONTHLY_WEEKS_OPTIONS = [
   { value: "", label: "毎週" },
@@ -380,15 +390,16 @@ export default function ScheduleAdminPage() {
             </button>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(7, 1fr)", padding: 12 }}>
-            {["日", "月", "火", "水", "木", "金", "土"].map((d) => (
+            {["月", "火", "水", "木", "金", "土", "日"].map((d) => (
               <div key={d} style={{ textAlign: "center", fontSize: 11, fontWeight: 600, color: "#666", padding: "8px 0" }}>{d}</div>
             ))}
             {(() => {
               const firstDow = new Date(calYear, calMonth, 1).getDay();
+              const startOffset = (firstDow + 6) % 7;
               const daysInM = new Date(calYear, calMonth + 1, 0).getDate();
               const daysInP = new Date(calYear, calMonth, 0).getDate();
               const cells: { day: number; y: number; m: number; isCur: boolean }[] = [];
-              for (let i = firstDow - 1; i >= 0; i--) {
+              for (let i = startOffset - 1; i >= 0; i--) {
                 const d = daysInP - i;
                 const pm = calMonth - 1;
                 const py = pm < 0 ? calYear - 1 : calYear;
@@ -777,8 +788,8 @@ export default function ScheduleAdminPage() {
                       <div>
                         <label style={{ display: "block", marginBottom: 4, fontSize: 13, fontWeight: 500 }}>曜日</label>
                         <select value={form.dow} onChange={(e) => setForm({ ...form, dow: parseInt(e.target.value, 10) })} style={style.input}>
-                          {DOW_LABELS.map((l, i) => (
-                            <option key={i} value={i}>{l}曜日</option>
+                          {DOW_OPTIONS.map((o) => (
+                            <option key={o.value} value={o.value}>{o.label}曜日</option>
                           ))}
                         </select>
                       </div>
@@ -871,7 +882,7 @@ export default function ScheduleAdminPage() {
                   flexWrap: "wrap",
                 }}
               >
-                <span style={{ fontSize: 11, color: "#888", minWidth: 24 }}>{DOW_LABELS[v.dow ?? 0]}曜</span>
+                <span style={{ fontSize: 11, color: "#888", minWidth: 24 }}>{DOW_BY_GETDAY[v.dow ?? 0]}曜</span>
                 <span style={{ fontWeight: 600, flex: 1, minWidth: 140 }}>{v.label}</span>
                 <span style={{ fontSize: 12, color: "#666" }}>{v.time || "-"}</span>
                 <span style={{ fontSize: 11, padding: "2px 8px", background: getCatColor(v.cat) + "33", borderRadius: 4, color: getCatColor(v.cat) }}>

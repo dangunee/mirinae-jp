@@ -4478,7 +4478,7 @@
               return c.replace(/\s/g, '') !== '' && c !== '-';
             });
             if (!rowsForCol.length) return;
-            tbody.innerHTML = '';
+            var fragment = document.createDocumentFragment();
             rowsForCol.forEach(function(row) {
               var tr = document.createElement('tr');
               var content = row['c' + col] || '';
@@ -4506,8 +4506,10 @@
                 }
                 tr.appendChild(tdContent);
               }
-              tbody.appendChild(tr);
+              fragment.appendChild(tr);
             });
+            tbody.innerHTML = '';
+            tbody.appendChild(fragment);
           });
         });
       }
@@ -4517,7 +4519,11 @@
       ]).then(function(results) {
         var blocks = results[0];
         var themes = results[1];
-        if (Array.isArray(blocks) && blocks.length) renderCurriculumTables(blocks, themes);
+        var hasData = Array.isArray(blocks) && blocks.length > 0 && CURRICULUM_KEYS.some(function(item) {
+          var b = blocks.find(function(x) { return x.blockKey === item.blockKey; });
+          return b && b.rows && b.rows.length > 0;
+        });
+        if (hasData) renderCurriculumTables(blocks, themes);
       }).catch(function(err) { console.warn('Curriculum load failed:', err); });
     })();
   </script>

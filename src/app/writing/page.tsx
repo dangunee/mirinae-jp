@@ -21,7 +21,7 @@ export default function WritingPage() {
       <div
         style={{
           width: "100%",
-          maxWidth: "75rem",
+          maxWidth: "52.75rem",
           minHeight: "100vh",
           boxShadow: "0 0 24px rgba(0,0,0,0.08)",
         }}

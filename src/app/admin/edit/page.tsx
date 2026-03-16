@@ -291,23 +291,50 @@ function EditContent() {
         <a href="/admin" style={{ color: "#4a6fa5" }}>← 一覧</a>
         <span>{PAGE_LABELS[page] ?? page}</span>
         {["kojin", "group", "kaiwa", "special"].includes(page) && (
-          <button
-            type="button"
-            onClick={publishToFront}
-            disabled={publishing}
-            style={{
-              padding: "8px 16px",
-              border: "1px solid #2d7a6e",
-              borderRadius: 6,
-              background: "#fff",
-              color: "#2d7a6e",
-              cursor: publishing ? "wait" : "pointer",
-              fontWeight: 500,
-              fontSize: 13,
-            }}
-          >
-            {publishing ? "反映中…" : "フロントに反映"}
-          </button>
+          <>
+            <button
+              type="button"
+              onClick={publishToFront}
+              disabled={publishing}
+              style={{
+                padding: "8px 16px",
+                border: "1px solid #2d7a6e",
+                borderRadius: 6,
+                background: "#fff",
+                color: "#2d7a6e",
+                cursor: publishing ? "wait" : "pointer",
+                fontWeight: 500,
+                fontSize: 13,
+              }}
+            >
+              {publishing ? "反映中…" : "フロントに反映"}
+            </button>
+            <button
+              type="button"
+              onClick={async () => {
+                try {
+                  const r = await fetch("/api/admin/db-sync", { method: "POST" });
+                  const j = await r.json();
+                  if (r.ok) alert(j.message ?? "DBスキーマを適用しました");
+                  else alert(j.error ?? "失敗");
+                } catch {
+                  alert("失敗");
+                }
+              }}
+              style={{
+                padding: "8px 16px",
+                border: "1px solid #6b3d3d",
+                borderRadius: 6,
+                background: "#fff",
+                color: "#6b3d3d",
+                cursor: "pointer",
+                fontWeight: 500,
+                fontSize: 13,
+              }}
+            >
+              DBスキーマ適用
+            </button>
+          </>
         )}
       </p>
 

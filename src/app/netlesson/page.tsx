@@ -1,4 +1,5 @@
 import NetlessonClient from "./NetlessonClient";
+import NetlessonNav from "./NetlessonNav";
 import NetlessonSidebar from "./NetlessonSidebar";
 import type { Metadata } from "next";
 
@@ -28,9 +29,6 @@ export default function NetlessonPage() {
         .netlesson-page .page-wrapper { max-width:1200px; margin:0 auto; }
         .netlesson-page .page-wrapper:has(main) { min-height:100vh; }
         .netlesson-page .hero, .netlesson-page .tabs-bar { width:100%; }
-        .netlesson-page .top-bar { background:var(--white); padding:12px 24px; font-size:12px; color:var(--text-muted); display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:16px; border-bottom:1px solid var(--gray-border); }
-        .netlesson-page .top-bar a { color:var(--dark); text-decoration:none; font-weight:500; font-size:14px; }
-        .netlesson-page .top-bar a:hover { color:var(--gold); }
         .netlesson-page .main-content { padding:0 24px 80px; }
         .netlesson-page .hero { background:var(--white); padding:72px 80px 64px; border-bottom:1px solid var(--gray-border); position:relative; overflow:hidden; text-align:center; }
         .netlesson-page .hero::after { content:"통신강좌"; position:absolute; right:48px; top:50%; transform:translateY(-50%); font-family:'Noto Sans KR',sans-serif; font-size:120px; font-weight:700; color:rgba(184,146,62,0.06); pointer-events:none; user-select:none; white-space:nowrap; }
@@ -217,25 +215,10 @@ export default function NetlessonPage() {
         @media (max-width:600px) { .netlesson-page #tab03 .topik-hero { padding:48px 24px 0; margin:0 0 24px 0; } .netlesson-page #tab03 .topik-section { padding:48px 24px; } .netlesson-page #tab03 .topik-steps-grid { grid-template-columns:1fr; } .netlesson-page #tab03 .topik-features-3 { grid-template-columns:1fr !important; } }
       `}</style>
 
-      <div className="page-wrapper">
-        <div className="top-bar">
-          <span style={{ color: "var(--text-muted)" }}>
-            東京で韓国語教室をお探しならミリネ韓国語教室 | 定休日: 月曜日
-          </span>
-          <nav style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "20px 32px" }}>
-            <a href="/">ホーム</a>
-            <a href="/about">会社概要</a>
-            <a href="/about#tab02">アクセス</a>
-            <a href="/trial">お申込み</a>
-            <a href="/about#tab03">講師</a>
-            <a href="/book">著書</a>
-            <a href="/trial#tab04">お問い合わせ</a>
-          </nav>
-        </div>
-      </div>
+      <NetlessonNav />
 
       <div className="hero">
-        <p className="hero-eyebrow">Online Course</p>
+        <p className="hero-eyebrow">ONLINE COURSE</p>
         <h1>通信講座</h1>
         <p>メール作文・音読トレーニング・TOPIKトレーニング など、ご自宅から受講できるオンライン講座のご案内です。</p>
       </div>

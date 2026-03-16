@@ -4,6 +4,46 @@
   ],
   "rewrites": [
     {
+      "source": "/writing",
+      "destination": "https://apps.mirinae.jp/writing"
+    },
+    {
+      "source": "/writing/:path*",
+      "destination": "https://apps.mirinae.jp/writing/:path*"
+    },
+    {
+      "source": "/qna",
+      "destination": "https://apps.mirinae.jp/qna"
+    },
+    {
+      "source": "/qna/:path*",
+      "destination": "https://apps.mirinae.jp/qna/:path*"
+    },
+    {
+      "source": "/dailylife",
+      "destination": "https://apps.mirinae.jp/dailylife"
+    },
+    {
+      "source": "/dailylife/:path*",
+      "destination": "https://apps.mirinae.jp/dailylife/:path*"
+    },
+    {
+      "source": "/quiz",
+      "destination": "https://quiz.mirinae.jp"
+    },
+    {
+      "source": "/quiz/:path*",
+      "destination": "https://quiz.mirinae.jp/:path*"
+    },
+    {
+      "source": "/ondoku",
+      "destination": "https://ondoku.mirinae.jp"
+    },
+    {
+      "source": "/ondoku/:path*",
+      "destination": "https://ondoku.mirinae.jp/:path*"
+    },
+    {
       "source": "/blog/:path*",
       "destination": "https://old.mirinae.jp/blog/:path*"
     },

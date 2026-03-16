@@ -4473,11 +4473,12 @@
             var tbl = wrap.querySelector('table.cur-table');
             var tbody = tbl && tbl.querySelector('tbody');
             if (!tbody) return;
-            tbody.innerHTML = '';
             var rowsForCol = b.rows.filter(function(row) {
               var c = row['c' + col] || '';
               return c.replace(/\s/g, '') !== '' && c !== '-';
             });
+            if (!rowsForCol.length) return;
+            tbody.innerHTML = '';
             rowsForCol.forEach(function(row) {
               var tr = document.createElement('tr');
               var content = row['c' + col] || '';

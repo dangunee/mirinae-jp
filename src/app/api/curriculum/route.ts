@@ -86,7 +86,11 @@ export async function GET(req: NextRequest) {
       if (published?.dataJson) {
         const data = JSON.parse(published.dataJson) as CurriculumBlock[];
         return NextResponse.json(data, {
-          headers: { "Cache-Control": "no-cache, no-store, must-revalidate" },
+          headers: {
+            "Cache-Control": "no-cache, no-store, must-revalidate, max-age=0",
+            "Pragma": "no-cache",
+            "Expires": "0",
+          },
         });
       }
     } catch {
@@ -112,7 +116,11 @@ export async function GET(req: NextRequest) {
     curriculumCache = { data: result, ts: Date.now() };
   }
   return NextResponse.json(result, {
-    headers: { "Cache-Control": "public, max-age=300, s-maxage=300" },
+    headers: {
+      "Cache-Control": "no-cache, no-store, must-revalidate, max-age=0",
+      "Pragma": "no-cache",
+      "Expires": "0",
+    },
   });
 }
 

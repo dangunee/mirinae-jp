@@ -30,6 +30,11 @@ export async function POST(req: NextRequest) {
       rows: parseRows(b.rowsJson),
     }));
 
+    // ブロック数 = site_table の kojin ページ全ブロック数（curriculum_shokyu/chukyu/jokyu + tanki_* + curriculum_themes 等）
+    const curriculumBlocks = curriculumData.filter((b) =>
+      ["curriculum_shokyu", "curriculum_chukyu", "curriculum_jokyu"].includes(b.blockKey)
+    );
+
     await prisma.curriculumPublished.upsert({
       where: { id: `curriculum_${page}` },
       create: { id: `curriculum_${page}`, dataJson: JSON.stringify(curriculumData) },
@@ -50,9 +55,13 @@ export async function POST(req: NextRequest) {
       });
     }
 
+    const msg =
+      page === "kojin"
+        ? `フロントに反映しました（${page}）\n全ブロック数: ${curriculumData.length}（カリキュラム表: ${curriculumBlocks.length}）\n프론트 페이지를 새로고침하세요.`
+        : `フロントに反映しました（${page}）\nブロック数: ${curriculumData.length}\n프론트 페이지를 새로고침하세요.`;
     return NextResponse.json({
       ok: true,
-      message: `フロントに反映しました（${page}）\nブロック数: ${curriculumData.length}\n프론트 페이지를 새로고침하세요.`,
+      message: msg,
       blocks: curriculumData.length,
     });
   } catch (e) {

@@ -46,7 +46,11 @@ export async function GET(req: NextRequest) {
       if (published?.dataJson) {
         const themes = parseThemesJson(published.dataJson) as CurriculumTheme[];
         return NextResponse.json(themes, {
-          headers: { "Cache-Control": "no-cache, no-store, must-revalidate" },
+          headers: {
+            "Cache-Control": "no-cache, no-store, must-revalidate, max-age=0",
+            "Pragma": "no-cache",
+            "Expires": "0",
+          },
         });
       }
     } catch {
@@ -65,7 +69,11 @@ export async function GET(req: NextRequest) {
   const themes = row ? parseThemesJson(row.rowsJson) : DEFAULT_THEMES;
   themesCache = { data: themes, ts: Date.now() };
   return NextResponse.json(themes, {
-    headers: { "Cache-Control": "public, max-age=300, s-maxage=300" },
+    headers: {
+      "Cache-Control": "no-cache, no-store, must-revalidate, max-age=0",
+      "Pragma": "no-cache",
+      "Expires": "0",
+    },
   });
 }
 

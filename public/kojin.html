@@ -4426,7 +4426,7 @@
         if (tankiData[index]) renderRows(tankiData[index].rows);
       }
 
-      fetch('/api/curriculum?page=kojin')
+      fetch('/api/curriculum?page=kojin&_=' + Date.now(), { cache: 'no-store' })
         .then(function(res) { return res.json(); })
         .then(function(blocks) {
           tankiData = TANKI_ORDER.map(function(key) { return blocks.find(function(b) { return b.blockKey === key; }); }).filter(Boolean);
@@ -4524,8 +4524,8 @@
           var b = blocks.find(function(x) { return x.blockKey === item.blockKey; });
           return b && b.rows && b.rows.length > 0;
         });
-        var hasThemes = Array.isArray(themes) && themes.length > 0;
-        if (hasBlocks && hasThemes) renderCurriculumTables(blocks, themes);
+        var themeList = Array.isArray(themes) && themes.length > 0 ? themes : [];
+        if (hasBlocks) renderCurriculumTables(blocks, themeList);
       }).catch(function(err) { console.warn('Curriculum load failed:', err); });
     })();
   </script>

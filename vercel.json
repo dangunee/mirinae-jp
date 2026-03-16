@@ -1,4 +1,7 @@
 {
+  "redirects": [
+    { "source": "/b", "destination": "/b/", "permanent": true }
+  ],
   "rewrites": [
     {
       "source": "/blog/:path*",

@@ -3,19 +3,19 @@ const MIRINAE_SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://mirinae-jp
 export const metadata = {
   title: "ミリネ韓国語教室",
   description: "ミリネ韓国語教室 | 東京で韓国語教室をお探しならミリネ。",
-  icons: { icon: "/favicon.png?v=2" },
+  icons: { icon: "/favicon-64.png" },
   openGraph: {
     title: "ミリネ韓国語教室 | 東京で韓国語教室をお探しならミリネ",
     description: "「話せる」を、ここで実現する。経験豊富な講師陣と、個人に合わせた多彩な講座であなたの韓国語を、確実に伸ばします。",
     url: MIRINAE_SITE_URL,
     siteName: "ミリネ韓国語教室",
     images: [
-      { url: `${MIRINAE_SITE_URL}/favicon.png?v=2`, width: 64, height: 64, alt: "ミリネ韓国語教室" },
+      { url: `${MIRINAE_SITE_URL}/favicon-64.png`, width: 64, height: 64, alt: "ミリネ韓国語教室" },
     ],
   },
   twitter: {
     card: "summary",
-    images: [`${MIRINAE_SITE_URL}/favicon.png?v=2`],
+    images: [`${MIRINAE_SITE_URL}/favicon-64.png`],
   },
 };
 

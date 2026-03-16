@@ -10,7 +10,7 @@ import os
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(SCRIPT_DIR)
 SRC = os.path.join(PROJECT_ROOT, "public", "img", "Logo-banner", "logo-mirinae-favicon.png")
-OUT = os.path.join(PROJECT_ROOT, "public", "favicon.png")
+OUT = os.path.join(PROJECT_ROOT, "public", "favicon-64.png")
 
 
 def process_favicon(src_path, out_path, size=64):
@@ -32,3 +32,8 @@ if __name__ == "__main__":
         print(f"Source not found: {SRC}")
         exit(1)
     process_favicon(SRC, OUT, size=64)
+    # Also copy to favicon.png for backward compatibility
+    import shutil
+    favicon_png = os.path.join(PROJECT_ROOT, "public", "favicon.png")
+    shutil.copy(OUT, favicon_png)
+    print(f"Copied to {favicon_png}")

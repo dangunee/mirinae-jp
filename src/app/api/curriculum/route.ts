@@ -68,12 +68,28 @@ function parseRowsJson(
   }
 }
 
-// GET /api/curriculum?page=kojin（1分キャッシュ・POSTで無効化）
+// GET /api/curriculum?page=kojin
+// 公開スナップショットを優先。未反映の場合はDBから直接取得
 export async function GET(req: NextRequest) {
   const page = req.nextUrl.searchParams.get("page");
   if (!page) {
     return NextResponse.json({ error: "page required" }, { status: 400 });
   }
+
+  try {
+    const published = await prisma.curriculumPublished.findUnique({
+      where: { id: `curriculum_${page}` },
+    });
+    if (published?.dataJson) {
+      const data = JSON.parse(published.dataJson) as CurriculumBlock[];
+      return NextResponse.json(data, {
+        headers: { "Cache-Control": "public, max-age=3600, s-maxage=3600" },
+      });
+    }
+  } catch {
+    // スナップショット未作成 or パースエラー → DBから取得
+  }
+
   if (page === "kojin" && curriculumCache && Date.now() - curriculumCache.ts < CACHE_TTL_MS) {
     return NextResponse.json(curriculumCache.data);
   }
@@ -91,7 +107,9 @@ export async function GET(req: NextRequest) {
   if (page === "kojin") {
     curriculumCache = { data: result, ts: Date.now() };
   }
-  return NextResponse.json(result);
+  return NextResponse.json(result, {
+    headers: { "Cache-Control": "public, max-age=300, s-maxage=300" },
+  });
 }
 
 // POST /api/curriculum — create or update block

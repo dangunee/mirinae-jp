@@ -58,6 +58,26 @@ export async function POST() {
       // 무시
     }
 
+    // schedule_published 테이블 생성（フロント反映用スナップショット）
+    await prisma.$executeRawUnsafe(`
+      CREATE TABLE IF NOT EXISTS "public"."schedule_published" (
+        "id" TEXT NOT NULL,
+        "dataJson" TEXT NOT NULL,
+        "updatedAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        CONSTRAINT "schedule_published_pkey" PRIMARY KEY ("id")
+      );
+    `);
+
+    // curriculum_published 테이블 생성（カリキュラム・フロント反映用）
+    await prisma.$executeRawUnsafe(`
+      CREATE TABLE IF NOT EXISTS "public"."curriculum_published" (
+        "id" TEXT NOT NULL,
+        "dataJson" TEXT NOT NULL,
+        "updatedAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        CONSTRAINT "curriculum_published_pkey" PRIMARY KEY ("id")
+      );
+    `);
+
     return NextResponse.json({ ok: true, message: "DBスキーマを適用しました" });
   } catch (e) {
     const msg = e instanceof Error ? e.message : String(e);

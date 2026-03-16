@@ -357,6 +357,7 @@ export default function ScheduleAdminPage() {
       <h1 style={{ fontSize: 24, marginBottom: 24 }}>講座スケジュール</h1>
       <p style={{ marginBottom: 24, color: "#666", fontSize: 14 }}>
         メインページのカレンダーに表示する講座イベントを管理します。日付をクリックして単発イベントを追加できます。
+        イベントを追加・編集したら「フロントに反映」ボタンでメインページに反映してください。
       </p>
 
       {/* 月別カレンダー */}
@@ -610,6 +611,26 @@ export default function ScheduleAdminPage() {
           style={{ ...style.btn, background: "#fff", color: "#3d6b6b", border: "1px solid #3d6b6b" }}
         >
           イベント初期データを登録
+        </button>
+        <button
+          type="button"
+          onClick={async () => {
+            setSaving(true);
+            try {
+              const r = await fetch("/api/admin/schedule/publish", { method: "POST" });
+              const j = await r.json();
+              if (r.ok) alert(j.message || "フロントに反映しました（定期" + j.recurring + "件、単発" + j.single + "件）");
+              else alert(j.error || "失敗");
+            } catch {
+              alert("失敗");
+            } finally {
+              setSaving(false);
+            }
+          }}
+          disabled={saving || loading}
+          style={{ ...style.btn, background: "#2d5a2d", color: "#fff", border: "none" }}
+        >
+          フロントに反映
         </button>
       </div>
 

@@ -36,7 +36,23 @@ export type ScheduleResponse = {
 };
 
 // GET /api/schedule — メインページ用（公開）
+// 公開スナップショットを優先。未反映の場合はDBから直接取得
 export async function GET() {
+  try {
+    const published = await prisma.schedulePublished.findUnique({
+      where: { id: "schedule" },
+    });
+    if (published?.dataJson) {
+      const data = JSON.parse(published.dataJson) as ScheduleResponse;
+      return NextResponse.json(data, {
+        headers: { "Cache-Control": "public, max-age=3600, s-maxage=3600" },
+      });
+    }
+  } catch {
+    // スナップショット未作成 or パースエラー → DBから取得
+  }
+
+  // フォールバック: DBから直接取得（スナップショット未反映時）
   const [list, categories] = await Promise.all([
     prisma.scheduleEvent.findMany({
       orderBy: [{ eventType: "asc" }, { sortOrder: "asc" }, { dow: "asc" }, { date: "asc" }],
@@ -68,5 +84,8 @@ export async function GET() {
       single.push({ ...item, date: e.date });
     }
   }
-  return NextResponse.json({ recurring, single, categories: categoryMap });
+  return NextResponse.json(
+    { recurring, single, categories: categoryMap },
+    { headers: { "Cache-Control": "public, max-age=300, s-maxage=300" } }
+  );
 }

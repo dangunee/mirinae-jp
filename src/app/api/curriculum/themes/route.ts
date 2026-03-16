@@ -32,8 +32,23 @@ function parseThemesJson(json: string | null): CurriculumTheme[] {
   }
 }
 
-// GET /api/curriculum/themes（1分キャッシュ・POSTで無効化）
+// GET /api/curriculum/themes
+// 公開スナップショットを優先。未反映の場合はDBから直接取得
 export async function GET() {
+  try {
+    const published = await prisma.curriculumPublished.findUnique({
+      where: { id: "themes_kojin" },
+    });
+    if (published?.dataJson) {
+      const themes = parseThemesJson(published.dataJson) as CurriculumTheme[];
+      return NextResponse.json(themes, {
+        headers: { "Cache-Control": "public, max-age=3600, s-maxage=3600" },
+      });
+    }
+  } catch {
+    // スナップショット未作成 → DBから取得
+  }
+
   if (themesCache && Date.now() - themesCache.ts < CACHE_TTL_MS) {
     return NextResponse.json(themesCache.data);
   }
@@ -44,7 +59,9 @@ export async function GET() {
   });
   const themes = row ? parseThemesJson(row.rowsJson) : DEFAULT_THEMES;
   themesCache = { data: themes, ts: Date.now() };
-  return NextResponse.json(themes);
+  return NextResponse.json(themes, {
+    headers: { "Cache-Control": "public, max-age=300, s-maxage=300" },
+  });
 }
 
 // POST /api/curriculum/themes — save themes array

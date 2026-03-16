@@ -57,6 +57,7 @@ function EditContent() {
   const [selectedBlock, setSelectedBlock] = useState<CurriculumBlock | null>(null);
   const [dirty, setDirty] = useState(false);
   const [seeding, setSeeding] = useState(false);
+  const [publishing, setPublishing] = useState(false);
   const [mainTab, setMainTab] = useState<MainTab>("tanki");
   const [showThemes, setShowThemes] = useState(false);
   const [checkedRows, setCheckedRows] = useState<Set<number>>(new Set());
@@ -265,13 +266,49 @@ function EditContent() {
     }
   };
 
+  const publishToFront = async () => {
+    if (!["kojin", "group", "kaiwa", "special"].includes(page)) return;
+    setPublishing(true);
+    try {
+      const r = await fetch("/api/admin/curriculum/publish", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ page }),
+      });
+      const j = await r.json();
+      if (r.ok) alert(j.message ?? "フロントに反映しました");
+      else alert(j.error ?? "反映に失敗しました");
+    } finally {
+      setPublishing(false);
+    }
+  };
+
   if (loading) return <p>読み込み中…</p>;
 
   return (
     <div>
-      <p style={{ marginBottom: 16 }}>
+      <p style={{ marginBottom: 16, display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap" }}>
         <a href="/admin" style={{ color: "#4a6fa5" }}>← 一覧</a>
-        <span style={{ marginLeft: 16 }}>{PAGE_LABELS[page] ?? page}</span>
+        <span>{PAGE_LABELS[page] ?? page}</span>
+        {["kojin", "group", "kaiwa", "special"].includes(page) && (
+          <button
+            type="button"
+            onClick={publishToFront}
+            disabled={publishing}
+            style={{
+              padding: "8px 16px",
+              border: "1px solid #2d7a6e",
+              borderRadius: 6,
+              background: "#fff",
+              color: "#2d7a6e",
+              cursor: publishing ? "wait" : "pointer",
+              fontWeight: 500,
+              fontSize: 13,
+            }}
+          >
+            {publishing ? "反映中…" : "フロントに反映"}
+          </button>
+        )}
       </p>
 
       {blocks.length === 0 ? (

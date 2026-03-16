@@ -52,8 +52,8 @@ export default function NetlessonPage() {
         .netlesson-page .sidebar-promo-card { margin-bottom:20px; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,.08); display:block; text-decoration:none; background:var(--dark); aspect-ratio:1; background-size:cover; background-position:center; }
         .netlesson-page .sidebar-promo-card:hover { opacity:0.95; }
         .netlesson-page .courses-nav-box { background:var(--white); border:1px solid var(--gray-border); border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,.06); }
-        .netlesson-page .courses-nav-header { background:var(--dark); padding:20px 18px; color:var(--white); }
-        .netlesson-page .courses-nav-label { font-size:10px; letter-spacing:.2em; color:var(--gold-light); margin-bottom:4px; }
+        .netlesson-page .courses-nav-header { background:linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%); padding:20px 18px; color:var(--white); }
+        .netlesson-page .courses-nav-label { font-size:10px; letter-spacing:.2em; color:rgba(255,255,255,0.9); margin-bottom:4px; }
         .netlesson-page .courses-nav-title { font-family:'Noto Serif JP',serif; font-size:18px; font-weight:600; }
         .netlesson-page .courses-nav { padding:4px 0; }
         .netlesson-page .nav-group-title { display:flex; align-items:center; justify-content:space-between; padding:10px 14px; color:var(--mid); font-size:12px; font-weight:500; cursor:pointer; transition:background .2s, color .2s; }

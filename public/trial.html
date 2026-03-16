@@ -253,18 +253,21 @@
     }
 
     .thanks-banner {
-      background: linear-gradient(135deg, var(--gold-pale) 0%, rgba(184,146,62,0.15) 100%);
-      border: 1px solid rgba(184,146,62,0.3);
-      border-radius: 12px;
-      padding: 20px 32px;
-      margin: 24px 80px 0;
-      text-align: center;
+      background: var(--white);
+      border: 1px solid var(--gray-border);
+      border-radius: 16px;
+      padding: 32px 28px;
+      margin-bottom: 24px;
       color: var(--text-dark);
-      font-weight: 500;
+      font-size: 15px;
+      line-height: 1.9;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.05);
     }
-    .thanks-banner p { margin: 0; }
-    @media (max-width: 900px) { .thanks-banner { margin: 24px 24px 0; } }
-    @media (max-width: 600px) { .thanks-banner { margin: 16px 16px 0; padding: 16px 20px; } }
+    .thanks-banner p { margin: 0 0 12px 0; }
+    .thanks-banner p:last-of-type { margin-bottom: 0; }
+    .thanks-banner .thanks-title { font-weight: 700; font-size: 17px; margin-bottom: 16px; }
+    .thanks-banner .thanks-link { color: var(--gold); font-weight: 600; text-decoration: none; }
+    .thanks-banner .thanks-link:hover { text-decoration: underline; }
 
     .tab-wrap { margin-bottom: 0; }
 
@@ -518,13 +521,16 @@
     <button type="button" class="tab-btn" data-tab="tab04" role="tab" aria-selected="false">お問い合わせ</button>
   </div>
 
-  <div id="thanks-banner" class="thanks-banner" style="display:none;">
-    <p>送信が完了しました。お申し込みありがとうございます。内容を確認のうえ、ご連絡いたします。</p>
-  </div>
-
   <div class="page-wrapper">
     <div class="main-with-sidebar">
     <div class="main-content">
+      <div id="thanks-banner" class="thanks-banner" style="display:none;">
+        <p class="thanks-title">お申込みありがとうございました。</p>
+        <p>メールが届きましたら、体験レッスンの場合は日程を調整し、体験レッスンの可能な日時をお知らせいたします。</p>
+        <p>その他の講座は授業料のお振込締切日をお知らせし、ご入金の確認後予習範囲をお知らせします。</p>
+        <p>定員になると早く締め切りになる場合もあります。</p>
+        <p><a href="index.html" class="thanks-link">ホームに戻る</a></p>
+      </div>
       <!-- ========== タブ1: 体験＆レベルテスト ========== -->
       <div id="tab01" class="tab-panel active">
         <div class="info-banner">
@@ -854,87 +860,17 @@
         <div class="content-card">
           <h2 class="section-header">『メールマガジン』</h2>
           <div class="content-inner">
-          <p class="form-note"><strong>役に立つ韓国語情報がいっぱい！</strong> メールマガジンでは、文法・表現のコツや最新講座情報などをお届けします。下記フォームに必要事項をご入力ください。</p>
+          <p class="form-note"><strong>役に立つ韓国語情報がいっぱい！</strong><br>以下のフォームにメールアドレスを入力して「登録する」ボタンを押してください。メールアドレス宛に確認のメールを送信します。</p>
 
-          <form action="https://formsubmit.co/mirinae@kaonnuri.com" method="POST">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_subject" value="【メルマガ登録】ミリネ韓国語教室">
-            <input type="hidden" name="_next" value="https://mirinae.jp/trial.html?thanks=1&tab=tab03">
-            <input type="hidden" name="_replyto" value="メールアドレス">
-            <input type="hidden" name="_url" value="https://www.mirinae.jp/trial.html#tab03">
-            <input type="hidden" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+          <form method="post" action="https://m2-v2.mgzn.jp/sys/mailVerificatinCheck.php">
+            <input type="hidden" name="cid" value="F4061543">
             <table class="form-table">
               <tbody>
                 <tr>
-                  <th><span class="th-label">メールアドレス</span><span class="required">必須</span></th>
+                  <th><span class="th-label">E-MAILアドレス</span><span class="required">必須</span></th>
                   <td>
-                    <input type="email" name="メールアドレス" required>
+                    <input type="email" name="mail" required>
                     <small>※ハングルが文字化けする可能性があるため、「docomo」「ezweb」以外のアドレスでのご登録をおすすめします。</small>
-                  </td>
-                </tr>
-                <tr>
-                  <th><span class="th-label">お名前</span><span class="required">必須</span></th>
-                  <td><input type="text" name="お名前" placeholder="全角でご入力ください" required></td>
-                </tr>
-                <tr>
-                  <th><span class="th-label">都道府県</span><span class="required">必須</span></th>
-                  <td>
-                    <select name="都道府県" required>
-                      <option value="">選択してください</option>
-                      <option>北海道</option><option>青森県</option><option>岩手県</option><option>宮城県</option><option>秋田県</option><option>山形県</option><option>福島県</option>
-                      <option>茨城県</option><option>栃木県</option><option>群馬県</option><option>埼玉県</option><option>千葉県</option><option>東京都</option><option>神奈川県</option>
-                      <option>山梨県</option><option>長野県</option><option>新潟県</option><option>富山県</option><option>石川県</option><option>福井県</option>
-                      <option>岐阜県</option><option>静岡県</option><option>愛知県</option><option>三重県</option>
-                      <option>滋賀県</option><option>京都府</option><option>大阪府</option><option>兵庫県</option><option>奈良県</option><option>和歌山県</option>
-                      <option>鳥取県</option><option>島根県</option><option>岡山県</option><option>広島県</option><option>山口県</option>
-                      <option>徳島県</option><option>香川県</option><option>愛媛県</option><option>高知県</option>
-                      <option>福岡県</option><option>佐賀県</option><option>長崎県</option><option>熊本県</option><option>大分県</option><option>宮崎県</option><option>鹿児島県</option><option>沖縄県</option>
-                    </select>
-                  </td>
-                </tr>
-                <tr>
-                  <th><span class="th-label">韓国語レベル</span><span class="required">必須</span></th>
-                  <td>
-                    <select name="韓国語レベル" required>
-                      <option value="">選択してください</option>
-                      <option value="入門">入門</option>
-                      <option value="初級">初級</option>
-                      <option value="初中級">初中級</option>
-                      <option value="中級">中級</option>
-                      <option value="中上級">中上級</option>
-                      <option value="上級">上級</option>
-                    </select>
-                  </td>
-                </tr>
-                <tr>
-                  <th><span class="th-label">興味のあるレッスン</span><span class="required">必須</span></th>
-                  <td>
-                    <select name="興味のあるレッスン" required>
-                      <option value="" selected>選択してください</option>
-                      <option value="会話">会話</option>
-                      <option value="発音矯正">発音矯正</option>
-                      <option value="文法強化">文法強化</option>
-                      <option value="小説朗読">小説朗読</option>
-                      <option value="集中講座">集中講座</option>
-                      <option value="試験対策">試験対策</option>
-                      <option value="作文・添削">作文・添削</option>
-                      <option value="ビジネス韓国語">ビジネス韓国語</option>
-                    </select>
-                  </td>
-                </tr>
-                <tr>
-                  <th><span class="th-label">メルマガ申込のきっかけ</span><span class="required">必須</span></th>
-                  <td>
-                    <select name="きっかけ" required>
-                      <option value="" selected>選択してください</option>
-                      <option value="X（旧twitter）">X（旧twitter）</option>
-                      <option value="YouTube">YouTube</option>
-                      <option value="Instagram">Instagram</option>
-                      <option value="facebook">facebook</option>
-                      <option value="ミリネブログ">ミリネブログ</option>
-                      <option value="検索">検索</option>
-                      <option value="紹介">紹介</option>
-                    </select>
                   </td>
                 </tr>
               </tbody>
@@ -1206,7 +1142,14 @@
       var params = new URLSearchParams(location.search);
       if (params.get('thanks') === '1') {
         var banner = document.getElementById('thanks-banner');
-        if (banner) banner.style.display = 'block';
+        var panels = document.querySelectorAll('.tab-panel');
+        var tabsBar = document.querySelector('.tabs-bar');
+        if (banner) {
+          banner.style.display = 'block';
+          banner.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        panels.forEach(function(p) { p.style.display = 'none'; });
+        if (tabsBar) tabsBar.style.display = 'none';
       }
       var tabParam = params.get('tab');
       if (tabParam && ['tab01', 'tab02', 'tab03', 'tab04'].indexOf(tabParam) !== -1) {

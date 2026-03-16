@@ -1,20 +1,12 @@
 {
   "rewrites": [
     {
-      "source": "/b/:path*",
-      "destination": "https://old.mirinae.jp/b/:path*"
-    },
-    {
       "source": "/blog/:path*",
       "destination": "https://old.mirinae.jp/blog/:path*"
     },
     {
       "source": "/wordpress/:path*",
       "destination": "https://old.mirinae.jp/wordpress/:path*"
-    },
-    {
-      "source": "/sella/:path*",
-      "destination": "https://old.mirinae.jp/sella/:path*"
     }
   ]
 }

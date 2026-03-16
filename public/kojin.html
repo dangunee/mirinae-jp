@@ -1325,8 +1325,10 @@
     .info-item .ii-val { color: var(--mid); }
 
     @media (max-width: 900px) {
-      .main { grid-template-columns: 1fr; padding: 24px 16px; gap: 32px; }
-      .main .content { width: 100%; max-width: 100%; padding-top: 24px; }
+      .hero, .tabs-bar, .main { width: 100%; max-width: 100%; box-sizing: border-box; }
+      .hero h1, .hero p { overflow-wrap: break-word; word-wrap: break-word; max-width: 100%; }
+      .main { grid-template-columns: 1fr; padding: 24px 16px; gap: 32px; max-width: min(1440px, 100%); }
+      .main .content { width: 100%; max-width: 100%; padding-top: 24px; min-width: 0; }
       .price-table-header,
       .price-table .price-row { grid-template-columns: 1fr 0.7fr 0.9fr 0.9fr 1fr; gap: 8px; font-size: 14px; }
       .price-table-header { font-size: 13px; padding: 14px 0 12px; }
@@ -1786,11 +1788,14 @@
       #tab01 .overview-card.overview-card-dark .overview-top .progress-ring { width: 96px; height: 96px; }
       #tab01 .overview-card.overview-card-dark .overview-top .skill-icon { width: 50px; height: 50px; font-size: 22px; }
       #tab02 .overview-card.overview-card-dark .ov-top, #tab03 .overview-card.overview-card-dark .ov-top, #tab04 .overview-card.overview-card-dark .ov-top { margin: -28px -20px 20px -20px; padding: 28px 20px; width: calc(100% + 40px); min-width: 0; gap: 24px; box-sizing: border-box; }
-      #tab02 .overview-card.overview-card-dark .ov-top .progress-ring, #tab03 .overview-card.overview-card-dark .ov-top .progress-ring, #tab04 .overview-card.overview-card-dark .ov-top .progress-ring { width: 96px; height: 96px; }
+      #tab02 .overview-card.overview-card-dark .ov-top .ov-top-left, #tab03 .overview-card.overview-card-dark .ov-top .ov-top-left, #tab04 .overview-card.overview-card-dark .ov-top .ov-top-left { min-width: 0; flex-shrink: 1; }
+      #tab02 .overview-card.overview-card-dark .ov-top .ov-subtitle, #tab03 .overview-card.overview-card-dark .ov-top .ov-subtitle, #tab04 .overview-card.overview-card-dark .ov-top .ov-subtitle { overflow-wrap: break-word; word-wrap: break-word; min-width: 0; }
+      #tab02 .overview-card.overview-card-dark .ov-top .progress-ring, #tab03 .overview-card.overview-card-dark .ov-top .progress-ring, #tab04 .overview-card.overview-card-dark .ov-top .progress-ring { width: 96px; height: 96px; flex-shrink: 0; }
       #tab02 .overview-card.overview-card-dark .ov-top .skill-icon, #tab03 .overview-card.overview-card-dark .ov-top .skill-icon, #tab04 .overview-card.overview-card-dark .ov-top .skill-icon { width: 50px; height: 50px; font-size: 22px; }
       #tab02 .tab-panel, #tab02 .kojin-reveal, #tab02 section { min-width: 0; }
       #tab02 .overview-card .ov-body, #tab02 .overview-card .ov-note { width: 100%; min-width: 0; max-width: 100%; box-sizing: border-box; overflow-wrap: break-word; word-wrap: break-word; }
       #tab02 .overview-card { width: 100%; max-width: 100%; box-sizing: border-box; }
+      #tab02 .kojin-reveal:first-child .overview-card, #tab03 .kojin-reveal:first-child .overview-card, #tab04 .kojin-reveal:first-child .overview-card { margin-left: -16px; margin-right: -16px; width: calc(100% + 32px); }
       #tab02 .cur-table-wrap { min-width: 0; width: 100%; }
       #tab02 .cur-table tbody td:not(:first-child) { overflow-wrap: break-word; word-wrap: break-word; }
     }
@@ -1803,6 +1808,7 @@
       #tab01 .overview-card.overview-card-dark .overview-top .skill-icon { width: 46px; height: 46px; font-size: 20px; }
       #tab02 .overview-card.overview-card-dark .ov-top, #tab03 .overview-card.overview-card-dark .ov-top, #tab04 .overview-card.overview-card-dark .ov-top { margin: -24px -20px 16px -20px; padding: 24px 20px; width: calc(100% + 40px); min-width: 0; flex-wrap: wrap; gap: 20px; box-sizing: border-box; }
       #tab02 .overview-card.overview-card-dark .ov-top .ov-top-left, #tab03 .overview-card.overview-card-dark .ov-top .ov-top-left, #tab04 .overview-card.overview-card-dark .ov-top .ov-top-left { flex-wrap: nowrap; }
+      #tab02 .kojin-reveal:first-child .overview-card, #tab03 .kojin-reveal:first-child .overview-card, #tab04 .kojin-reveal:first-child .overview-card { margin-left: -12px; margin-right: -12px; width: calc(100% + 24px); }
       #tab02 .overview-card.overview-card-dark .ov-top .progress-ring, #tab03 .overview-card.overview-card-dark .ov-top .progress-ring, #tab04 .overview-card.overview-card-dark .ov-top .progress-ring { width: 88px; height: 88px; }
       #tab02 .overview-card.overview-card-dark .ov-top .label, #tab03 .overview-card.overview-card-dark .ov-top .label, #tab04 .overview-card.overview-card-dark .ov-top .label { font-size: 22px; }
       #tab02 .overview-card.overview-card-dark .ov-top .skills-row, #tab03 .overview-card.overview-card-dark .ov-top .skills-row, #tab04 .overview-card.overview-card-dark .ov-top .skills-row { justify-content: center; width: 100%; }

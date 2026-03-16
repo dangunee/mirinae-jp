@@ -1,0 +1,877 @@
+﻿        /* 레이아웃 */
+        @charset "UTF-8";
+
+        body {background: url(../img/header_bg2.png) repeat-x center top;}
+        #header {}
+        #nav {background-color: #f6fdff;}
+        #title {background-color: #eaf7fd;}
+        #contents .container {border-right: 1px solid #dbdbdb; border-left: 1px solid #dbdbdb; margin-top: 40px;}   /*Dangunee200212 컨테이너 메뉴 아래 위치 조정*/
+        #cont_left {float: left; width: 250px;}
+        #cont_center {
+            overflow: hidden;
+            margin-right: 250px;
+            min-height: 1300px;
+            border-right: 1px solid #dbdbdb;
+            border-left: 1px solid #dbdbdb;
+        }
+        #cont_right {position: absolute; right: 0; top: 0px; width: 250px;}
+	   /*#cont_center{padding-right:10px; padding-left:10px;}   osh191223 컨테이너 전체 패딩 값 줌*/
+      
+        #footer {border-top: 1px solid #dbdbdb; background-color: #b3d4ff;}       
+
+        /* 컨테이너 */
+        .container {position: relative; width: 1200px; margin: 0 auto; /* background: rgba(0,0,0,0.3) */}
+        .tab_content {margin-top: 5px;}  /*Dangunee 20-1/1 */
+        .conbox {margin-top:-19px; padding-right:5px; } /* Small-section: Dangunee 200101 상세 내역 전체 패딩 값 줌 */
+        .feature {background-color: #fffdf5; text-align:left; font-size: 15px; padding: 10px 10px 10px 10px;} /*Dangunee 200210 강좌별 특징만 적용, 배경까지 */
+        .syosai {text-align:left; font-size: 14px; padding: 10px 5px 10px 5px;}  /*Dangunee 20-1/1 상세 내역 설명만 padding 위,오른쪽,아래,왼쪽 */
+        .bookimage { height: auto; float:left; padding: 20px; width:35%; vertical-align:auto; } /*Dangunee 20-1-18 이미지 옆 설명 보이기*/ 
+        .review {text-align:left; font-size: 14px; padding: 10px 5px 10px 5px;
+            list-style-position: outside;
+            margin-left: 20px;
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 10px;
+        }  /*Dangunee 200212 수강생 감상 padding 위,오른쪽,아래,왼쪽 */
+
+
+        /* 헤더 */
+        .header {height: 241px;}   /* Dangunee 헤더 강좌 메뉴 레이아웃 위치 조정 Dangunee 200212 */
+        .header .header_menu {text-align: right;}
+        .header .header_menu a {color: #fff; padding: 8px 0 6px 10px; display: inline-block; transition: color 0.3s ease; }
+        .header .header_menu a:hover {color: #ccc;}
+
+        .header .header_tit { text-align: center; margin-top: 20px; }
+        .header .header_tit h1 {
+            font-size: 30px;
+            color: #fff;
+            background: #51b0dc;
+            display: inline-block;
+            padding: 5px 30px 5px 30px;
+            letter-spacing: 2px;
+            font-weight: 900;
+            transition: box-shadow 0.25s ease-in-out;
+            border-radius: 10px; 
+        }
+        .header .header_tit h1:hover {
+            box-shadow:
+                inset -10em 0 0 0 #257FAC,
+                inset 10em 0 0 0 #257FAC;
+        }
+        .header .header_tit a {
+            font-size: 16px;
+            color: #fff;
+            background: #4a9abf;
+            display: inline-block;
+            padding: 10px 20px 10px 20px;
+            margin-top: -7px;
+            transition: box-shadow 0.3s ease-in-out;
+            border-radius: 10px; 
+        }
+        .header .header_tit a:hover {
+            box-shadow:
+                0 0 0 5px rgba(75,154,191,0.9) inset,
+                0 0 0 100px rgba(0,0,0,0.1) inset;
+        }
+
+        .header .header_tel { font-size:15px; text-align:right; margin-top:45px;}
+        .header .header_tel a {color: #fff; padding: 8px 0 6px 10px; display: inline-block; transition: color 0.3s ease; }
+        .header .header_tel a:hover {color: #ccc;}
+
+        .header .header_icon {text-align: center; margin-top: 40px; padding-bottom: 45px;}
+        .header .header_icon li {display: inline; margin: 0 2px;}
+        .header .header_icon li a {
+            position: relative;
+            background-color: #3192bf;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            color: #fff;
+            display: inline-block;
+            font-size: 35px;
+            line-height: 60px;
+            transition: all 0.3s ease;
+        }
+        .header .header_icon li a span {
+            position: absolute;
+            opacity: 0;
+            left: 50%; top: -40px;
+            transform: translateX(-50%);
+            font-size: 12px;
+            line-height: 1.6;
+            background: #3192bf;
+            padding: 3px 9px;
+            border-radius: 6px 0;
+            transition: all 0.3s ease;
+        }
+        .header .header_icon li a span:before {
+            content: '';
+            position: absolute;
+            left: 50%; bottom: -5px;
+            margin-left: -5px;
+            border-top: 5px solid #3192bf;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+        }
+        .header .header_icon li a:hover span {
+            opacity: 1;
+            top: -33px;
+        }
+        .header .header_icon li a:hover {
+            box-shadow:
+                0 0 0 3px rgba(75,154,191,0.9) inset,
+                0 0 0 100px rgba(0,0,0,0.1) inset;
+        }
+
+        /* 전체 메뉴 Dangunee200212*/
+        .nav { text-align: center; height: 0em;}
+
+        .nav ul ul { display: none;  /* 서브 메뉴 숨기기 */ 
+            position: absolute; 
+            top: 100%; 
+            left: 0;
+            z-index: 999;
+        }
+
+        /* 1차 메뉴 */
+        .nav > ul { display:inline-block;}
+
+        /* 한 줄에 나오도록 처리*/
+        .nav > ul > li { float: left;  }
+
+        /* 하위 메뉴 가두기 위한 방법*/
+        .nav li { position: relative;  }
+
+        .nav li a {
+            font-size: 15px;
+          /*   font-weight: bold ;*/
+            color: #e5f3f8;
+            text-decoration: none;
+            padding: 5px 15px 5px 15px;
+            margin-left: 0.9px;
+            background-color:#25517c;
+            display: block;             
+            border: 1.5px solid  rgba(79, 148, 160, 0.788);
+            border-radius: 3px;
+        }
+
+        .nav li a:hover {
+            background-color: rgb(43, 46, 51);
+            color: white;
+        } 
+
+        .nav li:hover > ul {
+            display: block;
+        }
+
+        /* 전체 메뉴
+        .nav {overflow: hidden; padding: 10px 0; display: none;}
+        .nav > div {float: left; width: 14%;}    /* Dangunee2020 
+        .nav > div ol {overflow: hidden;}
+        .nav > div li {float: left; width: 100%; padding-left: 8px;}
+        .nav > div li a {position: relative;}
+        .nav > div h3 {
+            font-size: 18px;
+            color: #25a2d0;
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+        .nav > div li a:after {
+            content: '';
+            display: inline-block;
+            width: 0;
+            height: 1px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            background: #25a2d0;
+            transition: all .2s ease-out;
+        }
+        .nav > div li:hover a:after {width: 100%;}  */
+
+        /* 한국어교실 타이틀 Kosugi Maru Nanum Brush Script */
+        .title {position: relative; text-align: center; display: none;}
+        .title h2 {font-family: 'Kosugi Maru', sans-serif; font-size: 39px; color: #0093bd; padding: 5px 0;}
+        .title .btn {
+            position: absolute; right: 0; top: 5px;
+            width: 60px;
+            height: 60px;
+            line-height: 60px;
+            background: #3192bf;
+            color: #fff;
+            font-size: 35px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+         /* 전체 메뉴 메뉴 마우스 댔을 때 */
+        .title .btn:hover {
+            box-shadow:
+                0 0 0 3px rgba(75,154,191,0.9) inset,
+                0 0 0 100px rgba(0,0,0,0.1) inset;
+        }
+
+        /* 컨텐츠 영역 */
+        .column {padding: 15px; border-bottom: 1px solid #dbdbdb;}
+        .column .col_tit {font-size: 20px; color: #2f7fa6; padding-bottom: 5px;}
+        .column .col_desc {
+            border-bottom: 1px dashed #dbdbdb;
+            padding-bottom: 15px; margin-bottom: 15px;
+            color: #878787;
+            line-height: 18px;
+        }
+        .column.col1 {}
+        .column.col2 {}
+        .column.col3 {border-bottom: 0;}
+        .column.col4 {}
+        .column.col5 {}
+        .column.col6 {border-bottom: 0;}
+        .column.col7 {}
+        .column.col8 {}
+        .column.col9 {border-bottom: 0;}
+        .column.fb {}
+
+
+ 
+        /* 페이지별 강좌 특징 버튼 Dangunee200127*/
+        .intro {position: relative; border: 2px solid rgba(18, 127, 146, 0.788); padding: 10px; border-radius: 5px; margin:5px;
+                text-align: left; font-size:20px; color:rgb(34, 78, 88); background-color: rgb(204, 245, 239);}  /*Danguee200128 메인 광고 강조 */
+        .sintro {position: relative; border: 2px solid rgba(18, 127, 146, 0.788); padding: 10px; border-radius: 5px; margin:5px;
+                text-align: left; font-size:20px; color:rgb(34, 78, 88); background-color: rgb(254, 255, 196);}  /*Danguee200128 집중강좌 메인 광고 강조 */
+        .mintro {position: relative; border: 2px solid rgba(18, 127, 146, 0.788); padding: 10px; border-radius: 5px; margin:5px;
+            text-align: left; font-size:15px; color:rgb(34, 78, 88); background-color: rgb(254, 255, 196);}  /*Danguee200128 집중강좌 메인 광고 강조 */
+
+        /* 섹션 탭 메뉴 버튼 Dangunee200127
+        .section_title {overflow: hidden;}
+        .section_title ul {overflow: hidden; width: 100%; margin: 0 auto;}
+        .section_title li {float: left; width: 22%; margin-right: -1px; text-align: center; border: 1px solid #c4c4c4;}
+        .section_title li a {display: block; padding: 15px 0; font-size: 18px; color: #666; font-weight: 700;}
+        .section_title li.active a {background: #003366; color: #fff;}*/
+ 
+        /* 섹션 탭 메뉴 클릭시 변환 Dangunee200128*/
+        .tab_content {overflow: hidden; font-size: 12px; margin-left:5px; margin-left:5px; }   
+
+        input[type="radio"] { overflow: hidden; width: 20%; margin:0 auto; display:none;} /* input  */
+        input[type="radio"] + label {display:inline-block; padding:10px; background:#a1d8f1;color:rgb(98, 99, 105);font-size:15px;cursor:pointer; border-radius: 3px;} /* label  */
+        input[type="radio"]:checked + label {background:#003366;color:white;}
+
+        .conbox {background:white; display:none;}  
+        input[id="tab01"]:checked ~ .con1 {display:block;}  
+        input[id="tab02"]:checked ~ .con2 {display:block; margin-top:0px;}  /*Dangune200128 두번째 탭 클릭하면 탭 메뉴까지 올라가지 않도록 */
+        input[id="tab03"]:checked ~ .con3 {display:block; margin-top:0px;}
+        input[id="tab04"]:checked ~ .con4 {display:block; margin-top:0px;}
+        input[id="tab05"]:checked ~ .con5 {display:block; margin-top:0px;}
+        input[id="tab06"]:checked ~ .con6 {display:block; margin-top:0px;}
+
+        .apply_btn { text-align: center; margin-top: 15px; margin-bottom: 10px;}         /* 수강 신청 버튼 Dangunee200120*/
+
+        .apply_btn a {
+            font-size: 16px;
+            color: #fff;
+            background: hsl(204, 71%, 57%);
+            display: inline-block;
+            padding: 10px 20px 10px 20px;
+            margin-top: -5px;
+            transition: box-shadow 0.3s ease-in-out;
+            border-radius: 15px; 
+        }
+        .apply_btn a:hover {
+            box-shadow:
+            inset -10em 0 0 0 #257FAC,
+            inset 10em 0 0 0 #257FAC;
+        }
+
+        .back_btn { text-align: center; margin-top: 15px; margin-bottom: 10px;}         /* 톱페이지로 돌아가는 버튼 Dangunee200120*/
+        .back_btn a {
+            font-size: 16px;
+            font-weight: bold;
+            width: 280px;
+            color: #fff;
+            background: hsl(24, 86%, 60%);
+            display: inline-block;
+            padding: 10px 20px 10px 20px;
+            margin-top: -5px;
+            transition: box-shadow 0.3s ease-in-out;
+            border-radius: 15px; 
+        }
+        .back_btn a:hover {
+            box-shadow:
+            inset -15em 0 0 0 rgb(180, 47, 129),
+            inset 15em 0 0 0 rgb(180, 47, 129);
+        }
+
+        /* 사이드 강좌 메뉴 */
+        .menu li {position: relative;}
+        .menu li a {
+            font-size: 16px;
+            color: #878787; border-bottom: 1px solid #dbdbdb;
+            padding: 10px;
+            display: block;
+            transition: box-shadow 0.34s ease, background 0.34s ease;
+        }
+        .menu li a i {position: absolute; right: 10px; top: 15px;} /* 메뉴 내 link 클릭 아이콘 오른쪽 정렬*/
+
+        .menu li ul {display: none;} /*상세 메뉴판 접기*/
+        
+        .menu li a:hover{
+            box-shadow: inset 180px 0 0 0 rgba(36,130,174,0.7);
+            color: #fff;
+            background: rgba(36,130,174,0.9);
+        }
+        
+        .menu li:hover ul {display: block;} /*상세 메뉴판 펴기*/
+
+
+        /* 왼쪽 사이드 게시판1 */
+        .notice1 {position: relative; border: 2px solid orangered; background-color: rgb(253, 245, 199); padding: 10px; border-radius: 5px;}  /*Danguee200128 메인 광고 강조 */
+        .notice1 h5 {font-size: 14px; color: #2f7fa6; padding-bottom: 5px;}
+        .notice1 li {position: relative; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; padding-left: 8px; font-size:12px;}
+        .notice1 li:before {
+	        content: ''; width: 3px; height: 3px;
+            border-radius: 50%;
+            background: #449ce2;
+            position: absolute; left: 0; top: 6px;
+        }
+        .notice1 .more {
+            position: absolute;
+            right: 0; top: 3px;
+            color: #878787;
+            text-transform: uppercase;
+            font-size: 10px;
+            padding: 10px;
+        }
+
+        /* 왼쪽 사이드 게시판2 */
+        .notice2 {position: relative; }
+        .notice2 h5 {font-size: 14px; color: #d0e7f3; padding-bottom: 5px; background-color: #2b70b1; }
+        .notice2 li {
+            position: relative;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp : 2;
+            padding-left: 8px;
+            padding-bottom: 5px;
+            max-height: 40px; /* ie */
+        }
+        .notice2 li:before {
+            content: ''; width: 3px; height: 3px;
+            border-radius: 50%;
+            background: #dfecf7;
+            position: absolute; left: 0; top: 6px;
+        }
+        .notice2 .more {
+            position: absolute;
+            right: 0; top: 3px;
+            color: #dee7f0;
+            text-transform: uppercase;
+            font-size: 10px;
+            padding-right: 10px;
+        }
+
+        /* 주목강좌1 EVENT */
+        .blog1 img {width: 100%;}
+        .blog1 .img-retina {display: none;}
+
+        @media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+               only screen and (min-device-pixel-ratio: 1.5),
+               only screen and (min-resolution: 1.5dppx) {
+                .blog1 .img-retina {display: initial;}
+                .blog1 .img-normal {display: none;}
+        }
+
+        /* 체험레슨 신청2 */
+        .blog2 h5 {color: #fff; text-align: center; padding: 30px 30px; text-transform: uppercase;}
+        .blog2 p {padding-top: 5px;}
+        .blog2 .img-retina {
+            background-image: url(../img/taiken.png);
+            background-size: cover;
+            border-radius: 10px;
+            border-right: 5px solid #ccc;
+            border-bottom: 5px solid #999;
+            margin-bottom: 5px;
+            
+        }
+        @media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+               only screen and (min-device-pixel-ratio: 1.5),
+               only screen and (min-resolution: 1.5dppx) {
+                .blog2 .img-retina {background-image: url(../img/taikensp.png);}
+        }
+
+        /* 센터 이미지 슬라이드 */
+        .slider figure {position: relative;}
+        .slider figcaption {position: absolute; bottom: 0; left: 0; width: 100%; padding: 20px;
+            box-sizing: border-box;
+            background-color: rgba(0,0,0,0.5);
+            color: #fff;
+            font-size: 18px;
+        }
+        .slider figcaption em {
+            display: block;
+            font-weight: bold; font-size: 28px; text-transform: uppercase; font-family: 'Abel', sans-serif;
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all .84s ease;
+        }
+        .slider figcaption span {
+            display: block;
+            overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all .84s 0.2s ease;
+        }
+        .slider .slick-active figcaption em {opacity: 1; transform: translateX(0)}
+        .slider .slick-active figcaption span {opacity: 1; transform: translateX(0)}
+
+        .slider .slick-dots {display: block; width: 100%; text-align: center;}
+        .slider .slick-dots li {display: inline-block; width: 15px; height: 15px; margin: 5px;}
+        .slider .slick-dots li button {
+            font-size: 0;
+            line-height: 0;
+            display: block;
+            width: 15px; height: 15px;
+            cursor: pointer;
+            background: #5dbfeb;
+            border-radius: 50%;
+        }
+        .slider .slick-dots li.slick-active button {background: #2b91c8;}
+        .slider .slick-prev {
+            position: absolute; left: 0; bottom: 0;
+            z-index: 1000;
+            width: 30px; height: 30px;
+            display: inline-block;
+            font: normal normal normal 14px/1 FontAwesome;
+            text-indent: -9999px;
+        }
+        .slider .slick-prev::before {
+            content: "\f053";
+            color: #5dbfeb;
+            text-indent: 0;
+            position: absolute; left: 9px; top: 8px;
+        }
+        .slider .slick-next {
+            position: absolute; right: 0; bottom: 0;
+            z-index: 1000;
+            width: 30px; height: 30px;
+            display: inline-block;
+            font: normal normal normal 14px/1 FontAwesome;
+            text-indent: -9999px;
+        }
+        .slider .slick-next::before {
+            content: "\f054";
+            color: #5dbfeb;
+            text-indent: 0;
+            position: absolute; left: 11px; top: 8px;
+        }
+
+        /* 선택 강좌 안내 라이트 박스 */
+        .square a {float: left; width: 19%; margin: 0.5%; position: relative; overflow: hidden;  }
+        .square a img {width: 100%; display: block;}
+        .square a em {background: rgba(0,0,0,0.77); color: #fff; width: 100%; text-align: center; position: absolute; left:0; bottom: -30px; opacity: 1; transition: all .3s ease;}
+        .square a:hover em {bottom: 0; background: rgba(0,0,0,0.57); }
+        .square a:nth-child(1):hover img {filter: blur(2px);}
+        .square a:nth-child(2):hover img {filter: brightness(50%);}
+        .square a:nth-child(3):hover img {filter: contrast(10%);}
+        .square a:nth-child(4):hover img {filter: grayscale(100%);}
+        .square a:nth-child(5):hover img {filter: hue-rotate(120deg);}
+        .square a:nth-child(6):hover img {filter: invert(100%);}
+        .square a:nth-child(7):hover img {filter: opacity(10%);}
+        .square a:nth-child(8):hover img {filter: saturate(10%);}
+        .square a:nth-child(9):hover img {filter: sepia(120%);}
+        .square a:nth-child(10):hover img {filter: sepia(120%) hue-rotate(120deg);}
+
+        /* YUTUBE 비디오 */
+        .video {position: relative; width: 100%; padding-bottom: 56.25%;}
+        .video iframe {position: absolute; width: 100%; height: 100%;}
+
+        /* 푸터 */
+        .footer {text-align: center; padding: 30px 50px; }
+        .footer li {position: relative; display: inline; padding: 0 7px 0 10px; white-space: nowrap;}
+        .footer li:before {content: ''; width: 1px; height: 12px; background-color: #74c0ec; position: absolute; left: 0; top: 2px;}
+        .footer li:first-child:before {width: 0;}
+        .footer address {padding-top: 15px;}
+
+        /* 사이드 이펙트1 */
+        .side1 {position: relative; display: block; perspective: 600px;}
+        .side1 .front {
+            transform-style: preserve-3d;
+            transform: rotateY(0deg);
+            transition: all 0.5s ease-in-out;
+            backface-visibility: hidden;
+        }
+        .side1 .back {
+            position: absolute; top: 0; left: 0;
+            width: 100%; height: 100%; z-index: -1;
+            transform-style: preserve-3d;
+            color: #fff;
+            background: #4038DC;
+            text-align: center;
+            transform: rotateY(-180deg);
+            transition: all 0.5s ease-in-out;
+            backface-visibility: hidden;
+        }
+        .side1 .back i {position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);}
+        .side1:hover .front {transform: rotateY(180deg);}
+        .side1:hover .back {transform: rotateY(0deg); z-index: 1;}
+
+        /* 사이드 이펙트2 */
+        .side2 {position: relative; display: block; perspective: 600px;}
+        .side2 .front {
+            transform-style: preserve-3d;
+            transform: rotateY(0deg);
+            transition: all 0.5s ease-in-out;
+            backface-visibility: hidden;
+        }
+        .side2 .back {
+            position: absolute; top: 0; left: 0;
+            width: 100%; height: 100%; z-index: -1;
+            transform-style: preserve-3d;
+            transform: rotateY(-180deg);
+            transition: all 0.5s ease-in-out;
+            backface-visibility: hidden;
+            vertical-align: top;
+        }
+        .side2 .front figcaption {
+            position: absolute; left: 50%; top: 50%;
+            transform: translate(-50%,-50%) translateZ(100px);
+            display: block;
+            text-align: center;
+        }
+        .side2 .back figcaption {
+            position: absolute; left: 50%; top: 50%;
+            transform: translate(-50%,-50%) translateZ(100px);
+            color: #fff;
+            font-size: 20px;
+            display: block;
+            text-align: center;
+        }
+        .side2 figcaption {width: 60%;}
+        .side2 figcaption h3 {color: #fff; font-size: 20px; font-family: 'Abel', sans-serif; font-weight: bold; background: rgba(0,0,0,0.4); padding: 3px 10px;}
+        .side2 figcaption p {font-size: 14px;}
+        .side2:hover .front {transform: rotateY(180deg);}
+        .side2:hover .back {transform: rotateY(0deg); z-index: 1;}
+
+        /* 사이드 이펙트3 */
+        .side3 {position: relative; overflow: hidden; background: #000;}
+        .side3 figcaption {
+            position: absolute;
+	        top: 50%; left: 50%;
+            color: #fff;
+            text-align: center;
+            opacity: 0;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+	        transform: translate(350%, -50%) rotate(180deg);
+        }
+        .side3 figcaption:after {
+            content: '';
+            width: 100px; height: 100px;
+            background: #000;
+            border-radius: 50%;
+            position: absolute; left: 50%; top: 50%; z-index: -1;
+            transform: translate(-50%, -50%);
+        }
+        .side3 figcaption h3 {font-size: 16px;}
+        .side3 figcaption em {display: block; font-weight: bold;}
+        .side3 img {display: block; transition: all 0.3s ease;}
+        .side3:hover img {opacity: 0.4;}
+        .side3:hover figcaption {transform: translate(-50%, -50%) rotate(0deg); opacity: 1;}
+
+        /* 강의 세부 제목 디자인*/
+        .tab_content h4 {
+            border-top: 2px solid;
+            color: orangered;
+           /* margin-top: 1px;*/
+            padding: 0.3em 0;
+            position: sticky;
+            top: 1px; 
+        }
+
+
+    /*Generic Styling, for Desktops/Laptops 표 기본 디자인 Osh191223*/      		   
+    table.type01 {
+        border-collapse: collapse;
+        text-align: left;
+        line-height: 1.5;
+        width: 100%;        
+    }
+    table.type01 thead th {
+        padding: 10px;
+        font-weight: bold;
+        vertical-align: top;
+        color: #369;
+        background: hsl(202, 85%, 79%);  /* Dangunee200120 th 백그라운드 색깔 추가 */
+        border-bottom: 3px solid #036;
+    }
+    table.type01 thead td {
+        padding: 10px;
+        font-weight: bold;
+        text-align: center;
+        color: #369;
+        background: hsl( #878787, 85%, 79%);  /* osh 20200124 td 디자인 추가 */
+      
+    }
+    table.type01 tbody .number {
+    background: #aed1f3;
+    }           
+    
+    table.type01 tbody th {
+        padding: 10px;
+        font-weight: bold;
+        vertical-align: top;
+        border-bottom: 1px solid #ccc;
+        background: #f3f6f7;
+    }
+    
+    table.type01 td {
+        padding: 10px;
+        vertical-align: top;
+        border-bottom: 1px solid #ccc;
+    }
+
+    /* osh 20200124 td 체험레슨 신청 디자인 추가 */
+    table.type02 {
+        text-align: left;
+        line-height: 1.5;
+        width: 100%;       
+        border: #aed1f3 1px solid ;
+    }
+    
+    table.type02 tbody th {               
+        padding: 10px; 
+        font-weight: bold;
+        vertical-align: top;
+        text-align: left;
+        border-bottom: 1px solid #ccc;
+        background: #aed1f3;
+        width: 25%;
+    }
+    
+    table.type02 tbody td {             
+        padding: 10px;
+        text-align: left;
+        vertical-align: top;
+        border-bottom: 1px solid #ccc;
+        width: 75%;            
+    }
+
+    table.type03 { border: 0.5px solid rgb(191, 195, 202);
+                   padding: 10px;
+                   margin: 10px;
+                   font-size: 14px;
+    } 
+    table.type03 td{ height:30px;
+                  padding-top: 5px;
+                  padding-left: 5px;
+    } 
+
+    /* osh 20200210 수강생목소리 박스 디자인 */
+    .koe{  font-size:15px;
+                text-align: center;    
+                font-weight: bold;
+                background-color: palegoldenrod;
+                display: block;
+            }
+     
+    /* osh 체험레슨 신청 디자인 끝 */
+
+    td.price{ font-weight: bold; color: #CC0000; font-size:+2 ; margin-left: 10px; margin-right: 10px;
+     } /*표 타이틀 색깔*/
+
+    
+    .container1 {position: relative; width: 1200px; margin: 0 auto;} /* background: rgba(0,0,0,0.3) */	
+
+    /*color　색깔 */
+    .red { color:red;}
+    .blue { color:blue; }
+    .navy { color:navy;}
+    .sblue {color:#006699}             /* 　작은 블루 /20200309 Dangunee*/
+    .ocher { color:#DAA520; }     /* ocher 황토색 Dangunee200209 */
+    .ygreen { color:#669933; }    /* yellow-green 연두색 Dangunee200209 */    
+    .skycolor { color:#CCFFFF; }    /* skycolor 하늘색 Dangunee200209 */
+    .beige { color:#f9f8c5; }      /* 베이지 /20020000210 오승현 */  
+    .purple { color: rgb(128, 0, 128)}    /* 보라 /20020000210 오승현 */  
+    .orange{ color: orange; }     /* 오렌지 /20020000210 오승현 */  
+    .black { color:#000000;}     /* 검은색 /20020000210 오승현 */
+    .white { color:#ffffff;}      /* 하얀색 /20020000210 오승현 */   
+    .gray { color: rgb(223, 219, 219); }  /* 밝은회색 /20200221 오승현 */   
+    .pink { color: pink;}           /* 분홍색 /20200221 오승현 */ 
+    .yellow{ color: #FFFF00;}           /* 　노란색 /20200221 오승현 */ 
+    .honeydew{ color: #F0FFF0;}           /* 　옅은회색 /20200302 오승현 */
+    .azure {color:#F0FFFF}             /* 　옅은블루 /20200302 오승현 */
+
+    
+    /*backgruond color　색깔 */
+    .bg_red { background-color:red;}
+    .bg_blue { background-color:blue; }
+    .bg_ocher { background-color:#DAA520; }     /* ocher 황토색 20020000210 오승현 */
+    .bg_ygreen { background-color:#669933; }    /* yellow-green 연두색 20020000210 오승현 */    
+    .bg_liygreen { background-color:#b6ff7a;}    /* 연한 연두색 /202020214 Dangunee */
+    .bg_skycolor { background-color:#CCFFFF; }    /* skycolor 하늘색 20020000210 오승현 */
+    .bg_lightsky { background-color:#a9c8fc; }    /* liskycolor 연한 하늘색 202020214 Dangunee */    
+    .bg_beige { background-color:#f9f8c5; }      /* 베이지 /20020000210 오승현 */  
+    .bg_purple { background-color: purple; }    /* 보라 /20020000210 오승현 */  
+    .bg_orange{ background-color: orange; }     /* 오렌지 /20020000210 오승현 */  
+    .bg_black { background-color:#000000;}     /* 검은색 /20020000210 오승현 */
+    .bg_white { background-color:#ffffff;}      /* 하얀색 /20020000210 오승현 */
+    .bg_lightbora { background-color:#FFCCFF;}    /* 연한 보라색 /20020000214 Dangunee */
+    .bg_navy { background-color:rgb(43, 84, 84); color:rgb(207, 216, 230);}   /* 감색 및 폰트 밝게 처리 /20020000214 Dangunee */
+    .bg_gray { background-color: rgb(223, 219, 219); }  /* 밝은회색 /20200221 오승현 */   
+    .bg_pink { background-color: pink;}                 /* 분홍색 /20200221 오승현 */ }
+    .bg_yellow { background-color: #FFFF00;}             /* 　노란색 /20200221 오승현 */ 
+    .bg_honeydew{ background-color: #F0FFF0;}           /* 　옅은회색 /20200302 오승현 */
+    .bg_azure {background-color:#F0FFFF}             /* 　옅은블루 /20200302 오승현 */
+
+
+    /* 선생님 프로필 /20020000207 오승현 */  
+    .teacherphoto{ width: 20%;
+    float: left;
+    padding-top: 20px;
+    padding-right: 5px;
+    padding-left: 8px;
+    }
+    .teacherprofile{ width: 70%;
+            float: right;
+            padding-top: 20px;
+            padding-bottom: 10px;
+
+    }
+    .clear{clear: both;}
+
+    .menu {display: none;}
+
+        /* mediaquery 미디어 쿼리 /////////////////////////////////////////////////////////////////*/
+        /* 화면 너비 0~1220px */
+        @media (max-width: 1220px){
+            .container {width: 100%;}
+            .row {padding: 0 15px;}
+            #cont_center {min-height: 1350px;}
+            #contents .container {border: 0;}
+
+            .title .btn {right: 15px;}
+            .square a {width: 24%}
+         /*     .square a:nth-child(5n) {display: none;}  */
+        }
+
+        /* 화면 너비 0~1024px */
+        @media (max-width: 1024px){
+            .square a {width: 32.33333%}
+	     /*       .square a:nth-child(5) {display: block;}  */
+        }
+
+        /* 화면 너비 0~960px */
+        @media (max-width: 960px){
+            #cont_right {position: static; width: 100%; border-top: 1px solid #dbdbdb;}
+	        #cont_center {margin-right: 0; border-right: 0;}
+
+            .nav > div {float: none; width: 100%;}
+            .nav > div:last-child {width: 100%;}
+            .nav > div li {width: 33.333%;}
+            .nav > div:last-child li {width: 33.333%;}
+            .nav > div ol {margin-bottom: 10px;}
+
+            #cont_right {overflow: hidden;}
+            #cont_right .column {float: left; width: 33.333%; box-sizing: border-box;}
+            #cont_right .column.col7 {border-right: 1px solid #dbdbdb; border-bottom: 0;}
+            #cont_right .column.col8 {border-right: 1px solid #dbdbdb; border-bottom: 0;}
+        }
+
+        /* 화면 너비 0~768px */
+        @media (max-width: 768px){
+            #cont_left {float: none; width: 100%;}
+            #cont_center {border-left: 0;}
+            .nav { display: none;}
+            .title { display: block;}
+            .menu {display: block;}
+
+        }
+
+        /* 화면 너비 0~600px */
+        @media (max-width: 600px){
+            body {background: url(../img/header_bg1.png) repeat-x center top;}
+            .header {height: auto;}
+	        #contents .container {margin-top:-2px}   /*Dangunee 200212 모바일 메뉴 배경과 간격 조정*/
+
+            /* 서브메뉴가 화면을 덮게끔  */
+            .menu li ul {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            width: 130px;
+            }
+
+            .nav > div li {width: 50%;}
+	        .nav > div:last-child li {width: 50%;}
+
+            .header .header_tit {display: none;}
+            .header .header_icon {display: none;}
+            .title .btn {display: none;}
+            .column.col1 .col_tit {display: none;}     /*  반응형 상단 메뉴 타이틀 사라짐 */
+            .column.col1 .col_desc {display: none;}     /* 반응형 상단 메뉴 상세 사라짐 */
+            .column.col1 .menu li a i {display: none;}
+            .column.col1 {padding: 0; border-bottom: 0;}
+            .column.col1 .menu ul {overflow: hidden;}    /* ↓ 반응형 메뉴 3단으로 */
+            .column.col1 .menu li {float: left; width: 33.33333%; text-align: center; border-right: 1px solid #dbdbdb; box-sizing: border-box;}
+          /*   .column.col1 .menu li:nth-child(3n) {border-right: 0;} */
+            .column.col1 .menu li a {color: #fff; text-shadow: 0 0 5px rgba(0,0,0,0.7);}
+            .column.col1 .menu li a:hover {box-shadow: none; background: rgba(36,130,174,0.3); }
+            .column.fb  {display: none;} 
+
+             /*Dangunee 20-01/03 모바일 상세 메뉴판 펴기 
+             .column.col1 .menu .sub li {
+                width: 100%;
+                border-left: 1px;
+                color: black;
+                background: white;
+                border-right: 1px solid #dbdbdb; box-sizing: border-box;  
+            }*/
+            
+            .column.col1 .menu .sub li {
+                width: 100%;
+                border-left: 1px;
+                color: black;
+                background: rgb(35, 32, 41);
+                border-right: 1px solid #dbdbdb;
+                box-sizing: border-box;
+            }
+            .column.col2 {background: #fff;}     /*라이트박스 상세 카테고리 메뉴 상단으로 올라가면서 메뉴바 투명*/  
+
+	        .column.col4 {border-top: 1px solid #dbdbdb;}
+            
+            #cont_center {margin-top: -20px; background-color: white;}    /*Dangunee 20-1/1 메뉴바 빈 공간 없애기*/  
+            #cont_right .column {width:50%;}
+            #cont_right .column.col8 {border-right: 0;}
+            #cont_right .column.col9 {display: none;}
+
+            .slider figcaption {padding: 10px;}
+            .slider figcaption em {font-size: 18px;}
+            .slider figcaption span {font-size: 14px;}
+
+            .square a {width: 49%}
+         /*     .square a:nth-child(5) {display: none;}   Dangunee2020 */ 
+        }
+
+        /* 화면 너비 0~480px */
+        @media (max-width: 480px){
+            .header {height: 65px;} /* Dangunee 20-1/2 휴대폰 시 톱 메뉴 화면 조정*/
+            .notice1 h5 {font-size: 18px;}  /*Dangunee 20-1/1 스마트폰 메인 화면 주목 강좌 글자크기 확대 */
+            .tab_content {background-color: white;}   /*Dangunee 2001/1 스마트폰 상세 화면 글자크기 확대 */
+            .tab_content h3  {font-size: 18px;  padding: 5px;}  /*Dangunee 200130 타이틀 확대 */
+            .tab_content h4  {font-size: 17px;}  /*Dangunee 20-1/1 글자크기 확대 */
+            .feature {font-size: 17px;}  /*Dangunee 200210 */
+            .syosai {font-size: 16px;}  /*Dangunee 20-1/1 */
+            .type01 {font-size: 16px;}  /*Dangunee 20-1/1 표 안*/
+            .type02 {font-size: 16px;} 
+            .type03 {font-size: 16px;} 
+            .header .header_icon {display: none;}  
+            }   
+        }
+
+        /* 화면 너비 0~320px */
+        @media (max-width: 320px){
+            #cont_right .column {width:100%;}
+	        #cont_right .column.col7 {border-right: 0; border-bottom: 1px solid #dbdbdb;}
+            .square a {width: 100%; margin-left:0; margin-right: 0;}
+        }      
+
+
+       

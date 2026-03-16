@@ -4,9 +4,6 @@ const nextConfig = {
   // www.mirinae.jp のトップ・各ページは public/*.html をクリーンURLで表示
   async rewrites() {
     const externalRewrites = [
-      { source: "/writing", destination: "https://apps.mirinae.jp/writing" },
-      { source: "/writing/", destination: "https://apps.mirinae.jp/writing/" },
-      { source: "/writing/:path*", destination: "https://apps.mirinae.jp/writing/:path*" },
       { source: "/qna", destination: "https://apps.mirinae.jp/qna" },
       { source: "/qna/:path*", destination: "https://apps.mirinae.jp/qna/:path*" },
       { source: "/dailylife", destination: "https://apps.mirinae.jp/dailylife" },

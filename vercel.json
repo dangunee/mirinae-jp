@@ -4,14 +4,6 @@
   ],
   "rewrites": [
     {
-      "source": "/writing",
-      "destination": "https://apps.mirinae.jp/writing"
-    },
-    {
-      "source": "/writing/:path*",
-      "destination": "https://apps.mirinae.jp/writing/:path*"
-    },
-    {
       "source": "/qna",
       "destination": "https://apps.mirinae.jp/qna"
     },

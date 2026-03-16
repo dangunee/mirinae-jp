@@ -1420,6 +1420,8 @@
 
     .kojin-reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s, transform .6s; }
     .kojin-reveal.visible { opacity: 1; transform: none; }
+    /* カリキュラム: 分類タブ(初級/中級/上級・12/24/48コマ)を常に表示 */
+    #tab02 .kojin-reveal.curriculum-section { opacity: 1; transform: none; }
 
     /* Legacy: tab02, tab03, tab04 panels */
     .content-block { margin-bottom: 32px; }
@@ -3012,7 +3014,7 @@
           <div class="sched-note">🗓 予約制（50分 / 1コマ）</div>
         </section>
 
-        <section class="kojin-reveal">
+        <section class="kojin-reveal curriculum-section">
           <h2 class="section-title"><span class="dot"></span>カリキュラム</h2>
           <div class="level-tabs">
             <div class="level-tab active-beg" data-level="beg">初級</div>

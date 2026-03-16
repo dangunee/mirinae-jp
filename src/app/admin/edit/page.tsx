@@ -281,6 +281,10 @@ function EditContent() {
 
   const publishToFront = async () => {
     if (!["kojin", "group", "kaiwa", "special"].includes(page)) return;
+    if (dirty) {
+      alert("저장되지 않은 변경사항이 있습니다. 먼저 저장 버튼을 눌러주세요.");
+      return;
+    }
     setPublishing(true);
     try {
       const r = await fetch("/api/admin/curriculum/publish", {
@@ -291,6 +295,8 @@ function EditContent() {
       const j = await r.json();
       if (r.ok) alert(j.message ?? "フロントに反映しました");
       else alert(j.error ?? "反映に失敗しました");
+    } catch (e) {
+      alert("反映に失敗しました。\n" + (e instanceof Error ? e.message : String(e)));
     } finally {
       setPublishing(false);
     }

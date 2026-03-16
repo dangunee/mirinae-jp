@@ -4513,9 +4513,10 @@
           });
         });
       }
+      var cacheBust = '_=' + Date.now();
       Promise.all([
-        fetch('/api/curriculum?page=kojin', { cache: 'no-store' }).then(function(r) { return r.json(); }),
-        fetch('/api/curriculum/themes', { cache: 'no-store' }).then(function(r) { return r.json(); })
+        fetch('/api/curriculum?page=kojin&' + cacheBust, { cache: 'no-store' }).then(function(r) { return r.json(); }),
+        fetch('/api/curriculum/themes?' + cacheBust, { cache: 'no-store' }).then(function(r) { return r.json(); })
       ]).then(function(results) {
         var blocks = results[0];
         var themes = results[1];

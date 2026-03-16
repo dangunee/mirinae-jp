@@ -52,7 +52,7 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({
       ok: true,
-      message: `フロントに反映しました（${page}）`,
+      message: `フロントに反映しました（${page}）\nブロック数: ${curriculumData.length}\n프론트 페이지를 새로고침하세요.`,
       blocks: curriculumData.length,
     });
   } catch (e) {

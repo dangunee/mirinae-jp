@@ -269,8 +269,11 @@
     .teacher-block .teacher-photo { flex-shrink: 0; margin-top: 16px; }
     .teacher-block .teacher-photo img { width: 140px; height: 200px; object-fit: contain; border-radius: 8px; display: block; border: 1px solid var(--gray-border); background: var(--gray-light); }
     .teacher-block .teacher-info { flex: 1; min-width: 0; }
-    @media (max-width: 480px) {
+    @media (max-width: 600px) {
+      .teacher-block { flex-direction: column; align-items: center; }
+      .teacher-block .teacher-photo { margin-top: 0; }
       .teacher-block .teacher-photo img { width: 120px; height: 170px; }
+      .teacher-block .teacher-info { width: 100%; }
     }
     .footer {
       background: #2c2c2c;

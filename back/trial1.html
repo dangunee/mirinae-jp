@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>体験＆レベルテストの申込</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      max-width: 700px;
+      margin: 40px auto;
+      padding: 0 16px;
+      line-height: 1.6;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    label {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-size: 14px;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    select,
+    textarea {
+      padding: 8px;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    fieldset {
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      padding: 8px 12px;
+    }
+    button[type="submit"] {
+      padding: 10px 16px;
+      font-size: 15px;
+      border: none;
+      border-radius: 4px;
+      background-color: #007bff;
+      color: #fff;
+      cursor: pointer;
+    }
+    button[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <h1>SEI COMMUNICATION....</h1>
+
+  <form action="https://formspree.io/f/mkovonke" method="POST">
+    <!-- タイトル -->
+    <fieldset>
+      <legend>タイトル（*必須）</legend>
+      <label>
+        <input type="radio" name="title" value="体験レッスン" required />
+        体験レッスン
+      </label>
+      <label>
+        <input type="radio" name="title" value="レベルテスト" />
+        レベルテスト
+      </label>
+    </fieldset>
+
+    <!-- 기본 정보 -->
+    <label>
+      お名前（*必須）
+      <input type="text" name="name" required />
+    </label>
+
+    <label>
+      ふりがな（*必須）
+      <input type="text" name="furigana" required />
+    </label>
+
+    <label>
+      年齢
+      <select name="age">
+        <option value="">選択してください</option>
+        <option value="10代">10代</option>
+        <option value="20代">20代</option>
+        <option value="30代">30代</option>
+        <option value="40代">40代</option>
+        <option value="50代">50代</option>
+        <option value="60代">60代</option>
+        <option value="70代以上">70代以上</option>
+      </select>
+    </label>
+
+    <label>
+      都道府県
+      <select name="prefecture">
+        <option value="">選択してください</option>
+        <option>北海道</option>
+        <option>青森県</option>
+        <option>岩手県</option>
+        <option>宮城県</option>
+        <option>秋田県</option>
+        <option>山形県</option>
+        <option>福島県</option>
+        <option>茨城県</option>
+        <option>栃木県</option>
+        <option>群馬県</option>
+        <option>埼玉県</option>
+        <option>千葉県</option>
+        <option>東京23区</option>
+        <option>東京都</option>
+        <option>神奈川県</option>
+        <option>山梨県</option>
+        <option>長野県</option>
+        <option>新潟県</option>
+        <option>富山県</option>
+        <option>石川県</option>
+        <option>福井県</option>
+        <option>岐阜県</option>
+        <option>静岡県</option>
+        <option>愛知県</option>
+        <option>三重県</option>
+        <option>滋賀県</option>
+        <option>京都府</option>
+        <option>大阪府</option>
+        <option>兵庫県</option>
+        <option>奈良県</option>
+        <option>和歌山県</option>
+        <option>鳥取県</option>
+        <option>島根県</option>
+        <option>岡山県</option>
+        <option>広島県</option>
+        <option>山口県</option>
+        <option>徳島県</option>
+        <option>香川県</option>
+        <option>愛媛県</option>
+        <option>高知県</option>
+        <option>福岡県</option>
+        <option>佐賀県</option>
+        <option>長崎県</option>
+        <option>熊本県</option>
+        <option>大分県</option>
+        <option>宮崎県</option>
+        <option>鹿児島県</option>
+        <option>沖縄県</option>
+      </select>
+    </label>
+
+    <label>
+      メールアドレス（*必須）
+      <input type="email" name="email" required />
+    </label>
+
+    <label>
+      お電話番号（*必須）
+      <input type="tel" name="phone" required />
+    </label>
+
+    <label>
+      ご希望教室（*必須）
+      <select name="class_place" required>
+        <option value="">選択してください</option>
+        <option>新宿教室</option>
+        <option>Skype/ZOOMレッスン</option>
+        <option>メール通信添削</option>
+      </select>
+    </label>
+
+    <label>
+      ご希望レッスン（*必須）
+      <select name="lesson" required>
+        <option value="">選択してください</option>
+        <option>個人レッスン</option>
+        <option>短期集中個人レッスン</option>
+        <option>発音矯正レッスン</option>
+        <option>時事韓国語レッスン</option>
+        <option>土曜上級1講座</option>
+        <option>土曜上級2講座</option>
+        <option>土曜月１回添削レッスン</option>
+        <option>ネットレッスン</option>
+        <option>会話トレーニング</option>
+        <option>レベルテスト</option>
+        <option>日曜初中級音読クラス</option>
+        <option>メール作文トレーニングトライアル</option>
+        <option>通信音読「初中級」トレーニングトライアル</option>
+        <option>通信音読「中上級」トレーニングトライアル</option>
+        <option>メール作文+通信音読「初中級」トレーニングトライアル</option>
+        <option>メール作文+通信音読「中上級」トレーニングトライアル</option>
+        <option>その他</option>
+      </select>
+    </label>
+
+    <label>
+      ミリネ韓国語教室を知ったきっかけ
+      <select name="how_found">
+        <option value="">選択してください</option>
+        <option>Ｘ・ツイッター</option>
+        <option>YouTube</option>
+        <option>フェイスブック</option>
+        <option>Instagram</option>
+        <option>threads(スレッズ)</option>
+        <option>検索</option>
+        <option>ブログ</option>
+        <option>紹介</option>
+        <option>ミリネ出版本</option>
+        <option>メールマガジン</option>
+      </select>
+    </label>
+
+    <label>
+      体験・申し込み講座のご希望日と時間帯
+      <input
+        type="text"
+        name="preferred_datetime"
+        placeholder="例）○月○日 ○時～○時"
+      />
+    </label>
+
+    <label>
+      簡単な韓国語の学習歴及びレベル
+      <textarea name="korean_history" rows="4"></textarea>
+    </label>
+
+    <label>
+      お問い合わせ
+      <textarea name="message" rows="4"></textarea>
+    </label>
+
+    <!-- Formspree 옵션 -->
+    <input type="hidden" name="_subject" value="体験＆レベルテストの申込" />
+    <!-- 완료 후 이동할 URL이 있다면 사용 -->
+    <!-- <input type="hidden" name="_next" value="https://your-site.com/thanks.html" /> -->
+
+    <button type="submit">送信する</button>
+  </form>
+</body>
+</html>

@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 
-    <title>韓国語教室を東京でお探しなら日暮里・新宿のミリネ韓国語教室</title>
+    <title>韓国語教室を東京でお探しなら新宿・新宿３丁目のミリネ韓国語教室</title>
 
     <link rel="stylesheet" href="css/reset-min.css" type="text/css" media="all">
     <link rel="stylesheet" href="css/style.css" type="text/css" media="all">

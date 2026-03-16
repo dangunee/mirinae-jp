@@ -3,7 +3,7 @@
 <html xmlns="w3.org/1999/xhtml" xml:lang="en" lang="en" class="cufon-active cufon-ready">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>韓国語体験レッスン｜韓国語教室を東京でお探しなら日暮里・新宿のミリネ韓国語教室</title>
+	<title>韓国語体験レッスン｜韓国語教室を東京でお探しなら新宿・新宿３丁目のミリネ韓国語教室</title>
 	<link rel="stylesheet" href="css1/reset-min.css" type="text/css" media="all" />
 	<link rel="stylesheet" href="css1/style.css" type="text/css" media="all" />
 	<link rel="stylesheet" href="js1/jquery.fancybox/jquery.fancybox.css" type="text/css" media="screen" />

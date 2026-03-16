@@ -1,4 +1,4 @@
-const MIRINAE_SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://mirinae-jp.vercel.app";
+const MIRINAE_SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://mirinae.jp";
 
 export const metadata = {
   title: "ミリネ韓国語教室",

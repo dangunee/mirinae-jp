@@ -4514,16 +4514,17 @@
         });
       }
       Promise.all([
-        fetch('/api/curriculum?page=kojin').then(function(r) { return r.json(); }),
-        fetch('/api/curriculum/themes').then(function(r) { return r.json(); })
+        fetch('/api/curriculum?page=kojin', { cache: 'no-store' }).then(function(r) { return r.json(); }),
+        fetch('/api/curriculum/themes', { cache: 'no-store' }).then(function(r) { return r.json(); })
       ]).then(function(results) {
         var blocks = results[0];
         var themes = results[1];
-        var hasData = Array.isArray(blocks) && blocks.length > 0 && CURRICULUM_KEYS.some(function(item) {
+        var hasBlocks = Array.isArray(blocks) && blocks.length > 0 && CURRICULUM_KEYS.some(function(item) {
           var b = blocks.find(function(x) { return x.blockKey === item.blockKey; });
           return b && b.rows && b.rows.length > 0;
         });
-        if (hasData) renderCurriculumTables(blocks, themes);
+        var hasThemes = Array.isArray(themes) && themes.length > 0;
+        if (hasBlocks && hasThemes) renderCurriculumTables(blocks, themes);
       }).catch(function(err) { console.warn('Curriculum load failed:', err); });
     })();
   </script>

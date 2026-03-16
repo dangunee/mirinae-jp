@@ -14,15 +14,39 @@ export default function WritingPage() {
         padding: 0,
         minHeight: "100vh",
         display: "flex",
-        justifyContent: "center",
+        flexDirection: "column",
+        alignItems: "center",
         backgroundColor: "#f5f0e8",
       }}
     >
+      <header
+        style={{
+          width: "100%",
+          maxWidth: "52.75rem",
+          backgroundColor: "#146382",
+          color: "white",
+          padding: "1rem 1.5rem",
+          boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
+        }}
+      >
+        <h1
+          style={{
+            margin: 0,
+            fontSize: "clamp(1.5rem, 4vw, 2.7rem)",
+            fontWeight: 700,
+            letterSpacing: "0.18em",
+            textAlign: "center",
+          }}
+        >
+          ミリネ韓国語教室 作文講座
+        </h1>
+      </header>
       <div
         style={{
           width: "100%",
           maxWidth: "52.75rem",
-          minHeight: "100vh",
+          flex: 1,
+          minHeight: 0,
           boxShadow: "0 0 24px rgba(0,0,0,0.08)",
         }}
       >
@@ -31,7 +55,7 @@ export default function WritingPage() {
           title="作文トレーニング｜ミリネ韓国語"
           style={{
             width: "100%",
-            height: "100vh",
+            height: "calc(100vh - 5rem)",
             minHeight: "800px",
             border: "none",
             display: "block",

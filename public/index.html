@@ -1565,9 +1565,13 @@
       #schedule-section .schedule-seo-list .schedule-meta { margin-left: 0; }
     }
     @media (max-width: 768px) {
-      #schedule-section .section { padding-left: 20px; padding-right: 20px; }
-      #schedule-section .day-cell { padding: 10px 6px 8px; }
+      #schedule-section .section { padding-left: 20px; padding-right: 20px; overflow-x: hidden; }
+      #schedule-section .schedule-cal-wrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 0 -20px; padding: 0 20px; }
+      #schedule-section .cal-grid-wrap { min-width: 560px; }
+      #schedule-section .day-cell { padding: 10px 6px 8px; min-width: 0; overflow: hidden; }
       #schedule-section .day-cell:last-child { padding-right: 14px; }
+      #schedule-section .event-list { min-width: 0; overflow: hidden; }
+      #schedule-section .event-pill { max-width: 100%; }
     }
 
     /* CTA banner */

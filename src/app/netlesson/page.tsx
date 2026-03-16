@@ -10,9 +10,9 @@ export const metadata: Metadata = {
 };
 
 const IFRAME_URLS = {
-  writing: "https://writing.mirinae.jp/?embed=1",
-  ondoku: "https://ondoku.mirinae.jp/?embed=1",
-  topik: "https://writing.mirinae.jp/?tab=topik&embed=1",
+  writing: "https://mirinae.jp/writing/?embed=1",
+  ondoku: "https://mirinae.jp/ondoku/?embed=1",
+  topik: "https://mirinae.jp/writing/?tab=topik&embed=1",
 } as const;
 
 export default function NetlessonPage() {

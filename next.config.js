@@ -3,6 +3,19 @@ const nextConfig = {
   trailingSlash: true, // /b/ を /b にリダイレクトしない（ループ防止）
   // www.mirinae.jp のトップ・各ページは public/*.html をクリーンURLで表示
   async rewrites() {
+    const externalRewrites = [
+      { source: "/writing", destination: "https://apps.mirinae.jp/writing" },
+      { source: "/writing/", destination: "https://apps.mirinae.jp/writing/" },
+      { source: "/writing/:path*", destination: "https://apps.mirinae.jp/writing/:path*" },
+      { source: "/qna", destination: "https://apps.mirinae.jp/qna" },
+      { source: "/qna/:path*", destination: "https://apps.mirinae.jp/qna/:path*" },
+      { source: "/dailylife", destination: "https://apps.mirinae.jp/dailylife" },
+      { source: "/dailylife/:path*", destination: "https://apps.mirinae.jp/dailylife/:path*" },
+      { source: "/quiz", destination: "https://quiz.mirinae.jp" },
+      { source: "/quiz/:path*", destination: "https://quiz.mirinae.jp/:path*" },
+      { source: "/ondoku", destination: "https://ondoku.mirinae.jp" },
+      { source: "/ondoku/:path*", destination: "https://ondoku.mirinae.jp/:path*" },
+    ];
     const htmlRoutes = [
       { source: "/", destination: "/index.html" },
       { source: "/about", destination: "/about.html" },
@@ -29,8 +42,8 @@ const nextConfig = {
       { source: "/t/cancel", destination: "/cancel.html" },
       { source: "/t/voice", destination: "/voice.html" },
     ];
-    // beforeFiles でファイルシステムより先に適用し、/ を index.html に
-    return { beforeFiles: htmlRoutes };
+    // beforeFiles でファイルシステムより先に適用（external rewrites + html）
+    return { beforeFiles: [...externalRewrites, ...htmlRoutes] };
   },
 };
 module.exports = nextConfig;

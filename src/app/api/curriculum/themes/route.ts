@@ -3,8 +3,6 @@ import { prisma } from "@/lib/db";
 import type { CurriculumTheme } from "../route";
 
 const THEMES_BLOCK_KEY = "curriculum_themes";
-const CACHE_TTL_MS = 60 * 1000; // 1分
-let themesCache: { data: CurriculumTheme[]; ts: number } | null = null;
 const PAGE_SLUG = "kojin";
 
 const DEFAULT_THEMES: CurriculumTheme[] = [
@@ -33,41 +31,14 @@ function parseThemesJson(json: string | null): CurriculumTheme[] {
 }
 
 // GET /api/curriculum/themes
-// raw=1: 管理画面用。常にDBから取得
-// 通常: 公開スナップショットを優先。未反映の場合はDBから直接取得
-export async function GET(req: NextRequest) {
-  const raw = req.nextUrl.searchParams.get("raw") === "1";
-
-  if (!raw) {
-    try {
-      const published = await prisma.curriculumPublished.findUnique({
-        where: { id: "themes_kojin" },
-      });
-      if (published?.dataJson) {
-        const themes = parseThemesJson(published.dataJson) as CurriculumTheme[];
-        return NextResponse.json(themes, {
-          headers: {
-            "Cache-Control": "no-cache, no-store, must-revalidate, max-age=0",
-            "Pragma": "no-cache",
-            "Expires": "0",
-          },
-        });
-      }
-    } catch {
-      // スナップショット未作成 → DBから取得
-    }
-  }
-
-  if (themesCache && Date.now() - themesCache.ts < CACHE_TTL_MS) {
-    return NextResponse.json(themesCache.data);
-  }
+// kojin用テーマ: 常にDBから直接取得（キャッシュ・スナップショットなし）
+export async function GET() {
   const row = await prisma.siteTable.findUnique({
     where: {
       pageSlug_blockKey: { pageSlug: PAGE_SLUG, blockKey: THEMES_BLOCK_KEY },
     },
   });
   const themes = row ? parseThemesJson(row.rowsJson) : DEFAULT_THEMES;
-  themesCache = { data: themes, ts: Date.now() };
   return NextResponse.json(themes, {
     headers: {
       "Cache-Control": "no-cache, no-store, must-revalidate, max-age=0",
@@ -90,7 +61,6 @@ export async function POST(req: NextRequest) {
     bgColor: String(t.bgColor ?? "#f0f0f0").trim(),
   }));
   const rowsJson = JSON.stringify(themes);
-  themesCache = null;
   await prisma.siteTable.upsert({
     where: {
       pageSlug_blockKey: { pageSlug: PAGE_SLUG, blockKey: THEMES_BLOCK_KEY },

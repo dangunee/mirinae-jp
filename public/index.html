@@ -494,7 +494,7 @@
     }
     .recruit-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 14px;
     }
     @media (max-width: 768px) { .recruit-grid { grid-template-columns: 1fr; } }
@@ -536,10 +536,12 @@
     .recruit-card.navy  { background:#2A3044; }
     .recruit-card.green  { background:#5A7060; }
     .recruit-card.purple { background:#5A4A7A; }
+    .recruit-card.teal   { background:#0e3d38; }
     .recruit-card.rose   .recruit-body,
     .recruit-card.navy   .recruit-body,
     .recruit-card.green  .recruit-body,
-    .recruit-card.purple .recruit-body {
+    .recruit-card.purple .recruit-body,
+    .recruit-card.teal   .recruit-body {
       background: transparent;
       color: #fff;
     }
@@ -1597,6 +1599,32 @@
   <p class="section-sub">気になる講座をクリックする!</p>
   <div class="recruit-wrap">
     <div class="recruit-grid">
+      <a href="special.html#tab05" class="recruit-card teal">
+        <svg class="recruit-illust" viewBox="0 0 280 180" xmlns="http://www.w3.org/2000/svg">
+          <rect width="280" height="180" fill="#0e3d38"/>
+          <ellipse cx="230" cy="35" rx="85" ry="60" fill="#1a5048" opacity="0.35"/>
+          <ellipse cx="45" cy="155" rx="65" ry="50" fill="#0a2d28" opacity="0.4"/>
+          <g transform="translate(55,35)">
+            <rect x="0" y="0" width="90" height="110" rx="8" fill="#0a2d28" opacity="0.3"/>
+            <rect x="8" y="12" width="50" height="6" rx="3" fill="#5de8d8" opacity="0.5"/>
+            <rect x="8" y="26" width="60" height="4" rx="2" fill="#5de8d8" opacity="0.4"/>
+            <rect x="8" y="36" width="55" height="4" rx="2" fill="#5de8d8" opacity="0.35"/>
+            <text x="45" y="70" font-family="'Noto Sans KR',sans-serif" font-size="16" font-weight="700"
+                  fill="#5de8d8" text-anchor="middle" opacity="0.8">준2급</text>
+            <text x="45" y="92" font-family="sans-serif" font-size="11" fill="white" text-anchor="middle" opacity="0.5">試験対策</text>
+          </g>
+          <g transform="translate(170,50)">
+            <circle cx="35" cy="35" r="28" fill="#5de8d8" opacity="0.2"/>
+            <path d="M25 35 L32 42 L48 26" stroke="#5de8d8" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+          </g>
+          <text x="42" y="48" font-size="12" fill="white" opacity="0.2">✦</text>
+          <text x="238" y="155" font-size="10" fill="white" opacity="0.2">✦</text>
+        </svg>
+        <div class="recruit-body">
+          <h3>準2級 試験大対策講座</h3>
+          <p>ハン検準2級合格を目指す対策講座</p>
+        </div>
+      </a>
       <a href="group.html#tab05" class="recruit-card purple">
         <svg class="recruit-illust" viewBox="0 0 280 180" xmlns="http://www.w3.org/2000/svg">
           <rect width="280" height="180" fill="#5A4A7A"/>

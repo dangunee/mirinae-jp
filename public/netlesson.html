@@ -445,6 +445,25 @@
         height: 1500px;
       }
     }
+    /* モバイル: iframe幅を広げる（個人レッスン生徒の声と同程度の余白に） */
+    @media (max-width: 900px) {
+      #tab01 .iframe-card,
+      #tab02 .iframe-card {
+        margin-left: -12px;
+        margin-right: -12px;
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+    }
+    @media (max-width: 600px) {
+      #tab01 .iframe-card,
+      #tab02 .iframe-card {
+        margin-left: -8px;
+        margin-right: -8px;
+        padding-left: 8px;
+        padding-right: 8px;
+      }
+    }
 
     .iframe-note {
       font-size: 12px;

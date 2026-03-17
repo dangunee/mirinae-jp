@@ -11,7 +11,7 @@ export function middleware(req: NextRequest) {
   if (path.startsWith("/admin/login")) return NextResponse.next();
   const token = req.cookies.get("mirinae_admin")?.value;
   if (token === "1") return NextResponse.next();
-  return NextResponse.redirect(new URL("/admin/login", req.url));
+  return NextResponse.redirect(new URL("/admin/login/", req.url));
 }
 
 export const config = { matcher: ["/", "/admin", "/admin/:path*"] };

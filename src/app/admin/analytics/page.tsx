@@ -40,7 +40,7 @@ export default function AdminAnalyticsPage() {
     fetch(`/api/admin/analytics?days=${days}`)
       .then((r) => {
         if (r.status === 401) {
-          window.location.href = "/admin/login";
+          window.location.href = "/admin/login/";
           return null;
         }
         return r.json();

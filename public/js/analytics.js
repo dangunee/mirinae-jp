@@ -3,7 +3,7 @@
  * セッション開始・終了を記録し、admin.mirinae.jp の API に送信
  */
 (function () {
-  var API_BASE = "https://admin.mirinae.jp";
+  var API_BASE = "";
   var STORAGE_KEY = "mirinae_analytics_session";
 
   function getSessionId() {

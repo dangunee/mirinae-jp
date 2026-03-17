@@ -71,6 +71,20 @@ export default function AdminPage() {
         >
           講座スケジュール
         </a>
+        <a
+          href="/admin/analytics"
+          style={{
+            display: "inline-block",
+            padding: "12px 20px",
+            background: "#2c2c2c",
+            color: "#fff",
+            borderRadius: 8,
+            textDecoration: "none",
+            fontWeight: 500,
+          }}
+        >
+          アクセス解析
+        </a>
       </p>
       <ul style={{ listStyle: "none", padding: 0 }}>
         {PAGES.map((p) => (

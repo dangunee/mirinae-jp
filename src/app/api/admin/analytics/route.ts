@@ -34,10 +34,22 @@ export async function GET(request: NextRequest) {
     const since = new Date();
     since.setDate(since.getDate() - Math.min(Math.max(days, 1), 365));
 
-    const { data: rows, error } = await supabase
+    const dateCol = "created_at";
+    let { data: rows, error } = await supabase
       .from("homepage_analytics")
-      .select("referrer_domain, referrer, source_type, source_media, country, region, page_path, duration_seconds, started_at")
-      .gte("started_at", since.toISOString());
+      .select("referrer_domain, referrer, source_type, source_media, country, region, page_path, duration_seconds, created_at")
+      .gte("created_at", since.toISOString());
+
+    if (error) {
+      const fallback = await supabase
+        .from("homepage_analytics")
+        .select("referrer_domain, referrer, source_type, source_media, country, region, page_path, duration_seconds, started_at")
+        .gte("started_at", since.toISOString());
+      if (!fallback.error) {
+        rows = fallback.data;
+        error = null;
+      }
+    }
 
     if (error) {
       console.error("[admin/analytics]", error);
@@ -55,8 +67,8 @@ export async function GET(request: NextRequest) {
         refAgg[domain].totalDuration += r.duration_seconds;
         refAgg[domain].withDuration++;
       }
-      if (r.started_at) {
-        const at = r.started_at;
+      const at = r.created_at ?? (r as { started_at?: string }).started_at;
+      if (at) {
         if (!refAgg[domain].latestAt || at > refAgg[domain].latestAt!) {
           refAgg[domain].latestAt = at;
           refAgg[domain].latestReferrer = r.referrer && r.referrer.startsWith("http") ? r.referrer : null;

@@ -46,7 +46,7 @@ export async function GET(request: NextRequest) {
         .select("referrer_domain, referrer, source_type, source_media, country, region, page_path, duration_seconds, started_at")
         .gte("started_at", since.toISOString());
       if (!fallback.error) {
-        rows = fallback.data;
+        rows = fallback.data as unknown as typeof rows;
         error = null;
       }
     }

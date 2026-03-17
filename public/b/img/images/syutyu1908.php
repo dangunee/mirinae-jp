@@ -720,9 +720,9 @@
 
 
 <!-- BEGIN HEADER -->
-		<div id="logo1"> <a href="index.html" target="_top"><img src="img/logo5.png" alt="business logo" /></a>
+		<div id="logo1"> <a href="index.html" target="_top"><img src="/b/img/logo5.png" alt="business logo" /></a>
 		</div>	  <div id="logo2">
-		<img style="margin-bottom:9px;margin-right:0px;" src="img/logo4.png" alt="business logo" /><br>
+		<img style="margin-bottom:9px;margin-right:0px;" src="/b/img/logo4.png" alt="business logo" /><br>
 		<a href="about.php?class=about"><b>会社概要・口座</b></a>
 		<a href="about.php?class=shinjuku"><b>｜アクセス</b></a>
 		<a href="about.php?class=teacher"><b>｜講師</b></a>
@@ -735,10 +735,10 @@
 		<span class="clear"></span>
 <!-- BEGIN PAGE -->	<div id="page">		
 	<!-- BEGIN NAVIGATION -->
-					 <ul id="menu">	<li><a href="index.html"><img src="img/images/navi_01.png" alt=""/></a></li>
+					 <ul id="menu">	<li><a href="index.html"><img src="/b/img/images/navi_01.png" alt=""/></a></li>
 
 	  <li>
-		    <a href="#"><img src="img/images/navi_02.png" alt=""/></a>
+		    <a href="#"><img src="/b/img/images/navi_02.png" alt=""/></a>
 		<ul>
             <li><a href="kojin.php?class=textbook">レベルと進み方</a></li>
 			<li><a href="kojin.php?class=kojin">個人レッスン</a></li>
@@ -751,7 +751,7 @@
 		</ul>
 		</li>
     
-    	<li><a href="#"><img src="img/images/navi_03.png" alt=""/></a>
+    	<li><a href="#"><img src="/b/img/images/navi_03.png" alt=""/></a>
    	  <ul>	
       　　　　　<li><a href="http://mirinae.jp/trial.php?class=month">開講中のグループ講座</a></li>  
 				<li><a href="group.php?class=nyumon">入門｜ハングル6週間コース</a></li>
@@ -765,7 +765,7 @@
 			</li>
 			
   <li>
-				<a href="#"><img src="img/images/navi_04.png" alt=""/></a>
+				<a href="#"><img src="/b/img/images/navi_04.png" alt=""/></a>
 				<ul>
 				<li><a href="kaiwa.php?class=beginner">初心者会話トレーニング</a></li>
 				<li><a href="kaiwa.php?class=syokyu">初級会話トレーニング</a></li>
@@ -776,7 +776,7 @@
 		</li>
 		 
 		<li>
-		<a href="#"><img src="img/images/navi_05.png" alt=""/></a>
+		<a href="#"><img src="/b/img/images/navi_05.png" alt=""/></a>
 		<ul>
 			<li><a href="special.php?class=topik">TOPIK対策講座</a></li>
 			  <li><a href="special.php?class=hanken">ハングル検定対策</a></li>	
@@ -795,7 +795,7 @@
             <li><a href="tokubetsunew.php?class=dang">タングニのリーディング</a></li>-->
 		</ul>
 		</li>
-      <li><a href="#"><img src="img/images/navi_06.png" alt=""/></a>
+      <li><a href="#"><img src="/b/img/images/navi_06.png" alt=""/></a>
     	<ul>
 			<li><a href="syutyu.php?class=nyumon">入門クラス</a></li>
             <li><a href="syutyu.php?class=syokyua">初級Aクラス</a></li>
@@ -808,7 +808,7 @@
 	</li>  
       <li>
 
-		<a href="#"><img src="img/images/navi_07.png" alt=""/></a>
+		<a href="#"><img src="/b/img/images/navi_07.png" alt=""/></a>
 		<ul>
 		     <li><a href="castigation.php?class=writing">作文トレーニング</a></li>
 			 <li><a href="castigation.php?class=netondoku">通信音読トレーニング</a></li>
@@ -822,7 +822,7 @@
 
         <li>
 
-		<a href="#"><img src="img/images/navi_08.png" alt=""/></a>	
+		<a href="#"><img src="/b/img/images/navi_08.png" alt=""/></a>	
         <ul>
 			
 			 <li><a href="trial.php?class=trial">お申し込み</a></li>
@@ -944,11 +944,11 @@
 					<hr>   
                     </span></b>
 
-			 				   <img style="margin-top:10px;" src="img/1701-shin1.jpg" alt="" />&nbsp;&nbsp;&nbsp;&nbsp;
+			 				   <img style="margin-top:10px;" src="/b/img/1701-shin1.jpg" alt="" />&nbsp;&nbsp;&nbsp;&nbsp;
 							   <br><p>新宿教室の授業の様子</p>
-                               <img style="margin-top:10px;" src="img/1701-nipp1.jpg" alt="" /><br>
+                               <img style="margin-top:10px;" src="/b/img/1701-nipp1.jpg" alt="" /><br>
 							   <p>日暮里教室の授業の様子</p>
-				   <img style="margin-top:10px;" src="img/1703-point.png" alt="" /><br>
+				   <img style="margin-top:10px;" src="/b/img/1703-point.png" alt="" /><br>
              
 							   <img style="margin-top:10px;" src="http://www.mirinae.jp/picture/classroom/new2/syutyu.jpg" alt="">&nbsp;&nbsp;&nbsp;&nbsp;
                                 <img style="margin-top:10px;" src="http://www.mirinae.jp/picture/classroom/new2/syutyu2.jpg" alt="" /><br>
@@ -1017,14 +1017,14 @@
 							
     <!-- tabs #1 content START here -->
                             <div id="nyumon" class="ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide">
-                                <img style="margin-top: 15px; margin-left: 5px; opacity: 0.9704403844771128;" src="img/toku.jpg" width="595" height="42" alt="">
+                                <img style="margin-top: 15px; margin-left: 5px; opacity: 0.9704403844771128;" src="/b/img/toku.jpg" width="595" height="42" alt="">
                                 <div id="moreserv">
 
 
      <a name="nyumon"></a>
  <b> <font color="#990000">初めてハングル文字に接する方のための講座<br>
 	 読み方、書き方から基本会話まで丁寧に指導します。</font></b>
-	 <!--   <img src="img/1707-new.png" width="550px" border="0" />-->
+	 <!--   <img src="/b/img/1707-new.png" width="550px" border="0" />-->
      
    <hr><b><p>❶ 2日間で入門を終わらせます！<br />
    ❷ ハングルの読み書きからよく使う文法までをマスターします。<br>（～です・ます、～したい、～くださいなど）<br />
@@ -1035,7 +1035,7 @@
 								</div>
                               <br>
     <div class="clear"></div>
-    <img style="margin-bottom:-20px; margin-left:5px;" src="img/syosai.jpg" width="595" height="42" alt=""><br>
+    <img style="margin-bottom:-20px; margin-left:5px;" src="/b/img/syosai.jpg" width="595" height="42" alt=""><br>
 	<table width="91%" class="table table-bordered table-striped">
 	
 
@@ -1223,11 +1223,11 @@
     
     <div class="clear"></div>
    
-                    <img style="margin-bottom:10px; margin-left:5px;" src="img/hoka.jpg" width="595" height="42" alt=""/>
+                    <img style="margin-bottom:10px; margin-left:5px;" src="/b/img/hoka.jpg" width="595" height="42" alt=""/>
                     <p align="left"><code>&nbsp;キャンセル料・中途解約等➤</code>
 					<a href="http://www.mirinae.jp/cancel.php?class=syutyu" class="btn btn-primary"><font color="#fff">その他手続きはクリックしてください</font></a></p>
                    
-                       <img style="margin-bottom:10px; margin-left:5px;" src="img/koe2.jpg" width="595" height="42" alt=""/>
+                       <img style="margin-bottom:10px; margin-left:5px;" src="/b/img/koe2.jpg" width="595" height="42" alt=""/>
 
 
 
@@ -1571,14 +1571,14 @@
 
 <!-- tabs #1-2 content START here -->
                             <div id="syokyu1" class="ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide">
-                                <img style="margin-top:-15px; margin-left: 5px; opacity: 0.9704403844771128;" src="img/toku.jpg" width="595" height="42" alt="">
+                                <img style="margin-top:-15px; margin-left: 5px; opacity: 0.9704403844771128;" src="/b/img/toku.jpg" width="595" height="42" alt="">
                                 <div id="moreserv">
 
 
    <font color="#663399" size="+1"><b>初級Ⅰクラス</b></font>
      <p align="left"><b> <font color="#990000">読んでみよう、韓国語初級読解コース</font></b><br>
 	
-									<!--<br><img src="img/1707-new.png" width="550px" border="0">-->	
+									<!--<br><img src="/b/img/1707-new.png" width="550px" border="0">-->	
                                     <hr>
                                    ❶ 初級から一歩進んで、少し長めの文章を読んで話します。<br />
 ❷ 徹底音読プログラムで発音チェックし、矯正します。<br />
@@ -1591,7 +1591,7 @@
 								</div>
                                 <br>
     <div class="clear"></div>
-    <img style="margin-bottom:-20px; margin-left:5px;" src="img/syosai.jpg" width="595" height="42" alt=""><br>
+    <img style="margin-bottom:-20px; margin-left:5px;" src="/b/img/syosai.jpg" width="595" height="42" alt=""><br>
 	<table width="91%" class="table table-bordered table-striped">
 	
 
@@ -1785,11 +1785,11 @@
                       
 		    </table>
 			       
-                    <img style="margin-bottom:10px; margin-left:5px;" src="img/hoka.jpg" width="595" height="42" alt=""/>
+                    <img style="margin-bottom:10px; margin-left:5px;" src="/b/img/hoka.jpg" width="595" height="42" alt=""/>
                     <p align="left"><code>&nbsp;キャンセル料・中途解約等➤</code>
 					<a href="http://www.mirinae.jp/cancel.php?class=syutyu" class="btn btn-primary"><font color="#fff">その他手続きはクリックしてください</font></a></p>
                    
-                       <img style="margin-bottom:10px; margin-left:5px;" src="img/koe2.jpg" width="595" height="42" alt=""/>
+                       <img style="margin-bottom:10px; margin-left:5px;" src="/b/img/koe2.jpg" width="595" height="42" alt=""/>
 
 
 
@@ -2396,7 +2396,7 @@ GWの発音の講座興味はあるのですが、日程が長いので検討中
 
                             <!-- tabs #2 content START here -->
                             <div id="syokyu2" class="ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide">
-                                <img style="margin-top:-15px; margin-left:5px;" src="img/toku.jpg" width="595" height="42" alt="">
+                                <img style="margin-top:-15px; margin-left:5px;" src="/b/img/toku.jpg" width="595" height="42" alt="">
                                 <div id="moreserv">
                                     <a name="syokyub"></a>
                                      <font color="#663399" size="+1"><b>初級2クラス</b></font>
@@ -2410,12 +2410,12 @@ GWの発音の講座興味はあるのですが、日程が長いので検討中
 									</font></b>
                                     </p>
 
-<!--									<br><img src="img/1703-syo.png" width="550px" border="0"> 
+<!--									<br><img src="/b/img/1703-syo.png" width="550px" border="0"> 
 
                                     <hr>-->
                                 </div>
                                 <div class="clear"></div>
-                                <img style="margin-bottom:10px; margin-left:5px;" src="img/syosai.jpg" width="595" height="42" alt="" />
+                                <img style="margin-bottom:10px; margin-left:5px;" src="/b/img/syosai.jpg" width="595" height="42" alt="" />
                               <div class="clear"></div>
 
 
@@ -2579,11 +2579,11 @@ GWの発音の講座興味はあるのですが、日程が長いので検討中
                       
 		    </table>
 			       
-                    <img style="margin-bottom:10px; margin-left:5px;" src="img/hoka.jpg" width="595" height="42" alt=""/>
+                    <img style="margin-bottom:10px; margin-left:5px;" src="/b/img/hoka.jpg" width="595" height="42" alt=""/>
                     <p align="left"><code>&nbsp;キャンセル料・中途解約等➤</code>
 					<a href="http://www.mirinae.jp/cancel.php?class=syutyu" class="btn btn-primary"><font color="#fff">その他手続きはクリックしてください</font></a></p>
                    
-                       <img style="margin-bottom:10px; margin-left:5px;" src="img/koe2.jpg" width="595" height="42" alt=""/>
+                       <img style="margin-bottom:10px; margin-left:5px;" src="/b/img/koe2.jpg" width="595" height="42" alt=""/>
                                 <div class="clear"></div>
 
                                 <h3>&nbsp;</h3>
@@ -3195,7 +3195,7 @@ GWの発音の講座興味はあるのですが、日程が長いので検討中
 
                             <!-- tabs #3 content START here -->
                             <div id="tyukyu1" class="ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide">
-                              <img style="margin-top:-15px; margin-left:5px;" src="img/toku.jpg" width="595" height="42" alt="" />
+                              <img style="margin-top:-15px; margin-left:5px;" src="/b/img/toku.jpg" width="595" height="42" alt="" />
                           <div id="moreserv">
 
 
@@ -3207,7 +3207,7 @@ GWの発音の講座興味はあるのですが、日程が長いので検討中
                                     </p>
                                     <hr>
 
-								<!--	<br><img src="img/1703-inter.png" width="550px" border="0">  -->
+								<!--	<br><img src="/b/img/1703-inter.png" width="550px" border="0">  -->
 							<p>
 									<font color="red"><b>❶中級発音をマスターします。<br />	
 									❷中級者が使うべき表現を習得します。	<br />
@@ -3237,7 +3237,7 @@ GWの発音の講座興味はあるのですが、日程が長いので検討中
                             </p>
                               </div>
                                 <div class="clear"></div>
-                                <img style="margin-bottom:10px; margin-left:5px;" src="img/syosai.jpg" width="595" height="42" alt="">
+                                <img style="margin-bottom:10px; margin-left:5px;" src="/b/img/syosai.jpg" width="595" height="42" alt="">
                                 <div class="clear"></div>
 								
                                 <table class="table table-bordered table-striped">
@@ -3438,14 +3438,14 @@ GWの発音の講座興味はあるのですが、日程が長いので検討中
 
     <hr>
 
-    <img style="margin-bottom:10px; margin-left:5px;" src="img/hoka.jpg" width="595" height="42" alt="">
+    <img style="margin-bottom:10px; margin-left:5px;" src="/b/img/hoka.jpg" width="595" height="42" alt="">
     <p align="left"><code>■&nbsp;集中講座の手続とキャンセル等 </code> </p> 
 	
     <hr>
     <a href="etc3.html" class="btn btn-primary"><font color="#fff">キャンセル等の手続はクリックしてください</font></a>	<br><br>
 
     <hr>
-    <img style="margin-bottom:10px; margin-left:5px;" src="img/koe2.jpg" width="595" height="42" alt="">
+    <img style="margin-bottom:10px; margin-left:5px;" src="/b/img/koe2.jpg" width="595" height="42" alt="">
         <div class="clear"></div>
 
     <div class="smallcol11">
@@ -4382,7 +4382,7 @@ TOPIKⅡに申し込んだものの具体的に過去問ものぞいた事もな
 
             <!-- tabs #4 content START here -->
             <div id="joukyu1" class="ui-tabs-panel ui-widget-content ui-corner-bottom">
-              <img style="margin-top:-15px; margin-left:5px;" src="img/toku.jpg" width="595" height="42" alt="">
+              <img style="margin-top:-15px; margin-left:5px;" src="/b/img/toku.jpg" width="595" height="42" alt="">
 				<div id="moreserv">
                     <a name="joukyu"></a>
 					
@@ -4396,7 +4396,7 @@ TOPIKⅡに申し込んだものの具体的に過去問ものぞいた事もな
                 </div>
 								
         <div class="clear"></div>
-        <img style="margin-bottom:10px; margin-left:5px;" src="img/syosai.jpg" width="595" height="42" alt="">
+        <img style="margin-bottom:10px; margin-left:5px;" src="/b/img/syosai.jpg" width="595" height="42" alt="">
 		<div class="clear"></div>
         <table class="table table-bordered table-striped">
                                   <tbody>
@@ -4557,12 +4557,12 @@ TOPIKⅡに申し込んだものの具体的に過去問ものぞいた事もな
                                   
                                    
 			       
-        <img style="margin-bottom:10px; margin-left:5px;" src="img/hoka.jpg" width="595" height="42" alt=""/>
+        <img style="margin-bottom:10px; margin-left:5px;" src="/b/img/hoka.jpg" width="595" height="42" alt=""/>
         <p align="left"><code>&nbsp;キャンセル料・中途解約等➤</code>
 		<a href="http://www.mirinae.jp/cancel.php?class=syutyu" class="btn btn-primary"><font color="#fff">その他手続きはクリックしてください</font></a></p>
                    
 		<hr>
-    <img style="margin-bottom:10px; margin-left:5px;" src="img/koe2.jpg" width="595" height="42" alt="">
+    <img style="margin-bottom:10px; margin-left:5px;" src="/b/img/koe2.jpg" width="595" height="42" alt="">
         <div class="clear"></div>
 
     <div class="smallcol11">
@@ -5191,7 +5191,7 @@ TOPIKという試験の目標を持つことで、よりシャープな学びの
                               <!-- tabs #4 content END here -->
 							   <!-- tabs #5 content START here -->
             <div id="zyokyu2" class="ui-tabs-panel ui-widget-content ui-corner-bottom">
-              <img style="margin-top:-15px; margin-left:5px;" src="img/toku.jpg" width="595" height="42" alt="">
+              <img style="margin-top:-15px; margin-left:5px;" src="/b/img/toku.jpg" width="595" height="42" alt="">
 				<div id="moreserv">
                     <a name="native"></a>
 					
@@ -5206,7 +5206,7 @@ TOPIKという試験の目標を持つことで、よりシャープな学びの
 									■ ラジオドラマの一部分を聴いて、会話中の自然な韓国語を身につけます。</div>
 								
         <div class="clear"></div>
-        <img style="margin-bottom:10px; margin-left:5px;" src="img/syosai.jpg" width="595" height="42" alt="">
+        <img style="margin-bottom:10px; margin-left:5px;" src="/b/img/syosai.jpg" width="595" height="42" alt="">
 		<div class="clear"></div>
         <table class="table table-bordered table-striped">
                                   <tbody>
@@ -5378,12 +5378,12 @@ TOPIKという試験の目標を持つことで、よりシャープな学びの
                                   
                                    
 			       
-        <img style="margin-bottom:10px; margin-left:5px;" src="img/hoka.jpg" width="595" height="42" alt=""/>
+        <img style="margin-bottom:10px; margin-left:5px;" src="/b/img/hoka.jpg" width="595" height="42" alt=""/>
         <p align="left"><code>&nbsp;キャンセル料・中途解約等➤</code>
 		<a href="http://www.mirinae.jp/cancel.php?class=syutyu" class="btn btn-primary"><font color="#fff">その他手続きはクリックしてください</font></a></p>
                    
 		<hr>
-    <img style="margin-bottom:10px; margin-left:5px;" src="img/koe2.jpg" width="595" height="42" alt="">
+    <img style="margin-bottom:10px; margin-left:5px;" src="/b/img/koe2.jpg" width="595" height="42" alt="">
         <div class="clear"></div>
 
     <div class="smallcol11">
@@ -5997,7 +5997,7 @@ TOPIKという試験の目標を持つことで、よりシャープな学びの
 			
 		<div class="padd30">
               
-             <img src="img/news.jpg" alt=""/>
+             <img src="/b/img/news.jpg" alt=""/>
 
 			  <ul class="news">
 
@@ -6097,23 +6097,23 @@ TOPIKという試験の目標を持つことで、よりシャープな学びの
 				
 			</div>
 	
-			<a href="koefirst.html" target="_blank"><img style="margin-left:10px;" src="img/koebnr.jpg" alt=""/></a>
+			<a href="koefirst.html" target="_blank"><img style="margin-left:10px;" src="/b/img/koebnr.jpg" alt=""/></a>
 			<div class="padd30">			
 			<b>【個人レッスン】 T 様</b>&nbsp;<br>
 				発音を矯正してもらい、発音がよくなり、また独学で勉強をしていて曖昧な部分がはっきり分かるようになり実力が以前に比べ、かなり上がったと実感しています。...
 				<a href="koeall1.html#kojinkoe" target="_top">（つづきは…）</a>		
 			</div>
 
-			<a href="http://mirinae.jp/blog/" target="_blank"><img style="margin-left:10px;" src="img/miri.jpg" alt=""/></a> 
+			<a href="http://mirinae.jp/blog/" target="_blank"><img style="margin-left:10px;" src="/b/img/miri.jpg" alt=""/></a> 
 
 			<div class="padd10">
 				<div id="includedContent"></div>
 			</div>  
 			<a href="https://www.facebook.com/mirinaejp" target="_blank">
-			<img style="margin-left:10px;" src="img/fb.jpg" alt=""/></a>
+			<img style="margin-left:10px;" src="/b/img/fb.jpg" alt=""/></a>
 			<br>
 					
-     		<a href="https://twitter.com/anitrue" target="_blank"><img style="margin-left:10px;" src="img/tw.jpg" alt=""/></a>					
+     		<a href="https://twitter.com/anitrue" target="_blank"><img style="margin-left:10px;" src="/b/img/tw.jpg" alt=""/></a>					
 
 		<!-- 세로형 구글 광고 -->
 		<br><br>

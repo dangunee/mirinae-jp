@@ -276,9 +276,9 @@
 	<div id="wrapper"><br>
 	
 <!-- BEGIN HEADER -->
-		<div id="logo1"> <a href="index.html" target="_top"><img src="img/logo5.png" alt="business logo" /></a>
+		<div id="logo1"> <a href="index.html" target="_top"><img src="/b/img/logo5.png" alt="business logo" /></a>
 		</div>	  <div id="logo2">
-		<img style="margin-bottom:9px;margin-right:0px;" src="img/logo4.png" alt="business logo" /><br>
+		<img style="margin-bottom:9px;margin-right:0px;" src="/b/img/logo4.png" alt="business logo" /><br>
 		<a href="about.php?class=about"><b>会社概要・口座</b></a>
 		<a href="about.php?class=shinjuku"><b>｜アクセス</b></a>
 		<a href="about.php?class=teacher"><b>｜講師</b></a>
@@ -291,9 +291,9 @@
 		<span class="clear"></span>
 <!-- BEGIN PAGE -->	<div id="page">		
 <!-- BEGIN NAVIGATION -->
-					 <ul id="menu">	<li><a href="index.html"><img src="img/images/navi_01.png" alt=""/></a></li>
+					 <ul id="menu">	<li><a href="index.html"><img src="/b/img/images/navi_01.png" alt=""/></a></li>
 
-		<li><a href="#"><img src="img/images/navi_02.png" alt=""/></a>
+		<li><a href="#"><img src="/b/img/images/navi_02.png" alt=""/></a>
 		  <ul>
 
 			<li><a href="kojin.php?class=kojin">個人レッスン</a></li>
@@ -306,7 +306,7 @@
 		</li>
     
     	<li>
-				<a href="#"><img src="img/images/navi_03.png" alt=""/></a>
+				<a href="#"><img src="/b/img/images/navi_03.png" alt=""/></a>
 				<ul>
                 <li><a href="http://mirinae.jp/trial.php?class=month">開講中のグループ講座</a></li>   
 				<li><a href="group.php?class=nyumon">入門｜ハングル6週間コース</a></li>
@@ -319,7 +319,7 @@
 			</li>
 			
 		<li>
-				<a href="#"><img src="img/images/navi_04.png" alt=""/></a>
+				<a href="#"><img src="/b/img/images/navi_04.png" alt=""/></a>
 				<ul>
 				<li><a href="kaiwa.php?class=beginner">初心者会話トレーニング</a></li>
 				<li><a href="kaiwa.php?class=syokyu">初級会話トレーニング</a></li>
@@ -330,7 +330,7 @@
 		</li>
 		 
 		<li>
-		<a href="#"><img src="img/images/navi_05.png" alt=""/></a>
+		<a href="#"><img src="/b/img/images/navi_05.png" alt=""/></a>
 		<ul>
 			<li><a href="special.php?class=topik">TOPIK対策講座</a></li>
 		<!--<li><a href="special.php?class=writing">グループ作文</a></li>-->		
@@ -346,7 +346,7 @@
 		</ul>
 		</li>
     
-    <li><a href="#"><img src="img/images/navi_06.png" alt=""/></a>
+    <li><a href="#"><img src="/b/img/images/navi_06.png" alt=""/></a>
       <ul>
 		  <!--<li><a href="http://mirinae.jp/oneday.php?class=nyumons">入門1日レッスン</a></li>
           <li><a href="http://mirinae.jp/oneday.php?class=syokyus">初級1日レッスン</a></li>-->
@@ -360,7 +360,7 @@
     
       <li>
 
-		<a href="#"><img src="img/images/navi_07.png" alt=""/></a>
+		<a href="#"><img src="/b/img/images/navi_07.png" alt=""/></a>
 		<ul>
 		     <li><a href="castigation.php?class=writing">作文トレーニング</a></li>
 			 <li><a href="castigation.php?class=netondoku">通信音読トレーニング</a></li>
@@ -374,7 +374,7 @@
 
         <li>
 
-		<a href="#"><img src="img/images/navi_08.png" alt=""/></a>	
+		<a href="#"><img src="/b/img/images/navi_08.png" alt=""/></a>	
         <ul>
 			
 			 <li><a href="trial.php?class=trial">お申し込み</a></li>
@@ -408,7 +408,7 @@
 			
 		<div class="padd30">
               
-             <img src="img/news.jpg" alt=""/>
+             <img src="/b/img/news.jpg" alt=""/>
 
 			  <ul class="news">
 
@@ -438,23 +438,23 @@
 				
 			</div>
 	
-			<a href="koefirst.html" target="_blank"><img style="margin-left:10px;" src="img/koebnr.jpg" alt=""/></a>
+			<a href="koefirst.html" target="_blank"><img style="margin-left:10px;" src="/b/img/koebnr.jpg" alt=""/></a>
 			<div class="padd30">			
 			<b>【個人レッスン】 T 様</b>&nbsp;<br>
 				発音を矯正してもらい、発音がよくなり、また独学で勉強をしていて曖昧な部分がはっきり分かるようになり実力が以前に比べ、かなり上がったと実感しています。...
 				<a href="koeall1.html#kojinkoe" target="_top">（つづきは…）</a>		
 			</div>
 
-			<a href="http://mirinae.jp/blog/" target="_blank"><img style="margin-left:10px;" src="img/miri.jpg" alt=""/></a> 
+			<a href="http://mirinae.jp/blog/" target="_blank"><img style="margin-left:10px;" src="/b/img/miri.jpg" alt=""/></a> 
 
 			<div class="padd10">
 				<div id="includedContent"></div>
 			</div>  
 			<a href="https://www.facebook.com/mirinaejp" target="_blank">
-			<img style="margin-left:10px;" src="img/fb.jpg" alt=""/></a>
+			<img style="margin-left:10px;" src="/b/img/fb.jpg" alt=""/></a>
 			<br>
 					
-     		<a href="https://twitter.com/anitrue" target="_blank"><img style="margin-left:10px;" src="img/tw.jpg" alt=""/></a>					
+     		<a href="https://twitter.com/anitrue" target="_blank"><img style="margin-left:10px;" src="/b/img/tw.jpg" alt=""/></a>					
 
 		<!-- 세로형 구글 광고 -->
 		<br><br>
@@ -502,7 +502,7 @@
                   <!-- tabs #1 content START here -->
 					      <div id="korea" class="ui-tabs-panel ui-widget-content ui-corner-bottom">
 
-              <img style="margin-top:15px; margin-left:5px;" src="img/toku.jpg" width="595" height="42" alt=""/>
+              <img style="margin-top:15px; margin-left:5px;" src="/b/img/toku.jpg" width="595" height="42" alt=""/>
 <div id="moreserv">
 
 
@@ -620,7 +620,7 @@
                     <hr />
                     
                            
-                       <img style="margin-bottom:10px; margin-left:5px;" src="img/rivew2015.jpg" width="800" alt="50"/>
+                       <img style="margin-bottom:10px; margin-left:5px;" src="/b/img/rivew2015.jpg" width="800" alt="50"/>
 
 			        <div class="smallcol11">
 			          <div class="padd20" margin-left:250px>
@@ -720,7 +720,7 @@
                   <!-- tabs #2 content START here -->
 
 				 <div id="japan" class="ui-tabs-panel ui-widget-content ui-corner-bottom">
-                            <img style="margin-top:15px; margin-left:5px;" src="img/toku.jpg" width="595" height="42" alt=""/>
+                            <img style="margin-top:15px; margin-left:5px;" src="/b/img/toku.jpg" width="595" height="42" alt=""/>
 <div id="moreserv">
 	            
 <p align="left"> ﻿ ﻿<b>
@@ -901,7 +901,7 @@
                                 </tr>
                               </table>
                            
-                       <img style="margin-bottom:10px; margin-left:5px;" src="img/rivew2015.jpg" width="800" alt="50"/>
+                       <img style="margin-bottom:10px; margin-left:5px;" src="/b/img/rivew2015.jpg" width="800" alt="50"/>
                    
                      
                     
@@ -1009,7 +1009,7 @@
                    <!-- tabs #3 content START here -->
   <div id="hanken45" class="ui-tabs-panel ui-widget-content ui-corner-bottom">
 
-                            <img style="margin-top:15px; margin-left:5px;" src="img/toku.jpg" width="595" height="42" alt=""/>
+                            <img style="margin-top:15px; margin-left:5px;" src="/b/img/toku.jpg" width="595" height="42" alt=""/>
 
  <div id="moreserv">    
 	 <p><b>日本で受験できる韓国語の検定試験、「ハングル能力」検定試験(ハン検)の最新出題範囲(2016年2月発表)に対応した例文付き単語集。</b><br></b></p>
@@ -1041,7 +1041,7 @@
                    <!-- tabs #4 content START here -->
   <div id="hanken3" class="ui-tabs-panel ui-widget-content ui-corner-bottom">
 
-                            <img style="margin-top:15px; margin-left:5px;" src="img/toku.jpg" width="595" height="42" alt=""/>
+                            <img style="margin-top:15px; margin-left:5px;" src="/b/img/toku.jpg" width="595" height="42" alt=""/>
 
                                                               <div id="moreserv">    
 	 <p><b>hanaの韓国語単語〈初中級編〉ハン検3級レベル CD-ROM付き </b><br></b></p>

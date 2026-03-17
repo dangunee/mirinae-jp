@@ -20,7 +20,7 @@ function LoginForm() {
       {message && (
         <p style={{ color: "#c00", marginBottom: 16, fontSize: 14 }}>{message}</p>
       )}
-      <form method="post" action="/api/admin/login">
+      <form method="post" action="/api/admin/login/">
         <label style={{ display: "block", marginBottom: 8, fontSize: 14 }}>
           パスワード
         </label>

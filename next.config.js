@@ -12,6 +12,15 @@ const nextConfig = {
       { source: "/quiz/:path*", destination: "https://quiz.mirinae.jp/:path*" },
       { source: "/ondoku", destination: "https://ondoku.mirinae.jp" },
       { source: "/ondoku/:path*", destination: "https://ondoku.mirinae.jp/:path*" },
+      // blog (mirinae.hippy.jp) - beforeFiles로 Next.js 404 방지
+      { source: "/blog", destination: "https://mirinae.hippy.jp/blog" },
+      { source: "/blog/", destination: "https://mirinae.hippy.jp/blog/" },
+      { source: "/blog/manage", destination: "https://mirinae.hippy.jp/blog/wp-admin" },
+      { source: "/blog/manage/", destination: "https://mirinae.hippy.jp/blog/wp-admin/" },
+      { source: "/blog/manage/:path*", destination: "https://mirinae.hippy.jp/blog/wp-admin/:path*" },
+      { source: "/blog/manage-login", destination: "https://mirinae.hippy.jp/blog/wp-login.php" },
+      { source: "/blog/:path*", destination: "https://mirinae.hippy.jp/blog/:path*" },
+      { source: "/wordpress/:path*", destination: "https://mirinae.hippy.jp/wordpress/:path*" },
     ];
     const htmlRoutes = [
       { source: "/", destination: "/index.html" },

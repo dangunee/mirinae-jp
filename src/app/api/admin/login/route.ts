@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
-  const password = process.env.ADMIN_PASSWORD;
+  const password = (process.env.ADMIN_PASSWORD ?? "").trim();
   if (!password) {
     return NextResponse.json({ ok: false, error: "config" }, { status: 400 });
   }
@@ -9,10 +9,10 @@ export async function POST(req: NextRequest) {
   let submitted = "";
   if (contentType.includes("application/json")) {
     const body = await req.json().catch(() => ({}));
-    submitted = (body?.password as string) ?? "";
+    submitted = String((body?.password as string) ?? "").trim();
   } else {
     const form = await req.formData().catch(() => null);
-    submitted = (form?.get("password") as string) ?? "";
+    submitted = String((form?.get("password") as string) ?? "").trim();
   }
   if (submitted !== password) {
     return NextResponse.json({ ok: false, error: "invalid" }, { status: 401 });

@@ -1,3 +1,5 @@
+import Script from "next/script";
+
 const MIRINAE_SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://mirinae.jp";
 
 export const metadata = {
@@ -24,6 +26,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="ja">
       <body style={{ margin: 0, fontFamily: "'Noto Sans JP', sans-serif", background: "#f5f5f5" }}>
         {children}
+        <Script src="/js/analytics.js" strategy="afterInteractive" />
       </body>
     </html>
   );

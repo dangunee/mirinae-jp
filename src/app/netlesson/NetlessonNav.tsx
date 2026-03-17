@@ -89,6 +89,8 @@ export default function NetlessonNav() {
           white-space: nowrap;
         }
         .netlesson-nav .nav-links a:hover { background: var(--gold-pale); color: var(--gold); }
+        .netlesson-nav .nav-cta { background: var(--gold) !important; color: white !important; border-radius: 6px !important; font-weight: 700 !important; padding: 8px 16px !important; }
+        .netlesson-nav .nav-cta:hover { background: var(--gold-light) !important; color: white !important; }
         .netlesson-nav .nav-links .nav-dropdown {
           position: absolute;
           top: 100%;
@@ -188,7 +190,7 @@ export default function NetlessonNav() {
           </li>
           <li><a href="/about" onClick={() => setOpen(false)}>会社概要</a></li>
           <li><a href="/about#tab02" onClick={() => setOpen(false)}>アクセス</a></li>
-          <li><a href="/trial" onClick={() => setOpen(false)}>お申込み</a></li>
+          <li><a href="/trial" className="nav-cta" onClick={() => setOpen(false)}>お申込み</a></li>
           <li><a href="/about#tab03" onClick={() => setOpen(false)}>講師</a></li>
           <li><a href="/book" onClick={() => setOpen(false)}>著書</a></li>
           <li><a href="/trial#tab04" onClick={() => setOpen(false)}>お問い合わせ</a></li>

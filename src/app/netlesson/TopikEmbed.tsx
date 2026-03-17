@@ -382,7 +382,7 @@ export default function TopikEmbed() {
       <div className="topik-cta-section">
         <div className="topik-cta-inner">
           <h2>
-            作文力で、<em>4級を突破する。</em>
+            作文力で、<em>TOPIK上級を手に入れる。</em>
           </h2>
           <p>
             週1回のメール添削で、着実にライティング力を磨きましょう。

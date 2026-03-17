@@ -37,6 +37,7 @@
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
+    html, body { overflow-x: hidden; }
     body {
       font-family: 'Noto Sans JP', sans-serif;
       color: var(--text-dark);
@@ -44,7 +45,7 @@
       background: var(--bg);
     }
 
-    .page-wrapper { max-width: 1100px; margin: 0 auto; min-height: 100vh; background: var(--bg); box-shadow: 0 0 40px rgba(0,0,0,0.06); }
+    .page-wrapper { max-width: 1100px; margin: 0 auto; min-height: 100vh; background: var(--bg); box-shadow: 0 0 40px rgba(0,0,0,0.06); overflow-x: hidden; }
     .main-with-sidebar { display: grid; grid-template-columns: 1fr 300px; gap: 32px; align-items: start; }
     @media (max-width: 900px) { .main-with-sidebar { grid-template-columns: 1fr; } .main-with-sidebar .sidebar { display: none; } }
     .sidebar { position: sticky; top: 80px; padding-top: 32px; }
@@ -251,6 +252,8 @@
       .hero::after { display: none; }
       .tabs-bar { padding: 0 12px; }
       .tabs-bar .tab-btn { padding: 10px 12px; font-size: 12px; }
+      .info-banner { padding: 18px 16px; }
+      .form-note-wrap .form-note { min-width: 0; }
     }
 
     .thanks-banner {
@@ -272,7 +275,7 @@
 
     .tab-wrap { margin-bottom: 0; }
 
-    .tab-panel { display: none; padding-top: 32px; }
+    .tab-panel { display: none; padding-top: 32px; min-width: 0; max-width: 100%; }
     .tab-panel.active { display: block; animation: fadeUp 0.3s ease; }
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(8px); }
@@ -286,9 +289,11 @@
       padding: 22px 28px;
       margin-bottom: 28px;
       color: white;
+      min-width: 0;
+      overflow-wrap: break-word;
     }
     .info-banner h2 { font-family: 'Noto Serif JP', serif; font-size: 17px; font-weight: 700; margin-bottom: 14px; letter-spacing: 0.03em; }
-    .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; min-width: 0; }
     @media (max-width: 520px) { .info-grid { grid-template-columns: 1fr; } }
     .info-item {
       background: rgba(255,255,255,0.18);
@@ -297,10 +302,12 @@
       display: flex;
       align-items: flex-start;
       gap: 10px;
+      min-width: 0;
+      overflow-wrap: break-word;
     }
     .info-item .icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
     .info-item .label { font-size: 10px; opacity: 0.75; margin-bottom: 2px; font-weight: 500; letter-spacing: 0.5px; }
-    .info-item .value { font-size: 12.5px; font-weight: 500; line-height: 1.5; }
+    .info-item .value { font-size: 12.5px; font-weight: 500; line-height: 1.5; overflow-wrap: break-word; word-wrap: break-word; min-width: 0; }
 
     /* フォームカード（4タブ共通） */
     .form-card {
@@ -348,6 +355,7 @@
       padding: 24px 28px;
       background: white;
     }
+    @media (max-width: 600px) { .content-inner { padding: 20px 16px; } }
 
     .form-note { font-size: 13px; color: var(--text-muted); margin-bottom: 20px; }
     .form-note-wrap { display: flex; align-items: center; gap: 24px; margin-bottom: 20px; flex-wrap: wrap; }
@@ -477,7 +485,9 @@
     .footer-bottom { text-align: center; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 13px; opacity: 0.8; }
 
     @media (max-width: 600px) {
-      .main-content { padding: 0 18px 40px; }
+      .main-with-sidebar { min-width: 0; }
+      .main-content { padding: 0 16px 40px; min-width: 0; overflow-x: hidden; }
+      .form-card, .content-inner { overflow-x: hidden; min-width: 0; }
       .form-table { table-layout: auto; display: block; }
       .form-table tbody, .form-table tr { display: block; }
       .form-table th, .form-table td { display: block; width: 100%; max-width: none; box-sizing: border-box; }

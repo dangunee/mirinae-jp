@@ -416,6 +416,10 @@
       font-weight: 700;
     }
     .radio-chip label:hover { border-color: var(--gold-light); color: var(--gold); }
+    @media (min-width: 601px) {
+      .trial-type-buttons .radio-chip label { padding: 15px 30px; font-size: 21px; }
+      .trial-type-buttons { gap: 15px; }
+    }
     .radio-chip-single {
       display: inline-block;
       padding: 10px 20px;
@@ -590,7 +594,7 @@
             <input type="hidden" name="_replyto" value="メールアドレス">
             <input type="hidden" name="_url" value="https://www.mirinae.jp/trial.html#tab01">
             <input type="hidden" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
-            <div class="radio-chip-group" style="margin-bottom: 20px;">
+            <div class="radio-chip-group trial-type-buttons" style="margin-bottom: 20px; justify-content: center;">
               <div class="radio-chip">
                 <input type="radio" name="タイトル" id="trial_taiken" value="体験レッスン" checked>
                 <label for="trial_taiken">体験レッスン</label>
@@ -642,7 +646,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <th>メールアドレス<span class="required">必須</span><small>携帯メールの場合はパソコン受信設定のご確認をお願いします。</small></th>
+                  <th>メールアドレス<span class="required">必須</span></th>
                   <td><input type="email" name="メールアドレス" required></td>
                 </tr>
                 <tr>

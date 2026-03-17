@@ -479,8 +479,30 @@
 
     @media (max-width: 600px) {
       .main-content { padding: 0 18px 40px; }
-      .form-table th, .form-table td { display: block; width: 100%; }
-      .form-table th { border-bottom: none; padding-bottom: 4px; }
+      .form-table { table-layout: auto; display: block; }
+      .form-table tbody { display: block; }
+      .form-table tr { display: block; margin-bottom: 16px; border: 1px solid var(--gray-border); border-radius: 8px; overflow: hidden; }
+      .form-table th, .form-table td { display: flex; width: 100%; border: none; padding: 12px 14px; box-sizing: border-box; }
+      .form-table th {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 4px 8px;
+        background: var(--bg);
+        border-bottom: 1px solid var(--gray-border);
+        padding-bottom: 8px;
+      }
+      .form-table th .required,
+      .form-table th .optional { margin-left: 0; flex-shrink: 0; }
+      .form-table th .th-label { flex: 1; min-width: 0; }
+      .form-table th small { display: block; width: 100%; margin-top: 4px; flex-basis: 100%; }
+      .form-table td { flex-direction: column; background: white; padding-top: 8px; min-width: 0; }
+      .form-table td .radio-chip-group { width: 100%; min-width: 0; }
+      .form-table td input,
+      .form-table td select,
+      .form-table td textarea { width: 100%; box-sizing: border-box; }
+      .form-card, .content-inner { overflow-x: visible; }
     }
   </style>
 </head>
@@ -582,7 +604,7 @@
             <table class="form-table">
               <tbody>
                 <tr>
-                  <th>タイトル<span class="required">必須</span></th>
+                  <th><span class="th-label">タイトル</span><span class="required">必須</span></th>
                   <td>
                     <div class="radio-chip-group">
                       <div class="radio-chip">
@@ -597,15 +619,15 @@
                   </td>
                 </tr>
                 <tr>
-                  <th>お名前<span class="required">必須</span></th>
+                  <th><span class="th-label">お名前</span><span class="required">必須</span></th>
                   <td><input type="text" name="お名前" required></td>
                 </tr>
                 <tr>
-                  <th>ふりがな<span class="required">必須</span></th>
+                  <th><span class="th-label">ふりがな</span><span class="required">必須</span></th>
                   <td><input type="text" name="ふりがな" required></td>
                 </tr>
                 <tr>
-                  <th>年齢 <span class="optional">任意</span></th>
+                  <th><span class="th-label">年齢</span><span class="optional">任意</span></th>
                   <td>
                     <select name="年齢">
                       <option value="">選択してください</option>
@@ -620,7 +642,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <th>都道府県 <span class="optional">任意</span></th>
+                  <th><span class="th-label">都道府県</span><span class="optional">任意</span></th>
                   <td>
                     <select name="都道府県">
                       <option value="">選択してください</option>
@@ -636,15 +658,15 @@
                   </td>
                 </tr>
                 <tr>
-                  <th>メールアドレス<span class="required">必須</span><small>携帯メールの場合はパソコン受信設定のご確認をお願いします。</small></th>
+                  <th><span class="th-label">メールアドレス</span><span class="required">必須</span><small>携帯メールの場合はパソコン受信設定のご確認をお願いします。</small></th>
                   <td><input type="email" name="メールアドレス" required></td>
                 </tr>
                 <tr>
-                  <th>お電話番号<span class="required">必須</span></th>
+                  <th><span class="th-label">お電話番号</span><span class="required">必須</span></th>
                   <td><input type="tel" name="お電話番号" required></td>
                 </tr>
                 <tr>
-                  <th>ご希望教室<span class="required">必須</span></th>
+                  <th><span class="th-label">ご希望教室</span><span class="required">必須</span></th>
                   <td>
                     <select name="ご希望教室" required>
                       <option value="">選択してください</option>
@@ -655,7 +677,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <th>ご希望レッスン<span class="required">必須</span></th>
+                  <th><span class="th-label">ご希望レッスン</span><span class="required">必須</span></th>
                   <td>
                     <select name="ご希望レッスン" required>
                       <option value="" selected>選択してください</option>
@@ -673,7 +695,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <th>ミリネ韓国語教室を知ったきっかけ</th>
+                  <th><span class="th-label">ミリネ韓国語教室を知ったきっかけ</span></th>
                   <td>
                     <select name="きっかけ">
                       <option value="" selected>選択してください</option>
@@ -691,17 +713,17 @@
                   </td>
                 </tr>
                 <tr>
-                  <th>体験・申し込み講座のご希望日と時間帯 <span class="optional">任意</span></th>
+                  <th><span class="th-label">体験・申し込み講座のご希望日と時間帯</span><span class="optional">任意</span></th>
                   <td>
                     <textarea name="希望日時" placeholder="例）○月○日 ○時～○時"></textarea>
                   </td>
                 </tr>
                 <tr>
-                  <th>簡単な韓国語の学習歴及びレベル <span class="optional">任意</span></th>
+                  <th><span class="th-label">簡単な韓国語の学習歴及びレベル</span><span class="optional">任意</span></th>
                   <td><textarea name="学習歴"></textarea></td>
                 </tr>
                 <tr>
-                  <th>お問い合わせ <span class="optional">任意</span></th>
+                  <th><span class="th-label">お問い合わせ</span><span class="optional">任意</span></th>
                   <td><textarea name="お問い合わせ"></textarea></td>
                 </tr>
               </tbody>
@@ -731,25 +753,25 @@
             <table class="form-table">
               <tbody>
                 <tr>
-                  <th>タイトル<span class="required">必須</span></th>
+                  <th><span class="th-label">タイトル</span><span class="required">必須</span></th>
                   <td>
                     <span class="radio-chip-single">講座の申し込み</span>
                   </td>
                 </tr>
                 <tr>
-                  <th>お名前<span class="required">必須</span></th>
+                  <th><span class="th-label">お名前</span><span class="required">必須</span></th>
                   <td><input type="text" name="お名前" required></td>
                 </tr>
                 <tr>
-                  <th>ふりがな<span class="required">必須</span></th>
+                  <th><span class="th-label">ふりがな</span><span class="required">必須</span></th>
                   <td><input type="text" name="ふりがな" required></td>
                 </tr>
                 <tr>
-                  <th>メールアドレス<span class="required">必須</span></th>
+                  <th><span class="th-label">メールアドレス</span><span class="required">必須</span></th>
                   <td><input type="email" name="メールアドレス" required></td>
                 </tr>
                 <tr>
-                  <th>年齢 <span class="optional">任意</span></th>
+                  <th><span class="th-label">年齢</span><span class="optional">任意</span></th>
                   <td>
                     <select name="年齢">
                       <option value="">選択してください</option>
@@ -758,7 +780,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <th>都道府県 <span class="optional">任意</span></th>
+                  <th><span class="th-label">都道府県</span><span class="optional">任意</span></th>
                   <td>
                     <select name="都道府県">
                       <option value="">選択してください</option>
@@ -774,11 +796,11 @@
                   </td>
                 </tr>
                 <tr>
-                  <th>お電話番号<span class="required">必須</span></th>
+                  <th><span class="th-label">お電話番号</span><span class="required">必須</span></th>
                   <td><input type="tel" name="お電話番号" required></td>
                 </tr>
                 <tr>
-                  <th>ご希望教室<span class="required">必須</span></th>
+                  <th><span class="th-label">ご希望教室</span><span class="required">必須</span></th>
                   <td>
                     <select name="ご希望教室" required>
                       <option value="">選択してください</option>
@@ -789,7 +811,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <th>ご希望レッスン<span class="required">必須</span></th>
+                  <th><span class="th-label">ご希望レッスン</span><span class="required">必須</span></th>
                   <td>
                     <select name="ご希望レッスン" required>
                       <option value="" selected>選択してください</option>
@@ -821,7 +843,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <th>ミリネ韓国語教室を知ったきっかけ</th>
+                  <th><span class="th-label">ミリネ韓国語教室を知ったきっかけ</span></th>
                   <td>
                     <select name="きっかけ">
                       <option value="" selected>選択してください</option>
@@ -839,15 +861,15 @@
                   </td>
                 </tr>
                 <tr>
-                  <th>申し込み講座のご希望日と時間帯 <span class="optional">任意</span></th>
+                  <th><span class="th-label">申し込み講座のご希望日と時間帯</span><span class="optional">任意</span></th>
                   <td><textarea name="希望日時" placeholder="例）○月○日から、週○回 ○時台を希望　など"></textarea></td>
                 </tr>
                 <tr>
-                  <th>簡単な韓国語の学習歴及びレベル <span class="optional">任意</span></th>
+                  <th><span class="th-label">簡単な韓国語の学習歴及びレベル</span><span class="optional">任意</span></th>
                   <td><textarea name="学習歴"></textarea></td>
                 </tr>
                 <tr>
-                  <th>お問い合わせ・メッセージ <span class="optional">任意</span></th>
+                  <th><span class="th-label">お問い合わせ・メッセージ</span><span class="optional">任意</span></th>
                   <td><textarea name="お問い合わせ"></textarea></td>
                 </tr>
               </tbody>
@@ -908,7 +930,7 @@
             <table class="form-table">
               <tbody>
                 <tr>
-                  <th>タイトル<span class="required">必須</span></th>
+                  <th><span class="th-label">タイトル</span><span class="required">必須</span></th>
                   <td>
                     <div class="radio-chip-group">
                       <div class="radio-chip">
@@ -923,23 +945,23 @@
                   </td>
                 </tr>
                 <tr>
-                  <th>お名前<span class="required">必須</span></th>
+                  <th><span class="th-label">お名前</span><span class="required">必須</span></th>
                   <td><input type="text" name="お名前" required></td>
                 </tr>
                 <tr>
-                  <th>ふりがな<span class="required">必須</span></th>
+                  <th><span class="th-label">ふりがな</span><span class="required">必須</span></th>
                   <td><input type="text" name="ふりがな" required></td>
                 </tr>
                 <tr>
-                  <th>メールアドレス<span class="required">必須</span></th>
+                  <th><span class="th-label">メールアドレス</span><span class="required">必須</span></th>
                   <td><input type="email" name="メールアドレス" required></td>
                 </tr>
                 <tr>
-                  <th>ご連絡先（携帯番号等）<span class="required">必須</span></th>
+                  <th><span class="th-label">ご連絡先（携帯番号等）</span><span class="required">必須</span></th>
                   <td><input type="tel" name="ご連絡先" required></td>
                 </tr>
                 <tr>
-                  <th>年齢 <span class="optional">任意</span></th>
+                  <th><span class="th-label">年齢</span><span class="optional">任意</span></th>
                   <td>
                     <select name="年齢">
                       <option value="">選択してください</option>
@@ -948,7 +970,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <th>都道府県 <span class="optional">任意</span></th>
+                  <th><span class="th-label">都道府県</span><span class="optional">任意</span></th>
                   <td>
                     <select name="都道府県">
                       <option value="">選択してください</option>
@@ -964,7 +986,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <th>ミリネ韓国語教室を知ったきっかけ<span class="required">必須</span></th>
+                  <th><span class="th-label">ミリネ韓国語教室を知ったきっかけ</span><span class="required">必須</span></th>
                   <td>
                     <select name="きっかけ" required>
                       <option value="" selected>選択してください</option>
@@ -981,7 +1003,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <th>メッセージ <span class="optional">任意</span></th>
+                  <th><span class="th-label">メッセージ</span><span class="optional">任意</span></th>
                   <td><textarea name="メッセージ"></textarea></td>
                 </tr>
               </tbody>

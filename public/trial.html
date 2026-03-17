@@ -37,14 +37,19 @@
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
+    html { overflow-x: hidden; }
     body {
       font-family: 'Noto Sans JP', sans-serif;
       color: var(--text-dark);
       line-height: 1.7;
       background: var(--bg);
+      overflow-x: hidden;
+      max-width: 100vw;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
     }
 
-    .page-wrapper { max-width: 1100px; margin: 0 auto; min-height: 100vh; background: var(--bg); box-shadow: 0 0 40px rgba(0,0,0,0.06); }
+    .page-wrapper { max-width: 1100px; margin: 0 auto; min-height: 100vh; background: var(--bg); box-shadow: 0 0 40px rgba(0,0,0,0.06); overflow-x: hidden; }
     .main-with-sidebar { display: grid; grid-template-columns: 1fr 300px; gap: 32px; align-items: start; }
     @media (max-width: 900px) { .main-with-sidebar { grid-template-columns: 1fr; } .main-with-sidebar .sidebar { display: none; } }
     .sidebar { position: sticky; top: 80px; padding-top: 32px; }
@@ -477,11 +482,12 @@
     .footer-bottom { text-align: center; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 13px; opacity: 0.8; }
 
     @media (max-width: 600px) {
-      .main-content { padding: 0 18px 40px; }
+      .main-content { padding: 0 18px 40px; overflow-x: hidden; }
       .form-table { table-layout: auto; display: block; }
       .form-table tbody, .form-table tr { display: block; }
       .form-table th, .form-table td { display: block; width: 100%; max-width: none; box-sizing: border-box; }
       .form-table th { border-bottom: none; padding-bottom: 4px; }
+      .form-card, .content-inner { overflow-x: hidden; }
     }
   </style>
 </head>
@@ -1008,10 +1014,10 @@
             <div class="nav-group-title" role="button" tabindex="0" aria-expanded="false">個人レッスン<span class="nav-chevron">▾</span></div>
             <div class="nav-items">
               <div class="nav-items-inner">
-                <a href="kojin.html#tab01" class="nav-item">個人レッスン</a>
-                <a href="kojin.html#tab02" class="nav-item">短期集中個人</a>
-                <a href="kojin.html#tab03" class="nav-item">発音矯正</a>
-                <a href="kojin.html#tab04" class="nav-item">レベルテスト</a>
+                <a href="/kojin.html#tab01" class="nav-item">個人レッスン</a>
+                <a href="/kojin.html#tab02" class="nav-item">短期集中個人</a>
+                <a href="/kojin.html#tab03" class="nav-item">発音矯正</a>
+                <a href="/kojin.html#tab04" class="nav-item">レベルテスト</a>
               </div>
             </div>
           </div>
@@ -1020,11 +1026,11 @@
             <div class="nav-group-title" role="button" tabindex="0" aria-expanded="false">グループレッスン<span class="nav-chevron">▾</span></div>
             <div class="nav-items">
               <div class="nav-items-inner">
-                <a href="group.html#tab01" class="nav-item">入門＆初級講座</a>
-                <a href="group.html#tab02" class="nav-item">中級文法講座</a>
-                <a href="group.html#tab03" class="nav-item">上級文法講座</a>
-                <a href="group.html#tab05" class="nav-item">上級1土曜講座</a>
-                <a href="group.html#tab06" class="nav-item">上級2土曜講座</a>
+                <a href="/group.html#tab01" class="nav-item">入門＆初級講座</a>
+                <a href="/group.html#tab02" class="nav-item">中級文法講座</a>
+                <a href="/group.html#tab03" class="nav-item">上級文法講座</a>
+                <a href="/group.html#tab05" class="nav-item">上級1土曜講座</a>
+                <a href="/group.html#tab06" class="nav-item">上級2土曜講座</a>
               </div>
             </div>
           </div>
@@ -1033,11 +1039,11 @@
             <div class="nav-group-title" role="button" tabindex="0" aria-expanded="false">会話強化クラス<span class="nav-chevron">▾</span></div>
             <div class="nav-items">
               <div class="nav-items-inner">
-                <a href="kaiwa.html#tab01" class="nav-item">会話クラス</a>
-                <a href="kaiwa.html#tab02" class="nav-item">音読クラス</a>
-                <a href="kaiwa.html#tab03" class="nav-item">発音・抑揚</a>
-                <a href="kaiwa.html#tab04" class="nav-item">小説朗読</a>
-                <a href="kaiwa.html#tab05" class="nav-item">語彙力強化</a>
+                <a href="/kaiwa.html#tab01" class="nav-item">会話クラス</a>
+                <a href="/kaiwa.html#tab02" class="nav-item">音読クラス</a>
+                <a href="/kaiwa.html#tab03" class="nav-item">発音・抑揚</a>
+                <a href="/kaiwa.html#tab04" class="nav-item">小説朗読</a>
+                <a href="/kaiwa.html#tab05" class="nav-item">語彙力強化</a>
               </div>
             </div>
           </div>
@@ -1046,11 +1052,11 @@
             <div class="nav-group-title" role="button" tabindex="0" aria-expanded="false">試験対策講座<span class="nav-chevron">▾</span></div>
             <div class="nav-items">
               <div class="nav-items-inner">
-                <a href="special.html#tab01" class="nav-item">TOPIK初級</a>
-                <a href="special.html#tab02" class="nav-item">TOPIK中級</a>
-                <a href="special.html#tab03" class="nav-item">TOPIK上級</a>
-                <a href="special.html#tab04" class="nav-item">ハン検1/2級</a>
-                <a href="special.html#tab05" class="nav-item">ハン検準2級</a>
+                <a href="/special.html#tab01" class="nav-item">TOPIK初級</a>
+                <a href="/special.html#tab02" class="nav-item">TOPIK中級</a>
+                <a href="/special.html#tab03" class="nav-item">TOPIK上級</a>
+                <a href="/special.html#tab04" class="nav-item">ハン検1/2級</a>
+                <a href="/special.html#tab05" class="nav-item">ハン検準2級</a>
               </div>
             </div>
           </div>
@@ -1059,10 +1065,10 @@
             <div class="nav-group-title" role="button" tabindex="0" aria-expanded="false">集中講座<span class="nav-chevron">▾</span></div>
             <div class="nav-items">
               <div class="nav-items-inner">
-                <a href="syutyu.html#tab01" class="nav-item">入門講座</a>
-                <a href="syutyu.html#tab02" class="nav-item">初級講座</a>
-                <a href="syutyu.html#tab03" class="nav-item">中級講座</a>
-                <a href="syutyu.html#tab04" class="nav-item">上級講座</a>
+                <a href="/syutyu.html#tab01" class="nav-item">入門講座</a>
+                <a href="/syutyu.html#tab02" class="nav-item">初級講座</a>
+                <a href="/syutyu.html#tab03" class="nav-item">中級講座</a>
+                <a href="/syutyu.html#tab04" class="nav-item">上級講座</a>
               </div>
             </div>
           </div>
@@ -1071,9 +1077,9 @@
             <div class="nav-group-title" role="button" tabindex="0" aria-expanded="false">通信講座<span class="nav-chevron">▾</span></div>
             <div class="nav-items">
               <div class="nav-items-inner">
-                <a href="netlesson.html#tab01" class="nav-item">作文トレーニング</a>
-                <a href="netlesson.html#tab02" class="nav-item">音読トレーニング</a>
-                <a href="netlesson.html#tab03" class="nav-item">TOPIK作文トレーニング</a>
+                <a href="/netlesson.html#tab01" class="nav-item">作文トレーニング</a>
+                <a href="/netlesson.html#tab02" class="nav-item">音読トレーニング</a>
+                <a href="/netlesson.html#tab03" class="nav-item">TOPIK作文トレーニング</a>
               </div>
             </div>
           </div>

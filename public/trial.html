@@ -478,7 +478,9 @@
 
     @media (max-width: 600px) {
       .main-content { padding: 0 18px 40px; }
-      .form-table th, .form-table td { display: block; width: 100%; }
+      .form-table { table-layout: auto; display: block; }
+      .form-table tbody, .form-table tr { display: block; }
+      .form-table th, .form-table td { display: block; width: 100%; max-width: none; box-sizing: border-box; }
       .form-table th { border-bottom: none; padding-bottom: 4px; }
     }
   </style>

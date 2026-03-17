@@ -32,11 +32,13 @@ function sourceTypeLabel(type: string): string {
 
 export default function AdminAnalyticsPage() {
   const [data, setData] = useState<AnalyticsData | null>(null);
+  const [apiError, setApiError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [days, setDays] = useState(30);
 
   const fetchData = () => {
     setLoading(true);
+    setApiError(null);
     fetch(`/api/admin/analytics?days=${days}`)
       .then((r) => {
         if (r.status === 401) {
@@ -46,10 +48,17 @@ export default function AdminAnalyticsPage() {
         return r.json();
       })
       .then((d) => {
-        if (d && d.error) throw new Error(d.error);
+        if (d && d.error) {
+          setApiError(d.error);
+          setData(null);
+          return;
+        }
         if (d) setData(d);
       })
-      .catch(() => setData(null))
+      .catch((e) => {
+        setApiError(e instanceof Error ? e.message : "読み込みに失敗しました");
+        setData(null);
+      })
       .finally(() => setLoading(false));
   };
 
@@ -285,7 +294,12 @@ export default function AdminAnalyticsPage() {
           </div>
         </div>
       ) : (
-        <p style={{ color: "#666" }}>データを読み込んでください。Supabase の設定を確認してください。</p>
+        <div>
+          <p style={{ color: "#666" }}>データを読み込んでください。Supabase の設定を確認してください。</p>
+          {apiError && (
+            <p style={{ color: "#c00", marginTop: 12, fontSize: 13 }}>エラー: {apiError}</p>
+          )}
+        </div>
       )}
     </div>
   );

@@ -13,6 +13,7 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:image" content="https://mirinae.jp/favicon-64.png">
   <link rel="icon" href="/favicon-64.png" type="image/png">
+  <link rel="stylesheet" href="/css/mobile-overflow.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600&display=swap" rel="stylesheet">
@@ -249,8 +250,6 @@
       border-collapse: collapse;
       margin: 16px 0;
       font-size: 14px;
-      border-radius: 12px;
-      overflow: hidden;
     }
     .content-block th, .content-block td {
       border: 1px solid var(--gray-border);
@@ -270,8 +269,18 @@
     .teacher-block .teacher-photo { flex-shrink: 0; margin-top: 16px; }
     .teacher-block .teacher-photo img { width: 140px; height: 200px; object-fit: contain; border-radius: 8px; display: block; border: 1px solid var(--gray-border); background: var(--gray-light); }
     .teacher-block .teacher-info { flex: 1; min-width: 0; }
-    @media (max-width: 480px) {
+    .teacher-block table th { width: 4.5em; min-width: 4.5em; white-space: nowrap; }
+    @media (max-width: 900px) {
+      #tab03 { margin-left: -8px; margin-right: -8px; padding-left: 0; padding-right: 0; }
+    }
+    @media (max-width: 600px) {
+      #tab03 { margin-left: -12px; margin-right: -12px; padding-left: 0; padding-right: 0; }
+      .teacher-block { flex-direction: column; align-items: center; }
+      .teacher-block .teacher-photo { margin-top: 0; }
       .teacher-block .teacher-photo img { width: 120px; height: 170px; }
+      .teacher-block .teacher-info { width: 100%; }
+      .content-block.teacher-block { padding-left: 12px; padding-right: 12px; }
+      .teacher-block table th { width: 4.5em; min-width: 4.5em; white-space: nowrap; }
     }
     .footer {
       background: #2c2c2c;
@@ -284,11 +293,14 @@
       margin: 0 auto;
       padding: 0 24px;
     }
-    .footer-columns {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 32px 48px;
-      margin-bottom: 24px;
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      margin-bottom: 40px;
+    }
+    @media (max-width: 768px) {
+      .footer-grid { grid-template-columns: repeat(2, 1fr); }
     }
     .footer-column h4 { font-size: 14px; margin-bottom: 12px; color: white; }
     .footer-column a { display: block; color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; margin-bottom: 8px; }
@@ -343,6 +355,8 @@
     .nav-links > li.nav-has-dropdown::after { content: ''; position: absolute; top: 100%; left: 0; right: 0; height: 14px; }
     .nav-links a { display: block; padding: 8px 12px; font-size: 13px; font-weight: 500; color: var(--mid); text-decoration: none; border-radius: 6px; transition: background .15s, color .15s; white-space: nowrap; }
     .nav-links > li > a:hover { background: var(--gold-pale); color: var(--gold); }
+    .nav-cta { background: var(--gold) !important; color: white !important; border-radius: 6px !important; font-weight: 700 !important; padding: 8px 16px !important; }
+    .nav-cta:hover { background: var(--gold-light) !important; color: white !important; }
     .nav-dropdown {
       position: absolute;
       top: 100%;
@@ -497,30 +511,30 @@
 </head>
 <body>
   <nav>
-    <a href="index.html" class="nav-logo">ミリネ韓国語教室</a>
+    <a href="/" class="nav-logo">ミリネ韓国語教室</a>
     <button type="button" class="nav-hamburger" aria-label="メニューを開く">
       <span></span><span></span><span></span>
     </button>
     <div class="nav-overlay" aria-hidden="true"></div>
     <ul class="nav-links">
-      <li><a href="index.html">ホーム</a></li>
+      <li><a href="/">ホーム</a></li>
       <li class="nav-has-dropdown">
-        <a href="index.html#recruiting">講座</a>
+        <a href="/#recruiting">講座</a>
         <ul class="nav-dropdown">
-          <li><a href="kojin.html">個人レッスン</a></li>
-          <li><a href="group.html">グループレッスン</a></li>
-          <li><a href="kaiwa.html">会話強化クラス</a></li>
-          <li><a href="special.html">試験対策講座</a></li>
-          <li><a href="syutyu.html">集中講座</a></li>
-          <li><a href="netlesson.html">通信講座</a></li>
+          <li><a href="/kojin">個人レッスン</a></li>
+          <li><a href="/group">グループレッスン</a></li>
+          <li><a href="/kaiwa">会話強化クラス</a></li>
+          <li><a href="/special">試験対策講座</a></li>
+          <li><a href="/syutyu">集中講座</a></li>
+          <li><a href="/netlesson">通信講座</a></li>
         </ul>
       </li>
-      <li><a href="about.html">会社概要</a></li>
-      <li><a href="about.html#tab02">アクセス</a></li>
-      <li><a href="trial.html">お申込み</a></li>
-      <li><a href="about.html#tab03">講師</a></li>
-      <li><a href="book.html">著書</a></li>
-      <li><a href="trial.html#tab04">お問い合わせ</a></li>
+      <li><a href="/about">会社概要</a></li>
+      <li><a href="/about#tab02">アクセス</a></li>
+      <li><a href="/trial" class="nav-cta">お申込み</a></li>
+      <li><a href="/about#tab03">講師</a></li>
+      <li><a href="/book">著書</a></li>
+      <li><a href="/trial#tab04">お問い合わせ</a></li>
     </ul>
   </nav>
 
@@ -699,10 +713,10 @@
             <div class="nav-group-title" role="button" tabindex="0" aria-expanded="false">個人レッスン<span class="nav-chevron">▾</span></div>
             <div class="nav-items">
               <div class="nav-items-inner">
-                <a href="kojin.html#tab01" class="nav-item">個人レッスン</a>
-                <a href="kojin.html#tab02" class="nav-item">短期集中個人</a>
-                <a href="kojin.html#tab03" class="nav-item">発音矯正</a>
-                <a href="kojin.html#tab04" class="nav-item">レベルテスト</a>
+                <a href="/kojin#tab01" class="nav-item">個人レッスン</a>
+                <a href="/kojin#tab02" class="nav-item">短期集中個人</a>
+                <a href="/kojin#tab03" class="nav-item">発音矯正</a>
+                <a href="/kojin#tab04" class="nav-item">レベルテスト</a>
               </div>
             </div>
           </div>
@@ -711,11 +725,11 @@
             <div class="nav-group-title" role="button" tabindex="0" aria-expanded="false">グループレッスン<span class="nav-chevron">▾</span></div>
             <div class="nav-items">
               <div class="nav-items-inner">
-                <a href="group.html#tab01" class="nav-item">入門＆初級講座</a>
-                <a href="group.html#tab02" class="nav-item">中級文法講座</a>
-                <a href="group.html#tab03" class="nav-item">上級文法講座</a>
-                <a href="group.html#tab05" class="nav-item">上級1土曜講座</a>
-                <a href="group.html#tab06" class="nav-item">上級2土曜講座</a>
+                <a href="/group#tab01" class="nav-item">入門＆初級講座</a>
+                <a href="/group#tab02" class="nav-item">中級文法講座</a>
+                <a href="/group#tab03" class="nav-item">上級文法講座</a>
+                <a href="/group#tab05" class="nav-item">上級1土曜講座</a>
+                <a href="/group#tab06" class="nav-item">上級2土曜講座</a>
               </div>
             </div>
           </div>
@@ -724,11 +738,11 @@
             <div class="nav-group-title" role="button" tabindex="0" aria-expanded="false">会話強化クラス<span class="nav-chevron">▾</span></div>
             <div class="nav-items">
               <div class="nav-items-inner">
-                <a href="kaiwa.html#tab01" class="nav-item">会話クラス</a>
-                <a href="kaiwa.html#tab02" class="nav-item">音読クラス</a>
-                <a href="kaiwa.html#tab03" class="nav-item">発音・抑揚</a>
-                <a href="kaiwa.html#tab04" class="nav-item">小説朗読</a>
-                <a href="kaiwa.html#tab05" class="nav-item">語彙力強化</a>
+                <a href="/kaiwa#tab01" class="nav-item">会話クラス</a>
+                <a href="/kaiwa#tab02" class="nav-item">音読クラス</a>
+                <a href="/kaiwa#tab03" class="nav-item">発音・抑揚</a>
+                <a href="/kaiwa#tab04" class="nav-item">小説朗読</a>
+                <a href="/kaiwa#tab05" class="nav-item">語彙力強化</a>
               </div>
             </div>
           </div>
@@ -737,11 +751,11 @@
             <div class="nav-group-title" role="button" tabindex="0" aria-expanded="false">試験対策講座<span class="nav-chevron">▾</span></div>
             <div class="nav-items">
               <div class="nav-items-inner">
-                <a href="special.html#tab01" class="nav-item">TOPIK初級</a>
-                <a href="special.html#tab02" class="nav-item">TOPIK中級</a>
-                <a href="special.html#tab03" class="nav-item">TOPIK上級</a>
-                <a href="special.html#tab04" class="nav-item">ハン検1/2級</a>
-                <a href="special.html#tab05" class="nav-item">ハン検準2級</a>
+                <a href="/special#tab01" class="nav-item">TOPIK初級</a>
+                <a href="/special#tab02" class="nav-item">TOPIK中級</a>
+                <a href="/special#tab03" class="nav-item">TOPIK上級</a>
+                <a href="/special#tab04" class="nav-item">ハン検1/2級</a>
+                <a href="/special#tab05" class="nav-item">ハン検準2級</a>
               </div>
             </div>
           </div>
@@ -750,10 +764,10 @@
             <div class="nav-group-title" role="button" tabindex="0" aria-expanded="false">集中講座<span class="nav-chevron">▾</span></div>
             <div class="nav-items">
               <div class="nav-items-inner">
-                <a href="syutyu.html#tab01" class="nav-item">入門講座</a>
-                <a href="syutyu.html#tab02" class="nav-item">初級講座</a>
-                <a href="syutyu.html#tab03" class="nav-item">中級講座</a>
-                <a href="syutyu.html#tab04" class="nav-item">上級講座</a>
+                <a href="/syutyu#tab01" class="nav-item">入門講座</a>
+                <a href="/syutyu#tab02" class="nav-item">初級講座</a>
+                <a href="/syutyu#tab03" class="nav-item">中級講座</a>
+                <a href="/syutyu#tab04" class="nav-item">上級講座</a>
               </div>
             </div>
           </div>
@@ -762,9 +776,9 @@
             <div class="nav-group-title" role="button" tabindex="0" aria-expanded="false">通信講座<span class="nav-chevron">▾</span></div>
             <div class="nav-items">
               <div class="nav-items-inner">
-                <a href="netlesson.html#tab01" class="nav-item">作文トレーニング</a>
-                <a href="netlesson.html#tab02" class="nav-item">音読トレーニング</a>
-                <a href="netlesson.html#tab03" class="nav-item">TOPIK作文トレーニング</a>
+                <a href="/netlesson#tab01" class="nav-item">作文トレーニング</a>
+                <a href="/netlesson#tab02" class="nav-item">音読トレーニング</a>
+                <a href="/netlesson#tab03" class="nav-item">TOPIK作文トレーニング</a>
               </div>
             </div>
           </div>
@@ -776,11 +790,11 @@
 
   <footer class="footer">
     <div class="footer-inner">
-      <div class="footer-columns">
-        <div class="footer-column"><h4>メニュー</h4><a href="index.html">ホーム</a><a href="about.html">会社概要</a><a href="about.html#tab02">アクセス</a></div>
-        <div class="footer-column"><h4>講座</h4><a href="kojin.html">個人レッスン</a><a href="group.html">グループレッスン</a><a href="kaiwa.html">会話強化クラス</a><a href="special.html">試験対策講座</a><a href="syutyu.html">集中講座</a><a href="netlesson.html">通信講座</a></div>
-        <div class="footer-column"><h4>お申込み</h4><a href="trial.html#tab01">体験申込</a><a href="trial.html#tab02">講座申込</a><a href="trial.html#tab04">お問い合わせ</a></div>
-        <div class="footer-column"><h4>その他</h4><a href="about.html#tab03">講師</a><a href="book.html">著書</a><a href="voice.html">『ミリネ教科書』音声</a><a href="cancel.html">キャンセル規定</a></div>
+      <div class="footer-grid">
+        <div class="footer-column"><h4>メニュー</h4><a href="/">ホーム</a><a href="/about">会社概要</a><a href="/about#tab02">アクセス</a></div>
+        <div class="footer-column"><h4>講座</h4><a href="/kojin">個人レッスン</a><a href="/group">グループレッスン</a><a href="/kaiwa">会話強化クラス</a><a href="/special">試験対策講座</a><a href="/syutyu">集中講座</a><a href="/netlesson">通信講座</a></div>
+        <div class="footer-column"><h4>お申込み</h4><a href="/trial#tab01">体験申込</a><a href="/trial#tab02">講座申込</a><a href="/trial#tab04">お問い合わせ</a></div>
+        <div class="footer-column"><h4>その他</h4><a href="/about#tab03">講師</a><a href="/book">著書</a><a href="/voice">『ミリネ教科書』音声</a><a href="/cancel">キャンセル規定</a></div>
       </div>
       <div class="footer-bottom">Copyright © 2010-<span id="footer-year"></span> 株式会社 カオンヌリ All Rights Reserved.</div>
     </div>
@@ -816,7 +830,7 @@
         tabPanels.forEach(function(panel) {
           panel.classList.toggle('active', panel.id === tabId);
         });
-        history.replaceState(null, '', 'about.html#' + tabId);
+        history.replaceState(null, '', '#' + tabId);
       }
       tabBtns.forEach(function(btn) {
         btn.addEventListener('click', function() { switchTab(btn.getAttribute('data-tab')); });
@@ -839,5 +853,6 @@
     })();
   </script>
   <script src="/admin-badge.js"></script>
+  <script src="/js/analytics.js"></script>
 </body>
 </html>

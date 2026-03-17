@@ -287,9 +287,9 @@ a:active{color:orange}
 	<div id="wrapper"><br>
 	
 <!-- BEGIN HEADER -->
-		<div id="logo1"> <a href="index.html" target="_top"><img src="img/logo5.png" alt="business logo" /></a>
+		<div id="logo1"> <a href="index.html" target="_top"><img src="/b/img/logo5.png" alt="business logo" /></a>
 		</div>	  <div id="logo2">
-		<img style="margin-bottom:9px;margin-right:0px;" src="img/logo4.png" alt="business logo" /><br>
+		<img style="margin-bottom:9px;margin-right:0px;" src="/b/img/logo4.png" alt="business logo" /><br>
 		<a href="about.php?class=about"><b>会社概要・口座</b></a>
 		<a href="about.php?class=shinjuku"><b>｜アクセス</b></a>
 		<a href="about.php?class=teacher"><b>｜講師</b></a>
@@ -302,10 +302,10 @@ a:active{color:orange}
 		<span class="clear"></span>
 <!-- BEGIN PAGE -->	<div id="page">		
 <!-- BEGIN NAVIGATION -->
-					 <ul id="menu">	<li><a href="index.html"><img src="img/images/navi_01.png" alt=""/></a></li>
+					 <ul id="menu">	<li><a href="index.html"><img src="/b/img/images/navi_01.png" alt=""/></a></li>
 
 	  <li>
-		    <a href="#"><img src="img/images/navi_02.png" alt=""/></a>
+		    <a href="#"><img src="/b/img/images/navi_02.png" alt=""/></a>
 		<ul>
             <li><a href="kojin.php?class=textbook">レベルと進み方</a></li>
 			<li><a href="kojin.php?class=kojin">個人レッスン</a></li>
@@ -318,7 +318,7 @@ a:active{color:orange}
 		</ul>
 		</li>
     
-    	<li><a href="#"><img src="img/images/navi_03.png" alt=""/></a>
+    	<li><a href="#"><img src="/b/img/images/navi_03.png" alt=""/></a>
    	  <ul>	
       　　　　　<li><a href="http://mirinae.jp/trial.php?class=month">開講中のグループ講座</a></li>  
 				<li><a href="group.php?class=nyumon">入門｜ハングル6週間コース</a></li>
@@ -332,7 +332,7 @@ a:active{color:orange}
 			</li>
 			
   <li>
-				<a href="#"><img src="img/images/navi_04.png" alt=""/></a>
+				<a href="#"><img src="/b/img/images/navi_04.png" alt=""/></a>
 				<ul>
 				<li><a href="kaiwa.php?class=beginner">初心者会話トレーニング</a></li>
 				<li><a href="kaiwa.php?class=syokyu">初級会話トレーニング</a></li>
@@ -343,7 +343,7 @@ a:active{color:orange}
 		</li>
 		 
 		<li>
-		<a href="#"><img src="img/images/navi_05.png" alt=""/></a>
+		<a href="#"><img src="/b/img/images/navi_05.png" alt=""/></a>
 		<ul>
 			<li><a href="special.php?class=topik">TOPIK対策講座</a></li>
 			  <li><a href="special.php?class=hanken">ハングル検定対策</a></li>	
@@ -363,7 +363,7 @@ a:active{color:orange}
 		</ul>
 		</li>
     
-    <li><a href="#"><img src="img/images/navi_06.png" alt=""/></a>
+    <li><a href="#"><img src="/b/img/images/navi_06.png" alt=""/></a>
     	<ul>
 		  <!--<li><a href="http://mirinae.jp/oneday.php?class=nyumons">入門1日レッスン</a></li>
           <li><a href="http://mirinae.jp/oneday.php?class=syokyus">初級1日レッスン</a></li>-->
@@ -377,7 +377,7 @@ a:active{color:orange}
     
       <li>
 
-		<a href="#"><img src="img/images/navi_07.png" alt=""/></a>
+		<a href="#"><img src="/b/img/images/navi_07.png" alt=""/></a>
 		<ul>
 		     <li><a href="castigation.php?class=writing">作文トレーニング</a></li>
 			 <li><a href="castigation.php?class=netondoku">通信音読トレーニング</a></li>
@@ -391,7 +391,7 @@ a:active{color:orange}
 
         <li>
 
-		<a href="#"><img src="img/images/navi_08.png" alt=""/></a>	
+		<a href="#"><img src="/b/img/images/navi_08.png" alt=""/></a>	
         <ul>
 			
 			 <li><a href="trial.php?class=trial">お申し込み</a></li>
@@ -426,7 +426,7 @@ a:active{color:orange}
 			
 		<div class="padd30">
               
-             <img src="img/news.jpg" alt=""/>
+             <img src="/b/img/news.jpg" alt=""/>
 
 			  <ul class="news">
 
@@ -525,23 +525,23 @@ a:active{color:orange}
 				
 			</div>
 	
-			<a href="koefirst.html" target="_blank"><img style="margin-left:10px;" src="img/koebnr.jpg" alt=""/></a>
+			<a href="koefirst.html" target="_blank"><img style="margin-left:10px;" src="/b/img/koebnr.jpg" alt=""/></a>
 			<div class="padd30">			
 			<b>【個人レッスン】 T 様</b>&nbsp;<br>
 				発音を矯正してもらい、発音がよくなり、また独学で勉強をしていて曖昧な部分がはっきり分かるようになり実力が以前に比べ、かなり上がったと実感しています。...
 				<a href="koeall1.html#kojinkoe" target="_top">（つづきは…）</a>		
 			</div>
 
-			<a href="http://mirinae.jp/blog/" target="_blank"><img style="margin-left:10px;" src="img/miri.jpg" alt=""/></a> 
+			<a href="http://mirinae.jp/blog/" target="_blank"><img style="margin-left:10px;" src="/b/img/miri.jpg" alt=""/></a> 
 
 			<div class="padd10">
 				<div id="includedContent"></div>
 			</div>  
 			<a href="https://www.facebook.com/mirinaejp" target="_blank">
-			<img style="margin-left:10px;" src="img/fb.jpg" alt=""/></a>
+			<img style="margin-left:10px;" src="/b/img/fb.jpg" alt=""/></a>
 			<br>
 					
-     		<a href="https://twitter.com/anitrue" target="_blank"><img style="margin-left:10px;" src="img/tw.jpg" alt=""/></a>					
+     		<a href="https://twitter.com/anitrue" target="_blank"><img style="margin-left:10px;" src="/b/img/tw.jpg" alt=""/></a>					
 
 	</div>
     <!--right end--> 
@@ -852,8 +852,8 @@ a:active{color:orange}
 <hr>
 <p align="left"> <font  color="#B50003" size="4px"><b>🌸 ミリネ韓国語レベルアップ↑＜レベルテスト！カウンセリング＞</b></font></p>
 <hr><br>
-<center><img src="img/leveltest.png" border="0" /></center><br> 
-<!--<center><img width="480" src="img/lecture.jpg" border="0" /></center><br> 
+<center><img src="/b/img/leveltest.png" border="0" /></center><br> 
+<!--<center><img width="480" src="/b/img/lecture.jpg" border="0" /></center><br> 
 <center><img src="3.jpg" border="0" /></center><br>--> 
 
 <p><b>何年間も伸び悩んでいる方、<br>自分の韓国語はなぜ通じないのか悩んでいる方、<br>モチベーションが下がってやる気が湧いて来ない方など
@@ -868,7 +868,7 @@ a:active{color:orange}
 <hr>
 <br>
 			        <div class="clear"></div>
-                    <img style="margin-bottom:10px; margin-left:5px;" src="img/syosai.jpg" width="595" height="42" alt=""/>
+                    <img style="margin-bottom:10px; margin-left:5px;" src="/b/img/syosai.jpg" width="595" height="42" alt=""/>
                     <div class="clear"></div>
                     
                     
@@ -990,13 +990,13 @@ a:active{color:orange}
 			      
                     
                     
-           <!--         <img style="margin-bottom:10px; margin-left:5px;" src="img/hoka.jpg" width="595" height="42" alt=""/>
+           <!--         <img style="margin-bottom:10px; margin-left:5px;" src="/b/img/hoka.jpg" width="595" height="42" alt=""/>
                     <p align="left"><code>■&nbsp;予約・キャンセル料・中途解約・手続き等 </code> </p>
 					<a href="http://www.mirinae.jp/cancel.php" class="btn btn-primary"><font color="#fff">その他手続きはクリックしてください。</font></a> <br>-->
 			        <br>
                    
                       <hr>
-                       <img style="margin-bottom:10px; margin-left:5px;" src="img/koe2.jpg" width="595" height="42" alt=""/>
+                       <img style="margin-bottom:10px; margin-left:5px;" src="/b/img/koe2.jpg" width="595" height="42" alt=""/>
                     <div class="clear"></div>
                     
                        <h3>&nbsp;</h3>
@@ -1061,7 +1061,7 @@ a:active{color:orange}
 				<br>
 
 				<div class="clear"></div>
-                <img style="margin-bottom:10px; margin-left:5px;" src="img/syosai.jpg" width="595" height="42" alt=""/>
+                <img style="margin-bottom:10px; margin-left:5px;" src="/b/img/syosai.jpg" width="595" height="42" alt=""/>
                 <div class="clear"></div>
                     
              <strong><font size="+2" color="red">&nbsp;&nbsp;&nbsp;&nbsp;+1ヶ月無料イベント！(新規の方のみ、9/15〆切)</font></strong><br></font>

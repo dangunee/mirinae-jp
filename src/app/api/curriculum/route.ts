@@ -1,13 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
 
-const CACHE_TTL_MS = 60 * 1000; // 1分
-let curriculumCache: { data: CurriculumBlock[]; ts: number } | null = null;
-
-function invalidateCurriculumCache() {
-  curriculumCache = null;
-}
-
 export type CurriculumBlock = {
   id: string;
   pageSlug: string;
@@ -68,15 +61,53 @@ function parseRowsJson(
   }
 }
 
-// GET /api/curriculum?page=kojin（1分キャッシュ・POSTで無効化）
+// GET /api/curriculum?page=kojin
+// raw=1: 管理画面用。常にDB(site_table)から取得
+// page=kojin: 短期集中ページは常にDBから直接取得（キャッシュ・スナップショットなし）
+// その他: 公開スナップショットを優先
 export async function GET(req: NextRequest) {
   const page = req.nextUrl.searchParams.get("page");
+  const raw = req.nextUrl.searchParams.get("raw") === "1";
   if (!page) {
     return NextResponse.json({ error: "page required" }, { status: 400 });
   }
-  if (page === "kojin" && curriculumCache && Date.now() - curriculumCache.ts < CACHE_TTL_MS) {
-    return NextResponse.json(curriculumCache.data);
+
+  const noCacheHeaders = {
+    "Cache-Control": "no-cache, no-store, must-revalidate, max-age=0",
+    "Pragma": "no-cache",
+    "Expires": "0",
+  };
+
+  // kojin(短期集中): 常にDBから直接取得、キャッシュなし
+  if (page === "kojin" && !raw) {
+    const blocks = await prisma.siteTable.findMany({
+      where: { pageSlug: page },
+      orderBy: [{ blockKey: "asc" }],
+    });
+    const result: CurriculumBlock[] = blocks.map((b) => ({
+      id: b.id,
+      pageSlug: b.pageSlug,
+      blockKey: b.blockKey,
+      title: b.title,
+      rows: parseRowsJson(b.rowsJson),
+    }));
+    return NextResponse.json(result, { headers: noCacheHeaders });
   }
+
+  if (!raw) {
+    try {
+      const published = await prisma.curriculumPublished.findUnique({
+        where: { id: `curriculum_${page}` },
+      });
+      if (published?.dataJson) {
+        const data = JSON.parse(published.dataJson) as CurriculumBlock[];
+        return NextResponse.json(data, { headers: noCacheHeaders });
+      }
+    } catch {
+      // スナップショット未作成 or パースエラー → DBから取得
+    }
+  }
+
   const blocks = await prisma.siteTable.findMany({
     where: { pageSlug: page },
     orderBy: [{ blockKey: "asc" }],
@@ -88,10 +119,13 @@ export async function GET(req: NextRequest) {
     title: b.title,
     rows: parseRowsJson(b.rowsJson),
   }));
-  if (page === "kojin") {
-    curriculumCache = { data: result, ts: Date.now() };
-  }
-  return NextResponse.json(result);
+  return NextResponse.json(result, {
+    headers: {
+      "Cache-Control": "no-cache, no-store, must-revalidate, max-age=0",
+      "Pragma": "no-cache",
+      "Expires": "0",
+    },
+  });
 }
 
 // POST /api/curriculum — create or update block
@@ -108,7 +142,6 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "pageSlug, blockKey, rows required" }, { status: 400 });
   }
   const rowsJson = JSON.stringify(rows);
-  invalidateCurriculumCache();
   if (id) {
     const updated = await prisma.siteTable.update({
       where: { id },

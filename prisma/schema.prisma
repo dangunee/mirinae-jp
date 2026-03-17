@@ -83,3 +83,24 @@ model ScheduleEvent {
   @@map("schedule_events")
   @@schema("public")
 }
+
+// 講座スケジュールの公開スナップショット（管理画面「フロントに反映」で更新）
+model SchedulePublished {
+  id        String   @id @default("schedule")
+  dataJson  String   // JSON: { recurring, single, categories }
+  updatedAt DateTime @updatedAt
+
+  @@map("schedule_published")
+  @@schema("public")
+}
+
+// カリキュラムの公開スナップショット（管理画面「フロントに反映」で更新）
+// id: curriculum_kojin, curriculum_group, curriculum_kaiwa, curriculum_special, themes_kojin
+model CurriculumPublished {
+  id        String   @id
+  dataJson  String   // JSON: blocks[] or themes[]
+  updatedAt DateTime @updatedAt
+
+  @@map("curriculum_published")
+  @@schema("public")
+}

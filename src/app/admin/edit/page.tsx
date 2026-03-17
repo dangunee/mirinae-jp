@@ -57,6 +57,7 @@ function EditContent() {
   const [selectedBlock, setSelectedBlock] = useState<CurriculumBlock | null>(null);
   const [dirty, setDirty] = useState(false);
   const [seeding, setSeeding] = useState(false);
+  const [publishing, setPublishing] = useState(false);
   const [mainTab, setMainTab] = useState<MainTab>("tanki");
   const [showThemes, setShowThemes] = useState(false);
   const [checkedRows, setCheckedRows] = useState<Set<number>>(new Set());
@@ -74,12 +75,18 @@ function EditContent() {
 
   useEffect(() => {
     const load = async () => {
-      const [blocksRes, themesRes] = await Promise.all([
-        fetch(`/api/curriculum?page=${page}`),
-        page === "kojin" ? fetch("/api/curriculum/themes") : null,
-      ]);
-      const blocksData = await blocksRes.json();
-      const list = Array.isArray(blocksData) ? blocksData : [];
+      try {
+        // raw=1: 管理画面は常にDB(site_table)から取得。スナップショットはスキップ
+        const [blocksRes, themesRes] = await Promise.all([
+          fetch(`/api/curriculum?page=${page}&raw=1`),
+          page === "kojin" ? fetch("/api/curriculum/themes?raw=1") : null,
+        ]);
+        if (!blocksRes.ok) {
+          const err = await blocksRes.json().catch(() => ({}));
+          throw new Error(err.error || `API error ${blocksRes.status}`);
+        }
+        const blocksData = await blocksRes.json();
+        const list = Array.isArray(blocksData) ? blocksData : [];
       const sorted =
         page === "kojin"
           ? [...list].sort(
@@ -120,7 +127,14 @@ function EditContent() {
         const t = await themesRes.json();
         setThemes(Array.isArray(t) ? t : []);
       }
-      setLoading(false);
+      } catch (e) {
+        console.error("Load error:", e);
+        setBlocks([]);
+        setThemes([]);
+        alert("データの読み込みに失敗しました。\n" + (e instanceof Error ? e.message : String(e)) + "\n\nDATABASE_URL（Transaction pooler）の設定を確認してください。");
+      } finally {
+        setLoading(false);
+      }
     };
     load();
   }, [page]);
@@ -265,13 +279,82 @@ function EditContent() {
     }
   };
 
+  const publishToFront = async () => {
+    if (!["kojin", "group", "kaiwa", "special"].includes(page)) return;
+    if (dirty) {
+      alert("저장되지 않은 변경사항이 있습니다. 먼저 저장 버튼을 눌러주세요.");
+      return;
+    }
+    setPublishing(true);
+    try {
+      const r = await fetch("/api/admin/curriculum/publish", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ page }),
+      });
+      const j = await r.json();
+      if (r.ok) alert(j.message ?? "フロントに反映しました");
+      else alert(j.error ?? "反映に失敗しました");
+    } catch (e) {
+      alert("反映に失敗しました。\n" + (e instanceof Error ? e.message : String(e)));
+    } finally {
+      setPublishing(false);
+    }
+  };
+
   if (loading) return <p>読み込み中…</p>;
 
   return (
     <div>
-      <p style={{ marginBottom: 16 }}>
+      <p style={{ marginBottom: 16, display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap" }}>
         <a href="/admin" style={{ color: "#4a6fa5" }}>← 一覧</a>
-        <span style={{ marginLeft: 16 }}>{PAGE_LABELS[page] ?? page}</span>
+        <span>{PAGE_LABELS[page] ?? page}</span>
+        {["kojin", "group", "kaiwa", "special"].includes(page) && (
+          <>
+            <button
+              type="button"
+              onClick={publishToFront}
+              disabled={publishing}
+              style={{
+                padding: "8px 16px",
+                border: "1px solid #2d7a6e",
+                borderRadius: 6,
+                background: "#fff",
+                color: "#2d7a6e",
+                cursor: publishing ? "wait" : "pointer",
+                fontWeight: 500,
+                fontSize: 13,
+              }}
+            >
+              {publishing ? "反映中…" : "フロントに反映"}
+            </button>
+            <button
+              type="button"
+              onClick={async () => {
+                try {
+                  const r = await fetch("/api/admin/db-sync", { method: "POST" });
+                  const j = await r.json();
+                  if (r.ok) alert(j.message ?? "DBスキーマを適用しました");
+                  else alert(j.error ?? "失敗");
+                } catch {
+                  alert("失敗");
+                }
+              }}
+              style={{
+                padding: "8px 16px",
+                border: "1px solid #6b3d3d",
+                borderRadius: 6,
+                background: "#fff",
+                color: "#6b3d3d",
+                cursor: "pointer",
+                fontWeight: 500,
+                fontSize: 13,
+              }}
+            >
+              DBスキーマ適用
+            </button>
+          </>
+        )}
       </p>
 
       {blocks.length === 0 ? (
@@ -285,7 +368,7 @@ function EditContent() {
                   const r = await fetch("/api/seed/kojin", { method: "POST" });
                   const j = await r.json();
                   if (r.ok) {
-                    const res = await fetch(`/api/curriculum?page=kojin`);
+                    const res = await fetch(`/api/curriculum?page=kojin&raw=1`);
                     const data = await res.json();
                     setBlocks(Array.isArray(data) ? data : []);
                     if (data[0]) setSelectedBlock(data[0]);
@@ -309,7 +392,7 @@ function EditContent() {
                     const r = await fetch("/api/seed/group-chubu", { method: "POST" });
                     const j = await r.json();
                     if (r.ok) {
-                      const res = await fetch(`/api/curriculum?page=group`);
+                      const res = await fetch(`/api/curriculum?page=group&raw=1`);
                       const data = await res.json();
                       setBlocks(Array.isArray(data) ? data : []);
                       if (data[0]) setSelectedBlock(data[0]);
@@ -330,7 +413,7 @@ function EditContent() {
                     const r = await fetch("/api/seed/group-jokyu", { method: "POST" });
                     const j = await r.json();
                     if (r.ok) {
-                      const res = await fetch(`/api/curriculum?page=group`);
+                      const res = await fetch(`/api/curriculum?page=group&raw=1`);
                       const data = await res.json();
                       setBlocks(Array.isArray(data) ? data : []);
                       const jokyu = (data || []).find((b: { blockKey: string }) => b.blockKey === "curriculum_jokyu");
@@ -356,7 +439,7 @@ function EditContent() {
                     const r = await fetch("/api/seed/kaiwa-themes/fetch", { method: "POST" });
                     const j = await r.json();
                     if (r.ok) {
-                      const res = await fetch(`/api/curriculum?page=kaiwa`);
+                      const res = await fetch(`/api/curriculum?page=kaiwa&raw=1`);
                       const data = await res.json();
                       setBlocks(Array.isArray(data) ? data : []);
                       const first = (data || []).find((b: { blockKey: string }) =>
@@ -367,7 +450,7 @@ function EditContent() {
                     } else {
                       const fallback = await fetch("/api/seed/kaiwa-themes", { method: "POST" });
                       if (fallback.ok) {
-                        const res = await fetch(`/api/curriculum?page=kaiwa`);
+                        const res = await fetch(`/api/curriculum?page=kaiwa&raw=1`);
                         const data = await res.json();
                         setBlocks(Array.isArray(data) ? data : []);
                         const first = (data || []).find((b: { blockKey: string }) =>
@@ -393,7 +476,7 @@ function EditContent() {
                     const r = await fetch("/api/seed/kaiwa-themes", { method: "POST" });
                     const j = await r.json();
                     if (r.ok) {
-                      const res = await fetch(`/api/curriculum?page=kaiwa`);
+                      const res = await fetch(`/api/curriculum?page=kaiwa&raw=1`);
                       const data = await res.json();
                       setBlocks(Array.isArray(data) ? data : []);
                       const first = (data || []).find((b: { blockKey: string }) =>
@@ -753,7 +836,7 @@ function EditContent() {
                       const r = await fetch("/api/seed/special-topik", { method: "POST" });
                       const j = await r.json();
                       if (r.ok) {
-                        const res = await fetch(`/api/curriculum?page=special`);
+                        const res = await fetch(`/api/curriculum?page=special&raw=1`);
                         const data = await res.json();
                         setBlocks(Array.isArray(data) ? data : []);
                         const first = (data || []).find((b: { blockKey: string }) =>
@@ -794,7 +877,7 @@ function EditContent() {
                         j = await r.json();
                       }
                       if (r.ok) {
-                        const res = await fetch(`/api/curriculum?page=kaiwa`);
+                        const res = await fetch(`/api/curriculum?page=kaiwa&raw=1`);
                         const data = await res.json();
                         setBlocks(Array.isArray(data) ? data : []);
                         const first = (data || []).find((b: { blockKey: string }) =>
@@ -823,7 +906,7 @@ function EditContent() {
                       const r = await fetch("/api/seed/group-chubu", { method: "POST" });
                       const j = await r.json();
                       if (r.ok) {
-                        const res = await fetch(`/api/curriculum?page=group`);
+                        const res = await fetch(`/api/curriculum?page=group&raw=1`);
                         const data = await res.json();
                         setBlocks(Array.isArray(data) ? data : []);
                         if (data[0]) setSelectedBlock(data[0]);
@@ -844,7 +927,7 @@ function EditContent() {
                       const r = await fetch("/api/seed/group-jokyu", { method: "POST" });
                       const j = await r.json();
                       if (r.ok) {
-                        const res = await fetch(`/api/curriculum?page=group`);
+                        const res = await fetch(`/api/curriculum?page=group&raw=1`);
                         const data = await res.json();
                         setBlocks(Array.isArray(data) ? data : []);
                         const jokyu = (data || []).find((b: { blockKey: string }) => b.blockKey === "curriculum_jokyu");

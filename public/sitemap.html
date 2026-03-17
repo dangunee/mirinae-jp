@@ -13,6 +13,7 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:image" content="https://mirinae.jp/favicon-64.png">
   <link rel="icon" href="/favicon-64.png" type="image/png">
+  <link rel="stylesheet" href="/css/mobile-overflow.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -44,7 +45,6 @@
       display: flex;
       align-items: center;
       height: 56px;
-      border-radius: 0 0 12px 12px;
     }
     nav a { text-decoration: none; color: var(--text); font-size: 13px; margin-right: 24px; transition: color .2s; }
     nav a:hover { color: var(--gold); }
@@ -97,10 +97,10 @@
 <body>
 <div class="page-wrapper">
   <nav>
-    <a href="index.html" class="nav-logo">ミリネ韓国語教室</a>
-    <a href="index.html">ホーム</a>
-    <a href="about.html">会社概要</a>
-    <a href="trial.html">お申込み</a>
+    <a href="/" class="nav-logo">ミリネ韓国語教室</a>
+    <a href="/">ホーム</a>
+    <a href="/about">会社概要</a>
+    <a href="/trial">お申込み</a>
   </nav>
 
   <h1 class="page-title">サイトマップ</h1>
@@ -108,31 +108,31 @@
   <div class="sitemap-grid">
     <div class="sitemap-column">
       <h3>メニュー</h3>
-      <a href="index.html">ホーム</a>
-      <a href="about.html">会社概要</a>
-      <a href="about.html#tab02">アクセス</a>
+      <a href="/">ホーム</a>
+      <a href="/about">会社概要</a>
+      <a href="/about#tab02">アクセス</a>
     </div>
     <div class="sitemap-column">
       <h3>講座</h3>
-      <a href="kojin.html">個人レッスン</a>
-      <a href="group.html">グループレッスン</a>
-      <a href="kaiwa.html">会話強化クラス</a>
-      <a href="special.html">試験対策講座</a>
-      <a href="syutyu.html">集中講座</a>
-      <a href="netlesson.html">通信講座</a>
+      <a href="/kojin">個人レッスン</a>
+      <a href="/group">グループレッスン</a>
+      <a href="/kaiwa">会話強化クラス</a>
+      <a href="/special">試験対策講座</a>
+      <a href="/syutyu">集中講座</a>
+      <a href="/netlesson">通信講座</a>
     </div>
     <div class="sitemap-column">
       <h3>お申込み</h3>
-      <a href="trial.html">体験申込</a>
-      <a href="trial.html#tab02">講座申込</a>
-      <a href="trial.html#tab04">お問い合わせ</a>
+      <a href="/trial">体験申込</a>
+      <a href="/trial#tab02">講座申込</a>
+      <a href="/trial#tab04">お問い合わせ</a>
     </div>
     <div class="sitemap-column">
       <h3>その他</h3>
-      <a href="about.html#tab03">講師</a>
-      <a href="book.html">著書</a>
-      <a href="voice.html">『ミリネ教科書』音声</a>
-      <a href="cancel.html">キャンセル規定</a>
+      <a href="/about#tab03">講師</a>
+      <a href="/book">著書</a>
+      <a href="/voice">『ミリネ教科書』音声</a>
+      <a href="/cancel">キャンセル規定</a>
     </div>
   </div>
 
@@ -144,5 +144,6 @@
 (function(){var y=document.getElementById('footer-year');if(y)y.textContent=new Date().getFullYear();})();
 </script>
 </div>
+  <script src="/js/analytics.js"></script>
 </body>
 </html>

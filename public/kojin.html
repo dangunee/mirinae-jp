@@ -13,6 +13,7 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:image" content="https://mirinae.jp/favicon-64.png">
   <link rel="icon" href="/favicon-64.png" type="image/png">
+  <link rel="stylesheet" href="/css/mobile-overflow.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600;700&family=Noto+Serif+KR:wght@300;400;600&family=Noto+Sans+JP:wght@300;400;500&family=Noto+Sans+KR:wght@300;400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
@@ -40,6 +41,9 @@
 
     html { scroll-behavior: smooth; overflow-x: hidden; }
     body { overflow-x: hidden; max-width: 100vw; }
+    /* モバイル: テキスト・コンテンツがフレーム外に出ないように */
+    body, .main, .main .content, .overview-card, .tab-panel { overflow-wrap: break-word; word-wrap: break-word; }
+    img { max-width: 100%; height: auto; }
 
     body {
       background: var(--bg);
@@ -147,6 +151,8 @@
       white-space: nowrap;
     }
     .nav-links > li > a:hover { background: var(--gold-pale); color: var(--gold); }
+    .nav-cta { background: var(--gold) !important; color: white !important; border-radius: 6px !important; font-weight: 700 !important; padding: 8px 16px !important; }
+    .nav-cta:hover { background: var(--gold-light) !important; color: white !important; }
     .nav-dropdown {
       position: absolute;
       top: 100%;
@@ -256,7 +262,7 @@
     .tab:hover:not(.active) { color: var(--mid); }
 
     .main {
-      max-width: 1440px; /* 1200 × 1.2: 메인 내용 카드 영역 1.2배 */
+      max-width: min(1440px, 100vw);
       margin: 0 auto;
       padding: 64px 80px;
       display: grid;
@@ -1321,8 +1327,10 @@
     .info-item .ii-val { color: var(--mid); }
 
     @media (max-width: 900px) {
-      .main { grid-template-columns: 1fr; padding: 24px 16px; gap: 32px; }
-      .main .content { width: 100%; max-width: 100%; padding-top: 24px; }
+      .hero, .tabs-bar, .main { width: 100%; max-width: 100%; box-sizing: border-box; }
+      .hero h1, .hero p { overflow-wrap: break-word; word-wrap: break-word; max-width: 100%; }
+      .main { grid-template-columns: 1fr; padding: 24px 16px; gap: 32px; max-width: min(1440px, 100%); }
+      .main .content { width: 100%; max-width: 100%; padding-top: 24px; min-width: 0; }
       .price-table-header,
       .price-table .price-row { grid-template-columns: 1fr 0.7fr 0.9fr 0.9fr 1fr; gap: 8px; font-size: 14px; }
       .price-table-header { font-size: 13px; padding: 14px 0 12px; }
@@ -1412,6 +1420,8 @@
 
     .kojin-reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s, transform .6s; }
     .kojin-reveal.visible { opacity: 1; transform: none; }
+    /* カリキュラム: 分類タブ(初級/中級/上級・12/24/48コマ)を常に表示 */
+    #tab02 .kojin-reveal.curriculum-section { opacity: 1; transform: none; }
 
     /* Legacy: tab02, tab03, tab04 panels */
     .content-block { margin-bottom: 32px; }
@@ -1492,8 +1502,6 @@
       border-collapse: collapse;
       margin: 20px 0;
       font-size: 14px;
-      border-radius: 12px;
-      overflow: hidden;
     }
     .price-table.legacy-table th,
     .price-table.legacy-table td {
@@ -1658,7 +1666,7 @@
     .curriculum-table col.col-12 { width: 30%; }
     .curriculum-table col.col-24 { width: 30%; }
     .curriculum-table col.col-48 { width: 30%; }
-    .curriculum-wrap { overflow-x: auto; margin: 16px 0; }
+    .curriculum-wrap { overflow-x: auto; max-width: 100%; margin: 16px 0; -webkit-overflow-scrolling: touch; }
     .curriculum-table th, .curriculum-table td {
       border: 1px solid #d0d0d0;
       padding: 10px 12px;
@@ -1780,26 +1788,34 @@
       font-size: 24px;
     }
     @media (max-width: 900px) {
-      #tab01 .overview-card.overview-card-dark .overview-top { margin: -28px -20px 20px -20px; padding: 28px 28px; width: calc(100% + 40px); min-width: calc(100% + 40px); gap: 24px; }
+      #tab01 .overview-card.overview-card-dark .overview-top { margin: -28px -20px 20px -20px; padding: 28px 20px; width: calc(100% + 40px); min-width: 0; gap: 24px; box-sizing: border-box; }
       #tab01 .overview-card.overview-card-dark .overview-top .progress-ring { width: 96px; height: 96px; }
       #tab01 .overview-card.overview-card-dark .overview-top .skill-icon { width: 50px; height: 50px; font-size: 22px; }
-      #tab02 .overview-card.overview-card-dark .ov-top, #tab03 .overview-card.overview-card-dark .ov-top, #tab04 .overview-card.overview-card-dark .ov-top { margin: -28px -20px 20px -20px; padding: 28px 28px; width: calc(100% + 40px); min-width: calc(100% + 40px); gap: 24px; }
-      #tab02 .overview-card.overview-card-dark .ov-top .progress-ring, #tab03 .overview-card.overview-card-dark .ov-top .progress-ring, #tab04 .overview-card.overview-card-dark .ov-top .progress-ring { width: 96px; height: 96px; }
+      #tab02 .overview-card.overview-card-dark .ov-top, #tab03 .overview-card.overview-card-dark .ov-top, #tab04 .overview-card.overview-card-dark .ov-top { margin: -28px -20px 20px -20px; padding: 28px 20px; width: calc(100% + 40px); min-width: 0; gap: 24px; box-sizing: border-box; justify-content: center; align-items: center; }
+      #tab02 .overview-card.overview-card-dark .ov-top .ov-top-left, #tab03 .overview-card.overview-card-dark .ov-top .ov-top-left, #tab04 .overview-card.overview-card-dark .ov-top .ov-top-left { min-width: 0; max-width: 100%; flex-shrink: 1; justify-content: center; text-align: center; }
+      #tab02 .overview-card.overview-card-dark .ov-top .ov-subtitle, #tab03 .overview-card.overview-card-dark .ov-top .ov-subtitle, #tab04 .overview-card.overview-card-dark .ov-top .ov-subtitle { overflow-wrap: anywhere; word-wrap: break-word; word-break: break-word; min-width: 0; max-width: 100%; }
+      #tab02 .overview-card.overview-card-dark .ov-top .progress-ring, #tab03 .overview-card.overview-card-dark .ov-top .progress-ring, #tab04 .overview-card.overview-card-dark .ov-top .progress-ring { width: 96px; height: 96px; flex-shrink: 0; }
       #tab02 .overview-card.overview-card-dark .ov-top .skill-icon, #tab03 .overview-card.overview-card-dark .ov-top .skill-icon, #tab04 .overview-card.overview-card-dark .ov-top .skill-icon { width: 50px; height: 50px; font-size: 22px; }
+      #tab02 .tab-panel, #tab02 .kojin-reveal, #tab02 section { min-width: 0; }
+      #tab02 .overview-card .ov-body, #tab02 .overview-card .ov-note { width: 100%; min-width: 0; max-width: 100%; box-sizing: border-box; overflow-wrap: break-word; word-wrap: break-word; }
+      #tab02 .overview-card { width: 100%; max-width: 100%; box-sizing: border-box; }
+      #tab02 .cur-table-wrap { min-width: 0; width: 100%; }
+      #tab02 .cur-table tbody td:not(:first-child) { overflow-wrap: break-word; word-wrap: break-word; }
     }
     @media (max-width: 600px) {
-      #tab01 .overview-card.overview-card-dark .overview-top { margin: -24px -20px 16px -20px; padding: 24px 24px; width: calc(100% + 40px); min-width: calc(100% + 40px); flex-wrap: wrap; justify-content: flex-start; gap: 20px; }
+      #tab01 .overview-card.overview-card-dark .overview-top { margin: -24px -20px 16px -20px; padding: 24px 20px; width: calc(100% + 40px); min-width: 0; flex-wrap: wrap; justify-content: flex-start; gap: 20px; box-sizing: border-box; }
       #tab01 .overview-card.overview-card-dark .overview-top .ov-top-left { flex-wrap: nowrap; }
       #tab01 .overview-card.overview-card-dark .overview-top .progress-ring { width: 88px; height: 88px; }
       #tab01 .overview-card.overview-card-dark .overview-top .overview-label { font-size: 20px; }
       #tab01 .overview-card.overview-card-dark .overview-top .skills-row { justify-content: center; width: 100%; }
       #tab01 .overview-card.overview-card-dark .overview-top .skill-icon { width: 46px; height: 46px; font-size: 20px; }
-      #tab02 .overview-card.overview-card-dark .ov-top, #tab03 .overview-card.overview-card-dark .ov-top, #tab04 .overview-card.overview-card-dark .ov-top { margin: -24px -20px 16px -20px; padding: 24px 24px; width: calc(100% + 40px); min-width: calc(100% + 40px); flex-wrap: wrap; gap: 20px; }
-      #tab02 .overview-card.overview-card-dark .ov-top .ov-top-left, #tab03 .overview-card.overview-card-dark .ov-top .ov-top-left, #tab04 .overview-card.overview-card-dark .ov-top .ov-top-left { flex-wrap: nowrap; }
+      #tab02 .overview-card.overview-card-dark .ov-top, #tab03 .overview-card.overview-card-dark .ov-top, #tab04 .overview-card.overview-card-dark .ov-top { margin: -24px -20px 16px -20px; padding: 24px 20px; width: calc(100% + 40px); min-width: 0; flex-wrap: wrap; gap: 20px; box-sizing: border-box; justify-content: center; align-items: center; }
+      #tab02 .overview-card.overview-card-dark .ov-top .ov-top-left, #tab03 .overview-card.overview-card-dark .ov-top .ov-top-left, #tab04 .overview-card.overview-card-dark .ov-top .ov-top-left { flex-wrap: nowrap; justify-content: center; text-align: center; max-width: 100%; }
       #tab02 .overview-card.overview-card-dark .ov-top .progress-ring, #tab03 .overview-card.overview-card-dark .ov-top .progress-ring, #tab04 .overview-card.overview-card-dark .ov-top .progress-ring { width: 88px; height: 88px; }
       #tab02 .overview-card.overview-card-dark .ov-top .label, #tab03 .overview-card.overview-card-dark .ov-top .label, #tab04 .overview-card.overview-card-dark .ov-top .label { font-size: 22px; }
       #tab02 .overview-card.overview-card-dark .ov-top .skills-row, #tab03 .overview-card.overview-card-dark .ov-top .skills-row, #tab04 .overview-card.overview-card-dark .ov-top .skills-row { justify-content: center; width: 100%; }
       #tab02 .overview-card.overview-card-dark .ov-top .skill-icon, #tab03 .overview-card.overview-card-dark .ov-top .skill-icon, #tab04 .overview-card.overview-card-dark .ov-top .skill-icon { width: 46px; height: 46px; font-size: 20px; }
+      #tab02 .tanki-step-node { min-width: 0; }
     }
     #tab01 .overview-card.overview-card-dark .overview-top .overview-label {
       color: var(--muted);
@@ -1865,7 +1881,7 @@
     #tab02 .overview-card .ov-top { display: flex; align-items: center; gap: 20px; margin-bottom: 24px; }
     #tab02 .overview-card .ov-top .label { font-size: 14px; color: var(--muted); }
     #tab02 .overview-card .ov-top .ov-subtitle { font-size: 16px; color: var(--mid); margin-top: 4px; }
-    #tab02 .overview-card .ov-body p { font-size: 17px; color: var(--mid); line-height: 1.9; margin-bottom: 12px; }
+    #tab02 .overview-card .ov-body p { font-size: 17px; color: var(--mid); line-height: 1.9; margin-bottom: 12px; overflow-wrap: break-word; word-wrap: break-word; }
     #tab02 .overview-card .ov-body p:last-child { margin-bottom: 0; }
     #tab02 .overview-card .ov-note { margin-top: 16px; background: rgba(255,255,255,0.6); border-radius: 8px; padding: 12px 16px; font-size: 14px; color: var(--muted); line-height: 1.7; }
     #tab02 .tanki-worry-heading { font-size: 20px !important; font-weight: 600 !important; color: var(--dark) !important; margin-bottom: 12px !important; }
@@ -1878,16 +1894,24 @@
       gap: 12px;
       flex-shrink: 0;
     }
+    @media (min-width: 901px) {
+      #tab02 .overview-card.overview-card-dark .ov-top {
+        background: var(--gold-pale);
+        margin: -40px -40px 24px -40px;
+        padding: 36px 40px;
+        border-radius: 16px 16px 0 0;
+        width: calc(100% + 80px);
+        min-width: calc(100% + 80px);
+        box-sizing: border-box;
+        justify-content: flex-start;
+        gap: 32px;
+      }
+    }
     #tab02 .overview-card.overview-card-dark .ov-top {
       background: var(--gold-pale);
-      margin: -40px -40px 24px -40px;
-      padding: 36px 40px;
       border-radius: 16px 16px 0 0;
-      width: calc(100% + 80px);
-      min-width: calc(100% + 80px);
-      box-sizing: border-box;
       justify-content: flex-start;
-      gap: 32px;
+      box-sizing: border-box;
     }
     #tab02 .overview-card.overview-card-dark .ov-top .progress-ring { width: 112px; height: 112px; }
     #tab02 .overview-card.overview-card-dark .ov-top .label { font-size: 14px; color: var(--muted); }
@@ -1900,7 +1924,7 @@
     #tab02 .overview-card.overview-card-dark .tanki-worry-list { color: rgba(255,255,255,0.9); }
     #tab02 .overview-card.overview-card-dark .tanki-worry-list li { color: rgba(255,255,255,0.9); }
     #tab02 .overview-card.overview-card-dark .ov-note { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.8); }
-    #tab02 .tanki-worry-list { margin: 0 0 20px 20px; padding: 0; list-style: disc; font-size: 17px; color: var(--mid); line-height: 1.9; }
+    #tab02 .tanki-worry-list { margin: 0 0 20px 20px; padding: 0; list-style: disc; font-size: 17px; color: var(--mid); line-height: 1.9; overflow-wrap: break-word; word-wrap: break-word; }
     #tab02 .tanki-worry-list li { margin-bottom: 6px; }
     #tab02 .sched-row { display: flex; gap: 16px; flex-wrap: wrap; }
     #tab02 .sched-item { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 16px 24px; font-size: 16px; color: var(--mid); }
@@ -1918,7 +1942,7 @@
     #tab02 .course-tabs { display: flex; gap: 6px; margin-bottom: 20px; }
     #tab02 .course-tab { padding: 6px 16px; border-radius: 6px; font-size: 14px; cursor: pointer; border: 1px solid var(--border); color: var(--muted); background: var(--white); transition: all .15s; user-select: none; font-weight: 500; }
     #tab02 .course-tab.active { background: var(--dark); color: #fff; border-color: var(--dark); }
-    #tab02 .cur-table-wrap { border-radius: 14px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 2px 16px rgba(30,26,20,0.06); margin-bottom: 20px; }
+    #tab02 .cur-table-wrap { border-radius: 14px; overflow-x: auto; overflow-y: hidden; max-width: 100%; -webkit-overflow-scrolling: touch; border: 1px solid var(--border); box-shadow: 0 2px 16px rgba(30,26,20,0.06); margin-bottom: 20px; }
     #tab02 .cur-table-wrap[style*="display: none"] { display: none !important; }
     #tab02 .cur-table { width: 100%; border-collapse: collapse; font-size: 16px; }
     #tab02 .cur-table thead tr { background: var(--dark); color: #fff; }
@@ -1974,16 +1998,24 @@
       gap: 12px;
       flex-shrink: 0;
     }
+    @media (min-width: 901px) {
+      #tab03 .overview-card.overview-card-dark .ov-top {
+        background: var(--gold-pale);
+        margin: -40px -40px 24px -40px;
+        padding: 36px 40px;
+        border-radius: 16px 16px 0 0;
+        width: calc(100% + 80px);
+        min-width: calc(100% + 80px);
+        box-sizing: border-box;
+        justify-content: flex-start;
+        gap: 32px;
+      }
+    }
     #tab03 .overview-card.overview-card-dark .ov-top {
       background: var(--gold-pale);
-      margin: -40px -40px 24px -40px;
-      padding: 36px 40px;
       border-radius: 16px 16px 0 0;
-      width: calc(100% + 80px);
-      min-width: calc(100% + 80px);
-      box-sizing: border-box;
       justify-content: flex-start;
-      gap: 32px;
+      box-sizing: border-box;
     }
     #tab03 .overview-card.overview-card-dark .ov-top .progress-ring { width: 112px; height: 112px; }
     #tab03 .overview-card.overview-card-dark .ov-top .label { font-size: 14px; color: var(--muted); }
@@ -2025,16 +2057,24 @@
       gap: 12px;
       flex-shrink: 0;
     }
+    @media (min-width: 901px) {
+      #tab04 .overview-card.overview-card-dark .ov-top {
+        background: var(--gold-pale);
+        margin: -40px -40px 24px -40px;
+        padding: 36px 40px;
+        border-radius: 16px 16px 0 0;
+        width: calc(100% + 80px);
+        min-width: calc(100% + 80px);
+        box-sizing: border-box;
+        justify-content: flex-start;
+        gap: 32px;
+      }
+    }
     #tab04 .overview-card.overview-card-dark .ov-top {
       background: var(--gold-pale);
-      margin: -40px -40px 24px -40px;
-      padding: 36px 40px;
       border-radius: 16px 16px 0 0;
-      width: calc(100% + 80px);
-      min-width: calc(100% + 80px);
-      box-sizing: border-box;
       justify-content: flex-start;
-      gap: 32px;
+      box-sizing: border-box;
     }
     #tab04 .overview-card.overview-card-dark .ov-top .progress-ring { width: 112px; height: 112px; }
     #tab04 .overview-card.overview-card-dark .ov-top .label { font-size: 14px; color: var(--muted); }
@@ -2326,6 +2366,9 @@
       #tab04 .result-card-header { flex-direction: column; gap: 12px; align-items: flex-start; }
       #tab04 .result-level-track { min-width: 200px; }
     }
+    @media (max-width: 900px) {
+      #tab04 .result-section, #tab04 .fee-section { padding: 0; }
+    }
 
     .testimonial {
       background: var(--gray-light);
@@ -2467,30 +2510,30 @@
 </head>
 <body>
   <nav>
-    <a href="index.html" class="nav-logo">ミリネ韓国語教室</a>
+    <a href="/" class="nav-logo">ミリネ韓国語教室</a>
     <button type="button" class="nav-hamburger" aria-label="メニューを開く">
       <span></span><span></span><span></span>
     </button>
     <div class="nav-overlay" aria-hidden="true"></div>
     <ul class="nav-links">
-      <li><a href="index.html">ホーム</a></li>
+      <li><a href="/">ホーム</a></li>
       <li class="nav-has-dropdown">
-        <a href="index.html#recruiting">講座</a>
+        <a href="/#recruiting">講座</a>
         <ul class="nav-dropdown">
-          <li><a href="kojin.html">個人レッスン</a></li>
-          <li><a href="group.html">グループレッスン</a></li>
-          <li><a href="kaiwa.html">会話強化クラス</a></li>
-          <li><a href="special.html">試験対策講座</a></li>
-          <li><a href="syutyu.html">集中講座</a></li>
-          <li><a href="netlesson.html">通信講座</a></li>
+          <li><a href="/kojin">個人レッスン</a></li>
+          <li><a href="/group">グループレッスン</a></li>
+          <li><a href="/kaiwa">会話強化クラス</a></li>
+          <li><a href="/special">試験対策講座</a></li>
+          <li><a href="/syutyu">集中講座</a></li>
+          <li><a href="/netlesson">通信講座</a></li>
         </ul>
       </li>
-      <li><a href="about.html">会社概要</a></li>
-      <li><a href="about.html#tab02">アクセス</a></li>
-      <li><a href="trial.html">お申込み</a></li>
-      <li><a href="about.html#tab03">講師</a></li>
-      <li><a href="book.html">著書</a></li>
-      <li><a href="trial.html#tab04">お問い合わせ</a></li>
+      <li><a href="/about">会社概要</a></li>
+      <li><a href="/about#tab02">アクセス</a></li>
+      <li><a href="/trial" class="nav-cta">お申込み</a></li>
+      <li><a href="/about#tab03">講師</a></li>
+      <li><a href="/book">著書</a></li>
+      <li><a href="/trial#tab04">お問い合わせ</a></li>
     </ul>
   </nav>
 
@@ -2707,28 +2750,28 @@
               </div>
               <div class="books-grid">
                 <div class="book-wrap">
-                  <img src="img/textbook/seoul1a.JPG" alt="ソウル大韓国語 1A">
+                  <img src="/img/textbook/seoul1a.JPG" alt="ソウル大韓国語 1A">
                   <div class="book-caption">
                     <div class="caption-vol">Vol. 1A</div>
                     <div class="caption-level">初級 I</div>
                   </div>
                 </div>
                 <div class="book-wrap">
-                  <img src="img/textbook/seoul2a.JPG" alt="ソウル大韓国語 2A">
+                  <img src="/img/textbook/seoul2a.JPG" alt="ソウル大韓国語 2A">
                   <div class="book-caption">
                     <div class="caption-vol">Vol. 2A</div>
                     <div class="caption-level">初中級 I</div>
                   </div>
                 </div>
                 <div class="book-wrap">
-                  <img src="img/textbook/seoul3a.JPG" alt="ソウル大韓国語 3A">
+                  <img src="/img/textbook/seoul3a.JPG" alt="ソウル大韓国語 3A">
                   <div class="book-caption">
                     <div class="caption-vol">Vol. 3A</div>
                     <div class="caption-level">中級 I</div>
                   </div>
                 </div>
                 <div class="book-wrap">
-                  <img src="img/textbook/seoul4a.JPG" alt="ソウル大韓国語 4A">
+                  <img src="/img/textbook/seoul4a.JPG" alt="ソウル大韓国語 4A">
                   <div class="book-caption">
                     <div class="caption-vol">Vol. 4A</div>
                     <div class="caption-level">上級 I</div>
@@ -2818,7 +2861,7 @@
                 <div class="pr-yuko">1年</div>
               </div>
             </div>
-            <a class="kojin-cta-btn cta-btn" href="trial.html">体験レッスンを申し込む →</a>
+            <a class="kojin-cta-btn cta-btn" href="/trial">体験レッスンを申し込む →</a>
           </div>
         </section>
 
@@ -2971,7 +3014,7 @@
           <div class="sched-note">🗓 予約制（50分 / 1コマ）</div>
         </section>
 
-        <section class="kojin-reveal">
+        <section class="kojin-reveal curriculum-section">
           <h2 class="section-title"><span class="dot"></span>カリキュラム</h2>
           <div class="level-tabs">
             <div class="level-tab active-beg" data-level="beg">初級</div>
@@ -3281,28 +3324,28 @@
             </div>
             <div class="books-grid">
               <div class="book-wrap">
-                <img src="img/textbook/seoul1a.JPG" alt="ソウル大韓国語 1A">
+                <img src="/img/textbook/seoul1a.JPG" alt="ソウル大韓国語 1A">
                 <div class="book-caption">
                   <div class="caption-vol">Vol. 1A</div>
                   <div class="caption-level">初級 I</div>
                 </div>
               </div>
               <div class="book-wrap">
-                <img src="img/textbook/seoul2a.JPG" alt="ソウル大韓国語 2A">
+                <img src="/img/textbook/seoul2a.JPG" alt="ソウル大韓国語 2A">
                 <div class="book-caption">
                   <div class="caption-vol">Vol. 2A</div>
                   <div class="caption-level">初中級 I</div>
                 </div>
               </div>
               <div class="book-wrap">
-                <img src="img/textbook/seoul3a.JPG" alt="ソウル大韓国語 3A">
+                <img src="/img/textbook/seoul3a.JPG" alt="ソウル大韓国語 3A">
                 <div class="book-caption">
                   <div class="caption-vol">Vol. 3A</div>
                   <div class="caption-level">中級 I</div>
                 </div>
               </div>
               <div class="book-wrap">
-                <img src="img/textbook/seoul4a.JPG" alt="ソウル大韓国語 4A">
+                <img src="/img/textbook/seoul4a.JPG" alt="ソウル大韓国語 4A">
                 <div class="book-caption">
                   <div class="caption-vol">Vol. 4A</div>
                   <div class="caption-level">上級 I</div>
@@ -3375,7 +3418,7 @@
                 <div class="pr-yuko">5ヶ月</div>
               </div>
             </div>
-            <a class="kojin-cta-btn cta-btn" href="trial.html">体験レッスンを申し込む →</a>
+            <a class="kojin-cta-btn cta-btn" href="/trial">体験レッスンを申し込む →</a>
           </div>
         </section>
 
@@ -3392,7 +3435,7 @@
               </div>
               <div class="review-body">
                 <p class="review-photo-title">韓国留学経験０で半年足らずにペラペラ、しかもTOPIK5級合格まで！彼女の秘訣は?</p>
-                <p class="review-photo"><img src="img/student/itomiku.png" alt="IT様"></p>
+                <p class="review-photo"><img src="/img/student/itomiku.png" alt="IT様"></p>
                 <p>伊藤さんは2018年2月からミリネ韓国語教室の短期集中個人レッスンを受けられています。「韓国に留学しているかのように通いたい」というご希望を受けスケジュールを組みました。週4回、午前10時から午後2時までお昼休憩1時間を含め、毎日3コマのレッスンでテキストの勉強をし、TOPIK試験の1ヵ月前からは試験対策レッスンを毎日4コマをこなして頂きました。</p>
                 <p>伊藤さんが初めてこの教室に来られた時はハングルが少し読める程度の学習経験はほぼゼロでした。ただ韓国ドラマがお好きで、以前からたくさんご覧になられており、セリフなどはよく耳に残ったりされたそうです。この教室に通われてからもドラマは継続して楽しんでおられて、気になるセリフがあれば必ず講師に質問されていました。文法の説明を聞き、理解されては自然な会話へとどんどん生かされておりました。</p>
                 <p>教室に通われて1ヵ月頃からは積極的に韓国語で話されたりメールのやり取りをされ、3ヵ月後以降はレッスンもほぼ韓国語で行うようになりました。TOPIKももちろん初めて受けられる訳で、最初の目標は3~4級でした。しかし努力を重ねられ、初めての受験で192点の点数を取られ、見事に5級に合格されました。担当講師から見れば、この点数はただ単に運が良かった訳ではなく、伊藤さんの本当の実力だと思います。今の伊藤さんは韓国語でどんな話題ででも会話が可能ですし、日常的なLINEやメールのやり取りもほぼ完ぺきにこなされております。驚くほど伸びたその勉強法秘訣についてインタビューをしてみました。</p>
@@ -3700,7 +3743,7 @@
                 <div class="pr-yuko">8ヶ月</div>
               </div>
             </div>
-            <a class="kojin-cta-btn cta-btn" href="trial.html">体験レッスンを申し込む →</a>
+            <a class="kojin-cta-btn cta-btn" href="/trial">体験レッスンを申し込む →</a>
           </div>
         </section>
 
@@ -3827,7 +3870,7 @@
                   <span class="check-text">モチベーションが下がって<strong>やる気が湧いて来ない</strong>方</span>
                 </div>
               </div>
-              <a href="trial.html#leveltest" class="level-btn">テストを受ける<svg viewBox="0 0 14 14"><line x1="2" y1="7" x2="12" y2="7" stroke="currentColor" stroke-width="2"/><polyline points="8,3 12,7 8,11" fill="none" stroke="currentColor" stroke-width="2"/></svg></a>
+              <a href="/trial#leveltest" class="level-btn">テストを受ける<svg viewBox="0 0 14 14"><line x1="2" y1="7" x2="12" y2="7" stroke="currentColor" stroke-width="2"/><polyline points="8,3 12,7 8,11" fill="none" stroke="currentColor" stroke-width="2"/></svg></a>
             </div>
             <div class="level-right">
               <div>
@@ -4038,7 +4081,7 @@
                   <div class="fee-feature"><span class="fee-feature-dot"></span>診断後、最適な学習プランをご提案</div>
                   <div class="fee-feature"><span class="fee-feature-dot"></span>所要時間：約50分 / オンライン対応可</div>
                 </div>
-                <a href="trial.html#leveltest" class="fee-apply-btn">レベルテストを申し込む<svg viewBox="0 0 16 16"><line x1="2" y1="8" x2="13" y2="8"/><polyline points="9,4 13,8 9,12" fill="none"/></svg></a>
+                <a href="/trial#leveltest" class="fee-apply-btn">レベルテストを申し込む<svg viewBox="0 0 16 16"><line x1="2" y1="8" x2="13" y2="8"/><polyline points="9,4 13,8 9,12" fill="none"/></svg></a>
               </div>
             </div>
           </div>
@@ -4078,7 +4121,7 @@
     </div>
 
     <aside class="sidebar" id="sidebar">
-      <a href="kojin.html#tab01" class="sidebar-promo-card" style="background-image: url('/img/student/class-kojin.jpg');" aria-label="個人レッスン"></a>
+      <a href="/kojin#tab01" class="sidebar-promo-card" style="background-image: url('/img/student/class-kojin.jpg');" aria-label="個人レッスン"></a>
       <div class="course-nav-card courses-nav-box">
         <div class="courses-nav-header">
           <div class="courses-nav-label">Courses</div>
@@ -4089,10 +4132,10 @@
             <div class="nav-group-title" role="button" tabindex="0" aria-expanded="false">個人レッスン<span class="nav-chevron">▾</span></div>
             <div class="nav-items">
               <div class="nav-items-inner">
-                <a href="kojin.html#tab01" class="nav-item" data-tab="tab01">個人レッスン</a>
-                <a href="kojin.html#tab02" class="nav-item" data-tab="tab02">短期集中個人</a>
-                <a href="kojin.html#tab03" class="nav-item" data-tab="tab03">発音矯正</a>
-                <a href="kojin.html#tab04" class="nav-item" data-tab="tab04">レベルテスト</a>
+                <a href="/kojin#tab01" class="nav-item" data-tab="tab01">個人レッスン</a>
+                <a href="/kojin#tab02" class="nav-item" data-tab="tab02">短期集中個人</a>
+                <a href="/kojin#tab03" class="nav-item" data-tab="tab03">発音矯正</a>
+                <a href="/kojin#tab04" class="nav-item" data-tab="tab04">レベルテスト</a>
               </div>
             </div>
           </div>
@@ -4101,11 +4144,11 @@
             <div class="nav-group-title" role="button" tabindex="0" aria-expanded="false">グループレッスン<span class="nav-chevron">▾</span></div>
             <div class="nav-items">
               <div class="nav-items-inner">
-                <a href="group.html#tab01" class="nav-item">入門＆初級講座</a>
-<a href="group.html#tab02" class="nav-item">中級文法講座</a>
-                    <a href="group.html#tab03" class="nav-item">上級文法講座</a>
-                    <a href="group.html#tab05" class="nav-item">上級1土曜講座</a>
-                <a href="group.html#tab06" class="nav-item">上級2土曜講座</a>
+                <a href="/group#tab01" class="nav-item">入門＆初級講座</a>
+<a href="/group#tab02" class="nav-item">中級文法講座</a>
+                    <a href="/group#tab03" class="nav-item">上級文法講座</a>
+                    <a href="/group#tab05" class="nav-item">上級1土曜講座</a>
+                <a href="/group#tab06" class="nav-item">上級2土曜講座</a>
               </div>
             </div>
           </div>
@@ -4114,11 +4157,11 @@
             <div class="nav-group-title" role="button" tabindex="0" aria-expanded="false">会話強化クラス<span class="nav-chevron">▾</span></div>
             <div class="nav-items">
               <div class="nav-items-inner">
-                <a href="kaiwa.html#tab01" class="nav-item">会話クラス</a>
-                <a href="kaiwa.html#tab02" class="nav-item">音読クラス</a>
-                <a href="kaiwa.html#tab03" class="nav-item">発音・抑揚</a>
-                <a href="kaiwa.html#tab04" class="nav-item">小説朗読</a>
-                <a href="kaiwa.html#tab05" class="nav-item">語彙力強化</a>
+                <a href="/kaiwa#tab01" class="nav-item">会話クラス</a>
+                <a href="/kaiwa#tab02" class="nav-item">音読クラス</a>
+                <a href="/kaiwa#tab03" class="nav-item">発音・抑揚</a>
+                <a href="/kaiwa#tab04" class="nav-item">小説朗読</a>
+                <a href="/kaiwa#tab05" class="nav-item">語彙力強化</a>
               </div>
             </div>
           </div>
@@ -4127,11 +4170,11 @@
             <div class="nav-group-title" role="button" tabindex="0" aria-expanded="false">試験対策講座<span class="nav-chevron">▾</span></div>
             <div class="nav-items">
               <div class="nav-items-inner">
-                <a href="special.html#tab01" class="nav-item">TOPIK初級</a>
-                <a href="special.html#tab02" class="nav-item">TOPIK中級</a>
-                <a href="special.html#tab03" class="nav-item">TOPIK上級</a>
-                <a href="special.html#tab04" class="nav-item">ハン検1/2級</a>
-                <a href="special.html#tab05" class="nav-item">ハン検準2級</a>
+                <a href="/special#tab01" class="nav-item">TOPIK初級</a>
+                <a href="/special#tab02" class="nav-item">TOPIK中級</a>
+                <a href="/special#tab03" class="nav-item">TOPIK上級</a>
+                <a href="/special#tab04" class="nav-item">ハン検1/2級</a>
+                <a href="/special#tab05" class="nav-item">ハン検準2級</a>
               </div>
             </div>
           </div>
@@ -4140,10 +4183,10 @@
             <div class="nav-group-title" role="button" tabindex="0" aria-expanded="false">集中講座<span class="nav-chevron">▾</span></div>
             <div class="nav-items">
               <div class="nav-items-inner">
-                <a href="syutyu.html#tab01" class="nav-item">入門講座</a>
-                <a href="syutyu.html#tab02" class="nav-item">初級講座</a>
-                <a href="syutyu.html#tab03" class="nav-item">中級講座</a>
-                <a href="syutyu.html#tab04" class="nav-item">上級講座</a>
+                <a href="/syutyu#tab01" class="nav-item">入門講座</a>
+                <a href="/syutyu#tab02" class="nav-item">初級講座</a>
+                <a href="/syutyu#tab03" class="nav-item">中級講座</a>
+                <a href="/syutyu#tab04" class="nav-item">上級講座</a>
               </div>
             </div>
           </div>
@@ -4152,9 +4195,9 @@
             <div class="nav-group-title" role="button" tabindex="0" aria-expanded="false">通信講座<span class="nav-chevron">▾</span></div>
             <div class="nav-items">
               <div class="nav-items-inner">
-                <a href="netlesson.html#tab01" class="nav-item">作文トレーニング</a>
-                <a href="netlesson.html#tab02" class="nav-item">音読トレーニング</a>
-                <a href="netlesson.html#tab03" class="nav-item">TOPIK作文トレーニング</a>
+                <a href="/netlesson#tab01" class="nav-item">作文トレーニング</a>
+                <a href="/netlesson#tab02" class="nav-item">音読トレーニング</a>
+                <a href="/netlesson#tab03" class="nav-item">TOPIK作文トレーニング</a>
               </div>
             </div>
           </div>
@@ -4280,7 +4323,7 @@
           panel.classList.toggle('active', panel.id === tabId);
         });
         if (mainWrap) mainWrap.classList.remove('no-sidebar');
-        history.replaceState(null, '', 'kojin.html#' + tabId);
+        history.replaceState(null, '', '#' + tabId);
         ctaBtns.forEach(function(btn) { btn.href = getTrialUrlForTab(tabId); });
         setCourseNavActive(tabId);
         initKojinReveal(tabId);
@@ -4385,7 +4428,7 @@
         if (tankiData[index]) renderRows(tankiData[index].rows);
       }
 
-      fetch('/api/curriculum?page=kojin')
+      fetch('/api/curriculum?page=kojin&_=' + Date.now(), { cache: 'no-store' })
         .then(function(res) { return res.json(); })
         .then(function(blocks) {
           tankiData = TANKI_ORDER.map(function(key) { return blocks.find(function(b) { return b.blockKey === key; }); }).filter(Boolean);
@@ -4432,11 +4475,12 @@
             var tbl = wrap.querySelector('table.cur-table');
             var tbody = tbl && tbl.querySelector('tbody');
             if (!tbody) return;
-            tbody.innerHTML = '';
             var rowsForCol = b.rows.filter(function(row) {
               var c = row['c' + col] || '';
               return c.replace(/\s/g, '') !== '' && c !== '-';
             });
+            if (!rowsForCol.length) return;
+            var fragment = document.createDocumentFragment();
             rowsForCol.forEach(function(row) {
               var tr = document.createElement('tr');
               var content = row['c' + col] || '';
@@ -4464,22 +4508,31 @@
                 }
                 tr.appendChild(tdContent);
               }
-              tbody.appendChild(tr);
+              fragment.appendChild(tr);
             });
+            tbody.innerHTML = '';
+            tbody.appendChild(fragment);
           });
         });
       }
+      var cacheBust = '_=' + Date.now();
       Promise.all([
-        fetch('/api/curriculum?page=kojin').then(function(r) { return r.json(); }),
-        fetch('/api/curriculum/themes').then(function(r) { return r.json(); })
+        fetch('/api/curriculum?page=kojin&' + cacheBust, { cache: 'no-store' }).then(function(r) { return r.json(); }),
+        fetch('/api/curriculum/themes?' + cacheBust, { cache: 'no-store' }).then(function(r) { return r.json(); })
       ]).then(function(results) {
         var blocks = results[0];
         var themes = results[1];
-        if (Array.isArray(blocks) && blocks.length) renderCurriculumTables(blocks, themes);
+        var hasBlocks = Array.isArray(blocks) && blocks.length > 0 && CURRICULUM_KEYS.some(function(item) {
+          var b = blocks.find(function(x) { return x.blockKey === item.blockKey; });
+          return b && b.rows && b.rows.length > 0;
+        });
+        var themeList = Array.isArray(themes) && themes.length > 0 ? themes : [];
+        if (hasBlocks) renderCurriculumTables(blocks, themeList);
       }).catch(function(err) { console.warn('Curriculum load failed:', err); });
     })();
   </script>
   <script src="/testimonials.js"></script>
   <script src="/admin-badge.js"></script>
+  <script src="/js/analytics.js"></script>
 </body>
 </html>

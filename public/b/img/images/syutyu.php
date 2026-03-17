@@ -716,9 +716,9 @@
 
 
 <!-- BEGIN HEADER -->
-		<div id="logo1"> <a href="index.html" target="_top"><img src="img/logo5.png" alt="business logo" /></a>
+		<div id="logo1"> <a href="index.html" target="_top"><img src="/b/img/logo5.png" alt="business logo" /></a>
 		</div>	  <div id="logo2">
-		<img style="margin-bottom:9px;margin-right:15px;" src="img/logo3.png" alt="business logo" /><br />
+		<img style="margin-bottom:9px;margin-right:15px;" src="/b/img/logo3.png" alt="business logo" /><br />
 		<a href="about.php"><strong>会社概要・口座・地図・講師</strong></a>&nbsp;/&nbsp;
 		<a href="book.php"><strong>著書</strong></a></a>&nbsp;/&nbsp;
 		<a href="cal.html"><strong>総合スケジュール表</strong></a>&nbsp;/&nbsp;
@@ -729,10 +729,10 @@
 <!-- BEGIN PAGE -->	<div id="page">		
 		
 <!-- BEGIN NAVIGATION -->
-					 <ul id="menu">	<li><a href="index.html"><img src="img/images/navi_01.png" alt=""/></a></li>
+					 <ul id="menu">	<li><a href="index.html"><img src="/b/img/images/navi_01.png" alt=""/></a></li>
 
 		<li>
-		    <a href="#"><img src="img/images/navi_02.png" alt=""/></a>
+		    <a href="#"><img src="/b/img/images/navi_02.png" alt=""/></a>
 		<ul>
 
 			<li><a href="kojin.php?class=kojin">個人レッスン</a></li>
@@ -743,7 +743,7 @@
 		</li>
     
     	<li>
-				<a href="#"><img src="img/images/navi_03.png" alt=""/></a>
+				<a href="#"><img src="/b/img/images/navi_03.png" alt=""/></a>
 				<ul>
 				<li><a href="group.php?class=nyumon">【入門】ハングル6週間コース</a></li>
 				<li><a href="group.php?class=syokyu">【初級】平日グループコース</a></li>
@@ -755,7 +755,7 @@
 			</li>
 			
 		<li>
-				<a href="#"><img src="img/images/navi_04.png" alt=""/></a>
+				<a href="#"><img src="/b/img/images/navi_04.png" alt=""/></a>
 				<ul>
 				<li><a href="kaiwa.php?class=training">会話トレーニング</a></li>
 				  <li><a href="kaiwa.php?class=freetalk">予約制フリートーキング</a></li> 
@@ -764,7 +764,7 @@
 		</li>
 		 
 		<li>
-		<a href="#"><img src="img/images/navi_05.png" alt=""/></a>
+		<a href="#"><img src="/b/img/images/navi_05.png" alt=""/></a>
 		<ul>
 			<li><a href="special.php?class=topik">TOPIK対策講座</a></li>
 			<li><a href="special.php?class=hanken">ハングル検定対策</a></li>
@@ -777,7 +777,7 @@
 		</ul>
 		</li>
     
-    <li><a href="#"><img src="img/images/navi_06.png" alt=""/></a>
+    <li><a href="#"><img src="/b/img/images/navi_06.png" alt=""/></a>
     	<ul>
 		  <!--<li><a href="http://mirinae.jp/oneday.php?class=nyumons">入門1日レッスン</a></li>
           <li><a href="http://mirinae.jp/oneday.php?class=syokyus">初級1日レッスン</a></li>-->
@@ -790,7 +790,7 @@
     
       <li>
 
-		<a href="#"><img src="img/images/navi_07.png" alt=""/></a>
+		<a href="#"><img src="/b/img/images/navi_07.png" alt=""/></a>
 		<ul>
 		    <li><a href="castigation.php?class=writing">作文トレーニングコース</a></li>
 			<li><a href="castigation.php?class=castigator">プロ翻訳コース</a></li>			
@@ -803,7 +803,7 @@
 
         <li>
 
-		<a href="#"><img src="img/images/navi_08.png" alt=""/></a>	
+		<a href="#"><img src="/b/img/images/navi_08.png" alt=""/></a>	
         <ul>
 			
 			 <li><a href="trialesson.html">お申し込み</a></li>
@@ -877,7 +877,7 @@
 							
                             <!-- tabs #1 content START here -->
                             <div id="nyumon" class="ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide">
-                                <img style="margin-top: 15px; margin-left: 5px; opacity: 0.9704403844771128;" src="img/toku.jpg" width="595" height="42" alt="">
+                                <img style="margin-top: 15px; margin-left: 5px; opacity: 0.9704403844771128;" src="/b/img/toku.jpg" width="595" height="42" alt="">
                                 <div id="moreserv">
 
 
@@ -891,7 +891,7 @@
 								</div>
                                 <br>
                                 <div class="clear"></div>
-                                <img style="margin-bottom:10px; margin-left:5px;" src="img/syosai.jpg" width="595" height="42" alt=""><br>
+                                <img style="margin-bottom:10px; margin-left:5px;" src="/b/img/syosai.jpg" width="595" height="42" alt=""><br>
 								【1月集中講座】
                 <table width="91%" class="table table-bordered table-striped">
 					<tr>
@@ -969,13 +969,13 @@
                                 <br>
                                 <br>
 
-								<img style="margin-bottom:10px; margin-left:5px;" src="img/hoka.jpg" width="595" height="42" alt=""/>
+								<img style="margin-bottom:10px; margin-left:5px;" src="/b/img/hoka.jpg" width="595" height="42" alt=""/>
 								<p align="left"><code>■&nbsp;集中講座の手続とキャンセル等 </code> </p>
 								<a href="etc3.html" target="_top" class="btn btn-primary"><font color="#fff">キャンセル等の手続はクリックしてください。</font></a> <br>
 								<br>
                    
 							<hr />
-							<img style="margin-bottom:10px; margin-left:5px;" src="img/koe2.jpg" width="595" height="42" alt=""/>
+							<img style="margin-bottom:10px; margin-left:5px;" src="/b/img/koe2.jpg" width="595" height="42" alt=""/>
 
 
 
@@ -1440,7 +1440,7 @@ S様<br></p>
 
                             <!-- tabs #2 content START here -->
                             <div id="syokyu" class="ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide">
-                                <img style="margin-top:15px; margin-left:5px;" src="img/toku.jpg" width="595" height="42" alt="">
+                                <img style="margin-top:15px; margin-left:5px;" src="/b/img/toku.jpg" width="595" height="42" alt="">
                                 <div id="moreserv">
                                     <a name="syokyu"></a>
                                     <p align="left"><strong><font color="blue" size="+1">
@@ -1460,7 +1460,7 @@ S様<br></p>
                                     <p></p>
                                 </div>
                                 <div class="clear"></div>
-                                <img style="margin-bottom:10px; margin-left:5px;" src="img/syosai.jpg" width="595" height="42" alt="" />
+                                <img style="margin-bottom:10px; margin-left:5px;" src="/b/img/syosai.jpg" width="595" height="42" alt="" />
                               <div class="clear"></div>
 
 
@@ -1710,14 +1710,14 @@ S様<br></p>
 
 
 
-                                <img style="margin-bottom:10px; margin-left:5px;" src="img//hoka.jpg" width="595" height="42" alt="">
+                                <img style="margin-bottom:10px; margin-left:5px;" src="/b/img//hoka.jpg" width="595" height="42" alt="">
                                 <hr />
                             <p align="left"><code>■&nbsp;集中講座の手続とキャンセル等 </code> </p> <a href="etc3.html" class="btn btn-primary"><font color="#fff">キャンセル等の手続はクリックしてください</font></a>
                                 <br>
                                 <br>
 
                                 <hr>
-                                <img style="margin-bottom:10px; margin-left:5px;" src="img/koe2.jpg" width="595" height="42" alt="">
+                                <img style="margin-bottom:10px; margin-left:5px;" src="/b/img/koe2.jpg" width="595" height="42" alt="">
                                 <div class="clear"></div>
 
                                 <h3>&nbsp;</h3>
@@ -2130,7 +2130,7 @@ N様<br></p>
 
                             <!-- tabs #3 content START here -->
                             <div id="tyukyu" class="ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide">
-                              <img style="margin-top:15px; margin-left:5px;" src="img/toku.jpg" width="595" height="42" alt="" />
+                              <img style="margin-top:15px; margin-left:5px;" src="/b/img/toku.jpg" width="595" height="42" alt="" />
                           <div id="moreserv">
 
 
@@ -2149,7 +2149,7 @@ N様<br></p>
                             <p></p>
                               </div>
                                 <div class="clear"></div>
-                                <img style="margin-bottom:10px; margin-left:5px;" src="img/syosai.jpg" width="595" height="42" alt="">
+                                <img style="margin-bottom:10px; margin-left:5px;" src="/b/img/syosai.jpg" width="595" height="42" alt="">
                                 <div class="clear"></div><br>
 								使える韓国語を楽しく覚えよう！<br>
 								人気講座の発音矯正、作文対策など盛りだくさんの企画。<br><br>
@@ -2375,7 +2375,7 @@ N様<br></p>
 
 
 
-                                <img style="margin-bottom:10px; margin-left:5px;" src="img/hoka.jpg" width="595" height="42" alt="">
+                                <img style="margin-bottom:10px; margin-left:5px;" src="/b/img/hoka.jpg" width="595" height="42" alt="">
                                 <p align="left"><code>■&nbsp;集中講座の手続とキャンセル等 </code> </p> 
                                 <hr />
                             <a href="etc3.html" class="btn btn-primary"><font color="#fff">キャンセル等の手続はクリックしてください</font></a>
@@ -2383,7 +2383,7 @@ N様<br></p>
                                 <br>
 
                                 <hr>
-                                <img style="margin-bottom:10px; margin-left:5px;" src="img/koe2.jpg" width="595" height="42" alt="">
+                                <img style="margin-bottom:10px; margin-left:5px;" src="/b/img/koe2.jpg" width="595" height="42" alt="">
                                 <div class="clear"></div>
 
                                 <h3>&nbsp;</h3>
@@ -2965,7 +2965,7 @@ T様<br></p>
 
                             <!-- tabs #4 content START here -->
                             <div id="joukyu" class="ui-tabs-panel ui-widget-content ui-corner-bottom">
-                                <img style="margin-top:15px; margin-left:5px;" src="img/toku.jpg" width="595" height="42" alt="">
+                                <img style="margin-top:15px; margin-left:5px;" src="/b/img/toku.jpg" width="595" height="42" alt="">
                                 <div id="moreserv">
 
 
@@ -3001,7 +3001,7 @@ T様<br></p>
 									<br>■ 한국의 역사 및 문화, 그리고 한국의 성인들이 읽는 책을 접함으로써 보다 많은 어휘와 한국어의 융숭한 깊이를 느낄 수 있습니다. 
                                 </div>
                                 <div class="clear"></div>
-                                <img style="margin-bottom:10px; margin-left:5px;" src="img/syosai.jpg" width="595" height="42" alt="">
+                                <img style="margin-bottom:10px; margin-left:5px;" src="/b/img/syosai.jpg" width="595" height="42" alt="">
                                 <div class="clear"></div>
 
 
@@ -3189,13 +3189,13 @@ T様<br></p>
                                 <br>
 
 
- <img style="margin-bottom:10px; margin-left:5px;" src="img/hoka.jpg" width="595" height="42" alt=""/>
+ <img style="margin-bottom:10px; margin-left:5px;" src="/b/img/hoka.jpg" width="595" height="42" alt=""/>
                     <p align="left"><code>■&nbsp;集中講座の手続とキャンセル等 </code> </p>
  <a href="etc3.html" target="_top" class="btn btn-primary"><font color="#fff">キャンセル等の手続はクリックしてください</font></a> <br>
 			        <br>
                    
                       <hr />
-                       <img style="margin-bottom:10px; margin-left:5px;" src="img/koe2.jpg" width="595" height="42" alt=""/>
+                       <img style="margin-bottom:10px; margin-left:5px;" src="/b/img/koe2.jpg" width="595" height="42" alt=""/>
 
 
 
@@ -3743,7 +3743,7 @@ T様<br></p>
                                 <br>
 
                                 <hr>
-                                <img style="margin-bottom:10px; margin-left:5px;" src="img/koe2.jpg" width="595" height="42" alt="">
+                                <img style="margin-bottom:10px; margin-left:5px;" src="/b/img/koe2.jpg" width="595" height="42" alt="">
                                 <div class="clear"></div>
 
                                 <h3>&nbsp;</h3>
@@ -3765,13 +3765,13 @@ T様<br></p>
 
 
 
-                        <a href="koefirst.html" target="_blank"><img style="margin-left:10px;" src="img/koebnr.jpg" alt="">
+                        <a href="koefirst.html" target="_blank"><img style="margin-left:10px;" src="/b/img/koebnr.jpg" alt="">
                         </a>
 
 
 
 
-                        <img src="img/news.jpg" alt="">
+                        <img src="/b/img/news.jpg" alt="">
                         <div class="padd30">
                             <ul class="news">
 <!--						   			 <li>
@@ -3811,14 +3811,14 @@ T様<br></p>
 
 
 
-                        <a href="https://www.facebook.com/mirinaejp" target="_blank"><img style="margin-left:10px;" src="img/fb.jpg" alt="">
+                        <a href="https://www.facebook.com/mirinaejp" target="_blank"><img style="margin-left:10px;" src="/b/img/fb.jpg" alt="">
                         </a>
-                        <a href="https://twitter.com/anitrue" target="_blank"><img style="margin-left:10px;" src="img/tw.jpg" alt="">
+                        <a href="https://twitter.com/anitrue" target="_blank"><img style="margin-left:10px;" src="/b/img/tw.jpg" alt="">
                         </a>
 
-                        <a href="http://ameblo.jp/mirinaejp" target="_blank"><img style="margin-left:10px;" src="img/ame.jpg" alt="">
+                        <a href="http://ameblo.jp/mirinaejp" target="_blank"><img style="margin-left:10px;" src="/b/img/ame.jpg" alt="">
                         </a>
-                        <a href="http://mirinae.jp/blog/" target="_blank"><img style="margin-left:10px;" src="img/miri.jpg" alt="">
+                        <a href="http://mirinae.jp/blog/" target="_blank"><img style="margin-left:10px;" src="/b/img/miri.jpg" alt="">
                         </a>
                         <div class="padd10">
   <ul class="news2">

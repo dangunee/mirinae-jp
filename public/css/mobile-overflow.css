@@ -1,0 +1,5 @@
+/* モバイル: 全ページでコンテンツがフレーム外に出ないように */
+html { overflow-x: hidden; }
+body { overflow-x: hidden; max-width: 100vw; overflow-wrap: break-word; word-wrap: break-word; }
+img { max-width: 100%; height: auto; }
+.main, .main .content, .overview-card, .tab-panel { overflow-wrap: break-word; word-wrap: break-word; }

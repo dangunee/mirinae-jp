@@ -3,6 +3,25 @@ const nextConfig = {
   trailingSlash: true, // /b/ を /b にリダイレクトしない（ループ防止）
   // www.mirinae.jp のトップ・各ページは public/*.html をクリーンURLで表示
   async rewrites() {
+    const externalRewrites = [
+      { source: "/qna", destination: "https://apps.mirinae.jp/qna" },
+      { source: "/qna/:path*", destination: "https://apps.mirinae.jp/qna/:path*" },
+      { source: "/dailylife", destination: "https://apps.mirinae.jp/dailylife" },
+      { source: "/dailylife/:path*", destination: "https://apps.mirinae.jp/dailylife/:path*" },
+      { source: "/quiz", destination: "https://quiz.mirinae.jp" },
+      { source: "/quiz/:path*", destination: "https://quiz.mirinae.jp/:path*" },
+      { source: "/ondoku", destination: "https://ondoku.mirinae.jp" },
+      { source: "/ondoku/:path*", destination: "https://ondoku.mirinae.jp/:path*" },
+      // blog (mirinae.hippy.jp) - beforeFiles로 Next.js 404 방지
+      { source: "/blog", destination: "https://mirinae.hippy.jp/blog" },
+      { source: "/blog/", destination: "https://mirinae.hippy.jp/blog/" },
+      { source: "/blog/manage", destination: "https://mirinae.hippy.jp/blog/wp-admin" },
+      { source: "/blog/manage/", destination: "https://mirinae.hippy.jp/blog/wp-admin/" },
+      { source: "/blog/manage/:path*", destination: "https://mirinae.hippy.jp/blog/wp-admin/:path*" },
+      { source: "/blog/manage-login", destination: "https://mirinae.hippy.jp/blog/wp-login.php" },
+      { source: "/blog/:path*", destination: "https://mirinae.hippy.jp/blog/:path*" },
+      { source: "/wordpress/:path*", destination: "https://mirinae.hippy.jp/wordpress/:path*" },
+    ];
     const htmlRoutes = [
       { source: "/", destination: "/index.html" },
       { source: "/about", destination: "/about.html" },
@@ -29,8 +48,8 @@ const nextConfig = {
       { source: "/t/cancel", destination: "/cancel.html" },
       { source: "/t/voice", destination: "/voice.html" },
     ];
-    // beforeFiles でファイルシステムより先に適用し、/ を index.html に
-    return { beforeFiles: htmlRoutes };
+    // beforeFiles でファイルシステムより先に適用（external rewrites + html）
+    return { beforeFiles: [...externalRewrites, ...htmlRoutes] };
   },
 };
 module.exports = nextConfig;

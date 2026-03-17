@@ -328,9 +328,9 @@ padding-bottom:20px;
 
 
 <!-- BEGIN HEADER -->
-		<div id="logo1"> <a href="http://mirinae.jp/" target="_top"><img src="img/logo5.png" alt="business logo" /></a>
+		<div id="logo1"> <a href="http://mirinae.jp/" target="_top"><img src="/b/img/logo5.png" alt="business logo" /></a>
 		</div>	  <div id="logo2">
-		<img style="margin-bottom:9px;margin-right:0px;" src="img/logo4.png" alt="business logo" /><br>
+		<img style="margin-bottom:9px;margin-right:0px;" src="/b/img/logo4.png" alt="business logo" /><br>
 		<a href="about.php?class=about"><b>会社概要・口座</b></a>
 		<a href="about.php?class=shinjuku"><b>｜アクセス</b></a>
 		<a href="about.php?class=teacher"><b>｜講師</b></a>
@@ -343,10 +343,10 @@ padding-bottom:20px;
 		<span class="clear"></span>
 <!-- BEGIN PAGE -->	<div id="page">		
 <!-- BEGIN NAVIGATION -->
-                <ul id="menu">   <li><a href="index.html"><img src="img/images/navi_01.png" alt=""/></a></li>
+                <ul id="menu">   <li><a href="index.html"><img src="/b/img/images/navi_01.png" alt=""/></a></li>
 
 <li>
-          <a href="#"><img src="img/images/navi_02.png" alt=""/></a>
+          <a href="#"><img src="/b/img/images/navi_02.png" alt=""/></a>
       <ul>
             <li><a href="kojin.php?class=textbook">レベルと進み方</a></li>
          <li><a href="kojin.php?class=kojin">個人レッスン</a></li>
@@ -359,7 +359,7 @@ padding-bottom:20px;
    </ul>
       </li>
     
-       <li><a href="#"><img src="img/images/navi_03.png" alt=""/></a>
+       <li><a href="#"><img src="/b/img/images/navi_03.png" alt=""/></a>
         <ul>   
       　　　　　<li><a href="http://mirinae.jp/trial.php?class=month">開講中のグループ講座</a></li>  
             <li><a href="group.php?class=nyumon">入門｜ハングル6週間コース</a></li>
@@ -374,7 +374,7 @@ padding-bottom:20px;
          </li>
          
   <li>
-            <a href="#"><img src="img/images/navi_04.png" alt=""/></a>
+            <a href="#"><img src="/b/img/images/navi_04.png" alt=""/></a>
             <ul>
             <!--　<li><a href="kaiwa.php?class=beginner">初心者会話トレーニング</a></li>-->
             <li><a href="kaiwa.php?class=syokyu">初級会話トレーニング</a></li>
@@ -385,7 +385,7 @@ padding-bottom:20px;
       </li>
        
       <li>
-      <a href="#"><img src="img/images/navi_05.png" alt=""/></a>
+      <a href="#"><img src="/b/img/images/navi_05.png" alt=""/></a>
       <ul>
          <li><a href="special.php?class=topik12">TOPIK初級(1・2)対策講座</a></li>
          <li><a href="special.php?class=topik34">TOPIK中級(3・4)対策講座</a></li>
@@ -405,7 +405,7 @@ padding-bottom:20px;
            <li><a href="tokubetsunew.php?class=business">ビジネスクラス</a></li>
             <li><a href="tokubetsunew.php?class=dang">タングニのリーディング</a></li>-->
 			
-    <li><a href="#"><img src="img/images/navi_06.png" alt=""/></a>
+    <li><a href="#"><img src="/b/img/images/navi_06.png" alt=""/></a>
        <ul>
          <li><a href="syutyu.php?class=nyumon">入門クラス</a></li>
             <li><a href="syutyu.php?class=syokyu">初級クラス</a></li>
@@ -416,7 +416,7 @@ padding-bottom:20px;
     
       <li>
 
-      <a href="#"><img src="img/images/navi_07.png" alt=""/></a>
+      <a href="#"><img src="/b/img/images/navi_07.png" alt=""/></a>
       <ul>
            <li><a href="castigation.php?class=writing">作文トレーニング</a></li>
           <li><a href="castigation.php?class=netondoku">通信音読トレーニング</a></li>
@@ -432,7 +432,7 @@ padding-bottom:20px;
 
         <li>
 
-      <a href="#"><img src="img/images/navi_08.png" alt=""/></a>   
+      <a href="#"><img src="/b/img/images/navi_08.png" alt=""/></a>   
      <ul>
          
           <li><a href="trial.php?class=trial">お申し込み</a></li>
@@ -618,7 +618,7 @@ padding-bottom:20px;
        
 <!-- tabs #1 content START here -->
 <div id="topik12" class="ui-tabs-panel ui-widget-content ui-corner-bottom">
-<img style="margin-top:0px; margin-left:5px;" src="img/toku.jpg" width="595" height="42" alt=""/>
+<img style="margin-top:0px; margin-left:5px;" src="/b/img/toku.jpg" width="595" height="42" alt=""/>
 	
 <div id="moreserv">
             
@@ -711,7 +711,7 @@ padding-bottom:20px;
 
 <div class="clear"></div>
 	
-<img style="margin-bottom:-5px; margin-left:5px;" src="img/syosai.jpg" width="595" height="42" alt=""/>
+<img style="margin-bottom:-5px; margin-left:5px;" src="/b/img/syosai.jpg" width="595" height="42" alt=""/>
 	
 <div class="clear"></div>
 
@@ -931,12 +931,12 @@ padding-bottom:20px;
 			        <a href="trial.php?class=trial" class="btn btn-success">お申込みの方はクリックしてください。</a><br>
 			        <br>
 
-                    <img style="margin-bottom:10px; margin-left:5px;" src="img/hoka.jpg" width="595" height="42" alt=""/>
+                    <img style="margin-bottom:10px; margin-left:5px;" src="/b/img/hoka.jpg" width="595" height="42" alt=""/>
                     <p align="left"><code>■&nbsp;予約・キャンセル料・中途解約・手続き等 </code> </p> <a href="cancel.php?class=group" class="btn btn-primary"><font color="#fff">その他手続きはクリックしてください。</font></a> <br>
 			        <br>
                    
                       <hr />
-                       <img style="margin-bottom:10px; margin-left:5px;" src="img/koe2.jpg" width="595" height="42" alt=""/>
+                       <img style="margin-bottom:10px; margin-left:5px;" src="/b/img/koe2.jpg" width="595" height="42" alt=""/>
                     <div class="clear"></div>
                     
                        <h3>&nbsp;</h3>
@@ -1272,7 +1272,7 @@ TOPIKⅡに申し込んだものの具体的に過去問ものぞいた事もな
 						</tr>
                         
 						<tr><td><center>
-                        <img src="img/yamamototopik.jpg" border="0" width="300px"></center><br>
+                        <img src="/b/img/yamamototopik.jpg" border="0" width="300px"></center><br>
                         <p><table class="table table-bordered table-striped">
 						<tr><td width="80" height="23" bgcolor="#f9f8c5"><div align="center"></div></td>
 						<td width="150" bgcolor="#f9f8c5">
@@ -1412,7 +1412,7 @@ TOPIKⅡに申し込んだものの具体的に過去問ものぞいた事もな
                   
                   <!-- tabs #2 content START here -->
    <div id="topik34" class="ui-tabs-panel ui-widget-content ui-corner-bottom">
-	<img style="margin-top:0px; margin-left:5px;" src="img/toku.jpg" width="595" height="42" alt=""/>
+	<img style="margin-top:0px; margin-left:5px;" src="/b/img/toku.jpg" width="595" height="42" alt=""/>
 	
 <div id="moreserv">
 
@@ -1507,7 +1507,7 @@ TOPIKⅡに申し込んだものの具体的に過去問ものぞいた事もな
 	
 	<div class="clear"></div>
 	
-    <img style="margin-bottom:-5px; margin-left:5px;" src="img/syosai.jpg" width="595" height="42" alt=""/>
+    <img style="margin-bottom:-5px; margin-left:5px;" src="/b/img/syosai.jpg" width="595" height="42" alt=""/>
 	
     <div class="clear"></div>
 	
@@ -1719,12 +1719,12 @@ TOPIKⅡに申し込んだものの具体的に過去問ものぞいた事もな
 			        <a href="trial.php?class=trial" class="btn btn-success">お申込みの方はクリックしてください。</a><br>
 			        <br>
 
-                    <img style="margin-bottom:10px; margin-left:5px;" src="img/hoka.jpg" width="595" height="42" alt=""/>
+                    <img style="margin-bottom:10px; margin-left:5px;" src="/b/img/hoka.jpg" width="595" height="42" alt=""/>
                     <p align="left"><code>■&nbsp;予約・キャンセル料・中途解約・手続き等 </code> </p> <a href="cancel.php?class=group" class="btn btn-primary"><font color="#fff">その他手続きはクリックしてください。</font></a> <br>
 			        <br>
                    
                       <hr />
-                       <img style="margin-bottom:10px; margin-left:5px;" src="img/koe2.jpg" width="595" height="42" alt=""/>
+                       <img style="margin-bottom:10px; margin-left:5px;" src="/b/img/koe2.jpg" width="595" height="42" alt=""/>
                     <div class="clear"></div>
                     
                        <h3>&nbsp;</h3>
@@ -2061,7 +2061,7 @@ TOPIKⅡに申し込んだものの具体的に過去問ものぞいた事もな
 						</tr>
                         
 						<tr><td><center>
-                        <img src="img/yamamototopik.jpg" border="0" width="300px"></center><br>
+                        <img src="/b/img/yamamototopik.jpg" border="0" width="300px"></center><br>
                         <p><table class="table table-bordered table-striped">
 						<tr><td width="80" height="23" bgcolor="#f9f8c5"><div align="center"></div></td>
 						<td width="150" bgcolor="#f9f8c5">
@@ -2361,7 +2361,7 @@ TOPIKⅡに申し込んだものの具体的に過去問ものぞいた事もな
                   
                   <!-- tabs #3 content START here -->
    <div id="topik56" class="ui-tabs-panel ui-widget-content ui-corner-bottom">
-	<img style="margin-top:0px; margin-left:5px;" src="img/toku.jpg" width="595" height="42" alt=""/>
+	<img style="margin-top:0px; margin-left:5px;" src="/b/img/toku.jpg" width="595" height="42" alt=""/>
 	
 <div id="moreserv">
 
@@ -2447,7 +2447,7 @@ TOPIKⅡに申し込んだものの具体的に過去問ものぞいた事もな
 	</div>
 	<div class="clear"></div>
 	
-    <img style="margin-bottom:-5px; margin-left:5px;" src="img/syosai.jpg" width="595" height="42" alt=""/>
+    <img style="margin-bottom:-5px; margin-left:5px;" src="/b/img/syosai.jpg" width="595" height="42" alt=""/>
 	
     <div class="clear"></div>
 	
@@ -2668,12 +2668,12 @@ TOPIKⅡに申し込んだものの具体的に過去問ものぞいた事もな
 			        <a href="trial.php?class=trial" class="btn btn-success">お申込みの方はクリックしてください。</a><br>
 			        <br>
 
-                    <img style="margin-bottom:10px; margin-left:5px;" src="img/hoka.jpg" width="595" height="42" alt=""/>
+                    <img style="margin-bottom:10px; margin-left:5px;" src="/b/img/hoka.jpg" width="595" height="42" alt=""/>
                     <p align="left"><code>■&nbsp;予約・キャンセル料・中途解約・手続き等 </code> </p> <a href="cancel.php?class=group" class="btn btn-primary"><font color="#fff">その他手続きはクリックしてください。</font></a> <br>
 			        <br>
                    
                       <hr />
-                       <img style="margin-bottom:10px; margin-left:5px;" src="img/koe2.jpg" width="595" height="42" alt=""/>
+                       <img style="margin-bottom:10px; margin-left:5px;" src="/b/img/koe2.jpg" width="595" height="42" alt=""/>
                     <div class="clear"></div>
                     
                        <h3>&nbsp;</h3>
@@ -3010,7 +3010,7 @@ TOPIKⅡに申し込んだものの具体的に過去問ものぞいた事もな
 						</tr>
                         
 						<tr><td><center>
-                        <img src="img/yamamototopik.jpg" border="0" width="300px"></center><br>
+                        <img src="/b/img/yamamototopik.jpg" border="0" width="300px"></center><br>
                         <p><table class="table table-bordered table-striped">
 						<tr><td width="80" height="23" bgcolor="#f9f8c5"><div align="center"></div></td>
 						<td width="150" bgcolor="#f9f8c5">
@@ -3310,7 +3310,7 @@ TOPIKⅡに申し込んだものの具体的に過去問ものぞいた事もな
                   <!-- tabs #3 content END here -->
 <!-- tabs #4 content START here -->
                             <div id="hanken1" class="ui-tabs-panel ui-widget-content ui-corner-bottom">
-                              <img style="margin-top:0px; margin-left:5px;" src="img/toku.jpg" width="595" height="42" alt=""/>
+                              <img style="margin-top:0px; margin-left:5px;" src="/b/img/toku.jpg" width="595" height="42" alt=""/>
                              
                    
   <div id="moreserv">
@@ -3397,7 +3397,7 @@ TOPIKⅡに申し込んだものの具体的に過去問ものぞいた事もな
 </div><br>
 			        <div class="clear"></div>
 
-<img style="margin-bottom:10px; margin-left:5px;" src="img/syosai.jpg" width="595" height="42" alt=""/><br>
+<img style="margin-bottom:10px; margin-left:5px;" src="/b/img/syosai.jpg" width="595" height="42" alt=""/><br>
 
 <!--한검 1일 레슨 수정내용 -->
 			<font color="#FF0000" size="+1">『2020年6月のハン検に向けた対策講座』のご案内</font><br><br>
@@ -3648,7 +3648,7 @@ TOPIKⅡに申し込んだものの具体的に過去問ものぞいた事もな
 			      
 			       <a href="trial.php?class=trial" class="btn btn-success">お申込みの方はクリックしてください。</a><br>
 			        <br>
-			        <img style="margin-bottom:10px; margin-left:5px;" src="img/hoka.jpg" width="595" height="42" alt=""/>
+			        <img style="margin-bottom:10px; margin-left:5px;" src="/b/img/hoka.jpg" width="595" height="42" alt=""/>
 			        <p align="left"><code>■&nbsp;予約・キャンセル料・中途解約・手続き等 </code> </p> <a href="cancel.php?class=group" class="btn btn-primary"><font color="#fff">その他手続きはクリックしてください。</font></a> <br>
 			        <br>
                    
@@ -3895,7 +3895,7 @@ TOPIKⅡに申し込んだものの具体的に過去問ものぞいた事もな
  
    <!-- tabs #5 content START here -->
                             <div id="hankenj2" class="ui-tabs-panel ui-widget-content ui-corner-bottom">
-                              <img style="margin-top:0px; margin-left:5px;" src="img/toku.jpg" width="595" height="42" alt=""/>
+                              <img style="margin-top:0px; margin-left:5px;" src="/b/img/toku.jpg" width="595" height="42" alt=""/>
                              
                    
   <div id="moreserv">
@@ -3982,7 +3982,7 @@ TOPIKⅡに申し込んだものの具体的に過去問ものぞいた事もな
 </div><br>
 			        <div class="clear"></div>
 
-<img style="margin-bottom:10px; margin-left:5px;" src="img/syosai.jpg" width="595" height="42" alt=""/><br>
+<img style="margin-bottom:10px; margin-left:5px;" src="/b/img/syosai.jpg" width="595" height="42" alt=""/><br>
 
 <!--한검 1일 레슨 수정내용 -->
 			<font color="#FF0000" size="+1">『2019年11月のハン検に向けた対策講座』のご案内</font><br><br>
@@ -4239,7 +4239,7 @@ TOPIKⅡに申し込んだものの具体的に過去問ものぞいた事もな
 			      
 			       <a href="trial.php?class=trial" class="btn btn-success">お申込みの方はクリックしてください。</a><br>
 			        <br>
-			        <img style="margin-bottom:10px; margin-left:5px;" src="img/hoka.jpg" width="595" height="42" alt=""/>
+			        <img style="margin-bottom:10px; margin-left:5px;" src="/b/img/hoka.jpg" width="595" height="42" alt=""/>
 			        <p align="left"><code>■&nbsp;予約・キャンセル料・中途解約・手続き等 </code> </p> <a href="cancel.php?class=group" class="btn btn-primary"><font color="#fff">その他手続きはクリックしてください。</font></a> <br>
 			        <br>
                    
@@ -4496,7 +4496,7 @@ TOPIKⅡに申し込んだものの具体的に過去問ものぞいた事もな
       <!-- tabs #6
        content START here -->
                             <div id="voca" class="ui-tabs-panel ui-widget-content ui-corner-bottom">
-                              <img style="margin-top:-15px; margin-left:5px;" src="img/toku.jpg" width="595" height="42" alt=""/>
+                              <img style="margin-top:-15px; margin-left:5px;" src="/b/img/toku.jpg" width="595" height="42" alt=""/>
                               <div id="moreserv">
 
 <!--							  
@@ -4616,7 +4616,7 @@ TOPIKⅡに申し込んだものの具体的に過去問ものぞいた事もな
 </div><br>
 			        <div class="clear"></div>
 
-<img style="margin-bottom:-5px; margin-left:5px;" src="img/syosai.jpg" width="595" height="42" alt=""/><br>
+<img style="margin-bottom:-5px; margin-left:5px;" src="/b/img/syosai.jpg" width="595" height="42" alt=""/><br>
 
 <!--한검 1일 레슨 수정내용 -->
 			<font color="#FF0000" size="+1"></font><br><br>
@@ -5020,7 +5020,7 @@ TOPIKⅡに申し込んだものの具体的に過去問ものぞいた事もな
 			      
                     
                     
-                    <img style="margin-bottom:10px; margin-left:5px;" src="img/hoka.jpg" width="595" height="42" alt=""/>
+                    <img style="margin-bottom:10px; margin-left:5px;" src="/b/img/hoka.jpg" width="595" height="42" alt=""/>
                     <p align="left"><code>■&nbsp;予約・キャンセル料・中途解約・手続き等 </code> </p> <a href="cancel.php?class=group" class="btn btn-primary"><font color="#fff">その他手続きはクリックしてください。</font></a> <br>
 			        <br>
                    
@@ -5122,7 +5122,7 @@ TOPIKⅡに申し込んだものの具体的に過去問ものぞいた事もな
 			
 		<div class="padd30">
               
-             <img src="img/news.jpg" alt=""/>
+             <img src="/b/img/news.jpg" alt=""/>
 
 			  <ul class="news">
 
@@ -5230,23 +5230,23 @@ TOPIKⅡに申し込んだものの具体的に過去問ものぞいた事もな
 
 		  </div>
 	
-			<a href="koefirst.html" target="_blank"><img style="margin-left:10px;" src="img/koebnr.jpg" alt=""/></a>
+			<a href="koefirst.html" target="_blank"><img style="margin-left:10px;" src="/b/img/koebnr.jpg" alt=""/></a>
 			<div class="padd30">			
 			<b>【個人レッスン】 T 様</b>&nbsp;<br>
 				発音を矯正してもらい、発音がよくなり、また独学で勉強をしていて曖昧な部分がはっきり分かるようになり実力が以前に比べ、かなり上がったと実感しています。...
 				<a href="koeall1.html#kojinkoe" target="_top">（つづきは…）</a>		
 			</div>
 
-			<a href="http://mirinae.jp/blog/" target="_blank"><img style="margin-left:10px;" src="img/miri.jpg" alt=""/></a> 
+			<a href="http://mirinae.jp/blog/" target="_blank"><img style="margin-left:10px;" src="/b/img/miri.jpg" alt=""/></a> 
 
 			<div class="padd10">
 				<div id="includedContent"></div>
 			</div>  
 			<a href="https://www.facebook.com/mirinaejp" target="_blank">
-			<img style="margin-left:10px;" src="img/fb.jpg" alt=""/></a>
+			<img style="margin-left:10px;" src="/b/img/fb.jpg" alt=""/></a>
 			<br>
 					
-     		<a href="https://twitter.com/anitrue" target="_blank"><img style="margin-left:10px;" src="img/tw.jpg" alt=""/></a>					
+     		<a href="https://twitter.com/anitrue" target="_blank"><img style="margin-left:10px;" src="/b/img/tw.jpg" alt=""/></a>					
 
 		<!-- 세로형 구글 광고 -->
 		<br><br>

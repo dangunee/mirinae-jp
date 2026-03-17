@@ -3,8 +3,6 @@ import { prisma } from "@/lib/db";
 import type { CurriculumTheme } from "../route";
 
 const THEMES_BLOCK_KEY = "curriculum_themes";
-const CACHE_TTL_MS = 60 * 1000; // 1分
-let themesCache: { data: CurriculumTheme[]; ts: number } | null = null;
 const PAGE_SLUG = "kojin";
 
 const DEFAULT_THEMES: CurriculumTheme[] = [
@@ -32,19 +30,22 @@ function parseThemesJson(json: string | null): CurriculumTheme[] {
   }
 }
 
-// GET /api/curriculum/themes（1分キャッシュ・POSTで無効化）
+// GET /api/curriculum/themes
+// kojin用テーマ: 常にDBから直接取得（キャッシュ・スナップショットなし）
 export async function GET() {
-  if (themesCache && Date.now() - themesCache.ts < CACHE_TTL_MS) {
-    return NextResponse.json(themesCache.data);
-  }
   const row = await prisma.siteTable.findUnique({
     where: {
       pageSlug_blockKey: { pageSlug: PAGE_SLUG, blockKey: THEMES_BLOCK_KEY },
     },
   });
   const themes = row ? parseThemesJson(row.rowsJson) : DEFAULT_THEMES;
-  themesCache = { data: themes, ts: Date.now() };
-  return NextResponse.json(themes);
+  return NextResponse.json(themes, {
+    headers: {
+      "Cache-Control": "no-cache, no-store, must-revalidate, max-age=0",
+      "Pragma": "no-cache",
+      "Expires": "0",
+    },
+  });
 }
 
 // POST /api/curriculum/themes — save themes array
@@ -60,7 +61,6 @@ export async function POST(req: NextRequest) {
     bgColor: String(t.bgColor ?? "#f0f0f0").trim(),
   }));
   const rowsJson = JSON.stringify(themes);
-  themesCache = null;
   await prisma.siteTable.upsert({
     where: {
       pageSlug_blockKey: { pageSlug: PAGE_SLUG, blockKey: THEMES_BLOCK_KEY },

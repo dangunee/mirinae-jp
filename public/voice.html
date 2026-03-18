@@ -232,6 +232,7 @@
     }
     .voice-tab-btn.active { color: var(--gold); border-bottom-color: var(--gold); font-weight: 600; }
     .voice-tab-btn:hover:not(.active) { color: var(--mid); }
+    .voice-tab-label-mobile { display: none; }
     .voice-tab-panel { display: none; }
     .voice-tab-panel.active { display: block; }
     .voice-tab-panel .section-header { margin-top: 0; }
@@ -275,21 +276,24 @@
       .page-title-desktop { display: none; }
       .page-title-mobile { display: inline; }
       .voice-tabs-bar {
-        flex-direction: column;
-        border-bottom: none;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        padding: 0 4px 8px;
         gap: 0;
-        padding: 0;
+        margin-bottom: 24px;
       }
       .voice-tab-btn {
-        display: block;
+        flex-shrink: 0;
         padding: 12px 16px;
-        border-bottom: 1px solid var(--gray-border);
-        border-radius: 0;
-        text-align: left;
+        white-space: nowrap;
       }
+      .voice-tab-label-desktop { display: none; }
+      .voice-tab-label-mobile { display: inline; }
       .voice-tab-btn.active {
-        border-bottom-color: var(--gold);
-        border-left: 4px solid var(--gold);
+        border-left: none;
       }
     }
     @media (max-width: 640px) {
@@ -339,10 +343,10 @@
       </div>
 
       <div class="voice-tabs-bar">
-        <a href="#tab01" class="voice-tab-btn active" data-tab="tab01" role="tab">ミリネ韓国語1</a>
-        <a href="#tab02" class="voice-tab-btn" data-tab="tab02" role="tab">ミリネ韓国語2</a>
-        <a href="#tab03" class="voice-tab-btn" data-tab="tab03" role="tab">ミリネ韓国語3</a>
-        <a href="#tab04" class="voice-tab-btn" data-tab="tab04" role="tab">ミリネ韓国語4</a>
+        <a href="#tab01" class="voice-tab-btn active" data-tab="tab01" role="tab"><span class="voice-tab-label-desktop">ミリネ韓国語1</span><span class="voice-tab-label-mobile">ミリネ1</span></a>
+        <a href="#tab02" class="voice-tab-btn" data-tab="tab02" role="tab"><span class="voice-tab-label-desktop">ミリネ韓国語2</span><span class="voice-tab-label-mobile">ミリネ2</span></a>
+        <a href="#tab03" class="voice-tab-btn" data-tab="tab03" role="tab"><span class="voice-tab-label-desktop">ミリネ韓国語3</span><span class="voice-tab-label-mobile">ミリネ3</span></a>
+        <a href="#tab04" class="voice-tab-btn" data-tab="tab04" role="tab"><span class="voice-tab-label-desktop">ミリネ韓国語4</span><span class="voice-tab-label-mobile">ミリネ4</span></a>
       </div>
 
       <div id="tab01" class="voice-tab-panel active">

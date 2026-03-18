@@ -36,14 +36,6 @@
       "destination": "https://ondoku.mirinae.jp/:path*"
     },
     {
-      "source": "/blog",
-      "destination": "https://mirinae.hippy.jp/blog"
-    },
-    {
-      "source": "/blog/",
-      "destination": "https://mirinae.hippy.jp/blog/"
-    },
-    {
       "source": "/blog/manage",
       "destination": "https://mirinae.hippy.jp/blog/wp-admin"
     },
@@ -60,8 +52,16 @@
       "destination": "https://mirinae.hippy.jp/blog/wp-login.php"
     },
     {
+      "source": "/blog",
+      "destination": "/api/blog-proxy"
+    },
+    {
+      "source": "/blog/",
+      "destination": "/api/blog-proxy/"
+    },
+    {
       "source": "/blog/:path*",
-      "destination": "https://mirinae.hippy.jp/blog/:path*"
+      "destination": "/api/blog-proxy/:path*"
     },
     {
       "source": "/wordpress/:path*",

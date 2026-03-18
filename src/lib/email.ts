@@ -1,7 +1,5 @@
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function sendOtpEmail(to: string, otp: string): Promise<boolean> {
   const apiKey = process.env.RESEND_API_KEY?.trim();
   if (!apiKey) return false;
@@ -9,6 +7,7 @@ export async function sendOtpEmail(to: string, otp: string): Promise<boolean> {
   const from = process.env.RESEND_FROM?.trim() || "Mirinae <onboarding@resend.dev>";
 
   try {
+    const resend = new Resend(apiKey);
     const { error } = await resend.emails.send({
       from,
       to,

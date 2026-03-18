@@ -165,6 +165,7 @@
     }
     .main-content { padding: 40px 32px 60px; }
     .page-title { font-size: 28px; font-weight: 700; margin-bottom: 12px; color: var(--text-dark); }
+    .page-title-mobile { display: none; }
     .page-intro { color: var(--text-muted); margin-bottom: 24px; }
     .voice-player-bar {
       position: sticky;
@@ -227,6 +228,7 @@
       background: none;
       transition: all .2s;
       font-family: inherit;
+      text-decoration: none;
     }
     .voice-tab-btn.active { color: var(--gold); border-bottom-color: var(--gold); font-weight: 600; }
     .voice-tab-btn:hover:not(.active) { color: var(--mid); }
@@ -269,6 +271,27 @@
     .footer-column a { display: block; color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; margin-bottom: 8px; }
     .footer-column a:hover { color: white; }
     .footer-bottom { text-align: center; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 13px; opacity: 0.8; }
+    @media (max-width: 768px) {
+      .page-title-desktop { display: none; }
+      .page-title-mobile { display: inline; }
+      .voice-tabs-bar {
+        flex-direction: column;
+        border-bottom: none;
+        gap: 0;
+        padding: 0;
+      }
+      .voice-tab-btn {
+        display: block;
+        padding: 12px 16px;
+        border-bottom: 1px solid var(--gray-border);
+        border-radius: 0;
+        text-align: left;
+      }
+      .voice-tab-btn.active {
+        border-bottom-color: var(--gold);
+        border-left: 4px solid var(--gold);
+      }
+    }
     @media (max-width: 640px) {
       .voice-table { font-size: 12px; }
       .voice-table th, .voice-table td { padding: 8px; }
@@ -307,7 +330,7 @@
   <div class="page-wrapper">
     <div class="main-with-sidebar">
     <main class="main-content">
-      <h1 class="page-title">ミリネ韓国語の音声ファイル</h1>
+      <h1 class="page-title"><span class="page-title-desktop">『リネ韓国語』 の音声ファイル</span><span class="page-title-mobile">『リネ韓国語』 音声</span></h1>
       <p class="page-intro">下のリンクをクリックすると、該当する音声が再生されます。ミリネ韓国語教科書の音声は<a href="https://mirinae.jp/voice.html" target="_blank" rel="noopener">mirinae.jp</a>で提供しています。</p>
 
       <div class="voice-player-bar">
@@ -316,13 +339,13 @@
       </div>
 
       <div class="voice-tabs-bar">
-        <button type="button" class="voice-tab-btn active" data-tab="voice-tab01">ミリネ韓国語1</button>
-        <button type="button" class="voice-tab-btn" data-tab="voice-tab02">ミリネ韓国語2</button>
-        <button type="button" class="voice-tab-btn" data-tab="voice-tab03">ミリネ韓国語3</button>
-        <button type="button" class="voice-tab-btn" data-tab="voice-tab04">ミリネ韓国語4</button>
+        <a href="#tab01" class="voice-tab-btn active" data-tab="tab01" role="tab">ミリネ韓国語1</a>
+        <a href="#tab02" class="voice-tab-btn" data-tab="tab02" role="tab">ミリネ韓国語2</a>
+        <a href="#tab03" class="voice-tab-btn" data-tab="tab03" role="tab">ミリネ韓国語3</a>
+        <a href="#tab04" class="voice-tab-btn" data-tab="tab04" role="tab">ミリネ韓国語4</a>
       </div>
 
-      <div id="voice-tab01" class="voice-tab-panel active">
+      <div id="tab01" class="voice-tab-panel active">
         <section>
           <h2 class="section-header">ミリネ韓国語1級</h2>
           <div class="content-block">
@@ -336,7 +359,7 @@
         </section>
       </div>
 
-      <div id="voice-tab02" class="voice-tab-panel">
+      <div id="tab02" class="voice-tab-panel">
         <section>
           <h2 class="section-header">ミリネ韓国語2級</h2>
           <div class="content-block">
@@ -350,7 +373,7 @@
         </section>
       </div>
 
-      <div id="voice-tab03" class="voice-tab-panel">
+      <div id="tab03" class="voice-tab-panel">
         <section>
           <h2 class="section-header">ミリネ韓国語3級</h2>
           <div class="content-block">
@@ -364,7 +387,7 @@
         </section>
       </div>
 
-      <div id="voice-tab04" class="voice-tab-panel">
+      <div id="tab04" class="voice-tab-panel">
         <section>
           <h2 class="section-header">ミリネ韓国語4級</h2>
           <div class="content-block">
@@ -564,16 +587,29 @@
         tbody.appendChild(row);
       }
 
-      // Tab switching
+      // Tab switching (hash: #tab01, #tab02, #tab03, #tab04)
+      function switchToTab(tabId) {
+        if (!tabId || !/^tab0[1-4]$/.test(tabId)) return;
+        document.querySelectorAll('.voice-tab-btn').forEach(function(b) { b.classList.remove('active'); });
+        document.querySelectorAll('.voice-tab-panel').forEach(function(p) { p.classList.remove('active'); });
+        var btn = document.querySelector('.voice-tab-btn[data-tab="' + tabId + '"]');
+        var panel = document.getElementById(tabId);
+        if (btn) btn.classList.add('active');
+        if (panel) panel.classList.add('active');
+      }
       document.querySelectorAll('.voice-tab-btn').forEach(function(btn) {
-        btn.addEventListener('click', function() {
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
           var tabId = this.getAttribute('data-tab');
-          document.querySelectorAll('.voice-tab-btn').forEach(function(b) { b.classList.remove('active'); });
-          document.querySelectorAll('.voice-tab-panel').forEach(function(p) { p.classList.remove('active'); });
-          this.classList.add('active');
-          var panel = document.getElementById(tabId);
-          if (panel) panel.classList.add('active');
+          history.replaceState(null, '', '#' + tabId);
+          switchToTab(tabId);
         });
+      });
+      var hash = location.hash.slice(1);
+      if (/^tab0[1-4]$/.test(hash)) switchToTab(hash);
+      window.addEventListener('hashchange', function() {
+        var h = location.hash.slice(1);
+        if (/^tab0[1-4]$/.test(h)) switchToTab(h);
       });
 
       // All-play: URL lists per level (1課から順に)

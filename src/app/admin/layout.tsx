@@ -1,3 +1,7 @@
+export const metadata = {
+  robots: "noindex, nofollow",
+};
+
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   return (
     <div style={{ background: "#f5f5f5", minHeight: "100vh" }}>

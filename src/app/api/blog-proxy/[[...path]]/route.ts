@@ -37,6 +37,7 @@ async function proxyRequest(request: NextRequest, pathSegments: string[]) {
   headers.set("X-Forwarded-Host", "mirinae.jp");
   headers.set("X-Forwarded-Proto", "https");
   headers.set("Host", "mirinae.hippy.jp");
+  headers.set("Accept-Encoding", "identity");
 
   const init: RequestInit = {
     method: request.method,
@@ -50,6 +51,7 @@ async function proxyRequest(request: NextRequest, pathSegments: string[]) {
 
   const resHeaders = new Headers(res.headers);
   resHeaders.delete("transfer-encoding");
+  resHeaders.delete("content-encoding");
 
   return new NextResponse(res.body, {
     status: res.status,

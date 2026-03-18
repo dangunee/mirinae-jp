@@ -565,6 +565,18 @@
               </div>
             </div>
           </div>
+          <div class="content-block">
+            <h3>朗読音声</h3>
+            <p style="margin-bottom: 12px;">下のリンクをクリックすると、該当する朗読音声が再生されます。</p>
+            <div class="voice-player-bar">
+              <span class="label">再生:</span>
+              <audio id="bookVoicePlayerLife" controls preload="metadata"></audio>
+            </div>
+            <table class="voice-table">
+              <thead><tr><th>課</th><th>音声</th></tr></thead>
+              <tbody id="tanguni-life-tbody"></tbody>
+            </table>
+          </div>
           <div class="testimonial">
             <div class="testimonial-header">B様</div>
             <div class="testimonial-content"><p>今回のタングニ第２弾は、まず韓国文化満載の内容なのが感涙モノでした！そして何よりのウリは「慣用句・ことわざ・関連語句」。能力試験やハン検の受験者は必読・必携ですし、試験を卒業していても、知識をまた体系立てて整理出来てありがたいと思いました。全編音声ダウンロードが出来るという！ぜひ、第３弾も待っております！</p></div>
@@ -712,34 +724,149 @@
         });
       });
 
-      var BASE = "https://mirinae.jp/voice/nihon/";
+      var BASE_NIHON = "/voice/nihon/";
+      var BASE_LIFE = "/voice/life/";
       var player = document.getElementById("bookVoicePlayer");
       var tbody = document.getElementById("tanguni-voice-tbody");
       if (player && tbody) {
-        function playUrl(url) {
-          player.src = url;
-          player.play().catch(function() {});
+        function playUrl(p, url) {
+          p.src = url;
+          p.play().catch(function() {});
         }
-        var i, row, td, a, ext;
-        for (i = 1; i <= 25; i++) {
-          ext = (i === 25) ? ".m4a" : ".mp3";
+        var i, row, td, a, fname, label;
+        var nihonItems = [];
+        for (i = 1; i <= 15; i++) {
+          fname = "dang" + (i < 10 ? "0" : "") + i + (i <= 10 ? ".mp3" : ".m4a");
+          nihonItems.push({ f: fname, l: "朗読" + (i < 10 ? "0" : "") + i });
+        }
+        nihonItems.push({ f: "dang16_17.m4a", l: "朗読16・17" });
+        for (i = 18; i <= 25; i++) {
+          nihonItems.push({ f: "dang" + i + ".m4a", l: "朗読" + i });
+        }
+        nihonItems.forEach(function(it, idx) {
           row = document.createElement("tr");
           td = document.createElement("td");
-          td.textContent = (i < 10 ? "0" : "") + i;
+          td.textContent = (idx + 1);
           row.appendChild(td);
           td = document.createElement("td");
           a = document.createElement("a");
-          a.href = BASE + "dang" + (i < 10 ? "0" : "") + i + ext;
+          a.href = BASE_NIHON + it.f;
           a.className = "voice-play";
-          a.textContent = "「タングニの日本生活記」 朗読" + (i < 10 ? "0" : "") + i;
+          a.textContent = "「タングニの日本生活記」 " + it.l;
           a.addEventListener("click", function(e) {
             e.preventDefault();
-            playUrl(this.getAttribute("href"));
+            playUrl(player, this.getAttribute("href"));
           });
           td.appendChild(a);
           row.appendChild(td);
           tbody.appendChild(row);
+        });
+      }
+      var playerLife = document.getElementById("bookVoicePlayerLife");
+      var tbodyLife = document.getElementById("tanguni-life-tbody");
+      if (playerLife && tbodyLife) {
+        function playUrlLife(url) {
+          playerLife.src = url;
+          playerLife.play().catch(function() {});
         }
+        var LIFE_DATA = [
+          { ka: "1課", items: [
+            { f: "002_01_1.mp3", l: "한국인은 수다가 필요해1" }, { f: "003_01_2.mp3", l: "한국인은 수다가 필요해2" }, { f: "004_01_3.mp3", l: "한국인은 수다가 필요해3" }, { f: "005_01_4.mp3", l: "한국인은 수다가 필요해4" }, { f: "006_01_5.mp3", l: "한국인은 수다가 필요해5" }
+          ]},
+          { ka: "2課", items: [
+            { f: "007_02_1.mp3", l: "생애 첫 번째 술 백일주1" }, { f: "008_02_2.mp3", l: "생애 첫 번째 술 백일주2" }, { f: "009_02_3.mp3", l: "생애 첫 번째 술 백일주3" }, { f: "010_02_4.mp3", l: "생애 첫 번째 술 백일주4" }, { f: "011_02_5.mp3", l: "생애 첫 번째 술 백일주5" }, { f: "012_02_6.mp3", l: "생애 첫 번째 술 백일주6" }
+          ]},
+          { ka: "3課", items: [
+            { f: "013_03_1.mp3", l: "정(情)과 한국인1" }, { f: "014_03_2.mp3", l: "정(情)과 한국인2" }, { f: "015_03_3.mp3", l: "정(情)과 한국인3" }, { f: "016_03_4.mp3", l: "정(情)과 한국인4" }, { f: "017_03_5.mp3", l: "정(情)과 한국인5" }
+          ]},
+          { ka: "4課", items: [
+            { f: "018_04_1.mp3", l: "연애는 힘들어1" }, { f: "019_04_2.mp3", l: "연애는 힘들어2" }, { f: "020_04_3.mp3", l: "연애는 힘들어3" }, { f: "021_04_4.mp3", l: "연애는 힘들어4" }, { f: "022_04_5.mp3", l: "연애는 힘들어5" }
+          ]},
+          { ka: "5課", items: [
+            { f: "023_05_1.mp3", l: "돼지고기와 경제성장1" }, { f: "024_05_2.mp3", l: "돼지고기와 경제성장2" }, { f: "025_05_3.mp3", l: "돼지고기와 경제성장3" }, { f: "026_05_4.mp3", l: "돼지고기와 경제성장4" }, { f: "027_05_5.mp3", l: "돼지고기와 경제성장5" }
+          ]},
+          { ka: "6課", items: [
+            { f: "028_06_1.mp3", l: "국물도 없다1" }, { f: "029_06_2.mp3", l: "국물도 없다2" }, { f: "030_06_3.mp3", l: "국물도 없다3" }, { f: "031_06_4.mp3", l: "국물도 없다4" }, { f: "032_06_5.mp3", l: "국물도 없다5" }
+          ]},
+          { ka: "7課", items: [
+            { f: "033_07_1.mp3", l: "소고기는 버릴 게 없다1" }, { f: "034_07_2.mp3", l: "소고기는 버릴 게 없다2" }, { f: "035_07_3.mp3", l: "소고기는 버릴 게 없다3" }, { f: "036_07_4.mp3", l: "소고기는 버릴 게 없다4" }, { f: "037_07_5.mp3", l: "소고기는 버릴 게 없다5" }, { f: "038_07_6.mp3", l: "소고기는 버릴 게 없다6" }
+          ]},
+          { ka: "8課", items: [
+            { f: "039_08_1.mp3", l: "매운 것이 없다면 식사가 아니다1" }, { f: "040_08_2.mp3", l: "매운 것이 없다면 식사가 아니다2" }, { f: "041_08_3.mp3", l: "매운 것이 없다면 식사가 아니다3" }, { f: "042_08_4.mp3", l: "매운 것이 없다면 식사가 아니다4" }, { f: "043_08_5.mp3", l: "매운 것이 없다면 식사가 아니다5" }, { f: "044_08_6.mp3", l: "매운 것이 없다면 식사가 아니다6" }
+          ]},
+          { ka: "9課", items: [
+            { f: "045_09_1.mp3", l: "섞여야 직성이 풀린다1" }, { f: "046_09_2.mp3", l: "섞여야 직성이 풀린다2" }, { f: "047_09_3.mp3", l: "섞여야 직성이 풀린다3" }, { f: "048_09_4.mp3", l: "섞여야 직성이 풀린다4" }, { f: "049_09_5.mp3", l: "섞여야 직성이 풀린다5" }, { f: "050_09_6.mp3", l: "섞여야 직성이 풀린다6" }
+          ]},
+          { ka: "10課", items: [
+            { f: "051_10_1.mp3", l: "못 말리는 닭고기 사랑1" }, { f: "052_10_2.mp3", l: "못 말리는 닭고기 사랑2" }, { f: "053_10_3.mp3", l: "못 말리는 닭고기 사랑3" }, { f: "054_10_4.mp3", l: "못 말리는 닭고기 사랑4" }, { f: "055_10_5.mp3", l: "못 말리는 닭고기 사랑5" }
+          ]},
+          { ka: "11課", items: [
+            { f: "056_11_1.mp3", l: "오래된 서울과 현대 한국의 거대한 욕망1" }, { f: "057_11_2.mp3", l: "오래된 서울과 현대 한국의 거대한 욕망2" }, { f: "058_11_3.mp3", l: "오래된 서울과 현대 한국의 거대한 욕망3" }, { f: "059_11_4.mp3", l: "오래된 서울과 현대 한국의 거대한 욕망4" }
+          ]},
+          { ka: "12課", items: [
+            { f: "060_12_1.mp3", l: "1등만이 기억되는 세상1" }, { f: "061_12_2.mp3", l: "1등만이 기억되는 세상2" }, { f: "062_12_3.mp3", l: "1등만이 기억되는 세상3" }, { f: "063_12_4.mp3", l: "1등만이 기억되는 세상4" }, { f: "064_12_5.mp3", l: "1등만이 기억되는 세상5" }
+          ]},
+          { ka: "13課", items: [
+            { f: "065_13_1.mp3", l: "한국역사와 한류의 힘1" }, { f: "066_13_2.mp3", l: "한국역사와 한류의 힘2" }, { f: "067_13_3.mp3", l: "한국역사와 한류의 힘3" }, { f: "068_13_4.mp3", l: "한국역사와 한류의 힘4" }, { f: "069_13_5.mp3", l: "한국역사와 한류의 힘5" }
+          ]},
+          { ka: "14課", items: [
+            { f: "070_14_1.mp3", l: "인생을 어디에 맡길 것인가1" }, { f: "071_14_2.mp3", l: "인생을 어디에 맡길 것인가2" }, { f: "072_14_3.mp3", l: "인생을 어디에 맡길 것인가3" }, { f: "073_14_4.mp3", l: "인생을 어디에 맡길 것인가4" }
+          ]},
+          { ka: "15課", items: [
+            { f: "074_15_1.mp3", l: "명절이 좋았던 이유1" }, { f: "075_15_2.mp3", l: "명절이 좋았던 이유2" }, { f: "076_15_3.mp3", l: "명절이 좋았던 이유3" }, { f: "077_15_4.mp3", l: "명절이 좋았던 이유4" }
+          ]},
+          { ka: "16課", items: [
+            { f: "078_16_1.mp3", l: "평생의 꿈 집과 자동차1" }, { f: "079_16_2.mp3", l: "평생의 꿈 집과 자동차2" }, { f: "080_16_3.mp3", l: "평생의 꿈 집과 자동차3" }, { f: "081_16_4.mp3", l: "평생의 꿈 집과 자동차4" }
+          ]},
+          { ka: "17課", items: [
+            { f: "082_17_1.mp3", l: "재벌과 서민1" }, { f: "083_17_2.mp3", l: "재벌과 서민2" }, { f: "084_17_3.mp3", l: "재벌과 서민3" }, { f: "085_17_4.mp3", l: "재벌과 서민4" }
+          ]},
+          { ka: "18課", items: [
+            { f: "086_18_1.mp3", l: "수능은 인생결정시험1" }, { f: "087_18_2.mp3", l: "수능은 인생결정시험2" }, { f: "088_18_3.mp3", l: "수능은 인생결정시험3" }, { f: "089_18_4.mp3", l: "수능은 인생결정시험4" }, { f: "090_18_5.mp3", l: "수능은 인생결정시험5" }
+          ]},
+          { ka: "19課", items: [
+            { f: "091_19_1.mp3", l: "전철의 자리양보와 경로사상1" }, { f: "092_19_2.mp3", l: "전철의 자리양보와 경로사상2" }, { f: "093_19_3.mp3", l: "전철의 자리양보와 경로사상3" }, { f: "094_19_4.mp3", l: "전철의 자리양보와 경로사상4" }
+          ]},
+          { ka: "20課", items: [
+            { f: "095_20_1.mp3", l: "한국인의 인생극장1" }, { f: "096_20_2.mp3", l: "한국인의 인생극장2" }, { f: "097_20_3.mp3", l: "한국인의 인생극장3" }, { f: "098_20_4.mp3", l: "한국인의 인생극장4" }
+          ]},
+          { ka: "21課", items: [
+            { f: "099_21_1.mp3", l: "한국인의 인사1" }, { f: "100_21_2.mp3", l: "한국인의 인사2" }, { f: "101_21_3.mp3", l: "한국인의 인사3" }, { f: "102_21_4.mp3", l: "한국인의 인사4" }
+          ]},
+          { ka: "22課", items: [
+            { f: "103_22_1.mp3", l: "세종대왕이 어떻게 생각할까1" }, { f: "104_22_2.mp3", l: "세종대왕이 어떻게 생각할까2" }, { f: "105_22_3.mp3", l: "세종대왕이 어떻게 생각할까3" }, { f: "106_22_4.mp3", l: "세종대왕이 어떻게 생각할까4" }, { f: "107_22_5.mp3", l: "세종대왕이 어떻게 생각할까5" }
+          ]},
+          { ka: "23課", items: [
+            { f: "108_23_1.mp3", l: "욕이 많은 한국어1" }, { f: "109_23_2.mp3", l: "욕이 많은 한국어2" }, { f: "110_23_3.mp3", l: "욕이 많은 한국어3" }, { f: "111_23_4.mp3", l: "욕이 많은 한국어4" }, { f: "112_23_5.mp3", l: "욕이 많은 한국어5" }
+          ]},
+          { ka: "24課", items: [
+            { f: "113_24_1.mp3", l: "빨리빨리와 대충대충1" }, { f: "114_24_2.mp3", l: "빨리빨리와 대충대충2" }, { f: "115_24_3.mp3", l: "빨리빨리와 대충대충3" }, { f: "116_24_4.mp3", l: "빨리빨리와 대충대충4" }, { f: "117_24_5.mp3", l: "빨리빨리와 대충대충5" }
+          ]},
+          { ka: "25課", items: [
+            { f: "118_25_1.mp3", l: "반말할래? 존댓말할래?1" }, { f: "119_25_2.mp3", l: "반말할래? 존댓말할래?2" }, { f: "120_25_3.mp3", l: "반말할래? 존댓말할래?3" }, { f: "121_25_4.mp3", l: "반말할래? 존댓말할래?4" }, { f: "122_25_5.mp3", l: "반말할래? 존댓말할래?5" }
+          ]}
+        ];
+        LIFE_DATA.forEach(function(lesson) {
+          var row = document.createElement("tr");
+          var tdKa = document.createElement("td");
+          tdKa.textContent = lesson.ka;
+          row.appendChild(tdKa);
+          var tdLinks = document.createElement("td");
+          lesson.items.forEach(function(it, idx) {
+            if (idx > 0) tdLinks.appendChild(document.createElement("br"));
+            var a = document.createElement("a");
+            a.href = BASE_LIFE + it.f;
+            a.className = "voice-play";
+            a.textContent = it.l;
+            a.addEventListener("click", function(e) {
+              e.preventDefault();
+              playUrlLife(this.getAttribute("href"));
+            });
+            tdLinks.appendChild(a);
+          });
+          row.appendChild(tdLinks);
+          tbodyLife.appendChild(row);
+        });
       }
     })();
   </script>

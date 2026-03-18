@@ -53,6 +53,31 @@ async function proxyRequest(request: NextRequest, pathSegments: string[]) {
   resHeaders.delete("transfer-encoding");
   resHeaders.delete("content-encoding");
 
+  const location = resHeaders.get("location");
+  if (location) {
+    resHeaders.set(
+      "location",
+      location
+        .replace(/https:\/\/mirinae\.hippy\.jp/g, "https://mirinae.jp")
+        .replace(/http:\/\/mirinae\.hippy\.jp/g, "http://mirinae.jp")
+    );
+  }
+
+  const contentType = res.headers.get("content-type") ?? "";
+  const isHtml = contentType.includes("text/html");
+
+  if (isHtml) {
+    const html = await res.text();
+    const rewritten = html
+      .replace(/https:\/\/mirinae\.hippy\.jp/g, "https://mirinae.jp")
+      .replace(/http:\/\/mirinae\.hippy\.jp/g, "http://mirinae.jp");
+    return new NextResponse(rewritten, {
+      status: res.status,
+      statusText: res.statusText,
+      headers: resHeaders,
+    });
+  }
+
   return new NextResponse(res.body, {
     status: res.status,
     statusText: res.statusText,

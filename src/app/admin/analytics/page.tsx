@@ -30,6 +30,12 @@ function sourceTypeLabel(type: string): string {
   return map[type] ?? type;
 }
 
+function formatCountWithPercent(count: number, total: number): string {
+  if (total === 0) return `${count}`;
+  const pct = Math.round((count / total) * 100);
+  return `${count} (${pct}%)`;
+}
+
 export default function AdminAnalyticsPage() {
   const [data, setData] = useState<AnalyticsData | null>(null);
   const [apiError, setApiError] = useState<string | null>(null);
@@ -147,13 +153,16 @@ export default function AdminAnalyticsPage() {
                   </tr>
                 </thead>
                 <tbody>
-                  {data.pagePaths.map((p) => (
-                    <tr key={p.path} style={{ borderBottom: "1px solid #e5e7eb" }}>
-                      <td style={{ padding: "10px 12px" }}>{p.path || "/"}</td>
-                      <td style={{ padding: "10px 12px", textAlign: "right" }}>{p.count}</td>
-                      <td style={{ padding: "10px 12px", textAlign: "right" }}>{formatDuration(p.avgDuration)}</td>
-                    </tr>
-                  ))}
+                  {(() => {
+                    const total = data.pagePaths.reduce((s, x) => s + x.count, 0);
+                    return data.pagePaths.map((p) => (
+                      <tr key={p.path} style={{ borderBottom: "1px solid #e5e7eb" }}>
+                        <td style={{ padding: "10px 12px" }}>{p.path || "/"}</td>
+                        <td style={{ padding: "10px 12px", textAlign: "right" }}>{formatCountWithPercent(p.count, total)}</td>
+                        <td style={{ padding: "10px 12px", textAlign: "right" }}>{formatDuration(p.avgDuration)}</td>
+                      </tr>
+                    ));
+                  })()}
                 </tbody>
               </table>
             </div>
@@ -171,13 +180,16 @@ export default function AdminAnalyticsPage() {
                   </tr>
                 </thead>
                 <tbody>
-                  {data.sourceTypes.map((s) => (
-                    <tr key={s.type} style={{ borderBottom: "1px solid #e5e7eb" }}>
-                      <td style={{ padding: "10px 12px" }}>{sourceTypeLabel(s.type)}</td>
-                      <td style={{ padding: "10px 12px", textAlign: "right" }}>{s.count}</td>
-                      <td style={{ padding: "10px 12px", textAlign: "right" }}>{formatDuration(s.avgDuration)}</td>
-                    </tr>
-                  ))}
+                  {(() => {
+                    const total = data.sourceTypes.reduce((sum, x) => sum + x.count, 0);
+                    return data.sourceTypes.map((s) => (
+                      <tr key={s.type} style={{ borderBottom: "1px solid #e5e7eb" }}>
+                        <td style={{ padding: "10px 12px" }}>{sourceTypeLabel(s.type)}</td>
+                        <td style={{ padding: "10px 12px", textAlign: "right" }}>{formatCountWithPercent(s.count, total)}</td>
+                        <td style={{ padding: "10px 12px", textAlign: "right" }}>{formatDuration(s.avgDuration)}</td>
+                      </tr>
+                    ));
+                  })()}
                 </tbody>
               </table>
             </div>
@@ -195,13 +207,16 @@ export default function AdminAnalyticsPage() {
                   </tr>
                 </thead>
                 <tbody>
-                  {data.sourceMedias.map((s) => (
-                    <tr key={s.media} style={{ borderBottom: "1px solid #e5e7eb" }}>
-                      <td style={{ padding: "10px 12px" }}>{s.media}</td>
-                      <td style={{ padding: "10px 12px", textAlign: "right" }}>{s.count}</td>
-                      <td style={{ padding: "10px 12px", textAlign: "right" }}>{formatDuration(s.avgDuration)}</td>
-                    </tr>
-                  ))}
+                  {(() => {
+                    const total = data.sourceMedias.reduce((sum, x) => sum + x.count, 0);
+                    return data.sourceMedias.map((s) => (
+                      <tr key={s.media} style={{ borderBottom: "1px solid #e5e7eb" }}>
+                        <td style={{ padding: "10px 12px" }}>{s.media}</td>
+                        <td style={{ padding: "10px 12px", textAlign: "right" }}>{formatCountWithPercent(s.count, total)}</td>
+                        <td style={{ padding: "10px 12px", textAlign: "right" }}>{formatDuration(s.avgDuration)}</td>
+                      </tr>
+                    ));
+                  })()}
                 </tbody>
               </table>
             </div>
@@ -219,13 +234,16 @@ export default function AdminAnalyticsPage() {
                   </tr>
                 </thead>
                 <tbody>
-                  {data.countries.map((c) => (
-                    <tr key={c.country} style={{ borderBottom: "1px solid #e5e7eb" }}>
-                      <td style={{ padding: "10px 12px" }}>{c.country}</td>
-                      <td style={{ padding: "10px 12px", textAlign: "right" }}>{c.count}</td>
-                      <td style={{ padding: "10px 12px", textAlign: "right" }}>{formatDuration(c.avgDuration)}</td>
-                    </tr>
-                  ))}
+                  {(() => {
+                    const total = data.countries.reduce((sum, x) => sum + x.count, 0);
+                    return data.countries.map((c) => (
+                      <tr key={c.country} style={{ borderBottom: "1px solid #e5e7eb" }}>
+                        <td style={{ padding: "10px 12px" }}>{c.country}</td>
+                        <td style={{ padding: "10px 12px", textAlign: "right" }}>{formatCountWithPercent(c.count, total)}</td>
+                        <td style={{ padding: "10px 12px", textAlign: "right" }}>{formatDuration(c.avgDuration)}</td>
+                      </tr>
+                    ));
+                  })()}
                 </tbody>
               </table>
             </div>
@@ -243,13 +261,16 @@ export default function AdminAnalyticsPage() {
                   </tr>
                 </thead>
                 <tbody>
-                  {data.regions.map((r) => (
-                    <tr key={r.region} style={{ borderBottom: "1px solid #e5e7eb" }}>
-                      <td style={{ padding: "10px 12px" }}>{r.region}</td>
-                      <td style={{ padding: "10px 12px", textAlign: "right" }}>{r.count}</td>
-                      <td style={{ padding: "10px 12px", textAlign: "right" }}>{formatDuration(r.avgDuration)}</td>
-                    </tr>
-                  ))}
+                  {(() => {
+                    const total = data.regions.reduce((sum, x) => sum + x.count, 0);
+                    return data.regions.map((r) => (
+                      <tr key={r.region} style={{ borderBottom: "1px solid #e5e7eb" }}>
+                        <td style={{ padding: "10px 12px" }}>{r.region}</td>
+                        <td style={{ padding: "10px 12px", textAlign: "right" }}>{formatCountWithPercent(r.count, total)}</td>
+                        <td style={{ padding: "10px 12px", textAlign: "right" }}>{formatDuration(r.avgDuration)}</td>
+                      </tr>
+                    ));
+                  })()}
                 </tbody>
               </table>
             </div>
@@ -271,23 +292,26 @@ export default function AdminAnalyticsPage() {
                   </tr>
                 </thead>
                 <tbody>
-                  {data.referrers.map((r) => (
-                    <tr key={r.domain} style={{ borderBottom: "1px solid #e5e7eb" }}>
-                      <td style={{ padding: "10px 12px" }}>{r.domain}</td>
-                      <td style={{ padding: "10px 12px", color: "#666", maxWidth: 200, overflow: "hidden", textOverflow: "ellipsis" }} title={r.referrer || undefined}>
-                        {r.referrer ? (
-                          <a href={r.referrer} target="_blank" rel="noopener noreferrer" style={{ color: "#2563eb" }}>
-                            {r.referrer}
-                          </a>
-                        ) : (
-                          "-"
-                        )}
-                      </td>
-                      <td style={{ padding: "10px 12px", textAlign: "right" }}>{r.count}</td>
-                      <td style={{ padding: "10px 12px", textAlign: "right" }}>{formatDuration(r.avgDuration)}</td>
-                      <td style={{ padding: "10px 12px", color: "#666" }}>{r.latestAt ? new Date(r.latestAt).toLocaleString("ja-JP") : "-"}</td>
-                    </tr>
-                  ))}
+                  {(() => {
+                    const total = data.referrers.reduce((sum, x) => sum + x.count, 0);
+                    return data.referrers.map((r) => (
+                      <tr key={r.domain} style={{ borderBottom: "1px solid #e5e7eb" }}>
+                        <td style={{ padding: "10px 12px" }}>{r.domain}</td>
+                        <td style={{ padding: "10px 12px", color: "#666", maxWidth: 200, overflow: "hidden", textOverflow: "ellipsis" }} title={r.referrer || undefined}>
+                          {r.referrer ? (
+                            <a href={r.referrer} target="_blank" rel="noopener noreferrer" style={{ color: "#2563eb" }}>
+                              {r.referrer}
+                            </a>
+                          ) : (
+                            "-"
+                          )}
+                        </td>
+                        <td style={{ padding: "10px 12px", textAlign: "right" }}>{formatCountWithPercent(r.count, total)}</td>
+                        <td style={{ padding: "10px 12px", textAlign: "right" }}>{formatDuration(r.avgDuration)}</td>
+                        <td style={{ padding: "10px 12px", color: "#666" }}>{r.latestAt ? new Date(r.latestAt).toLocaleString("ja-JP") : "-"}</td>
+                      </tr>
+                    ));
+                  })()}
                 </tbody>
               </table>
             )}

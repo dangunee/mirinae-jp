@@ -213,7 +213,9 @@
     .voice-play:hover { text-decoration: underline; }
     .voice-play::before { content: "▶ "; font-size: 0.85em; }
     .voice-cell-wrap { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-    .voice-gramm-vocab-cell { display: flex; flex-wrap: wrap; gap: 12px 16px; align-items: center; }
+    .voice-gramm-vocab-cell { display: flex; flex-wrap: nowrap; gap: 12px; align-items: center; white-space: nowrap; }
+    .voice-gramm-vocab-cell .voice-cell-wrap { flex-wrap: nowrap; white-space: nowrap; }
+    .voice-gramm-vocab-cell .voice-cell-wrap * { white-space: nowrap; }
     .voice-toggle-btn {
       padding: 2px 8px;
       font-size: 11px;
@@ -327,6 +329,10 @@
       .voice-table { font-size: 12px; }
       .voice-table th, .voice-table td { padding: 8px 10px; }
     }
+    .voice-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 16px 0; }
+    @media (max-width: 768px) {
+      .voice-table-wrap { margin: 12px 0; }
+    }
   </style>
 </head>
 <body>
@@ -381,10 +387,12 @@
           <h2 class="section-header">ミリネ韓国語1級</h2>
           <div class="content-block">
             <p><strong>『ミリネ韓国語教科書1』 音声ファイル</strong><br>下のリンクをクリックすると『ミリネ韓国語教科書1』の音声をお聞きになれます。</p>
+            <div class="voice-table-wrap">
             <table class="voice-table">
               <thead><tr><th>級</th><th>本文</th><th>文法・語彙</th></tr></thead>
               <tbody id="voice-1kyu"></tbody>
             </table>
+            </div>
             <button type="button" class="voice-all-play-btn" data-level="1kyu">1課から最後まで全再生</button>
           </div>
         </section>
@@ -395,10 +403,12 @@
           <h2 class="section-header">ミリネ韓国語2級</h2>
           <div class="content-block">
             <p><strong>『ミリネ韓国語教科書2』 音声ファイル</strong><br>下のリンクをクリックすると『ミリネ韓国語教科書2』の音声をお聞きになれます。</p>
+            <div class="voice-table-wrap">
             <table class="voice-table">
               <thead><tr><th>級</th><th>本文</th><th>文法・語彙</th></tr></thead>
               <tbody id="voice-2kyu"></tbody>
             </table>
+            </div>
             <button type="button" class="voice-all-play-btn" data-level="2kyu">1課から最後まで全再生</button>
           </div>
         </section>
@@ -409,10 +419,12 @@
           <h2 class="section-header">ミリネ韓国語3級</h2>
           <div class="content-block">
             <p><strong>『ミリネ韓国語教科書3』 音声ファイル</strong><br>下のリンクをクリックすると『ミリネ韓国語教科書3』の音声をお聞きになれます。</p>
+            <div class="voice-table-wrap">
             <table class="voice-table">
               <thead><tr><th>級</th><th>本文</th><th>文法・語彙</th></tr></thead>
               <tbody id="voice-3kyu"></tbody>
             </table>
+            </div>
             <button type="button" class="voice-all-play-btn" data-level="3kyu">1課から最後まで全再生</button>
           </div>
         </section>
@@ -423,10 +435,12 @@
           <h2 class="section-header">ミリネ韓国語4級</h2>
           <div class="content-block">
             <p><strong>『ミリネ韓国語教科書4』 音声ファイル</strong><br>下のリンクをクリックすると『ミリネ韓国語教科書4』の音声をお聞きになれます。</p>
+            <div class="voice-table-wrap">
             <table class="voice-table">
               <thead><tr><th>級</th><th>本文</th><th>文法・語彙</th></tr></thead>
               <tbody id="voice-4kyu"></tbody>
             </table>
+            </div>
             <button type="button" class="voice-all-play-btn" data-level="4kyu">1課から最後まで全再生</button>
           </div>
         </section>
@@ -640,7 +654,7 @@
       tbody = document.getElementById("voice-1kyu");
       for (i = 1; i <= 25; i++) {
         row = document.createElement("tr");
-        row.appendChild(cell("ミリネ1"));
+        row.appendChild(cell("1級"));
         row.appendChild(cell(link("1kyu/Mi1-Main" + i + ".mp3", "「" + i + "課」 本文")));
         row.appendChild(cell(link("1kyu/Mi1-sub" + i + ".mp3", "「" + i + "課」 文法・語彙")));
         tbody.appendChild(row);
@@ -648,12 +662,12 @@
       tbody = document.getElementById("voice-2kyu");
       for (i = 1; i <= 24; i++) {
         row = document.createElement("tr");
-        row.appendChild(cell("ミリネ2"));
+        row.appendChild(cell("2級"));
         row.appendChild(cell(link("2kyu/Mi2-Main" + i + ".mp3", "「" + i + "課」 本文")));
         var gv = document.createElement("span");
         gv.className = "voice-gramm-vocab-cell";
         var gLink = link("2kyu/Mi2-Bunpo" + i + ".mp3", "「" + i + "課」 文法");
-        var vLink = link("2kyu/Mi2-Goi" + i + ".mp3", "「" + i + "課」 語彙");
+        var vLink = link("2kyu/Mi2-Goi" + i + ".mp3", "語彙");
         gv.appendChild(gLink);
         gv.appendChild(document.createTextNode(" "));
         gv.appendChild(vLink);
@@ -663,7 +677,7 @@
       tbody = document.getElementById("voice-3kyu");
       for (i = 1; i <= 24; i++) {
         row = document.createElement("tr");
-        row.appendChild(cell("ミリネ3"));
+        row.appendChild(cell("3級"));
         row.appendChild(cell(link("3kyu/Mi3-Main" + i + ".mp3", "「" + i + "課」 本文")));
         row.appendChild(cell(link("3kyu/Mi3-Sub" + i + ".mp3", "「" + i + "課」 文法・語彙")));
         tbody.appendChild(row);
@@ -671,7 +685,7 @@
       tbody = document.getElementById("voice-4kyu");
       for (i = 1; i <= 24; i++) {
         row = document.createElement("tr");
-        row.appendChild(cell("ミリネ4"));
+        row.appendChild(cell("4級"));
         row.appendChild(cell(link("4kyu/Mi4-Main" + i + ".mp3", "「" + i + "課」 本文")));
         row.appendChild(cell(link("4kyu/Mi4-Sub" + i + ".mp3", "「" + i + "課」 文法・語彙")));
         tbody.appendChild(row);

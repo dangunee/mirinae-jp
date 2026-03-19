@@ -213,9 +213,7 @@
     .voice-play:hover { text-decoration: underline; }
     .voice-play::before { content: "▶ "; font-size: 0.85em; }
     .voice-cell-wrap { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-    .voice-gramm-vocab-cell { display: flex; flex-wrap: nowrap; gap: 12px; align-items: center; white-space: nowrap; }
-    .voice-gramm-vocab-cell .voice-cell-wrap { flex-wrap: nowrap; white-space: nowrap; }
-    .voice-gramm-vocab-cell .voice-cell-wrap * { white-space: nowrap; }
+    .voice-gramm-vocab-cell { display: flex; flex-direction: column; gap: 8px; align-items: flex-start; }
     .voice-toggle-btn {
       padding: 2px 8px;
       font-size: 11px;
@@ -667,9 +665,8 @@
         var gv = document.createElement("span");
         gv.className = "voice-gramm-vocab-cell";
         var gLink = link("2kyu/Mi2-Bunpo" + i + ".mp3", "「" + i + "課」 文法");
-        var vLink = link("2kyu/Mi2-Goi" + i + ".mp3", "語彙");
+        var vLink = link("2kyu/Mi2-Goi" + i + ".mp3", "「" + i + "課」 語彙");
         gv.appendChild(gLink);
-        gv.appendChild(document.createTextNode(" "));
         gv.appendChild(vLink);
         row.appendChild(cell(gv));
         tbody.appendChild(row);

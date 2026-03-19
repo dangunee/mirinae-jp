@@ -396,7 +396,7 @@
             </div>
             <div class="voice-all-play-row">
               <select class="voice-start-lesson-select" data-level="1kyu" data-max="25"></select>
-              <button type="button" class="voice-all-play-btn" data-level="1kyu">1課から最後まで全再生</button>
+              <button type="button" class="voice-all-play-btn" data-level="1kyu">最後まで全再生</button>
             </div>
           </div>
         </section>
@@ -415,7 +415,7 @@
             </div>
             <div class="voice-all-play-row">
               <select class="voice-start-lesson-select" data-level="2kyu" data-max="24"></select>
-              <button type="button" class="voice-all-play-btn" data-level="2kyu">1課から最後まで全再生</button>
+              <button type="button" class="voice-all-play-btn" data-level="2kyu">最後まで全再生</button>
             </div>
           </div>
         </section>
@@ -434,7 +434,7 @@
             </div>
             <div class="voice-all-play-row">
               <select class="voice-start-lesson-select" data-level="3kyu" data-max="24"></select>
-              <button type="button" class="voice-all-play-btn" data-level="3kyu">1課から最後まで全再生</button>
+              <button type="button" class="voice-all-play-btn" data-level="3kyu">最後まで全再生</button>
             </div>
           </div>
         </section>
@@ -453,7 +453,7 @@
             </div>
             <div class="voice-all-play-row">
               <select class="voice-start-lesson-select" data-level="4kyu" data-max="24"></select>
-              <button type="button" class="voice-all-play-btn" data-level="4kyu">1課から最後まで全再生</button>
+              <button type="button" class="voice-all-play-btn" data-level="4kyu">最後まで全再生</button>
             </div>
           </div>
         </section>
@@ -635,7 +635,7 @@
       function stopAllPlay() {
         if (player) { player.pause(); player.removeEventListener('ended', allPlayNext); }
         allPlayQueue = []; allPlayIndex = 0;
-        if (currentAllPlayBtn) { currentAllPlayBtn.classList.remove('playing'); currentAllPlayBtn.textContent = '1課から最後まで全再生'; currentAllPlayBtn = null; }
+        if (currentAllPlayBtn) { currentAllPlayBtn.classList.remove('playing'); currentAllPlayBtn.textContent = '最後まで全再生'; currentAllPlayBtn = null; }
       }
       function allPlayNext() {
         if (allPlayIndex >= allPlayQueue.length) { stopAllPlay(); return; }

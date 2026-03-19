@@ -212,6 +212,20 @@
     }
     .voice-play:hover { text-decoration: underline; }
     .voice-play::before { content: "▶ "; font-size: 0.85em; }
+    .voice-cell-wrap { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .voice-toggle-btn {
+      padding: 2px 8px;
+      font-size: 11px;
+      border: 1px solid var(--gray-border);
+      border-radius: 4px;
+      background: var(--white);
+      color: var(--text-muted);
+      cursor: pointer;
+      font-family: inherit;
+      transition: all .15s;
+    }
+    .voice-toggle-btn:hover { border-color: var(--accent-blue); color: var(--accent-blue); }
+    .voice-repeat-btn.active { background: var(--accent-blue); border-color: var(--accent-blue); color: var(--white); }
     .voice-tabs-bar {
       display: flex;
       gap: 0;
@@ -536,21 +550,74 @@
       });
       var BASE = "/voice/";
       var player = document.getElementById("voicePlayer");
+      var repeatActiveWrap = null;
+
       function playUrl(url, label) {
         if (!player) return;
         player.src = url;
+        player.loop = false;
         player.play().catch(function() {});
       }
+
+      function stopRepeatMode() {
+        if (player) {
+          player.pause();
+          player.loop = false;
+        }
+        if (repeatActiveWrap) {
+          var btn = repeatActiveWrap.querySelector('.voice-repeat-btn');
+          if (btn) btn.classList.remove('active');
+          repeatActiveWrap = null;
+        }
+      }
+
+      function startRepeatMode(url, wrap) {
+        if (!player) return;
+        if (repeatActiveWrap === wrap) {
+          stopRepeatMode();
+          return;
+        }
+        stopRepeatMode();
+        repeatActiveWrap = wrap;
+        var btn = wrap.querySelector('.voice-repeat-btn');
+        if (btn) btn.classList.add('active');
+        player.src = url;
+        player.loop = true;
+        player.play().catch(function() {});
+      }
+
       function link(url, text) {
+        var wrap = document.createElement("span");
+        wrap.className = "voice-cell-wrap";
         var a = document.createElement("a");
         a.href = BASE + url;
         a.className = "voice-play";
         a.textContent = text;
         a.addEventListener("click", function(e) {
           e.preventDefault();
+          stopRepeatMode();
           playUrl(BASE + url, text);
         });
-        return a;
+        wrap.appendChild(a);
+        var repeatBtn = document.createElement("button");
+        repeatBtn.type = "button";
+        repeatBtn.className = "voice-toggle-btn voice-repeat-btn";
+        repeatBtn.textContent = "反復";
+        repeatBtn.addEventListener("click", function(e) {
+          e.preventDefault();
+          startRepeatMode(BASE + url, wrap);
+        });
+        wrap.appendChild(repeatBtn);
+        var stopBtn = document.createElement("button");
+        stopBtn.type = "button";
+        stopBtn.className = "voice-toggle-btn voice-stop-btn";
+        stopBtn.textContent = "中止";
+        stopBtn.addEventListener("click", function(e) {
+          e.preventDefault();
+          stopRepeatMode();
+        });
+        wrap.appendChild(stopBtn);
+        return wrap;
       }
       function cell(content) {
         var td = document.createElement("td");
@@ -692,6 +759,7 @@
             stopAllPlay();
             return;
           }
+          stopRepeatMode();
           stopAllPlay();
           currentAllPlayBtn = this;
           this.classList.add('playing');

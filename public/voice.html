@@ -287,6 +287,11 @@
     .footer-column a { display: block; color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; margin-bottom: 8px; }
     .footer-column a:hover { color: white; }
     .footer-bottom { text-align: center; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 13px; opacity: 0.8; }
+    @media (max-width: 900px) {
+      .main-content { padding: 24px 16px 60px; }
+      .content-block { padding: 20px 16px 28px; }
+      .voice-player-bar { padding: 10px 12px; }
+    }
     @media (max-width: 768px) {
       .page-title-desktop { display: none; }
       .page-title-mobile { display: inline; }
@@ -311,9 +316,15 @@
         border-left: none;
       }
     }
+    @media (max-width: 600px) {
+      .main-content { padding: 20px 12px 40px; }
+      .content-block { padding: 16px 12px 24px; }
+      .voice-player-bar { padding: 10px 12px; }
+      .section-header { padding: 12px 16px; font-size: 16px; }
+    }
     @media (max-width: 640px) {
       .voice-table { font-size: 12px; }
-      .voice-table th, .voice-table td { padding: 8px; }
+      .voice-table th, .voice-table td { padding: 8px 10px; }
     }
   </style>
 </head>
@@ -629,33 +640,33 @@
       for (i = 1; i <= 25; i++) {
         row = document.createElement("tr");
         row.appendChild(cell(i + "課"));
-        row.appendChild(cell(link("1kyu/Mi1-Main" + i + ".mp3", "「ミリネ1」 " + i + "課 本文")));
-        row.appendChild(cell(link("1kyu/Mi1-sub" + i + ".mp3", "「ミリネ1」 " + i + "課 文法・語彙")));
+        row.appendChild(cell(link("1kyu/Mi1-Main" + i + ".mp3", "「ミリネ1」 本文")));
+        row.appendChild(cell(link("1kyu/Mi1-sub" + i + ".mp3", "「ミリネ1」 文法・語彙")));
         tbody.appendChild(row);
       }
       tbody = document.getElementById("voice-2kyu");
       for (i = 1; i <= 24; i++) {
         row = document.createElement("tr");
         row.appendChild(cell(i + "課"));
-        row.appendChild(cell(link("2kyu/Mi2-Main" + i + ".mp3", "「ミリネ2」 " + i + "課 本文")));
-        row.appendChild(cell(link("2kyu/Mi2-Bunpo" + i + ".mp3", "「ミリネ2」 " + i + "課 文法")));
-        row.appendChild(cell(link("2kyu/Mi2-Goi" + i + ".mp3", "「ミリネ2」 " + i + "課 語彙")));
+        row.appendChild(cell(link("2kyu/Mi2-Main" + i + ".mp3", "「ミリネ2」 本文")));
+        row.appendChild(cell(link("2kyu/Mi2-Bunpo" + i + ".mp3", "「ミリネ2」 文法")));
+        row.appendChild(cell(link("2kyu/Mi2-Goi" + i + ".mp3", "「ミリネ2」 語彙")));
         tbody.appendChild(row);
       }
       tbody = document.getElementById("voice-3kyu");
       for (i = 1; i <= 24; i++) {
         row = document.createElement("tr");
         row.appendChild(cell(i + "課"));
-        row.appendChild(cell(link("3kyu/Mi3-Main" + i + ".mp3", "「ミリネ3」 " + i + "課 本文")));
-        row.appendChild(cell(link("3kyu/Mi3-Sub" + i + ".mp3", "「ミリネ3」 " + i + "課 文法・語彙")));
+        row.appendChild(cell(link("3kyu/Mi3-Main" + i + ".mp3", "「ミリネ3」 本文")));
+        row.appendChild(cell(link("3kyu/Mi3-Sub" + i + ".mp3", "「ミリネ3」 文法・語彙")));
         tbody.appendChild(row);
       }
       tbody = document.getElementById("voice-4kyu");
       for (i = 1; i <= 24; i++) {
         row = document.createElement("tr");
         row.appendChild(cell(i + "課"));
-        row.appendChild(cell(link("4kyu/Mi4-Main" + i + ".mp3", "「ミリネ4」 " + i + "課 本文")));
-        row.appendChild(cell(link("4kyu/Mi4-Sub" + i + ".mp3", "「ミリネ4」 " + i + "課 文法・語彙")));
+        row.appendChild(cell(link("4kyu/Mi4-Main" + i + ".mp3", "「ミリネ4」 本文")));
+        row.appendChild(cell(link("4kyu/Mi4-Sub" + i + ".mp3", "「ミリネ4」 文法・語彙")));
         tbody.appendChild(row);
       }
 

@@ -12,13 +12,14 @@ export async function GET() {
 // POST /api/admin/youtube — 新規作成
 export async function POST(req: NextRequest) {
   const body = await req.json();
-  const { videoId, title, category, description, seoSummary, duration, sortOrder } = body as {
+  const { videoId, title, category, description, seoSummary, duration, uploadDate, sortOrder } = body as {
     videoId: string;
     title: string;
     category?: string | null;
     description?: string | null;
     seoSummary?: string | null;
     duration?: string | null;
+    uploadDate?: string | null;
     sortOrder?: number;
   };
   if (!videoId?.trim() || !title?.trim()) {
@@ -33,6 +34,7 @@ export async function POST(req: NextRequest) {
       description: description?.trim() || null,
       seoSummary: seoSummary?.trim() || null,
       duration: duration?.trim() || null,
+      uploadDate: uploadDate?.trim() || null,
       sortOrder: typeof sortOrder === "number" ? sortOrder : 0,
     },
   });
@@ -42,7 +44,7 @@ export async function POST(req: NextRequest) {
 // PUT /api/admin/youtube — 更新
 export async function PUT(req: NextRequest) {
   const body = await req.json();
-  const { id, videoId, title, category, description, seoSummary, duration, sortOrder } = body as {
+  const { id, videoId, title, category, description, seoSummary, duration, uploadDate, sortOrder } = body as {
     id: string;
     videoId?: string;
     title?: string;
@@ -50,6 +52,7 @@ export async function PUT(req: NextRequest) {
     description?: string | null;
     seoSummary?: string | null;
     duration?: string | null;
+    uploadDate?: string | null;
     sortOrder?: number;
   };
   if (!id) return NextResponse.json({ error: "id required" }, { status: 400 });
@@ -63,6 +66,7 @@ export async function PUT(req: NextRequest) {
   if (description !== undefined) data.description = description?.trim() || null;
   if (seoSummary !== undefined) data.seoSummary = seoSummary?.trim() || null;
   if (duration !== undefined) data.duration = duration?.trim() || null;
+  if (uploadDate !== undefined) data.uploadDate = uploadDate?.trim() || null;
   if (sortOrder !== undefined) data.sortOrder = sortOrder;
   const updated = await prisma.youTubeVideo.update({
     where: { id },

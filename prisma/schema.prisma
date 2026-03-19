@@ -38,6 +38,7 @@ model YouTubeVideo {
   description String?  // カード用短い説明
   seoSummary  String?  // SEO用：2〜3文の要約（検索エンジン向け）
   duration    String?  // ISO 8601形式（例: PT5M30S = 5分30秒）
+  uploadDate  String?  // Schema.org用: YYYY-MM-DDTHH:mm:ss+09:00
   sortOrder   Int      @default(0)
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt

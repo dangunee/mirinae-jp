@@ -21,6 +21,20 @@
 
 // ** MySQL 設定 - こちらの情報はホスティング先から入手してください。 ** //
 /** WordPress のデータベース名 */
+
+// リクエスト元に応じてURLを切り替え（mirinae.jp経由＝リダイレクト防止、hippy.jp直接＝管理画面用）
+$request_host = $_SERVER['HTTP_X_FORWARDED_HOST'] ?? $_SERVER['HTTP_HOST'] ?? '';
+$is_mirinae_jp = (strpos($request_host, 'mirinae.jp') !== false && strpos($request_host, 'hippy') === false);
+if ($is_mirinae_jp) {
+	define('WP_HOME', 'https://mirinae.jp/blog');
+	define('WP_SITEURL', 'https://mirinae.jp/blog');
+	define('WP_CONTENT_URL', 'https://mirinae.jp/blog/wp-content');
+} else {
+	define('WP_HOME', 'https://mirinae.hippy.jp/blog');
+	define('WP_SITEURL', 'https://mirinae.hippy.jp/blog');
+	define('WP_CONTENT_URL', 'https://mirinae.hippy.jp/blog/wp-content');
+}
+define('FORCE_SSL_ADMIN', true);
 define('WP_CACHE', true);
 define( 'WPCACHEHOME', '/home/users/0/hippy.jp-mirinae/web/blog/wp-content/plugins/wp-super-cache/' );
 define('DB_NAME', 'LAA0556736-f3ko1j');

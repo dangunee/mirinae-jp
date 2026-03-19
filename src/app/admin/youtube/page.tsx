@@ -18,6 +18,7 @@ type YouTubeVideo = {
   description: string | null;
   seoSummary: string | null;
   duration: string | null;
+  uploadDate: string | null;
   sortOrder: number;
 };
 
@@ -30,7 +31,7 @@ export default function YouTubeAdminPage() {
   const [saving, setSaving] = useState(false);
   const [editing, setEditing] = useState<YouTubeVideo | null>(null);
   const [adding, setAdding] = useState(false);
-  const [form, setForm] = useState({ videoId: "", title: "", category: "", categoryCustom: "", description: "", seoSummary: "", duration: "", sortOrder: 0 });
+  const [form, setForm] = useState({ videoId: "", title: "", category: "", categoryCustom: "", description: "", seoSummary: "", duration: "", uploadDate: "", sortOrder: 0 });
 
   const load = () => {
     setLoading(true);
@@ -45,7 +46,7 @@ export default function YouTubeAdminPage() {
   const startAdd = () => {
     setEditing(null);
     setAdding(true);
-    setForm({ videoId: "", title: "", category: "", categoryCustom: "", description: "", seoSummary: "", duration: "", sortOrder: list.length });
+    setForm({ videoId: "", title: "", category: "", categoryCustom: "", description: "", seoSummary: "", duration: "", uploadDate: "", sortOrder: list.length });
   };
 
   const startEdit = (v: YouTubeVideo) => {
@@ -61,6 +62,7 @@ export default function YouTubeAdminPage() {
       description: v.description || "",
       seoSummary: v.seoSummary || "",
       duration: v.duration || "",
+      uploadDate: v.uploadDate || "",
       sortOrder: v.sortOrder,
     });
   };
@@ -68,7 +70,7 @@ export default function YouTubeAdminPage() {
   const cancelEdit = () => {
     setEditing(null);
     setAdding(false);
-    setForm({ videoId: "", title: "", category: "", categoryCustom: "", description: "", seoSummary: "", duration: "", sortOrder: 0 });
+    setForm({ videoId: "", title: "", category: "", categoryCustom: "", description: "", seoSummary: "", duration: "", uploadDate: "", sortOrder: 0 });
   };
 
   const getCategoryValue = () =>
@@ -92,6 +94,7 @@ export default function YouTubeAdminPage() {
             description: form.description.trim() || null,
             seoSummary: form.seoSummary.trim() || null,
             duration: form.duration.trim() || null,
+            uploadDate: form.uploadDate.trim() || null,
             sortOrder: form.sortOrder,
           }),
         });
@@ -106,6 +109,7 @@ export default function YouTubeAdminPage() {
             description: form.description.trim() || null,
             seoSummary: form.seoSummary.trim() || null,
             duration: form.duration.trim() || null,
+            uploadDate: form.uploadDate.trim() || null,
             sortOrder: form.sortOrder,
           }),
         });
@@ -253,6 +257,16 @@ export default function YouTubeAdminPage() {
                     value={form.duration}
                     onChange={(e) => setForm({ ...form, duration: e.target.value })}
                     placeholder="例: PT5M30S（5分30秒）"
+                    style={style.input}
+                  />
+                </div>
+                <div>
+                  <label style={{ display: "block", marginBottom: 4, fontSize: 13, fontWeight: 500 }}>アップロード日（Schema.org用）</label>
+                  <input
+                    type="text"
+                    value={form.uploadDate}
+                    onChange={(e) => setForm({ ...form, uploadDate: e.target.value })}
+                    placeholder="例: 2024-01-15T12:00:00+09:00（空欄なら登録日を使用）"
                     style={style.input}
                   />
                 </div>

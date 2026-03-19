@@ -227,6 +227,8 @@
     }
     .voice-toggle-btn:hover { border-color: var(--accent-blue); color: var(--accent-blue); }
     .voice-repeat-btn.active { background: var(--accent-blue); border-color: var(--accent-blue); color: var(--white); }
+    .voice-from-here-btn { padding: 2px 6px; font-size: 10px; border: 1px solid var(--gray-border); border-radius: 4px; background: var(--white); color: var(--text-muted); cursor: pointer; font-family: inherit; }
+    .voice-from-here-btn:hover { border-color: var(--accent-blue); color: var(--accent-blue); }
     .voice-tabs-bar {
       display: flex;
       gap: 0;
@@ -610,7 +612,38 @@
         player.play().catch(function() {});
       }
 
-      function link(url, text) {
+      var ALL_PLAY_URLS = {
+        "1kyu": (function() { var u=[]; for(var k=1;k<=25;k++){ u.push(BASE+"1kyu/Mi1-Main"+k+".mp3"); u.push(BASE+"1kyu/Mi1-sub"+k+".mp3"); } return u; })(),
+        "2kyu": (function() { var u=[]; for(var k=1;k<=24;k++){ u.push(BASE+"2kyu/Mi2-Main"+k+".mp3"); u.push(BASE+"2kyu/Mi2-Bunpo"+k+".mp3"); u.push(BASE+"2kyu/Mi2-Goi"+k+".mp3"); } return u; })(),
+        "3kyu": (function() { var u=[]; for(var k=1;k<=24;k++){ u.push(BASE+"3kyu/Mi3-Main"+k+".mp3"); u.push(BASE+"3kyu/Mi3-Sub"+k+".mp3"); } return u; })(),
+        "4kyu": (function() { var u=[]; for(var k=1;k<=24;k++){ u.push(BASE+"4kyu/Mi4-Main"+k+".mp3"); u.push(BASE+"4kyu/Mi4-Sub"+k+".mp3"); } return u; })()
+      };
+      var allPlayQueue = [], allPlayIndex = 0, currentAllPlayBtn = null;
+      function stopAllPlay() {
+        if (player) { player.pause(); player.removeEventListener('ended', allPlayNext); }
+        allPlayQueue = []; allPlayIndex = 0;
+        if (currentAllPlayBtn) { currentAllPlayBtn.classList.remove('playing'); currentAllPlayBtn.textContent = '1課から最後まで全再生'; currentAllPlayBtn = null; }
+      }
+      function allPlayNext() {
+        if (allPlayIndex >= allPlayQueue.length) { stopAllPlay(); return; }
+        player.src = allPlayQueue[allPlayIndex];
+        player.play().catch(function() { allPlayIndex++; allPlayNext(); });
+        allPlayIndex++;
+      }
+      function startAllPlayFrom(level, startIndex) {
+        var urls = ALL_PLAY_URLS[level];
+        if (!urls || startIndex >= urls.length) return;
+        stopRepeatMode();
+        stopAllPlay();
+        currentAllPlayBtn = document.querySelector('.voice-all-play-btn[data-level="' + level + '"]');
+        if (currentAllPlayBtn) { currentAllPlayBtn.classList.add('playing'); currentAllPlayBtn.textContent = '停止'; }
+        allPlayQueue = urls.slice(startIndex);
+        allPlayIndex = 0;
+        player.addEventListener('ended', allPlayNext);
+        allPlayNext();
+      }
+
+      function link(url, text, fromHere) {
         var wrap = document.createElement("span");
         wrap.className = "voice-cell-wrap";
         var a = document.createElement("a");
@@ -641,6 +674,17 @@
           stopRepeatMode();
         });
         wrap.appendChild(stopBtn);
+        if (fromHere && fromHere.level != null && fromHere.startIndex != null) {
+          var fhBtn = document.createElement("button");
+          fhBtn.type = "button";
+          fhBtn.className = "voice-from-here-btn";
+          fhBtn.textContent = "～最後";
+          fhBtn.addEventListener("click", function(e) {
+            e.preventDefault();
+            startAllPlayFrom(fromHere.level, fromHere.startIndex);
+          });
+          wrap.appendChild(fhBtn);
+        }
         return wrap;
       }
       function cell(content) {
@@ -653,19 +697,19 @@
       for (i = 1; i <= 25; i++) {
         row = document.createElement("tr");
         row.appendChild(cell("1級"));
-        row.appendChild(cell(link("1kyu/Mi1-Main" + i + ".mp3", "「" + i + "課」 本文")));
-        row.appendChild(cell(link("1kyu/Mi1-sub" + i + ".mp3", "「" + i + "課」 文法・語彙")));
+        row.appendChild(cell(link("1kyu/Mi1-Main" + i + ".mp3", "「" + i + "課」 本文", { level: "1kyu", startIndex: (i - 1) * 2 })));
+        row.appendChild(cell(link("1kyu/Mi1-sub" + i + ".mp3", "「" + i + "課」 文法・語彙", { level: "1kyu", startIndex: (i - 1) * 2 + 1 })));
         tbody.appendChild(row);
       }
       tbody = document.getElementById("voice-2kyu");
       for (i = 1; i <= 24; i++) {
         row = document.createElement("tr");
         row.appendChild(cell("2級"));
-        row.appendChild(cell(link("2kyu/Mi2-Main" + i + ".mp3", "「" + i + "課」 本文")));
+        row.appendChild(cell(link("2kyu/Mi2-Main" + i + ".mp3", "「" + i + "課」 本文", { level: "2kyu", startIndex: (i - 1) * 3 })));
         var gv = document.createElement("span");
         gv.className = "voice-gramm-vocab-cell";
-        var gLink = link("2kyu/Mi2-Bunpo" + i + ".mp3", "「" + i + "課」 文法");
-        var vLink = link("2kyu/Mi2-Goi" + i + ".mp3", "「" + i + "課」 語彙");
+        var gLink = link("2kyu/Mi2-Bunpo" + i + ".mp3", "「" + i + "課」 文法", { level: "2kyu", startIndex: (i - 1) * 3 + 1 });
+        var vLink = link("2kyu/Mi2-Goi" + i + ".mp3", "「" + i + "課」 語彙", { level: "2kyu", startIndex: (i - 1) * 3 + 2 });
         gv.appendChild(gLink);
         gv.appendChild(vLink);
         row.appendChild(cell(gv));
@@ -675,16 +719,16 @@
       for (i = 1; i <= 24; i++) {
         row = document.createElement("tr");
         row.appendChild(cell("3級"));
-        row.appendChild(cell(link("3kyu/Mi3-Main" + i + ".mp3", "「" + i + "課」 本文")));
-        row.appendChild(cell(link("3kyu/Mi3-Sub" + i + ".mp3", "「" + i + "課」 文法・語彙")));
+        row.appendChild(cell(link("3kyu/Mi3-Main" + i + ".mp3", "「" + i + "課」 本文", { level: "3kyu", startIndex: (i - 1) * 2 })));
+        row.appendChild(cell(link("3kyu/Mi3-Sub" + i + ".mp3", "「" + i + "課」 文法・語彙", { level: "3kyu", startIndex: (i - 1) * 2 + 1 })));
         tbody.appendChild(row);
       }
       tbody = document.getElementById("voice-4kyu");
       for (i = 1; i <= 24; i++) {
         row = document.createElement("tr");
         row.appendChild(cell("4級"));
-        row.appendChild(cell(link("4kyu/Mi4-Main" + i + ".mp3", "「" + i + "課」 本文")));
-        row.appendChild(cell(link("4kyu/Mi4-Sub" + i + ".mp3", "「" + i + "課」 文法・語彙")));
+        row.appendChild(cell(link("4kyu/Mi4-Main" + i + ".mp3", "「" + i + "課」 本文", { level: "4kyu", startIndex: (i - 1) * 2 })));
+        row.appendChild(cell(link("4kyu/Mi4-Sub" + i + ".mp3", "「" + i + "課」 文法・語彙", { level: "4kyu", startIndex: (i - 1) * 2 + 1 })));
         tbody.appendChild(row);
       }
 
@@ -712,71 +756,6 @@
         var h = location.hash.slice(1);
         if (/^tab0[1-4]$/.test(h)) switchToTab(h);
       });
-
-      // All-play: URL lists per level (1課から順に)
-      var ALL_PLAY_URLS = {
-        "1kyu": (function() {
-          var urls = [];
-          for (var k = 1; k <= 25; k++) {
-            urls.push(BASE + "1kyu/Mi1-Main" + k + ".mp3");
-            urls.push(BASE + "1kyu/Mi1-sub" + k + ".mp3");
-          }
-          return urls;
-        })(),
-        "2kyu": (function() {
-          var urls = [];
-          for (var k = 1; k <= 24; k++) {
-            urls.push(BASE + "2kyu/Mi2-Main" + k + ".mp3");
-            urls.push(BASE + "2kyu/Mi2-Bunpo" + k + ".mp3");
-            urls.push(BASE + "2kyu/Mi2-Goi" + k + ".mp3");
-          }
-          return urls;
-        })(),
-        "3kyu": (function() {
-          var urls = [];
-          for (var k = 1; k <= 24; k++) {
-            urls.push(BASE + "3kyu/Mi3-Main" + k + ".mp3");
-            urls.push(BASE + "3kyu/Mi3-Sub" + k + ".mp3");
-          }
-          return urls;
-        })(),
-        "4kyu": (function() {
-          var urls = [];
-          for (var k = 1; k <= 24; k++) {
-            urls.push(BASE + "4kyu/Mi4-Main" + k + ".mp3");
-            urls.push(BASE + "4kyu/Mi4-Sub" + k + ".mp3");
-          }
-          return urls;
-        })()
-      };
-
-      var allPlayQueue = [];
-      var allPlayIndex = 0;
-      var currentAllPlayBtn = null;
-
-      function stopAllPlay() {
-        if (player) {
-          player.pause();
-          player.removeEventListener('ended', allPlayNext);
-        }
-        allPlayQueue = [];
-        allPlayIndex = 0;
-        if (currentAllPlayBtn) {
-          currentAllPlayBtn.classList.remove('playing');
-          currentAllPlayBtn.textContent = '1課から最後まで全再生';
-          currentAllPlayBtn = null;
-        }
-      }
-
-      function allPlayNext() {
-        if (allPlayIndex >= allPlayQueue.length) {
-          stopAllPlay();
-          return;
-        }
-        player.src = allPlayQueue[allPlayIndex];
-        player.play().catch(function() { allPlayIndex++; allPlayNext(); });
-        allPlayIndex++;
-      }
 
       document.querySelectorAll('.voice-all-play-btn').forEach(function(btn) {
         btn.addEventListener('click', function() {

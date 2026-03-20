@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>東京・新宿・新宿三丁目のミリネ韓国語教室 | 楽しく学べる韓国語レッスン</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#1A237E",
+            "secondary": "#75584d",
+            "surface": "#fafaf5",
+            "on-surface": "#1a1c19",
+            "on-primary": "#ffffff",
+            "outline": "#767683",
+            "outline-variant": "#c6c5d4",
+            "surface-container-low": "#f4f4ef",
+            "surface-container-lowest": "#ffffff",
+            "surface-container": "#eeeee9",
+            "surface-container-high": "#e8e8e3",
+            "primary-container": "#8690ee",
+            "secondary-container": "#fed7ca",
+            "on-secondary-container": "#795c51",
+            "tertiary": "#400003",
+            "on-tertiary": "#ffffff",
+            "primary-fixed": "#e0e0ff",
+            "on-primary-fixed": "#000767",
+            "secondary-fixed": "#ffdbce",
+            "tertiary-fixed-dim": "#ffb3ac"
+          },
+          fontFamily: {
+            "headline": ["Manrope", "Noto Sans JP", "sans-serif"],
+            "body": ["Plus Jakarta Sans", "Noto Sans JP", "sans-serif"],
+            "serif-jp": ["Shippori Mincho", "serif"]
+          },
+          borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+        },
+      },
+    }
+  </script>
+  <style>
+    body { font-family: "Plus Jakarta Sans", "Noto Sans JP", sans-serif; background-color: #fafaf5; color: #1a1c19; }
+    .glass-nav { background: rgba(250, 250, 245, 0.8); backdrop-filter: blur(24px); }
+    .material-symbols-outlined { font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24; }
+    .ink-gradient { background: linear-gradient(135deg, #1A237E 0%, #000666 100%); }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    .quote-mark { font-family: "Shippori Mincho", serif; line-height: 1; }
+  </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#fafaf5]/80 backdrop-blur-xl shadow-[0_40px_60px_-15px_rgba(0,6,102,0.06)]">
+  <div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+    <a href="/" class="text-2xl font-extrabold text-[#1A237E] font-['Manrope']">ミリネ韓国語教室</a>
+    <div class="hidden md:flex items-center gap-8">
+      <a class="font-['Manrope'] font-bold tracking-tight text-[#767683] hover:text-[#1A237E] transition-colors" href="/kojin">個人レッスン</a>
+      <a class="font-['Manrope'] font-bold tracking-tight text-[#767683] hover:text-[#1A237E] transition-colors" href="/group">グループレッスン</a>
+      <a class="font-['Manrope'] font-bold tracking-tight text-[#767683] hover:text-[#1A237E] transition-colors" href="/kaiwa">会話強化クラス</a>
+      <a class="font-['Manrope'] font-bold tracking-tight text-[#767683] hover:text-[#1A237E] transition-colors" href="/special">試験対策講座</a>
+      <a class="font-['Manrope'] font-bold tracking-tight text-[#767683] hover:text-[#1A237E] transition-colors" href="/syutyu">集中講座</a>
+      <a class="font-['Manrope'] font-bold tracking-tight text-[#767683] hover:text-[#1A237E] transition-colors" href="/netlesson">通信講座</a>
+      <a class="font-['Manrope'] font-bold tracking-tight text-[#767683] hover:text-[#1A237E] transition-colors" href="/about">会社概要</a>
+      <a class="font-['Manrope'] font-bold tracking-tight text-[#767683] hover:text-[#1A237E] transition-colors" href="/book">著書</a>
+    </div>
+    <div class="flex items-center gap-4">
+      <a href="/trial" class="bg-primary text-on-primary px-6 py-2 rounded font-headline font-bold hover:opacity-90 transition-all">体験申込</a>
+    </div>
+  </div>
+</nav>
+
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative min-h-[600px] flex items-center overflow-hidden px-8">
+  <div class="absolute inset-0 z-0">
+    <img alt="ミリネ韓国語教室" class="w-full h-full object-cover opacity-20" src="/img/hero-bg.jpg"/>
+    <div class="absolute inset-0 bg-gradient-to-r from-surface to-transparent"></div>
+  </div>
+  <div class="relative z-10 max-w-4xl mx-auto md:mx-0 md:ml-20">
+    <span class="text-secondary font-bold tracking-widest text-sm uppercase mb-4 block">東京・新宿・新宿三丁目・新宿御苑前</span>
+    <h1 class="text-5xl md:text-7xl font-headline font-extrabold text-primary leading-none tracking-tighter mb-8">
+      「<span class="text-primary-container">話せる</span>」を、<br/>ここで実現する。
+    </h1>
+    <p class="text-lg md:text-xl text-outline-variant font-medium leading-relaxed max-w-xl mb-12">
+      経験豊富な講師陣と、個人に合わせた多彩な講座であなたの韓国語を、確実に伸ばします。
+    </p>
+    <div class="flex flex-wrap gap-4">
+      <a href="/trial" class="ink-gradient text-on-primary px-8 py-4 rounded-lg font-bold shadow-xl hover:opacity-90 transition-all">体験レッスンを申し込む</a>
+      <a href="/kojin" class="border border-primary text-primary px-8 py-4 rounded-lg font-bold hover:bg-surface-container-low transition-all">講座一覧を見る</a>
+    </div>
+  </div>
+</section>
+
+<!-- 募集中の講座 (Bento Grid) -->
+<section class="py-24 px-8 bg-surface-container-low">
+  <div class="max-w-screen-2xl mx-auto">
+    <div class="flex justify-between items-end mb-16">
+      <div>
+        <h2 class="text-4xl font-headline font-extrabold text-primary tracking-tighter mb-2">只今募集中の講座</h2>
+        <p class="text-secondary font-medium italic">RECRUITING - 気になる講座をクリック</p>
+      </div>
+      <a class="text-primary font-bold flex items-center gap-2 hover:underline" href="/kojin">全講座一覧を見る <span class="material-symbols-outlined">arrow_forward</span></a>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+      <a href="/special#tab05" class="md:col-span-2 bg-surface-container-lowest p-10 rounded-xl relative overflow-hidden group hover:shadow-lg transition-shadow">
+        <span class="absolute top-6 right-6 bg-tertiary text-on-tertiary px-3 py-1 text-xs font-bold rounded-full">준2급</span>
+        <div class="mb-20">
+          <h3 class="text-3xl font-bold text-primary mb-4">準2級 試験対策講座</h3>
+          <p class="text-outline-variant">ハン検準2級合格を目指す対策講座</p>
+        </div>
+        <div class="flex items-center gap-4">
+          <div class="bg-primary-container text-on-primary-container w-12 h-12 flex items-center justify-center rounded-lg">
+            <span class="material-symbols-outlined">event</span>
+          </div>
+          <div>
+            <p class="text-sm font-bold text-primary">開講中</p>
+            <p class="text-xs text-outline">試験対策講座</p>
+          </div>
+        </div>
+      </a>
+      <a href="/netlesson#tab01" class="bg-surface-container-lowest p-8 rounded-xl border-t-4 border-secondary-container hover:shadow-md transition-shadow">
+        <h3 class="text-xl font-bold text-primary mb-4">通信作文トレーニング</h3>
+        <p class="text-sm text-outline-variant mb-8">3ヶ月で作文添削＋ネイティブ比較文＋模範文で、書く力を徹底強化。</p>
+        <p class="text-primary font-bold">毎週水曜・通信講座</p>
+      </a>
+      <a href="/netlesson#tab02" class="bg-surface-container-lowest p-8 rounded-xl border-t-4 border-secondary-container hover:shadow-md transition-shadow">
+        <h3 class="text-xl font-bold text-primary mb-4">通信音読トレーニング</h3>
+        <p class="text-sm text-outline-variant mb-8">3ヶ月で上達！ご自宅で発音矯正＆音読レッスン。</p>
+        <p class="text-primary font-bold">毎週水曜・通信講座</p>
+      </a>
+      <a href="/trial" class="bg-primary text-on-primary p-8 rounded-xl flex flex-col justify-between hover:opacity-95 transition-opacity">
+        <div>
+          <span class="material-symbols-outlined text-secondary-container mb-4">verified</span>
+          <h3 class="text-xl font-bold mb-2">体験レッスン</h3>
+          <p class="text-sm text-primary-fixed/80">1,800円で体験。レベルテストと合わせてお申込みも可能です。</p>
+        </div>
+        <span class="w-full bg-on-primary text-primary py-3 rounded font-bold text-sm mt-6 text-center block">無料相談はこちら</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 特別プログラム -->
+<section class="py-24 px-8 bg-surface">
+  <div class="max-w-screen-2xl mx-auto">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-headline font-extrabold text-primary tracking-tighter mb-4">特別プログラム</h2>
+      <p class="text-secondary font-bold tracking-widest uppercase text-sm">Special Programs</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <a href="/kojin#tab03" class="bg-primary text-on-primary p-10 rounded-xl relative overflow-hidden group shadow-xl hover:shadow-2xl transition-shadow">
+        <div class="absolute -right-8 -bottom-8 opacity-10 transform group-hover:scale-110 transition-transform duration-500">
+          <span class="material-symbols-outlined text-[160px]">record_voice_over</span>
+        </div>
+        <div class="relative z-10">
+          <span class="bg-secondary-container text-on-secondary-container px-3 py-1 text-[10px] font-bold rounded-full uppercase mb-6 inline-block">Highly Intensive</span>
+          <h3 class="text-2xl font-bold mb-4">発音矯正レッスン</h3>
+          <p class="text-primary-fixed/80 text-sm leading-relaxed mb-8">
+            日本語ネイティブがやりがちな韓国語発音を徹底的に攻略。口の形や舌の位置から学べます。
+          </p>
+          <ul class="space-y-3 mb-10">
+            <li class="flex items-center gap-2 text-xs font-medium"><span class="material-symbols-outlined text-sm">check_circle</span> 子音・母音の正しい発音</li>
+            <li class="flex items-center gap-2 text-xs font-medium"><span class="material-symbols-outlined text-sm">check_circle</span> 発音変化のルール</li>
+          </ul>
+          <span class="w-full bg-surface text-primary py-3 rounded font-bold text-sm hover:bg-secondary-container transition-colors block text-center">プログラム詳細</span>
+        </div>
+      </a>
+      <a href="/kojin" class="bg-surface-container-lowest p-10 rounded-xl border border-outline-variant/30 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
+        <div>
+          <div class="w-12 h-12 bg-primary-container/10 rounded-lg flex items-center justify-center mb-6">
+            <span class="material-symbols-outlined text-primary">person</span>
+          </div>
+          <h3 class="text-2xl font-bold text-primary mb-4">個人レッスン</h3>
+          <p class="text-outline-variant text-sm leading-relaxed mb-8">
+            マンツーマンで効率的に上達。短期集中個人、発音矯正、レベルテストも好評。
+          </p>
+        </div>
+        <div class="border-t border-outline-variant/20 pt-8 mt-auto">
+          <p class="text-xs text-outline mb-4">完全予約制・対面・オンライン対応</p>
+          <span class="text-primary font-bold flex items-center gap-2">詳細を見る <span class="material-symbols-outlined">chevron_right</span></span>
+        </div>
+      </a>
+      <a href="/trial" class="bg-surface-container-high p-10 rounded-xl flex flex-col items-center text-center justify-center hover:shadow-md transition-shadow">
+        <div class="mb-8">
+          <span class="material-symbols-outlined text-primary text-6xl">analytics</span>
+        </div>
+        <h3 class="text-2xl font-bold text-primary mb-4">レベルテスト</h3>
+        <p class="text-outline-variant text-sm leading-relaxed mb-10 max-w-xs">
+          自分のレベルを正確に把握してから最適な講座を選べます。体験レッスンと合わせてお申込みも可能。
+        </p>
+        <a href="/trial" class="ink-gradient text-on-primary px-10 py-4 rounded-lg font-bold shadow-lg hover:opacity-90 transition-all flex items-center gap-3">
+          今すぐ申し込む <span class="material-symbols-outlined">quiz</span>
+        </a>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 受講生の声 -->
+<section class="py-32 px-8 bg-surface-container-low overflow-hidden">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-24">
+      <div class="inline-flex items-center gap-3 mb-4">
+        <div class="h-[1px] w-8 bg-secondary"></div>
+        <span class="text-secondary font-bold tracking-[0.2em] text-xs uppercase">VOICE</span>
+        <div class="h-[1px] w-8 bg-secondary"></div>
+      </div>
+      <h2 class="text-5xl font-headline font-extrabold text-primary tracking-tighter mb-4">受講生の声</h2>
+      <p class="text-outline-variant font-medium">ミリネで学んだ受講生の声をご紹介します。</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+      <div class="bg-surface-container-lowest rounded-2xl border border-outline-variant/10 shadow-[0_20px_50px_rgba(0,0,0,0.02)] p-10">
+        <span class="quote-mark text-6xl text-primary/10 block mb-4">"</span>
+        <h3 class="text-sm font-headline font-extrabold text-primary/60 tracking-widest uppercase mb-8">短期集中個人レッスン</h3>
+        <p class="text-[#75584d] font-serif-jp font-semibold text-lg leading-relaxed mb-6 italic">この教室で初級1から習い始めてたったの5ヶ月でTOPIK5級に合格しました。今の感想は？</p>
+        <p class="text-on-surface-variant font-serif-jp text-base leading-[2]">泣くほど嬉しかったです。本当に泣きましたが。なぜかというと練習の時と違って、聞き取り試験の時、響きもひどく、あまりできなかったと思い、3級も受からないかもしれないと。5ヶ月で5級をとるというのは自分にでも夢のような話で嬉しくて泣いたと思います。</p>
+        <div class="mt-8 pt-8 border-t border-outline-variant/5">
+          <p class="font-bold text-primary tracking-tight">IT様</p>
+          <span class="text-[10px] font-bold text-secondary bg-secondary/10 px-2 py-0.5 rounded">学習歴 5ヶ月</span>
+          <span class="text-[10px] font-bold text-primary/70 ml-2">TOPIK 5級</span>
+        </div>
+      </div>
+      <div class="bg-surface-container-lowest rounded-2xl border border-outline-variant/10 shadow-[0_20px_50px_rgba(0,0,0,0.02)] p-10">
+        <span class="quote-mark text-6xl text-primary/10 block mb-4">"</span>
+        <h3 class="text-sm font-headline font-extrabold text-primary/60 tracking-widest uppercase mb-8">個人レッスン</h3>
+        <p class="text-[#75584d] font-serif-jp font-semibold text-lg leading-relaxed mb-6 italic">この教室で初級1から習い始めて1年10ヵ月でTOPIK6級に合格しました。今の感想は？</p>
+        <p class="text-on-surface-variant font-serif-jp text-base leading-[2]">素直に、とても嬉しいです。自分としては文法、発音、語彙等挙げてもキリがないほど不足している部分が多いと感じているのですが、それでもこうやって資格として「合格」をいただいて、自信に繋がりました。</p>
+        <div class="mt-8 pt-8 border-t border-outline-variant/5">
+          <p class="font-bold text-primary tracking-tight">NS様</p>
+          <span class="text-[10px] font-bold text-secondary bg-secondary/10 px-2 py-0.5 rounded">学習歴 1年10ヶ月</span>
+          <span class="text-[10px] font-bold text-primary/70 ml-2">TOPIK 6級</span>
+        </div>
+      </div>
+      <div class="bg-surface-container-lowest rounded-2xl border border-outline-variant/10 shadow-[0_20px_50px_rgba(0,0,0,0.02)] p-10">
+        <span class="quote-mark text-6xl text-primary/10 block mb-4">"</span>
+        <h3 class="text-sm font-headline font-extrabold text-primary/60 tracking-widest uppercase mb-8">発音矯正</h3>
+        <p class="text-on-surface-variant font-serif-jp text-base leading-[2]">発音の細かいところをしっかりと教えていただけたので、とてもためになりました。「ㄹ」は特に今まで難しかったのですが、どうしてそのような発音になるのかも理解できたので自分で練習する時にも役に立ちます。抑揚も今まで意識したことがなかったので、パターンの多い例文で学べたのは良かったです。</p>
+        <div class="mt-8 pt-8 border-t border-outline-variant/5">
+          <p class="font-bold text-primary tracking-tight">O様</p>
+          <span class="text-[10px] font-bold text-secondary bg-secondary/10 px-2 py-0.5 rounded">発音矯正</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ミリネの講座 -->
+<section class="py-32 px-8 overflow-hidden">
+  <div class="max-w-screen-2xl mx-auto">
+    <h2 class="text-5xl font-headline font-extrabold text-primary tracking-tighter leading-tight mb-12 text-center">ミリネの講座</h2>
+    <p class="text-outline-variant mb-16 text-center max-w-2xl mx-auto">目的・レベル別に選べる、充実した講座ラインナップ。</p>
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+      <a href="/kojin" class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/20 hover:shadow-lg hover:border-primary/30 transition-all text-center">
+        <span class="text-2xl font-headline font-bold text-primary block mb-2">個人レッスン</span>
+        <p class="text-xs text-outline-variant">マンツーマンで効率的に</p>
+      </a>
+      <a href="/group" class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/20 hover:shadow-lg hover:border-primary/30 transition-all text-center">
+        <span class="text-2xl font-headline font-bold text-primary block mb-2">グループレッスン</span>
+        <p class="text-xs text-outline-variant">入門＆初級・中級・上級</p>
+      </a>
+      <a href="/kaiwa" class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/20 hover:shadow-lg hover:border-primary/30 transition-all text-center">
+        <span class="text-2xl font-headline font-bold text-primary block mb-2">会話強化クラス</span>
+        <p class="text-xs text-outline-variant">会話・音読・発音・抑揚</p>
+      </a>
+      <a href="/special" class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/20 hover:shadow-lg hover:border-primary/30 transition-all text-center">
+        <span class="text-2xl font-headline font-bold text-primary block mb-2">試験対策講座</span>
+        <p class="text-xs text-outline-variant">TOPIK・ハン検対策</p>
+      </a>
+      <a href="/syutyu" class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/20 hover:shadow-lg hover:border-primary/30 transition-all text-center">
+        <span class="text-2xl font-headline font-bold text-primary block mb-2">集中講座</span>
+        <p class="text-xs text-outline-variant">入門・初級・中級・上級</p>
+      </a>
+      <a href="/netlesson" class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/20 hover:shadow-lg hover:border-primary/30 transition-all text-center">
+        <span class="text-2xl font-headline font-bold text-primary block mb-2">通信講座</span>
+        <p class="text-xs text-outline-variant">作文・音読・TOPIK作文</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 注目の講座 -->
+<section class="py-24 px-8">
+  <div class="max-w-screen-2xl mx-auto bg-primary rounded-2xl overflow-hidden flex flex-col md:flex-row shadow-[0_40px_80px_-20px_rgba(0,6,102,0.3)]">
+    <div class="md:w-1/2 relative min-h-[400px]">
+      <img alt="短期集中個人レッスン" class="absolute inset-0 w-full h-full object-cover" src="/img/classroom/ondoku.png"/>
+    </div>
+    <div class="md:w-1/2 p-12 md:p-20 flex flex-col justify-center">
+      <span class="text-secondary-container font-bold mb-4">PICKUP / 注目の講座</span>
+      <h3 class="text-4xl md:text-5xl font-headline font-extrabold text-on-primary leading-tight mb-6">短期集中個人レッスン</h3>
+      <p class="text-on-primary-container text-lg mb-10 leading-relaxed">
+        4月から、作文に自信が付く！3ヶ月で作文添削＋ネイティブ比較文＋模範文で、書く力を徹底強化。
+      </p>
+      <a href="/kojin#tab02" class="bg-secondary-container text-on-secondary-container px-8 py-4 rounded font-bold hover:scale-105 transition-transform inline-block w-fit">詳細・お申し込み</a>
+    </div>
+  </div>
+</section>
+
+<!-- 講座スケジュール -->
+<section class="py-24 px-8 bg-surface-container-low">
+  <div class="max-w-screen-2xl mx-auto text-center">
+    <h2 class="text-5xl font-headline font-extrabold text-primary mb-4 tracking-tighter">講座スケジュール</h2>
+    <p class="text-secondary font-bold tracking-widest uppercase text-sm mb-12">SCHEDULE</p>
+    <a href="/" class="inline-flex items-center gap-2 bg-primary text-on-primary px-8 py-4 rounded font-bold hover:opacity-90 transition-all">
+      カレンダー・一覧で確認 <span class="material-symbols-outlined">arrow_forward</span>
+    </a>
+  </div>
+</section>
+
+<!-- YouTube -->
+<section class="py-24 px-8 overflow-hidden">
+  <div class="max-w-screen-2xl mx-auto">
+    <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-8">
+      <div>
+        <h2 class="text-3xl font-headline font-extrabold text-primary mb-2">ためになるミリネYouTube</h2>
+        <p class="text-outline">TOPIK語彙、生活韓国語、学習のヒントになる動画をご紹介します。</p>
+      </div>
+      <div class="flex items-center gap-4">
+        <button class="w-12 h-12 rounded-full border border-primary text-primary flex items-center justify-center hover:bg-primary hover:text-on-primary transition-all" onclick="document.getElementById('youtube-carousel').scrollBy({left: -400, behavior: 'smooth'})">
+          <span class="material-symbols-outlined">chevron_left</span>
+        </button>
+        <button class="w-12 h-12 rounded-full border border-primary text-primary flex items-center justify-center hover:bg-primary hover:text-on-primary transition-all" onclick="document.getElementById('youtube-carousel').scrollBy({left: 400, behavior: 'smooth'})">
+          <span class="material-symbols-outlined">chevron_right</span>
+        </button>
+      </div>
+    </div>
+    <div class="flex gap-8 overflow-x-auto no-scrollbar pb-12 snap-x snap-mandatory" id="youtube-carousel">
+      <!-- YouTube videos loaded by JS -->
+      <div class="youtube-placeholder text-outline-variant text-center py-12 min-w-full">読み込み中…</div>
+    </div>
+  </div>
+</section>
+
+<!-- 著書 -->
+<section class="py-32 px-8 bg-surface-container overflow-hidden">
+  <div class="max-w-screen-2xl mx-auto">
+    <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+      <div class="max-w-2xl">
+        <h2 class="text-4xl md:text-5xl font-headline font-extrabold text-primary mb-4 tracking-tighter">ミリネの著書</h2>
+        <p class="text-lg text-outline-variant leading-relaxed">講師が手がけた、韓国語学習者のための教材・書籍。</p>
+      </div>
+      <div class="flex items-center gap-4">
+        <button class="w-12 h-12 rounded-full border border-primary text-primary flex items-center justify-center hover:bg-primary hover:text-on-primary transition-all" onclick="document.getElementById('book-carousel').scrollBy({left: -320, behavior: 'smooth'})">
+          <span class="material-symbols-outlined">chevron_left</span>
+        </button>
+        <button class="w-12 h-12 rounded-full border border-primary text-primary flex items-center justify-center hover:bg-primary hover:text-on-primary transition-all" onclick="document.getElementById('book-carousel').scrollBy({left: 320, behavior: 'smooth'})">
+          <span class="material-symbols-outlined">chevron_right</span>
+        </button>
+      </div>
+    </div>
+    <div class="flex gap-8 overflow-x-auto no-scrollbar pb-12 snap-x snap-mandatory" id="book-carousel">
+      <a href="/book#tab01" class="min-w-[280px] md:min-w-[320px] snap-start group bg-surface-container-lowest rounded-xl p-6 shadow-sm border border-outline-variant/10 hover:shadow-lg transition-shadow">
+        <div class="relative aspect-[3/4] mb-6 overflow-hidden rounded-lg shadow-md">
+          <img alt="韓国語単語 入門・初級編" class="w-full h-full object-cover transform group-hover:scale-105 transition-all duration-500" src="/img/textbook/book_han45.png"/>
+        </div>
+        <h3 class="font-bold text-primary mb-2">韓国語単語〈入門・初級編〉</h3>
+        <p class="text-sm text-outline-variant mb-6">ハン検4・5級レベル</p>
+        <span class="inline-flex items-center gap-1 text-sm font-bold text-primary">詳細 <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
+      </a>
+      <a href="/book#tab02" class="min-w-[280px] md:min-w-[320px] snap-start group bg-surface-container-lowest rounded-xl p-6 shadow-sm border border-outline-variant/10 hover:shadow-lg transition-shadow">
+        <div class="relative aspect-[3/4] mb-6 overflow-hidden rounded-lg shadow-md">
+          <img alt="韓国語単語 初中級編" class="w-full h-full object-cover transform group-hover:scale-105 transition-all duration-500" src="/img/textbook/book_han3.jpg"/>
+        </div>
+        <h3 class="font-bold text-primary mb-2">韓国語単語〈初中級編〉</h3>
+        <p class="text-sm text-outline-variant mb-6">ハン検3級レベル</p>
+        <span class="inline-flex items-center gap-1 text-sm font-bold text-primary">詳細 <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
+      </a>
+      <a href="/book#tab03" class="min-w-[280px] md:min-w-[320px] snap-start group bg-surface-container-lowest rounded-xl p-6 shadow-sm border border-outline-variant/10 hover:shadow-lg transition-shadow">
+        <div class="relative aspect-[3/4] mb-6 overflow-hidden rounded-lg shadow-md">
+          <img alt="韓国語単語 中級編" class="w-full h-full object-cover transform group-hover:scale-105 transition-all duration-500" src="/img/textbook/book_hanjun2.jpg"/>
+        </div>
+        <h3 class="font-bold text-primary mb-2">韓国語単語〈中級編〉</h3>
+        <p class="text-sm text-outline-variant mb-6">ハン検準2級レベル</p>
+        <span class="inline-flex items-center gap-1 text-sm font-bold text-primary">詳細 <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
+      </a>
+      <a href="/book#tab04" class="min-w-[280px] md:min-w-[320px] snap-start group bg-surface-container-lowest rounded-xl p-6 shadow-sm border border-outline-variant/10 hover:shadow-lg transition-shadow">
+        <div class="relative aspect-[3/4] mb-6 overflow-hidden rounded-lg shadow-md">
+          <img alt="ハン検1・2級" class="w-full h-full object-cover transform group-hover:scale-105 transition-all duration-500" src="/img/textbook/book_han12.jpg"/>
+        </div>
+        <h3 class="font-bold text-primary mb-2">ハン検1・2級対策</h3>
+        <p class="text-sm text-outline-variant mb-6">上級レベル</p>
+        <span class="inline-flex items-center gap-1 text-sm font-bold text-primary">詳細 <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
+      </a>
+      <a href="/book#tab07" class="min-w-[280px] md:min-w-[320px] snap-start group bg-surface-container-lowest rounded-xl p-6 shadow-sm border border-outline-variant/10 hover:shadow-lg transition-shadow">
+        <div class="relative aspect-[3/4] mb-6 overflow-hidden rounded-lg shadow-md">
+          <img alt="タングニの日本生活記" class="w-full h-full object-cover transform group-hover:scale-105 transition-all duration-500" src="/img/textbook/book_tanguni_nihon.jpg"/>
+        </div>
+        <h3 class="font-bold text-primary mb-2">タングニの日本生活記</h3>
+        <p class="text-sm text-outline-variant mb-6">韓国語リーディング</p>
+        <span class="inline-flex items-center gap-1 text-sm font-bold text-primary">詳細 <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
+      </a>
+      <a href="/book#tab05" class="min-w-[280px] md:min-w-[320px] snap-start group bg-surface-container-lowest rounded-xl p-6 shadow-sm border border-outline-variant/10 hover:shadow-lg transition-shadow">
+        <div class="relative aspect-[3/4] mb-6 overflow-hidden rounded-lg shadow-md">
+          <img alt="TOPIK I対策" class="w-full h-full object-cover transform group-hover:scale-105 transition-all duration-500" src="/img/textbook/book_topik1.jpg"/>
+        </div>
+        <h3 class="font-bold text-primary mb-2">TOPIK I 対策</h3>
+        <p class="text-sm text-outline-variant mb-6">初級〜中級</p>
+        <span class="inline-flex items-center gap-1 text-sm font-bold text-primary">詳細 <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
+      </a>
+      <a href="/book#tab06" class="min-w-[280px] md:min-w-[320px] snap-start group bg-surface-container-lowest rounded-xl p-6 shadow-sm border border-outline-variant/10 hover:shadow-lg transition-shadow">
+        <div class="relative aspect-[3/4] mb-6 overflow-hidden rounded-lg shadow-md">
+          <img alt="TOPIK II対策" class="w-full h-full object-cover transform group-hover:scale-105 transition-all duration-500" src="/img/textbook/book_topik2.jpg"/>
+        </div>
+        <h3 class="font-bold text-primary mb-2">TOPIK II 対策</h3>
+        <p class="text-sm text-outline-variant mb-6">中級〜上級</p>
+        <span class="inline-flex items-center gap-1 text-sm font-bold text-primary">詳細 <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
+      </a>
+    </div>
+    <div class="text-center">
+      <a href="/book" class="border border-primary text-primary px-10 py-4 rounded font-bold hover:bg-surface-container-low transition-all inline-flex items-center gap-2">
+        全ての著書を見る <span class="material-symbols-outlined">shopping_bag</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="py-24 px-8 bg-surface-container-low">
+  <div class="max-w-screen-2xl mx-auto text-center">
+    <h2 class="text-4xl font-headline font-extrabold text-primary mb-4">韓国語、始めませんか？</h2>
+    <p class="text-outline-variant mb-8">まずは体験レッスン・レベルテストからお気軽にどうぞ。<br>経験豊富な講師がご対応いたします。</p>
+    <a href="/trial" class="ink-gradient text-on-primary px-10 py-4 rounded-lg font-bold shadow-xl hover:opacity-90 transition-all inline-block">体験や講座の申し込み</a>
+  </div>
+</section>
+
+<!-- アクセス・お問い合わせ -->
+<section class="py-32 px-8 bg-surface-container-low">
+  <div class="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-20">
+    <div>
+      <h2 class="text-4xl font-headline font-extrabold text-primary mb-8">アクセス・お問い合わせ</h2>
+      <p class="text-outline-variant mb-12">入会のご相談、体験レッスンの申し込みなど、お気軽にお問い合わせください。</p>
+      <div class="space-y-8">
+        <div>
+          <h5 class="text-secondary font-bold text-sm mb-2">新宿教室</h5>
+          <p class="text-primary font-bold">東京都新宿区新宿2-8-1 新宿セブンビル606号</p>
+        </div>
+        <div class="pt-8">
+          <p class="text-primary font-bold flex items-center gap-2"><span class="material-symbols-outlined">call</span> 03-5925-8245</p>
+        </div>
+      </div>
+    </div>
+    <a href="https://www.google.com/maps/search/?api=1&query=新宿2-8-1+新宿セブンビル" target="_blank" rel="noopener" class="bg-surface rounded-xl overflow-hidden shadow-xl block">
+      <div class="w-full h-80 bg-surface-variant relative flex items-center justify-center">
+        <span class="material-symbols-outlined text-primary text-6xl" style="font-variation-settings: 'FILL' 1;">location_on</span>
+        <p class="absolute bottom-4 text-sm text-outline">クリックで地図を開く</p>
+      </div>
+    </a>
+  </div>
+</section>
+</main>
+
+<footer class="py-12 px-8 bg-surface-container border-t border-outline-variant/20">
+  <div class="max-w-screen-2xl mx-auto flex flex-col md:flex-row justify-between gap-8">
+    <div>
+      <h4 class="font-bold text-primary mb-4">ミリネ韓国語教室</h4>
+      <a href="/" class="block text-outline-variant hover:text-primary">ホーム</a>
+      <a href="/about" class="block text-outline-variant hover:text-primary">会社概要</a>
+      <a href="/about#tab02" class="block text-outline-variant hover:text-primary">アクセス</a>
+    </div>
+    <div>
+      <h4 class="font-bold text-primary mb-4">講座</h4>
+      <a href="/kojin" class="block text-outline-variant hover:text-primary">個人レッスン</a>
+      <a href="/group" class="block text-outline-variant hover:text-primary">グループレッスン</a>
+      <a href="/kaiwa" class="block text-outline-variant hover:text-primary">会話強化クラス</a>
+      <a href="/special" class="block text-outline-variant hover:text-primary">試験対策講座</a>
+      <a href="/syutyu" class="block text-outline-variant hover:text-primary">集中講座</a>
+      <a href="/netlesson" class="block text-outline-variant hover:text-primary">通信講座</a>
+    </div>
+    <div>
+      <h4 class="font-bold text-primary mb-4">お申込み</h4>
+      <a href="/trial" class="block text-outline-variant hover:text-primary">体験申込</a>
+      <a href="/trial#tab02" class="block text-outline-variant hover:text-primary">講座申込</a>
+      <a href="/trial#tab04" class="block text-outline-variant hover:text-primary">お問い合わせ</a>
+    </div>
+  </div>
+  <p class="max-w-screen-2xl mx-auto mt-12 pt-8 border-t border-outline-variant/20 text-center text-sm text-outline">Copyright © 2010- 株式会社 カオンヌリ All Rights Reserved.</p>
+</footer>
+
+<script>
+(function() {
+  var carousel = document.getElementById('youtube-carousel');
+  if (!carousel) return;
+  fetch('/api/youtube')
+    .then(function(r) { return r.ok ? r.json() : []; })
+    .catch(function() { return []; })
+    .then(function(list) {
+      if (!list || list.length === 0) {
+        carousel.innerHTML = '<div class="text-outline-variant text-center py-12 min-w-full">動画は管理画面から登録するとここに表示されます。</div>';
+        return;
+      }
+      var html = list.map(function(v) {
+        var id = (v.videoId || v.id || '').replace(/^.*(?:youtube\.com\/watch\?v=|youtu\.be\/|embed\/)([a-zA-Z0-9_-]{11}).*$/, '$1') || (v.videoId || v.id || '');
+        if (!id) return '';
+        var title = (v.title || '').replace(/</g, '&lt;').replace(/"/g, '&quot;');
+        return '<a href="https://www.youtube.com/watch?v=' + id + '" target="_blank" rel="noopener" class="min-w-[300px] md:min-w-[420px] snap-start space-y-4 group">' +
+          '<div class="relative aspect-video rounded-xl overflow-hidden shadow-lg">' +
+          '<img alt="' + title + '" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://img.youtube.com/vi/' + id + '/hqdefault.jpg"/>' +
+          '<div class="absolute inset-0 bg-primary/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">' +
+          '<div class="w-16 h-16 glass-nav rounded-full flex items-center justify-center text-primary">' +
+          '<span class="material-symbols-outlined text-4xl" style="font-variation-settings: \'FILL\' 1;">play_arrow</span></div></div></div>' +
+          '<h4 class="font-bold text-primary">' + title + '</h4></a>';
+      }).join('');
+      carousel.innerHTML = html;
+    });
+})();
+</script>
+</body>
+</html>

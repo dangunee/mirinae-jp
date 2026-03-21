@@ -322,9 +322,9 @@
     .tab:hover:not(.active) { color: var(--mid); }
 
     .main {
-      max-width: min(1440px, 100vw);
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 64px 80px;
+      padding: 64px 24px;
       display: grid;
       grid-template-columns: 1fr 300px;
       gap: 32px;
@@ -1389,7 +1389,7 @@
     @media (max-width: 900px) {
       .hero, .tabs-bar, .main { width: 100%; max-width: 100%; box-sizing: border-box; }
       .hero h1, .hero p { overflow-wrap: break-word; word-wrap: break-word; max-width: 100%; }
-      .main { grid-template-columns: 1fr; padding: 24px 16px; gap: 32px; max-width: min(1440px, 100%); }
+      .main { grid-template-columns: 1fr; padding: 24px 16px; gap: 32px; max-width: 100%; }
       .main .content { width: 100%; max-width: 100%; padding-top: 24px; min-width: 0; }
       .price-table-header,
       .price-table .price-row { grid-template-columns: 1fr 0.7fr 0.9fr 0.9fr 1fr; gap: 8px; font-size: 14px; }

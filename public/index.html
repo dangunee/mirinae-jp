@@ -2947,12 +2947,15 @@
       var container = document.getElementById('list-view');
       if (!container) return;
       container.innerHTML = '';
-      for (var mo = 0; mo < 3; mo++) {
+      var today = new Date();
+      var todayY = today.getFullYear(), todayM = today.getMonth(), todayD = today.getDate();
+      for (var mo = 0; mo < 1; mo++) {
         var y = scheduleYear, m = scheduleMonth + mo;
         if (m > 11) { y++; m -= 12; }
         var daysInM = new Date(y, m+1, 0).getDate();
         var monthItems = [];
         for (var d = 1; d <= daysInM; d++) {
+          if (y < todayY || (y === todayY && m < todayM) || (y === todayY && m === todayM && d < todayD)) continue;
           var evts = getEventsFor(y, m, d);
           for (var i = 0; i < evts.length; i++) {
             var e = evts[i];
@@ -3041,8 +3044,13 @@
       if (listView) listView.classList.toggle('active', v === 'list');
       if (listView) listView.setAttribute('aria-hidden', v !== 'list');
       if (calView) calView.setAttribute('aria-hidden', v !== 'cal');
-      if (seoList) seoList.classList.toggle('schedule-seo-list-hidden', v === 'cal');
-      if (v === 'list') scheduleRenderList();
+      if (seoList) seoList.classList.add('schedule-seo-list-hidden');
+      if (v === 'list') {
+        var t = new Date();
+        scheduleYear = t.getFullYear();
+        scheduleMonth = t.getMonth();
+        scheduleRenderList();
+      }
     };
     function scheduleInit() {
       scheduleRenderCalendar();

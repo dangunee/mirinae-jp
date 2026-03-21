@@ -1363,9 +1363,7 @@
     #tab04 .tab04-cta-inner p { font-size: 14px; color: rgba(255,255,255,.45); margin-bottom: 36px; line-height: 1.8; }
     @keyframes tab02FadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     @media (max-width: 900px) {
-      #tab01 .tab01-wrap { margin: 0; }
-      #tab01 .tab01-hero { padding: 48px 20px 56px; }
-      #tab02 .tab02-hero, #tab03 .tab03-hero { padding: 48px 24px 56px; }
+      #tab01 .tab01-hero, #tab02 .tab02-hero, #tab03 .tab03-hero { padding: 48px 24px 56px; }
       #tab01 .tab01-section, #tab02 .tab02-section, #tab03 .tab03-section { padding: 48px 24px; }
       #tab01 .tab01-point-grid, #tab02 .tab02-point-grid, #tab03 .tab03-point-grid { grid-template-columns: 1fr; }
       #tab01 .tab01-criteria-grid, #tab02 .tab02-criteria-grid, #tab03 .tab03-criteria-grid { grid-template-columns: 1fr; }
@@ -1375,8 +1373,7 @@
       #tab01 .tab01-test-grid, #tab02 .tab02-test-grid, #tab03 .tab03-test-grid { grid-template-columns: 1fr; }
       #tab01 .tab01-level-badges, #tab02 .tab02-level-badges, #tab03 .tab03-level-badges { display: none; }
       #tab01 .tab01-hero-kr, #tab02 .tab02-hero-kr, #tab03 .tab03-hero-kr { display: none; }
-      #tab04 .tab04-wrap { margin: 0; }
-      #tab04 .tab04-hero { margin: 0; padding: 40px 16px 32px; }
+      #tab04 .tab04-hero { padding: 40px 16px 32px; }
       #tab04 .tab04-hero-inner { grid-template-columns: 1fr; }
       #tab04 .tab04-level-selector { flex-direction: row; flex-wrap: wrap; justify-content: flex-start; }
       #tab04 .tab04-level-badges { display: none; }
@@ -1403,7 +1400,7 @@
       .main-content { padding: 24px 16px 40px; }
       .hero { padding: 40px 16px 32px; }
       .hero::after { font-size: 60px; right: 16px; }
-      #tab01 .tab01-hero { padding: 48px 18px 56px; }
+      #tab01 .tab01-hero, #tab02 .tab02-hero, #tab03 .tab03-hero { padding: 48px 18px 56px; }
       #tab04 .tab04-hero { padding: 32px 12px 24px; }
     }
 
@@ -2178,7 +2175,7 @@
     #tab05 .jun-reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s, transform .6s; }
     #tab05 .jun-reveal.visible { opacity: 1; transform: none; }
     @media (max-width: 768px) {
-      #tab05 .jun-hero { padding: 48px 24px 32px; }
+      #tab05 .jun-hero { margin: 0 -16px; padding: 48px 24px 32px; }
       #tab05 .jun-tab-bar { padding: 0 24px; }
       #tab05 .jun-section { padding: 48px 24px; }
       #tab05 .jun-hero-inner { grid-template-columns: 1fr; }
@@ -2192,7 +2189,7 @@
       #tab05 .jun-textbook-inner { grid-template-columns: 1fr; }
     }
     @media (max-width: 600px) {
-      #tab05 .jun-hero { padding: 40px 16px 28px; }
+      #tab05 .jun-hero { margin: 0 -16px; padding: 40px 16px 28px; }
       #tab05 .jun-tab-bar { padding: 0 16px; }
       #tab05 .jun-section { padding: 40px 16px; }
     }

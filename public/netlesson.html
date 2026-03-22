@@ -597,6 +597,12 @@
     #tab01 .writing-more-btn:hover { background: #ebe5d8; }
     /* 体験申込・講座申込 フォーム (作文タブ内) */
     #tab01 .writing-trial-form-wrap { background: #fff; border-radius: 16px; border: 1px solid #e5dfd4; overflow: hidden; margin-top: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+    #tab01 .writing-trial-form-wrap summary { display: flex; align-items: center; justify-content: space-between; padding: 16px 24px; font-size: 14px; font-weight: 600; background: #f5f0e6; color: #4a4438; cursor: pointer; list-style: none; user-select: none; transition: background 0.2s; }
+    #tab01 .writing-trial-form-wrap summary:hover { background: #ebe5d8; }
+    #tab01 .writing-trial-form-wrap summary::-webkit-details-marker { display: none; }
+    #tab01 .writing-trial-form-wrap summary::after { content: '▶'; font-size: 10px; color: #8E8E93; }
+    #tab01 .writing-trial-form-wrap[open] summary { background: #146382; color: #fff; border-bottom: 1px solid #e5dfd4; }
+    #tab01 .writing-trial-form-wrap[open] summary::after { content: '▼'; color: rgba(255,255,255,0.9); }
     #tab01 .writing-trial-tabs { display: flex; }
     #tab01 .writing-trial-tab { flex: 1; padding: 16px 24px; font-size: 14px; font-weight: 600; background: #f5f0e6; color: #4a4438; border: none; border-right: 1px solid #e5dfd4; cursor: pointer; display: flex; align-items: center; justify-content: space-between; transition: background 0.2s, color 0.2s; }
     #tab01 .writing-trial-tab:last-child { border-right: none; }
@@ -732,6 +738,12 @@
     #tab02 .ondoku-cta-btn:hover { background: #1D6B61; }
     /* 体験申込・講座申込 フォーム (音読タブ内) */
     #tab02 .ondoku-trial-form-wrap { background: #fff; border-radius: 16px; border: 1px solid #d0e0d0; overflow: hidden; margin-top: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+    #tab02 .ondoku-trial-form-wrap summary { display: flex; align-items: center; justify-content: space-between; padding: 16px 24px; font-size: 14px; font-weight: 600; background: #f5f0e6; color: #4a4438; cursor: pointer; list-style: none; user-select: none; transition: background 0.2s; }
+    #tab02 .ondoku-trial-form-wrap summary:hover { background: #ebe5d8; }
+    #tab02 .ondoku-trial-form-wrap summary::-webkit-details-marker { display: none; }
+    #tab02 .ondoku-trial-form-wrap summary::after { content: '▶'; font-size: 10px; color: #8E8E93; }
+    #tab02 .ondoku-trial-form-wrap[open] summary { background: #2A7F74; color: #fff; border-bottom: 1px solid #d0e0d0; }
+    #tab02 .ondoku-trial-form-wrap[open] summary::after { content: '▼'; color: rgba(255,255,255,0.9); }
     #tab02 .ondoku-trial-tabs { display: flex; }
     #tab02 .ondoku-trial-tab { flex: 1; padding: 16px 24px; font-size: 14px; font-weight: 600; background: #f5f0e6; color: #4a4438; border: none; border-right: 1px solid #e5dfd4; cursor: pointer; display: flex; align-items: center; justify-content: space-between; transition: background 0.2s, color 0.2s; }
     #tab02 .ondoku-trial-tab:last-child { border-right: none; }
@@ -1204,7 +1216,8 @@
               </div>
 
               <!-- 体験申込・講座申込 フォーム（作文） -->
-              <div class="writing-trial-form-wrap" id="writing-trial-form-section">
+              <details class="writing-trial-form-wrap" id="writing-trial-form-section">
+                <summary>体験申込・講座申込</summary>
                 <div class="writing-trial-tabs">
                   <button type="button" class="writing-trial-tab active" data-trial-type="trial">体験申込<span class="tab-arrow">▼</span></button>
                   <button type="button" class="writing-trial-tab" data-trial-type="course">講座申込<span class="tab-arrow">▼</span></button>
@@ -1247,7 +1260,7 @@
                     <button type="submit" class="btn-submit" id="writing-trial-submit-btn">送信する →</button>
                   </form>
                 </div>
-              </div>
+              </details>
 
               <!-- PRICE -->
               <section style="margin-top:32px;">
@@ -1443,7 +1456,8 @@
               <div class="ondoku-trial-footer">1回お試し　初中級 1,800円 / 中上級 2,300円</div>
             </div>
             <!-- 体験申込・講座申込 フォーム（音読） -->
-            <div class="ondoku-trial-form-wrap" id="ondoku-trial-form-section">
+            <details class="ondoku-trial-form-wrap" id="ondoku-trial-form-section">
+              <summary>体験申込・講座申込</summary>
               <div class="ondoku-trial-tabs">
                 <button type="button" class="ondoku-trial-tab active" data-trial-type="trial">体験申込<span class="tab-arrow">▼</span></button>
                 <button type="button" class="ondoku-trial-tab" data-trial-type="course">講座申込<span class="tab-arrow">▼</span></button>
@@ -1494,7 +1508,7 @@
                   <button type="submit" class="btn-submit" id="ondoku-trial-submit-btn">送信する →</button>
                 </form>
               </div>
-            </div>
+            </details>
 
             <!-- PRICE -->
             <section class="ondoku-section">

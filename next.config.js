@@ -12,6 +12,7 @@ const nextConfig = {
       { source: "/quiz/:path*", destination: "https://quiz.mirinae.jp/:path*" },
       { source: "/ondoku", destination: "https://ondoku.mirinae.jp" },
       { source: "/ondoku/:path*", destination: "https://ondoku.mirinae.jp/:path*" },
+      { source: "/sample-digital-correction.png", destination: "https://apps.mirinae.jp/sample-digital-correction.png" },
       // blog (mirinae.hippy.jp) - manage/manage-login は直接、それ以外はプロキシ経由で X-Forwarded-Host を渡す
       { source: "/blog/manage", destination: "https://mirinae.hippy.jp/blog/wp-admin" },
       { source: "/blog/manage/", destination: "https://mirinae.hippy.jp/blog/wp-admin/" },

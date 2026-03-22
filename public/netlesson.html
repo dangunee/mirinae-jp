@@ -450,9 +450,8 @@
         height: 1500px;
       }
     }
-    /* モバイル: iframe幅を広げる（個人レッスン生徒の声と同程度の余白に） */
+    /* モバイル: iframe幅を広げる（tab02 音読用） */
     @media (max-width: 900px) {
-      #tab01 .iframe-card,
       #tab02 .iframe-card {
         margin-left: -12px;
         margin-right: -12px;
@@ -461,7 +460,6 @@
       }
     }
     @media (max-width: 600px) {
-      #tab01 .iframe-card,
       #tab02 .iframe-card {
         margin-left: -8px;
         margin-right: -8px;
@@ -474,6 +472,304 @@
       font-size: 12px;
       color: var(--text-muted);
     }
+
+    /* ═══ 作文トレーニング tab01 embedded (from apps.mirinae.jp/writing) ═══ */
+    #tab01 .writing-embed { font-family: 'Noto Sans JP', sans-serif; }
+    #tab01 .writing-hero {
+      background: #146382;
+      padding: 56px 24px 72px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 16px;
+      margin-bottom: 24px;
+    }
+    #tab01 .writing-hero::after {
+      content: "작문";
+      position: absolute;
+      right: 24px;
+      bottom: 24px;
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 140px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.1);
+      pointer-events: none;
+      user-select: none;
+      line-height: 1;
+    }
+    #tab01 .writing-hero-bg { position: absolute; right: -10px; top: -20px; font-family: 'Noto Sans KR', sans-serif; font-size: 180px; font-weight: 700; color: rgba(255,255,255,0.08); pointer-events: none; user-select: none; z-index: 1; }
+    #tab01 .writing-hero-dots {
+      position: absolute; inset: 0;
+      background-image: radial-gradient(circle, rgba(255,255,255,0.08) 1.5px, transparent 1.5px);
+      background-size: 28px 28px;
+      mask-image: linear-gradient(to right, transparent, rgba(0,0,0,0.6) 40%, transparent);
+      pointer-events: none;
+    }
+    #tab01 .writing-hero-inner { max-width: 760px; margin: 0 auto; position: relative; z-index: 2; }
+    #tab01 .writing-hero-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,0.13); border: 1px solid rgba(255,255,255,0.22);
+      border-radius: 20px; padding: 5px 16px; font-size: 11px; font-weight: 700;
+      color: rgba(255,255,255,0.85); letter-spacing: 1.5px; margin-bottom: 18px;
+    }
+    #tab01 .writing-tag-dot { width: 7px; height: 7px; background: #FDE047; border-radius: 50%; }
+    #tab01 .writing-hero h1 { font-family: 'Noto Serif JP', serif; font-size: clamp(24px,4vw,40px); font-weight: 700; color: #fff; line-height: 1.25; letter-spacing: 0.03em; margin-bottom: 14px; }
+    #tab01 .writing-hero h1 em { font-style: normal; color: #a8eacc; }
+    #tab01 .writing-hero-sub { font-size: 15px; color: rgba(255,255,255,0.7); font-weight: 300; max-width: 500px; margin-bottom: 32px; line-height: 1.85; }
+    #tab01 .writing-pencil-row { display: flex; align-items: center; gap: 14px; margin-bottom: 32px; }
+    #tab01 .writing-pencil-lines { display: flex; flex-direction: column; gap: 6px; }
+    #tab01 .writing-pline { height: 3px; border-radius: 3px; background: rgba(255,255,255,0.25); }
+    #tab01 .writing-pline:nth-child(1) { width: 120px; }
+    #tab01 .writing-pline:nth-child(2) { width: 90px; background: rgba(168,234,204,0.5); }
+    #tab01 .writing-pline:nth-child(3) { width: 110px; }
+    #tab01 .writing-pencil-label { font-size: 12px; color: rgba(255,255,255,0.45); letter-spacing: 1px; }
+    #tab01 .writing-hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    #tab01 .writing-btn-white {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #fff; color: #146382; padding: 14px 28px; border-radius: 10px;
+      font-size: 14px; font-weight: 700; text-decoration: none; border: none; cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.2s; box-shadow: 0 4px 20px rgba(0,0,0,0.15); letter-spacing: 0.02em;
+    }
+    #tab01 .writing-btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.2); }
+    #tab01 .writing-btn-ghost {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.28);
+      color: #fff; padding: 14px 22px; border-radius: 10px; font-size: 14px; font-weight: 500;
+      text-decoration: none; cursor: pointer; transition: background 0.2s;
+    }
+    #tab01 .writing-btn-ghost:hover { background: rgba(255,255,255,0.2); }
+    #tab01 .writing-schedule-strip { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 28px; }
+    #tab01 .writing-sched-item {
+      background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 10px; padding: 10px 16px; color: #fff;
+    }
+    #tab01 .writing-sched-item .s-label { font-size: 10px; color: rgba(255,255,255,0.55); margin-bottom: 3px; font-weight: 500; }
+    #tab01 .writing-sched-item .s-val { font-size: 13px; font-weight: 700; }
+    #tab01 .writing-card { overflow: hidden; border-radius: 16px; border: 1px solid #E2D9CC; background: #fff; box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+    #tab01 .writing-card-header { border-bottom: 1px solid #E2D9CC; background: #F5F0E8; padding: 16px 24px; }
+    #tab01 .writing-card-header h3 { font-size: 16px; font-weight: 700; color: #2C2C2E; }
+    #tab01 .writing-card-body { padding: 24px; }
+    #tab01 .writing-sec-ey { display: flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #146382; margin-bottom: 12px; }
+    #tab01 .writing-sec-ey::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: #146382; }
+    #tab01 .writing-feature-item { display: flex; align-items: flex-start; gap: 16px; padding: 16px 20px; margin-bottom: 12px; border-radius: 16px; border: 1px solid #E2D9CC; background: #FAF8F3; position: relative; overflow: hidden; }
+    #tab01 .writing-feature-item::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: linear-gradient(to bottom, #3D6B5A, #6A9080); }
+    #tab01 .writing-feature-item:nth-child(2)::before { background: linear-gradient(to bottom, #B8963E, #F2C86A); }
+    #tab01 .writing-feature-item:nth-child(3)::before { background: linear-gradient(to bottom, #B85040, #E58A73); }
+    #tab01 .writing-feature-item:nth-child(4)::before { background: linear-gradient(to bottom, #6A7AAA, #A3B0E8); }
+    #tab01 .writing-feature-num { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; flex-shrink: 0; }
+    #tab01 .writing-feature-item:nth-child(1) .writing-feature-num { background: #E6F0EC; color: #3D6B5A; }
+    #tab01 .writing-feature-item:nth-child(2) .writing-feature-num { background: #FBF4E3; color: #B8963E; }
+    #tab01 .writing-feature-item:nth-child(3) .writing-feature-num { background: #FAEAE6; color: #B85040; }
+    #tab01 .writing-feature-item:nth-child(4) .writing-feature-num { background: #EEF0FA; color: #5A6AAA; }
+    #tab01 .writing-feature-item p { font-size: 13px; line-height: 1.7; color: #1F2933; font-weight: 500; margin: 0; }
+    #tab01 .writing-feature-item strong { color: #2E5244; font-weight: 600; }
+    #tab01 .writing-detail-row { display: grid; grid-template-columns: 90px 1fr; gap: 12px; padding: 14px 16px; margin-bottom: 8px; border-radius: 16px; border: 1px solid #E2D9CC; background: #FAF8F3; font-size: 13px; }
+    #tab01 .writing-detail-lbl { font-size: 12px; font-weight: 600; color: #3D6B5A; }
+    #tab01 .writing-detail-val { color: #1F2933; font-weight: 500; line-height: 1.6; }
+    #tab01 .writing-detail-val a { color: #3D6B5A; text-decoration: none; border-bottom: 1px solid rgba(61,107,90,0.3); }
+    #tab01 .writing-detail-val a:hover { border-bottom-color: #3D6B5A; }
+    #tab01 .writing-pill { display: inline-flex; align-items: center; padding: 4px 12px; border-radius: 100px; font-size: 12px; font-weight: 500; background: #E6F0EC; color: #3D6B5A; margin: 2px 4px 2px 0; }
+    #tab01 .writing-sample-box { overflow: hidden; border-radius: 16px; border: 1px solid #E2D9CC; background: #FAF8F3; margin-bottom: 16px; }
+    #tab01 .writing-sample-head { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; background: #F5F0E8; border-bottom: 1px solid #E2D9CC; cursor: pointer; }
+    #tab01 .writing-sample-head:hover { background: #EDE7DC; }
+    #tab01 .writing-sample-head-ey { font-size: 11px; font-weight: 600; letter-spacing: 0.16em; color: #3D6B5A; }
+    #tab01 .writing-sample-head-title { font-size: 14px; font-weight: 700; color: #2C2C2E; }
+    #tab01 .writing-sample-body { padding: 16px; font-size: 13px; color: #1F2933; line-height: 1.8; }
+    #tab01 .writing-trial-box { overflow: hidden; border-radius: 24px; border: 1px solid #b8d4dc; background: #f0f7f9; margin: 24px 0; }
+    #tab01 .writing-trial-header { padding: 12px 20px; background: #146382; color: #fff; font-size: 14px; font-weight: 600; }
+    #tab01 .writing-trial-row { display: flex; border-bottom: 1px solid #d4e4e8; }
+    #tab01 .writing-trial-row:last-of-type { border-bottom: none; }
+    #tab01 .writing-trial-lbl { width: 112px; flex-shrink: 0; padding: 12px 16px; background: #e2eef2; font-weight: 500; color: #146382; font-size: 12px; border-right: 1px solid #d4e4e8; }
+    #tab01 .writing-trial-val { flex: 1; padding: 12px 16px; font-size: 12px; font-weight: 600; color: #1f2933; }
+    #tab01 .writing-trial-footer { padding: 12px 16px; background: #146382; color: #fff; font-size: 12px; font-weight: 600; text-align: center; }
+    #tab01 .writing-cta-btns { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 16px; }
+    #tab01 .writing-cta-btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 24px; background: #146382; color: #fff; font-weight: 600; border-radius: 10px; text-decoration: none; transition: background 0.2s; }
+    #tab01 .writing-cta-btn:hover { background: #0f4b63; }
+    #tab01 .writing-price-table { width: 100%; border-collapse: collapse; border-radius: 16px; overflow: hidden; border: 1px solid #d7e5db; margin-top: 16px; }
+    #tab01 .writing-price-table th, #tab01 .writing-price-table td { padding: 12px 16px; text-align: left; font-size: 14px; }
+    #tab01 .writing-price-table thead { background: #f2f7f3; }
+    #tab01 .writing-price-table th { font-weight: 500; color: #374151; }
+    #tab01 .writing-price-table td { font-weight: 600; color: #111827; background: #fff; }
+    #tab01 .writing-review-card { padding: 16px; margin-bottom: 12px; background: #fff; border-radius: 12px; border: 1px solid #e5dfd4; }
+    #tab01 .writing-review-card p:first-child { font-weight: 600; color: #1f2933; margin-bottom: 8px; font-size: 14px; }
+    #tab01 .writing-review-date { display: none; }
+    #tab01 .writing-review-card p:last-child { font-size: 13px; color: #374151; line-height: 1.8; margin: 0; }
+    #tab01 .writing-more-btn { width: 100%; padding: 12px; font-weight: 500; color: #1a4d2e; background: #f5f0e6; border: 1px solid #e5dfd4; border-radius: 8px; cursor: pointer; transition: background 0.2s; }
+    #tab01 .writing-more-btn:hover { background: #ebe5d8; }
+    /* 体験申込・講座申込 フォーム (作文タブ内) */
+    #tab01 .writing-trial-form-wrap { background: #fff; border-radius: 16px; border: 1px solid #e5dfd4; overflow: hidden; margin-top: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+    #tab01 .writing-trial-tabs { display: flex; }
+    #tab01 .writing-trial-tab { flex: 1; padding: 16px 24px; font-size: 14px; font-weight: 600; background: #f5f0e6; color: #4a4438; border: none; border-right: 1px solid #e5dfd4; cursor: pointer; display: flex; align-items: center; justify-content: space-between; transition: background 0.2s, color 0.2s; }
+    #tab01 .writing-trial-tab:last-child { border-right: none; }
+    #tab01 .writing-trial-tab:hover { background: #ebe5d8; }
+    #tab01 .writing-trial-tab.active { background: #146382; color: #fff; }
+    #tab01 .writing-trial-tab .tab-arrow { display: none; margin-left: 6px; }
+    #tab01 .writing-trial-tab.active .tab-arrow { display: inline; }
+    #tab01 .writing-trial-form-body { padding: 24px; border-top: 1px solid #e5dfd4; }
+    #tab01 .writing-trial-form .field { margin-bottom: 20px; }
+    #tab01 .writing-trial-form .field-label { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; font-size: 13px; font-weight: 500; color: #2C2C2E; }
+    #tab01 .writing-trial-form .badge-req { background: #B85040; color: #fff; font-size: 10px; font-weight: 600; padding: 2px 10px; border-radius: 999px; letter-spacing: 0.12em; }
+    #tab01 .writing-trial-form .badge-opt { background: #8E8E93; color: #fff; font-size: 10px; font-weight: 500; padding: 2px 10px; border-radius: 999px; letter-spacing: 0.12em; }
+    #tab01 .writing-trial-form input, #tab01 .writing-trial-form select, #tab01 .writing-trial-form textarea { width: 100%; padding: 12px 14px; font-size: 14px; border: 1px solid #E2D9CC; border-radius: 10px; background: #FAF8F3; color: #2C2C2E; font-family: inherit; transition: border-color 0.2s, background 0.2s; }
+    #tab01 .writing-trial-form input:focus, #tab01 .writing-trial-form select:focus, #tab01 .writing-trial-form textarea:focus { outline: none; border-color: #3D6B5A; background: #fff; box-shadow: 0 0 0 2px rgba(61,107,90,0.12); }
+    #tab01 .writing-trial-form input::placeholder, #tab01 .writing-trial-form textarea::placeholder { color: #C4BBAF; }
+    #tab01 .writing-trial-form .field-note { font-size: 11px; color: #8E8E93; margin-bottom: 6px; }
+    #tab01 .writing-trial-form .btn-submit { width: 100%; padding: 16px; font-size: 15px; font-weight: 700; background: #146382; color: #fff; border: none; border-radius: 12px; cursor: pointer; transition: background 0.2s; margin-top: 8px; }
+    #tab01 .writing-trial-form .btn-submit:hover { background: #0f4b63; }
+    #tab01 .writing-trial-form .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+    #tab01 .writing-trial-success { text-align: center; padding: 40px 24px; }
+    #tab01 .writing-trial-success .title { font-size: 18px; font-weight: 700; color: #146382; margin-bottom: 8px; }
+    #tab01 .writing-trial-success .note { font-size: 14px; color: #6b7280; }
+    #tab01 .writing-trial-error { padding: 12px 16px; background: #fef2f2; border: 1px solid #fecaca; border-radius: 10px; color: #dc2626; font-size: 14px; margin-bottom: 16px; }
+    @media (max-width: 600px) {
+      #tab01 .writing-detail-row { grid-template-columns: 1fr; }
+      #tab01 .writing-trial-lbl { width: 100px; }
+    }
+
+    /* ═══ 音読トレーニング tab02 embedded (from apps.mirinae.jp/ondoku) ═══ */
+    #tab02 .ondoku-embed { font-family: 'Noto Sans JP', sans-serif; --ondoku-teal: #2A7F74; --ondoku-teal-mid: #1D6B61; --ondoku-teal-pale: #E6F4F2; --ondoku-accent: #7FFFD4; }
+    #tab02 .ondoku-hero {
+      background: linear-gradient(145deg, #2A7F74 0%, #1D6B61 55%, #0E4A42 100%);
+      padding: 56px 24px 72px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 16px;
+      margin-bottom: 24px;
+    }
+    #tab02 .ondoku-hero-bg { position: absolute; right: 0; top: 0; font-family: 'Noto Sans KR', sans-serif; font-size: 120px; font-weight: 700; color: rgba(255,255,255,0.05); pointer-events: none; z-index: 1; }
+    #tab02 .ondoku-hero-bg2 { position: absolute; right: 0; bottom: 0; font-family: 'Noto Serif JP', serif; font-size: 100px; font-weight: 700; color: rgba(255,255,255,0.05); pointer-events: none; z-index: 1; }
+    #tab02 .ondoku-hero-inner { max-width: 760px; margin: 0 auto; position: relative; z-index: 2; }
+    #tab02 .ondoku-hero-tag { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.22); border-radius: 20px; padding: 5px 16px; font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.88); letter-spacing: 1.5px; margin-bottom: 18px; }
+    #tab02 .ondoku-hero-tag-dot { width: 7px; height: 7px; background: #7FFFD4; border-radius: 50%; }
+    #tab02 .ondoku-hero h2 { font-family: 'Noto Serif JP', serif; font-size: clamp(24px,4vw,38px); font-weight: 700; color: #fff; line-height: 1.3; letter-spacing: 0.03em; margin-bottom: 14px; }
+    #tab02 .ondoku-hero h2 em { font-style: normal; color: #7FFFD4; }
+    #tab02 .ondoku-hero-sub { font-size: 15px; color: rgba(255,255,255,0.75); font-weight: 300; max-width: 520px; margin-bottom: 24px; line-height: 1.8; }
+    #tab02 .ondoku-waveform { display: flex; align-items: center; gap: 4px; margin-bottom: 24px; }
+    #tab02 .ondoku-waveform-bar { width: 4px; border-radius: 4px; background: rgba(255,255,255,0.5); animation: ondokuWave 1.4s ease-in-out infinite; }
+    #tab02 .ondoku-waveform-bar:nth-child(4),#tab02 .ondoku-waveform-bar:nth-child(5),#tab02 .ondoku-waveform-bar:nth-child(6),#tab02 .ondoku-waveform-bar:nth-child(7),#tab02 .ondoku-waveform-bar:nth-child(8),#tab02 .ondoku-waveform-bar:nth-child(9),#tab02 .ondoku-waveform-bar:nth-child(10),#tab02 .ondoku-waveform-bar:nth-child(11),#tab02 .ondoku-waveform-bar:nth-child(12) { background: rgba(127,255,212,0.7); }
+    @keyframes ondokuWave { 0%,100%{ transform: scaleY(0.45); } 50%{ transform: scaleY(1.05); } }
+    #tab02 .ondoku-waveform-label { font-size: 11px; color: rgba(255,255,255,0.55); letter-spacing: 0.12em; margin-left: 12px; }
+    #tab02 .ondoku-hero-sched { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 24px; }
+    #tab02 .ondoku-hero-sched-item { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 12px; padding: 10px 12px; color: #fff; }
+    #tab02 .ondoku-hero-sched-item .lbl { font-size: 10px; color: rgba(255,255,255,0.65); }
+    #tab02 .ondoku-hero-sched-item .val { font-size: 13px; font-weight: 700; }
+    #tab02 .ondoku-hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    #tab02 .ondoku-btn-main { display: inline-flex; align-items: center; background: #fff; color: #1D6B61; padding: 14px 28px; border-radius: 12px; font-size: 14px; font-weight: 700; text-decoration: none; box-shadow: 0 4px 20px rgba(0,0,0,0.15); transition: transform 0.15s, box-shadow 0.2s; }
+    #tab02 .ondoku-btn-main:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.2); }
+    #tab02 .ondoku-btn-sub { display: inline-flex; align-items: center; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.28); color: #fff; padding: 14px 24px; border-radius: 12px; font-size: 14px; font-weight: 500; text-decoration: none; transition: background 0.2s; }
+    #tab02 .ondoku-btn-sub:hover { background: rgba(255,255,255,0.2); }
+    #tab02 .ondoku-price-chips { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px; }
+    #tab02 .ondoku-price-chip { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 12px; padding: 12px 18px; color: #fff; }
+    #tab02 .ondoku-price-chip .lv { font-size: 10px; color: rgba(255,255,255,0.65); margin-bottom: 4px; }
+    #tab02 .ondoku-price-chip .amt { font-size: 18px; font-weight: 700; }
+    #tab02 .ondoku-price-chip .amt span { font-size: 11px; font-weight: 400; }
+    #tab02 .ondoku-price-chip .trial { font-size: 10px; color: #7FFFD4; margin-top: 4px; }
+    #tab02 .ondoku-body { background: #E0F2F1; border-radius: 16px; padding: 24px; margin-top: 0; }
+    #tab02 .ondoku-section { margin-bottom: 32px; }
+    #tab02 .ondoku-sec-label { display: flex; align-items: center; gap: 10px; font-size: 11px; font-weight: 700; letter-spacing: 2px; color: #2A7F74; margin-bottom: 14px; }
+    #tab02 .ondoku-sec-label::before { content: ''; width: 18px; height: 2px; background: #2A7F74; }
+    #tab02 .ondoku-intro { background: #fff; border-radius: 20px; padding: 24px 28px; border: 1px solid #E0D8CC; position: relative; overflow: hidden; }
+    #tab02 .ondoku-intro::before { content: "音読"; position: absolute; right: -8px; bottom: -20px; font-family: 'Noto Serif JP', serif; font-size: 100px; font-weight: 700; color: #FBF4E3; pointer-events: none; }
+    #tab02 .ondoku-intro h3 { font-family: 'Noto Serif JP', serif; font-size: 18px; font-weight: 700; color: #1D6B61; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+    #tab02 .ondoku-intro p { font-size: 14px; color: #444; line-height: 1.9; font-weight: 300; position: relative; z-index: 1; }
+    #tab02 .ondoku-intro .highlight-box { background: #FBF4E3; border-left: 3px solid #2A7F74; border-radius: 0 10px 10px 0; padding: 14px 18px; margin-top: 14px; font-size: 13.5px; color: #1D6B61; font-weight: 500; position: relative; z-index: 1; }
+    #tab02 .ondoku-features { display: flex; flex-direction: column; gap: 12px; }
+    #tab02 .ondoku-feat-card { background: #fff; border: 1px solid #E0D8CC; border-radius: 14px; padding: 18px 20px; display: flex; gap: 16px; align-items: flex-start; position: relative; overflow: hidden; }
+    #tab02 .ondoku-feat-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; }
+    #tab02 .ondoku-feat-card:nth-child(1)::before { background: #2A7F74; }
+    #tab02 .ondoku-feat-card:nth-child(2)::before { background: #B8963E; }
+    #tab02 .ondoku-feat-card:nth-child(3)::before { background: #C05840; }
+    #tab02 .ondoku-feat-card:nth-child(4)::before { background: #5A7080; }
+    #tab02 .ondoku-feat-card:nth-child(5)::before { background: #7B6AA0; }
+    #tab02 .ondoku-feat-icon { width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 17px; flex-shrink: 0; }
+    #tab02 .ondoku-feat-card:nth-child(1) .ondoku-feat-icon { background: #E6F4F2; }
+    #tab02 .ondoku-feat-card:nth-child(2) .ondoku-feat-icon { background: #FBF4E3; }
+    #tab02 .ondoku-feat-card:nth-child(3) .ondoku-feat-icon { background: #FAEAE6; }
+    #tab02 .ondoku-feat-card:nth-child(4) .ondoku-feat-icon { background: #EEF2F5; }
+    #tab02 .ondoku-feat-card:nth-child(5) .ondoku-feat-icon { background: #F0EEF8; }
+    #tab02 .ondoku-feat-text { font-size: 14px; padding-top: 6px; line-height: 1.75; }
+    #tab02 .ondoku-feat-text strong { color: #1D6B61; }
+    #tab02 .ondoku-step { display: flex; gap: 18px; align-items: flex-start; padding: 18px 0; position: relative; }
+    #tab02 .ondoku-step:not(:last-child)::after { content: ''; position: absolute; left: 19px; top: 54px; bottom: 0; width: 2px; background: linear-gradient(to bottom, #E6F4F2, transparent); }
+    #tab02 .ondoku-step-num { width: 40px; height: 40px; border-radius: 50%; background: #2A7F74; color: #fff; font-size: 15px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    #tab02 .ondoku-step-body h4 { font-size: 15px; font-weight: 700; margin-bottom: 6px; color: #1D6B61; }
+    #tab02 .ondoku-step-body p { font-size: 14px; color: #555; line-height: 1.75; }
+    #tab02 .ondoku-tip { display: inline-block; margin-top: 6px; background: #E6F4F2; color: #2A7F74; font-size: 12px; padding: 4px 10px; border-radius: 8px; }
+    #tab02 .ondoku-flow-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+    @media (max-width: 800px) { #tab02 .ondoku-flow-cards { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 500px) { #tab02 .ondoku-flow-cards { grid-template-columns: 1fr; } }
+    #tab02 .ondoku-flow-card { background: #fff; border: 1px solid #E0D8CC; border-radius: 14px; padding: 16px; }
+    #tab02 .ondoku-flow-card .day { font-size: 12px; font-weight: 700; color: #2A7F74; margin-bottom: 6px; }
+    #tab02 .ondoku-flow-card .action { font-size: 14px; font-weight: 600; color: #1a1a1a; margin-bottom: 4px; }
+    #tab02 .ondoku-flow-card p { font-size: 13px; color: #555; line-height: 1.6; margin: 0; }
+    #tab02 .ondoku-flow-card a { color: #2A7F74; text-decoration: none; font-weight: 500; }
+    #tab02 .ondoku-flow-card a:hover { text-decoration: underline; }
+    #tab02 .ondoku-curr-box { border-radius: 16px; border: 1px solid #E0D8CC; background: #f6faf9; padding: 20px; }
+    #tab02 .ondoku-curr-tabs { display: flex; gap: 8px; margin-bottom: 16px; }
+    #tab02 .ondoku-curr-tab { padding: 8px 20px; font-size: 14px; font-weight: 600; border-radius: 10px; border: 1px solid #E0D8CC; background: #fff; color: #555; cursor: pointer; }
+    #tab02 .ondoku-curr-tab.active { background: #2A7F74; border-color: #2A7F74; color: #fff; }
+    #tab02 .ondoku-curr-panel { display: none; }
+    #tab02 .ondoku-curr-panel.active { display: block; }
+    #tab02 .ondoku-curr-item { background: #fff; border-radius: 12px; padding: 18px; margin-bottom: 12px; border: 1px solid #E0D8CC; }
+    #tab02 .ondoku-curr-item:last-child { margin-bottom: 0; }
+    #tab02 .ondoku-num-badge { background: #E6F4F2; color: #1D6B61; font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 100px; margin-right: 12px; }
+    #tab02 .ondoku-grammar { font-size: 16px; font-weight: 700; color: #1a1a1a; }
+    #tab02 .ondoku-meaning { font-size: 13px; color: #555; }
+    #tab02 .ondoku-example { background: #F0F8F6; padding: 10px 14px; border-radius: 8px; font-size: 14px; margin: 10px 0; }
+    #tab02 .ondoku-task { font-size: 14px; color: #444; margin-bottom: 8px; }
+    #tab02 .ondoku-pron-tip { font-size: 12px; color: #2A7F74; }
+    #tab02 .ondoku-detail-row { display: grid; grid-template-columns: 90px 1fr; gap: 12px; padding: 14px 18px; margin-bottom: 8px; background: #fff; border-radius: 14px; border: 1px solid #E0D8CC; }
+    #tab02 .ondoku-detail-lbl { font-size: 13px; font-weight: 600; color: #1D6B61; }
+    #tab02 .ondoku-detail-val { font-size: 14px; color: #444; }
+    #tab02 .ondoku-detail-badge { background: #E6F4F2; color: #1D6B61; font-size: 12px; font-weight: 600; padding: 2px 10px; border-radius: 100px; margin-left: 8px; }
+    #tab02 .ondoku-trial-box { overflow: hidden; border-radius: 16px; border: 1px solid #b8d4a8; background: #f0f7f0; margin: 24px 0; }
+    #tab02 .ondoku-trial-header { padding: 12px 20px; background: #2A7F74; color: #fff; font-size: 14px; font-weight: 600; }
+    #tab02 .ondoku-trial-row { display: flex; border-bottom: 1px solid #d0e0d0; }
+    #tab02 .ondoku-trial-lbl { width: 112px; flex-shrink: 0; padding: 12px 16px; background: #e8f0e8; font-weight: 500; color: #1C1C1E; font-size: 12px; border-right: 1px solid #d0e0d0; }
+    #tab02 .ondoku-trial-val { flex: 1; padding: 12px 16px; font-size: 12px; font-weight: 600; color: #1f2933; }
+    #tab02 .ondoku-trial-footer { padding: 12px 16px; background: #2A7F74; color: #fff; font-size: 12px; font-weight: 600; text-align: center; }
+    #tab02 .ondoku-cta-btns { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 16px; }
+    #tab02 .ondoku-cta-btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 24px; background: #2A7F74; color: #fff; font-weight: 600; border-radius: 10px; text-decoration: none; transition: background 0.2s; }
+    #tab02 .ondoku-cta-btn:hover { background: #1D6B61; }
+    /* 体験申込・講座申込 フォーム (音読タブ内) */
+    #tab02 .ondoku-trial-form-wrap { background: #fff; border-radius: 16px; border: 1px solid #d0e0d0; overflow: hidden; margin-top: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+    #tab02 .ondoku-trial-tabs { display: flex; }
+    #tab02 .ondoku-trial-tab { flex: 1; padding: 16px 24px; font-size: 14px; font-weight: 600; background: #f5f0e6; color: #4a4438; border: none; border-right: 1px solid #e5dfd4; cursor: pointer; display: flex; align-items: center; justify-content: space-between; transition: background 0.2s, color 0.2s; }
+    #tab02 .ondoku-trial-tab:last-child { border-right: none; }
+    #tab02 .ondoku-trial-tab:hover { background: #ebe5d8; }
+    #tab02 .ondoku-trial-tab.active { background: #2A7F74; color: #fff; }
+    #tab02 .ondoku-trial-tab .tab-arrow { display: none; margin-left: 6px; }
+    #tab02 .ondoku-trial-tab.active .tab-arrow { display: inline; }
+    #tab02 .ondoku-trial-form-body { padding: 24px; border-top: 1px solid #d0e0d0; }
+    #tab02 .ondoku-trial-form .field { margin-bottom: 20px; }
+    #tab02 .ondoku-trial-form .field-label { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; font-size: 13px; font-weight: 500; color: #2C2C2E; }
+    #tab02 .ondoku-trial-form .badge-req { background: #B85040; color: #fff; font-size: 10px; font-weight: 600; padding: 2px 10px; border-radius: 999px; letter-spacing: 0.12em; }
+    #tab02 .ondoku-trial-form .badge-opt { background: #8E8E93; color: #fff; font-size: 10px; font-weight: 500; padding: 2px 10px; border-radius: 999px; letter-spacing: 0.12em; }
+    #tab02 .ondoku-trial-form input, #tab02 .ondoku-trial-form select, #tab02 .ondoku-trial-form textarea { width: 100%; padding: 12px 14px; font-size: 14px; border: 1px solid #E2D9CC; border-radius: 10px; background: #FAF8F3; color: #2C2C2E; font-family: inherit; transition: border-color 0.2s, background 0.2s; }
+    #tab02 .ondoku-trial-form input:focus, #tab02 .ondoku-trial-form select:focus, #tab02 .ondoku-trial-form textarea:focus { outline: none; border-color: #2A7F74; background: #fff; box-shadow: 0 0 0 2px rgba(42,127,116,0.12); }
+    #tab02 .ondoku-trial-form input::placeholder, #tab02 .ondoku-trial-form textarea::placeholder { color: #C4BBAF; }
+    #tab02 .ondoku-trial-form .field-note { font-size: 11px; color: #8E8E93; margin-bottom: 6px; }
+    #tab02 .ondoku-trial-form .btn-submit { width: 100%; padding: 16px; font-size: 15px; font-weight: 700; background: #2A7F74; color: #fff; border: none; border-radius: 12px; cursor: pointer; transition: background 0.2s; margin-top: 8px; }
+    #tab02 .ondoku-trial-form .btn-submit:hover { background: #1D6B61; }
+    #tab02 .ondoku-trial-form .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+    #tab02 .ondoku-trial-success { text-align: center; padding: 40px 24px; }
+    #tab02 .ondoku-trial-success .title { font-size: 18px; font-weight: 700; color: #2A7F74; margin-bottom: 8px; }
+    #tab02 .ondoku-trial-success .note { font-size: 14px; color: #6b7280; }
+    #tab02 .ondoku-trial-error { padding: 12px 16px; background: #fef2f2; border: 1px solid #fecaca; border-radius: 10px; color: #dc2626; font-size: 14px; margin-bottom: 16px; }
+    #tab02 .ondoku-price-section { background: #fff; border-radius: 16px; overflow: hidden; border: 1px solid #E0D8CC; }
+    #tab02 .ondoku-price-header { padding: 16px 20px; background: #2A7F74; color: #fff; font-size: 16px; font-weight: 600; }
+    #tab02 .ondoku-price-grid { display: grid; grid-template-columns: 1fr 1fr; }
+    #tab02 .ondoku-price-col { padding: 20px 24px; border-right: 1px solid #E0D8CC; }
+    #tab02 .ondoku-price-col:last-child { border-right: none; }
+    #tab02 .ondoku-price-lv { font-size: 12px; font-weight: 600; color: #2A7F74; margin-bottom: 8px; }
+    #tab02 .ondoku-price-amt { font-family: 'Noto Serif JP', serif; font-size: 28px; font-weight: 700; color: #1a1a1a; }
+    #tab02 .ondoku-price-amt span { font-size: 14px; font-weight: 400; }
+    #tab02 .ondoku-price-per { font-size: 12px; color: #555; margin: 4px 0 8px; }
+    #tab02 .ondoku-trial-badge { font-size: 11px; color: #2A7F74; font-weight: 600; }
+    #tab02 .ondoku-review-card { padding: 16px; margin-bottom: 12px; background: #fff; border-radius: 12px; border: 1px solid #d0e0d0; }
+    #tab02 .ondoku-review-card p:first-child { font-weight: 600; color: #1f2933; margin-bottom: 8px; font-size: 14px; }
+    #tab02 .ondoku-review-card p:last-child { font-size: 13px; color: #374151; line-height: 1.8; margin: 0; }
+    #tab02 .ondoku-more-btn { width: 100%; padding: 12px; font-weight: 500; color: #1C1C1E; background: #e8f0e8; border: 1px solid #d0e0d0; border-radius: 8px; cursor: pointer; transition: background 0.2s; }
+    #tab02 .ondoku-more-btn:hover { background: #d8e8d8; }
 
     /* ═══ TOPIK作文 tab03 embedded styles ═══ */
     #tab03 .topik-embed {
@@ -760,37 +1056,478 @@
       <div class="group-main-grid">
         <div class="group-left">
 
-      <!-- tab01: 作文トレーニング -->
+      <!-- tab01: 作文トレーニング (apps.mirinae.jp/writing 作文トレーニングタブ内容をHTMLで埋め込み) -->
       <div id="tab01" class="tab-panel active">
-        <h2 class="section-header">『メール作文トレーニング』</h2>
-        <div class="iframe-card">
-          <p class="form-note">毎週のテーマ作文＋ネイティブ添削＋比較文＋模範文で、表現力をぐっと伸ばすオンライン講座です。下のフレーム内から、そのまま専用ページを操作できます。</p>
-          <div class="iframe-wrap">
-            <iframe
-              class="iframe-frame"
-              title="ミリネ韓国語 作文トレーニング"
-              loading="lazy"
-              data-src="https://apps.mirinae.jp/writing?embed=1">
-            </iframe>
+        <div class="writing-embed">
+          <!-- HERO -->
+          <section class="writing-hero">
+            <div class="writing-hero-dots"></div>
+            <span class="writing-hero-bg" aria-hidden="true">미리내</span>
+            <div class="writing-hero-inner">
+              <div class="writing-hero-tag">
+                <span class="writing-tag-dot"></span>
+                メール添削コース · <span style="background:#FDE047;color:#146382;padding:0 4px;border-radius:4px;">10</span>週間
+              </div>
+              <h1>書くたびに、<br>韓国語が<em>自分のものになる</em>。</h1>
+              <p class="writing-hero-sub">300〜500字作文 ＋ 添削 ＋ ネイティブ比較文 ＋ 模範文まで届く。<br>週1回のペースで、表現力を着実に積み上げます。</p>
+              <div class="writing-pencil-row">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                <div class="writing-pencil-lines"><div class="writing-pline"></div><div class="writing-pline"></div><div class="writing-pline"></div></div>
+                <span class="writing-pencil-label">毎週テーマで作文チャレンジ</span>
+              </div>
+              <div class="writing-hero-actions">
+                <a href="/trial" class="writing-btn-white">体験申込（1,800円） →</a>
+                <a href="#writing-details" class="writing-btn-ghost">講座詳細を見る</a>
+              </div>
+              <div class="writing-schedule-strip">
+                <div class="writing-sched-item"><div class="s-label">開講日</div><div class="s-val">4月3日（金）</div></div>
+                <div class="writing-sched-item"><div class="s-label">期間</div><div class="s-val">10週間</div></div>
+                <div class="writing-sched-item"><div class="s-label">募集期限</div><div class="s-val">〜4月2日（木）</div></div>
+                <div class="writing-sched-item"><div class="s-label">授業料</div><div class="s-val">23,980円（税込）</div></div>
+              </div>
+            </div>
+          </section>
+
+          <!-- MAIN CONTENT CARD -->
+          <div class="writing-card" id="writing-details">
+            <div class="writing-card-header"><h3>メールで作文トレーニング</h3></div>
+            <div class="writing-card-body">
+              <!-- FEATURES -->
+              <section style="margin-bottom:32px;">
+                <div class="writing-sec-ey">FEATURES</div>
+                <div class="writing-feature-item">
+                  <div class="writing-feature-num">1</div>
+                  <p>自分の書いた文章を<strong>自然な韓国語に直して</strong>もらえます</p>
+                </div>
+                <div class="writing-feature-item">
+                  <div class="writing-feature-num">2</div>
+                  <p>毎週違うテーマで作文にチャレンジ。<strong>表現力が着実にアップ</strong>します</p>
+                </div>
+                <div class="writing-feature-item">
+                  <div class="writing-feature-num">3</div>
+                  <p>課題は<strong>厳選された文型を必ず使用</strong>するよう出題。文法が体に染み込みます</p>
+                </div>
+                <div class="writing-feature-item">
+                  <div class="writing-feature-num">4</div>
+                  <p><strong>添削 ＋ ネイティブ比較文 ＋ 模範文の3点セットで届く</strong>から、読解力も同時に向上します</p>
+                </div>
+              </section>
+
+              <!-- DETAILS -->
+              <section style="margin-bottom:32px;">
+                <div class="writing-sec-ey">DETAILS</div>
+                <div class="writing-detail-row">
+                  <div class="writing-detail-lbl">特徴</div>
+                  <div class="writing-detail-val">毎週テーマで作文にチャレンジ。ネイティブ添削＋模範文で表現力UP。TOPIK対策にも最適。</div>
+                </div>
+                <div class="writing-detail-row">
+                  <div class="writing-detail-lbl">対象</div>
+                  <div class="writing-detail-val"><span class="writing-pill">初・中・上級</span><span class="writing-pill">レベル区別なし</span></div>
+                </div>
+                <div class="writing-detail-row">
+                  <div class="writing-detail-lbl">目標</div>
+                  <div class="writing-detail-val">語彙・文型を増やし、自然な韓国語の表現を身につける</div>
+                </div>
+                <div class="writing-detail-row">
+                  <div class="writing-detail-lbl">授業の流れ</div>
+                  <div class="writing-detail-val">
+                    <span class="writing-pill">📬 金曜 テーマ送付</span> → <span class="writing-pill">✏️ 月曜夜9時までに提出</span> → <span class="writing-pill">📝 添削返送</span><br>
+                    送付先：<a href="mailto:sakubun@kaonnuri.com">sakubun@kaonnuri.com</a>
+                  </div>
+                </div>
+                <div class="writing-detail-row">
+                  <div class="writing-detail-lbl">日程</div>
+                  <div class="writing-detail-val">4月3日（金）〜 <span class="writing-pill">10週間</span></div>
+                </div>
+                <div class="writing-detail-row">
+                  <div class="writing-detail-lbl">教室</div>
+                  <div class="writing-detail-val">オンライン（メール）</div>
+                </div>
+                <div class="writing-detail-row">
+                  <div class="writing-detail-lbl">募集期間</div>
+                  <div class="writing-detail-val">〜 2026年4月2日（木）</div>
+                </div>
+                <div class="writing-detail-row">
+                  <div class="writing-detail-lbl">テキスト</div>
+                  <div class="writing-detail-val">ミリネ独自テキスト（PDF）※事前にメールでお送りします</div>
+                </div>
+              </section>
+
+              <!-- SAMPLE -->
+              <section style="margin-bottom:32px;padding-top:24px;border-top:1px solid #e5dfd4;">
+                <div class="writing-sec-ey">SAMPLE</div>
+                <details class="writing-sample-box">
+                  <summary class="writing-sample-head">
+                    <div><div class="writing-sample-head-ey">THEME EXAMPLE 1</div><div class="writing-sample-head-title">課題提示・文型・添削例</div></div>
+                    <span style="font-size:11px;color:#8E8E93;">성형수술에 대해 어떻게 생각하는지 쓰시오 ▼</span>
+                  </summary>
+                  <div class="writing-sample-body">
+                    <p style="font-size:10px;letter-spacing:0.18em;color:#8E8E93;">THEME</p>
+                    <p style="font-size:12px;margin-bottom:8px;">성형수술에 대해 어떻게 생각하는지 쓰시오<br><strong style="color:#3D6B5A;">使用文型：</strong> -다 해도 / -(으)ㄴ/는다고 하면 / -(으)므로 〜のだから / -(으)ㄴ/는 김에</p>
+                    <div style="background:#F5F0E8;padding:12px 16px;border-radius:8px;font-size:14px;">요즘 쁘띠 성형이라고 해서 칼을 대지 않고도 성형을 할 수 있는 시대가 되었다. 연예인들도 자신의 성형을 당당히 밝히고 있는데, 성형수술, 어떻게 생각하는지 쓰시오</div>
+                  </div>
+                </details>
+                <details class="writing-sample-box">
+                  <summary class="writing-sample-head">
+                    <div><div class="writing-sample-head-ey">THEME EXAMPLE 2</div><div class="writing-sample-head-title">添削文・比較文・模範文</div></div>
+                    <span style="font-size:11px;color:#8E8E93;">옷과 패션 服とファッションの添削例 ▼</span>
+                  </summary>
+                  <div class="writing-sample-body">
+                    <p style="font-size:10px;letter-spacing:0.18em;color:#8E8E93;">THEME</p>
+                    <p style="font-size:12px;white-space:pre-line;">10回コースの第4回課題：　テーマ：옷
+
+내가 좋아하는 옷에 대해 이야기해 봅시다.
+평소에 자주 입는 옷을 설명해 주세요。使用文型：-고 있다 / -(으)ㄹ까 하다 / -(으)ㄹ 생각도 못 하다 / -(으)ㄴ 이상</p>
+                  </div>
+                </details>
+                <div class="writing-sample-box" style="cursor:default;">
+                  <div class="writing-sample-head" style="cursor:default;">
+                    <div><div class="writing-sample-head-ey">THEME EXAMPLE 3</div><div class="writing-sample-head-title">添削文・比較文・模範文</div></div>
+                  </div>
+                  <div class="writing-sample-body">
+                    <a href="https://apps.mirinae.jp/sample-digital-correction.png" target="_blank" rel="noopener">
+                      <img src="https://apps.mirinae.jp/sample-digital-correction.png" alt="デジタル機器に関する添削文・比較文・模範文" style="width:100%;height:auto;border-radius:8px;">
+                    </a>
+                    <p style="text-align:center;font-size:12px;color:#6b7280;margin-top:8px;">クリックで拡大</p>
+                  </div>
+                </div>
+              </section>
+
+              <!-- まずは体験から -->
+              <div class="writing-trial-box">
+                <div class="writing-trial-header">まずは体験から!</div>
+                <div class="writing-trial-row"><div class="writing-trial-lbl">体験申込の締切</div><div class="writing-trial-val">〜3月30日(月)</div></div>
+                <div class="writing-trial-row"><div class="writing-trial-lbl">体験課題送信日</div><div class="writing-trial-val">〜3月31日(火)</div></div>
+                <div class="writing-trial-row"><div class="writing-trial-lbl">体験添削送信日</div><div class="writing-trial-val">〜4月2日(木)</div></div>
+                <div class="writing-trial-row"><div class="writing-trial-lbl">当講座開始日</div><div class="writing-trial-val">4月3日(金)〜</div></div>
+                <div class="writing-trial-footer">1回お試し 1,800円</div>
+              </div>
+
+              <!-- 体験申込・講座申込 フォーム（作文） -->
+              <div class="writing-trial-form-wrap" id="writing-trial-form-section">
+                <div class="writing-trial-tabs">
+                  <button type="button" class="writing-trial-tab active" data-trial-type="trial">体験申込<span class="tab-arrow">▼</span></button>
+                  <button type="button" class="writing-trial-tab" data-trial-type="course">講座申込<span class="tab-arrow">▼</span></button>
+                </div>
+                <div class="writing-trial-form-body">
+                  <div id="writing-trial-success" class="writing-trial-success" style="display:none;">
+                    <p class="title">送信が完了しました</p>
+                    <p class="note">mirinae@kaonnuri.com 宛に送信しました。ご確認の上、ご連絡いたします。</p>
+                  </div>
+                  <form id="writing-trial-form" class="writing-trial-form" style="max-width:480px;margin:0 auto;">
+                    <div id="writing-trial-error" class="writing-trial-error" style="display:none;"></div>
+                    <div class="field">
+                      <label class="field-label">お名前<span class="badge-req">必須</span></label>
+                      <input type="text" name="name" placeholder="例：田中 花子" required>
+                    </div>
+                    <div class="field">
+                      <label class="field-label">ふりがな<span class="badge-req">必須</span></label>
+                      <input type="text" name="furigana" placeholder="例：たなか はなこ" required>
+                    </div>
+                    <div class="field">
+                      <label class="field-label">韓国語レベル<span class="badge-req">必須</span></label>
+                      <select name="koreanLevel" required>
+                        <option value="">選択してください</option>
+                        <option value="初級">初級</option>
+                        <option value="初中級">初中級</option>
+                        <option value="中級">中級</option>
+                        <option value="中上級">中上級</option>
+                        <option value="上級">上級</option>
+                      </select>
+                    </div>
+                    <div class="field">
+                      <label class="field-label">メールアドレス<span class="badge-req">必須</span></label>
+                      <p class="field-note">※携帯メールの場合は設定のパソコン受信設定をご確認ください</p>
+                      <input type="email" name="email" placeholder="example@mail.com" required>
+                    </div>
+                    <div class="field">
+                      <label class="field-label">お問い合わせ<span class="badge-opt">任意</span></label>
+                      <textarea name="inquiry" rows="4" placeholder="ご質問・ご要望などがあればご記入ください"></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit" id="writing-trial-submit-btn">送信する →</button>
+                  </form>
+                </div>
+              </div>
+
+              <!-- PRICE -->
+              <section style="margin-top:32px;">
+                <div class="writing-sec-ey" style="color:#6b7c73;">PRICE</div>
+                <h3 style="font-size:16px;font-weight:600;color:#1a4d2e;margin-bottom:12px;">授業料</h3>
+                <table class="writing-price-table">
+                  <thead><tr><th>1回当たり</th><th>回数</th><th>授業料(税抜)</th><th>税込</th></tr></thead>
+                  <tbody><tr><td>2,180円</td><td>10回</td><td>21,800円</td><td>23,980円</td></tr></tbody>
+                </table>
+              </section>
+
+              <!-- REVIEWS -->
+              <section style="margin-top:32px;padding-top:32px;border-top:1px solid #e5dfd4;">
+                <div class="writing-sec-ey" style="color:#6b7c73;">REVIEWS</div>
+                <h3 style="font-size:16px;font-weight:600;color:#1a4d2e;margin-bottom:16px;">生徒の声</h3>
+                <div class="writing-review-card"><p>N様<span class="writing-review-date"> | 2019.3月</span></p><p>毎週韓国語で文章を作ることで、自然な韓国語の表現について考える習慣がついたように感じます。自分の言葉で文章を作る難しさも痛感しました。添削していただいた文はすごく勉強になりました。まだ復習しきれていないので、これから1つ1つの添削をじっくり復習したいと思います。ありがとうございました。</p></div>
+                <div class="writing-review-card"><p>U様<span class="writing-review-date"> | 2019.3月</span></p><p>大きな収穫は、やはり私の作文はただ日本語を韓国語に訳しただけのものだと痛感したことです。韓国語を意識して書いたつもりでも、どうしても日本語脳が働いてしまいます。決められた文型を使うことも難しかったですが、書き終えた時の達成感があり、楽しくトレーニングを受けることができました。ありがとうございました。模範文を繰り返し書いて、次の10回に活かします。</p></div>
+                <div class="writing-review-card"><p>H様<span class="writing-review-date"> | 2019.3月</span></p><p>10回のご指導をありがとうございました。最初は、決められた文型を入れて文章を作ることに時間がかかりましたが、だんだん慣れてきたとは思います。私は思った以上に、分かち書きと形容詞の한다体が間違いやすく、まだまだ慣れていかないとだめだなと感じています。ですが間違いなく、韓国語文字を入力することは、速くなりました(笑)打ち間違いが多くて変な文章内容だったりと、先生も添削に悪戦苦闘されたと思います。根気よくチェックしていただいて、本当にありがとうございました。</p></div>
+                <details id="writing-reviews-more"><summary class="writing-more-btn">もっと読む</summary>
+                <div class="writing-review-card" style="background:#fffde7;"><p>S様<span class="writing-review-date"> | 2018.7月~9月</span></p><p>10回の課題を終えて、添削していただきありがとうございました。毎週韓国語で文章を作るということは、とても意味のあることだと感じました。先生が直してくださった文と自分の文を比較することで、勉強になることがたくさんありました。普段使わないようなネイティブの表現も学ぶことができ、模範文を読むのも楽しみでした。</p></div>
+                <div class="writing-review-card" style="background:#fffde7;"><p>H様<span class="writing-review-date"> | 2018.7月~9月</span></p><p>선생님 그동안 많은 도움을 받았습니다. 저는 요즘 혼자서 공부하기 때문에 특히 말하기와 쓰기가 부족합니다. 이렇게 10번의 작문에 대해 비교문,모범문까지 자세히 가르쳐 줘서 정말 감사드립니다。이대로 작문 코스를 계속하고 싶은 마음도 있는데 일단 제 작문의 잘못을 다시 공부하려고 합니다。제가 다시 작문에 도전할 때 선생님의 도움을 잘 부탁드립니다。건강에 유의하시고 매일매일 행복하시길 바랍니다 (*^^*)</p></div>
+                <div class="writing-review-card" style="background:#fffde7;"><p>N様<span class="writing-review-date"> | 2017.1月</span></p><p>先生方、大変お世話になりました。翻訳の経験がなく、課題をきちんとこなせるか不安でしたが、10回の課題はあっという間に過ぎていきました。先生方に添削していただくことが日々の励みになり、終わってしまうのが少し寂しく感じました。毎回丁寧に添削していただき、新しい発見や自分の不足している点に気づくことができました。通学が難しい環境で、翻訳者を目指す者にとって学ぶ機会が少ない中、丁寧にご指導いただき感謝しております。過去の課題を復習し、一日も早く翻訳者になれるよう頑張ります。</p></div>
+                <div class="writing-review-card" style="background:#fffde7;"><p>M様<span class="writing-review-date"> | 2016.12月</span></p><p>10回の課題を終えて、木曜に課題が届き、金土で内容を考え、一度手書きしてから打ち込んで月曜夜までに提出という慌ただしいスケジュールでしたが、なんとか締め切りに間に合わせて提出できました。自分の考えを表現するというより、指定された文型をどう入れるか、文字数にどう収めるかばかり考えてしまい、不慣れなタイピングもあり大変でした。提出した作文を丁寧に添削していただくだけでなく、先生が書き直してくださった文までいただけるとは思っていなかったので、とても驚きました。まだ十分に消化しきれていないので、最後の課題が終わったら、表現の違いを丁寧に抽出して確認したいと思っています。非常にコストパフォーマンスの高い講座だったと思います。</p></div>
+                <div class="writing-review-card" style="background:#fffde7;"><p>A様<span class="writing-review-date"> | 2016.12月</span></p><p>10回の課題を終えて 벌써 10회가 끝났다니 시간이 지나는 것은 정말 빠르네요. 添削していただきありがとうございました。課題の内容が難しい時は、指定された文法を使って書くのは大変でしたが、いつも楽しく書くことができました。土日には作文を打ち込んで、翌日もう一度確認してから提出する習慣がつきました。忙しい日々でしたが、木曜日を楽しみに過ごしていました。一番役に立ったのは添削だけでなく比較文があったことです。自分が言いたいことをより韓国語らしく表現する力がついたように感じ、比較文を復習する時間が一番充実していました。ただ、模範文を十分に復習する時間がなかったのが残念でした。</p></div>
+                <div class="writing-review-card" style="background:#fffde7;"><p>Y様<span class="writing-review-date"> | 2016.4月</span></p><p>こんにちは。先生方、お元気でいらっしゃいますか。作文添削ありがとうございました。忙しい3ヶ月でしたが、提出したらすぐに次の課題が届き、毎回丁寧に添削していただいて大変勉強になりました。첨삭 한마디をいただいて嬉しかったです。自分の考えを韓国語で書くというのは何と難しいことか…と落ち込むこともありましたが、作文は本当にいい訓練になりますね。パダスギ(ディクテーション)のように、自分ではなかなかやらないハードな訓練の機会をいただけて感謝しています。もっと韓国語を勉強して、レベルが上がったらまた挑戦したいと思います。解説のオプションも、とても詳しくかつ具体的に説明してくださってありがたかったです。プリントアウトして丁寧に読み、メモを取り、赤や青で直された部分をノートに写し、첨삭 한마디を何度も読み返しました。毎回どの先生が添削してくださったのか気になりました。去年9月の集中講座の先生でしょうか。あの集中講座は楽しかったので、次は上級クラスに参加したいです。ありがとうございました。</p></div>
+                <div class="writing-review-card" style="background:#fffde7;"><p>S様<span class="writing-review-date"> | 2016.4月</span></p><p>10回作文添削、完走できて達成感を感じることができ、とても嬉しく思います。4、5回の課題は1週間しかないような気がして、書き続けるのが大変でした。添削文や模範文を十分に復習する時間がありませんでした。10年以上勉強してきて様々な先生に教えていただく機会がありましたが、分かち書きの基準が先生によって違うことが多く、混乱することがありました。作文添削を試した主な理由は、正しい分かち書きを学びたかったからです。作文IIも続けたいと思っており、この点について引き続きご指導いただければと思います。模範文は作文を書く上でとても参考になりました。今後の作文トレーニングに活かしていきたいと思います。10回の添削、ありがとうございました。</p></div>
+                <div class="writing-review-card" style="background:#fffde7;"><p>H様<span class="writing-review-date"> | 2016.4月</span></p><p>作文を添削していただきまして有難うございました。10回の提出は、大変でした。1つの作文をじっくり復習する時間がないうちに、次の作文を書かなければならない状況でした。文法をどれをどのようにつかうのか未だにわかりませんが、溜まった添削文をゆっくり復習していきたいと思います。単発でも作文添削を受けてくださるといいと思います。あまりにひどい作文をよく読んで添削してくださいまして有難うございました。また機会があればお願いします。</p></div>
+                <div class="writing-review-card" style="background:#fffde7;"><p>E様<span class="writing-review-date"> | 2016.3月</span></p><p>10回の作文添削、本当にありがとうございました。今まで、誰かの書いた文章を翻訳するという事はありましたが、自分で文章を書くという経験があまりなかったので、いい機会だと思い受講しました。まず、「自分で文章を書く」という事の難しさ、大変さを痛感しました。限られた字数の中で起承転結をまとめ、さらにいかに自然な韓国語で表現するか･･･これは本当に難しい作業でした。500字というのも、自分が思うより沢山書かなければ埋まらない字数だとわかりました。また、添削して頂いた事によって、自分がきちんと理解できていなかった部分、勘違いしていた部分等が見えたのは何より良かったと思います。ネイティブが使う自然な表現に直して頂いた事も、本当に助けになりました。トレーニングIIでも、さらに多くの事を学んで、もっと自然な表現に近づけるように頑張っていきたいと思っております。今後ともよろしくお願い致します。※受講料も大変ありがたい価格設定でした。何万円･･･という受講料では、受講したくてもできませんでしたので･･･。感謝しております!!</p></div>
+                <div class="writing-review-card" style="background:#fffde7;"><p>H様<span class="writing-review-date"> | 2016.3月</span></p><p>添削指導ありがとうございました。10回の課題提出は、正直なところ苦しかったです(苦;)毎回のテーマは簡単なのですが、指定した文型を使わなければならないところが難しかったです。このことで、文章の構成と使う単語などの訓練ができたと思います。また、丁寧な添削指導で、「韓国語らしい」表現を教えていただいています。まだまだレベルの低い内容でしか書けませんが、なんだか面白く思えてきたので、新コースにも挑戦してみようと思っています。今度は誤打が無いように、気を付けます。</p></div>
+                <div class="writing-review-card" style="background:#fffde7;"><p>A様<span class="writing-review-date"> | 2016.3月</span></p><p>私はこの4月に受験予定のTOPIK試験対策としてこのコースを受講しました。前回の試験で5級に合格しましたが、作文が苦手で、いつも点数が悪くて悩んでいました。今回この作文の添削を受けてみて、毎週決まった文字数の文章を書くというのが思いのほか時間がかかって難しいことが分かり、毎日少しずつでも書く練習をするのが大事なんだと改めて感じました。それに、思った以上に誤字や分かち書きの間違いが多かったので、試験では必ず見直しをする時間を作ろうと思いました。今回の添削は、文字数が300から500字だったのですが、上級では700字くらいの作文が必要なので、コースの選択ができればよいかなと思いました。</p></div>
+                <div class="writing-review-card" style="background:#fffde7;"><p>U様<span class="writing-review-date"> | 2016.3月</span></p><p>3ヶ月間のご指導ありがとうございました。仕事が忙しく、添削していただいた課題を復習する時間をなかなか作れませんでした。副詞の使い方や辞書の選び方に悩み、深く考えすぎると何も書けなくなってしまうこともありました。語彙力や文末表現の不足で、初級レベルの作文に間違いだらけで恥ずかしい思いをしました。TOPIKの作文は、制限時間内に大量に書かなければならず特に大変でした。繰り返し練習すればもっと書けるようになると思います。緊張するとテーマが浮かばないこともあるので、作文は一人ではできないので、このような講座を続けて練習したいと思います。これからもよろしくお願いいたします。</p></div>
+                </details>
+              </section>
+            </div>
           </div>
-          <p class="iframe-note">※ 通信環境により読み込みに少し時間がかかる場合があります。表示されないときは数秒お待ちいただくか、ページを再読み込みしてください。</p>
         </div>
       </div>
 
-      <!-- tab02: 音読トレーニング -->
+      <!-- tab02: 音読トレーニング (apps.mirinae.jp/ondoku 音読トレーニングタブ内容をHTMLで埋め込み) -->
       <div id="tab02" class="tab-panel">
-        <h2 class="section-header">『通信音読トレーニング』</h2>
-        <div class="iframe-card">
-          <p class="form-note">発音矯正と音読トレーニングをオンラインで行う講座です。下のフレーム内に、従来の通信音読トレーニングページをそのまま表示しています。</p>
-          <div class="iframe-wrap">
-            <iframe
-              class="iframe-frame"
-              title="ミリネ韓国語 通信音読トレーニング"
-              loading="lazy"
-              data-src="https://ondoku.mirinae.jp?embed=1">
-            </iframe>
+        <div class="ondoku-embed">
+          <!-- HERO -->
+          <section class="ondoku-hero">
+            <span class="ondoku-hero-bg" aria-hidden="true">미리내</span>
+            <span class="ondoku-hero-bg2" aria-hidden="true">音読</span>
+            <div class="ondoku-hero-inner">
+              <div class="ondoku-hero-tag">
+                <span class="ondoku-hero-tag-dot"></span>
+                オンライン完結・メール添削
+              </div>
+              <h2>声に出すことで、<br>韓国語は <em>もっと動き出す</em>。</h2>
+              <p class="ondoku-hero-sub">音読添削 ＋ ネイティブ模範音声で発音・抑揚UP！<br>週1回・10週間で、話せる韓国語を手に入れる。</p>
+              <div class="ondoku-waveform">
+                <div style="display:flex;gap:4px;align-items:flex-end;">
+                  <span class="ondoku-waveform-bar" style="height:12px"></span><span class="ondoku-waveform-bar" style="height:22px"></span><span class="ondoku-waveform-bar" style="height:34px"></span><span class="ondoku-waveform-bar" style="height:48px"></span><span class="ondoku-waveform-bar" style="height:60px"></span><span class="ondoku-waveform-bar" style="height:72px"></span><span class="ondoku-waveform-bar" style="height:60px"></span><span class="ondoku-waveform-bar" style="height:72px"></span><span class="ondoku-waveform-bar" style="height:52px"></span><span class="ondoku-waveform-bar" style="height:64px"></span><span class="ondoku-waveform-bar" style="height:44px"></span><span class="ondoku-waveform-bar" style="height:56px"></span><span class="ondoku-waveform-bar" style="height:38px"></span><span class="ondoku-waveform-bar" style="height:48px"></span><span class="ondoku-waveform-bar" style="height:28px"></span><span class="ondoku-waveform-bar" style="height:36px"></span><span class="ondoku-waveform-bar" style="height:18px"></span><span class="ondoku-waveform-bar" style="height:24px"></span><span class="ondoku-waveform-bar" style="height:14px"></span><span class="ondoku-waveform-bar" style="height:8px"></span>
+                </div>
+                <span class="ondoku-waveform-label">발음 교정 중…</span>
+              </div>
+              <div class="ondoku-hero-sched">
+                <div class="ondoku-hero-sched-item"><div class="lbl">開講日</div><div class="val">4月3日（金）</div></div>
+                <div class="ondoku-hero-sched-item"><div class="lbl">期間</div><div class="val">10週間</div></div>
+                <div class="ondoku-hero-sched-item"><div class="lbl">募集期限</div><div class="val">〜4月2日（木）</div></div>
+              </div>
+              <div class="ondoku-hero-actions">
+                <a href="/trial" class="ondoku-btn-main">体験申込（1,800円〜） →</a>
+                <a href="#ondoku-curriculum" class="ondoku-btn-sub">講座詳細を見る</a>
+              </div>
+              <div class="ondoku-price-chips">
+                <div class="ondoku-price-chip">
+                  <div class="lv">初中級</div>
+                  <div class="amt">23,980<span>円 / 10回</span></div>
+                  <div class="trial">体験 1,800円</div>
+                </div>
+                <div class="ondoku-price-chip">
+                  <div class="lv">中〜上級</div>
+                  <div class="amt">29,920<span>円 / 10回</span></div>
+                  <div class="trial">体験 2,300円</div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- BODY -->
+          <div class="ondoku-body">
+            <!-- ABOUT -->
+            <section class="ondoku-section">
+              <div class="ondoku-sec-label">ABOUT</div>
+              <div class="ondoku-intro">
+                <h3>🎤 音読とは？</h3>
+                <p>文字を声に出して読むこと。日々、語彙・文法・表現・発音などをインプットしているのに、会話の場面ではなかなかアウトプットできない…そんな経験はありませんか？</p>
+                <p style="margin-top:10px;">音読は、<strong style="color:#1D6B61">アウトプットの練習に最適</strong>。実際の会話で話せない・聞き取れないといった悩みを解消する近道です。</p>
+                <div class="highlight-box">≪ 語彙・文型・表現パターンを覚える ＋ 発音・抑揚を自然に身につける ≫<br>この2点を重視し、ご自宅で会話練習ができる講座を作りました。</div>
+              </div>
+            </section>
+
+            <!-- FEATURES -->
+            <section class="ondoku-section">
+              <div class="ondoku-sec-label">FEATURES</div>
+              <div class="ondoku-features">
+                <div class="ondoku-feat-card"><div class="ondoku-feat-icon">🗣</div><div class="ondoku-feat-text">音読を通して<strong>声に出して言うのに自信</strong>が付きます</div></div>
+                <div class="ondoku-feat-card"><div class="ondoku-feat-icon">📖</div><div class="ondoku-feat-text">課題をこなすことで<strong>語彙・文型・表現パターン</strong>を自然に覚えます</div></div>
+                <div class="ondoku-feat-card"><div class="ondoku-feat-icon">🎙</div><div class="ondoku-feat-text"><strong>ネイティブ添削文と模範音声</strong>で、あなた固有の発音の問題点を改善します</div></div>
+                <div class="ondoku-feat-card"><div class="ondoku-feat-icon">⚡</div><div class="ondoku-feat-text">音読トレーニングで<strong>話すスピードも速くなり</strong>、そのまま会話力アップにつながります</div></div>
+                <div class="ondoku-feat-card"><div class="ondoku-feat-icon">📅</div><div class="ondoku-feat-text"><strong>週1回ペースで10週間</strong>。無理なく続けながら確実にレベルアップできます</div></div>
+              </div>
+            </section>
+
+            <!-- HOW TO PRACTICE -->
+            <section class="ondoku-section">
+              <div class="ondoku-sec-label">HOW TO PRACTICE</div>
+              <div class="ondoku-step">
+                <div class="ondoku-step-num">1</div>
+                <div class="ondoku-step-body"><h4>文章の把握</h4><p>まず課題文を日本語に訳して、意味をしっかり把握します。</p></div>
+              </div>
+              <div class="ondoku-step">
+                <div class="ondoku-step-num">2</div>
+                <div class="ondoku-step-body"><h4>文章を見ながら音読 × 15回</h4><p>スムーズに言えるようになるまで回数を調整してください。記録シートの作成をおすすめします。</p><span class="ondoku-tip">📝 記録シート推奨</span></div>
+              </div>
+              <div class="ondoku-step">
+                <div class="ondoku-step-num">3</div>
+                <div class="ondoku-step-body"><h4>文章を見ないで音読 × 15回</h4><p>翌週にネイティブの録音ファイルをお送りします。音だけを頼りに練習します。</p><span class="ondoku-tip">🎧 ネイティブ音声を使用</span></div>
+              </div>
+              <div class="ondoku-step">
+                <div class="ondoku-step-num">4</div>
+                <div class="ondoku-step-body"><h4>シャドーイング × 15回</h4><p>ネイティブ音声を追いかけながら同時に発声。発音・抑揚・スピードを体に染み込ませます。</p><span class="ondoku-tip">✨ 仕上げの練習</span></div>
+              </div>
+            </section>
+
+            <!-- WEEKLY FLOW -->
+            <section class="ondoku-section">
+              <div class="ondoku-sec-label">WEEKLY FLOW</div>
+              <div class="ondoku-flow-cards">
+                <div class="ondoku-flow-card"><div class="day">📬 月曜日</div><div class="action">課題をメールで送信</div><p>テーマ文と文型の課題が届きます</p></div>
+                <div class="ondoku-flow-card"><div class="day">✏️ 月〜日（自習）</div><div class="action">課題を練習・録音</div><p>スマホなどで録音してください</p></div>
+                <div class="ondoku-flow-card"><div class="day">📤 翌週月曜 21時まで</div><div class="action">録音ファイルを提出</div><p><a href="mailto:ondoku@kaonnuri.com">ondoku@kaonnuri.com</a> へ</p></div>
+                <div class="ondoku-flow-card"><div class="day">📩 金曜日</div><div class="action">添削 ＋ 模範音声が届く</div><p>先生の解説文と模範発音録音ファイルをメール送信</p></div>
+              </div>
+            </section>
+
+            <!-- CURRICULUM -->
+            <section id="ondoku-curriculum" class="ondoku-section">
+              <div class="ondoku-sec-label">CURRICULUM</div>
+              <div class="ondoku-curr-box">
+                <div class="ondoku-curr-tabs">
+                  <button type="button" class="ondoku-curr-tab active" data-ondoku-tab="chujokyu">初中級</button>
+                  <button type="button" class="ondoku-curr-tab" data-ondoku-tab="chuujokyu">中〜上級</button>
+                </div>
+                <div class="ondoku-curr-panel active" id="ondoku-panel-chujokyu">
+                  <div class="ondoku-curr-item">
+                    <div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:10px;"><span class="ondoku-num-badge">① 文型</span><div><div class="ondoku-grammar">-아/어지다</div><div class="ondoku-meaning">形容詞の自然な変化を表す</div></div></div>
+                    <div class="ondoku-example">날씨가 좋아졌어요. ／ 얼굴이 예뻐졌어요.</div>
+                    <div class="ondoku-task">課題：겨울이 가까워지면서 해가 짧아지고 추워졌어요.</div>
+                    <div class="ondoku-pron-tip">🔊 発音ポイント：複合母音・二重バッチム・濃音・激音</div>
+                  </div>
+                  <div class="ondoku-curr-item">
+                    <div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:10px;"><span class="ondoku-num-badge">② 文型</span><div><div class="ondoku-grammar">-(으)ㄹ 줄 알다</div><div class="ondoku-meaning">（習って）できる・方法を知っている</div></div></div>
+                    <div class="ondoku-example">수영할 줄 알아요?</div>
+                    <div class="ondoku-task">課題：한국 사람들은 모두 김치를 담글 줄 알아요?</div>
+                    <div class="ondoku-pron-tip">🔊 発音ポイント：ㄹの発音・連音</div>
+                  </div>
+                  <div class="ondoku-curr-item">
+                    <div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:10px;"><span class="ondoku-num-badge">③ 文型</span><div><div class="ondoku-grammar">-(으)ㄹ 줄 모르다</div><div class="ondoku-meaning">（習って）できない・方法を知らない</div></div></div>
+                    <div class="ondoku-example">저는 영어를 할 줄 몰라요.</div>
+                    <div class="ondoku-task">課題：저는 면허가 없어요. 운전할 줄 모릅니다.</div>
+                    <div class="ondoku-pron-tip">🔊 発音ポイント：ㅎの発音・二重バッチム・鼻音化</div>
+                  </div>
+                </div>
+                <div class="ondoku-curr-panel" id="ondoku-panel-chuujokyu">
+                  <div class="ondoku-curr-item">
+                    <div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:10px;"><span class="ondoku-num-badge">中上級</span><div><div class="ondoku-grammar">中〜上級コース</div><div class="ondoku-meaning">より高度な文型・表現・ニュアンスを扱います</div></div></div>
+                    <div class="ondoku-example">자세な内容はお申込み後にご案内いたします。</div>
+                    <div class="ondoku-task">目安：TOPIK 3〜6級レベルの方に対応しています。</div>
+                    <div style="margin-top:16px;"><a href="https://apps.mirinae.jp/ondoku-chuujokyu.png" target="_blank" rel="noopener"><img src="https://apps.mirinae.jp/ondoku-chuujokyu.png" alt="中級～上級 音読トレーニングの詳細" style="max-width:100%;height:auto;border-radius:8px;"></a></div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- DETAILS -->
+            <section class="ondoku-section">
+              <div class="ondoku-sec-label">DETAILS</div>
+              <div class="ondoku-detail-row"><div class="ondoku-detail-lbl">対象</div><div class="ondoku-detail-val">初中級 ／ 中上級 <span class="ondoku-detail-badge">レベル別に選択可</span></div></div>
+              <div class="ondoku-detail-row"><div class="ondoku-detail-lbl">テキスト</div><div class="ondoku-detail-val">ミリネ独自テキスト（PDF）※事前にメールでお送りします</div></div>
+            </section>
+
+            <!-- まずは体験から -->
+            <div class="ondoku-trial-box">
+              <div class="ondoku-trial-header">まずは体験から!</div>
+              <div class="ondoku-trial-row"><div class="ondoku-trial-lbl">体験申込の締切</div><div class="ondoku-trial-val">〜3月30日(月)</div></div>
+              <div class="ondoku-trial-row"><div class="ondoku-trial-lbl">体験課題送信日</div><div class="ondoku-trial-val">〜3月31日(火)</div></div>
+              <div class="ondoku-trial-row"><div class="ondoku-trial-lbl">体験添削送信日</div><div class="ondoku-trial-val">〜4月2日(木)</div></div>
+              <div class="ondoku-trial-row"><div class="ondoku-trial-lbl">当講座開始日</div><div class="ondoku-trial-val">4月3日(金)〜</div></div>
+              <div class="ondoku-trial-footer">1回お試し　初中級 1,800円 / 中上級 2,300円</div>
+            </div>
+            <!-- 体験申込・講座申込 フォーム（音読） -->
+            <div class="ondoku-trial-form-wrap" id="ondoku-trial-form-section">
+              <div class="ondoku-trial-tabs">
+                <button type="button" class="ondoku-trial-tab active" data-trial-type="trial">体験申込<span class="tab-arrow">▼</span></button>
+                <button type="button" class="ondoku-trial-tab" data-trial-type="course">講座申込<span class="tab-arrow">▼</span></button>
+              </div>
+              <div class="ondoku-trial-form-body">
+                <div id="ondoku-trial-success" class="ondoku-trial-success" style="display:none;">
+                  <p class="title">送信が完了しました</p>
+                  <p class="note">mirinae@kaonnuri.com 宛に送信しました。ご確認の上、ご連絡いたします。</p>
+                </div>
+                <form id="ondoku-trial-form" class="ondoku-trial-form" style="max-width:480px;margin:0 auto;">
+                  <div id="ondoku-trial-error" class="ondoku-trial-error" style="display:none;"></div>
+                  <div class="field">
+                    <label class="field-label">コースレベル<span class="badge-req">必須</span></label>
+                    <select name="courseLevel" required>
+                      <option value="">選択してください</option>
+                      <option value="初中級">初中級</option>
+                      <option value="中〜上級">中〜上級</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label class="field-label">お名前<span class="badge-req">必須</span></label>
+                    <input type="text" name="name" placeholder="例：田中 花子" required>
+                  </div>
+                  <div class="field">
+                    <label class="field-label">ふりがな<span class="badge-req">必須</span></label>
+                    <input type="text" name="furigana" placeholder="例：たなか はなこ" required>
+                  </div>
+                  <div class="field">
+                    <label class="field-label">韓国語レベル<span class="badge-req">必須</span></label>
+                    <select name="koreanLevel" required>
+                      <option value="">選択してください</option>
+                      <option value="初級">初級</option>
+                      <option value="初中級">初中級</option>
+                      <option value="中級">中級</option>
+                      <option value="中上級">中上級</option>
+                      <option value="上級">上級</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label class="field-label">メールアドレス<span class="badge-req">必須</span></label>
+                    <p class="field-note">※携帯メールの場合は設定のパソコン受信設定をご確認ください</p>
+                    <input type="email" name="email" placeholder="example@mail.com" required>
+                  </div>
+                  <div class="field">
+                    <label class="field-label">お問い合わせ<span class="badge-opt">任意</span></label>
+                    <textarea name="inquiry" rows="4" placeholder="ご質問・ご要望などがあればご記入ください"></textarea>
+                  </div>
+                  <button type="submit" class="btn-submit" id="ondoku-trial-submit-btn">送信する →</button>
+                </form>
+              </div>
+            </div>
+
+            <!-- PRICE -->
+            <section class="ondoku-section">
+              <div class="ondoku-sec-label">PRICE</div>
+              <div class="ondoku-price-section">
+                <div class="ondoku-price-header">授業料（税込）</div>
+                <div class="ondoku-price-grid">
+                  <div class="ondoku-price-col"><div class="ondoku-price-lv">初中級</div><div class="ondoku-price-amt">23,980<span>円</span></div><div class="ondoku-price-per">10回 ／ 1回あたり 2,180円</div><div class="ondoku-trial-badge">体験 1,800円</div></div>
+                  <div class="ondoku-price-col"><div class="ondoku-price-lv">中〜上級</div><div class="ondoku-price-amt">29,920<span>円</span></div><div class="ondoku-price-per">10回 ／ 1回あたり 2,720円</div><div class="ondoku-trial-badge">体験 2,300円</div></div>
+                </div>
+              </div>
+            </section>
+
+            <!-- REVIEWS -->
+            <section class="ondoku-section">
+              <div class="ondoku-sec-label">REVIEWS</div>
+              <h3 style="font-size:16px;font-weight:600;color:#1C1C1E;margin-bottom:16px;">生徒の声</h3>
+              <div class="ondoku-review-card"><p>N様 | 2025.3月</p><p>今回の通信講座を受けてみて、自分の発音がどのように聞こえていたか、ハングルで指摘頂くととても分かりやすく、独学では改善できなかった部分を学ぶことができて、本当に良かったです。毎回、丁寧に添削頂き有難うございました。</p></div>
+              <div class="ondoku-review-card"><p>K様 | 2025.3月</p><p>抑揚が分からず、音声のない文章を上手く読めずに悩んでいたので受講しました。自分で気が付かなかった発音のクセも教えていただけました。添削された答案と共に送られてくる抑揚表がとても分かりやすくてよかったです。また、添削返却後の練習で矯正されたか心配だったのですが、受講後にフォローアップもあると知り、早速申し込みました。受講してよかったと思います。</p></div>
+              <div class="ondoku-review-card"><p>K様 | 2023.9月</p><p>毎回、発音だけでなく抑揚やスピード、リズム、流暢性まで丁寧に指導頂けるのは大変貴重な機会でした。ありがとうございました。10回の添削を通して、自分の癖に気づかせて頂きましたが、無意識に出る癖や苦手な部分を克服するのは容易いことではなく、後半になればなるほど逆に意識しすぎてしまい大変苦戦しました。折角ご指導頂いたのに、身につきが悪く、お手数をおかして大変申し訳ございませんでした。ただ、少しずつ5段階評価の5が頂けるようになったのは嬉しかったです。講座が終わっても引き続き意識しながら、一歩ずつ改善していきたいと思います。この度は本当にありがとうございました。</p></div>
+              <details id="ondoku-reviews-more"><summary class="ondoku-more-btn">もっと読む</summary>
+              <div class="ondoku-review-card" style="background:#fffde7;"><p>N様 | 2023.7月</p><p>体験課題の添削ありがとうございました。読めているつもりでも抑揚が不自然だったり、激音じゃないところで激音になっていたりと1人では気付けない指摘をいただいてとても勉強になりました。また模範音声が男性と女性の2パターンあったのが非常に参考になりました。想像以上にとても丁寧な添削だったので継続して講座を受けてみようか対面の教室にしようか締切まで悩んで決めようと考え中です。</p></div>
+              <div class="ondoku-review-card" style="background:#fffde7;"><p>Y様 | 2023.6月</p><p>音読トレーニング、ありがとうございました。私はこれまで、好きな歌の単語や文法を調べたりするくらいの勉強で、聞き取りや発音は全く取り組んでいなかったので、このトレーニングで初めて発音に向き合えて、とてもとても充実した３ヶ月を過ごせました。自分の発音がどう聞こえているのかをひとつひとつ添削して表にしてくれたのがすごくわかりやすかったです。自分の弱点がわかって、意識できるようになりました。</p></div>
+              <div class="ondoku-review-card" style="background:#fffde7;"><p>I様 | 2023.3月</p><p>今回のような課題文を録音して添削して頂くようなトレーニングは初めてだったのですが、とても勉強になって良かったです。録音前に繰り返し声に出して読むことでフレーズも暗記出来るようになりました。抑揚についてのPDFがとても分かりやすかったです。丁寧に添削、アドバイス頂きありがとうございました。音読トレーニングでは、大変お世話になりました。</p></div>
+              <div class="ondoku-review-card" style="background:#fffde7;"><p>H様 | 2023.3月</p><p>毎週音源を送るのは、最初は正直大変でしたが、でも、途中から習慣化されてきて、お陰様で勉強のリズムが掴めたと思います。音読の練習は初めてだったのですが、まだまだできませんが、この勉強は楽しいなと思いました。9回目、10回目は今までの復習なので、それもとても良かったです。自分の苦手な所をチェックして、改めることができました。また、いつもきめ細やかな指導をしていただけるので、それもとても感謝しています。発音は難しいですが、でも、私は声に出して韓国語を読むことが好きという発見もあり、楽しんでトレーニングを行えました。ありがとうございます。</p></div>
+              <div class="ondoku-review-card" style="background:#fffde7;"><p>A様 | 2022.12月</p><p>体験の添削ありがとうございました。ほぼ独学で、読み書きはできても自分の口で正しく発声できてるか、イントネーションが合っているか正解を知りたかったので、私にとってはすごく助かるシステムだと思いました。なかなか習いにはいけないので自分の空いた時間でできるのがありがたいです。添削は細かくそしてとてもわかりやすく、的確に指摘していただけるのにびっくりしました。ありがとうございます。</p></div>
+              <div class="ondoku-review-card" style="background:#fffde7;"><p>C様 | 2022.12月</p><p>音読講座を2クール受講しました。音読を全く習ったことがなかったので、たくさん直していただいて、連音、抑揚などいままで、めちゃめちゃだったことに気付かされました。まだまだ綺麗な発音には遠いですが、普段も意識して読めるようになりました。ありがとうございました!</p></div>
+              <div class="ondoku-review-card" style="background:#fffde7;"><p>T様</p><p>音読講座10回を終えることができました。メールでの音声ファイルや添削ファイルのやり取りで進む講座ですが、とてもコスパの良い講座に感じました。独学の方や日本人講師から韓国語を習っている方で発音が気になる方には是非お勧めしたいです。発音の間違ったところの表や、抑揚表には感激しました。自分では添削ファイル通りの正しい発音を意識しているつもりなのに、そのように聞こえていないということが分かったり、どう発音すれば正しい発音に近づけるかのアドバイスもあったり、自分で気づかなかったクセにも気が付くことができました。この講座のおかげか、苦手だったTOPIKの듣기問題が以前より聞き取れるようになった気がするのも、予想外の収穫でした。10週間お世話になりどうもありがとうございました。</p></div>
+              <div class="ondoku-review-card" style="background:#fffde7;"><p>H様 | 2021.3月</p><p>今まで音読にほとんど力を入れておらず、ヒアリングや文法ばかりしていました。今回、音読のトレーニングを受けて、自分の発音で、どこが間違えやすいのかが、良くわかりました。また、どのように発音すればいいのかも、詳しく教えていただきました。あと抑揚も今まで、ほとんど分からない状態でしたので、とても勉強になりました。想像以上に、とても勉強になりました。他の講義も受けてみたいなと感じました。これからも、自分の音読のレベルをもっと上げていきたいと思います。</p></div>
+              <div class="ondoku-review-card" style="background:#fffde7;"><p>IM様 | 2019</p><p>10回の音読トレーニング、大変お世話になりました。韓国語を学び始めてから数年が経ちますが、くせがつく前に始めるべきだったと後悔しています。それでも、トレーニングを受けてから、文章の見方が変わったのを実感しています。激音、濃音が発生する所や、自分の苦手なㄴ, ㄹ, ㅓを注意して読むようになりました。また、聞き取りも、どの音で発音しているのか、聞き分けることによって、正しい意味が理解できるようになったように思います。より正しい韓国語に近づけるように、これからも頑張っていきたいです。本当にありがとうございました。</p></div>
+              </details>
+            </section>
           </div>
-          <p class="iframe-note">※ 別タブで開きたい場合は、フレーム内のリンクをクリックしてください。</p>
         </div>
       </div>
 
@@ -1182,6 +1919,38 @@
   </footer>
   <script>
 (function(){var y=document.getElementById('footer-year');if(y)y.textContent=new Date().getFullYear();})();
+(function(){
+  var d=document.getElementById('writing-reviews-more');
+  if(d){
+    d.addEventListener('toggle',function(){
+      var s=d.querySelector('summary');
+      if(s)s.textContent=d.open?'閉じる':'もっと読む';
+    });
+  }
+})();
+(function(){
+  var tabs=document.querySelectorAll('#tab02 .ondoku-curr-tab');
+  var panels=document.querySelectorAll('#tab02 .ondoku-curr-panel');
+  tabs.forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var id=btn.getAttribute('data-ondoku-tab');
+      tabs.forEach(function(t){ t.classList.remove('active'); });
+      panels.forEach(function(p){ p.classList.remove('active'); });
+      btn.classList.add('active');
+      var p=document.getElementById('ondoku-panel-'+id);
+      if(p)p.classList.add('active');
+    });
+  });
+})();
+(function(){
+  var d=document.getElementById('ondoku-reviews-more');
+  if(d){
+    d.addEventListener('toggle',function(){
+      var s=d.querySelector('summary');
+      if(s)s.textContent=d.open?'閉じる':'もっと読む';
+    });
+  }
+})();
 </script>
 
   <script>
@@ -1273,6 +2042,135 @@
         var h = location.hash.replace('#', '');
         if (['tab01', 'tab02', 'tab03'].indexOf(h) !== -1) switchTab(h);
       });
+
+      /* 作文 体験申込・講座申込 フォーム */
+      (function () {
+        var formSection = document.getElementById('writing-trial-form-section');
+        if (!formSection) return;
+        var form = document.getElementById('writing-trial-form');
+        var successEl = document.getElementById('writing-trial-success');
+        var errorEl = document.getElementById('writing-trial-error');
+        var submitBtn = document.getElementById('writing-trial-submit-btn');
+        var tabs = formSection.querySelectorAll('.writing-trial-tab');
+        var trialType = 'trial';
+
+        tabs.forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            trialType = btn.getAttribute('data-trial-type');
+            tabs.forEach(function (t) { t.classList.remove('active'); });
+            btn.classList.add('active');
+            errorEl.style.display = 'none';
+            errorEl.textContent = '';
+          });
+        });
+
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          errorEl.style.display = 'none';
+          errorEl.textContent = '';
+          submitBtn.disabled = true;
+          var subjectPrefix = trialType === 'course' ? '講座申込' : '体験申込';
+          var title = trialType === 'trial' ? '体験レッスン' : '講座の申し込み';
+          var fd = new FormData(form);
+          var payload = {
+            _subject: subjectPrefix + '（作文トレーニング）: ' + title,
+            _replyto: fd.get('email') || '',
+            タイトル: title,
+            お名前: fd.get('name') || '',
+            ふりがな: fd.get('furigana') || '',
+            韓国語レベル: fd.get('koreanLevel') || '',
+            メールアドレス: fd.get('email') || '',
+            お問い合わせ: fd.get('inquiry') || ''
+          };
+          fetch('https://formsubmit.co/ajax/mirinae@kaonnuri.com', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+            body: JSON.stringify(payload)
+          })
+            .then(function (res) { return res.json(); })
+            .then(function (data) {
+              if (data.success !== false && data.success !== 'false') {
+                form.style.display = 'none';
+                successEl.style.display = 'block';
+              } else {
+                errorEl.textContent = data.message || data.error || '送信に失敗しました';
+                errorEl.style.display = 'block';
+                submitBtn.disabled = false;
+              }
+            })
+            .catch(function () {
+              errorEl.textContent = '送信に失敗しました';
+              errorEl.style.display = 'block';
+              submitBtn.disabled = false;
+            });
+        });
+      })();
+
+      /* 音読 体験申込・講座申込 フォーム */
+      (function () {
+        var formSection = document.getElementById('ondoku-trial-form-section');
+        if (!formSection) return;
+        var form = document.getElementById('ondoku-trial-form');
+        var successEl = document.getElementById('ondoku-trial-success');
+        var errorEl = document.getElementById('ondoku-trial-error');
+        var submitBtn = document.getElementById('ondoku-trial-submit-btn');
+        var tabs = formSection.querySelectorAll('.ondoku-trial-tab');
+        var trialType = 'trial';
+
+        tabs.forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            trialType = btn.getAttribute('data-trial-type');
+            tabs.forEach(function (t) { t.classList.remove('active'); });
+            btn.classList.add('active');
+            errorEl.style.display = 'none';
+            errorEl.textContent = '';
+          });
+        });
+
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          errorEl.style.display = 'none';
+          errorEl.textContent = '';
+          submitBtn.disabled = true;
+          var subjectPrefix = trialType === 'course' ? '講座申込' : '体験申込';
+          var title = trialType === 'trial' ? '体験レッスン' : '講座の申し込み';
+          var fd = new FormData(form);
+          var courseLevel = fd.get('courseLevel') || '';
+          var levelLabel = courseLevel === '中〜上級' ? '中上級' : courseLevel;
+          var payload = {
+            _subject: subjectPrefix + '（音読トレーニング）: ' + levelLabel,
+            _replyto: fd.get('email') || '',
+            タイトル: title,
+            コースレベル: fd.get('courseLevel') || '',
+            お名前: fd.get('name') || '',
+            ふりがな: fd.get('furigana') || '',
+            韓国語レベル: fd.get('koreanLevel') || '',
+            メールアドレス: fd.get('email') || '',
+            お問い合わせ: fd.get('inquiry') || ''
+          };
+          fetch('https://formsubmit.co/ajax/mirinae@kaonnuri.com', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+            body: JSON.stringify(payload)
+          })
+            .then(function (res) { return res.json(); })
+            .then(function (data) {
+              if (data.success !== false && data.success !== 'false') {
+                form.style.display = 'none';
+                successEl.style.display = 'block';
+              } else {
+                errorEl.textContent = data.message || data.error || '送信に失敗しました';
+                errorEl.style.display = 'block';
+                submitBtn.disabled = false;
+              }
+            })
+            .catch(function () {
+              errorEl.textContent = '送信に失敗しました';
+              errorEl.style.display = 'block';
+              submitBtn.disabled = false;
+            });
+        });
+      })();
     })();
   </script>
   <script src="/admin-badge.js"></script>

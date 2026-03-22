@@ -1,0 +1,1282 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>通信講座｜ミリネ韓国語教室</title>
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mirinae.jp/netlesson">
+  <meta property="og:title" content="通信講座｜ミリネ韓国語教室">
+  <meta property="og:description" content="「話せる」を、ここで実現する。経験豊富な講師陣と、個人に合わせた多彩な講座であなたの韓国語を、確実に伸ばします。">
+  <meta property="og:image" content="https://mirinae.jp/favicon-64.png">
+  <meta property="og:site_name" content="ミリネ韓国語教室">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:image" content="https://mirinae.jp/favicon-64.png">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","@id":"https://mirinae.jp/#organization","name":"ミリネ韓国語教室","priceRange":"¥2180-¥4900","image":"https://mirinae.jp/images/logo.png","url":"https://mirinae.jp","telephone":"+81-3-5925-8245","address":{"@type":"PostalAddress","streetAddress":"新宿2-8-1 新宿セブンビル606号","addressLocality":"Shinjuku-ku","addressRegion":"Tokyo","postalCode":"160-0022","addressCountry":"JP"},"geo":{"@type":"GeoCoordinates","latitude":"35.689617","longitude":"139.709322"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"10:00","closes":"21:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"10:00","closes":"18:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Sunday","opens":"10:00","closes":"17:00"}],"aggregateRating":{"@type":"AggregateRating","ratingValue":"5.0","reviewCount":"2","bestRating":"5","worstRating":"1"},"sameAs":["https://www.youtube.com/@ミリネ韓国語教室","https://x.com/mirinaejp","https://x.com/Mirinae_Jp","https://www.threads.net/@mirinaejp","https://www.instagram.com/mirinaejp/"]}</script>
+  <link rel="icon" href="/favicon-64.png" type="image/png">
+  <link rel="canonical" href="https://mirinae.jp/netlesson.html" />
+  <link rel="stylesheet" href="/css/mobile-overflow.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --beige: #f5f0e8;
+      --taupe: #BD9962;
+      --gold: #B8963E;
+      --gold-light: #e8d5b0;
+      --gold-pale: #f7f0e3;
+      --dark: #1C1C1E;
+      --white: #FFFFFF;
+      --gray-light: #f8f8f8;
+      --gray-border: #E5E0D8;
+      --text-dark: #2c2c2c;
+      --text-muted: #8E8E93;
+      --mid: #4a4438;
+      --muted: #8E8E93;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { overflow-x: hidden; max-width: 100vw; }
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      color: var(--text-dark);
+      line-height: 1.8;
+      background: #FAFAF7;
+      overflow-x: hidden;
+      max-width: 100vw;
+    }
+
+    .page-wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+      min-height: 100vh;
+    }
+
+    nav {
+      background: var(--white);
+      border-bottom: 1px solid var(--gray-border);
+      padding: 0 48px;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      height: 56px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav a { text-decoration: none; color: var(--mid); font-size: 13px; letter-spacing: 0.05em; transition: color .2s; }
+    nav a:hover { color: var(--gold); }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px;
+      color: var(--dark);
+      letter-spacing: 0.1em;
+      margin-right: auto;
+      white-space: nowrap;
+    }
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 44px;
+      height: 44px;
+      padding: 10px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 101;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--dark);
+      transition: transform .25s, opacity .25s;
+    }
+    nav.nav-open .nav-hamburger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    nav.nav-open .nav-hamburger span:nth-child(2) { opacity: 0; }
+    nav.nav-open .nav-hamburger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .nav-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      z-index: 99;
+      opacity: 0;
+      transition: opacity .3s;
+      pointer-events: none;
+    }
+    @media (max-width: 900px) {
+      .nav-overlay { display: block; }
+      nav.nav-open .nav-overlay { opacity: 1; pointer-events: auto; }
+    }
+    .nav-links { display: flex; align-items: center; gap: 2px; list-style: none; margin: 0; padding: 0; }
+    .nav-links > li { position: relative; }
+    .nav-links > li.nav-has-dropdown::after { content: ''; position: absolute; top: 100%; left: 0; right: 0; height: 14px; }
+    .nav-links a {
+      display: block;
+      padding: 8px 12px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--mid);
+      text-decoration: none;
+      border-radius: 6px;
+      transition: background .15s, color .15s;
+      white-space: nowrap;
+    }
+    .nav-links > li > a:hover { background: var(--gold-pale); color: var(--gold); }
+    .nav-cta { background: var(--gold) !important; color: white !important; border-radius: 6px !important; font-weight: 700 !important; padding: 8px 16px !important; }
+    .nav-cta:hover { background: var(--gold-light) !important; color: white !important; }
+    .nav-dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 180px;
+      background: var(--white);
+      border-radius: 8px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+      padding: 8px 0;
+      list-style: none;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity .2s, visibility .15s;
+      z-index: 9999;
+      margin-top: 0;
+      border: 1px solid var(--gray-border);
+      pointer-events: none;
+    }
+    .nav-links > li:hover .nav-dropdown { opacity: 1; visibility: visible; pointer-events: auto; }
+    .nav-dropdown a { padding: 10px 20px; font-size: 13px; border-radius: 0; white-space: nowrap; }
+    .nav-dropdown a:hover { background: var(--gold-pale); color: var(--gold); }
+
+    .hero {
+      background: var(--white);
+      padding: 72px 80px 64px;
+      border-bottom: 1px solid var(--gray-border);
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+    .hero::after {
+      content: "통신강좌";
+      position: absolute;
+      right: 48px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 120px;
+      font-weight: 700;
+      color: rgba(184,146,62,0.06);
+      pointer-events: none;
+      user-select: none;
+      white-space: nowrap;
+    }
+    .hero-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+      font-weight: 500;
+    }
+    .hero h1 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      line-height: 1.3;
+      margin-bottom: 16px;
+    }
+    .hero p { color: var(--muted); font-size: 14px; letter-spacing: 0.05em; }
+
+    .tabs-bar {
+      background: var(--white);
+      border-bottom: 1px solid var(--gray-border);
+      padding: 0 80px;
+      display: flex;
+      gap: 0;
+      justify-content: center;
+    }
+    .tab-btn {
+      padding: 16px 28px;
+      font-size: 13px;
+      color: var(--muted);
+      cursor: pointer;
+      border: none;
+      border-bottom: 2px solid transparent;
+      background: none;
+      transition: all .2s;
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+      user-select: none;
+      font-family: inherit;
+    }
+    .tab-btn.active { color: var(--gold); border-bottom-color: var(--gold); font-weight: 500; }
+    .tab-btn:hover:not(.active) { color: var(--mid); }
+
+    .main-content { padding: 0 24px 80px; }
+
+    .tab-panel { display: none; padding-top: 32px; }
+    .tab-panel.active { display: block; }
+
+    .group-main-grid {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 32px;
+      align-items: start;
+    }
+    @media (max-width: 900px) {
+      .group-main-grid { grid-template-columns: 1fr; }
+      .group-main-grid .sidebar { display: none; }
+      nav { padding: 0 16px; }
+      .nav-hamburger { display: flex; margin-left: auto; }
+      .nav-links {
+        position: fixed;
+        top: 0; right: 0;
+        width: min(320px, 85vw);
+        height: 100vh;
+        background: var(--white);
+        flex-direction: column;
+        align-items: stretch;
+        padding: 72px 24px 24px;
+        box-shadow: -4px 0 24px rgba(0,0,0,0.12);
+        overflow-y: auto;
+        transform: translateX(100%);
+        transition: transform .3s ease;
+        z-index: 100;
+      }
+      nav.nav-open .nav-links { transform: translateX(0); }
+      .nav-links > li.nav-has-dropdown .nav-dropdown {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        box-shadow: none;
+        border: none;
+        padding: 0 0 0 16px;
+        margin-top: 4px;
+        display: block;
+      }
+      .nav-links > li.nav-has-dropdown::after { display: none; }
+      .nav-links > li { border-bottom: 1px solid var(--gray-border); }
+      .nav-links > li > a, .nav-links .nav-dropdown a { padding: 14px 0; }
+      .nav-logo { font-size: 14px; margin-right: 0; flex-shrink: 0; white-space: nowrap; }
+      .hero { padding: 40px 16px 32px; }
+      .hero::after { display: none; }
+      .tabs-bar { padding: 0 12px; overflow-x: auto; -webkit-overflow-scrolling: touch; justify-content: space-between; flex-wrap: nowrap; }
+      .tabs-bar .tab-btn { flex: 1 1 0; min-width: 0; padding: 12px 2px; font-size: 11px; text-align: center; }
+      .main-content { padding: 24px 16px 80px; }
+    }
+    @media (max-width: 600px) {
+      nav { padding: 0 12px; }
+      .nav-logo { font-size: 13px; white-space: nowrap; }
+      .hero { padding: 32px 12px 24px; }
+      .tabs-bar { padding: 0 8px; }
+      .tabs-bar .tab-btn { padding: 10px 1px; font-size: 10px; }
+      .main-content { padding: 20px 12px 80px; }
+    }
+    .group-left { min-width: 0; }
+    .sidebar {
+      position: sticky;
+      top: 80px;
+      padding-top: 32px;
+    }
+    .sidebar-promo-card {
+      margin-bottom: 20px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      border: 2px solid #000;
+      display: block;
+      text-decoration: none;
+      background: var(--dark);
+      aspect-ratio: 1;
+      background-size: cover;
+      background-position: center;
+    }
+    .sidebar-promo-card:hover { opacity: 0.95; }
+    .course-nav-card.courses-nav-box {
+      background: var(--white);
+      border: 1px solid var(--gray-border);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+    .courses-nav-header {
+      background: var(--gold);
+      padding: 20px 18px;
+      color: var(--white);
+    }
+    .courses-nav-header .courses-nav-label {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 4px;
+    }
+    .courses-nav-header .courses-nav-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 18px;
+      font-weight: 600;
+    }
+    .courses-nav { padding: 4px 0; }
+    .courses-nav .nav-group-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 14px;
+      color: var(--mid);
+      font-size: 12px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+    .courses-nav .nav-group-title:hover { background: var(--gold-pale); color: var(--gold); }
+    .courses-nav .nav-group.open .nav-group-title { color: var(--gold); }
+    .courses-nav .nav-chevron {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: 1px solid var(--gray-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 7px;
+      color: var(--text-muted);
+      transition: transform 0.25s ease;
+      flex-shrink: 0;
+    }
+    .courses-nav .nav-group.open .nav-chevron {
+      transform: rotate(180deg);
+      border-color: var(--gold);
+      background: var(--gold-pale);
+      color: var(--gold);
+    }
+    .courses-nav .nav-items {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.28s ease;
+      overflow: hidden;
+    }
+    .courses-nav .nav-group.open .nav-items { grid-template-rows: 1fr; }
+    .courses-nav .nav-items-inner {
+      overflow: hidden;
+      background: var(--gold-pale);
+      border-top: 1px solid rgba(184,146,62,0.2);
+    }
+    .courses-nav .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px 8px 18px;
+      font-size: 12px;
+      color: var(--mid);
+      text-decoration: none;
+      transition: color 0.15s, background 0.15s;
+      border-left: 2px solid transparent;
+    }
+    .courses-nav .nav-item::before {
+      content: '';
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--gray-border);
+      flex-shrink: 0;
+      transition: background 0.15s, transform 0.15s;
+    }
+    .courses-nav .nav-item:hover::before { background: var(--gold); transform: scale(1.4); }
+    .courses-nav .nav-item.active::before { background: var(--gold); transform: scale(1.5); }
+    .courses-nav .nav-item:hover {
+      color: var(--gold);
+      background: rgba(255,255,255,0.6);
+      border-left-color: var(--gold);
+    }
+    .courses-nav .nav-item.active {
+      color: var(--gold);
+      border-left-color: var(--gold);
+      background: rgba(255,255,255,0.6);
+      font-weight: 500;
+    }
+    .courses-nav .nav-divider {
+      height: 1px;
+      background: var(--gray-border);
+      margin: 0;
+    }
+
+    .section-header {
+      background: var(--taupe);
+      color: white;
+      padding: 16px 24px;
+      font-size: 18px;
+      font-weight: 600;
+      border-radius: 8px 8px 0 0;
+      margin-bottom: 0;
+    }
+
+    .iframe-card {
+      border-radius: 0 0 8px 8px;
+      border: 1px solid var(--gray-border);
+      border-top: none;
+      background: var(--white);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+      padding: 18px 20px 24px;
+    }
+
+    .form-note {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .iframe-wrap {
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--gray-border);
+      background: #f5f5f5;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.6);
+      margin-bottom: 12px;
+    }
+    .iframe-frame {
+      display: block;
+      width: 100%;
+      height: 1400px;
+      border: 0;
+      background: white;
+    }
+    @media (max-width: 720px) {
+      .iframe-frame {
+        height: 1500px;
+      }
+    }
+    /* モバイル: iframe幅を広げる（個人レッスン生徒の声と同程度の余白に） */
+    @media (max-width: 900px) {
+      #tab01 .iframe-card,
+      #tab02 .iframe-card {
+        margin-left: -12px;
+        margin-right: -12px;
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+    }
+    @media (max-width: 600px) {
+      #tab01 .iframe-card,
+      #tab02 .iframe-card {
+        margin-left: -8px;
+        margin-right: -8px;
+        padding-left: 8px;
+        padding-right: 8px;
+      }
+    }
+
+    .iframe-note {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* ═══ TOPIK作文 tab03 embedded styles ═══ */
+    #tab03 .topik-embed {
+      --topik-navy: #0e1c38;
+      --topik-navy-mid: #1a3060;
+      --topik-gold: #c8911e;
+      --topik-gold-lt: #e8b84b;
+      --topik-gold-pale: #fdf5e4;
+      --topik-cream: #faf7f0;
+      --topik-cream-dk: #f0ebe0;
+      --topik-text: #1a1a2a;
+      --topik-text-mid: #4a4438;
+      --topik-muted: #9a9080;
+      --topik-border: rgba(200,145,30,0.18);
+      --topik-red: #c0392b;
+      --topik-red-lt: #e05a4a;
+      --topik-red-pale: #fdf1f0;
+      --topik-ink: #1a1225;
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+    #tab03 .topik-hero {
+      background: linear-gradient(145deg, #2a1e06 0%, #3d2a08 25%, #1e1508 60%, #0e1c38 100%);
+      position: relative; overflow: hidden;
+      padding: 88px 48px 0; margin: 0 0 24px 0;
+      border-radius: 20px;
+    }
+    #tab03 .topik-hero-lines {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 60% -10%, rgba(232,184,75,.28) 0%, transparent 55%),
+        radial-gradient(ellipse 50% 40% at 100% 60%, rgba(200,145,30,.18) 0%, transparent 50%),
+        radial-gradient(ellipse 40% 50% at 0% 80%, rgba(232,184,75,.1) 0%, transparent 50%);
+    }
+    #tab03 .topik-hero::before {
+      content: ''; position: absolute; inset: 0;
+      background-image: repeating-linear-gradient(-45deg, transparent 0, transparent 28px, rgba(200,145,30,.06) 28px, rgba(200,145,30,.06) 29px);
+    }
+    #tab03 .topik-hero-redline {
+      position: absolute; left: 44px; top: 0; bottom: 0; width: 2px;
+      background: linear-gradient(to bottom, transparent, rgba(232,184,75,.5) 30%, rgba(200,145,30,.8) 60%, transparent);
+    }
+    #tab03 .topik-hero-kr {
+      position: absolute; right: 40px; bottom: -20px;
+      font-family: 'Noto Serif JP', serif; font-size: 150px; font-weight: 600;
+      color: rgba(232,184,75,.06); letter-spacing: -4px; pointer-events: none; white-space: nowrap; line-height: 1;
+    }
+    #tab03 .topik-hero-inner { position: relative; z-index: 1; max-width: 1080px; margin: 0 auto; padding-bottom: 0; }
+    #tab03 .topik-breadcrumb { font-size: 11px; color: rgba(232,184,75,.4); letter-spacing: .08em; margin-bottom: 28px; display: flex; align-items: center; gap: 8px; }
+    #tab03 .topik-breadcrumb span { color: rgba(232,184,75,.2); }
+    #tab03 .topik-hero-top { display: grid; grid-template-columns: 1fr 260px; gap: 56px; align-items: start; padding-bottom: 64px; }
+    #tab03 .topik-hero-eyebrow { font-family: 'Bebas Neue', sans-serif; font-size: 12px; letter-spacing: .4em; color: var(--topik-gold-lt); display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+    #tab03 .topik-hero-eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--topik-gold); }
+    #tab03 .topik-hero-badge {
+      display: inline-flex; align-items: center; gap: 8px; margin-bottom: 16px;
+      background: rgba(200,145,30,.15); border: 1px solid rgba(200,145,30,.35);
+      color: var(--topik-gold-lt); font-size: 12px; letter-spacing: .05em;
+      padding: 6px 16px; border-radius: 100px; font-family: 'Bebas Neue', sans-serif;
+    }
+    #tab03 .topik-hero-title { font-family: 'Noto Serif JP', serif; font-size: clamp(26px,3.8vw,50px); color: #fff; line-height: 1.2; margin-bottom: 12px; font-weight: 400; }
+    #tab03 .topik-hero-title em { color: var(--topik-gold-lt); font-style: italic; }
+    #tab03 .topik-hero-catch { font-size: 14px; color: rgba(255,255,255,.55); line-height: 1.9; margin-bottom: 32px; max-width: 500px; }
+    #tab03 .topik-hero-chips { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 36px; }
+    #tab03 .topik-chip { display: inline-flex; align-items: center; gap: 6px; background: rgba(200,145,30,.1); border: 1px solid rgba(200,145,30,.22); border-radius: 100px; padding: 7px 16px; font-size: 12px; color: rgba(255,255,255,.75); letter-spacing: .04em; }
+    #tab03 .topik-hero-btns { display: flex; gap: 16px; align-items: center; }
+    #tab03 .topik-btn-primary { display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, var(--topik-gold), var(--topik-gold-lt)); color: var(--topik-navy); font-family: 'Noto Serif JP', serif; font-size: 15px; font-weight: 600; padding: 15px 36px; border-radius: 100px; text-decoration: none; letter-spacing: .05em; transition: all .25s; box-shadow: 0 4px 20px rgba(200,145,30,.4); }
+    #tab03 .topik-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(200,145,30,.55); }
+    #tab03 .topik-btn-ghost { color: rgba(232,184,75,.6); font-size: 13px; text-decoration: none; border-bottom: 1px solid rgba(232,184,75,.3); padding-bottom: 2px; transition: all .2s; }
+    #tab03 .topik-btn-ghost:hover { color: var(--topik-gold-lt); border-color: var(--topik-gold-lt); }
+    #tab03 .topik-hero-price-card {
+      background: rgba(200,145,30,.08); border: 1px solid rgba(200,145,30,.3);
+      border-radius: 20px; padding: 28px 24px; position: relative; overflow: hidden; backdrop-filter: blur(2px);
+    }
+    #tab03 .topik-hero-price-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--topik-gold), var(--topik-gold-lt)); }
+    #tab03 .topik-hpc-ey { font-family: 'Bebas Neue', sans-serif; font-size: 10px; letter-spacing: .3em; color: var(--topik-gold); margin-bottom: 8px; }
+    #tab03 .topik-hpc-name { font-family: 'Noto Serif JP', serif; font-size: 14px; color: rgba(255,255,255,.7); margin-bottom: 18px; line-height: 1.5; }
+    #tab03 .topik-hpc-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+    #tab03 .topik-hpc-row .k { font-size: 11px; color: rgba(255,255,255,.35); }
+    #tab03 .topik-hpc-row .v { font-family: 'Cormorant Garamond', serif; font-size: 18px; color: rgba(255,255,255,.75); }
+    #tab03 .topik-hpc-total { display: flex; justify-content: space-between; align-items: baseline; padding-top: 14px; margin-top: 6px; border-top: 1px solid rgba(200,145,30,.25); }
+    #tab03 .topik-hpc-total .tl { font-size: 11px; color: rgba(255,255,255,.35); }
+    #tab03 .topik-hpc-total .tv { font-family: 'Cormorant Garamond', serif; font-size: 32px; color: var(--topik-gold-lt); }
+    #tab03 .topik-hpc-note { font-size: 10.5px; color: rgba(232,184,75,.35); line-height: 1.7; margin-top: 12px; }
+    #tab03 .topik-section { padding: 72px 48px; }
+    #tab03 .topik-section-inner { max-width: 1080px; margin: 0 auto; }
+    #tab03 .topik-sec-ey { font-family: 'Bebas Neue', sans-serif; font-size: 11px; letter-spacing: .4em; color: var(--topik-gold); display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+    #tab03 .topik-sec-ey::after { content: ''; width: 48px; height: 1px; background: var(--topik-gold); opacity: .5; }
+    #tab03 .topik-sec-title { font-family: 'Noto Serif JP', serif; font-size: clamp(22px,3vw,32px); color: var(--topik-text); margin-bottom: 6px; font-weight: 400; line-height: 1.4; }
+    #tab03 .topik-sec-desc { font-size: 13px; color: var(--topik-muted); line-height: 1.9; max-width: 580px; }
+    #tab03 .topik-about-section { background: #fff; }
+    #tab03 .topik-about-grid { display: flex; flex-direction: column; gap: 28px; margin-top: 40px; }
+    #tab03 .topik-about-lead {
+      background: linear-gradient(135deg, var(--topik-red-pale), rgba(253,241,240,.3));
+      border: 1px solid rgba(192,57,43,.15); border-radius: 18px;
+      padding: 32px 36px; position: relative; overflow: hidden;
+    }
+    #tab03 .topik-about-lead::before { content: '쓰기'; position: absolute; right: 28px; bottom: -16px; font-family: 'Noto Serif JP', serif; font-size: 110px; font-weight: 600; color: rgba(192,57,43,.05); pointer-events: none; }
+    #tab03 .topik-about-lead p { font-family: 'Noto Serif JP', serif; font-size: 16px; color: var(--topik-text); line-height: 2; position: relative; z-index: 1; }
+    #tab03 .topik-about-lead strong { color: var(--topik-red); }
+    #tab03 .topik-detail-table { background: var(--topik-cream); border: 1px solid var(--topik-border); border-radius: 18px; overflow: hidden; }
+    #tab03 .topik-dt-row { display: grid; grid-template-columns: 100px 1fr; border-bottom: 1px solid rgba(200,145,30,.1); }
+    #tab03 .topik-dt-row:last-child { border-bottom: none; }
+    #tab03 .topik-dt-lbl { padding: 18px 20px; background: rgba(14,28,56,.04); border-right: 1px solid rgba(200,145,30,.1); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; text-align: center; }
+    #tab03 .topik-dt-lbl-icon { font-size: 16px; }
+    #tab03 .topik-dt-lbl-text { font-family: 'Noto Serif JP', serif; font-size: 11px; color: var(--topik-navy); font-weight: 600; letter-spacing: .04em; }
+    #tab03 .topik-dt-val { padding: 18px 24px; font-size: 13px; color: var(--topik-text-mid); line-height: 1.85; }
+    #tab03 .topik-dt-val a { color: var(--topik-red); text-decoration: none; border-bottom: 1px solid rgba(192,57,43,.25); }
+    #tab03 .topik-flow-highlight { background: var(--topik-red-pale); border: 1px solid rgba(192,57,43,.15); border-radius: 10px; padding: 12px 16px; font-size: 12px; color: var(--topik-red); line-height: 1.75; margin-top: 8px; }
+    #tab03 .topik-features-section { background: var(--topik-cream); }
+    #tab03 .topik-steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 40px; }
+    #tab03 .topik-step-card {
+      background: #fff; border: 1px solid var(--topik-border); border-radius: 18px;
+      padding: 24px 20px; position: relative; overflow: hidden;
+      transition: transform .28s, box-shadow .28s;
+    }
+    #tab03 .topik-step-card:hover { transform: translateY(-4px); box-shadow: 0 14px 40px rgba(14,28,56,.09); }
+    #tab03 .topik-step-card::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--topik-red), var(--topik-red-lt)); }
+    #tab03 .topik-step-num { font-family: 'Bebas Neue', sans-serif; font-size: 10px; letter-spacing: .3em; color: var(--topik-red); margin-bottom: 12px; }
+    #tab03 .topik-step-icon { width: 48px; height: 48px; border-radius: 12px; background: linear-gradient(135deg, var(--topik-red), var(--topik-red-lt)); display: flex; align-items: center; justify-content: center; font-size: 20px; margin-bottom: 14px; box-shadow: 0 4px 14px rgba(192,57,43,.25); }
+    #tab03 .topik-step-card h3 { font-family: 'Noto Serif JP', serif; font-size: 14px; font-weight: 600; color: var(--topik-text); margin-bottom: 8px; line-height: 1.5; }
+    #tab03 .topik-step-card p { font-size: 12px; color: var(--topik-text-mid); line-height: 1.85; }
+    #tab03 .topik-steps-row2 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 16px; }
+    #tab03 .topik-sample-section { background: #fff; }
+    #tab03 .topik-sample-wrap {
+      margin-top: 40px;
+      background: linear-gradient(145deg, #2a1e06 0%, #1e1508 100%);
+      border: 1px solid rgba(200,145,30,.3); border-radius: 20px; overflow: hidden;
+      box-shadow: 0 8px 40px rgba(0,0,0,.18), inset 0 1px 0 rgba(232,184,75,.12);
+    }
+    #tab03 .topik-sample-head {
+      background: linear-gradient(135deg, rgba(200,145,30,.18), rgba(200,145,30,.05));
+      border-bottom: 1px solid rgba(200,145,30,.18);
+      padding: 20px 32px; display: flex; align-items: center; gap: 12px;
+    }
+    #tab03 .topik-sample-head-badge { background: rgba(200,145,30,.2); border: 1px solid rgba(232,184,75,.35); color: var(--topik-gold-lt); font-family: 'Bebas Neue', sans-serif; font-size: 10px; letter-spacing: .3em; padding: 4px 12px; border-radius: 100px; }
+    #tab03 .topik-sample-head-title { font-family: 'Noto Serif JP', serif; font-size: 14px; color: rgba(255,255,255,.6); }
+    #tab03 .topik-sample-note { padding: 12px 32px; background: rgba(200,145,30,.06); border-bottom: 1px solid rgba(200,145,30,.12); font-size: 12px; color: rgba(232,184,75,.5); line-height: 1.7; }
+    #tab03 .topik-sample-body { padding: 28px 32px; }
+    #tab03 .topik-sample-theme { margin-bottom: 24px; }
+    #tab03 .topik-sample-theme-label { font-family: 'Bebas Neue', sans-serif; font-size: 10px; letter-spacing: .3em; color: var(--topik-gold); margin-bottom: 8px; }
+    #tab03 .topik-sample-theme-text { font-family: 'Noto Serif JP', serif; font-size: 15px; color: rgba(255,255,255,.8); line-height: 1.85; padding: 20px 24px; background: rgba(200,145,30,.06); border: 1px solid rgba(200,145,30,.18); border-radius: 12px; }
+    #tab03 .topik-sample-qs { display: flex; flex-direction: column; gap: 10px; }
+    #tab03 .topik-sample-q { display: flex; align-items: flex-start; gap: 12px; background: rgba(200,145,30,.08); border: 1px solid rgba(200,145,30,.18); border-radius: 10px; padding: 14px 18px; }
+    #tab03 .topik-sq-num { width: 26px; height: 26px; border-radius: 50%; flex-shrink: 0; background: linear-gradient(135deg, var(--topik-gold), var(--topik-gold-lt)); color: var(--topik-navy); font-family: 'Bebas Neue', sans-serif; font-size: 12px; display: flex; align-items: center; justify-content: center; }
+    #tab03 .topik-sq-text { font-size: 13px; color: rgba(255,255,255,.7); line-height: 1.7; padding-top: 3px; }
+    #tab03 .topik-price-section { background: var(--topik-cream); }
+    #tab03 .topik-price-card {
+      margin-top: 40px;
+      background: linear-gradient(145deg, #2a1e06 0%, #1e1508 100%);
+      border: 1px solid rgba(200,145,30,.3); border-radius: 20px; overflow: hidden;
+      display: grid; grid-template-columns: 1fr 1fr;
+      box-shadow: 0 8px 40px rgba(0,0,0,.18), inset 0 1px 0 rgba(232,184,75,.12);
+    }
+    #tab03 .topik-pc-left { background: linear-gradient(145deg, rgba(200,145,30,.15) 0%, rgba(200,145,30,.05) 100%); border-right: 1px solid rgba(200,145,30,.18); padding: 40px; position: relative; overflow: hidden; }
+    #tab03 .topik-pc-left::before { content: '₩'; position: absolute; right: -10px; bottom: -20px; font-size: 160px; color: rgba(200,145,30,.06); font-family: 'Cormorant Garamond', serif; }
+    #tab03 .topik-pc-ey { font-family: 'Bebas Neue', sans-serif; font-size: 10px; letter-spacing: .35em; color: var(--topik-gold); margin-bottom: 10px; }
+    #tab03 .topik-pc-name { font-family: 'Noto Serif JP', serif; font-size: 20px; color: rgba(255,255,255,.9); margin-bottom: 24px; line-height: 1.4; font-weight: 400; }
+    #tab03 .topik-pc-rows { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
+    #tab03 .topik-pc-row { display: flex; justify-content: space-between; align-items: baseline; }
+    #tab03 .topik-pc-row .k { font-size: 11px; color: rgba(255,255,255,.35); }
+    #tab03 .topik-pc-row .v { font-family: 'Cormorant Garamond', serif; font-size: 22px; color: rgba(255,255,255,.8); }
+    #tab03 .topik-pc-row .v small { font-size: 12px; font-family: 'Noto Sans JP', sans-serif; color: rgba(255,255,255,.4); }
+    #tab03 .topik-pc-total { display: flex; justify-content: space-between; align-items: baseline; padding-top: 16px; border-top: 1px solid rgba(200,145,30,.25); }
+    #tab03 .topik-pc-total .tl { font-size: 11px; color: rgba(255,255,255,.35); }
+    #tab03 .topik-pc-total .tv { font-family: 'Cormorant Garamond', serif; font-size: 40px; color: var(--topik-gold-lt); }
+    #tab03 .topik-pc-right { padding: 40px; display: flex; flex-direction: column; justify-content: center; gap: 16px; background: rgba(255,255,255,.03); }
+    #tab03 .topik-pc-right-title { font-family: 'Noto Serif JP', serif; font-size: 16px; color: rgba(255,255,255,.85); margin-bottom: 4px; font-weight: 600; }
+    #tab03 .topik-pc-note { font-size: 12.5px; color: rgba(255,255,255,.65); line-height: 1.9; background: rgba(200,145,30,.1); border: 1px solid rgba(200,145,30,.22); border-radius: 12px; padding: 16px 18px; }
+    #tab03 .topik-deadline-pill { display: inline-flex; align-items: center; gap: 6px; background: rgba(200,145,30,.12); border: 1px solid rgba(200,145,30,.3); color: var(--topik-gold-lt); font-size: 12px; border-radius: 100px; padding: 7px 16px; }
+    #tab03 .topik-pc-cta { display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, var(--topik-gold), var(--topik-gold-lt)); color: var(--topik-navy); font-family: 'Noto Serif JP', serif; font-size: 15px; font-weight: 700; padding: 15px 32px; border-radius: 100px; text-decoration: none; letter-spacing: .04em; transition: all .25s; box-shadow: 0 4px 20px rgba(200,145,30,.4); text-align: center; justify-content: center; }
+    #tab03 .topik-pc-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(200,145,30,.55); }
+    #tab03 .topik-cta-section { background: linear-gradient(150deg, #2a1e06 0%, #1a1200 50%, #0e1c38 100%); padding: 88px 48px; text-align: center; position: relative; overflow: hidden; border-radius: 20px; }
+    #tab03 .topik-cta-section::before { content: '作文'; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); font-family: 'Noto Serif JP', serif; font-size: 260px; font-weight: 600; color: rgba(200,145,30,.05); pointer-events: none; }
+    #tab03 .topik-cta-section::after { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 70% at 50% 0%, rgba(232,184,75,.12) 0%, transparent 55%); pointer-events: none; }
+    #tab03 .topik-cta-inner { position: relative; z-index: 1; }
+    #tab03 .topik-cta-inner h2 { font-family: 'Noto Serif JP', serif; font-size: clamp(24px,3.8vw,46px); color: #fff; margin-bottom: 12px; line-height: 1.3; font-weight: 400; }
+    #tab03 .topik-cta-inner h2 em { color: var(--topik-gold-lt); font-style: italic; }
+    #tab03 .topik-cta-inner p { font-size: 14px; color: rgba(255,255,255,.4); margin-bottom: 36px; line-height: 1.9; }
+    #tab03 .topik-cta-apply { display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(135deg, var(--topik-gold), var(--topik-gold-lt)); color: var(--topik-navy); font-family: 'Noto Serif JP', serif; font-size: 16px; font-weight: 700; padding: 18px 52px; border-radius: 100px; text-decoration: none; letter-spacing: .05em; transition: all .25s; box-shadow: 0 4px 28px rgba(200,145,30,.4); }
+    #tab03 .topik-cta-apply:hover { transform: translateY(-3px); box-shadow: 0 10px 40px rgba(200,145,30,.6); }
+    #tab03 .topik-test-section { background: var(--topik-cream-dk); }
+    #tab03 .topik-year-group { margin-bottom: 40px; }
+    #tab03 .topik-year-group:last-child { margin-bottom: 0; }
+    #tab03 .topik-year-label { display: flex; align-items: center; gap: 16px; margin-bottom: 18px; }
+    #tab03 .topik-year-label .topik-yr { font-family: 'Cormorant Garamond', serif; font-size: 22px; color: var(--topik-navy); }
+    #tab03 .topik-year-label::after { content: ''; flex: 1; height: 1px; background: var(--topik-border); }
+    #tab03 .topik-test-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    #tab03 .topik-test-card { background: #fff; border: 1px solid var(--topik-border); border-left: 3px solid rgba(192,57,43,.3); border-radius: 16px; padding: 28px; position: relative; overflow: hidden; transition: transform .25s, box-shadow .25s; }
+    #tab03 .topik-test-card:hover { transform: translateY(-3px); box-shadow: 0 10px 32px rgba(14,28,56,.08); }
+    #tab03 .topik-test-card::before { content: '\201C'; position: absolute; top: 12px; left: 20px; font-family: 'Cormorant Garamond', serif; font-size: 64px; color: var(--topik-red); opacity: .1; line-height: 1; }
+    #tab03 .topik-test-card-full { grid-column: 1 / -1; }
+    #tab03 .topik-test-card-kr { background: linear-gradient(135deg, rgba(253,241,240,.6), #fff); }
+    #tab03 .topik-test-head { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+    #tab03 .topik-test-av { width: 38px; height: 38px; border-radius: 50%; flex-shrink: 0; background: linear-gradient(135deg, var(--topik-red), var(--topik-red-lt)); color: #fff; font-size: 14px; display: flex; align-items: center; justify-content: center; font-weight: 600; }
+    #tab03 .topik-test-name { font-size: 13px; font-weight: 500; color: var(--topik-text); }
+    #tab03 .topik-test-from { font-size: 11px; color: var(--topik-muted); margin-top: 1px; }
+    #tab03 .topik-test-badge { margin-left: auto; background: var(--topik-red-pale); border: 1px solid rgba(192,57,43,.2); color: var(--topik-red); font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 100px; }
+    #tab03 .topik-test-body { font-size: 13px; color: var(--topik-text-mid); line-height: 1.9; }
+    #tab03 .topik-test-body-kr { font-size: 12.5px; line-height: 2; }
+    #tab03 .topik-test-date { display: none; }
+    #tab03 .topik-year-label .topik-yr { display: none; }
+    @media (max-width: 900px) {
+      #tab03 .topik-hero-top { grid-template-columns: 1fr; }
+      #tab03 .topik-steps-grid { grid-template-columns: 1fr 1fr; }
+      #tab03 .topik-steps-row2 { grid-template-columns: 1fr; }
+      #tab03 .topik-price-card { grid-template-columns: 1fr; }
+      #tab03 .topik-test-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      #tab03 .topik-hero { padding: 48px 24px 0; margin: 0 0 24px 0; }
+      #tab03 .topik-section { padding: 48px 24px; }
+      #tab03 .topik-steps-grid { grid-template-columns: 1fr; }
+      #tab03 .topik-features-3 { grid-template-columns: 1fr !important; }
+    }
+
+    footer {
+      background: #2c2c2c;
+      color: white;
+      padding: 48px 24px 24px;
+    }
+    .footer-inner { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      margin-bottom: 40px;
+    }
+    @media (max-width: 768px) { .footer-grid { grid-template-columns: repeat(2, 1fr); } }
+    .footer-column h4 { font-size: 14px; margin-bottom: 16px; opacity: 0.9; }
+    .footer-column a { display: block; color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; margin-bottom: 8px; }
+    .footer-column a:hover { color: white; }
+    .footer-bottom {
+      text-align: center;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 13px;
+      opacity: 0.8;
+    }
+
+    @media (max-width: 600px) {
+      .main-content { padding: 0 18px 40px; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="/" class="nav-logo">ミリネ韓国語教室</a>
+    <button type="button" class="nav-hamburger" aria-label="メニューを開く"><span></span><span></span><span></span></button>
+    <div class="nav-overlay" aria-hidden="true"></div>
+    <ul class="nav-links">
+      <li><a href="/">ホーム</a></li>
+      <li class="nav-has-dropdown">
+        <a href="/#recruiting">講座</a>
+        <ul class="nav-dropdown">
+          <li><a href="/kojin">個人レッスン</a></li>
+          <li><a href="/group">グループレッスン</a></li>
+          <li><a href="/kaiwa">会話強化クラス</a></li>
+          <li><a href="/special">試験対策講座</a></li>
+          <li><a href="/syutyu">集中講座</a></li>
+          <li><a href="/netlesson">通信講座</a></li>
+        </ul>
+      </li>
+      <li><a href="/about">会社概要</a></li>
+      <li><a href="/about#tab02">アクセス</a></li>
+      <li><a href="/trial" class="nav-cta">お申込み</a></li>
+      <li><a href="/about#tab03">講師</a></li>
+      <li><a href="/book">著書</a></li>
+      <li><a href="/trial#tab04">お問い合わせ</a></li>
+    </ul>
+  </nav>
+
+  <div class="hero">
+    <p class="hero-eyebrow">Online Course</p>
+    <h1>通信講座</h1>
+    <p>メール作文・音読トレーニング・TOPIK作文トレーニング など、ご自宅から受講できるオンライン講座のご案内です。</p>
+  </div>
+
+  <div class="tabs-bar">
+    <button type="button" class="tab-btn active" data-tab="tab01">作文トレーニング</button>
+    <button type="button" class="tab-btn" data-tab="tab02">音読トレーニング</button>
+    <button type="button" class="tab-btn" data-tab="tab03">TOPIK作文トレーニング</button>
+  </div>
+
+  <div class="page-wrapper">
+    <main class="main-content">
+      <div class="group-main-grid">
+        <div class="group-left">
+
+      <!-- tab01: 作文トレーニング -->
+      <div id="tab01" class="tab-panel active">
+        <h2 class="section-header">『メール作文トレーニング』</h2>
+        <div class="iframe-card">
+          <p class="form-note">毎週のテーマ作文＋ネイティブ添削＋比較文＋模範文で、表現力をぐっと伸ばすオンライン講座です。下のフレーム内から、そのまま専用ページを操作できます。</p>
+          <div class="iframe-wrap">
+            <iframe
+              class="iframe-frame"
+              title="ミリネ韓国語 作文トレーニング"
+              loading="lazy"
+              data-src="https://apps.mirinae.jp/writing?embed=1">
+            </iframe>
+          </div>
+          <p class="iframe-note">※ 通信環境により読み込みに少し時間がかかる場合があります。表示されないときは数秒お待ちいただくか、ページを再読み込みしてください。</p>
+        </div>
+      </div>
+
+      <!-- tab02: 音読トレーニング -->
+      <div id="tab02" class="tab-panel">
+        <h2 class="section-header">『通信音読トレーニング』</h2>
+        <div class="iframe-card">
+          <p class="form-note">発音矯正と音読トレーニングをオンラインで行う講座です。下のフレーム内に、従来の通信音読トレーニングページをそのまま表示しています。</p>
+          <div class="iframe-wrap">
+            <iframe
+              class="iframe-frame"
+              title="ミリネ韓国語 通信音読トレーニング"
+              loading="lazy"
+              data-src="https://ondoku.mirinae.jp?embed=1">
+            </iframe>
+          </div>
+          <p class="iframe-note">※ 別タブで開きたい場合は、フレーム内のリンクをクリックしてください。</p>
+        </div>
+      </div>
+
+      <!-- tab03: TOPIK作文トレーニング -->
+      <div id="tab03" class="tab-panel">
+        <div class="topik-embed">
+<!-- HERO -->
+<section class="topik-hero">
+  <div class="topik-hero-lines"></div>
+  <div class="topik-hero-redline"></div>
+  <div class="topik-hero-kr">작문트레이닝</div>
+  <div class="topik-hero-inner">
+    <div class="topik-breadcrumb">ホーム <span>›</span> 講座 <span>›</span> 通信講座 <span>›</span> TOPIK作文</div>
+    <div class="topik-hero-top">
+      <div class="topik-hero-left">
+        <div class="topik-hero-eyebrow">TOPIK WRITING TRAINING · 通信添削</div>
+        <div class="topik-hero-badge">📮 メール提出 → ネイティブ添削</div>
+        <h2 class="topik-hero-title">メールで<em>TOPIK</em><br>作文トレーニング</h2>
+        <p class="topik-hero-catch">忙しくても続けられる週1回の通信コース。<br>作文600〜700字の壁を、反復添削で突破します。<br>ネイティブ講師による丁寧な解説つき。</p>
+        <div class="topik-hero-chips">
+          <div class="topik-chip">📮 オンライン通信</div>
+          <div class="topik-chip">📅 随時募集中</div>
+          <div class="topik-chip">📝 全6回コース</div>
+          <div class="topik-chip">🎯 TOPIKⅡ 4級以上</div>
+        </div>
+        <div class="topik-hero-btns">
+          <a href="#topik-apply" class="topik-btn-primary">お申込みはこちら →</a>
+          <a href="#topik-features" class="topik-btn-ghost">コース内容を見る</a>
+        </div>
+      </div>
+      <div class="topik-hero-right">
+        <div class="topik-hero-price-card">
+          <div class="topik-hpc-ey">TUITION / 授業料</div>
+          <div class="topik-hpc-name">メールでTOPIK作文<br>トレーニング（6回コース）</div>
+          <div class="topik-hpc-row"><span class="k">1回あたり</span><span class="v">4,480<small style="font-size:13px;"> 円</small></span></div>
+          <div class="topik-hpc-row"><span class="k">回数</span><span class="v">6<small style="font-size:13px;"> 回</small></span></div>
+          <div class="topik-hpc-row"><span class="k">授業料（税抜）</span><span class="v">26,880<small style="font-size:13px;"> 円</small></span></div>
+          <div class="topik-hpc-total"><span class="tl">税込合計</span><span class="tv">29,568<small style="font-size:16px;"> 円</small></span></div>
+          <div class="topik-hpc-note">随時募集中 · オンライン · 週1回ペース</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ABOUT -->
+<section class="topik-section topik-about-section" id="topik-about">
+  <div class="topik-section-inner">
+    <div class="topik-sec-ey">ABOUT THIS COURSE</div>
+    <h2 class="topik-sec-title">講座について</h2>
+    <div class="topik-about-grid">
+      <div class="topik-about-lead">
+        <p>TOPIKでの合格を目指しているけど、忙しくてなかなか学校に通う時間が取れない方のために、オンラインTOPIK作文コースをご用意しました。<br><br>普段、韓国語で日記をつけたりメモを書いたりする習慣がない方にとっては<strong>作文600〜700字というハードル</strong>は思いのほか高いと思います。きちんとした文章を書けるようになるためには<strong>正しい作文のルールを身に付けること</strong>が大事です。間違った部分への丁寧な解説が点数アップへとつながります。</p>
+      </div>
+      <div class="topik-detail-table">
+        <div class="topik-dt-row">
+          <div class="topik-dt-lbl"><span class="topik-dt-lbl-icon">🎯</span><span class="topik-dt-lbl-text">対象</span></div>
+          <div class="topik-dt-val">TOPIKⅡの4級以上を目指している方</div>
+        </div>
+        <div class="topik-dt-row">
+          <div class="topik-dt-lbl"><span class="topik-dt-lbl-icon">🏆</span><span class="topik-dt-lbl-text">目標</span></div>
+          <div class="topik-dt-val">作文と添削指導の繰り返しを通じて、TOPIK4級以上の合格を狙う。</div>
+        </div>
+        <div class="topik-dt-row">
+          <div class="topik-dt-lbl"><span class="topik-dt-lbl-icon">📋</span><span class="topik-dt-lbl-text">授業の流れ</span></div>
+          <div class="topik-dt-val">毎週金曜日午後3時にメールで作文テーマと使用すべき文型を送信。テーマに沿った作文を作成し、<strong>翌週月曜夜9時まで</strong>に<a href="mailto:sakubun@kaonnuri.com">sakubun@kaonnuri.com</a> へ提出してください。<div class="topik-flow-highlight">📅 金曜15時に課題送信 → 月曜21時までに提出 → 添削＋模範文を返送</div></div>
+        </div>
+        <div class="topik-dt-row">
+          <div class="topik-dt-lbl"><span class="topik-dt-lbl-icon">📅</span><span class="topik-dt-lbl-text">日程</span></div>
+          <div class="topik-dt-val">毎週１回（随時募集中）</div>
+        </div>
+        <div class="topik-dt-row">
+          <div class="topik-dt-lbl"><span class="topik-dt-lbl-icon">💻</span><span class="topik-dt-lbl-text">教室</span></div>
+          <div class="topik-dt-val">オンライン（メール添削）</div>
+        </div>
+        <div class="topik-dt-row">
+          <div class="topik-dt-lbl"><span class="topik-dt-lbl-icon">📚</span><span class="topik-dt-lbl-text">テキスト</span></div>
+          <div class="topik-dt-val">ミリネ独自のテキスト（PDF）※事前にメールにてお送りします。</div>
+        </div>
+      </div>
+      <div class="topik-features-3" style="grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:4px;">
+        <div style="background:var(--topik-cream);border:1px solid var(--topik-border);border-radius:16px;padding:24px;border-top:3px solid var(--topik-red);">
+          <div style="font-size:24px;margin-bottom:10px;">🔁</div>
+          <div style="font-family:'Noto Serif JP',serif;font-size:15px;font-weight:600;color:var(--topik-text);margin-bottom:6px;">反復で慣れる</div>
+          <p style="font-size:12.5px;color:var(--topik-text-mid);line-height:1.85;">反復して課題提出することでTOPIK長文作文に慣れます。</p>
+        </div>
+        <div style="background:var(--topik-cream);border:1px solid var(--topik-border);border-radius:16px;padding:24px;border-top:3px solid var(--topik-gold);">
+          <div style="font-size:24px;margin-bottom:10px;">📐</div>
+          <div style="font-family:'Noto Serif JP',serif;font-size:15px;font-weight:600;color:var(--topik-text);margin-bottom:6px;">文法と構成を習得</div>
+          <p style="font-size:12.5px;color:var(--topik-text-mid);line-height:1.85;">TOPIK中級以上の合格に必要な文法と表現、構成に慣れます。</p>
+        </div>
+        <div style="background:var(--topik-cream);border:1px solid var(--topik-border);border-radius:16px;padding:24px;border-top:3px solid var(--topik-navy-mid);">
+          <div style="font-size:24px;margin-bottom:10px;">✏️</div>
+          <div style="font-family:'Noto Serif JP',serif;font-size:15px;font-weight:600;color:var(--topik-text);margin-bottom:6px;">ネイティブが添削</div>
+          <p style="font-size:12.5px;color:var(--topik-text-mid);line-height:1.85;">ネイティブ添削文を通してどこが問題なのか把握できます。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- FEATURES -->
+<section class="topik-section topik-features-section" id="topik-features">
+  <div class="topik-section-inner">
+    <div class="topik-sec-ey">COURSE CONTENT</div>
+    <h2 class="topik-sec-title">コース内容</h2>
+    <p class="topik-sec-desc">6回の添削を通じて、作文力を段階的に引き上げます。</p>
+    <div class="topik-steps-grid">
+      <div class="topik-step-card">
+        <div class="topik-step-num">STEP 01</div>
+        <div class="topik-step-icon">📝</div>
+        <h3>作文の基礎と分かち書きルール</h3>
+        <p>作文の必要事項と正しい分かち書きのルールを学びます。</p>
+      </div>
+      <div class="topik-step-card">
+        <div class="topik-step-num">STEP 02</div>
+        <div class="topik-step-icon">🔴</div>
+        <h3>誤字と高級表現に修正</h3>
+        <p>誤字・脱字を修正しながら、より高度な表現へアップグレードします。</p>
+      </div>
+      <div class="topik-step-card">
+        <div class="topik-step-num">STEP 03</div>
+        <div class="topik-step-icon">🎯</div>
+        <h3>TOPIKのパターンに慣れる</h3>
+        <p>試験頻出の問題パターンと構成法をしっかり身につけます。</p>
+      </div>
+      <div class="topik-step-card">
+        <div class="topik-step-num">STEP 04</div>
+        <div class="topik-step-icon">⚡</div>
+        <h3>実践練習と添削指導</h3>
+        <p>本番同様のテーマで作文し、ネイティブ講師が丁寧に添削します。</p>
+      </div>
+    </div>
+    <div class="topik-steps-row2">
+      <div class="topik-step-card">
+        <div class="topik-step-num">STEP 05</div>
+        <div class="topik-step-icon">🔍</div>
+        <h3>ネイティブ版との比較</h3>
+        <p>提出した課題をネイティブが書いた時の比較文を提供します。</p>
+      </div>
+      <div class="topik-step-card">
+        <div class="topik-step-num">STEP 06</div>
+        <div class="topik-step-icon">📊</div>
+        <h3>苦手ポイントを分析</h3>
+        <p>自分の苦手なところを分析し、重点的に克服します。</p>
+      </div>
+      <div class="topik-step-card">
+        <div class="topik-step-num">STEP 07</div>
+        <div class="topik-step-icon">🏆</div>
+        <h3>模範答案の提供</h3>
+        <p>各課題の模範答案を提供します。正しい作文の型を繰り返し確認できます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- SAMPLE -->
+<section class="topik-section topik-sample-section" id="topik-sample">
+  <div class="topik-section-inner">
+    <div class="topik-sec-ey">SAMPLE TASK</div>
+    <h2 class="topik-sec-title">課題参考例</h2>
+    <p class="topik-sec-desc">このような課題が毎週金曜日に送られ、次週に添削と模範文が返送されます。</p>
+    <div class="topik-sample-wrap">
+      <div class="topik-sample-head">
+        <span class="topik-sample-head-badge">WEEKLY TASK</span>
+        <span class="topik-sample-head-title">毎週金曜日に送付される課題例</span>
+      </div>
+      <div class="topik-sample-note">※ 次のような課題を出して、次週に添削と模範文が送られます。</div>
+      <div class="topik-sample-body">
+        <div class="topik-sample-theme">
+          <div class="topik-sample-theme-label">주제 / テーマ</div>
+          <div class="topik-sample-theme-text">IT산업의 발달은 그 편리함으로 새로운 인간관계를 형성하도록 발전하였습니다. 그 수단으로 자리잡은 SNS의 나아갈 방향과 역할은 무엇입니까? 단, 아래에 제시된 내용이 모두 포함되어야 합니다.</div>
+        </div>
+        <div class="topik-sample-qs">
+          <div class="topik-sample-q">
+            <div class="topik-sq-num">1</div>
+            <div class="topik-sq-text">SNS발달이 우리 생활에 미친 영향은?</div>
+          </div>
+          <div class="topik-sample-q">
+            <div class="topik-sq-num">2</div>
+            <div class="topik-sq-text">SNS의 나아갈 방향과 역할은 무엇입니까?</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- PRICE -->
+<section class="topik-section topik-price-section" id="topik-apply">
+  <div class="topik-section-inner">
+    <div class="topik-sec-ey">TUITION</div>
+    <h2 class="topik-sec-title">授業料</h2>
+    <div class="topik-price-card">
+      <div class="topik-pc-left">
+        <div class="topik-pc-ey">TOPIK WRITING / 6回コース</div>
+        <div class="topik-pc-name">メールでTOPIK作文<br>トレーニング</div>
+        <div class="topik-pc-rows">
+          <div class="topik-pc-row"><span class="k">1回あたり</span><span class="v">4,480<small> 円</small></span></div>
+          <div class="topik-pc-row"><span class="k">回数</span><span class="v">6<small> 回</small></span></div>
+          <div class="topik-pc-row"><span class="k">授業料（税抜）</span><span class="v">26,880<small> 円</small></span></div>
+        </div>
+        <div class="topik-pc-total">
+          <span class="tl">税込合計</span>
+          <span class="tv">29,568<small style="font-size:18px;"> 円</small></span>
+        </div>
+      </div>
+      <div class="topik-pc-right">
+        <div>
+          <div class="topik-pc-right-title">お申込み・提出先</div>
+          <div class="topik-pc-note">添削課題の提出先：<strong>sakubun@kaonnuri.com</strong><br><br>毎週金曜日 15:00 にテーマと文型をメール送信<br>翌月曜日 21:00 までに作文を提出<br>提出後、添削＋模範文をメールで返送します<br><br>※ 随時募集中のため、いつでもお申込みいただけます</div>
+        </div>
+        <div class="topik-deadline-pill">📅 随時募集中</div>
+        <a href="/trial" class="topik-pc-cta">お申込みはこちら →</a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- CTA -->
+<div class="topik-cta-section">
+  <div class="topik-cta-inner">
+    <h2>作文力で、<em>TOPIK上級を手に入れる。</em></h2>
+    <p>週1回のメール添削で、着実にライティング力を磨きましょう。<br>随時募集中のため、今すぐお申込みいただけます。</p>
+    <a href="/trial" class="topik-cta-apply">お申込みはこちら →</a>
+  </div>
+</div>
+<!-- TESTIMONIALS -->
+<section class="topik-section topik-test-section" id="topik-testimonials">
+  <div class="topik-section-inner">
+    <div class="topik-sec-ey">TESTIMONIALS</div>
+    <h2 class="topik-sec-title">受講生の声</h2>
+    <p class="topik-sec-desc" style="margin-bottom:40px;">実際に受講された方からのご感想です。</p>
+    <div class="topik-year-group">
+      <div class="topik-test-grid">
+        <div class="topik-test-card">
+          <div class="topik-test-head"><div class="topik-test-av">C</div><div><div class="topik-test-name">C様</div></div><div class="topik-test-badge">TOPIK作文</div></div>
+          <div class="topik-test-body">TOPIK作文対策に参加してとても勉強になりました。作文がずっと苦手だったため後回ししてきましたが、一大決心で講座に参加しました。自分が苦手なところがわかり少しコツもつかめて600字もがんばれば書けるという自信がつきました。あきらめずにコツコツ作文を書いていこうと思います。ご指導ありがとうございました。</div>
+        </div>
+        <div class="topik-test-card">
+          <div class="topik-test-head"><div class="topik-test-av">N</div><div><div class="topik-test-name">N様</div></div><div class="topik-test-badge">TOPIK作文</div></div>
+          <div class="topik-test-body">作文講座に今回初めて参加しました。韓国で文章を書く練習がなかったので最初は一行書くのに何分もかかってました。今回授業や宿題でたくさんの文章を書くことで、韓国語の文章を書く時に必要な基本を覚えることができました。たぶん一人でやるのは難しかったと思います。</div>
+        </div>
+        <div class="topik-test-card">
+          <div class="topik-test-head"><div class="topik-test-av">H</div><div><div class="topik-test-name">H様</div></div><div class="topik-test-badge">TOPIK作文</div></div>
+          <div class="topik-test-body">5回を通して、これだけ文章を書いたのは初めてでした。必要にせまられ、教えていただけると、自分にも書けるのだと感心しました。この経験は必ず生かします！文章を書くということは中級以上くらいの学習者には韓国語の勉強にとてもいいと思いました。이경아 선생님의 授業はとても良かったです。また機会があったら受講します。감사합니다.</div>
+        </div>
+        <div class="topik-test-card topik-test-card-kr">
+          <div class="topik-test-head"><div class="topik-test-av">N</div><div><div class="topik-test-name">N様</div></div><div class="topik-test-badge">TOPIK作文</div></div>
+          <div class="topik-test-body topik-test-body-kr">선생님들의 섬세한 첨삭, 틀린점에 대한 알기쉬운 설명과 틀리지 않기위해서의 주의점까지 대단히 감사하고 도움이되었습니다. 첨삭문 화일을 펼치면 빨강색밖에 보이지 않아 낙심의 연속이기도 했습니다만, 낙심하면서도 자신이 충분한 시간을 가지고 과제에 임하지 못했던 점을 반성하기도 했습니다. 앞으로도 잘 부탁드립니다.</div>
+          <div class="topik-test-date">2013年1月</div>
+        </div>
+      </div>
+    </div>
+    <div class="topik-year-group">
+      <div class="topik-year-label"><span class="topik-yr">2013年10月</span></div>
+      <div class="topik-test-grid">
+        <div class="topik-test-card topik-test-card-full">
+          <div class="topik-test-head"><div class="topik-test-av">S</div><div><div class="topik-test-name">S様</div><div class="topik-test-from">フリーランス翻訳家</div></div><div class="topik-test-badge">韓訳＋和訳コース</div></div>
+          <div class="topik-test-body">2011年8月から2013年8月まで丸2年かけて、韓訳＋和訳コースを期限内ぎりぎりで何とか修了することができました。2年間、ご指導ありがとうございました。フリーランス翻訳家として仕事をしたいという目標があったものの、具体的にどのような勉強をすればよいかわからず、貴社ホームページに書かれていた翻訳技術を学べるという言葉に引かれて受講を決めました。2012年3月頃から現在の居住国・韓国で日本語のフリーランス翻訳者を募集している翻訳会社に履歴書を送り始め、トライアルテストにも合格することができ、いくつかの翻訳会社から韓国語から日本語への翻訳や監修のお仕事をいただけるようになりました。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+        </div>
+      </div>
+
+        </div>
+
+        <aside class="sidebar" id="sidebar">
+          <a href="/group#tab06" class="sidebar-promo-card" style="background-image: url('/img/student/writing.jpg');" aria-label="土曜上級対面講座"></a>
+          <div class="course-nav-card courses-nav-box">
+            <div class="courses-nav-header">
+              <div class="courses-nav-label">Courses</div>
+              <div class="courses-nav-title">講座</div>
+            </div>
+            <div class="courses-nav">
+              <div class="nav-group">
+                <div class="nav-group-title" role="button" tabindex="0" aria-expanded="false">個人レッスン<span class="nav-chevron">▾</span></div>
+                <div class="nav-items">
+                  <div class="nav-items-inner">
+                    <a href="/kojin#tab01" class="nav-item">個人レッスン</a>
+                    <a href="/kojin#tab02" class="nav-item">短期集中個人</a>
+                    <a href="/kojin#tab03" class="nav-item">発音矯正</a>
+                    <a href="/kojin#tab04" class="nav-item">レベルテスト</a>
+                  </div>
+                </div>
+              </div>
+              <div class="nav-divider"></div>
+              <div class="nav-group">
+                <div class="nav-group-title" role="button" tabindex="0" aria-expanded="false">グループレッスン<span class="nav-chevron">▾</span></div>
+                <div class="nav-items">
+                  <div class="nav-items-inner">
+                    <a href="/group#tab01" class="nav-item">入門＆初級講座</a>
+                    <a href="/group#tab02" class="nav-item">中級文法講座</a>
+                    <a href="/group#tab03" class="nav-item">上級文法講座</a>
+                    <a href="/group#tab05" class="nav-item">上級1土曜講座</a>
+                    <a href="/group#tab06" class="nav-item">上級2土曜講座</a>
+                  </div>
+                </div>
+              </div>
+              <div class="nav-divider"></div>
+              <div class="nav-group">
+                <div class="nav-group-title" role="button" tabindex="0" aria-expanded="false">会話強化クラス<span class="nav-chevron">▾</span></div>
+                <div class="nav-items">
+                  <div class="nav-items-inner">
+                    <a href="/kaiwa#tab01" class="nav-item">会話クラス</a>
+                    <a href="/kaiwa#tab02" class="nav-item">音読クラス</a>
+                    <a href="/kaiwa#tab03" class="nav-item">発音・抑揚</a>
+                    <a href="/kaiwa#tab04" class="nav-item">小説朗読</a>
+                    <a href="/kaiwa#tab05" class="nav-item">語彙力強化</a>
+                  </div>
+                </div>
+              </div>
+              <div class="nav-divider"></div>
+              <div class="nav-group">
+                <div class="nav-group-title" role="button" tabindex="0" aria-expanded="false">試験対策講座<span class="nav-chevron">▾</span></div>
+                <div class="nav-items">
+                  <div class="nav-items-inner">
+                    <a href="/special#tab01" class="nav-item">TOPIK初級</a>
+                    <a href="/special#tab02" class="nav-item">TOPIK中級</a>
+                    <a href="/special#tab03" class="nav-item">TOPIK上級</a>
+                    <a href="/special#tab04" class="nav-item">ハン検1/2級</a>
+                    <a href="/special#tab05" class="nav-item">ハン検準2級</a>
+                  </div>
+                </div>
+              </div>
+              <div class="nav-divider"></div>
+              <div class="nav-group">
+                <div class="nav-group-title" role="button" tabindex="0" aria-expanded="false">集中講座<span class="nav-chevron">▾</span></div>
+                <div class="nav-items">
+                  <div class="nav-items-inner">
+                    <a href="/syutyu#tab01" class="nav-item">入門講座</a>
+                    <a href="/syutyu#tab02" class="nav-item">初級講座</a>
+                    <a href="/syutyu#tab03" class="nav-item">中級講座</a>
+                    <a href="/syutyu#tab04" class="nav-item">上級講座</a>
+                  </div>
+                </div>
+              </div>
+              <div class="nav-divider"></div>
+              <div class="nav-group open">
+                <div class="nav-group-title" role="button" tabindex="0" aria-expanded="true">通信講座<span class="nav-chevron">▾</span></div>
+                <div class="nav-items">
+                  <div class="nav-items-inner">
+                    <a href="/netlesson#tab01" class="nav-item active">作文トレーニング</a>
+                    <a href="/netlesson#tab02" class="nav-item">音読トレーニング</a>
+                    <a href="/netlesson#tab03" class="nav-item">TOPIK作文トレーニング</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </main>
+  </div>
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-column">
+          <h4>メニュー</h4>
+          <a href="/">ホーム</a>
+          <a href="/about">会社概要</a>
+          <a href="/about#tab02">アクセス</a>
+        </div>
+        <div class="footer-column">
+          <h4>講座</h4>
+          <a href="/kojin">個人レッスン</a>
+          <a href="/group">グループレッスン</a>
+          <a href="/kaiwa">会話強化クラス</a>
+          <a href="/special">試験対策講座</a>
+          <a href="/syutyu">集中講座</a>
+          <a href="/netlesson">通信講座</a>
+        </div>
+        <div class="footer-column">
+          <h4>お申込み</h4>
+          <a href="/trial">体験申込</a>
+          <a href="/trial#tab02">講座申込</a>
+          <a href="/trial#tab04">お問い合わせ</a>
+        </div>
+        <div class="footer-column">
+          <h4>その他</h4>
+          <a href="/about#tab03">講師</a>
+          <a href="/book">著書</a>
+          <a href="/voice">『ミリネ教科書』音声</a>
+          <a href="/cancel">キャンセル規定</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        Copyright © 2010-<span id="footer-year"></span> 株式会社 カオンヌリ All Rights Reserved.
+      </div>
+    </div>
+  </footer>
+  <script>
+(function(){var y=document.getElementById('footer-year');if(y)y.textContent=new Date().getFullYear();})();
+</script>
+
+  <script>
+    (function () {
+      var nav = document.querySelector('nav');
+      var hamburger = document.querySelector('.nav-hamburger');
+      if (nav && hamburger) {
+        hamburger.addEventListener('click', function () {
+          nav.classList.toggle('nav-open');
+          document.body.style.overflow = nav.classList.contains('nav-open') ? 'hidden' : '';
+        });
+        document.querySelectorAll('.nav-links a').forEach(function (a) {
+          a.addEventListener('click', function () {
+            if (window.innerWidth <= 900) {
+              nav.classList.remove('nav-open');
+              document.body.style.overflow = '';
+            }
+          });
+        });
+        var overlay = document.querySelector('.nav-overlay');
+        if (overlay) {
+          overlay.addEventListener('click', function () {
+            nav.classList.remove('nav-open');
+            document.body.style.overflow = '';
+          });
+        }
+      }
+      document.querySelectorAll('.nav-has-dropdown').forEach(function (li) {
+        var trigger = li.querySelector(':scope > a');
+        if (trigger && li.querySelector('.nav-dropdown')) {
+          trigger.addEventListener('click', function (e) {
+            if (window.innerWidth <= 900) {
+              e.preventDefault();
+              li.classList.toggle('open');
+            }
+          });
+        }
+      });
+
+      var tabBtns = Array.prototype.slice.call(document.querySelectorAll('.tab-btn'));
+      var tabPanels = Array.prototype.slice.call(document.querySelectorAll('.tab-panel'));
+
+      function loadIframe(panel) {
+        if (!panel) return;
+        var iframe = panel.querySelector('iframe[data-src]');
+        if (iframe && !iframe.src) {
+          iframe.src = iframe.getAttribute('data-src');
+        }
+      }
+
+      function switchTab(tabId) {
+        tabBtns.forEach(function (btn) {
+          btn.classList.toggle('active', btn.getAttribute('data-tab') === tabId);
+        });
+        tabPanels.forEach(function (panel) {
+          var active = panel.id === tabId;
+          panel.classList.toggle('active', active);
+          if (active) loadIframe(panel);
+        });
+        document.querySelectorAll('.courses-nav .nav-item[href^="netlesson.html#"]').forEach(function (a) {
+          a.classList.toggle('active', a.getAttribute('href') === 'netlesson.html#' + tabId);
+        });
+        if (history.replaceState) {
+          history.replaceState(null, '', '#' + tabId);
+        }
+      }
+
+      tabBtns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          switchTab(btn.getAttribute('data-tab'));
+        });
+      });
+
+      document.querySelectorAll('.courses-nav .nav-group-title').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var group = this.closest('.nav-group');
+          group.classList.toggle('open');
+        });
+      });
+
+      var hash = location.hash.replace('#', '');
+      if (['tab01', 'tab02', 'tab03'].indexOf(hash) !== -1) {
+        switchTab(hash);
+      } else {
+        switchTab('tab01');
+      }
+
+      window.addEventListener('hashchange', function () {
+        var h = location.hash.replace('#', '');
+        if (['tab01', 'tab02', 'tab03'].indexOf(h) !== -1) switchTab(h);
+      });
+    })();
+  </script>
+  <script src="/admin-badge.js"></script>
+  <script src="/js/analytics.js"></script>
+</body>
+</html>
+

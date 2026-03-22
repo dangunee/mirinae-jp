@@ -597,19 +597,13 @@
     #tab01 .writing-more-btn:hover { background: #ebe5d8; }
     /* 体験申込・講座申込 フォーム (作文タブ内) */
     #tab01 .writing-trial-form-wrap { background: #fff; border-radius: 16px; border: 1px solid #e5dfd4; overflow: hidden; margin-top: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+    #tab01 .writing-trial-form-wrap + .writing-trial-form-wrap { margin-top: 12px; }
     #tab01 .writing-trial-form-wrap summary { display: flex; align-items: center; justify-content: space-between; padding: 16px 24px; font-size: 14px; font-weight: 600; background: #f5f0e6; color: #4a4438; cursor: pointer; list-style: none; user-select: none; transition: background 0.2s; }
     #tab01 .writing-trial-form-wrap summary:hover { background: #ebe5d8; }
     #tab01 .writing-trial-form-wrap summary::-webkit-details-marker { display: none; }
     #tab01 .writing-trial-form-wrap summary::after { content: '▶'; font-size: 10px; color: #8E8E93; }
     #tab01 .writing-trial-form-wrap[open] summary { background: #146382; color: #fff; border-bottom: 1px solid #e5dfd4; }
     #tab01 .writing-trial-form-wrap[open] summary::after { content: '▼'; color: rgba(255,255,255,0.9); }
-    #tab01 .writing-trial-tabs { display: flex; }
-    #tab01 .writing-trial-tab { flex: 1; padding: 16px 24px; font-size: 14px; font-weight: 600; background: #f5f0e6; color: #4a4438; border: none; border-right: 1px solid #e5dfd4; cursor: pointer; display: flex; align-items: center; justify-content: space-between; transition: background 0.2s, color 0.2s; }
-    #tab01 .writing-trial-tab:last-child { border-right: none; }
-    #tab01 .writing-trial-tab:hover { background: #ebe5d8; }
-    #tab01 .writing-trial-tab.active { background: #146382; color: #fff; }
-    #tab01 .writing-trial-tab .tab-arrow { display: none; margin-left: 6px; }
-    #tab01 .writing-trial-tab.active .tab-arrow { display: inline; }
     #tab01 .writing-trial-form-body { padding: 24px; border-top: 1px solid #e5dfd4; }
     #tab01 .writing-trial-form .field { margin-bottom: 20px; }
     #tab01 .writing-trial-form .field-label { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; font-size: 13px; font-weight: 500; color: #2C2C2E; }
@@ -738,19 +732,13 @@
     #tab02 .ondoku-cta-btn:hover { background: #1D6B61; }
     /* 体験申込・講座申込 フォーム (音読タブ内) */
     #tab02 .ondoku-trial-form-wrap { background: #fff; border-radius: 16px; border: 1px solid #d0e0d0; overflow: hidden; margin-top: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+    #tab02 .ondoku-trial-form-wrap + .ondoku-trial-form-wrap { margin-top: 12px; }
     #tab02 .ondoku-trial-form-wrap summary { display: flex; align-items: center; justify-content: space-between; padding: 16px 24px; font-size: 14px; font-weight: 600; background: #f5f0e6; color: #4a4438; cursor: pointer; list-style: none; user-select: none; transition: background 0.2s; }
     #tab02 .ondoku-trial-form-wrap summary:hover { background: #ebe5d8; }
     #tab02 .ondoku-trial-form-wrap summary::-webkit-details-marker { display: none; }
     #tab02 .ondoku-trial-form-wrap summary::after { content: '▶'; font-size: 10px; color: #8E8E93; }
     #tab02 .ondoku-trial-form-wrap[open] summary { background: #2A7F74; color: #fff; border-bottom: 1px solid #d0e0d0; }
     #tab02 .ondoku-trial-form-wrap[open] summary::after { content: '▼'; color: rgba(255,255,255,0.9); }
-    #tab02 .ondoku-trial-tabs { display: flex; }
-    #tab02 .ondoku-trial-tab { flex: 1; padding: 16px 24px; font-size: 14px; font-weight: 600; background: #f5f0e6; color: #4a4438; border: none; border-right: 1px solid #e5dfd4; cursor: pointer; display: flex; align-items: center; justify-content: space-between; transition: background 0.2s, color 0.2s; }
-    #tab02 .ondoku-trial-tab:last-child { border-right: none; }
-    #tab02 .ondoku-trial-tab:hover { background: #ebe5d8; }
-    #tab02 .ondoku-trial-tab.active { background: #2A7F74; color: #fff; }
-    #tab02 .ondoku-trial-tab .tab-arrow { display: none; margin-left: 6px; }
-    #tab02 .ondoku-trial-tab.active .tab-arrow { display: inline; }
     #tab02 .ondoku-trial-form-body { padding: 24px; border-top: 1px solid #d0e0d0; }
     #tab02 .ondoku-trial-form .field { margin-bottom: 20px; }
     #tab02 .ondoku-trial-form .field-label { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; font-size: 13px; font-weight: 500; color: #2C2C2E; }
@@ -1215,19 +1203,15 @@
                 <div class="writing-trial-footer">1回お試し 1,800円</div>
               </div>
 
-              <!-- 体験申込・講座申込 フォーム（作文） -->
-              <details class="writing-trial-form-wrap" id="writing-trial-form-section">
-                <summary>体験申込・講座申込</summary>
-                <div class="writing-trial-tabs">
-                  <button type="button" class="writing-trial-tab active" data-trial-type="trial">体験申込<span class="tab-arrow">▼</span></button>
-                  <button type="button" class="writing-trial-tab" data-trial-type="course">講座申込<span class="tab-arrow">▼</span></button>
-                </div>
+              <!-- 体験申込・講座申込 フォーム（作文）- それぞれ独立アコーディオン -->
+              <details class="writing-trial-form-wrap">
+                <summary>体験申込</summary>
                 <div class="writing-trial-form-body">
                   <div id="writing-trial-success" class="writing-trial-success" style="display:none;">
                     <p class="title">送信が完了しました</p>
                     <p class="note">mirinae@kaonnuri.com 宛に送信しました。ご確認の上、ご連絡いたします。</p>
                   </div>
-                  <form id="writing-trial-form" class="writing-trial-form" style="max-width:480px;margin:0 auto;">
+                  <form id="writing-trial-form" class="writing-trial-form" data-trial-type="trial" style="max-width:480px;margin:0 auto;">
                     <div id="writing-trial-error" class="writing-trial-error" style="display:none;"></div>
                     <div class="field">
                       <label class="field-label">お名前<span class="badge-req">必須</span></label>
@@ -1257,7 +1241,48 @@
                       <label class="field-label">お問い合わせ<span class="badge-opt">任意</span></label>
                       <textarea name="inquiry" rows="4" placeholder="ご質問・ご要望などがあればご記入ください"></textarea>
                     </div>
-                    <button type="submit" class="btn-submit" id="writing-trial-submit-btn">送信する →</button>
+                    <button type="submit" class="btn-submit">送信する →</button>
+                  </form>
+                </div>
+              </details>
+              <details class="writing-trial-form-wrap">
+                <summary>講座申込</summary>
+                <div class="writing-trial-form-body">
+                  <div id="writing-course-success" class="writing-trial-success" style="display:none;">
+                    <p class="title">送信が完了しました</p>
+                    <p class="note">mirinae@kaonnuri.com 宛に送信しました。ご確認の上、ご連絡いたします。</p>
+                  </div>
+                  <form id="writing-course-form" class="writing-trial-form" data-trial-type="course" style="max-width:480px;margin:0 auto;">
+                    <div id="writing-course-error" class="writing-trial-error" style="display:none;"></div>
+                    <div class="field">
+                      <label class="field-label">お名前<span class="badge-req">必須</span></label>
+                      <input type="text" name="name" placeholder="例：田中 花子" required>
+                    </div>
+                    <div class="field">
+                      <label class="field-label">ふりがな<span class="badge-req">必須</span></label>
+                      <input type="text" name="furigana" placeholder="例：たなか はなこ" required>
+                    </div>
+                    <div class="field">
+                      <label class="field-label">韓国語レベル<span class="badge-req">必須</span></label>
+                      <select name="koreanLevel" required>
+                        <option value="">選択してください</option>
+                        <option value="初級">初級</option>
+                        <option value="初中級">初中級</option>
+                        <option value="中級">中級</option>
+                        <option value="中上級">中上級</option>
+                        <option value="上級">上級</option>
+                      </select>
+                    </div>
+                    <div class="field">
+                      <label class="field-label">メールアドレス<span class="badge-req">必須</span></label>
+                      <p class="field-note">※携帯メールの場合は設定のパソコン受信設定をご確認ください</p>
+                      <input type="email" name="email" placeholder="example@mail.com" required>
+                    </div>
+                    <div class="field">
+                      <label class="field-label">お問い合わせ<span class="badge-opt">任意</span></label>
+                      <textarea name="inquiry" rows="4" placeholder="ご質問・ご要望などがあればご記入ください"></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">送信する →</button>
                   </form>
                 </div>
               </details>
@@ -1455,19 +1480,15 @@
               <div class="ondoku-trial-row"><div class="ondoku-trial-lbl">当講座開始日</div><div class="ondoku-trial-val">4月3日(金)〜</div></div>
               <div class="ondoku-trial-footer">1回お試し　初中級 1,800円 / 中上級 2,300円</div>
             </div>
-            <!-- 体験申込・講座申込 フォーム（音読） -->
-            <details class="ondoku-trial-form-wrap" id="ondoku-trial-form-section">
-              <summary>体験申込・講座申込</summary>
-              <div class="ondoku-trial-tabs">
-                <button type="button" class="ondoku-trial-tab active" data-trial-type="trial">体験申込<span class="tab-arrow">▼</span></button>
-                <button type="button" class="ondoku-trial-tab" data-trial-type="course">講座申込<span class="tab-arrow">▼</span></button>
-              </div>
+            <!-- 体験申込・講座申込 フォーム（音読）- それぞれ独立アコーディオン -->
+            <details class="ondoku-trial-form-wrap">
+              <summary>体験申込</summary>
               <div class="ondoku-trial-form-body">
                 <div id="ondoku-trial-success" class="ondoku-trial-success" style="display:none;">
                   <p class="title">送信が完了しました</p>
                   <p class="note">mirinae@kaonnuri.com 宛に送信しました。ご確認の上、ご連絡いたします。</p>
                 </div>
-                <form id="ondoku-trial-form" class="ondoku-trial-form" style="max-width:480px;margin:0 auto;">
+                <form id="ondoku-trial-form" class="ondoku-trial-form" data-trial-type="trial" style="max-width:480px;margin:0 auto;">
                   <div id="ondoku-trial-error" class="ondoku-trial-error" style="display:none;"></div>
                   <div class="field">
                     <label class="field-label">コースレベル<span class="badge-req">必須</span></label>
@@ -1505,7 +1526,56 @@
                     <label class="field-label">お問い合わせ<span class="badge-opt">任意</span></label>
                     <textarea name="inquiry" rows="4" placeholder="ご質問・ご要望などがあればご記入ください"></textarea>
                   </div>
-                  <button type="submit" class="btn-submit" id="ondoku-trial-submit-btn">送信する →</button>
+                  <button type="submit" class="btn-submit">送信する →</button>
+                </form>
+              </div>
+            </details>
+            <details class="ondoku-trial-form-wrap">
+              <summary>講座申込</summary>
+              <div class="ondoku-trial-form-body">
+                <div id="ondoku-course-success" class="ondoku-trial-success" style="display:none;">
+                  <p class="title">送信が完了しました</p>
+                  <p class="note">mirinae@kaonnuri.com 宛に送信しました。ご確認の上、ご連絡いたします。</p>
+                </div>
+                <form id="ondoku-course-form" class="ondoku-trial-form" data-trial-type="course" style="max-width:480px;margin:0 auto;">
+                  <div id="ondoku-course-error" class="ondoku-trial-error" style="display:none;"></div>
+                  <div class="field">
+                    <label class="field-label">コースレベル<span class="badge-req">必須</span></label>
+                    <select name="courseLevel" required>
+                      <option value="">選択してください</option>
+                      <option value="初中級">初中級</option>
+                      <option value="中〜上級">中〜上級</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label class="field-label">お名前<span class="badge-req">必須</span></label>
+                    <input type="text" name="name" placeholder="例：田中 花子" required>
+                  </div>
+                  <div class="field">
+                    <label class="field-label">ふりがな<span class="badge-req">必須</span></label>
+                    <input type="text" name="furigana" placeholder="例：たなか はなこ" required>
+                  </div>
+                  <div class="field">
+                    <label class="field-label">韓国語レベル<span class="badge-req">必須</span></label>
+                    <select name="koreanLevel" required>
+                      <option value="">選択してください</option>
+                      <option value="初級">初級</option>
+                      <option value="初中級">初中級</option>
+                      <option value="中級">中級</option>
+                      <option value="中上級">中上級</option>
+                      <option value="上級">上級</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label class="field-label">メールアドレス<span class="badge-req">必須</span></label>
+                    <p class="field-note">※携帯メールの場合は設定のパソコン受信設定をご確認ください</p>
+                    <input type="email" name="email" placeholder="example@mail.com" required>
+                  </div>
+                  <div class="field">
+                    <label class="field-label">お問い合わせ<span class="badge-opt">任意</span></label>
+                    <textarea name="inquiry" rows="4" placeholder="ご質問・ご要望などがあればご記入ください"></textarea>
+                  </div>
+                  <button type="submit" class="btn-submit">送信する →</button>
                 </form>
               </div>
             </details>
@@ -2057,45 +2127,20 @@
         if (['tab01', 'tab02', 'tab03'].indexOf(h) !== -1) switchTab(h);
       });
 
-      /* 作文 体験申込・講座申込 フォーム */
-      (function () {
-        var formSection = document.getElementById('writing-trial-form-section');
-        if (!formSection) return;
-        var form = document.getElementById('writing-trial-form');
-        var successEl = document.getElementById('writing-trial-success');
-        var errorEl = document.getElementById('writing-trial-error');
-        var submitBtn = document.getElementById('writing-trial-submit-btn');
-        var tabs = formSection.querySelectorAll('.writing-trial-tab');
-        var trialType = 'trial';
-
-        tabs.forEach(function (btn) {
-          btn.addEventListener('click', function () {
-            trialType = btn.getAttribute('data-trial-type');
-            tabs.forEach(function (t) { t.classList.remove('active'); });
-            btn.classList.add('active');
-            errorEl.style.display = 'none';
-            errorEl.textContent = '';
-          });
-        });
+      /* 作文・音読 体験申込・講座申込 フォーム（各々独立） */
+      function setupForm(config) {
+        var form = document.getElementById(config.formId);
+        if (!form) return;
+        var successEl = document.getElementById(config.successId);
+        var errorEl = document.getElementById(config.errorId);
+        var submitBtn = form.querySelector('.btn-submit');
 
         form.addEventListener('submit', function (e) {
           e.preventDefault();
-          errorEl.style.display = 'none';
-          errorEl.textContent = '';
+          if (errorEl) { errorEl.style.display = 'none'; errorEl.textContent = ''; }
           submitBtn.disabled = true;
-          var subjectPrefix = trialType === 'course' ? '講座申込' : '体験申込';
-          var title = trialType === 'trial' ? '体験レッスン' : '講座の申し込み';
           var fd = new FormData(form);
-          var payload = {
-            _subject: subjectPrefix + '（作文トレーニング）: ' + title,
-            _replyto: fd.get('email') || '',
-            タイトル: title,
-            お名前: fd.get('name') || '',
-            ふりがな: fd.get('furigana') || '',
-            韓国語レベル: fd.get('koreanLevel') || '',
-            メールアドレス: fd.get('email') || '',
-            お問い合わせ: fd.get('inquiry') || ''
-          };
+          var payload = config.getPayload(fd);
           fetch('https://formsubmit.co/ajax/mirinae@kaonnuri.com', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
@@ -2105,86 +2150,45 @@
             .then(function (data) {
               if (data.success !== false && data.success !== 'false') {
                 form.style.display = 'none';
-                successEl.style.display = 'block';
+                if (successEl) successEl.style.display = 'block';
               } else {
-                errorEl.textContent = data.message || data.error || '送信に失敗しました';
-                errorEl.style.display = 'block';
+                if (errorEl) { errorEl.textContent = data.message || data.error || '送信に失敗しました'; errorEl.style.display = 'block'; }
                 submitBtn.disabled = false;
               }
             })
             .catch(function () {
-              errorEl.textContent = '送信に失敗しました';
-              errorEl.style.display = 'block';
+              if (errorEl) { errorEl.textContent = '送信に失敗しました'; errorEl.style.display = 'block'; }
               submitBtn.disabled = false;
             });
         });
-      })();
+      }
 
-      /* 音読 体験申込・講座申込 フォーム */
-      (function () {
-        var formSection = document.getElementById('ondoku-trial-form-section');
-        if (!formSection) return;
-        var form = document.getElementById('ondoku-trial-form');
-        var successEl = document.getElementById('ondoku-trial-success');
-        var errorEl = document.getElementById('ondoku-trial-error');
-        var submitBtn = document.getElementById('ondoku-trial-submit-btn');
-        var tabs = formSection.querySelectorAll('.ondoku-trial-tab');
-        var trialType = 'trial';
-
-        tabs.forEach(function (btn) {
-          btn.addEventListener('click', function () {
-            trialType = btn.getAttribute('data-trial-type');
-            tabs.forEach(function (t) { t.classList.remove('active'); });
-            btn.classList.add('active');
-            errorEl.style.display = 'none';
-            errorEl.textContent = '';
-          });
-        });
-
-        form.addEventListener('submit', function (e) {
-          e.preventDefault();
-          errorEl.style.display = 'none';
-          errorEl.textContent = '';
-          submitBtn.disabled = true;
-          var subjectPrefix = trialType === 'course' ? '講座申込' : '体験申込';
-          var title = trialType === 'trial' ? '体験レッスン' : '講座の申し込み';
-          var fd = new FormData(form);
-          var courseLevel = fd.get('courseLevel') || '';
-          var levelLabel = courseLevel === '中〜上級' ? '中上級' : courseLevel;
-          var payload = {
-            _subject: subjectPrefix + '（音読トレーニング）: ' + levelLabel,
-            _replyto: fd.get('email') || '',
-            タイトル: title,
-            コースレベル: fd.get('courseLevel') || '',
-            お名前: fd.get('name') || '',
-            ふりがな: fd.get('furigana') || '',
-            韓国語レベル: fd.get('koreanLevel') || '',
-            メールアドレス: fd.get('email') || '',
-            お問い合わせ: fd.get('inquiry') || ''
-          };
-          fetch('https://formsubmit.co/ajax/mirinae@kaonnuri.com', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-            body: JSON.stringify(payload)
-          })
-            .then(function (res) { return res.json(); })
-            .then(function (data) {
-              if (data.success !== false && data.success !== 'false') {
-                form.style.display = 'none';
-                successEl.style.display = 'block';
-              } else {
-                errorEl.textContent = data.message || data.error || '送信に失敗しました';
-                errorEl.style.display = 'block';
-                submitBtn.disabled = false;
-              }
-            })
-            .catch(function () {
-              errorEl.textContent = '送信に失敗しました';
-              errorEl.style.display = 'block';
-              submitBtn.disabled = false;
-            });
-        });
-      })();
+      setupForm({
+        formId: 'writing-trial-form', successId: 'writing-trial-success', errorId: 'writing-trial-error',
+        getPayload: function (fd) {
+          return { _subject: '体験申込（作文トレーニング）: 体験レッスン', _replyto: fd.get('email') || '', タイトル: '体験レッスン', お名前: fd.get('name') || '', ふりがな: fd.get('furigana') || '', 韓国語レベル: fd.get('koreanLevel') || '', メールアドレス: fd.get('email') || '', お問い合わせ: fd.get('inquiry') || '' };
+        }
+      });
+      setupForm({
+        formId: 'writing-course-form', successId: 'writing-course-success', errorId: 'writing-course-error',
+        getPayload: function (fd) {
+          return { _subject: '講座申込（作文トレーニング）: 講座の申し込み', _replyto: fd.get('email') || '', タイトル: '講座の申し込み', お名前: fd.get('name') || '', ふりがな: fd.get('furigana') || '', 韓国語レベル: fd.get('koreanLevel') || '', メールアドレス: fd.get('email') || '', お問い合わせ: fd.get('inquiry') || '' };
+        }
+      });
+      setupForm({
+        formId: 'ondoku-trial-form', successId: 'ondoku-trial-success', errorId: 'ondoku-trial-error',
+        getPayload: function (fd) {
+          var cl = fd.get('courseLevel') || ''; var label = cl === '中〜上級' ? '中上級' : cl;
+          return { _subject: '体験申込（音読トレーニング）: ' + label, _replyto: fd.get('email') || '', タイトル: '体験レッスン', コースレベル: fd.get('courseLevel') || '', お名前: fd.get('name') || '', ふりがな: fd.get('furigana') || '', 韓国語レベル: fd.get('koreanLevel') || '', メールアドレス: fd.get('email') || '', お問い合わせ: fd.get('inquiry') || '' };
+        }
+      });
+      setupForm({
+        formId: 'ondoku-course-form', successId: 'ondoku-course-success', errorId: 'ondoku-course-error',
+        getPayload: function (fd) {
+          var cl = fd.get('courseLevel') || ''; var label = cl === '中〜上級' ? '中上級' : cl;
+          return { _subject: '講座申込（音読トレーニング）: ' + label, _replyto: fd.get('email') || '', タイトル: '講座の申し込み', コースレベル: fd.get('courseLevel') || '', お名前: fd.get('name') || '', ふりがな: fd.get('furigana') || '', 韓国語レベル: fd.get('koreanLevel') || '', メールアドレス: fd.get('email') || '', お問い合わせ: fd.get('inquiry') || '' };
+        }
+      });
     })();
   </script>
   <script src="/admin-badge.js"></script>

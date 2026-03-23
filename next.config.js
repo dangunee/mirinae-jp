@@ -1,6 +1,21 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   trailingSlash: true, // /b/ を /b にリダイレクトしない（ループ防止）
+  // 廃止ページの 301 リダイレクト
+  async redirects() {
+    return [
+      {
+        source: "/faq.html",
+        destination: "/cancel/#tab01",
+        permanent: true, // 301 永久移動（FAQ内容は cancel ページに集約）
+      },
+      {
+        source: "/contact.html",
+        destination: "/trial/",
+        permanent: true, // 301 永久移動（お問合せは trial ページへ）
+      },
+    ];
+  },
   // www.mirinae.jp のトップ・各ページは public/*.html をクリーンURLで表示
   async rewrites() {
     const externalRewrites = [

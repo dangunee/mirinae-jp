@@ -184,6 +184,50 @@
     }
     .voice-player-bar audio { flex: 1; max-width: 100%; height: 36px; }
     .voice-player-bar .label { font-size: 13px; color: var(--text-muted); white-space: nowrap; }
+    .voice-speed-wrap { position: relative; flex-shrink: 0; }
+    .voice-speed-btn {
+      display: flex; align-items: center; justify-content: center;
+      width: 36px; height: 36px;
+      border: 1px solid var(--gray-border);
+      border-radius: 6px;
+      background: var(--white);
+      color: var(--text-muted);
+      font-size: 18px; font-weight: 700;
+      cursor: pointer;
+      transition: border-color .2s, color .2s, background .2s;
+    }
+    .voice-speed-btn:hover { border-color: var(--gold); color: var(--gold); background: var(--gold-pale); }
+    .voice-speed-btn.active { border-color: var(--gold); color: var(--gold); }
+    .voice-speed-dropdown {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      margin-top: 4px;
+      min-width: 90px;
+      background: var(--white);
+      border: 1px solid var(--gray-border);
+      border-radius: 8px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+      padding: 6px 0;
+      z-index: 20;
+      display: none;
+      list-style: none;
+    }
+    .voice-speed-dropdown.open { display: block; }
+    .voice-speed-dropdown button {
+      display: block; width: 100%;
+      padding: 10px 14px;
+      font-size: 13px;
+      color: var(--text-dark);
+      background: none;
+      border: none;
+      text-align: left;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background .15s, color .15s;
+    }
+    .voice-speed-dropdown button:hover { background: var(--gold-pale); color: var(--gold); }
+    .voice-speed-dropdown button.active { font-weight: 600; color: var(--gold); }
     .section-header {
       background: var(--taupe);
       color: white;
@@ -375,6 +419,16 @@
       <div class="voice-player-bar">
         <span class="label">再生:</span>
         <audio id="voicePlayer" controls preload="metadata"></audio>
+        <div class="voice-speed-wrap">
+          <button type="button" class="voice-speed-btn" id="voiceSpeedBtn" aria-label="再生速度" aria-haspopup="true" aria-expanded="false">⋮</button>
+          <ul class="voice-speed-dropdown" id="voiceSpeedDropdown" role="menu">
+            <li role="none"><button type="button" role="menuitem" data-speed="0.5">x0.5</button></li>
+            <li role="none"><button type="button" role="menuitem" data-speed="0.8">x0.8</button></li>
+            <li role="none"><button type="button" role="menuitem" data-speed="1" class="active">x1</button></li>
+            <li role="none"><button type="button" role="menuitem" data-speed="1.2">x1.2</button></li>
+            <li role="none"><button type="button" role="menuitem" data-speed="1.5">x1.5</button></li>
+          </ul>
+        </div>
       </div>
 
       <div class="voice-tabs-bar">
@@ -591,6 +645,38 @@
       var BASE = "/voice/";
       var player = document.getElementById("voicePlayer");
       var repeatActiveWrap = null;
+
+      (function initSpeedControl() {
+        var speedBtn = document.getElementById("voiceSpeedBtn");
+        var speedDropdown = document.getElementById("voiceSpeedDropdown");
+        if (!player || !speedBtn || !speedDropdown) return;
+        player.playbackRate = 1;
+        speedBtn.addEventListener("click", function(e) {
+          e.stopPropagation();
+          var isOpen = speedDropdown.classList.toggle("open");
+          speedBtn.setAttribute("aria-expanded", isOpen);
+          if (isOpen) speedBtn.classList.add("active"); else speedBtn.classList.remove("active");
+        });
+        speedDropdown.querySelectorAll("button[data-speed]").forEach(function(btn) {
+          btn.addEventListener("click", function(e) {
+            e.stopPropagation();
+            var speed = parseFloat(this.getAttribute("data-speed"), 10);
+            player.playbackRate = speed;
+            speedDropdown.querySelectorAll("button").forEach(function(b) { b.classList.remove("active"); });
+            this.classList.add("active");
+            speedDropdown.classList.remove("open");
+            speedBtn.classList.remove("active");
+            speedBtn.setAttribute("aria-expanded", "false");
+          });
+        });
+        document.addEventListener("click", function() {
+          if (speedDropdown.classList.contains("open")) {
+            speedDropdown.classList.remove("open");
+            speedBtn.classList.remove("active");
+            speedBtn.setAttribute("aria-expanded", "false");
+          }
+        });
+      })();
 
       function playUrl(url, label) {
         if (!player) return;

@@ -688,6 +688,10 @@
       background: transparent;
       color: #fff;
     }
+    /* 募集再開時: 下記2カードから .recruit-paused を外す */
+    #recruiting .recruit-card.recruit-paused {
+      display: none !important;
+    }
 
     /* 注目の講座 (featured) */
     .featured-grid {
@@ -2001,7 +2005,7 @@
           <p>ハン検準2級合格を目指す対策講座</p>
         </div>
       </a>
-      <a href="/netlesson#tab01" class="recruit-card navy">
+      <a href="/netlesson#tab01" class="recruit-card navy recruit-paused">
         <svg class="recruit-illust" viewBox="0 0 280 180" xmlns="http://www.w3.org/2000/svg">
           <rect width="280" height="180" fill="#2A3044"/>
           <ellipse cx="240" cy="30"  rx="90" ry="65" fill="#3A4260" opacity="0.4"/>
@@ -2038,7 +2042,7 @@
           <p>3ヶ月で作文添削+ネイティブ比較文+模範文</p>
         </div>
       </a>
-      <a href="/netlesson#tab02" class="recruit-card green">
+      <a href="/netlesson#tab02" class="recruit-card green recruit-paused">
         <svg class="recruit-illust" viewBox="0 0 280 180" xmlns="http://www.w3.org/2000/svg">
           <rect width="280" height="180" fill="#5A7060"/>
           <ellipse cx="220" cy="30"  rx="85" ry="65" fill="#6A8870" opacity="0.35"/>

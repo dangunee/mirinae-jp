@@ -631,22 +631,14 @@
       margin-top: 24px;
     }
     .recruit-grid {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      /* 表示枚数ぶん均等に列を作り横幅いっぱい（空列は畳まれる）。SVGは幅に合わせて縦も比率どおり */
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
       gap: 14px;
-      justify-content: center;
-    }
-    /* 4枚並びのときの1枚幅を維持（枚数が少なくても横に伸ばさない → 高さの印象も据え置き） */
-    #recruiting .recruit-card {
-      flex: 0 1 calc((100% - 42px) / 4);
-      max-width: calc((100% - 42px) / 4);
-      min-width: 0;
-      box-sizing: border-box;
     }
     @media (max-width: 768px) {
       .recruit-wrap { background: transparent; border-radius: 0; padding: 0; margin-top: 16px; }
-      .recruit-grid { flex-direction: column; gap: 12px; }
-      #recruiting .recruit-card { flex: 1 1 auto; max-width: none; }
+      .recruit-grid { grid-template-columns: 1fr; gap: 12px; }
       .recruit-card .recruit-illust { height: 90px; object-fit: cover; }
       .recruit-card .recruit-body { padding: 8px 18px 10px; }
     }

@@ -632,7 +632,8 @@
     }
     .recruit-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      /* 表示枚数に応じて列が伸びる（非表示カードで空列が残らない） */
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
       gap: 14px;
     }
     @media (max-width: 768px) {

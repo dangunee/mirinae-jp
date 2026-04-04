@@ -623,24 +623,22 @@
       margin-bottom: 20px;
     }
 
-    /* 只今募集中の講座 */
+    /* 只今募集中の講座（イラスト高さは従来 280:180 の約半分＝ 280:90） */
     .recruit-wrap {
       background: #f5f1eb;
       border-radius: 16px;
-      padding: 32px 24px;
+      padding: 24px 20px;
       margin-top: 24px;
     }
     .recruit-grid {
       display: grid;
-      /* 表示枚数ぶん均等に列を作り横幅いっぱい（空列は畳まれる）。SVGは幅に合わせて縦も比率どおり */
       grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
       gap: 14px;
     }
     @media (max-width: 768px) {
       .recruit-wrap { background: transparent; border-radius: 0; padding: 0; margin-top: 16px; }
       .recruit-grid { grid-template-columns: 1fr; gap: 12px; }
-      .recruit-card .recruit-illust { height: 90px; object-fit: cover; }
-      .recruit-card .recruit-body { padding: 8px 18px 10px; }
+      .recruit-card .recruit-body { padding: 8px 14px 10px; }
     }
     .recruit-card {
       border-radius: 14px;
@@ -658,10 +656,12 @@
     .recruit-illust {
       width: 100%;
       display: block;
+      aspect-ratio: 280 / 90;
+      flex-shrink: 0;
     }
     .recruit-body {
-      padding: 16px 18px 20px;
-      flex: 1;
+      padding: 10px 16px 12px;
+      flex: 0 0 auto;
     }
     .recruit-body h3 {
       font-size: 14px;
@@ -1981,7 +1981,7 @@
   <div class="recruit-wrap">
     <div class="recruit-grid">
       <a href="/special#tab05" class="recruit-card teal">
-        <svg class="recruit-illust" viewBox="0 0 280 180" xmlns="http://www.w3.org/2000/svg">
+        <svg class="recruit-illust" viewBox="0 0 280 180" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
           <rect width="280" height="180" fill="#0e3d38"/>
           <ellipse cx="230" cy="35" rx="85" ry="60" fill="#1a5048" opacity="0.35"/>
           <ellipse cx="45" cy="155" rx="65" ry="50" fill="#0a2d28" opacity="0.4"/>
@@ -2007,7 +2007,7 @@
         </div>
       </a>
       <a href="/netlesson#tab01" class="recruit-card navy recruit-paused">
-        <svg class="recruit-illust" viewBox="0 0 280 180" xmlns="http://www.w3.org/2000/svg">
+        <svg class="recruit-illust" viewBox="0 0 280 180" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
           <rect width="280" height="180" fill="#2A3044"/>
           <ellipse cx="240" cy="30"  rx="90" ry="65" fill="#3A4260" opacity="0.4"/>
           <ellipse cx="40"  cy="160" rx="60" ry="50" fill="#1A2034" opacity="0.4"/>
@@ -2044,7 +2044,7 @@
         </div>
       </a>
       <a href="/netlesson#tab02" class="recruit-card green recruit-paused">
-        <svg class="recruit-illust" viewBox="0 0 280 180" xmlns="http://www.w3.org/2000/svg">
+        <svg class="recruit-illust" viewBox="0 0 280 180" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
           <rect width="280" height="180" fill="#5A7060"/>
           <ellipse cx="220" cy="30"  rx="85" ry="65" fill="#6A8870" opacity="0.35"/>
           <ellipse cx="50"  cy="160" rx="65" ry="50" fill="#3A5040" opacity="0.35"/>
@@ -2086,7 +2086,7 @@
         </div>
       </a>
       <a href="/group#tab04" class="recruit-card purple">
-        <svg class="recruit-illust" viewBox="0 0 280 180" xmlns="http://www.w3.org/2000/svg">
+        <svg class="recruit-illust" viewBox="0 0 280 180" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
           <rect width="280" height="180" fill="#5A4A7A"/>
           <ellipse cx="230" cy="35" rx="85" ry="60" fill="#6A5A8A" opacity="0.35"/>
           <ellipse cx="45" cy="155" rx="65" ry="50" fill="#3A2A5A" opacity="0.4"/>

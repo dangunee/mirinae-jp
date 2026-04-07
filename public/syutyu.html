@@ -1214,6 +1214,37 @@
       flex-shrink: 0;
     }
 
+    /* tab04 上級：tab02 初級と同様（セル揃え・会話ドリルを下端ベージュ） */
+    #tab04 .tt-wrap { background: var(--white); border-color: var(--border); }
+    #tab04 .tt-row.jokyu { align-items: stretch; }
+    #tab04 .tt-row.jokyu:hover { background: rgba(200, 145, 30, 0.02); }
+    #tab04 .tt-row.jokyu .tt-cell { min-height: 100%; }
+    #tab04 .tt-cell.tt-cell-stack {
+      gap: 0;
+      align-items: stretch;
+      padding: 12px 14px;
+      justify-content: flex-start;
+      height: 100%;
+      box-sizing: border-box;
+    }
+    #tab04 .tt-time-range { font-size: 11px; color: var(--muted); font-weight: 500; margin-top: 6px; letter-spacing: .02em; }
+    #tab04 .tt-th-day { line-height: 1.35; }
+    #tab04 .tt-th-sub { display: block; font-size: 9px; letter-spacing: .06em; color: rgba(255,255,255,.78); margin-top: 6px; font-weight: 400; }
+    #tab04 .tt-detail-list { margin: 8px 0 0; padding-left: 1.1em; font-size: 11.5px; color: var(--mid); line-height: 1.55; list-style: disc; }
+    #tab04 .tt-detail-list li { margin-bottom: 5px; }
+    #tab04 .tt-detail-list li::marker { color: rgba(3,105,161,.45); }
+    #tab04 .tt-drill {
+      margin-top: auto;
+      padding: 9px 11px;
+      border-radius: 8px;
+      font-size: 11.5px;
+      font-weight: 600;
+      color: #0a4a66;
+      background: #e8dcc8;
+      border: 1px solid rgba(150, 130, 100, 0.35);
+      flex-shrink: 0;
+    }
+
     /* Lesson flow (授業の流れ) */
     .beg-flow-section { margin-bottom: 32px; }
     .beg-flow-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 20px; }
@@ -2486,29 +2517,59 @@
             <div class="beg-sec-line"></div>
           </div>
           <div class="tt-wrap syutyu-reveal">
-            <div class="tt-header" style="grid-template-columns:90px 1fr 1fr 1fr;">
+            <div class="tt-header" style="grid-template-columns:100px 1fr 1fr 1fr;">
               <div class="tt-th">時間</div>
-              <div class="tt-th">1/10 (土)</div>
-              <div class="tt-th">1/11 (日)</div>
-              <div class="tt-th">1/12 (月・祝)</div>
+              <div class="tt-th tt-th-day">文法・表現の整理<span class="tt-th-sub">（文法中心）</span></div>
+              <div class="tt-th tt-th-day">実用表現<span class="tt-th-sub">（ドラマ・慣用句）</span></div>
+              <div class="tt-th tt-th-day">語彙<span class="tt-th-sub">（擬音語・擬態語）</span></div>
             </div>
-            <div class="tt-row jokyu" style="grid-template-columns:90px 1fr 1fr 1fr;">
-              <div class="tt-cell"><div class="tt-time-num">10-11</div><div class="tt-time-label">1コマ目</div></div>
-              <div class="tt-cell"><div class="tt-topic">上級文法①</div><div class="tt-items"><span class="tt-pill">고급 語尾</span><span class="tt-pill">-는 법이다</span></div></div>
-              <div class="tt-cell"><div class="tt-topic">上級文法③</div><div class="tt-items"><span class="tt-pill">慣用句</span><span class="tt-pill">諺</span></div></div>
-              <div class="tt-cell"><div class="tt-topic">上級文法⑤</div><div class="tt-items"><span class="tt-pill">語彙強化</span><span class="tt-pill">類義語</span></div></div>
+            <div class="tt-row jokyu" style="grid-template-columns:100px 1fr 1fr 1fr;">
+              <div class="tt-cell"><div class="tt-time-num">1限目</div><div class="tt-time-range">14:00–14:50</div></div>
+              <div class="tt-cell tt-cell-stack">
+                <div class="tt-topic">上級学習者がつい間違えやすい回想の文法の整理（前半）</div>
+                <ul class="tt-detail-list"><li>例：-더, -더니, -더라고, -었더니, -던데</li></ul>
+                <div class="tt-drill">整理した内容を使って会話してみる</div>
+              </div>
+              <div class="tt-cell tt-cell-stack">
+                <div class="tt-topic">ドラマでよく使われる表現15</div>
+                <div class="tt-drill">習った表現で会話してみる</div>
+              </div>
+              <div class="tt-cell tt-cell-stack">
+                <div class="tt-topic">日常生活でよく使う擬音語</div>
+                <div class="tt-drill">習った表現で会話してみる</div>
+              </div>
             </div>
-            <div class="tt-row jokyu" style="grid-template-columns:90px 1fr 1fr 1fr;">
-              <div class="tt-cell"><div class="tt-time-num">11-12</div><div class="tt-time-label">2コマ目</div></div>
-              <div class="tt-cell"><div class="tt-topic">上級文法②</div><div class="tt-items"><span class="tt-pill">書き言葉表現</span><span class="tt-pill">ニュアンス比較</span></div></div>
-              <div class="tt-cell"><div class="tt-topic">上級文法④</div><div class="tt-items"><span class="tt-pill">한다体</span><span class="tt-pill">ニュース表現</span></div></div>
-              <div class="tt-cell"><div class="tt-topic">上級文法⑥</div><div class="tt-items"><span class="tt-pill">고급 表現まとめ</span></div></div>
+            <div class="tt-row jokyu" style="grid-template-columns:100px 1fr 1fr 1fr;">
+              <div class="tt-cell"><div class="tt-time-num">2限目</div><div class="tt-time-range">15:00–15:50</div></div>
+              <div class="tt-cell tt-cell-stack">
+                <div class="tt-topic">上級学習者がつい間違えやすい接続の文法の整理（後半）</div>
+                <ul class="tt-detail-list"><li>例：-다가, 었다가, 다가, 는데, 어서, 니까</li></ul>
+                <div class="tt-drill">整理した内容を使って会話してみる</div>
+              </div>
+              <div class="tt-cell tt-cell-stack">
+                <div class="tt-topic">よく使う慣用句15</div>
+                <div class="tt-drill">習った表現で会話してみる</div>
+              </div>
+              <div class="tt-cell tt-cell-stack">
+                <div class="tt-topic">日常生活でよく使う擬態語</div>
+                <div class="tt-drill">習った表現で会話してみる</div>
+              </div>
             </div>
-            <div class="tt-row jokyu" style="grid-template-columns:90px 1fr 1fr 1fr;">
-              <div class="tt-cell"><div class="tt-time-num">12-13</div><div class="tt-time-label">3コマ目</div></div>
-              <div class="tt-cell"><div class="tt-topic">練習・Q&A</div><div class="tt-items"><span class="tt-pill">練習問題</span></div></div>
-              <div class="tt-cell"><div class="tt-topic">練習・Q&A</div><div class="tt-items"><span class="tt-pill">練習問題</span></div></div>
-              <div class="tt-cell"><div class="tt-topic">総まとめ</div><div class="tt-items"><span class="tt-pill">総復習</span><span class="tt-pill">Q&A</span></div></div>
+            <div class="tt-row jokyu" style="grid-template-columns:100px 1fr 1fr 1fr;">
+              <div class="tt-cell"><div class="tt-time-num">3限目</div><div class="tt-time-range">16:00–16:50</div></div>
+              <div class="tt-cell tt-cell-stack">
+                <div class="tt-topic">上級学習者がつい間違えやすい事実関係の文法の整理（第3部）</div>
+                <ul class="tt-detail-list"><li>例：-고/어서、ネイティブがなぜ았/었어서を使うか、-더、-다가、-어서、-는데</li></ul>
+                <div class="tt-drill">整理した内容を使って会話してみる</div>
+              </div>
+              <div class="tt-cell tt-cell-stack">
+                <div class="tt-topic">よく使う四字熟語・慣用句15</div>
+                <div class="tt-drill">習った表現で会話してみる</div>
+              </div>
+              <div class="tt-cell tt-cell-stack">
+                <div class="tt-topic">日常生活でよく使う感情表現</div>
+                <div class="tt-drill">習った表現で会話してみる</div>
+              </div>
             </div>
           </div>
 

@@ -1177,6 +1177,11 @@
     .tt-row.nyumon .tt-pill, .tt-row.shokyu .tt-pill, .tt-row.chukyu .tt-pill, .tt-row.jokyu .tt-pill {
       background: rgba(3,105,161,.12); color: var(--syutyu-hero); border-color: rgba(3,105,161,.25);
     }
+    #tab01 .tt-row.tt-lunch { background: rgba(3,105,161,.07); border-top: 1px dashed rgba(3,105,161,.25); }
+    #tab01 .tt-row.tt-lunch:hover { background: rgba(3,105,161,.1); }
+    #tab01 .tt-row.tt-lunch .tt-cell { border-right: none; align-items: center; text-align: center; padding: 14px 18px; }
+    #tab01 .tt-row.tt-lunch .tt-lunch-range { font-family: 'Cormorant Garamond', serif; font-size: 18px; color: var(--gold); margin-right: 10px; }
+    #tab01 .tt-row.tt-lunch .tt-topic { margin-bottom: 0; font-weight: 600; }
 
     /* Lesson flow (授業の流れ) */
     .beg-flow-section { margin-bottom: 32px; }
@@ -1285,7 +1290,7 @@
                 <div class="beg-hero-eyebrow">INTENSIVE COURSE · 新宿教室</div>
                 <div class="beg-hero-headline">連休に<br><em>集中して</em><br>伸ばす。</div>
                 <div class="beg-hero-subtitle">入門集中講座</div>
-                <p class="beg-hero-catch">1日3コマ、最大3日間の集中プログラム。自分の弱点を発見し、韓国語の基礎を一気に固めましょう。</p>
+                <p class="beg-hero-catch">1日6コマ（昼休みあり）の集中プログラム。自分の弱点を発見し、韓国語の基礎を一気に固めましょう。</p>
                 <div class="beg-hero-chips">
                   <span class="beg-hero-chip">📍 新宿教室</span>
                   <span class="beg-hero-chip">👥 2～6名</span>
@@ -1299,8 +1304,8 @@
               </div>
               <div class="beg-hero-stats">
                 <div class="beg-hero-stat-card"><div class="beg-hero-stat-num">4</div><div class="beg-hero-stat-unit">LEVELS</div></div>
-                <div class="beg-hero-stat-card"><div class="beg-hero-stat-num">3</div><div class="beg-hero-stat-unit">DAYS MAX</div></div>
-                <div class="beg-hero-stat-card"><div class="beg-hero-stat-num">9</div><div class="beg-hero-stat-unit">CLASSES MAX</div></div>
+                <div class="beg-hero-stat-card"><div class="beg-hero-stat-num">1</div><div class="beg-hero-stat-unit">DAY</div></div>
+                <div class="beg-hero-stat-card"><div class="beg-hero-stat-num">6</div><div class="beg-hero-stat-unit">CLASSES</div></div>
               </div>
             </div>
           </div>
@@ -1309,7 +1314,7 @@
             <div class="concept-inner">
               <div class="concept-eyebrow">COURSE CONCEPT</div>
               <h2 class="concept-title">集中講座とは</h2>
-              <p class="concept-desc">連休を使って韓国語を一気に伸ばす、ミリネの人気プログラム。1日3コマで学習における弱点や、なかなか抜け出せない現状への解決策を見つける手助けをします。</p>
+              <p class="concept-desc">連休を使って韓国語を一気に伸ばす、ミリネの人気プログラム。1日6コマ（昼休みあり）で学習における弱点や、なかなか抜け出せない現状への解決策を見つける手助けをします。</p>
               <div class="concept-grid">
                 <div class="concept-card">
                   <div class="concept-icon">🎯</div>
@@ -1336,7 +1341,7 @@
             <div class="beg-sec-line"></div>
           </div>
           <div class="beg-flow-steps syutyu-reveal">
-            <div class="beg-flow-step"><span class="beg-flow-num">1</span><span class="beg-flow-text">2日間で入門を終わらせます。</span></div>
+            <div class="beg-flow-step"><span class="beg-flow-num">1</span><span class="beg-flow-text">1日6コマで入門のカリキュラムを集中して学びます。</span></div>
             <div class="beg-flow-step"><span class="beg-flow-num">2</span><span class="beg-flow-text">ハングルの読み書きからよく使う文法（～です・ます、助詞など）までマスターします。</span></div>
             <div class="beg-flow-step"><span class="beg-flow-num">3</span><span class="beg-flow-text">入門段階で最も重要な発音ルールだけ学習し、発音に自信をつけます。</span></div>
           </div>
@@ -1386,25 +1391,39 @@
             <div class="beg-sec-line"></div>
           </div>
           <div class="tt-wrap syutyu-reveal">
-            <div class="tt-header" style="grid-template-columns:90px 1fr 1fr;">
+            <div class="tt-header" style="grid-template-columns:90px 1fr;">
               <div class="tt-th">時間</div>
-              <div class="tt-th">1/3 (土)</div>
-              <div class="tt-th">1/4 (日)</div>
+              <div class="tt-th">内容</div>
             </div>
-            <div class="tt-row nyumon" style="grid-template-columns:90px 1fr 1fr;">
-              <div class="tt-cell"><div class="tt-time-num">13</div><div class="tt-time-label">1コマ目</div></div>
-              <div class="tt-cell"><div class="tt-topic">文字と発音[1]</div><div class="tt-items"><span class="tt-pill">母音①②</span><span class="tt-pill">子音①②</span><span class="tt-pill">二つの音を持つ子音字</span></div></div>
-              <div class="tt-cell"><div class="tt-topic">基本文法[1]</div><div class="tt-items"><span class="tt-pill">助詞①</span><span class="tt-pill">名詞+です</span><span class="tt-pill">ではありません</span></div></div>
+            <div class="tt-row nyumon" style="grid-template-columns:90px 1fr;">
+              <div class="tt-cell"><div class="tt-time-num">10</div><div class="tt-time-label">1コマ目</div></div>
+              <div class="tt-cell"><div class="tt-topic">文字と発音［１］</div><div class="tt-items"><span class="tt-pill">基本母音</span><span class="tt-pill">平音</span><span class="tt-pill">激音</span><span class="tt-pill">濃音</span></div></div>
             </div>
-            <div class="tt-row nyumon" style="grid-template-columns:90px 1fr 1fr;">
-              <div class="tt-cell"><div class="tt-time-num">14</div><div class="tt-time-label">2コマ目</div></div>
-              <div class="tt-cell"><div class="tt-topic">文字と発音[2]</div><div class="tt-items"><span class="tt-pill">子音③濃音・激音</span><span class="tt-pill">母音③合成母音</span><span class="tt-pill">子音④パッチム</span><span class="tt-pill">子音⑤複合パッチム</span></div></div>
-              <div class="tt-cell"><div class="tt-topic">基本文法[2]</div><div class="tt-items"><span class="tt-pill">助詞②</span><span class="tt-pill">動詞/形容詞～ます(합니다体)</span><span class="tt-pill">〜しません(否定)</span></div></div>
+            <div class="tt-row nyumon" style="grid-template-columns:90px 1fr;">
+              <div class="tt-cell"><div class="tt-time-num">11</div><div class="tt-time-label">2コマ目</div></div>
+              <div class="tt-cell"><div class="tt-topic">文字と発音［２］</div><div class="tt-items"><span class="tt-pill">パッチム</span><span class="tt-pill">二重母音</span></div></div>
             </div>
-            <div class="tt-row nyumon" style="grid-template-columns:90px 1fr 1fr;">
-              <div class="tt-cell"><div class="tt-time-num">15</div><div class="tt-time-label">3コマ目</div></div>
-              <div class="tt-cell"><div class="tt-topic">発音の変化</div><div class="tt-items"><span class="tt-pill">子音のまとめ</span><span class="tt-pill">連音化</span><span class="tt-pill">濃音化</span><span class="tt-pill">激音化</span></div></div>
-              <div class="tt-cell"><div class="tt-topic">基本文法のまとめ</div><div class="tt-items"><span class="tt-pill">基本フレーズのハングル読み確認</span></div></div>
+            <div class="tt-row nyumon" style="grid-template-columns:90px 1fr;">
+              <div class="tt-cell"><div class="tt-time-num">12</div><div class="tt-time-label">3コマ目</div></div>
+              <div class="tt-cell"><div class="tt-topic">発音の変化</div><div class="tt-items"><span class="tt-pill">連音化</span><span class="tt-pill">鼻音化</span><span class="tt-pill">ㅎ弱音化</span><span class="tt-pill">激音化</span><span class="tt-pill">濃音化</span><span class="tt-pill">流音化</span></div></div>
+            </div>
+            <div class="tt-row nyumon tt-lunch" style="grid-template-columns: 1fr;">
+              <div class="tt-cell" style="flex-direction: row; flex-wrap: wrap; justify-content: center; align-items: center; gap: 10px;">
+                <span class="tt-lunch-range">13:00〜14:00</span>
+                <span class="tt-topic">昼休み</span>
+              </div>
+            </div>
+            <div class="tt-row nyumon" style="grid-template-columns:90px 1fr;">
+              <div class="tt-cell"><div class="tt-time-num">14</div><div class="tt-time-label">4コマ目</div></div>
+              <div class="tt-cell"><div class="tt-topic">基本文法［１］</div><div class="tt-items"><span class="tt-pill">助詞①</span><span class="tt-pill">名詞＋です</span><span class="tt-pill">ではありません</span></div></div>
+            </div>
+            <div class="tt-row nyumon" style="grid-template-columns:90px 1fr;">
+              <div class="tt-cell"><div class="tt-time-num">15</div><div class="tt-time-label">5コマ目</div></div>
+              <div class="tt-cell"><div class="tt-topic">基本文法［２］</div><div class="tt-items"><span class="tt-pill">助詞②</span><span class="tt-pill">動詞/形容詞～ます(합니다体)</span><span class="tt-pill">〜しません（否定）</span></div></div>
+            </div>
+            <div class="tt-row nyumon" style="grid-template-columns:90px 1fr;">
+              <div class="tt-cell"><div class="tt-time-num">16</div><div class="tt-time-label">6コマ目</div></div>
+              <div class="tt-cell"><div class="tt-topic">基本文法［３］</div><div class="tt-items"><span class="tt-pill">動詞/形容詞～ます (해요体)</span><span class="tt-pill">疑問詞</span></div></div>
             </div>
           </div>
 
@@ -1437,22 +1456,10 @@
             <div class="beg-sec-title">授業料</div>
             <div class="beg-sec-line"></div>
           </div>
-          <div class="beg-price-grid beg-price-grid-2 syutyu-reveal">
-            <div class="beg-price-card">
-              <div class="beg-price-card-top">
-                <div class="beg-price-days">1</div>
-                <div class="beg-price-days-unit">日間</div>
-              </div>
-              <div class="beg-price-komas">3コマ</div>
-              <div class="beg-price-break">1コマ 3,680円 × 3<br>= 11,040円（税抜）</div>
-              <div class="beg-price-total-row">
-                <span class="beg-price-total-label">税込</span>
-                <span class="beg-price-total-num">12,144<small style="font-size:14px;"> 円</small></span>
-              </div>
-            </div>
+          <div class="beg-price-grid syutyu-reveal" style="grid-template-columns: 1fr; max-width: 440px; margin-left: auto; margin-right: auto;">
             <div class="beg-price-card featured">
               <div class="beg-price-card-top">
-                <div class="beg-price-days">2</div>
+                <div class="beg-price-days">1</div>
                 <div class="beg-price-days-unit">日間</div>
               </div>
               <div class="beg-price-komas">6コマ</div>
@@ -1466,7 +1473,7 @@
 
           <div class="syutyu-cta-section">
             <div class="syutyu-cta-inner">
-              <h2>連休を、<em>成長の3日間に。</em></h2>
+              <h2>連休を、<em>成長の1日に。</em></h2>
               <p>お申込み締切：2026年1月7日（水）<br>定員になり次第締め切りますので、お早めにどうぞ。</p>
               <a href="https://mirinae.jp/trial.html?tab=tab02" class="syutyu-cta-apply">お申込みはこちら →</a>
             </div>

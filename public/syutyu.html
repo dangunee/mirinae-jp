@@ -1183,15 +1183,36 @@
     #tab01 .tt-row.tt-lunch .tt-lunch-range { font-family: 'Cormorant Garamond', serif; font-size: 18px; color: var(--gold); margin-right: 10px; }
     #tab01 .tt-row.tt-lunch .tt-topic { margin-bottom: 0; font-weight: 600; }
 
-    /* tab02 初級：会話ドリル行 */
-    #tab02 .tt-cell.tt-cell-stack { gap: 0; align-items: stretch; padding: 12px 14px; }
+    /* tab02 初級：会話ドリル行（同一行のセル高さを揃え、ドリルを下端に固定） */
+    #tab02 .tt-wrap { background: #f2e8dc; border-color: rgba(160, 140, 110, 0.22); }
+    #tab02 .tt-row.shokyu { align-items: stretch; }
+    #tab02 .tt-row.shokyu:hover { background: rgba(200, 165, 120, 0.08); }
+    #tab02 .tt-row.shokyu .tt-cell { min-height: 100%; }
+    #tab02 .tt-cell.tt-cell-stack {
+      gap: 0;
+      align-items: stretch;
+      padding: 12px 14px;
+      justify-content: flex-start;
+      height: 100%;
+      box-sizing: border-box;
+    }
     #tab02 .tt-time-range { font-size: 11px; color: var(--muted); font-weight: 500; margin-top: 6px; letter-spacing: .02em; }
     #tab02 .tt-th-day { line-height: 1.35; }
     #tab02 .tt-th-sub { display: block; font-size: 9px; letter-spacing: .06em; color: rgba(255,255,255,.78); margin-top: 6px; font-weight: 400; }
     #tab02 .tt-detail-list { margin: 8px 0 0; padding-left: 1.1em; font-size: 11.5px; color: var(--mid); line-height: 1.55; list-style: disc; }
     #tab02 .tt-detail-list li { margin-bottom: 5px; }
     #tab02 .tt-detail-list li::marker { color: rgba(3,105,161,.45); }
-    #tab02 .tt-drill { margin-top: 10px; padding: 9px 11px; border-radius: 8px; font-size: 11.5px; font-weight: 600; color: #0a4a66; background: linear-gradient(135deg, rgba(255, 200, 160, .55), rgba(255, 235, 210, .85)); border: 1px solid rgba(200, 130, 70, .28); }
+    #tab02 .tt-drill {
+      margin-top: auto;
+      padding: 9px 11px;
+      border-radius: 8px;
+      font-size: 11.5px;
+      font-weight: 600;
+      color: #0a4a66;
+      background: linear-gradient(135deg, rgba(255, 200, 160, .55), rgba(255, 235, 210, .85));
+      border: 1px solid rgba(200, 130, 70, .28);
+      flex-shrink: 0;
+    }
 
     /* Lesson flow (授業の流れ) */
     .beg-flow-section { margin-bottom: 32px; }

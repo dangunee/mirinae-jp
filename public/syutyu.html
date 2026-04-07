@@ -1164,6 +1164,18 @@
     #tab01 .tt-header, #tab02 .tt-header, #tab03 .tt-header, #tab04 .tt-header { background: linear-gradient(135deg, var(--syutyu-hero), var(--syutyu-hero-dark)); }
     .tt-th { padding: 14px 18px; font-family: 'Cormorant Garamond', serif; font-size: 11px; letter-spacing: .2em; color: rgba(255,255,255,.45); }
     .tt-th:first-child { color: var(--gold-light); }
+    /* 入門：日付は1行目の .tt-th のみ（tt-th-day なし） */
+    #tab01 .tt-wrap .tt-header:first-child .tt-th {
+      font-size: calc(11px * 1.5);
+      line-height: 1.35;
+    }
+    /* 初級・中級・上級：日付列ヘッダー（.tt-th 基準の1.5倍） */
+    #tab02 .tt-th-day,
+    #tab03 .tt-th-day,
+    #tab04 .tt-th-day {
+      font-size: calc(11px * 1.5);
+      line-height: 1.35;
+    }
     .tt-row { display: grid; border-top: 1px solid rgba(200,145,30,.08); transition: background .15s; }
     .tt-row:hover { background: rgba(200,145,30,.02); }
     .tt-cell { padding: 16px 18px; border-right: 1px solid rgba(200,145,30,.08); display: flex; flex-direction: column; justify-content: center; gap: 4px; }
@@ -1197,7 +1209,6 @@
       box-sizing: border-box;
     }
     #tab02 .tt-time-range { font-size: 11px; color: var(--muted); font-weight: 500; margin-top: 6px; letter-spacing: .02em; }
-    #tab02 .tt-th-day { line-height: 1.35; }
     #tab02 .tt-th-sub { display: block; font-size: 9px; letter-spacing: .06em; color: rgba(255,255,255,.78); margin-top: 6px; font-weight: 400; }
     #tab02 .tt-detail-list { margin: 8px 0 0; padding-left: 1.1em; font-size: 11.5px; color: var(--mid); line-height: 1.55; list-style: disc; }
     #tab02 .tt-detail-list li { margin-bottom: 5px; }
@@ -1228,7 +1239,6 @@
       box-sizing: border-box;
     }
     #tab04 .tt-time-range { font-size: 11px; color: var(--muted); font-weight: 500; margin-top: 6px; letter-spacing: .02em; }
-    #tab04 .tt-th-day { line-height: 1.35; }
     #tab04 .tt-th-sub { display: block; font-size: 9px; letter-spacing: .06em; color: rgba(255,255,255,.78); margin-top: 6px; font-weight: 400; }
     #tab04 .tt-detail-list { margin: 8px 0 0; padding-left: 1.1em; font-size: 11.5px; color: var(--mid); line-height: 1.55; list-style: disc; }
     #tab04 .tt-detail-list li { margin-bottom: 5px; }
@@ -1259,7 +1269,6 @@
       box-sizing: border-box;
     }
     #tab03 .tt-time-range { font-size: 11px; color: var(--muted); font-weight: 500; margin-top: 6px; letter-spacing: .02em; }
-    #tab03 .tt-th-day { line-height: 1.35; }
     #tab03 .tt-th-sub { display: block; font-size: 9px; letter-spacing: .06em; color: rgba(255,255,255,.78); margin-top: 6px; font-weight: 400; }
     #tab03 .tt-detail-list { margin: 8px 0 0; padding-left: 1.1em; font-size: 11.5px; color: var(--mid); line-height: 1.55; list-style: disc; }
     #tab03 .tt-detail-list li { margin-bottom: 5px; }
@@ -1570,7 +1579,7 @@
           <div class="syutyu-cta-section">
             <div class="syutyu-cta-inner">
               <h2>連休を、<em>成長の1日に。</em></h2>
-              <p>お申込み締切：2026年1月7日（水）<br>定員になり次第締め切りますので、お早めにどうぞ。</p>
+              <p>お申込み締切：2026年4月30日（木）<br>定員になり次第締め切りますので、お早めにどうぞ。</p>
               <a href="https://mirinae.jp/trial.html?tab=tab02" class="syutyu-cta-apply">お申込みはこちら →</a>
             </div>
           </div>
@@ -1907,7 +1916,7 @@
           <div class="syutyu-cta-section">
             <div class="syutyu-cta-inner">
               <h2>連休を、<em>成長の3日間に。</em></h2>
-              <p>お申込み締切：2026年1月7日（水）<br>定員になり次第締め切りますので、お早めにどうぞ。</p>
+              <p>お申込み締切：2026年4月30日（木）<br>定員になり次第締め切りますので、お早めにどうぞ。</p>
               <a href="https://mirinae.jp/trial.html?tab=tab02" class="syutyu-cta-apply">お申込みはこちら →</a>
             </div>
           </div>
@@ -2301,7 +2310,7 @@
           <div class="syutyu-cta-section">
             <div class="syutyu-cta-inner">
               <h2>連休を、<em>成長の3日間に。</em></h2>
-              <p>お申込み締切：2026年1月7日（水）<br>定員になり次第締め切りますので、お早めにどうぞ。</p>
+              <p>お申込み締切：2026年4月30日（木）<br>定員になり次第締め切りますので、お早めにどうぞ。</p>
               <a href="https://mirinae.jp/trial.html?tab=tab02" class="syutyu-cta-apply">お申込みはこちら →</a>
             </div>
           </div>
@@ -2729,7 +2738,7 @@
           <div class="syutyu-cta-section">
             <div class="syutyu-cta-inner">
               <h2>連休を、<em>成長の3日間に。</em></h2>
-              <p>お申込み締切：2026年1月7日（水）<br>定員になり次第締め切りますので、お早めにどうぞ。</p>
+              <p>お申込み締切：2026年4月30日（木）<br>定員になり次第締め切りますので、お早めにどうぞ。</p>
               <a href="https://mirinae.jp/trial.html?tab=tab02" class="syutyu-cta-apply">お申込みはこちら →</a>
             </div>
           </div>

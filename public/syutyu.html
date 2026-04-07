@@ -1183,6 +1183,16 @@
     #tab01 .tt-row.tt-lunch .tt-lunch-range { font-family: 'Cormorant Garamond', serif; font-size: 18px; color: var(--gold); margin-right: 10px; }
     #tab01 .tt-row.tt-lunch .tt-topic { margin-bottom: 0; font-weight: 600; }
 
+    /* tab02 初級：会話ドリル行 */
+    #tab02 .tt-cell.tt-cell-stack { gap: 0; align-items: stretch; padding: 12px 14px; }
+    #tab02 .tt-time-range { font-size: 11px; color: var(--muted); font-weight: 500; margin-top: 6px; letter-spacing: .02em; }
+    #tab02 .tt-th-day { line-height: 1.35; }
+    #tab02 .tt-th-sub { display: block; font-size: 9px; letter-spacing: .06em; color: rgba(255,255,255,.78); margin-top: 6px; font-weight: 400; }
+    #tab02 .tt-detail-list { margin: 8px 0 0; padding-left: 1.1em; font-size: 11.5px; color: var(--mid); line-height: 1.55; list-style: disc; }
+    #tab02 .tt-detail-list li { margin-bottom: 5px; }
+    #tab02 .tt-detail-list li::marker { color: rgba(3,105,161,.45); }
+    #tab02 .tt-drill { margin-top: 10px; padding: 9px 11px; border-radius: 8px; font-size: 11.5px; font-weight: 600; color: #0a4a66; background: linear-gradient(135deg, rgba(255, 200, 160, .55), rgba(255, 235, 210, .85)); border: 1px solid rgba(200, 130, 70, .28); }
+
     /* Lesson flow (授業の流れ) */
     .beg-flow-section { margin-bottom: 32px; }
     .beg-flow-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 20px; }
@@ -1678,29 +1688,65 @@
             <div class="beg-sec-line"></div>
           </div>
           <div class="tt-wrap syutyu-reveal">
-            <div class="tt-header" style="grid-template-columns:90px 1fr 1fr 1fr;">
+            <div class="tt-header" style="grid-template-columns:100px 1fr 1fr 1fr;">
               <div class="tt-th">時間</div>
-              <div class="tt-th">1/10 (土)</div>
-              <div class="tt-th">1/11 (日)</div>
-              <div class="tt-th">1/12 (月・祝)</div>
+              <div class="tt-th tt-th-day">1日目<span class="tt-th-sub">(5/3) 会話の基本</span></div>
+              <div class="tt-th tt-th-day">2日目<span class="tt-th-sub">(5/4) 過去と状況説明</span></div>
+              <div class="tt-th tt-th-day">3日目<span class="tt-th-sub">(5/6) 実践的な表現とニュアンス</span></div>
             </div>
-            <div class="tt-row shokyu" style="grid-template-columns:90px 1fr 1fr 1fr;">
-              <div class="tt-cell"><div class="tt-time-num">10-11</div><div class="tt-time-label">1コマ目</div></div>
-              <div class="tt-cell"><div class="tt-topic">発音変化のまとめ</div><div class="tt-items"><span class="tt-pill">有声音化</span><span class="tt-pill">連音化</span><span class="tt-pill">鼻音化</span><span class="tt-pill">濃音化</span></div></div>
-              <div class="tt-cell"><div class="tt-topic">変則のまとめ</div><div class="tt-items"><span class="tt-pill">ㄹ語幹</span><span class="tt-pill">ㅂ変則</span><span class="tt-pill">ㄷ変則</span><span class="tt-pill">으変則</span><span class="tt-pill">르変則</span></div></div>
-              <div class="tt-cell"><div class="tt-topic">語尾の現・過・未来 ＋ 尊敬語</div><div class="tt-items"><span class="tt-pill">갔어요?</span><span class="tt-pill">가시다</span><span class="tt-pill">드시다</span><span class="tt-pill">주무시다</span></div></div>
+            <div class="tt-row shokyu" style="grid-template-columns:100px 1fr 1fr 1fr;">
+              <div class="tt-cell"><div class="tt-time-num">1限目</div><div class="tt-time-range">14:00–14:50</div></div>
+              <div class="tt-cell tt-cell-stack">
+                <div class="tt-topic">連体形</div>
+                <ul class="tt-detail-list"><li>連体形 (-는, -은, -을) の整理</li></ul>
+                <div class="tt-drill">習った表現で会話ドリル</div>
+              </div>
+              <div class="tt-cell tt-cell-stack">
+                <div class="tt-topic">過去形・過去の記憶・時間の経過</div>
+                <ul class="tt-detail-list"><li>過去形 (-았/었다)</li><li>経験と経過 (-은 적이 있다, -은 지 ~되다)</li></ul>
+                <div class="tt-drill">習った表現で会話ドリル</div>
+              </div>
+              <div class="tt-cell tt-cell-stack">
+                <div class="tt-topic">理由・勧誘・提案</div>
+                <ul class="tt-detail-list"><li>理由と配慮 (-을 테니까)</li><li>傾向とアドバイス (-는 편이다, -는 게 좋겠다)</li></ul>
+                <div class="tt-drill">習った表現で会話ドリル</div>
+              </div>
             </div>
-            <div class="tt-row shokyu" style="grid-template-columns:90px 1fr 1fr 1fr;">
-              <div class="tt-cell"><div class="tt-time-num">11-12</div><div class="tt-time-label">2コマ目</div></div>
-              <div class="tt-cell"><div class="tt-topic">助詞のまとめ</div><div class="tt-items"><span class="tt-pill">은/는・이/가</span><span class="tt-pill">를/을</span><span class="tt-pill">와/과</span><span class="tt-pill">에/에게</span><span class="tt-pill">부터/까지</span></div></div>
-              <div class="tt-cell"><div class="tt-topic">連体形のまとめ</div><div class="tt-items"><span class="tt-pill">動詞 vs 形容詞</span><span class="tt-pill">現在形</span><span class="tt-pill">過去形</span><span class="tt-pill">未来形</span></div></div>
-              <div class="tt-cell"><div class="tt-topic">語尾❶ 接続語尾</div><div class="tt-items"><span class="tt-pill">-고</span><span class="tt-pill">-아/어서</span><span class="tt-pill">-니까</span><span class="tt-pill">-지만</span><span class="tt-pill">-기 때문에</span></div></div>
+            <div class="tt-row shokyu" style="grid-template-columns:100px 1fr 1fr 1fr;">
+              <div class="tt-cell"><div class="tt-time-num">2限目</div><div class="tt-time-range">15:00–15:50</div></div>
+              <div class="tt-cell tt-cell-stack">
+                <div class="tt-topic">推測の表現</div>
+                <ul class="tt-detail-list"><li>推測の表現 (-는 것 같다, -을 것 같다, -았/었던 것 같다)</li></ul>
+                <div class="tt-drill">習った表現で会話ドリル</div>
+              </div>
+              <div class="tt-cell tt-cell-stack">
+                <div class="tt-topic">状況説明と同意</div>
+                <ul class="tt-detail-list"><li>現在の感嘆と未来の計画 (-군요, -을 생각이다)</li><li>確認と同意 (-네요, -지요?)</li></ul>
+                <div class="tt-drill">習った表現で会話ドリル</div>
+              </div>
+              <div class="tt-cell tt-cell-stack">
+                <div class="tt-topic">接続語尾の使い分け・推測・時</div>
+                <ul class="tt-detail-list"><li>並列 vs 原因 (-고 vs -아서)</li><li>背景の説明 (-(으)ㄹ 때, -(으)ㄹ 텐데)</li></ul>
+                <div class="tt-drill">習った表現で会話ドリル</div>
+              </div>
             </div>
-            <div class="tt-row shokyu" style="grid-template-columns:90px 1fr 1fr 1fr;">
-              <div class="tt-cell"><div class="tt-time-num">12-13</div><div class="tt-time-label">3コマ目</div></div>
-              <div class="tt-cell"><div class="tt-topic">합니다体 と 해요体</div><div class="tt-items"><span class="tt-pill">갑니다/갑니까</span><span class="tt-pill">가요/와요</span></div></div>
-              <div class="tt-cell"><div class="tt-topic">副詞のまとめ</div><div class="tt-items"><span class="tt-pill">같이/다</span><span class="tt-pill">잘/아주</span><span class="tt-pill">빨리</span><span class="tt-pill">너무</span><span class="tt-pill">더/덜/좀</span></div></div>
-              <div class="tt-cell"><div class="tt-topic">語尾❷ 終結語尾</div><div class="tt-items"><span class="tt-pill">-세요</span><span class="tt-pill">-을까요</span><span class="tt-pill">-을 수가 있다</span><span class="tt-pill">-네요</span><span class="tt-pill">-겠지요</span></div></div>
+            <div class="tt-row shokyu" style="grid-template-columns:100px 1fr 1fr 1fr;">
+              <div class="tt-cell"><div class="tt-time-num">3限目</div><div class="tt-time-range">16:00–16:50</div></div>
+              <div class="tt-cell tt-cell-stack">
+                <div class="tt-topic">義務・許可・禁止</div>
+                <ul class="tt-detail-list"><li>義務と当然 (-아/어야 하다)</li><li>許可と禁止 (-아/어도 되다, -(으)면 안 되다)</li></ul>
+                <div class="tt-drill">習った表現で会話ドリル</div>
+              </div>
+              <div class="tt-cell tt-cell-stack">
+                <div class="tt-topic">「아/어形」の活用と応用</div>
+                <ul class="tt-detail-list"><li>依頼と提案 (-아/어 주다, -드릴까요)</li></ul>
+                <div class="tt-drill">習った表現で会話ドリル</div>
+              </div>
+              <div class="tt-cell tt-cell-stack">
+                <div class="tt-topic">背景・否定表現</div>
+                <ul class="tt-detail-list"><li>理由 vs 背景 (-니까 vs -는데)</li><li>否定の選択 (-지 않고 vs -지 말고)</li></ul>
+                <div class="tt-drill">習った表現で会話ドリル</div>
+              </div>
             </div>
           </div>
 

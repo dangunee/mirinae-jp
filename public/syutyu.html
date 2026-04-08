@@ -897,12 +897,28 @@
       margin-bottom: 18px;
       font-weight: 400;
     }
+    .syutyu-cta-form-course-badge {
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+      text-align: center;
+      padding: 14px 16px;
+      margin: 0;
+      border: 1px solid var(--gray-border);
+      border-bottom: none;
+      background: #fff;
+      border-radius: 10px 10px 0 0;
+    }
+    .syutyu-cta-form-course-badge .radio-chip-single { vertical-align: middle; }
     .syutyu-cta-form .form-table {
       width: 100%;
       border-collapse: collapse;
       font-size: 14px;
       margin-bottom: 8px;
+      margin-top: 0;
       table-layout: fixed;
+      border-radius: 0 0 10px 10px;
+      overflow: hidden;
     }
     .syutyu-cta-form .form-table th,
     .syutyu-cta-form .form-table td {
@@ -1004,6 +1020,7 @@
     .syutyu-cta-form .submit-btn:hover { opacity: 0.92; transform: translateY(-1px); }
     @media (max-width: 600px) {
       .syutyu-cta-form-wrap { padding: 18px 14px 22px; margin-top: 4px; }
+      .syutyu-cta-form-course-badge { padding: 12px 10px; border-radius: 8px 8px 0 0; }
       .syutyu-cta-form .form-table { display: block; table-layout: auto; }
       .syutyu-cta-form .form-table tbody,
       .syutyu-cta-form .form-table tr { display: block; }
@@ -1177,8 +1194,8 @@
     @media (max-width: 768px) {
       .syutyu-cta-section { padding: 56px 24px; }
       .syutyu-test-section { padding: 48px 24px; }
-      /* 詳細：左列はアイコン＋ラベル幅のみ（入門〜上級共通） */
-      .beg-details-row { grid-template-columns: max-content 1fr; }
+      /* 詳細：左列は固定幅で行ごとに揃える（max-content だとラベル文字数で幅が変わる） */
+      .beg-details-row { grid-template-columns: 108px 1fr; }
       .beg-details-label { padding: 16px 8px; }
       .beg-details-value { padding: 18px 16px 18px 18px; }
     }
@@ -1767,7 +1784,7 @@
                   <span class="beg-hero-chip">👥 2～6名</span>
                   <span class="beg-hero-chip">📋 ミリネ独自テキスト（PDF）</span>
                   <span class="beg-hero-chip">🎬 録画あり</span>
-                  <span class="beg-hero-chip">📅 お申込み締切 4/30（木）</span>
+                  <span class="beg-hero-chip">📅 5/2（土） お申込み締切 4/30（木）</span>
                 </div>
                 <div class="beg-hero-btns">
                   <a href="https://mirinae.jp/trial.html?tab=tab02" class="beg-hero-btn-primary">お申込みはこちら →</a>
@@ -1850,7 +1867,7 @@
               </div>
             </div>
             <div class="beg-details-row">
-              <div class="beg-details-label"><span class="beg-details-label-icon">📚</span><span class="beg-details-label-text">テキスト</span></div>
+              <div class="beg-details-label"><span class="beg-details-label-icon">📚</span><span class="beg-details-label-text">教材</span></div>
               <div class="beg-details-value">
                 <div class="beg-book-inline"><span class="beg-book-icon">📖</span>『１２３！韓国語 入門〜初級』（ミリネ韓国語教室講師の共著）</div>
               </div>
@@ -1961,12 +1978,9 @@
                   <input type="hidden" name="_url" value="https://mirinae.jp/syutyu.html">
                   <input type="hidden" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
                   <input type="hidden" name="タイトル" value="講座の申し込み">
+                  <div class="syutyu-cta-form-course-badge"><span class="radio-chip-single">講座の申し込み</span></div>
                   <table class="form-table">
                     <tbody>
-                      <tr>
-                        <th>タイトル<span class="required">必須</span></th>
-                        <td><span class="radio-chip-single">講座の申し込み</span></td>
-                      </tr>
                       <tr>
                         <th>お名前<span class="required">必須</span></th>
                         <td><input type="text" name="お名前" required autocomplete="name"></td>
@@ -2024,7 +2038,7 @@
                         <td>
                           <select name="ご希望レッスン" required>
                             <option value="">選択してください</option>
-                            <option value="GW集中入門1日間">GW集中入門1日間</option>
+                            <option value="GW集中講座、入門1日間">GW集中講座、入門1日間</option>
                           </select>
                         </td>
                       </tr>
@@ -2182,7 +2196,7 @@
                   <span class="beg-hero-chip">📍 新宿教室</span>
                   <span class="beg-hero-chip">👥 2-6名</span>
                   <span class="beg-hero-chip">📋 ミリネ独自テキスト（PDF）</span>
-                  <span class="beg-hero-chip">📅 お申込み締切 4/30（木）</span>
+                  <span class="beg-hero-chip">📅 5/2〜5/4 お申込み締切 4/30（木）</span>
                 </div>
                 <div class="beg-hero-btns">
                   <a href="https://mirinae.jp/trial.html?tab=tab02" class="beg-hero-btn-primary">お申込みはこちら →</a>
@@ -2254,7 +2268,7 @@
               </div>
             </div>
             <div class="beg-details-row">
-              <div class="beg-details-label"><span class="beg-details-label-icon">📚</span><span class="beg-details-label-text">テキスト</span></div>
+              <div class="beg-details-label"><span class="beg-details-label-icon">📚</span><span class="beg-details-label-text">教材</span></div>
               <div class="beg-details-value">
                 <div class="beg-book-inline"><span class="beg-book-icon">📖</span>ミリネ独自テキスト（PDF） ※事前にメールにてお送りします。</div>
               </div>
@@ -2493,12 +2507,9 @@
                   <input type="hidden" name="_url" value="https://mirinae.jp/syutyu.html">
                   <input type="hidden" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
                   <input type="hidden" name="タイトル" value="講座の申し込み">
+                  <div class="syutyu-cta-form-course-badge"><span class="radio-chip-single">講座の申し込み</span></div>
                   <table class="form-table">
                     <tbody>
-                      <tr>
-                        <th>タイトル<span class="required">必須</span></th>
-                        <td><span class="radio-chip-single">講座の申し込み</span></td>
-                      </tr>
                       <tr>
                         <th>お名前<span class="required">必須</span></th>
                         <td><input type="text" name="お名前" required autocomplete="name"></td>
@@ -2556,9 +2567,9 @@
                         <td>
                           <select name="ご希望レッスン" required>
                             <option value="">選択してください</option>
-                            <option value="GW集中初級1日間">GW集中初級1日間</option>
-                            <option value="GW集中初級2日間">GW集中初級2日間</option>
-                            <option value="GW集中初級3日間">GW集中初級3日間</option>
+                            <option value="GW集中講座、初級1日間">GW集中講座、初級1日間</option>
+                            <option value="GW集中講座、初級2日間">GW集中講座、初級2日間</option>
+                            <option value="GW集中講座、初級3日間">GW集中講座、初級3日間</option>
                             <option value="GW集中講座、初級・中級1日間">GW集中講座、初級・中級1日間</option>
                             <option value="GW集中講座、初級・中級2日間">GW集中講座、初級・中級2日間</option>
                             <option value="GW集中講座、初級・中級3日間">GW集中講座、初級・中級3日間</option>
@@ -2584,7 +2595,7 @@
                         </td>
                       </tr>
                       <tr>
-                        <th>申し込み講座のご希望日と時間帯 <span class="optional">任意</span></th>
+                        <th>1日・2日間の場合はご希望日をご入力ください。 <span class="optional">任意</span></th>
                         <td><textarea name="希望日時" placeholder="例）○月○日から、週○回 ○時台を希望　など"></textarea></td>
                       </tr>
                       <tr>
@@ -2787,7 +2798,7 @@
                   <span class="beg-hero-chip">📍 新宿教室</span>
                   <span class="beg-hero-chip">👥 2-6名</span>
                   <span class="beg-hero-chip">📋 ミリネ独自テキスト（PDF）</span>
-                  <span class="beg-hero-chip">📅 お申込み締切 4/30（木）</span>
+                  <span class="beg-hero-chip">📅 5/3〜5/5 お申込み締切 4/30（木）</span>
                 </div>
                 <div class="beg-hero-btns">
                   <a href="https://mirinae.jp/trial.html?tab=tab02" class="beg-hero-btn-primary">お申込みはこちら →</a>
@@ -2859,7 +2870,7 @@
               </div>
             </div>
             <div class="beg-details-row">
-              <div class="beg-details-label"><span class="beg-details-label-icon">📚</span><span class="beg-details-label-text">テキスト</span></div>
+              <div class="beg-details-label"><span class="beg-details-label-icon">📚</span><span class="beg-details-label-text">教材</span></div>
               <div class="beg-details-value">
                 <div class="beg-book-inline"><span class="beg-book-icon">📖</span>ミリネ独自テキスト（PDF） ※事前にメールにてお送りします。</div>
               </div>
@@ -2874,7 +2885,7 @@
           <div class="syutyu-schedule-wrap syutyu-reveal">
           <div class="tt-wrap syutyu-tt-desktop syutyu-sess-layout">
             <section class="syutyu-sess">
-              <h3 class="syutyu-sess-title">1限目 <span class="syutyu-sess-time">14:00–14:50</span></h3>
+              <h3 class="syutyu-sess-title">1限目 <span class="syutyu-sess-time">10:00–10:50</span></h3>
               <div class="syutyu-sess-card-grid">
                 <article class="syutyu-date-card">
                   <div class="syutyu-date-card-date">5/3（月・祝）</div>
@@ -2893,7 +2904,7 @@
                   </ul>
                 </article>
                 <article class="syutyu-date-card">
-                  <div class="syutyu-date-card-date">5/6（水・祝）</div>
+                  <div class="syutyu-date-card-date">5/5（火・祝）</div>
                   <div class="tt-topic">条件</div>
                   <ul class="tt-detail-list"><li>理由・根拠 (-거든 / -(으)면 / -ㄴ다면)</li></ul>
                 </article>
@@ -2901,7 +2912,7 @@
               <div class="syutyu-sess-training">習った表現で会話ドリル</div>
             </section>
             <section class="syutyu-sess">
-              <h3 class="syutyu-sess-title">2限目 <span class="syutyu-sess-time">15:00–15:50</span></h3>
+              <h3 class="syutyu-sess-title">2限目 <span class="syutyu-sess-time">11:00–11:50</span></h3>
               <div class="syutyu-sess-card-grid">
                 <article class="syutyu-date-card">
                   <div class="syutyu-date-card-date">5/3（月・祝）</div>
@@ -2917,7 +2928,7 @@
                   </ul>
                 </article>
                 <article class="syutyu-date-card">
-                  <div class="syutyu-date-card-date">5/6（水・祝）</div>
+                  <div class="syutyu-date-card-date">5/5（火・祝）</div>
                   <div class="tt-topic">未来形・推測 接続語尾</div>
                   <ul class="tt-detail-list">
                     <li>-을 테니까</li>
@@ -2928,7 +2939,7 @@
               <div class="syutyu-sess-training">習った表現で会話ドリル</div>
             </section>
             <section class="syutyu-sess">
-              <h3 class="syutyu-sess-title">3限目 <span class="syutyu-sess-time">16:00–16:50</span></h3>
+              <h3 class="syutyu-sess-title">3限目 <span class="syutyu-sess-time">12:00–12:50</span></h3>
               <div class="syutyu-sess-card-grid">
                 <article class="syutyu-date-card">
                   <div class="syutyu-date-card-date">5/3（月・祝）</div>
@@ -2944,7 +2955,7 @@
                   </ul>
                 </article>
                 <article class="syutyu-date-card">
-                  <div class="syutyu-date-card-date">5/6（水・祝）</div>
+                  <div class="syutyu-date-card-date">5/5（火・祝）</div>
                   <div class="tt-topic">感情表現</div>
                   <ul class="tt-detail-list"><li>喜び、怒り、呆れるの表現</li></ul>
                 </article>
@@ -2957,17 +2968,17 @@
               <summary><span class="syutyu-acc-date">5/3（月・祝）</span></summary>
               <div class="syutyu-acc-panel">
                 <div class="syutyu-acc-session">
-                  <div class="syutyu-acc-sess-head">1限目 <span class="syutyu-acc-period">14:00–14:50</span></div>
+                  <div class="syutyu-acc-sess-head">1限目 <span class="syutyu-acc-period">10:00–10:50</span></div>
                   <div class="syutyu-acc-topic">間接話法のマスター1</div>
                   <ul class="syutyu-acc-list"><li>伝聞・引用 (-ㄴ/는다고 하다)</li><li>疑問・勧誘・命令の引用</li></ul>
                 </div>
                 <div class="syutyu-acc-session">
-                  <div class="syutyu-acc-sess-head">2限目 <span class="syutyu-acc-period">15:00–15:50</span></div>
+                  <div class="syutyu-acc-sess-head">2限目 <span class="syutyu-acc-period">11:00–11:50</span></div>
                   <div class="syutyu-acc-topic">間接話法のマスター2</div>
                   <ul class="syutyu-acc-list"><li>日常会話で必須の「縮約形」 (-대요, -재요, -래요)</li></ul>
                 </div>
                 <div class="syutyu-acc-session">
-                  <div class="syutyu-acc-sess-head">3限目 <span class="syutyu-acc-period">16:00–16:50</span></div>
+                  <div class="syutyu-acc-sess-head">3限目 <span class="syutyu-acc-period">12:00–12:50</span></div>
                   <div class="syutyu-acc-topic">間接話法のマスター3</div>
                   <ul class="syutyu-acc-list"><li>伝聞・引用 (-을 거라고 하다) 未来に関する表現</li></ul>
                 </div>
@@ -2978,17 +2989,17 @@
               <summary><span class="syutyu-acc-date">5/4（火・祝）</span></summary>
               <div class="syutyu-acc-panel">
                 <div class="syutyu-acc-session">
-                  <div class="syutyu-acc-sess-head">1限目 <span class="syutyu-acc-period">14:00–14:50</span></div>
+                  <div class="syutyu-acc-sess-head">1限目 <span class="syutyu-acc-period">10:00–10:50</span></div>
                   <div class="syutyu-acc-topic">未確定</div>
                   <ul class="syutyu-acc-list"><li>推測・不確実（-을지도 모르다 など）</li><li>迷いと意図（-을까 하다 など）</li></ul>
                 </div>
                 <div class="syutyu-acc-session">
-                  <div class="syutyu-acc-sess-head">2限目 <span class="syutyu-acc-period">15:00–15:50</span></div>
+                  <div class="syutyu-acc-sess-head">2限目 <span class="syutyu-acc-period">11:00–11:50</span></div>
                   <div class="syutyu-acc-topic">やり方・付加</div>
                   <ul class="syutyu-acc-list"><li>方法・能力 (-을 줄 알다 vs -은 줄 알다)</li><li>付加と強調 (-을 뿐만 아니라, 어찌나 -던지)</li></ul>
                 </div>
                 <div class="syutyu-acc-session">
-                  <div class="syutyu-acc-sess-head">3限目 <span class="syutyu-acc-period">16:00–16:50</span></div>
+                  <div class="syutyu-acc-sess-head">3限目 <span class="syutyu-acc-period">12:00–12:50</span></div>
                   <div class="syutyu-acc-topic">動作の進行・完了・理由</div>
                   <ul class="syutyu-acc-list"><li>動作の進行と完了 (-고 있다 vs -아/어 있다)</li><li>動作の中断と移動 (-다가 vs -아/어다가)</li></ul>
                 </div>
@@ -2996,20 +3007,20 @@
               </div>
             </details>
             <details class="syutyu-acc">
-              <summary><span class="syutyu-acc-date">5/6（水・祝）</span></summary>
+              <summary><span class="syutyu-acc-date">5/5（火・祝）</span></summary>
               <div class="syutyu-acc-panel">
                 <div class="syutyu-acc-session">
-                  <div class="syutyu-acc-sess-head">1限目 <span class="syutyu-acc-period">14:00–14:50</span></div>
+                  <div class="syutyu-acc-sess-head">1限目 <span class="syutyu-acc-period">10:00–10:50</span></div>
                   <div class="syutyu-acc-topic">条件</div>
                   <ul class="syutyu-acc-list"><li>理由・根拠 (-거든 / -(으)면 / -ㄴ다면)</li></ul>
                 </div>
                 <div class="syutyu-acc-session">
-                  <div class="syutyu-acc-sess-head">2限目 <span class="syutyu-acc-period">15:00–15:50</span></div>
+                  <div class="syutyu-acc-sess-head">2限目 <span class="syutyu-acc-period">11:00–11:50</span></div>
                   <div class="syutyu-acc-topic">未来形・推測 接続語尾</div>
                   <ul class="syutyu-acc-list"><li>-을 테니까</li><li>-을 수도 있다</li></ul>
                 </div>
                 <div class="syutyu-acc-session">
-                  <div class="syutyu-acc-sess-head">3限目 <span class="syutyu-acc-period">16:00–16:50</span></div>
+                  <div class="syutyu-acc-sess-head">3限目 <span class="syutyu-acc-period">12:00–12:50</span></div>
                   <div class="syutyu-acc-topic">感情表現</div>
                   <ul class="syutyu-acc-list"><li>喜び、怒り、呆れるの表現</li></ul>
                 </div>
@@ -3104,12 +3115,9 @@
                   <input type="hidden" name="_url" value="https://mirinae.jp/syutyu.html">
                   <input type="hidden" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
                   <input type="hidden" name="タイトル" value="講座の申し込み">
+                  <div class="syutyu-cta-form-course-badge"><span class="radio-chip-single">講座の申し込み</span></div>
                   <table class="form-table">
                     <tbody>
-                      <tr>
-                        <th>タイトル<span class="required">必須</span></th>
-                        <td><span class="radio-chip-single">講座の申し込み</span></td>
-                      </tr>
                       <tr>
                         <th>お名前<span class="required">必須</span></th>
                         <td><input type="text" name="お名前" required autocomplete="name"></td>
@@ -3167,9 +3175,9 @@
                         <td>
                           <select name="ご希望レッスン" required>
                             <option value="">選択してください</option>
-                            <option value="GW集中中級1日間">GW集中中級1日間</option>
-                            <option value="GW集中中級2日間">GW集中中級2日間</option>
-                            <option value="GW集中中級3日間">GW集中中級3日間</option>
+                            <option value="GW集中講座、中級1日間">GW集中講座、中級1日間</option>
+                            <option value="GW集中講座、中級2日間">GW集中講座、中級2日間</option>
+                            <option value="GW集中講座、中級3日間">GW集中講座、中級3日間</option>
                             <option value="GW集中講座、初級・中級1日間">GW集中講座、初級・中級1日間</option>
                             <option value="GW集中講座、初級・中級2日間">GW集中講座、初級・中級2日間</option>
                             <option value="GW集中講座、初級・中級3日間">GW集中講座、初級・中級3日間</option>
@@ -3198,7 +3206,7 @@
                         </td>
                       </tr>
                       <tr>
-                        <th>申し込み講座のご希望日と時間帯 <span class="optional">任意</span></th>
+                        <th>1日・2日間の場合はご希望日をご入力ください。 <span class="optional">任意</span></th>
                         <td><textarea name="希望日時" placeholder="例）○月○日から、週○回 ○時台を希望　など"></textarea></td>
                       </tr>
                       <tr>
@@ -3466,7 +3474,7 @@
                   <span class="beg-hero-chip">📍 新宿教室</span>
                   <span class="beg-hero-chip">👥 2-6名</span>
                   <span class="beg-hero-chip">📋 ミリネ独自テキスト（PDF）</span>
-                  <span class="beg-hero-chip">📅 お申込み締切 4/30（木）</span>
+                  <span class="beg-hero-chip">📅 5/3〜5/6 お申込み締切 4/30（木）</span>
                 </div>
                 <div class="beg-hero-btns">
                   <a href="https://mirinae.jp/trial.html?tab=tab02" class="beg-hero-btn-primary">お申込みはこちら →</a>
@@ -3536,7 +3544,7 @@
               </div>
             </div>
             <div class="beg-details-row">
-              <div class="beg-details-label"><span class="beg-details-label-icon">📚</span><span class="beg-details-label-text">テキスト</span></div>
+              <div class="beg-details-label"><span class="beg-details-label-icon">📚</span><span class="beg-details-label-text">教材</span></div>
               <div class="beg-details-value">
                 <div class="beg-book-inline"><span class="beg-book-icon">📖</span>ミリネ独自テキスト（PDF） ※事前にメールにてお送りします。</div>
               </div>
@@ -3763,12 +3771,9 @@
                   <input type="hidden" name="_url" value="https://mirinae.jp/syutyu.html">
                   <input type="hidden" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
                   <input type="hidden" name="タイトル" value="講座の申し込み">
+                  <div class="syutyu-cta-form-course-badge"><span class="radio-chip-single">講座の申し込み</span></div>
                   <table class="form-table">
                     <tbody>
-                      <tr>
-                        <th>タイトル<span class="required">必須</span></th>
-                        <td><span class="radio-chip-single">講座の申し込み</span></td>
-                      </tr>
                       <tr>
                         <th>お名前<span class="required">必須</span></th>
                         <td><input type="text" name="お名前" required autocomplete="name"></td>
@@ -3826,9 +3831,9 @@
                         <td>
                           <select name="ご希望レッスン" required>
                             <option value="">選択してください</option>
-                            <option value="GW集中上級1日間">GW集中上級1日間</option>
-                            <option value="GW集中上級2日間">GW集中上級2日間</option>
-                            <option value="GW集中上級3日間">GW集中上級3日間</option>
+                            <option value="GW集中講座、上級1日間">GW集中講座、上級1日間</option>
+                            <option value="GW集中講座、上級2日間">GW集中講座、上級2日間</option>
+                            <option value="GW集中講座、上級3日間">GW集中講座、上級3日間</option>
                             <option value="GW集中講座、中級・上級1日間">GW集中講座、中級・上級1日間</option>
                             <option value="GW集中講座、中級・上級2日間">GW集中講座、中級・上級2日間</option>
                             <option value="GW集中講座、中級・上級3日間">GW集中講座、中級・上級3日間</option>
@@ -3854,7 +3859,7 @@
                         </td>
                       </tr>
                       <tr>
-                        <th>申し込み講座のご希望日と時間帯 <span class="optional">任意</span></th>
+                        <th>1日・2日間の場合はご希望日をご入力ください。 <span class="optional">任意</span></th>
                         <td><textarea name="希望日時" placeholder="例）○月○日から、週○回 ○時台を希望　など"></textarea></td>
                       </tr>
                       <tr>

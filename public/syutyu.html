@@ -828,6 +828,7 @@
     #tab03 .syutyu-apply-head,
     #tab04 .syutyu-apply-head {
       margin-top: 28px;
+      scroll-margin-top: 88px;
     }
     .syutyu-cta-form-description {
       max-width: none;
@@ -989,23 +990,23 @@
     .syutyu-cta-form .submit-btn {
       width: 100%;
       max-width: none;
-      padding: 18px 22px;
-      background: linear-gradient(135deg, var(--syutyu-hero) 0%, var(--syutyu-hero-dark) 100%);
-      color: #fff;
+      padding: 16px 28px;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+      color: var(--dark);
       border: none;
-      border-radius: 12px;
-      font-family: 'Noto Sans JP', sans-serif;
+      border-radius: 100px;
+      font-family: 'Noto Serif JP', serif;
       font-size: 16px;
-      font-weight: 700;
-      letter-spacing: 0.06em;
+      font-weight: 600;
+      letter-spacing: 0.05em;
       cursor: pointer;
-      transition: opacity 0.2s, transform 0.15s, box-shadow 0.2s;
-      box-shadow: 0 6px 22px rgba(3, 105, 161, 0.4);
+      transition: all 0.25s;
+      box-shadow: 0 4px 20px rgba(184, 146, 42, 0.4);
     }
     .syutyu-cta-form .submit-btn:hover {
-      opacity: 0.95;
-      transform: translateY(-1px);
-      box-shadow: 0 8px 26px rgba(3, 105, 161, 0.48);
+      background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(184, 146, 42, 0.5);
     }
     @media (max-width: 600px) {
       .syutyu-cta-form-description { margin-bottom: 12px; padding: 14px 14px; }
@@ -1778,7 +1779,7 @@
                   <span class="beg-hero-chip">お申込み締切 4/30（木）</span>
                 </div>
                 <div class="beg-hero-btns">
-                  <a href="https://mirinae.jp/trial.html?tab=tab02" class="beg-hero-btn-primary">お申込みはこちら →</a>
+                  <a href="#syutyu-apply-tab01" class="beg-hero-btn-primary">お申込みはこちら →</a>
                   <a href="#timetable-nyumon" class="beg-hero-btn-ghost">時間割を見る</a>
                 </div>
               </div>
@@ -1955,7 +1956,7 @@
             </div>
           </div>
 
-          <div class="beg-sec-header syutyu-reveal syutyu-apply-head">
+          <div id="syutyu-apply-tab01" class="beg-sec-header syutyu-reveal syutyu-apply-head">
             <div class="beg-sec-label">Application</div>
             <div class="beg-sec-title">お申し込み</div>
             <div class="beg-sec-line"></div>
@@ -1971,7 +1972,7 @@
                   <input type="hidden" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
                   <input type="hidden" name="タイトル" value="講座の申し込み">
                   <div class="syutyu-cta-form-messages">
-                    <h2 class="syutyu-cta-form-title">連休を、<em>成長の1日に。</em></h2>
+                    <h2 class="syutyu-cta-form-title">連休を、<em>成長の3日間に。</em></h2>
                     <p class="syutyu-cta-form-deadline">お申込み締切：2026年4月30日（木）</p>
                     <p class="syutyu-cta-form-muted">定員になり次第締め切りますので、お早めにどうぞ。</p>
                   </div>
@@ -2194,7 +2195,7 @@
                   <span class="beg-hero-chip">お申込み締切 4/30（木）</span>
                 </div>
                 <div class="beg-hero-btns">
-                  <a href="https://mirinae.jp/trial.html?tab=tab02" class="beg-hero-btn-primary">お申込みはこちら →</a>
+                  <a href="#syutyu-apply-tab02" class="beg-hero-btn-primary">お申込みはこちら →</a>
                   <a href="#timetable-shokyu" class="beg-hero-btn-ghost">時間割を見る</a>
                 </div>
               </div>
@@ -2488,7 +2489,7 @@
             </div>
           </div>
 
-          <div class="beg-sec-header syutyu-reveal syutyu-apply-head">
+          <div id="syutyu-apply-tab02" class="beg-sec-header syutyu-reveal syutyu-apply-head">
             <div class="beg-sec-label">Application</div>
             <div class="beg-sec-title">お申し込み</div>
             <div class="beg-sec-line"></div>
@@ -2800,7 +2801,7 @@
                   <span class="beg-hero-chip">お申込み締切 4/30（木）</span>
                 </div>
                 <div class="beg-hero-btns">
-                  <a href="https://mirinae.jp/trial.html?tab=tab02" class="beg-hero-btn-primary">お申込みはこちら →</a>
+                  <a href="#syutyu-apply-tab03" class="beg-hero-btn-primary">お申込みはこちら →</a>
                   <a href="#timetable-chukyu" class="beg-hero-btn-ghost">時間割を見る</a>
                 </div>
               </div>
@@ -3100,7 +3101,7 @@
             </div>
           </div>
 
-          <div class="beg-sec-header syutyu-reveal syutyu-apply-head">
+          <div id="syutyu-apply-tab03" class="beg-sec-header syutyu-reveal syutyu-apply-head">
             <div class="beg-sec-label">Application</div>
             <div class="beg-sec-title">お申し込み</div>
             <div class="beg-sec-line"></div>
@@ -3480,7 +3481,7 @@
                   <span class="beg-hero-chip">お申込み締切 4/30（木）</span>
                 </div>
                 <div class="beg-hero-btns">
-                  <a href="https://mirinae.jp/trial.html?tab=tab02" class="beg-hero-btn-primary">お申込みはこちら →</a>
+                  <a href="#syutyu-apply-tab04" class="beg-hero-btn-primary">お申込みはこちら →</a>
                   <a href="#timetable-jokyu" class="beg-hero-btn-ghost">時間割を見る</a>
                 </div>
               </div>
@@ -3760,7 +3761,7 @@
             </div>
           </div>
 
-          <div class="beg-sec-header syutyu-reveal syutyu-apply-head">
+          <div id="syutyu-apply-tab04" class="beg-sec-header syutyu-reveal syutyu-apply-head">
             <div class="beg-sec-label">Application</div>
             <div class="beg-sec-title">お申し込み</div>
             <div class="beg-sec-line"></div>

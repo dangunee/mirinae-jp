@@ -471,8 +471,8 @@
     }
     .beg-hero-inner {
       display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 48px;
+      grid-template-columns: 1fr;
+      gap: 0;
       align-items: start;
       position: relative;
       z-index: 1;
@@ -603,32 +603,6 @@
       padding-bottom: 2px;
     }
     .beg-hero-btn-ghost:hover { color: #fff; border-color: #fff; }
-    .beg-hero-stats {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      padding-top: 8px;
-    }
-    .beg-hero-stat-card {
-      background: rgba(255,255,255,.18);
-      border: 1px solid rgba(255,255,255,.3);
-      border-radius: 16px;
-      padding: 20px 24px;
-      text-align: center;
-      min-width: 140px;
-    }
-    .beg-hero-stat-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 44px;
-      color: #fff;
-      line-height: 1;
-    }
-    .beg-hero-stat-unit {
-      font-size: 11px;
-      color: rgba(255,255,255,.7);
-      margin-top: 4px;
-      letter-spacing: .1em;
-    }
     #tab01 .beg-hero-tags, #tab02 .beg-hero-tags, #tab03 .beg-hero-tags, #tab04 .beg-hero-tags {
       display: flex;
       gap: 8px;
@@ -1394,6 +1368,27 @@
     #tab04 .tt-drill-banner .tt-cell {
       border-right: none;
     }
+    /* 初級・中級：会話ドリル帯をセル幅いっぱいに */
+    #tab02 .tt-drill-banner .tt-cell,
+    #tab03 .tt-drill-banner .tt-cell {
+      flex-direction: column;
+      align-items: stretch;
+      width: 100%;
+      padding: 12px 14px;
+    }
+    #tab02 .tt-drill-banner .syutyu-sess-training,
+    #tab03 .tt-drill-banner .syutyu-sess-training {
+      width: 100%;
+      max-width: none;
+      box-sizing: border-box;
+      display: block;
+    }
+    #tab02 .syutyu-acc-training,
+    #tab03 .syutyu-acc-training {
+      width: 100%;
+      box-sizing: border-box;
+      display: block;
+    }
 
     /* tab02 初級：会話ドリル行（同一行のセル高さを揃え、ドリルを下端に固定） */
     #tab02 .tt-wrap { background: var(--white); border-color: var(--border); }
@@ -1768,8 +1763,6 @@
         overscroll-behavior-x: contain;
         touch-action: pan-x pan-y;
       }
-      .beg-hero-inner { grid-template-columns: 1fr; gap: 28px; }
-      .beg-hero-stats { flex-direction: row; flex-wrap: wrap; justify-content: flex-start; }
     }
     @media (min-width: 520px) and (max-width: 900px) {
       .beg-price-grid:not([style*="grid-template-columns: 1fr"]) {
@@ -1866,11 +1859,6 @@
                   <a href="#syutyu-apply-tab01" class="beg-hero-btn-primary">お申込みはこちら →</a>
                   <a href="#timetable-nyumon" class="beg-hero-btn-ghost">時間割を見る</a>
                 </div>
-              </div>
-              <div class="beg-hero-stats">
-                <div class="beg-hero-stat-card"><div class="beg-hero-stat-num">4</div><div class="beg-hero-stat-unit">LEVELS</div></div>
-                <div class="beg-hero-stat-card"><div class="beg-hero-stat-num">1</div><div class="beg-hero-stat-unit">DAY</div></div>
-                <div class="beg-hero-stat-card"><div class="beg-hero-stat-num">6</div><div class="beg-hero-stat-unit">CLASSES</div></div>
               </div>
             </div>
           </div>
@@ -2281,11 +2269,6 @@
                   <a href="#timetable-shokyu" class="beg-hero-btn-ghost">時間割を見る</a>
                 </div>
               </div>
-              <div class="beg-hero-stats">
-                <div class="beg-hero-stat-card"><div class="beg-hero-stat-num">4</div><div class="beg-hero-stat-unit">LEVELS</div></div>
-                <div class="beg-hero-stat-card"><div class="beg-hero-stat-num">3</div><div class="beg-hero-stat-unit">DAYS MAX</div></div>
-                <div class="beg-hero-stat-card"><div class="beg-hero-stat-num">9</div><div class="beg-hero-stat-unit">CLASSES MAX</div></div>
-              </div>
             </div>
           </div>
 
@@ -2390,7 +2373,7 @@
               </div>
             </div>
             <div class="tt-row shokyu tt-drill-banner" style="grid-template-columns: 1fr;">
-              <div class="tt-cell" style="flex-direction: row; justify-content: center; padding: 12px 14px;">
+              <div class="tt-cell">
                 <div class="syutyu-sess-training">習った表現で会話ドリル</div>
               </div>
             </div>
@@ -2425,7 +2408,7 @@
               </div>
             </div>
             <div class="tt-row shokyu tt-drill-banner" style="grid-template-columns: 1fr;">
-              <div class="tt-cell" style="flex-direction: row; justify-content: center; padding: 12px 14px;">
+              <div class="tt-cell">
                 <div class="syutyu-sess-training">習った表現で会話ドリル</div>
               </div>
             </div>
@@ -2460,7 +2443,7 @@
               </div>
             </div>
             <div class="tt-row shokyu tt-drill-banner" style="grid-template-columns: 1fr;">
-              <div class="tt-cell" style="flex-direction: row; justify-content: center; padding: 12px 14px;">
+              <div class="tt-cell">
                 <div class="syutyu-sess-training">習った表現で会話ドリル</div>
               </div>
             </div>
@@ -2484,7 +2467,7 @@
                   <div class="syutyu-acc-topic">義務・許可・禁止</div>
                   <ul class="syutyu-acc-list"><li>義務と当然 (-아/어야 하다)</li><li>許可と禁止 (-아/어도 되다, -(으)면 안 되다)</li></ul>
                 </div>
-                <div class="syutyu-acc-training">会話トレーニング</div>
+                <div class="syutyu-acc-training">習った表現で会話ドリル</div>
               </div>
             </details>
             <details class="syutyu-acc">
@@ -2505,7 +2488,7 @@
                   <div class="syutyu-acc-topic">「아/어形」の活用と応用</div>
                   <ul class="syutyu-acc-list"><li>依頼と提案 (-아/어 주다, -드릴까요)</li></ul>
                 </div>
-                <div class="syutyu-acc-training">会話トレーニング</div>
+                <div class="syutyu-acc-training">習った表現で会話ドリル</div>
               </div>
             </details>
             <details class="syutyu-acc">
@@ -2526,7 +2509,7 @@
                   <div class="syutyu-acc-topic">背景・否定表現</div>
                   <ul class="syutyu-acc-list"><li>理由 vs 背景 (-니까 vs -는데)</li><li>否定の選択 (-지 않고 vs -지 말고)</li></ul>
                 </div>
-                <div class="syutyu-acc-training">会話トレーニング</div>
+                <div class="syutyu-acc-training">習った表現で会話ドリル</div>
               </div>
             </details>
           </div>
@@ -2917,11 +2900,6 @@
                   <a href="#timetable-chukyu" class="beg-hero-btn-ghost">時間割を見る</a>
                 </div>
               </div>
-              <div class="beg-hero-stats">
-                <div class="beg-hero-stat-card"><div class="beg-hero-stat-num">4</div><div class="beg-hero-stat-unit">LEVELS</div></div>
-                <div class="beg-hero-stat-card"><div class="beg-hero-stat-num">3</div><div class="beg-hero-stat-unit">DAYS MAX</div></div>
-                <div class="beg-hero-stat-card"><div class="beg-hero-stat-num">9</div><div class="beg-hero-stat-unit">CLASSES MAX</div></div>
-              </div>
             </div>
           </div>
 
@@ -3029,7 +3007,7 @@
               </div>
             </div>
             <div class="tt-row chukyu tt-drill-banner" style="grid-template-columns: 1fr;">
-              <div class="tt-cell" style="flex-direction: row; justify-content: center; padding: 12px 14px;">
+              <div class="tt-cell">
                 <div class="syutyu-sess-training">習った表現で会話ドリル</div>
               </div>
             </div>
@@ -3073,7 +3051,7 @@
               </div>
             </div>
             <div class="tt-row chukyu tt-drill-banner" style="grid-template-columns: 1fr;">
-              <div class="tt-cell" style="flex-direction: row; justify-content: center; padding: 12px 14px;">
+              <div class="tt-cell">
                 <div class="syutyu-sess-training">習った表現で会話ドリル</div>
               </div>
             </div>
@@ -3111,7 +3089,7 @@
               </div>
             </div>
             <div class="tt-row chukyu tt-drill-banner" style="grid-template-columns: 1fr;">
-              <div class="tt-cell" style="flex-direction: row; justify-content: center; padding: 12px 14px;">
+              <div class="tt-cell">
                 <div class="syutyu-sess-training">習った表現で会話ドリル</div>
               </div>
             </div>
@@ -3135,7 +3113,7 @@
                   <div class="syutyu-acc-topic">間接話法のマスター3</div>
                   <ul class="syutyu-acc-list"><li>伝聞・引用 (-을 거라고 하다) 未来に関する表現</li></ul>
                 </div>
-                <div class="syutyu-acc-training">会話トレーニング</div>
+                <div class="syutyu-acc-training">習った表現で会話ドリル</div>
               </div>
             </details>
             <details class="syutyu-acc">
@@ -3156,7 +3134,7 @@
                   <div class="syutyu-acc-topic">動作の進行・完了・理由</div>
                   <ul class="syutyu-acc-list"><li>動作の進行と完了 (-고 있다 vs -아/어 있다)</li><li>動作の中断と移動 (-다가 vs -아/어다가)</li></ul>
                 </div>
-                <div class="syutyu-acc-training">会話トレーニング</div>
+                <div class="syutyu-acc-training">習った表現で会話ドリル</div>
               </div>
             </details>
             <details class="syutyu-acc">
@@ -3177,7 +3155,7 @@
                   <div class="syutyu-acc-topic">感情表現</div>
                   <ul class="syutyu-acc-list"><li>喜び、怒り、呆れるの表現</li></ul>
                 </div>
-                <div class="syutyu-acc-training">会話トレーニング</div>
+                <div class="syutyu-acc-training">習った表現で会話ドリル</div>
               </div>
             </details>
           </div>
@@ -3635,11 +3613,6 @@
                   <a href="#syutyu-apply-tab04" class="beg-hero-btn-primary">お申込みはこちら →</a>
                   <a href="#timetable-jokyu" class="beg-hero-btn-ghost">時間割を見る</a>
                 </div>
-              </div>
-              <div class="beg-hero-stats">
-                <div class="beg-hero-stat-card"><div class="beg-hero-stat-num">4</div><div class="beg-hero-stat-unit">LEVELS</div></div>
-                <div class="beg-hero-stat-card"><div class="beg-hero-stat-num">3</div><div class="beg-hero-stat-unit">DAYS MAX</div></div>
-                <div class="beg-hero-stat-card"><div class="beg-hero-stat-num">9</div><div class="beg-hero-stat-unit">CLASSES MAX</div></div>
               </div>
             </div>
           </div>

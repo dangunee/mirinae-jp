@@ -258,17 +258,50 @@
       .form-note-wrap .form-note { min-width: 0; }
     }
 
+    .thanks-wrap {
+      margin-bottom: 24px;
+    }
+    .thanks-tabs-row {
+      display: flex;
+      gap: 0;
+      margin-bottom: 0;
+      border-radius: 12px 12px 0 0;
+      overflow: hidden;
+      border: 1px solid var(--gray-border);
+      border-bottom: none;
+      background: #f5f2ec;
+    }
+    .thanks-tab-btn {
+      flex: 1;
+      padding: 14px 16px;
+      font-size: 14px;
+      font-weight: 600;
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      font-family: inherit;
+    }
+    .thanks-tab-btn:hover { background: rgba(255,255,255,0.5); color: var(--text-dark); }
+    .thanks-tab-btn.active {
+      background: var(--white);
+      color: var(--gold);
+      box-shadow: inset 0 -2px 0 var(--gold);
+    }
     .thanks-banner {
       background: var(--white);
       border: 1px solid var(--gray-border);
-      border-radius: 16px;
+      border-radius: 0 0 16px 16px;
       padding: 32px 28px;
-      margin-bottom: 24px;
+      margin-bottom: 0;
       color: var(--text-dark);
       font-size: 15px;
       line-height: 1.9;
       box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+      display: none;
     }
+    .thanks-banner.is-active { display: block; animation: fadeUp 0.3s ease; }
     .thanks-banner p { margin: 0 0 12px 0; }
     .thanks-banner p:last-of-type { margin-bottom: 0; }
     .thanks-banner .thanks-title { font-weight: 700; font-size: 17px; margin-bottom: 16px; }
@@ -546,12 +579,24 @@
   <div class="page-wrapper">
     <div class="main-with-sidebar">
     <div class="main-content">
-      <div id="thanks-banner" class="thanks-banner" style="display:none;">
-        <p class="thanks-title">お申込みありがとうございました。</p>
-        <p>メールが届きましたら、体験レッスンの場合は日程を調整し、体験レッスンの可能な日時をお知らせいたします。</p>
-        <p>その他の講座は授業料のお振込締切日をお知らせし、ご入金の確認後予習範囲をお知らせします。</p>
-        <p>定員になると早く締め切りになる場合もあります。</p>
-        <p><a href="/" class="thanks-link">ホームに戻る</a></p>
+      <div id="thanks-wrap" class="thanks-wrap" style="display:none;" aria-live="polite">
+        <div class="thanks-tabs-row" role="tablist" aria-label="お申込み完了の案内">
+          <button type="button" class="thanks-tab-btn active" role="tab" aria-selected="true" data-thanks-tab="01" id="thanks-tabbtn-01">体験＆レベルテスト</button>
+          <button type="button" class="thanks-tab-btn" role="tab" aria-selected="false" data-thanks-tab="02" id="thanks-tabbtn-02">講座申込</button>
+        </div>
+        <div id="thanks-content-01" class="thanks-banner is-active" role="tabpanel" aria-labelledby="thanks-tabbtn-01">
+          <p class="thanks-title">お申込みありがとうございました。</p>
+          <p>メールが届きましたら、体験レッスンの場合は日程を調整し、体験レッスンの可能な日時をお知らせいたします。</p>
+          <p>その他の講座は授業料のお振込締切日をお知らせし、ご入金の確認後予習範囲をお知らせします。</p>
+          <p>定員になると早く締め切りになる場合もあります。</p>
+          <p><a href="/" class="thanks-link">ホームに戻る</a></p>
+        </div>
+        <div id="thanks-content-02" class="thanks-banner" role="tabpanel" aria-labelledby="thanks-tabbtn-02">
+          <p class="thanks-title">お申込みありがとうございました。</p>
+          <p>メールが届きましたら、講座は授業料のお振込締切日をお知らせし、ご入金の確認後予習範囲をお知らせします。</p>
+          <p>定員になると早く締め切りになる場合もあります。</p>
+          <p><a href="/" class="thanks-link">ホームに戻る</a></p>
+        </div>
       </div>
       <!-- ========== タブ1: 体験＆レベルテスト ========== -->
       <div id="tab01" class="tab-panel active">
@@ -1174,16 +1219,51 @@
 
       var hash = location.hash.slice(1);
       var params = new URLSearchParams(location.search);
+
+      function switchThanksSubTab(which) {
+        var c1 = document.getElementById('thanks-content-01');
+        var c2 = document.getElementById('thanks-content-02');
+        var b1 = document.getElementById('thanks-tabbtn-01');
+        var b2 = document.getElementById('thanks-tabbtn-02');
+        var active = which === '02';
+        if (c1) {
+          c1.classList.toggle('is-active', !active);
+        }
+        if (c2) {
+          c2.classList.toggle('is-active', active);
+        }
+        if (b1) {
+          b1.classList.toggle('active', !active);
+          b1.setAttribute('aria-selected', !active ? 'true' : 'false');
+        }
+        if (b2) {
+          b2.classList.toggle('active', active);
+          b2.setAttribute('aria-selected', active ? 'true' : 'false');
+        }
+      }
+
       if (params.get('thanks') === '1') {
-        var banner = document.getElementById('thanks-banner');
+        var thanksWrap = document.getElementById('thanks-wrap');
         var panels = document.querySelectorAll('.tab-panel');
         var tabsBar = document.querySelector('.tabs-bar');
-        if (banner) {
-          banner.style.display = 'block';
-          banner.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (thanksWrap) {
+          thanksWrap.style.display = 'block';
+          thanksWrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
         panels.forEach(function(p) { p.style.display = 'none'; });
         if (tabsBar) tabsBar.style.display = 'none';
+        var thanksTabParam = params.get('tab');
+        if (thanksTabParam === 'tab02') {
+          switchThanksSubTab('02');
+        } else {
+          switchThanksSubTab('01');
+        }
+        document.querySelectorAll('.thanks-tab-btn').forEach(function(btn) {
+          btn.addEventListener('click', function() {
+            var t = btn.getAttribute('data-thanks-tab');
+            switchThanksSubTab(t === '02' ? '02' : '01');
+          });
+        });
       }
       var tabParam = params.get('tab');
       if (tabParam && ['tab01', 'tab02', 'tab03', 'tab04'].indexOf(tabParam) !== -1) {

@@ -654,6 +654,14 @@
       list-style: disc;
     }
     .gw-intensive-section .gw-intensive-card li { margin-bottom: 2px; }
+    .gw-intensive-section .gw-intensive-third-note {
+      display: block;
+      margin-top: 3px;
+      font-size: 12px;
+      font-weight: 300;
+      line-height: 1.65;
+      color: var(--gray-desc);
+    }
     .gw-intensive-section .gw-intensive-footer {
       margin-top: auto;
       padding-top: 12px;
@@ -664,6 +672,19 @@
       letter-spacing: 0.02em;
       text-align: center;
       line-height: 1.55;
+    }
+    .gw-intensive-section .gw-intensive-footer-line1,
+    .gw-intensive-section .gw-intensive-footer-line2 {
+      display: block;
+    }
+    @media (max-width: 560px) {
+      .gw-intensive-section .gw-intensive-footer-line1,
+      .gw-intensive-section .gw-intensive-footer-line2 {
+        display: inline;
+      }
+      .gw-intensive-section .gw-intensive-footer-line1::after {
+        content: ' ';
+      }
     }
 
     /* 只今募集中の講座（イラスト高さは従来 280:180 の約半分＝ 280:90） */
@@ -2017,7 +2038,7 @@
 
 <div style="background: var(--white); border-bottom: 1px solid var(--border);">
   <section class="section gw-intensive-section" id="gw-intensive" aria-labelledby="gw-intensive-title">
-    <h2 class="section-title" id="gw-intensive-title">ゴールデンウィーク 韓国語集中講座</h2>
+    <h2 class="section-title" id="gw-intensive-title">GW 韓国語集中講座 (5/2〜5/6)</h2>
     <p class="section-sub">連休を使って短期集中。入門・初級・中級・上級から、自分に合ったレベルを選べます。</p>
     <div class="gw-intensive-grid">
       <a href="/syutyu#tab01" class="featured-card gw-intensive-card">
@@ -2026,9 +2047,9 @@
         <ul>
           <li>文字と発音</li>
           <li>発音の変化</li>
-          <li>基本文法</li>
+          <li>基本文法<span class="gw-intensive-third-note">・習った内容で会話</span></li>
         </ul>
-        <div class="gw-intensive-footer">5/2(土) 1日6コマ<br>10時〜17時</div>
+        <div class="gw-intensive-footer"><span class="gw-intensive-footer-line1">5/2(土) 1日6コマ</span><span class="gw-intensive-footer-line2">10時〜17時</span></div>
       </a>
       <a href="/syutyu#tab02" class="featured-card gw-intensive-card">
         <h3>初級</h3>
@@ -2036,9 +2057,9 @@
         <ul>
           <li>会話の基本</li>
           <li>文法の整理</li>
-          <li>実践練習</li>
+          <li>実践練習<span class="gw-intensive-third-note">・習った内容で会話</span></li>
         </ul>
-        <div class="gw-intensive-footer">5/2(土)〜5/4(月)<br>14〜17時</div>
+        <div class="gw-intensive-footer"><span class="gw-intensive-footer-line1">5/2(土)〜5/4(月)</span><span class="gw-intensive-footer-line2">14〜17時</span></div>
       </a>
       <a href="/syutyu#tab03" class="featured-card gw-intensive-card">
         <h3>中級</h3>
@@ -2046,9 +2067,9 @@
         <ul>
           <li>過去形</li>
           <li>経験・説明</li>
-          <li>接続表現</li>
+          <li>接続表現<span class="gw-intensive-third-note">・習った内容で会話</span></li>
         </ul>
-        <div class="gw-intensive-footer">5/3(日)〜5/5(火)<br>10時〜13時</div>
+        <div class="gw-intensive-footer"><span class="gw-intensive-footer-line1">5/3(日)〜5/5(火)</span><span class="gw-intensive-footer-line2">10時〜13時</span></div>
       </a>
       <a href="/syutyu#tab04" class="featured-card gw-intensive-card">
         <h3>上級</h3>
@@ -2056,9 +2077,9 @@
         <ul>
           <li>理由・提案</li>
           <li>表現の使い分け</li>
-          <li>応用会話</li>
+          <li>応用会話<span class="gw-intensive-third-note">・習った内容で会話</span></li>
         </ul>
-        <div class="gw-intensive-footer">5/3(日) 5/5(火) 5/6(水)<br>14時〜17時</div>
+        <div class="gw-intensive-footer"><span class="gw-intensive-footer-line1">5/3(日) 5/5(火) 5/6(水)</span><span class="gw-intensive-footer-line2">14時〜17時</span></div>
       </a>
     </div>
   </section>

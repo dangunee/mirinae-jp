@@ -822,7 +822,20 @@
       transform: translateY(-2px);
       box-shadow: 0 8px 28px rgba(184,146,42,0.5);
     }
-    /* 講座申込 — 青グラデ＋フォーム一体（LP CTA） */
+    /* 講座申込 — 説明（白）→ 青グラデフォーム */
+    .syutyu-cta-form-description {
+      max-width: 720px;
+      margin: 0 auto 14px;
+      padding: 16px 18px;
+      background: var(--white);
+      color: var(--mid);
+      font-size: 14px;
+      line-height: 1.75;
+      font-weight: 400;
+      border-radius: 12px;
+      border: 1px solid var(--gray-border);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    }
     .syutyu-cta-form-wrap {
       max-width: 720px;
       margin: 0 auto 48px;
@@ -874,46 +887,11 @@
       margin: 0;
       line-height: 1.65;
     }
-    .syutyu-cta-form .syutyu-cta-form-note {
-      position: relative;
-      z-index: 1;
-      font-size: 13px;
-      color: rgba(255, 255, 255, 0.88);
-      line-height: 1.65;
-      margin: 12px 0 14px;
-      font-weight: 400;
-    }
     .syutyu-cta-form {
       position: relative;
       z-index: 1;
       margin: 0;
       padding: 0;
-    }
-    .syutyu-cta-form-course-badge {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      box-sizing: border-box;
-      text-align: center;
-      margin: 0 0 0;
-      padding: 22px 20px;
-      border: none;
-      border-radius: 12px 12px 0 0;
-      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
-      box-shadow: 0 4px 22px rgba(184, 146, 42, 0.4);
-    }
-    .syutyu-cta-form-course-badge .radio-chip-single {
-      vertical-align: middle;
-      display: inline-block;
-      padding: 0;
-      border: none;
-      border-radius: 0;
-      font-size: 17px;
-      font-weight: 800;
-      letter-spacing: 0.04em;
-      color: var(--dark);
-      background: transparent;
     }
     .syutyu-cta-form .form-table {
       width: 100%;
@@ -922,7 +900,7 @@
       margin-bottom: 8px;
       margin-top: 0;
       table-layout: fixed;
-      border-radius: 0 0 10px 10px;
+      border-radius: 12px;
       overflow: hidden;
     }
     .syutyu-cta-form .form-table th,
@@ -1019,13 +997,12 @@
     .syutyu-cta-form .submit-btn:hover {
       opacity: 0.95;
       transform: translateY(-1px);
-      box-shadow: 0 6px 20px rgba(3, 105, 161, 0.45);
+      box-shadow: 0 8px 26px rgba(3, 105, 161, 0.48);
     }
     @media (max-width: 600px) {
+      .syutyu-cta-form-description { margin-bottom: 12px; padding: 14px 14px; }
       .syutyu-cta-form-wrap { padding: 20px 16px 20px; margin-bottom: 40px; }
       .syutyu-cta-form .syutyu-cta-form-messages { margin-bottom: 8px; }
-      .syutyu-cta-form-course-badge { padding: 20px 16px; border-radius: 10px 10px 0 0; }
-      .syutyu-cta-form-course-badge .radio-chip-single { font-size: 16px; }
       .syutyu-cta-form .form-table { display: block; table-layout: auto; }
       .syutyu-cta-form .form-table tbody,
       .syutyu-cta-form .form-table tr { display: block; }
@@ -1970,6 +1947,7 @@
             </div>
           </div>
 
+          <p class="syutyu-cta-form-description">受講したい講座が決まっている方はこちらから本申込ができます。希望の教室・レッスン名・日程などをご記入ください。</p>
           <div class="syutyu-cta-form-wrap">
             <form class="syutyu-cta-form" action="https://formsubmit.co/mirinae@kaonnuri.com" method="POST">
               <input type="hidden" name="_captcha" value="false">
@@ -1980,12 +1958,10 @@
                   <input type="hidden" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
                   <input type="hidden" name="タイトル" value="講座の申し込み">
                   <div class="syutyu-cta-form-messages">
-                    <h2 class="syutyu-cta-form-title">連休を、<em>成長の3日間に。</em></h2>
+                    <h2 class="syutyu-cta-form-title">連休を、<em>成長の1日に。</em></h2>
                     <p class="syutyu-cta-form-deadline">お申込み締切：2026年4月30日（木）</p>
                     <p class="syutyu-cta-form-muted">定員になり次第締め切りますので、お早めにどうぞ。</p>
                   </div>
-                  <div class="syutyu-cta-form-course-badge"><span class="radio-chip-single">講座の申し込み</span></div>
-                  <p class="syutyu-cta-form-note">受講したい講座が決まっている方はこちらから本申込ができます。希望の教室・レッスン名・日程などをご記入ください。</p>
                   <table class="form-table">
                     <tbody>
                       <tr>
@@ -2082,7 +2058,7 @@
                     </tbody>
                   </table>
                   <div class="form-actions">
-                    <button type="submit" class="submit-btn">送信する</button>
+                    <button type="submit" class="submit-btn">申し込みする</button>
                   </div>
                 </form>
           </div>
@@ -2499,6 +2475,7 @@
             </div>
           </div>
 
+          <p class="syutyu-cta-form-description">受講したい講座が決まっている方はこちらから本申込ができます。希望の教室・レッスン名・日程などをご記入ください。</p>
           <div class="syutyu-cta-form-wrap">
             <form class="syutyu-cta-form" action="https://formsubmit.co/mirinae@kaonnuri.com" method="POST">
               <input type="hidden" name="_captcha" value="false">
@@ -2513,8 +2490,6 @@
                     <p class="syutyu-cta-form-deadline">お申込み締切：2026年4月30日（木）</p>
                     <p class="syutyu-cta-form-muted">定員になり次第締め切りますので、お早めにどうぞ。</p>
                   </div>
-                  <div class="syutyu-cta-form-course-badge"><span class="radio-chip-single">講座の申し込み</span></div>
-                  <p class="syutyu-cta-form-note">受講したい講座が決まっている方はこちらから本申込ができます。希望の教室・レッスン名・日程などをご記入ください。</p>
                   <table class="form-table">
                     <tbody>
                       <tr>
@@ -2616,7 +2591,7 @@
                     </tbody>
                   </table>
                   <div class="form-actions">
-                    <button type="submit" class="submit-btn">送信する</button>
+                    <button type="submit" class="submit-btn">申し込みする</button>
                   </div>
                 </form>
           </div>
@@ -3107,6 +3082,7 @@
             </div>
           </div>
 
+          <p class="syutyu-cta-form-description">受講したい講座が決まっている方はこちらから本申込ができます。希望の教室・レッスン名・日程などをご記入ください。</p>
           <div class="syutyu-cta-form-wrap">
             <form class="syutyu-cta-form" action="https://formsubmit.co/mirinae@kaonnuri.com" method="POST">
               <input type="hidden" name="_captcha" value="false">
@@ -3121,8 +3097,6 @@
                     <p class="syutyu-cta-form-deadline">お申込み締切：2026年4月30日（木）</p>
                     <p class="syutyu-cta-form-muted">定員になり次第締め切りますので、お早めにどうぞ。</p>
                   </div>
-                  <div class="syutyu-cta-form-course-badge"><span class="radio-chip-single">講座の申し込み</span></div>
-                  <p class="syutyu-cta-form-note">受講したい講座が決まっている方はこちらから本申込ができます。希望の教室・レッスン名・日程などをご記入ください。</p>
                   <table class="form-table">
                     <tbody>
                       <tr>
@@ -3227,7 +3201,7 @@
                     </tbody>
                   </table>
                   <div class="form-actions">
-                    <button type="submit" class="submit-btn">送信する</button>
+                    <button type="submit" class="submit-btn">申し込みする</button>
                   </div>
                 </form>
           </div>
@@ -3763,6 +3737,7 @@
             </div>
           </div>
 
+          <p class="syutyu-cta-form-description">受講したい講座が決まっている方はこちらから本申込ができます。希望の教室・レッスン名・日程などをご記入ください。</p>
           <div class="syutyu-cta-form-wrap">
             <form class="syutyu-cta-form" action="https://formsubmit.co/mirinae@kaonnuri.com" method="POST">
               <input type="hidden" name="_captcha" value="false">
@@ -3777,8 +3752,6 @@
                     <p class="syutyu-cta-form-deadline">お申込み締切：2026年4月30日（木）</p>
                     <p class="syutyu-cta-form-muted">定員になり次第締め切りますので、お早めにどうぞ。</p>
                   </div>
-                  <div class="syutyu-cta-form-course-badge"><span class="radio-chip-single">講座の申し込み</span></div>
-                  <p class="syutyu-cta-form-note">受講したい講座が決まっている方はこちらから本申込ができます。希望の教室・レッスン名・日程などをご記入ください。</p>
                   <table class="form-table">
                     <tbody>
                       <tr>
@@ -3880,7 +3853,7 @@
                     </tbody>
                   </table>
                   <div class="form-actions">
-                    <button type="submit" class="submit-btn">送信する</button>
+                    <button type="submit" class="submit-btn">申し込みする</button>
                   </div>
                 </form>
           </div>

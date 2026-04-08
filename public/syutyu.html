@@ -283,9 +283,8 @@
       .beg-hero { padding: 36px 18px 40px !important; }
       .beg-details-value { font-size: 12.5px; }
       .beg-details-label-text { font-size: 11px; }
-      .beg-details-row { grid-template-columns: 88px 1fr; }
-      .beg-details-label { padding: 16px 12px; }
-      .beg-details-value { padding: 16px 20px; }
+      .beg-details-label { padding: 12px 5px; }
+      .beg-details-value { padding: 14px 12px 14px 14px; }
     }
     .group-left { min-width: 0; }
     .sidebar {
@@ -1047,6 +1046,10 @@
     @media (max-width: 768px) {
       .syutyu-cta-section { padding: 56px 24px; }
       .syutyu-test-section { padding: 48px 24px; }
+      /* 詳細：左列はアイコン＋ラベル幅のみ（入門〜上級共通） */
+      .beg-details-row { grid-template-columns: max-content 1fr; }
+      .beg-details-label { padding: 16px 8px; }
+      .beg-details-value { padding: 18px 16px 18px 18px; }
     }
     /* Course Concept section */
     .concept-section {
@@ -1583,15 +1586,15 @@
               <div class="tt-th">内容</div>
             </div>
             <div class="tt-row nyumon" style="grid-template-columns:90px 1fr;">
-              <div class="tt-cell"><div class="tt-time-num">10</div><div class="tt-time-label">1コマ目</div></div>
+              <div class="tt-cell"><div class="tt-time-num">10時</div></div>
               <div class="tt-cell"><div class="tt-topic">ハングルが読めるようになる</div><div class="tt-items"><span class="tt-pill">基本母音と子音が理解できる</span><span class="tt-pill">発音の違いが分かる</span></div></div>
             </div>
             <div class="tt-row nyumon" style="grid-template-columns:90px 1fr;">
-              <div class="tt-cell"><div class="tt-time-num">11</div><div class="tt-time-label">2コマ目</div></div>
+              <div class="tt-cell"><div class="tt-time-num">11時</div></div>
               <div class="tt-cell"><div class="tt-topic">単語の形が読めるようになる</div><div class="tt-items"><span class="tt-pill">パッチムの読み方が分かる</span><span class="tt-pill">二重母音も読めるようになる</span></div></div>
             </div>
             <div class="tt-row nyumon" style="grid-template-columns:90px 1fr;">
-              <div class="tt-cell"><div class="tt-time-num">12</div><div class="tt-time-label">3コマ目</div></div>
+              <div class="tt-cell"><div class="tt-time-num">12時</div></div>
               <div class="tt-cell"><div class="tt-topic">自然な発音ができるようになる</div><div class="tt-items"><span class="tt-pill">つながる音のルールが理解できる</span><span class="tt-pill">聞き取りやすい発音ができる</span></div></div>
             </div>
             <div class="tt-row nyumon tt-lunch" style="grid-template-columns: 1fr;">
@@ -1601,15 +1604,15 @@
               </div>
             </div>
             <div class="tt-row nyumon" style="grid-template-columns:90px 1fr;">
-              <div class="tt-cell"><div class="tt-time-num">14</div><div class="tt-time-label">4コマ目</div></div>
+              <div class="tt-cell"><div class="tt-time-num">14時</div></div>
               <div class="tt-cell"><div class="tt-topic">「〜です」で話せるようになる</div><div class="tt-items"><span class="tt-pill">名詞の文が作れる</span><span class="tt-pill">肯定・否定が言える</span></div></div>
             </div>
             <div class="tt-row nyumon" style="grid-template-columns:90px 1fr;">
-              <div class="tt-cell"><div class="tt-time-num">15</div><div class="tt-time-label">5コマ目</div></div>
+              <div class="tt-cell"><div class="tt-time-num">15時</div></div>
               <div class="tt-cell"><div class="tt-topic">動きのある文が話せるようになる</div><div class="tt-items"><span class="tt-pill">動詞・形容詞の文が使える</span><span class="tt-pill">丁寧な否定ができる</span></div></div>
             </div>
             <div class="tt-row nyumon" style="grid-template-columns:90px 1fr;">
-              <div class="tt-cell"><div class="tt-time-num">16</div><div class="tt-time-label">6コマ目</div></div>
+              <div class="tt-cell"><div class="tt-time-num">16時</div></div>
               <div class="tt-cell"><div class="tt-topic">気軽に話せるようになる</div><div class="tt-items"><span class="tt-pill">日常の一言が話せる</span><span class="tt-pill">簡単な質問ができる</span></div></div>
             </div>
           </div>

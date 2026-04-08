@@ -880,6 +880,137 @@
       transform: translateY(-3px);
       box-shadow: 0 10px 36px rgba(184,146,42,.5);
     }
+    /* 講座申込フォーム（trial tab02 相当・GWレッスン絞り込み） */
+    .syutyu-cta-form-wrap {
+      max-width: 720px;
+      margin: 8px auto 0;
+      text-align: left;
+      background: rgba(255, 255, 255, 0.98);
+      border-radius: 14px;
+      padding: 22px 22px 26px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    }
+    .syutyu-cta-form-note {
+      font-size: 13px;
+      color: var(--mid);
+      line-height: 1.65;
+      margin-bottom: 18px;
+      font-weight: 400;
+    }
+    .syutyu-cta-form .form-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      margin-bottom: 8px;
+      table-layout: fixed;
+    }
+    .syutyu-cta-form .form-table th,
+    .syutyu-cta-form .form-table td {
+      border: 1px solid var(--gray-border);
+      padding: 11px 12px;
+      vertical-align: top;
+    }
+    .syutyu-cta-form .form-table th {
+      width: 32%;
+      max-width: 32%;
+      background: #f5f2ec;
+      font-weight: 600;
+      color: var(--mid);
+      font-size: 13px;
+      overflow-wrap: break-word;
+    }
+    .syutyu-cta-form .form-table .required {
+      display: inline-block;
+      background: #c0392b;
+      color: #fff;
+      font-size: 10px;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-weight: 700;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+    .syutyu-cta-form .form-table .optional {
+      display: inline-block;
+      background: #e5e5ea;
+      color: var(--text-muted);
+      font-size: 10px;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-weight: 700;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+    .syutyu-cta-form .form-table td { background: #fff; }
+    .syutyu-cta-form .form-table small { display: block; font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+    .syutyu-cta-form .radio-chip-single {
+      display: inline-block;
+      padding: 8px 16px;
+      border: 1.5px solid var(--gold);
+      border-radius: 999px;
+      font-size: 13px;
+      color: var(--gold);
+      font-weight: 700;
+      background: var(--gold-pale);
+    }
+    .syutyu-cta-form input[type="text"],
+    .syutyu-cta-form input[type="email"],
+    .syutyu-cta-form input[type="tel"],
+    .syutyu-cta-form select,
+    .syutyu-cta-form textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 8px;
+      border: 1.5px solid var(--gray-border);
+      font-family: inherit;
+      font-size: 14px;
+      color: var(--text-dark);
+      background: #fafaf7;
+      outline: none;
+    }
+    .syutyu-cta-form select {
+      appearance: none;
+      padding-right: 34px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238E8E93' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      cursor: pointer;
+    }
+    .syutyu-cta-form input:focus,
+    .syutyu-cta-form select:focus,
+    .syutyu-cta-form textarea:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(184, 150, 62, 0.15);
+      background: #fff;
+    }
+    .syutyu-cta-form textarea { min-height: 100px; resize: vertical; }
+    .syutyu-cta-form .form-actions { margin-top: 18px; text-align: center; }
+    .syutyu-cta-form .submit-btn {
+      width: 100%;
+      max-width: 400px;
+      padding: 14px 20px;
+      background: linear-gradient(135deg, var(--gold) 0%, #c8a84b 100%);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.15s;
+      box-shadow: 0 4px 16px rgba(184, 150, 62, 0.35);
+    }
+    .syutyu-cta-form .submit-btn:hover { opacity: 0.92; transform: translateY(-1px); }
+    @media (max-width: 600px) {
+      .syutyu-cta-form-wrap { padding: 18px 14px 22px; margin-top: 4px; }
+      .syutyu-cta-form .form-table { display: block; table-layout: auto; }
+      .syutyu-cta-form .form-table tbody,
+      .syutyu-cta-form .form-table tr { display: block; }
+      .syutyu-cta-form .form-table th,
+      .syutyu-cta-form .form-table td { display: block; width: 100%; max-width: none; box-sizing: border-box; }
+      .syutyu-cta-form .form-table th { border-bottom: none; padding-bottom: 4px; }
+    }
     /* Testimonials — beige background */
     .syutyu-test-section {
       background: #f0ebe0;
@@ -1370,7 +1501,7 @@
       text-align: center;
     }
 
-    /* 初級・中級・上級：デスクトップ＝セッション単位（日付カード＋初級／中級は帯にドリル表記、上級は帯なし） */
+    /* 初級・中級・上級：デスクトップ＝セッション単位（日付カード＋帯に会話ドリル表記） */
     #tab02 .syutyu-sess-layout,
     #tab03 .syutyu-sess-layout,
     #tab04 .syutyu-sess-layout {
@@ -1465,18 +1596,9 @@
       color: var(--muted);
       line-height: 1.5;
     }
-    #tab02 .syutyu-card-drill-note,
-    #tab03 .syutyu-card-drill-note,
-    #tab04 .syutyu-card-drill-note {
-      font-size: 10.5px;
-      color: var(--muted);
-      margin-top: auto;
-      padding-top: 10px;
-      border-top: 1px dashed rgba(200, 145, 30, 0.18);
-      line-height: 1.45;
-    }
     #tab02 .syutyu-sess-training,
-    #tab03 .syutyu-sess-training {
+    #tab03 .syutyu-sess-training,
+    #tab04 .syutyu-sess-training {
       padding: 11px 14px;
       border-radius: 8px;
       font-size: 12px;
@@ -1829,7 +1951,120 @@
             <div class="syutyu-cta-inner">
               <h2>連休を、<em>成長の1日に。</em></h2>
               <p>お申込み締切：2026年4月30日（木）<br>定員になり次第締め切りますので、お早めにどうぞ。</p>
-              <a href="https://mirinae.jp/trial.html?tab=tab02" class="syutyu-cta-apply">お申込みはこちら →</a>
+              <div class="syutyu-cta-form-wrap">
+                <p class="syutyu-cta-form-note">受講したい講座が決まっている方はこちらから本申込ができます。希望の教室・レッスン名・日程などをご記入ください。</p>
+                <form class="syutyu-cta-form" action="https://formsubmit.co/mirinae@kaonnuri.com" method="POST">
+                  <input type="hidden" name="_captcha" value="false">
+                  <input type="hidden" name="_subject" value="【講座申込】ミリネ韓国語教室">
+                  <input type="hidden" name="_next" value="https://mirinae.jp/trial.html?thanks=1&amp;tab=tab02">
+                  <input type="hidden" name="_replyto" value="メールアドレス">
+                  <input type="hidden" name="_url" value="https://mirinae.jp/syutyu.html">
+                  <input type="hidden" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+                  <input type="hidden" name="タイトル" value="講座の申し込み">
+                  <table class="form-table">
+                    <tbody>
+                      <tr>
+                        <th>タイトル<span class="required">必須</span></th>
+                        <td><span class="radio-chip-single">講座の申し込み</span></td>
+                      </tr>
+                      <tr>
+                        <th>お名前<span class="required">必須</span></th>
+                        <td><input type="text" name="お名前" required autocomplete="name"></td>
+                      </tr>
+                      <tr>
+                        <th>ふりがな<span class="required">必須</span></th>
+                        <td><input type="text" name="ふりがな" required></td>
+                      </tr>
+                      <tr>
+                        <th>メールアドレス<span class="required">必須</span></th>
+                        <td><input type="email" name="メールアドレス" required autocomplete="email"></td>
+                      </tr>
+                      <tr>
+                        <th>年齢 <span class="optional">任意</span></th>
+                        <td>
+                          <select name="年齢">
+                            <option value="">選択してください</option>
+                            <option value="10代">10代</option><option value="20代">20代</option><option value="30代">30代</option><option value="40代">40代</option><option value="50代">50代</option><option value="60代">60代</option><option value="70代以上">70代以上</option>
+                          </select>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>都道府県 <span class="optional">任意</span></th>
+                        <td>
+                          <select name="都道府県">
+                            <option value="">選択してください</option>
+                            <option>北海道</option><option>青森県</option><option>岩手県</option><option>宮城県</option><option>秋田県</option><option>山形県</option><option>福島県</option>
+                            <option>茨城県</option><option>栃木県</option><option>群馬県</option><option>埼玉県</option><option>千葉県</option><option>東京23区</option><option>東京都</option><option>神奈川県</option>
+                            <option>山梨県</option><option>長野県</option><option>新潟県</option><option>富山県</option><option>石川県</option><option>福井県</option>
+                            <option>岐阜県</option><option>静岡県</option><option>愛知県</option><option>三重県</option>
+                            <option>滋賀県</option><option>京都府</option><option>大阪府</option><option>兵庫県</option><option>奈良県</option><option>和歌山県</option>
+                            <option>鳥取県</option><option>島根県</option><option>岡山県</option><option>広島県</option><option>山口県</option>
+                            <option>徳島県</option><option>香川県</option><option>愛媛県</option><option>高知県</option>
+                            <option>福岡県</option><option>佐賀県</option><option>長崎県</option><option>熊本県</option><option>大分県</option><option>宮崎県</option><option>鹿児島県</option><option>沖縄県</option>
+                          </select>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>お電話番号<span class="required">必須</span></th>
+                        <td><input type="tel" name="お電話番号" required autocomplete="tel"></td>
+                      </tr>
+                      <tr>
+                        <th>ご希望教室<span class="required">必須</span></th>
+                        <td>
+                          <select name="ご希望教室" required>
+                            <option value="">選択してください</option>
+                            <option value="新宿教室">新宿教室</option>
+                            <option value="Teams / Zoom レッスン">Teams / Zoom レッスン</option>
+                            <option value="メール通信添削">メール通信添削</option>
+                          </select>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>ご希望レッスン<span class="required">必須</span></th>
+                        <td>
+                          <select name="ご希望レッスン" required>
+                            <option value="">選択してください</option>
+                            <option value="GW集中入門1日間">GW集中入門1日間</option>
+                          </select>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>ミリネ韓国語教室を知ったきっかけ</th>
+                        <td>
+                          <select name="きっかけ">
+                            <option value="" selected>選択してください</option>
+                            <option value="Ｘ・ツイッター">Ｘ・ツイッター</option>
+                            <option value="YouTube">YouTube</option>
+                            <option value="フェイスブック">フェイスブック</option>
+                            <option value="Instagram">Instagram</option>
+                            <option value="threads(スレッズ)">threads(スレッズ)</option>
+                            <option value="検索">検索</option>
+                            <option value="ブログ">ブログ</option>
+                            <option value="紹介">紹介</option>
+                            <option value="ミリネ出版本">ミリネ出版本</option>
+                            <option value="メールマガジン">メールマガジン</option>
+                          </select>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>申し込み講座のご希望日と時間帯 <span class="optional">任意</span></th>
+                        <td><textarea name="希望日時" placeholder="例）○月○日から、週○回 ○時台を希望　など"></textarea></td>
+                      </tr>
+                      <tr>
+                        <th>簡単な韓国語の学習歴及びレベル <span class="optional">任意</span></th>
+                        <td><textarea name="学習歴"></textarea></td>
+                      </tr>
+                      <tr>
+                        <th>お問い合わせ・メッセージ <span class="optional">任意</span></th>
+                        <td><textarea name="お問い合わせ"></textarea></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="form-actions">
+                    <button type="submit" class="submit-btn">送信する</button>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
 
@@ -2248,7 +2483,125 @@
             <div class="syutyu-cta-inner">
               <h2>連休を、<em>成長の3日間に。</em></h2>
               <p>お申込み締切：2026年4月30日（木）<br>定員になり次第締め切りますので、お早めにどうぞ。</p>
-              <a href="https://mirinae.jp/trial.html?tab=tab02" class="syutyu-cta-apply">お申込みはこちら →</a>
+              <div class="syutyu-cta-form-wrap">
+                <p class="syutyu-cta-form-note">受講したい講座が決まっている方はこちらから本申込ができます。希望の教室・レッスン名・日程などをご記入ください。</p>
+                <form class="syutyu-cta-form" action="https://formsubmit.co/mirinae@kaonnuri.com" method="POST">
+                  <input type="hidden" name="_captcha" value="false">
+                  <input type="hidden" name="_subject" value="【講座申込】ミリネ韓国語教室">
+                  <input type="hidden" name="_next" value="https://mirinae.jp/trial.html?thanks=1&amp;tab=tab02">
+                  <input type="hidden" name="_replyto" value="メールアドレス">
+                  <input type="hidden" name="_url" value="https://mirinae.jp/syutyu.html">
+                  <input type="hidden" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+                  <input type="hidden" name="タイトル" value="講座の申し込み">
+                  <table class="form-table">
+                    <tbody>
+                      <tr>
+                        <th>タイトル<span class="required">必須</span></th>
+                        <td><span class="radio-chip-single">講座の申し込み</span></td>
+                      </tr>
+                      <tr>
+                        <th>お名前<span class="required">必須</span></th>
+                        <td><input type="text" name="お名前" required autocomplete="name"></td>
+                      </tr>
+                      <tr>
+                        <th>ふりがな<span class="required">必須</span></th>
+                        <td><input type="text" name="ふりがな" required></td>
+                      </tr>
+                      <tr>
+                        <th>メールアドレス<span class="required">必須</span></th>
+                        <td><input type="email" name="メールアドレス" required autocomplete="email"></td>
+                      </tr>
+                      <tr>
+                        <th>年齢 <span class="optional">任意</span></th>
+                        <td>
+                          <select name="年齢">
+                            <option value="">選択してください</option>
+                            <option value="10代">10代</option><option value="20代">20代</option><option value="30代">30代</option><option value="40代">40代</option><option value="50代">50代</option><option value="60代">60代</option><option value="70代以上">70代以上</option>
+                          </select>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>都道府県 <span class="optional">任意</span></th>
+                        <td>
+                          <select name="都道府県">
+                            <option value="">選択してください</option>
+                            <option>北海道</option><option>青森県</option><option>岩手県</option><option>宮城県</option><option>秋田県</option><option>山形県</option><option>福島県</option>
+                            <option>茨城県</option><option>栃木県</option><option>群馬県</option><option>埼玉県</option><option>千葉県</option><option>東京23区</option><option>東京都</option><option>神奈川県</option>
+                            <option>山梨県</option><option>長野県</option><option>新潟県</option><option>富山県</option><option>石川県</option><option>福井県</option>
+                            <option>岐阜県</option><option>静岡県</option><option>愛知県</option><option>三重県</option>
+                            <option>滋賀県</option><option>京都府</option><option>大阪府</option><option>兵庫県</option><option>奈良県</option><option>和歌山県</option>
+                            <option>鳥取県</option><option>島根県</option><option>岡山県</option><option>広島県</option><option>山口県</option>
+                            <option>徳島県</option><option>香川県</option><option>愛媛県</option><option>高知県</option>
+                            <option>福岡県</option><option>佐賀県</option><option>長崎県</option><option>熊本県</option><option>大分県</option><option>宮崎県</option><option>鹿児島県</option><option>沖縄県</option>
+                          </select>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>お電話番号<span class="required">必須</span></th>
+                        <td><input type="tel" name="お電話番号" required autocomplete="tel"></td>
+                      </tr>
+                      <tr>
+                        <th>ご希望教室<span class="required">必須</span></th>
+                        <td>
+                          <select name="ご希望教室" required>
+                            <option value="">選択してください</option>
+                            <option value="新宿教室">新宿教室</option>
+                            <option value="Teams / Zoom レッスン">Teams / Zoom レッスン</option>
+                            <option value="メール通信添削">メール通信添削</option>
+                          </select>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>ご希望レッスン<span class="required">必須</span></th>
+                        <td>
+                          <select name="ご希望レッスン" required>
+                            <option value="">選択してください</option>
+                            <option value="GW集中初級1日間">GW集中初級1日間</option>
+                            <option value="GW集中初級2日間">GW集中初級2日間</option>
+                            <option value="GW集中初級3日間">GW集中初級3日間</option>
+                            <option value="GW集中講座、初級・中級1日間">GW集中講座、初級・中級1日間</option>
+                            <option value="GW集中講座、初級・中級2日間">GW集中講座、初級・中級2日間</option>
+                            <option value="GW集中講座、初級・中級3日間">GW集中講座、初級・中級3日間</option>
+                          </select>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>ミリネ韓国語教室を知ったきっかけ</th>
+                        <td>
+                          <select name="きっかけ">
+                            <option value="" selected>選択してください</option>
+                            <option value="Ｘ・ツイッター">Ｘ・ツイッター</option>
+                            <option value="YouTube">YouTube</option>
+                            <option value="フェイスブック">フェイスブック</option>
+                            <option value="Instagram">Instagram</option>
+                            <option value="threads(スレッズ)">threads(スレッズ)</option>
+                            <option value="検索">検索</option>
+                            <option value="ブログ">ブログ</option>
+                            <option value="紹介">紹介</option>
+                            <option value="ミリネ出版本">ミリネ出版本</option>
+                            <option value="メールマガジン">メールマガジン</option>
+                          </select>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>申し込み講座のご希望日と時間帯 <span class="optional">任意</span></th>
+                        <td><textarea name="希望日時" placeholder="例）○月○日から、週○回 ○時台を希望　など"></textarea></td>
+                      </tr>
+                      <tr>
+                        <th>簡単な韓国語の学習歴及びレベル <span class="optional">任意</span></th>
+                        <td><textarea name="学習歴"></textarea></td>
+                      </tr>
+                      <tr>
+                        <th>お問い合わせ・メッセージ <span class="optional">任意</span></th>
+                        <td><textarea name="お問い合わせ"></textarea></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="form-actions">
+                    <button type="submit" class="submit-btn">送信する</button>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
 
@@ -2741,7 +3094,128 @@
             <div class="syutyu-cta-inner">
               <h2>連休を、<em>成長の3日間に。</em></h2>
               <p>お申込み締切：2026年4月30日（木）<br>定員になり次第締め切りますので、お早めにどうぞ。</p>
-              <a href="https://mirinae.jp/trial.html?tab=tab02" class="syutyu-cta-apply">お申込みはこちら →</a>
+              <div class="syutyu-cta-form-wrap">
+                <p class="syutyu-cta-form-note">受講したい講座が決まっている方はこちらから本申込ができます。希望の教室・レッスン名・日程などをご記入ください。</p>
+                <form class="syutyu-cta-form" action="https://formsubmit.co/mirinae@kaonnuri.com" method="POST">
+                  <input type="hidden" name="_captcha" value="false">
+                  <input type="hidden" name="_subject" value="【講座申込】ミリネ韓国語教室">
+                  <input type="hidden" name="_next" value="https://mirinae.jp/trial.html?thanks=1&amp;tab=tab02">
+                  <input type="hidden" name="_replyto" value="メールアドレス">
+                  <input type="hidden" name="_url" value="https://mirinae.jp/syutyu.html">
+                  <input type="hidden" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+                  <input type="hidden" name="タイトル" value="講座の申し込み">
+                  <table class="form-table">
+                    <tbody>
+                      <tr>
+                        <th>タイトル<span class="required">必須</span></th>
+                        <td><span class="radio-chip-single">講座の申し込み</span></td>
+                      </tr>
+                      <tr>
+                        <th>お名前<span class="required">必須</span></th>
+                        <td><input type="text" name="お名前" required autocomplete="name"></td>
+                      </tr>
+                      <tr>
+                        <th>ふりがな<span class="required">必須</span></th>
+                        <td><input type="text" name="ふりがな" required></td>
+                      </tr>
+                      <tr>
+                        <th>メールアドレス<span class="required">必須</span></th>
+                        <td><input type="email" name="メールアドレス" required autocomplete="email"></td>
+                      </tr>
+                      <tr>
+                        <th>年齢 <span class="optional">任意</span></th>
+                        <td>
+                          <select name="年齢">
+                            <option value="">選択してください</option>
+                            <option value="10代">10代</option><option value="20代">20代</option><option value="30代">30代</option><option value="40代">40代</option><option value="50代">50代</option><option value="60代">60代</option><option value="70代以上">70代以上</option>
+                          </select>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>都道府県 <span class="optional">任意</span></th>
+                        <td>
+                          <select name="都道府県">
+                            <option value="">選択してください</option>
+                            <option>北海道</option><option>青森県</option><option>岩手県</option><option>宮城県</option><option>秋田県</option><option>山形県</option><option>福島県</option>
+                            <option>茨城県</option><option>栃木県</option><option>群馬県</option><option>埼玉県</option><option>千葉県</option><option>東京23区</option><option>東京都</option><option>神奈川県</option>
+                            <option>山梨県</option><option>長野県</option><option>新潟県</option><option>富山県</option><option>石川県</option><option>福井県</option>
+                            <option>岐阜県</option><option>静岡県</option><option>愛知県</option><option>三重県</option>
+                            <option>滋賀県</option><option>京都府</option><option>大阪府</option><option>兵庫県</option><option>奈良県</option><option>和歌山県</option>
+                            <option>鳥取県</option><option>島根県</option><option>岡山県</option><option>広島県</option><option>山口県</option>
+                            <option>徳島県</option><option>香川県</option><option>愛媛県</option><option>高知県</option>
+                            <option>福岡県</option><option>佐賀県</option><option>長崎県</option><option>熊本県</option><option>大分県</option><option>宮崎県</option><option>鹿児島県</option><option>沖縄県</option>
+                          </select>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>お電話番号<span class="required">必須</span></th>
+                        <td><input type="tel" name="お電話番号" required autocomplete="tel"></td>
+                      </tr>
+                      <tr>
+                        <th>ご希望教室<span class="required">必須</span></th>
+                        <td>
+                          <select name="ご希望教室" required>
+                            <option value="">選択してください</option>
+                            <option value="新宿教室">新宿教室</option>
+                            <option value="Teams / Zoom レッスン">Teams / Zoom レッスン</option>
+                            <option value="メール通信添削">メール通信添削</option>
+                          </select>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>ご希望レッスン<span class="required">必須</span></th>
+                        <td>
+                          <select name="ご希望レッスン" required>
+                            <option value="">選択してください</option>
+                            <option value="GW集中中級1日間">GW集中中級1日間</option>
+                            <option value="GW集中中級2日間">GW集中中級2日間</option>
+                            <option value="GW集中中級3日間">GW集中中級3日間</option>
+                            <option value="GW集中講座、初級・中級1日間">GW集中講座、初級・中級1日間</option>
+                            <option value="GW集中講座、初級・中級2日間">GW集中講座、初級・中級2日間</option>
+                            <option value="GW集中講座、初級・中級3日間">GW集中講座、初級・中級3日間</option>
+                            <option value="GW集中講座、中級・上級1日間">GW集中講座、中級・上級1日間</option>
+                            <option value="GW集中講座、中級・上級2日間">GW集中講座、中級・上級2日間</option>
+                            <option value="GW集中講座、中級・上級3日間">GW集中講座、中級・上級3日間</option>
+                          </select>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>ミリネ韓国語教室を知ったきっかけ</th>
+                        <td>
+                          <select name="きっかけ">
+                            <option value="" selected>選択してください</option>
+                            <option value="Ｘ・ツイッター">Ｘ・ツイッター</option>
+                            <option value="YouTube">YouTube</option>
+                            <option value="フェイスブック">フェイスブック</option>
+                            <option value="Instagram">Instagram</option>
+                            <option value="threads(スレッズ)">threads(スレッズ)</option>
+                            <option value="検索">検索</option>
+                            <option value="ブログ">ブログ</option>
+                            <option value="紹介">紹介</option>
+                            <option value="ミリネ出版本">ミリネ出版本</option>
+                            <option value="メールマガジン">メールマガジン</option>
+                          </select>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>申し込み講座のご希望日と時間帯 <span class="optional">任意</span></th>
+                        <td><textarea name="希望日時" placeholder="例）○月○日から、週○回 ○時台を希望　など"></textarea></td>
+                      </tr>
+                      <tr>
+                        <th>簡単な韓国語の学習歴及びレベル <span class="optional">任意</span></th>
+                        <td><textarea name="学習歴"></textarea></td>
+                      </tr>
+                      <tr>
+                        <th>お問い合わせ・メッセージ <span class="optional">任意</span></th>
+                        <td><textarea name="お問い合わせ"></textarea></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="form-actions">
+                    <button type="submit" class="submit-btn">送信する</button>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
 
@@ -3084,21 +3558,19 @@
                   <div class="syutyu-date-card-sub">文法・表現の整理（文法中心）</div>
                   <div class="tt-topic">上級学習者がつい間違えやすい回想の文法の整理（前半）</div>
                   <ul class="tt-detail-list"><li class="syutyu-li-example">例：-더, -더니, -더라고, -었더니, -던데</li></ul>
-                  <div class="syutyu-card-drill-note">整理した内容を使って会話してみる</div>
                 </article>
                 <article class="syutyu-date-card">
                   <div class="syutyu-date-card-date">5/5（火）</div>
                   <div class="syutyu-date-card-sub">実用表現（ドラマ・慣用句）</div>
                   <div class="tt-topic">ドラマでよく使われる表現15</div>
-                  <div class="syutyu-card-drill-note">習った表現で会話してみる</div>
                 </article>
                 <article class="syutyu-date-card">
                   <div class="syutyu-date-card-date">5/6（水）</div>
                   <div class="syutyu-date-card-sub">語彙（擬音語・擬態語）</div>
                   <div class="tt-topic">日常生活でよく使う擬音語</div>
-                  <div class="syutyu-card-drill-note">習った表現で会話してみる</div>
                 </article>
               </div>
+              <div class="syutyu-sess-training">整理した内容を使って会話してみる</div>
             </section>
             <section class="syutyu-sess">
               <h3 class="syutyu-sess-title">2限目 <span class="syutyu-sess-time">15:00–15:50</span></h3>
@@ -3108,21 +3580,19 @@
                   <div class="syutyu-date-card-sub">文法・表現の整理（文法中心）</div>
                   <div class="tt-topic">上級学習者がつい間違えやすい接続の文法の整理（後半）</div>
                   <ul class="tt-detail-list"><li class="syutyu-li-example">例：-다가, 었다가, 다가, 는데, 어서, 니까</li></ul>
-                  <div class="syutyu-card-drill-note">整理した内容を使って会話してみる</div>
                 </article>
                 <article class="syutyu-date-card">
                   <div class="syutyu-date-card-date">5/5（火）</div>
                   <div class="syutyu-date-card-sub">実用表現（ドラマ・慣用句）</div>
                   <div class="tt-topic">よく使う慣用句15</div>
-                  <div class="syutyu-card-drill-note">習った表現で会話してみる</div>
                 </article>
                 <article class="syutyu-date-card">
                   <div class="syutyu-date-card-date">5/6（水）</div>
                   <div class="syutyu-date-card-sub">語彙（擬音語・擬態語）</div>
                   <div class="tt-topic">日常生活でよく使う擬態語</div>
-                  <div class="syutyu-card-drill-note">習った表現で会話してみる</div>
                 </article>
               </div>
+              <div class="syutyu-sess-training">整理した内容を使って会話してみる</div>
             </section>
             <section class="syutyu-sess">
               <h3 class="syutyu-sess-title">3限目 <span class="syutyu-sess-time">16:00–16:50</span></h3>
@@ -3132,21 +3602,19 @@
                   <div class="syutyu-date-card-sub">文法・表現の整理（文法中心）</div>
                   <div class="tt-topic">上級学習者がつい間違えやすい事実関係の文法の整理（第3部）</div>
                   <ul class="tt-detail-list"><li class="syutyu-li-example">例：-고/어서、ネイティブがなぜ았/었어서を使うか、-더、-다가、-어서、-는데</li></ul>
-                  <div class="syutyu-card-drill-note">整理した内容を使って会話してみる</div>
                 </article>
                 <article class="syutyu-date-card">
                   <div class="syutyu-date-card-date">5/5（火）</div>
                   <div class="syutyu-date-card-sub">実用表現（ドラマ・慣用句）</div>
                   <div class="tt-topic">よく使う四字熟語・慣用句15</div>
-                  <div class="syutyu-card-drill-note">習った表現で会話してみる</div>
                 </article>
                 <article class="syutyu-date-card">
                   <div class="syutyu-date-card-date">5/6（水）</div>
                   <div class="syutyu-date-card-sub">語彙（擬音語・擬態語）</div>
                   <div class="tt-topic">日常生活でよく使う感情表現</div>
-                  <div class="syutyu-card-drill-note">習った表現で会話してみる</div>
                 </article>
               </div>
+              <div class="syutyu-sess-training">整理した内容を使って会話してみる</div>
             </section>
           </div>
           <div class="syutyu-tt-mobile">
@@ -3168,7 +3636,7 @@
                   <div class="syutyu-acc-topic">事実関係の文法の整理（第3部）</div>
                   <ul class="syutyu-acc-list"><li>例：-고/어서、았/었어서、-더、-다가、-는데 など</li></ul>
                 </div>
-                <div class="syutyu-acc-training">会話トレーニング</div>
+                <div class="syutyu-acc-training">整理した内容を使って会話してみる</div>
               </div>
             </details>
             <details class="syutyu-acc">
@@ -3186,7 +3654,7 @@
                   <div class="syutyu-acc-sess-head">3限目 <span class="syutyu-acc-period">16:00–16:50</span></div>
                   <div class="syutyu-acc-topic">よく使う四字熟語・慣用句15</div>
                 </div>
-                <div class="syutyu-acc-training">会話トレーニング</div>
+                <div class="syutyu-acc-training">整理した内容を使って会話してみる</div>
               </div>
             </details>
             <details class="syutyu-acc">
@@ -3204,7 +3672,7 @@
                   <div class="syutyu-acc-sess-head">3限目 <span class="syutyu-acc-period">16:00–16:50</span></div>
                   <div class="syutyu-acc-topic">日常生活でよく使う感情表現</div>
                 </div>
-                <div class="syutyu-acc-training">会話トレーニング</div>
+                <div class="syutyu-acc-training">整理した内容を使って会話してみる</div>
               </div>
             </details>
           </div>
@@ -3285,7 +3753,125 @@
             <div class="syutyu-cta-inner">
               <h2>連休を、<em>成長の3日間に。</em></h2>
               <p>お申込み締切：2026年4月30日（木）<br>定員になり次第締め切りますので、お早めにどうぞ。</p>
-              <a href="https://mirinae.jp/trial.html?tab=tab02" class="syutyu-cta-apply">お申込みはこちら →</a>
+              <div class="syutyu-cta-form-wrap">
+                <p class="syutyu-cta-form-note">受講したい講座が決まっている方はこちらから本申込ができます。希望の教室・レッスン名・日程などをご記入ください。</p>
+                <form class="syutyu-cta-form" action="https://formsubmit.co/mirinae@kaonnuri.com" method="POST">
+                  <input type="hidden" name="_captcha" value="false">
+                  <input type="hidden" name="_subject" value="【講座申込】ミリネ韓国語教室">
+                  <input type="hidden" name="_next" value="https://mirinae.jp/trial.html?thanks=1&amp;tab=tab02">
+                  <input type="hidden" name="_replyto" value="メールアドレス">
+                  <input type="hidden" name="_url" value="https://mirinae.jp/syutyu.html">
+                  <input type="hidden" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+                  <input type="hidden" name="タイトル" value="講座の申し込み">
+                  <table class="form-table">
+                    <tbody>
+                      <tr>
+                        <th>タイトル<span class="required">必須</span></th>
+                        <td><span class="radio-chip-single">講座の申し込み</span></td>
+                      </tr>
+                      <tr>
+                        <th>お名前<span class="required">必須</span></th>
+                        <td><input type="text" name="お名前" required autocomplete="name"></td>
+                      </tr>
+                      <tr>
+                        <th>ふりがな<span class="required">必須</span></th>
+                        <td><input type="text" name="ふりがな" required></td>
+                      </tr>
+                      <tr>
+                        <th>メールアドレス<span class="required">必須</span></th>
+                        <td><input type="email" name="メールアドレス" required autocomplete="email"></td>
+                      </tr>
+                      <tr>
+                        <th>年齢 <span class="optional">任意</span></th>
+                        <td>
+                          <select name="年齢">
+                            <option value="">選択してください</option>
+                            <option value="10代">10代</option><option value="20代">20代</option><option value="30代">30代</option><option value="40代">40代</option><option value="50代">50代</option><option value="60代">60代</option><option value="70代以上">70代以上</option>
+                          </select>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>都道府県 <span class="optional">任意</span></th>
+                        <td>
+                          <select name="都道府県">
+                            <option value="">選択してください</option>
+                            <option>北海道</option><option>青森県</option><option>岩手県</option><option>宮城県</option><option>秋田県</option><option>山形県</option><option>福島県</option>
+                            <option>茨城県</option><option>栃木県</option><option>群馬県</option><option>埼玉県</option><option>千葉県</option><option>東京23区</option><option>東京都</option><option>神奈川県</option>
+                            <option>山梨県</option><option>長野県</option><option>新潟県</option><option>富山県</option><option>石川県</option><option>福井県</option>
+                            <option>岐阜県</option><option>静岡県</option><option>愛知県</option><option>三重県</option>
+                            <option>滋賀県</option><option>京都府</option><option>大阪府</option><option>兵庫県</option><option>奈良県</option><option>和歌山県</option>
+                            <option>鳥取県</option><option>島根県</option><option>岡山県</option><option>広島県</option><option>山口県</option>
+                            <option>徳島県</option><option>香川県</option><option>愛媛県</option><option>高知県</option>
+                            <option>福岡県</option><option>佐賀県</option><option>長崎県</option><option>熊本県</option><option>大分県</option><option>宮崎県</option><option>鹿児島県</option><option>沖縄県</option>
+                          </select>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>お電話番号<span class="required">必須</span></th>
+                        <td><input type="tel" name="お電話番号" required autocomplete="tel"></td>
+                      </tr>
+                      <tr>
+                        <th>ご希望教室<span class="required">必須</span></th>
+                        <td>
+                          <select name="ご希望教室" required>
+                            <option value="">選択してください</option>
+                            <option value="新宿教室">新宿教室</option>
+                            <option value="Teams / Zoom レッスン">Teams / Zoom レッスン</option>
+                            <option value="メール通信添削">メール通信添削</option>
+                          </select>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>ご希望レッスン<span class="required">必須</span></th>
+                        <td>
+                          <select name="ご希望レッスン" required>
+                            <option value="">選択してください</option>
+                            <option value="GW集中上級1日間">GW集中上級1日間</option>
+                            <option value="GW集中上級2日間">GW集中上級2日間</option>
+                            <option value="GW集中上級3日間">GW集中上級3日間</option>
+                            <option value="GW集中講座、中級・上級1日間">GW集中講座、中級・上級1日間</option>
+                            <option value="GW集中講座、中級・上級2日間">GW集中講座、中級・上級2日間</option>
+                            <option value="GW集中講座、中級・上級3日間">GW集中講座、中級・上級3日間</option>
+                          </select>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>ミリネ韓国語教室を知ったきっかけ</th>
+                        <td>
+                          <select name="きっかけ">
+                            <option value="" selected>選択してください</option>
+                            <option value="Ｘ・ツイッター">Ｘ・ツイッター</option>
+                            <option value="YouTube">YouTube</option>
+                            <option value="フェイスブック">フェイスブック</option>
+                            <option value="Instagram">Instagram</option>
+                            <option value="threads(スレッズ)">threads(スレッズ)</option>
+                            <option value="検索">検索</option>
+                            <option value="ブログ">ブログ</option>
+                            <option value="紹介">紹介</option>
+                            <option value="ミリネ出版本">ミリネ出版本</option>
+                            <option value="メールマガジン">メールマガジン</option>
+                          </select>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>申し込み講座のご希望日と時間帯 <span class="optional">任意</span></th>
+                        <td><textarea name="希望日時" placeholder="例）○月○日から、週○回 ○時台を希望　など"></textarea></td>
+                      </tr>
+                      <tr>
+                        <th>簡単な韓国語の学習歴及びレベル <span class="optional">任意</span></th>
+                        <td><textarea name="学習歴"></textarea></td>
+                      </tr>
+                      <tr>
+                        <th>お問い合わせ・メッセージ <span class="optional">任意</span></th>
+                        <td><textarea name="お問い合わせ"></textarea></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="form-actions">
+                    <button type="submit" class="submit-btn">送信する</button>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
 

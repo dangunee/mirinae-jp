@@ -1370,7 +1370,7 @@
       text-align: center;
     }
 
-    /* 初級・中級・上級：デスクトップ＝セッション単位（日付カード＋会話トレーニング1つ） */
+    /* 初級・中級・上級：デスクトップ＝セッション単位（日付カード＋初級／中級は帯にドリル表記、上級は帯なし） */
     #tab02 .syutyu-sess-layout,
     #tab03 .syutyu-sess-layout,
     #tab04 .syutyu-sess-layout {
@@ -1465,14 +1465,6 @@
       color: var(--muted);
       line-height: 1.5;
     }
-    #tab02 .syutyu-sess-drill-note,
-    #tab03 .syutyu-sess-drill-note,
-    #tab04 .syutyu-sess-drill-note {
-      font-size: 11px;
-      color: var(--muted);
-      margin: 0 0 12px;
-      line-height: 1.5;
-    }
     #tab02 .syutyu-card-drill-note,
     #tab03 .syutyu-card-drill-note,
     #tab04 .syutyu-card-drill-note {
@@ -1484,8 +1476,7 @@
       line-height: 1.45;
     }
     #tab02 .syutyu-sess-training,
-    #tab03 .syutyu-sess-training,
-    #tab04 .syutyu-sess-training {
+    #tab03 .syutyu-sess-training {
       padding: 11px 14px;
       border-radius: 8px;
       font-size: 12px;
@@ -1526,12 +1517,21 @@
     .beg-price-card.featured .beg-price-total-num { color: var(--gold-light); }
     .beg-price-yen { font-size: 15px; font-weight: 500; opacity: 0.92; }
     .beg-price-card.featured .beg-price-yen { opacity: 0.9; }
+    .beg-price-subline {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 0;
+    }
+    .beg-price-subline .beg-price-meta {
+      margin-bottom: 0;
+    }
     .beg-price-meta {
       display: flex;
       flex-wrap: wrap;
       align-items: baseline;
       gap: 4px 10px;
-      margin-bottom: 6px;
+      margin-bottom: 0;
     }
     .beg-price-meta-days { display: inline-flex; align-items: baseline; gap: 6px; }
     .beg-price-meta .beg-price-days { font-family: 'Cormorant Garamond', serif; font-size: 26px; color: var(--gold); line-height: 1; }
@@ -1572,6 +1572,16 @@
       .hero::after { font-size: 60px; right: 16px; }
       .beg-price-total-hero .beg-price-total-num { font-size: 34px; }
       .beg-price-card { padding: 12px 12px 10px; }
+      .beg-price-subline {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: baseline;
+        gap: 0;
+      }
+      .beg-price-subline .beg-price-break::before {
+        content: '  ';
+        white-space: pre;
+      }
     }
   </style>
 </head>
@@ -1805,11 +1815,13 @@
                 <span class="beg-price-total-label">税込</span>
                 <span class="beg-price-total-num">19,668<small class="beg-price-yen"> 円</small></span>
               </div>
+              <div class="beg-price-subline">
               <div class="beg-price-meta">
                 <span class="beg-price-meta-days"><span class="beg-price-days">1</span><span class="beg-price-days-unit">日間</span></span>
                 <span class="beg-price-komas">6コマ</span>
               </div>
               <div class="beg-price-break">2,980円 × 6（税抜）</div>
+              </div>
             </div>
           </div>
 
@@ -2043,8 +2055,7 @@
                   <ul class="tt-detail-list"><li>理由と配慮 (-을 테니까)</li><li>傾向とアドバイス (-는 편이다, -는 게 좋겠다)</li></ul>
                 </article>
               </div>
-              <p class="syutyu-sess-drill-note">習った表現で会話ドリル</p>
-              <div class="syutyu-sess-training">会話トレーニング</div>
+              <div class="syutyu-sess-training">習った表現で会話ドリル</div>
             </section>
             <section class="syutyu-sess">
               <h3 class="syutyu-sess-title">2限目 <span class="syutyu-sess-time">15:00–15:50</span></h3>
@@ -2068,8 +2079,7 @@
                   <ul class="tt-detail-list"><li>並列 vs 原因 (-고 vs -아서)</li><li>背景の説明 (-(으)ㄹ 때, -(으)ㄹ 텐데)</li></ul>
                 </article>
               </div>
-              <p class="syutyu-sess-drill-note">習った表現で会話ドリル</p>
-              <div class="syutyu-sess-training">会話トレーニング</div>
+              <div class="syutyu-sess-training">習った表現で会話ドリル</div>
             </section>
             <section class="syutyu-sess">
               <h3 class="syutyu-sess-title">3限目 <span class="syutyu-sess-time">16:00–16:50</span></h3>
@@ -2093,8 +2103,7 @@
                   <ul class="tt-detail-list"><li>理由 vs 背景 (-니까 vs -는데)</li><li>否定の選択 (-지 않고 vs -지 말고)</li></ul>
                 </article>
               </div>
-              <p class="syutyu-sess-drill-note">習った表現で会話ドリル</p>
-              <div class="syutyu-sess-training">会話トレーニング</div>
+              <div class="syutyu-sess-training">習った表現で会話ドリル</div>
             </section>
           </div>
           <div class="syutyu-tt-mobile">
@@ -2199,33 +2208,39 @@
                 <span class="beg-price-total-label">税込</span>
                 <span class="beg-price-total-num">13,134<small class="beg-price-yen"> 円</small></span>
               </div>
+              <div class="beg-price-subline">
               <div class="beg-price-meta">
                 <span class="beg-price-meta-days"><span class="beg-price-days">1</span><span class="beg-price-days-unit">日間</span></span>
                 <span class="beg-price-komas">3コマ</span>
               </div>
               <div class="beg-price-break">3,980円 × 3（税抜）</div>
+              </div>
             </div>
             <div class="beg-price-card">
               <div class="beg-price-total-hero">
                 <span class="beg-price-total-label">税込</span>
                 <span class="beg-price-total-num">22,968<small class="beg-price-yen"> 円</small></span>
               </div>
+              <div class="beg-price-subline">
               <div class="beg-price-meta">
                 <span class="beg-price-meta-days"><span class="beg-price-days">2</span><span class="beg-price-days-unit">日間</span></span>
                 <span class="beg-price-komas">6コマ</span>
               </div>
               <div class="beg-price-break">3,480円 × 6（税抜）</div>
+              </div>
             </div>
             <div class="beg-price-card featured">
               <div class="beg-price-total-hero">
                 <span class="beg-price-total-label">税込</span>
                 <span class="beg-price-total-num">29,502<small class="beg-price-yen"> 円</small></span>
               </div>
+              <div class="beg-price-subline">
               <div class="beg-price-meta">
                 <span class="beg-price-meta-days"><span class="beg-price-days">3</span><span class="beg-price-days-unit">日間</span></span>
                 <span class="beg-price-komas">9コマ</span>
               </div>
               <div class="beg-price-break">2,980円 × 9（税抜）</div>
+              </div>
             </div>
           </div>
 
@@ -2530,8 +2545,7 @@
                   <ul class="tt-detail-list"><li>理由・根拠 (-거든 / -(으)면 / -ㄴ다면)</li></ul>
                 </article>
               </div>
-              <p class="syutyu-sess-drill-note">習った表現で会話ドリル</p>
-              <div class="syutyu-sess-training">会話トレーニング</div>
+              <div class="syutyu-sess-training">習った表現で会話ドリル</div>
             </section>
             <section class="syutyu-sess">
               <h3 class="syutyu-sess-title">2限目 <span class="syutyu-sess-time">15:00–15:50</span></h3>
@@ -2558,8 +2572,7 @@
                   </ul>
                 </article>
               </div>
-              <p class="syutyu-sess-drill-note">習った表現で会話ドリル</p>
-              <div class="syutyu-sess-training">会話トレーニング</div>
+              <div class="syutyu-sess-training">習った表現で会話ドリル</div>
             </section>
             <section class="syutyu-sess">
               <h3 class="syutyu-sess-title">3限目 <span class="syutyu-sess-time">16:00–16:50</span></h3>
@@ -2583,8 +2596,7 @@
                   <ul class="tt-detail-list"><li>喜び、怒り、呆れるの表現</li></ul>
                 </article>
               </div>
-              <p class="syutyu-sess-drill-note">習った表現で会話ドリル</p>
-              <div class="syutyu-sess-training">会話トレーニング</div>
+              <div class="syutyu-sess-training">習った表現で会話ドリル</div>
             </section>
           </div>
           <div class="syutyu-tt-mobile">
@@ -2689,33 +2701,39 @@
                 <span class="beg-price-total-label">税込</span>
                 <span class="beg-price-total-num">13,134<small class="beg-price-yen"> 円</small></span>
               </div>
+              <div class="beg-price-subline">
               <div class="beg-price-meta">
                 <span class="beg-price-meta-days"><span class="beg-price-days">1</span><span class="beg-price-days-unit">日間</span></span>
                 <span class="beg-price-komas">3コマ</span>
               </div>
               <div class="beg-price-break">3,980円 × 3（税抜）</div>
+              </div>
             </div>
             <div class="beg-price-card">
               <div class="beg-price-total-hero">
                 <span class="beg-price-total-label">税込</span>
                 <span class="beg-price-total-num">22,968<small class="beg-price-yen"> 円</small></span>
               </div>
+              <div class="beg-price-subline">
               <div class="beg-price-meta">
                 <span class="beg-price-meta-days"><span class="beg-price-days">2</span><span class="beg-price-days-unit">日間</span></span>
                 <span class="beg-price-komas">6コマ</span>
               </div>
               <div class="beg-price-break">3,480円 × 6（税抜）</div>
+              </div>
             </div>
             <div class="beg-price-card featured">
               <div class="beg-price-total-hero">
                 <span class="beg-price-total-label">税込</span>
                 <span class="beg-price-total-num">29,502<small class="beg-price-yen"> 円</small></span>
               </div>
+              <div class="beg-price-subline">
               <div class="beg-price-meta">
                 <span class="beg-price-meta-days"><span class="beg-price-days">3</span><span class="beg-price-days-unit">日間</span></span>
                 <span class="beg-price-komas">9コマ</span>
               </div>
               <div class="beg-price-break">2,980円 × 9（税抜）</div>
+              </div>
             </div>
           </div>
 
@@ -3081,7 +3099,6 @@
                   <div class="syutyu-card-drill-note">習った表現で会話してみる</div>
                 </article>
               </div>
-              <div class="syutyu-sess-training">会話トレーニング</div>
             </section>
             <section class="syutyu-sess">
               <h3 class="syutyu-sess-title">2限目 <span class="syutyu-sess-time">15:00–15:50</span></h3>
@@ -3106,7 +3123,6 @@
                   <div class="syutyu-card-drill-note">習った表現で会話してみる</div>
                 </article>
               </div>
-              <div class="syutyu-sess-training">会話トレーニング</div>
             </section>
             <section class="syutyu-sess">
               <h3 class="syutyu-sess-title">3限目 <span class="syutyu-sess-time">16:00–16:50</span></h3>
@@ -3131,7 +3147,6 @@
                   <div class="syutyu-card-drill-note">習った表現で会話してみる</div>
                 </article>
               </div>
-              <div class="syutyu-sess-training">会話トレーニング</div>
             </section>
           </div>
           <div class="syutyu-tt-mobile">
@@ -3230,33 +3245,39 @@
                 <span class="beg-price-total-label">税込</span>
                 <span class="beg-price-total-num">13,134<small class="beg-price-yen"> 円</small></span>
               </div>
+              <div class="beg-price-subline">
               <div class="beg-price-meta">
                 <span class="beg-price-meta-days"><span class="beg-price-days">1</span><span class="beg-price-days-unit">日間</span></span>
                 <span class="beg-price-komas">3コマ</span>
               </div>
               <div class="beg-price-break">3,980円 × 3（税抜）</div>
+              </div>
             </div>
             <div class="beg-price-card">
               <div class="beg-price-total-hero">
                 <span class="beg-price-total-label">税込</span>
                 <span class="beg-price-total-num">22,968<small class="beg-price-yen"> 円</small></span>
               </div>
+              <div class="beg-price-subline">
               <div class="beg-price-meta">
                 <span class="beg-price-meta-days"><span class="beg-price-days">2</span><span class="beg-price-days-unit">日間</span></span>
                 <span class="beg-price-komas">6コマ</span>
               </div>
               <div class="beg-price-break">3,480円 × 6（税抜）</div>
+              </div>
             </div>
             <div class="beg-price-card featured">
               <div class="beg-price-total-hero">
                 <span class="beg-price-total-label">税込</span>
                 <span class="beg-price-total-num">29,502<small class="beg-price-yen"> 円</small></span>
               </div>
+              <div class="beg-price-subline">
               <div class="beg-price-meta">
                 <span class="beg-price-meta-days"><span class="beg-price-days">3</span><span class="beg-price-days-unit">日間</span></span>
                 <span class="beg-price-komas">9コマ</span>
               </div>
               <div class="beg-price-break">2,980円 × 9（税抜）</div>
+              </div>
             </div>
           </div>
 

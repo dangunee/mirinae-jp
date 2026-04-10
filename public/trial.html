@@ -308,6 +308,21 @@
     .thanks-banner .thanks-link { color: var(--gold); font-weight: 600; text-decoration: none; }
     .thanks-banner .thanks-link:hover { text-decoration: underline; }
 
+    .form-error-banner {
+      margin-bottom: 24px;
+      padding: 20px 22px;
+      border-radius: 12px;
+      border: 1px solid #c45c5c;
+      background: #fdf5f5;
+      color: var(--text-dark);
+      font-size: 15px;
+      line-height: 1.75;
+    }
+    .form-error-banner p { margin: 0 0 8px 0; }
+    .form-error-banner p:last-child { margin-bottom: 0; }
+    .form-error-banner a { color: var(--gold); font-weight: 600; text-decoration: none; }
+    .form-error-banner a:hover { text-decoration: underline; }
+
     .tab-wrap { margin-bottom: 0; }
 
     .tab-panel { display: none; padding-top: 32px; min-width: 0; max-width: 100%; }
@@ -579,6 +594,10 @@
   <div class="page-wrapper">
     <div class="main-with-sidebar">
     <div class="main-content">
+      <div id="form-error-banner" class="form-error-banner" style="display:none;" role="alert" aria-live="polite">
+        <p style="font-weight:600;">送信に失敗しました。</p>
+        <p>時間をおいて再度お試しいただくか、<a href="mailto:mirinae@kaonnuri.com">mirinae@kaonnuri.com</a> までご連絡ください。</p>
+      </div>
       <div id="thanks-wrap" class="thanks-wrap" style="display:none;" aria-live="polite">
         <div class="thanks-tabs-row" role="tablist" aria-label="お申込み完了の案内">
           <button type="button" class="thanks-tab-btn active" role="tab" aria-selected="true" data-thanks-tab="01" id="thanks-tabbtn-01">体験＆レベルテスト</button>
@@ -634,7 +653,7 @@
           </div>
         </div>
         <div class="form-card">
-          <form action="https://formsubmit.co/mirinae@kaonnuri.com" method="POST">
+          <form action="/api/public-form" method="POST">
             <input type="hidden" name="_captcha" value="false">
             <input type="hidden" name="_subject" value="【体験申込】ミリネ韓国語教室">
             <input type="hidden" name="_next" value="https://mirinae.jp/trial.html?thanks=1&tab=tab01">
@@ -777,7 +796,7 @@
           <div class="content-inner">
           <p class="form-note">受講したい講座が決まっている方はこちらから本申込ができます。希望の教室・レッスン名・日程などをご記入ください。</p>
 
-          <form action="https://formsubmit.co/mirinae@kaonnuri.com" method="POST">
+          <form action="/api/public-form" method="POST">
             <input type="hidden" name="_captcha" value="false">
             <input type="hidden" name="_subject" value="【講座申込】ミリネ韓国語教室">
             <input type="hidden" name="_next" value="https://mirinae.jp/trial.html?thanks=1&tab=tab02">
@@ -969,7 +988,7 @@
           <div class="content-inner">
           <p class="form-note">講座内容についてのご質問、法人向け研修、メディア取材などのお問い合わせはこちらからお送りください。</p>
 
-          <form action="https://formsubmit.co/mirinae@kaonnuri.com" method="POST">
+          <form action="/api/public-form" method="POST">
             <input type="hidden" name="_captcha" value="false">
             <input type="hidden" name="_subject" value="【お問い合わせ】ミリネ韓国語教室">
             <input type="hidden" name="_next" value="https://mirinae.jp/trial.html?thanks=1&tab=tab04">
@@ -1219,6 +1238,14 @@
 
       var hash = location.hash.slice(1);
       var params = new URLSearchParams(location.search);
+
+      if (params.get('form_error') === '1') {
+        var formErr = document.getElementById('form-error-banner');
+        if (formErr) {
+          formErr.style.display = 'block';
+          formErr.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
 
       function switchThanksSubTab(which) {
         var c1 = document.getElementById('thanks-content-01');

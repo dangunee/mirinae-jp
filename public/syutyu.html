@@ -1873,6 +1873,40 @@
       grid-column: 1 / -1;
     }
 
+    /* 入門（tab01）：デスクトップで授業料を1行に */
+    @media (min-width: 901px) {
+      #tab01 .beg-price-grid .beg-price-card.featured {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        gap: 14px 22px;
+        padding: 14px 52px 12px 16px;
+      }
+      #tab01 .beg-price-total-hero {
+        flex-direction: row;
+        align-items: baseline;
+        gap: 6px 12px;
+        margin-bottom: 0;
+        padding: 0;
+        flex-shrink: 0;
+      }
+      #tab01 .beg-price-subline {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: baseline;
+        gap: 10px 18px;
+        margin: 0;
+        flex: 1;
+        min-width: 0;
+      }
+      #tab01 .beg-price-subline .beg-price-meta {
+        margin-bottom: 0;
+      }
+      #tab01 .beg-price-subline .beg-price-break {
+        white-space: nowrap;
+      }
+    }
+
     @media (max-width: 900px) {
       nav { padding: 0 24px; }
       .hero { padding: 48px 24px 40px; }
@@ -1985,7 +2019,7 @@
                 <p class="beg-hero-catch">1日6コマ（昼休みあり）の集中プログラム。自分の弱点を発見し、韓国語の基礎を一気に固めましょう。</p>
                 <div class="beg-hero-meta">
                   <p class="beg-hero-meta-line">📍 オンライン 👥 2～6名 📋 ミリネ独自テキスト（PDF）</p>
-                  <p class="beg-hero-meta-line">🎬 録画あり 📅 5/2（土） 10:00〜16:50 ⏰ お申込み締切 4/30（木）</p>
+                  <p class="beg-hero-meta-line">🎬 録画あり 📅 5/2 10:00〜16:50 ⏰ お申込み締切 4/30</p>
                 </div>
                 <div class="beg-hero-btns">
                   <a href="#syutyu-apply-tab01" class="beg-hero-btn-primary">お申込みはこちら →</a>
@@ -2077,7 +2111,7 @@
           </div>
           <div class="tt-wrap syutyu-reveal">
             <div class="tt-header" style="grid-template-columns:90px 1fr;">
-              <div class="tt-th">5/2（土）</div>
+              <div class="tt-th">5/2</div>
               <div class="tt-th">入門集中</div>
             </div>
             <div class="tt-row nyumon" style="grid-template-columns:90px 1fr;">
@@ -2409,7 +2443,7 @@
                 <p class="beg-hero-catch">1日3コマ、最大3日間の集中プログラム。自分の弱点を発見し、韓国語の基礎を一気に固めましょう。</p>
                 <div class="beg-hero-meta">
                   <p class="beg-hero-meta-line">📍 新宿教室 👥 2-6名 📋 ミリネ独自テキスト（PDF）</p>
-                  <p class="beg-hero-meta-line">📅 5/2〜5/4 14:00〜16:50 ⏰ お申込み締切 4/30（木）</p>
+                  <p class="beg-hero-meta-line">📅 5/2〜5/4 14:00〜16:50 ⏰ お申込み締切 4/30</p>
                 </div>
                 <div class="beg-hero-btns">
                   <a href="#syutyu-apply-tab02" class="beg-hero-btn-primary">お申込みはこちら →</a>
@@ -2492,7 +2526,7 @@
           <!-- デスクトップ：入門と同様 2列（時間｜内容）× 日付 -->
           <div class="tt-wrap syutyu-tt-desktop syutyu-tt-daytable">
             <div class="tt-header" style="grid-template-columns:minmax(96px,110px) 1fr;">
-              <div class="tt-th">5/2（土）</div>
+              <div class="tt-th">5/2</div>
               <div class="tt-th">会話の基本</div>
             </div>
             <div class="tt-row shokyu" style="grid-template-columns:minmax(96px,110px) 1fr;">
@@ -2528,7 +2562,7 @@
           </div>
           <div class="tt-wrap syutyu-tt-desktop syutyu-tt-daytable">
             <div class="tt-header" style="grid-template-columns:minmax(96px,110px) 1fr;">
-              <div class="tt-th">5/3（日）</div>
+              <div class="tt-th">5/3</div>
               <div class="tt-th">過去と状況説明</div>
             </div>
             <div class="tt-row shokyu" style="grid-template-columns:minmax(96px,110px) 1fr;">
@@ -2564,7 +2598,7 @@
           </div>
           <div class="tt-wrap syutyu-tt-desktop syutyu-tt-daytable">
             <div class="tt-header" style="grid-template-columns:minmax(96px,110px) 1fr;">
-              <div class="tt-th">5/4（月）</div>
+              <div class="tt-th">5/4</div>
               <div class="tt-th">実践的な表現とニュアンス</div>
             </div>
             <div class="tt-row shokyu" style="grid-template-columns:minmax(96px,110px) 1fr;">
@@ -2600,66 +2634,72 @@
           </div>
           <div class="syutyu-tt-mobile">
             <details class="syutyu-acc" open>
-              <summary><span class="syutyu-acc-date">5/2（土）</span><span class="syutyu-acc-sub">会話の基本</span></summary>
+              <summary><span class="syutyu-acc-date">5/2</span><span class="syutyu-acc-sub">会話の基本</span></summary>
               <div class="syutyu-acc-panel">
                 <div class="syutyu-acc-session">
                   <div class="syutyu-acc-sess-head">1限目 <span class="syutyu-acc-period">14:00–14:50</span></div>
                   <div class="syutyu-acc-topic">連体形</div>
                   <ul class="syutyu-acc-list"><li>連体形 (-는, -은, -을) の整理</li></ul>
+                  <div class="syutyu-acc-training">習った表現で会話ドリル</div>
                 </div>
                 <div class="syutyu-acc-session">
                   <div class="syutyu-acc-sess-head">2限目 <span class="syutyu-acc-period">15:00–15:50</span></div>
                   <div class="syutyu-acc-topic">推測の表現</div>
                   <ul class="syutyu-acc-list"><li>推測の表現 (-는 것 같다, -을 것 같다, -았/었던 것 같다)</li></ul>
+                  <div class="syutyu-acc-training">習った表現で会話ドリル</div>
                 </div>
                 <div class="syutyu-acc-session">
                   <div class="syutyu-acc-sess-head">3限目 <span class="syutyu-acc-period">16:00–16:50</span></div>
                   <div class="syutyu-acc-topic">義務・許可・禁止</div>
                   <ul class="syutyu-acc-list"><li>義務と当然 (-아/어야 하다)</li><li>許可と禁止 (-아/어도 되다, -(으)면 안 되다)</li></ul>
+                  <div class="syutyu-acc-training">習った表現で会話ドリル</div>
                 </div>
-                <div class="syutyu-acc-training">習った表現で会話ドリル</div>
               </div>
             </details>
             <details class="syutyu-acc">
-              <summary><span class="syutyu-acc-date">5/3（日）</span><span class="syutyu-acc-sub">過去と状況説明</span></summary>
+              <summary><span class="syutyu-acc-date">5/3</span><span class="syutyu-acc-sub">過去と状況説明</span></summary>
               <div class="syutyu-acc-panel">
                 <div class="syutyu-acc-session">
                   <div class="syutyu-acc-sess-head">1限目 <span class="syutyu-acc-period">14:00–14:50</span></div>
                   <div class="syutyu-acc-topic">過去形・過去の記憶・時間の経過</div>
                   <ul class="syutyu-acc-list"><li>過去形 (-았/었다)</li><li>経験と経過 (-은 적이 있다, -은 지 ~되다)</li></ul>
+                  <div class="syutyu-acc-training">習った表現で会話ドリル</div>
                 </div>
                 <div class="syutyu-acc-session">
                   <div class="syutyu-acc-sess-head">2限目 <span class="syutyu-acc-period">15:00–15:50</span></div>
                   <div class="syutyu-acc-topic">状況説明と同意</div>
                   <ul class="syutyu-acc-list"><li>現在の感嘆と未来の計画 (-군요, -을 생각이다)</li><li>確認と同意 (-네요, -지요?)</li></ul>
+                  <div class="syutyu-acc-training">習った表現で会話ドリル</div>
                 </div>
                 <div class="syutyu-acc-session">
                   <div class="syutyu-acc-sess-head">3限目 <span class="syutyu-acc-period">16:00–16:50</span></div>
                   <div class="syutyu-acc-topic">「아/어形」の活用と応用</div>
                   <ul class="syutyu-acc-list"><li>依頼と提案 (-아/어 주다, -드릴까요)</li></ul>
+                  <div class="syutyu-acc-training">習った表現で会話ドリル</div>
                 </div>
-                <div class="syutyu-acc-training">習った表現で会話ドリル</div>
               </div>
             </details>
             <details class="syutyu-acc">
-              <summary><span class="syutyu-acc-date">5/4（月）</span><span class="syutyu-acc-sub">実践的な表現とニュアンス</span></summary>
+              <summary><span class="syutyu-acc-date">5/4</span><span class="syutyu-acc-sub">実践的な表現とニュアンス</span></summary>
               <div class="syutyu-acc-panel">
                 <div class="syutyu-acc-session">
                   <div class="syutyu-acc-sess-head">1限目 <span class="syutyu-acc-period">14:00–14:50</span></div>
                   <div class="syutyu-acc-topic">理由・勧誘・提案</div>
                   <ul class="syutyu-acc-list"><li>理由と配慮 (-을 테니까)</li><li>傾向とアドバイス (-는 편이다, -는 게 좋겠다)</li></ul>
+                  <div class="syutyu-acc-training">習った表現で会話ドリル</div>
                 </div>
                 <div class="syutyu-acc-session">
                   <div class="syutyu-acc-sess-head">2限目 <span class="syutyu-acc-period">15:00–15:50</span></div>
                   <div class="syutyu-acc-topic">接続語尾の使い分け・推測・時</div>
                   <ul class="syutyu-acc-list"><li>並列 vs 原因 (-고 vs -아서)</li><li>背景の説明 (-(으)ㄹ 때, -(으)ㄹ 텐데)</li></ul>
+                  <div class="syutyu-acc-training">習った表現で会話ドリル</div>
                 </div>
                 <div class="syutyu-acc-session">
                   <div class="syutyu-acc-sess-head">3限目 <span class="syutyu-acc-period">16:00–16:50</span></div>
                   <div class="syutyu-acc-topic">背景・否定表現</div>
                   <ul class="syutyu-acc-list"><li>理由 vs 背景 (-니까 vs -는데)</li><li>否定の選択 (-지 않고 vs -지 말고)</li></ul>
+                  <div class="syutyu-acc-training">習った表現で会話ドリル</div>
                 </div>
-                <div class="syutyu-acc-training">習った表現で会話ドリル</div>
               </div>
             </details>
           </div>
@@ -3040,7 +3080,7 @@
                 <p class="beg-hero-catch">1日3コマ、最大3日間の集中プログラム。自分の弱点を発見し、韓国語の基礎を一気に固めましょう。</p>
                 <div class="beg-hero-meta">
                   <p class="beg-hero-meta-line">📍 新宿教室 👥 2-6名 📋 ミリネ独自テキスト（PDF）</p>
-                  <p class="beg-hero-meta-line">📅 5/3〜5/5 10:00〜12:50 ⏰ お申込み締切 4/30（木）</p>
+                  <p class="beg-hero-meta-line">📅 5/3〜5/5 10:00〜12:50 ⏰ お申込み締切 4/30</p>
                 </div>
                 <div class="beg-hero-btns">
                   <a href="#syutyu-apply-tab03" class="beg-hero-btn-primary">お申込みはこちら →</a>
@@ -3123,7 +3163,7 @@
           <!-- デスクトップ：入門と同様 2列（時間｜内容）× 日付 -->
           <div class="tt-wrap syutyu-tt-desktop syutyu-tt-daytable">
             <div class="tt-header" style="grid-template-columns:minmax(96px,110px) 1fr;">
-              <div class="tt-th">5/3（月・祝）</div>
+              <div class="tt-th">5/3</div>
               <div class="tt-th">間接話法</div>
             </div>
             <div class="tt-row chukyu" style="grid-template-columns:minmax(96px,110px) 1fr;">
@@ -3162,7 +3202,7 @@
           </div>
           <div class="tt-wrap syutyu-tt-desktop syutyu-tt-daytable">
             <div class="tt-header" style="grid-template-columns:minmax(96px,110px) 1fr;">
-              <div class="tt-th">5/4（火・祝）</div>
+              <div class="tt-th">5/4</div>
               <div class="tt-th">推測・進行・付加</div>
             </div>
             <div class="tt-row chukyu" style="grid-template-columns:minmax(96px,110px) 1fr;">
@@ -3207,7 +3247,7 @@
           </div>
           <div class="tt-wrap syutyu-tt-desktop syutyu-tt-daytable">
             <div class="tt-header" style="grid-template-columns:minmax(96px,110px) 1fr;">
-              <div class="tt-th">5/5（火・祝）</div>
+              <div class="tt-th">5/5</div>
               <div class="tt-th">条件・感情表現</div>
             </div>
             <div class="tt-row chukyu" style="grid-template-columns:minmax(96px,110px) 1fr;">
@@ -3246,66 +3286,72 @@
           </div>
           <div class="syutyu-tt-mobile">
             <details class="syutyu-acc" open>
-              <summary><span class="syutyu-acc-date">5/3（月・祝）</span></summary>
+              <summary><span class="syutyu-acc-date">5/3</span></summary>
               <div class="syutyu-acc-panel">
                 <div class="syutyu-acc-session">
                   <div class="syutyu-acc-sess-head">1限目 <span class="syutyu-acc-period">10:00–10:50</span></div>
                   <div class="syutyu-acc-topic">間接話法のマスター1</div>
                   <ul class="syutyu-acc-list"><li>伝聞・引用 (-ㄴ/는다고 하다)</li><li>疑問・勧誘・命令の引用</li></ul>
+                  <div class="syutyu-acc-training">習った表現で会話ドリル</div>
                 </div>
                 <div class="syutyu-acc-session">
                   <div class="syutyu-acc-sess-head">2限目 <span class="syutyu-acc-period">11:00–11:50</span></div>
                   <div class="syutyu-acc-topic">間接話法のマスター2</div>
                   <ul class="syutyu-acc-list"><li>日常会話で必須の「縮約形」 (-대요, -재요, -래요)</li></ul>
+                  <div class="syutyu-acc-training">習った表現で会話ドリル</div>
                 </div>
                 <div class="syutyu-acc-session">
                   <div class="syutyu-acc-sess-head">3限目 <span class="syutyu-acc-period">12:00–12:50</span></div>
                   <div class="syutyu-acc-topic">間接話法のマスター3</div>
                   <ul class="syutyu-acc-list"><li>伝聞・引用 (-을 거라고 하다) 未来に関する表現</li></ul>
+                  <div class="syutyu-acc-training">習った表現で会話ドリル</div>
                 </div>
-                <div class="syutyu-acc-training">習った表現で会話ドリル</div>
               </div>
             </details>
             <details class="syutyu-acc">
-              <summary><span class="syutyu-acc-date">5/4（火・祝）</span></summary>
+              <summary><span class="syutyu-acc-date">5/4</span></summary>
               <div class="syutyu-acc-panel">
                 <div class="syutyu-acc-session">
                   <div class="syutyu-acc-sess-head">1限目 <span class="syutyu-acc-period">10:00–10:50</span></div>
                   <div class="syutyu-acc-topic">未確定</div>
                   <ul class="syutyu-acc-list"><li>推測・不確実（-을지도 모르다 など）</li><li>迷いと意図（-을까 하다 など）</li></ul>
+                  <div class="syutyu-acc-training">習った表現で会話ドリル</div>
                 </div>
                 <div class="syutyu-acc-session">
                   <div class="syutyu-acc-sess-head">2限目 <span class="syutyu-acc-period">11:00–11:50</span></div>
                   <div class="syutyu-acc-topic">やり方・付加</div>
                   <ul class="syutyu-acc-list"><li>方法・能力 (-을 줄 알다 vs -은 줄 알다)</li><li>付加と強調 (-을 뿐만 아니라, 어찌나 -던지)</li></ul>
+                  <div class="syutyu-acc-training">習った表現で会話ドリル</div>
                 </div>
                 <div class="syutyu-acc-session">
                   <div class="syutyu-acc-sess-head">3限目 <span class="syutyu-acc-period">12:00–12:50</span></div>
                   <div class="syutyu-acc-topic">動作の進行・完了・理由</div>
                   <ul class="syutyu-acc-list"><li>動作の進行と完了 (-고 있다 vs -아/어 있다)</li><li>動作の中断と移動 (-다가 vs -아/어다가)</li></ul>
+                  <div class="syutyu-acc-training">習った表現で会話ドリル</div>
                 </div>
-                <div class="syutyu-acc-training">習った表現で会話ドリル</div>
               </div>
             </details>
             <details class="syutyu-acc">
-              <summary><span class="syutyu-acc-date">5/5（火・祝）</span></summary>
+              <summary><span class="syutyu-acc-date">5/5</span></summary>
               <div class="syutyu-acc-panel">
                 <div class="syutyu-acc-session">
                   <div class="syutyu-acc-sess-head">1限目 <span class="syutyu-acc-period">10:00–10:50</span></div>
                   <div class="syutyu-acc-topic">条件</div>
                   <ul class="syutyu-acc-list"><li>理由・根拠 (-거든 / -(으)면 / -ㄴ다면)</li></ul>
+                  <div class="syutyu-acc-training">習った表現で会話ドリル</div>
                 </div>
                 <div class="syutyu-acc-session">
                   <div class="syutyu-acc-sess-head">2限目 <span class="syutyu-acc-period">11:00–11:50</span></div>
                   <div class="syutyu-acc-topic">未来形・推測 接続語尾</div>
                   <ul class="syutyu-acc-list"><li>-을 테니까</li><li>-을 수도 있다</li></ul>
+                  <div class="syutyu-acc-training">習った表現で会話ドリル</div>
                 </div>
                 <div class="syutyu-acc-session">
                   <div class="syutyu-acc-sess-head">3限目 <span class="syutyu-acc-period">12:00–12:50</span></div>
                   <div class="syutyu-acc-topic">感情表現</div>
                   <ul class="syutyu-acc-list"><li>喜び、怒り、呆れるの表現</li></ul>
+                  <div class="syutyu-acc-training">習った表現で会話ドリル</div>
                 </div>
-                <div class="syutyu-acc-training">習った表現で会話ドリル</div>
               </div>
             </details>
           </div>
@@ -3754,7 +3800,7 @@
                 <p class="beg-hero-catch">1日3コマ、最大3日間の集中プログラム。自分の弱点を発見し、韓国語の基礎を一気に固めましょう。</p>
                 <div class="beg-hero-meta">
                   <p class="beg-hero-meta-line">📍 新宿教室 👥 2-6名 📋 ミリネ独自テキスト（PDF）</p>
-                  <p class="beg-hero-meta-line">📅 5/3,5/5,5/6 14:00〜16:50 ⏰ お申込み締切 4/30（木）</p>
+                  <p class="beg-hero-meta-line">📅 5/3,5/5,5/6 14:00〜16:50 ⏰ お申込み締切 4/30</p>
                 </div>
                 <div class="beg-hero-btns">
                   <a href="#syutyu-apply-tab04" class="beg-hero-btn-primary">お申込みはこちら →</a>
@@ -3835,7 +3881,7 @@
           <!-- デスクトップ：入門と同様 2列（時間｜内容）× 日付 -->
           <div class="tt-wrap syutyu-tt-desktop syutyu-tt-daytable">
             <div class="tt-header" style="grid-template-columns:minmax(96px,110px) 1fr;">
-              <div class="tt-th">5/3（日）</div>
+              <div class="tt-th">5/3</div>
               <div class="tt-th">文法・表現の整理（文法中心）</div>
             </div>
             <div class="tt-row jokyu" style="grid-template-columns:minmax(96px,110px) 1fr;">
@@ -3871,7 +3917,7 @@
           </div>
           <div class="tt-wrap syutyu-tt-desktop syutyu-tt-daytable">
             <div class="tt-header" style="grid-template-columns:minmax(96px,110px) 1fr;">
-              <div class="tt-th">5/5（火）</div>
+              <div class="tt-th">5/5</div>
               <div class="tt-th">実用表現（ドラマ・慣用句）</div>
             </div>
             <div class="tt-row jokyu" style="grid-template-columns:minmax(96px,110px) 1fr;">
@@ -3904,7 +3950,7 @@
           </div>
           <div class="tt-wrap syutyu-tt-desktop syutyu-tt-daytable">
             <div class="tt-header" style="grid-template-columns:minmax(96px,110px) 1fr;">
-              <div class="tt-th">5/6（水）</div>
+              <div class="tt-th">5/6</div>
               <div class="tt-th">語彙（擬音語・擬態語）</div>
             </div>
             <div class="tt-row jokyu" style="grid-template-columns:minmax(96px,110px) 1fr;">
@@ -3937,60 +3983,66 @@
           </div>
           <div class="syutyu-tt-mobile">
             <details class="syutyu-acc" open>
-              <summary><span class="syutyu-acc-date">5/3（日）</span><span class="syutyu-acc-sub">文法・表現の整理（文法中心）</span></summary>
+              <summary><span class="syutyu-acc-date">5/3</span><span class="syutyu-acc-sub">文法・表現の整理（文法中心）</span></summary>
               <div class="syutyu-acc-panel">
                 <div class="syutyu-acc-session">
                   <div class="syutyu-acc-sess-head">1限目 <span class="syutyu-acc-period">14:00–14:50</span></div>
                   <div class="syutyu-acc-topic">回想の文法の整理（前半）</div>
                   <ul class="syutyu-acc-list"><li>例：-더, -더니, -더라고, -었더니, -던데</li></ul>
+                  <div class="syutyu-acc-training">整理した内容を使って会話してみる</div>
                 </div>
                 <div class="syutyu-acc-session">
                   <div class="syutyu-acc-sess-head">2限目 <span class="syutyu-acc-period">15:00–15:50</span></div>
                   <div class="syutyu-acc-topic">接続の文法の整理（後半）</div>
                   <ul class="syutyu-acc-list"><li>例：-다가, 었다가, 다가, 는데, 어서, 니까</li></ul>
+                  <div class="syutyu-acc-training">整理した内容を使って会話してみる</div>
                 </div>
                 <div class="syutyu-acc-session">
                   <div class="syutyu-acc-sess-head">3限目 <span class="syutyu-acc-period">16:00–16:50</span></div>
                   <div class="syutyu-acc-topic">事実関係の文法の整理（第3部）</div>
                   <ul class="syutyu-acc-list"><li>例：-고/어서、았/었어서、-더、-다가、-는데 など</li></ul>
+                  <div class="syutyu-acc-training">整理した内容を使って会話してみる</div>
                 </div>
-                <div class="syutyu-acc-training">整理した内容を使って会話してみる</div>
               </div>
             </details>
             <details class="syutyu-acc">
-              <summary><span class="syutyu-acc-date">5/5（火）</span><span class="syutyu-acc-sub">実用表現（ドラマ・慣用句）</span></summary>
+              <summary><span class="syutyu-acc-date">5/5</span><span class="syutyu-acc-sub">実用表現（ドラマ・慣用句）</span></summary>
               <div class="syutyu-acc-panel">
                 <div class="syutyu-acc-session">
                   <div class="syutyu-acc-sess-head">1限目 <span class="syutyu-acc-period">14:00–14:50</span></div>
                   <div class="syutyu-acc-topic">ドラマでよく使われる表現15</div>
+                  <div class="syutyu-acc-training">整理した内容を使って会話してみる</div>
                 </div>
                 <div class="syutyu-acc-session">
                   <div class="syutyu-acc-sess-head">2限目 <span class="syutyu-acc-period">15:00–15:50</span></div>
                   <div class="syutyu-acc-topic">よく使う慣用句15</div>
+                  <div class="syutyu-acc-training">整理した内容を使って会話してみる</div>
                 </div>
                 <div class="syutyu-acc-session">
                   <div class="syutyu-acc-sess-head">3限目 <span class="syutyu-acc-period">16:00–16:50</span></div>
                   <div class="syutyu-acc-topic">よく使う四字熟語・慣用句15</div>
+                  <div class="syutyu-acc-training">整理した内容を使って会話してみる</div>
                 </div>
-                <div class="syutyu-acc-training">整理した内容を使って会話してみる</div>
               </div>
             </details>
             <details class="syutyu-acc">
-              <summary><span class="syutyu-acc-date">5/6（水）</span><span class="syutyu-acc-sub">語彙（擬音語・擬態語）</span></summary>
+              <summary><span class="syutyu-acc-date">5/6</span><span class="syutyu-acc-sub">語彙（擬音語・擬態語）</span></summary>
               <div class="syutyu-acc-panel">
                 <div class="syutyu-acc-session">
                   <div class="syutyu-acc-sess-head">1限目 <span class="syutyu-acc-period">14:00–14:50</span></div>
                   <div class="syutyu-acc-topic">日常生活でよく使う擬音語</div>
+                  <div class="syutyu-acc-training">整理した内容を使って会話してみる</div>
                 </div>
                 <div class="syutyu-acc-session">
                   <div class="syutyu-acc-sess-head">2限目 <span class="syutyu-acc-period">15:00–15:50</span></div>
                   <div class="syutyu-acc-topic">日常生活でよく使う擬態語</div>
+                  <div class="syutyu-acc-training">整理した内容を使って会話してみる</div>
                 </div>
                 <div class="syutyu-acc-session">
                   <div class="syutyu-acc-sess-head">3限目 <span class="syutyu-acc-period">16:00–16:50</span></div>
                   <div class="syutyu-acc-topic">日常生活でよく使う感情表現</div>
+                  <div class="syutyu-acc-training">整理した内容を使って会話してみる</div>
                 </div>
-                <div class="syutyu-acc-training">整理した内容を使って会話してみる</div>
               </div>
             </details>
           </div>

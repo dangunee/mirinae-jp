@@ -617,9 +617,12 @@
       letter-spacing: 0.06em;
       white-space: nowrap;
     }
-    /* Lesson Flow 見出し（次ブロックが beg-flow-section のとき） */
+    /* Lesson Flow セクション：見出し＋カード本文を 1.5 倍 */
+    .beg-sec-header:has(+ .beg-flow-section) .beg-sec-label {
+      font-size: calc(11px * 1.5);
+    }
     .beg-sec-header:has(+ .beg-flow-section) .beg-sec-title {
-      font-size: calc(16px * 1.3);
+      font-size: calc(16px * 1.5);
     }
     .beg-sec-label {
       font-family: 'Cormorant Garamond', serif;
@@ -1864,6 +1867,14 @@
     #tab01 .beg-flow-card-num, #tab02 .beg-flow-card-num, #tab03 .beg-flow-card-num, #tab04 .beg-flow-card-num { background: linear-gradient(135deg, var(--syutyu-hero), var(--syutyu-hero-dark)); box-shadow: 0 3px 12px rgba(3,105,161,.3); }
     .beg-flow-card-body h4 { font-family: 'Noto Serif JP', serif; font-size: 15px; color: var(--mid); margin-bottom: 6px; font-weight: 600; }
     .beg-flow-card-body p { font-size: 13px; color: var(--mid); line-height: 1.8; opacity: .9; }
+    .beg-flow-section .beg-flow-card-num {
+      width: calc(40px * 1.5);
+      height: calc(40px * 1.5);
+      border-radius: calc(10px * 1.5);
+      font-size: calc(18px * 1.5);
+    }
+    .beg-flow-section .beg-flow-card-body h4 { font-size: calc(15px * 1.5); }
+    .beg-flow-section .beg-flow-card-body p { font-size: calc(13px * 1.5); }
 
     /* Price cards（税込を最上段・コンパクト） */
     .beg-price-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 20px; margin-bottom: 24px; }

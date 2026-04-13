@@ -556,23 +556,18 @@
       line-height: 1.8;
       margin-bottom: 24px;
     }
-    .beg-hero-chips {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
+    .beg-hero-meta {
+      font-size: clamp(13px, 1.35vw, 16px);
+      color: rgba(255,255,255,.92);
+      line-height: 1.75;
+      letter-spacing: 0.02em;
       margin-bottom: 28px;
     }
-    .beg-hero-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(255,255,255,.2);
-      border: 1px solid rgba(255,255,255,.35);
-      border-radius: 100px;
-      padding: 8px 16px;
-      font-size: 13px;
-      color: #fff;
+    .beg-hero-meta-line {
+      margin: 0 0 8px 0;
+      word-break: break-word;
     }
+    .beg-hero-meta-line:last-child { margin-bottom: 0; }
     .beg-hero-btns {
       display: flex;
       gap: 14px;
@@ -603,25 +598,6 @@
       padding-bottom: 2px;
     }
     .beg-hero-btn-ghost:hover { color: #fff; border-color: #fff; }
-    #tab01 .beg-hero-tags, #tab02 .beg-hero-tags, #tab03 .beg-hero-tags, #tab04 .beg-hero-tags {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-top: 22px;
-      position: relative; z-index: 1;
-    }
-    #tab01 .beg-hero-tag, #tab02 .beg-hero-tag, #tab03 .beg-hero-tag, #tab04 .beg-hero-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      padding: 5px 12px;
-      background: rgba(255,255,255,0.2);
-      border: 1px solid rgba(255,255,255,0.35);
-      border-radius: 20px;
-      font-size: 14px;
-      color: #fff;
-    }
-    #tab01 .beg-hero-tag span, #tab02 .beg-hero-tag span, #tab03 .beg-hero-tag span, #tab04 .beg-hero-tag span { color: #fff; font-weight: 600; }
     .beg-sec-header {
       display: flex;
       align-items: center;
@@ -1844,16 +1820,12 @@
             <div class="beg-hero-inner">
               <div class="beg-hero-left">
                 <div class="beg-hero-eyebrow">INTENSIVE COURSE · オンライン</div>
-                <div class="beg-hero-headline">連休に<br><em>集中して</em><br>伸ばす。</div>
+                <div class="beg-hero-headline">連休に<em>集中して</em>伸ばす。</div>
                 <div class="beg-hero-subtitle">入門集中講座</div>
                 <p class="beg-hero-catch">1日6コマ（昼休みあり）の集中プログラム。自分の弱点を発見し、韓国語の基礎を一気に固めましょう。</p>
-                <div class="beg-hero-chips">
-                  <span class="beg-hero-chip">📍 オンライン</span>
-                  <span class="beg-hero-chip">👥 2～6名</span>
-                  <span class="beg-hero-chip">📋 ミリネ独自テキスト（PDF）</span>
-                  <span class="beg-hero-chip">🎬 録画あり</span>
-                  <span class="beg-hero-chip">📅 5/2（土） 10:00〜16:50</span>
-                  <span class="beg-hero-chip">お申込み締切 4/30（木）</span>
+                <div class="beg-hero-meta">
+                  <p class="beg-hero-meta-line">📍 オンライン 👥 2～6名 📋 ミリネ独自テキスト（PDF）</p>
+                  <p class="beg-hero-meta-line">🎬 録画あり 📅 5/2（土） 10:00〜16:50 ⏰ お申込み締切 4/30（木）</p>
                 </div>
                 <div class="beg-hero-btns">
                   <a href="#syutyu-apply-tab01" class="beg-hero-btn-primary">お申込みはこちら →</a>
@@ -2028,7 +2000,7 @@
             </div>
           </div>
 
-          <div class="beg-sec-header syutyu-reveal syutyu-apply-head">
+          <div id="syutyu-apply-tab01" class="beg-sec-header syutyu-reveal syutyu-apply-head">
             <div class="beg-sec-label">Application</div>
             <div class="beg-sec-title">お申し込み</div>
             <div class="beg-sec-line"></div>
@@ -2044,7 +2016,7 @@
                   <input type="hidden" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
                   <input type="hidden" name="タイトル" value="講座の申し込み">
                   <div class="syutyu-cta-form-messages">
-                    <h2 class="syutyu-cta-form-title">連休を、<em>成長の3日間に。</em></h2>
+                    <h2 class="syutyu-cta-form-title">連休を、<em>成長の一日に。</em></h2>
                     <p class="syutyu-cta-form-deadline">お申込み締切：2026年4月30日（木）</p>
                     <p class="syutyu-cta-form-muted">定員になり次第締め切りますので、お早めにどうぞ。</p>
                   </div>
@@ -2275,15 +2247,12 @@
             <div class="beg-hero-inner">
               <div class="beg-hero-left">
                 <div class="beg-hero-eyebrow">INTENSIVE COURSE · 新宿教室</div>
-                <div class="beg-hero-headline">連休に<br><em>集中して</em><br>伸ばす。</div>
+                <div class="beg-hero-headline">連休に<em>集中して</em>伸ばす。</div>
                 <div class="beg-hero-subtitle">初級集中講座</div>
                 <p class="beg-hero-catch">1日3コマ、最大3日間の集中プログラム。自分の弱点を発見し、韓国語の基礎を一気に固めましょう。</p>
-                <div class="beg-hero-chips">
-                  <span class="beg-hero-chip">📍 新宿教室</span>
-                  <span class="beg-hero-chip">👥 2-6名</span>
-                  <span class="beg-hero-chip">📋 ミリネ独自テキスト（PDF）</span>
-                  <span class="beg-hero-chip">📅 5/2〜5/4 14:00〜16:50</span>
-                  <span class="beg-hero-chip">お申込み締切 4/30（木）</span>
+                <div class="beg-hero-meta">
+                  <p class="beg-hero-meta-line">📍 新宿教室 👥 2-6名 📋 ミリネ独自テキスト（PDF）</p>
+                  <p class="beg-hero-meta-line">📅 5/2〜5/4 14:00〜16:50 ⏰ お申込み締切 4/30（木）</p>
                 </div>
                 <div class="beg-hero-btns">
                   <a href="#syutyu-apply-tab02" class="beg-hero-btn-primary">お申込みはこちら →</a>
@@ -2607,7 +2576,7 @@
             </div>
           </div>
 
-          <div class="beg-sec-header syutyu-reveal syutyu-apply-head">
+          <div id="syutyu-apply-tab02" class="beg-sec-header syutyu-reveal syutyu-apply-head">
             <div class="beg-sec-label">Application</div>
             <div class="beg-sec-title">お申し込み</div>
             <div class="beg-sec-line"></div>
@@ -2906,15 +2875,12 @@
             <div class="beg-hero-inner">
               <div class="beg-hero-left">
                 <div class="beg-hero-eyebrow">INTENSIVE COURSE · 新宿教室</div>
-                <div class="beg-hero-headline">連休に<br><em>集中して</em><br>伸ばす。</div>
+                <div class="beg-hero-headline">連休に<em>集中して</em>伸ばす。</div>
                 <div class="beg-hero-subtitle">中級集中講座</div>
                 <p class="beg-hero-catch">1日3コマ、最大3日間の集中プログラム。自分の弱点を発見し、韓国語の基礎を一気に固めましょう。</p>
-                <div class="beg-hero-chips">
-                  <span class="beg-hero-chip">📍 新宿教室</span>
-                  <span class="beg-hero-chip">👥 2-6名</span>
-                  <span class="beg-hero-chip">📋 ミリネ独自テキスト（PDF）</span>
-                  <span class="beg-hero-chip">📅 5/3〜5/5 10:00〜12:50</span>
-                  <span class="beg-hero-chip">お申込み締切 4/30（木）</span>
+                <div class="beg-hero-meta">
+                  <p class="beg-hero-meta-line">📍 新宿教室 👥 2-6名 📋 ミリネ独自テキスト（PDF）</p>
+                  <p class="beg-hero-meta-line">📅 5/3〜5/5 10:00〜12:50 ⏰ お申込み締切 4/30（木）</p>
                 </div>
                 <div class="beg-hero-btns">
                   <a href="#syutyu-apply-tab03" class="beg-hero-btn-primary">お申込みはこちら →</a>
@@ -3253,7 +3219,7 @@
             </div>
           </div>
 
-          <div class="beg-sec-header syutyu-reveal syutyu-apply-head">
+          <div id="syutyu-apply-tab03" class="beg-sec-header syutyu-reveal syutyu-apply-head">
             <div class="beg-sec-label">Application</div>
             <div class="beg-sec-title">お申し込み</div>
             <div class="beg-sec-line"></div>
@@ -3620,15 +3586,12 @@
             <div class="beg-hero-inner">
               <div class="beg-hero-left">
                 <div class="beg-hero-eyebrow">INTENSIVE COURSE · 新宿教室</div>
-                <div class="beg-hero-headline">連休に<br><em>集中して</em><br>伸ばす。</div>
+                <div class="beg-hero-headline">連休に<em>集中して</em>伸ばす。</div>
                 <div class="beg-hero-subtitle">上級集中講座</div>
                 <p class="beg-hero-catch">1日3コマ、最大3日間の集中プログラム。自分の弱点を発見し、韓国語の基礎を一気に固めましょう。</p>
-                <div class="beg-hero-chips">
-                  <span class="beg-hero-chip">📍 新宿教室</span>
-                  <span class="beg-hero-chip">👥 2-6名</span>
-                  <span class="beg-hero-chip">📋 ミリネ独自テキスト（PDF）</span>
-                  <span class="beg-hero-chip">📅 5/3,5/5,5/6 14:00〜16:50</span>
-                  <span class="beg-hero-chip">お申込み締切 4/30（木）</span>
+                <div class="beg-hero-meta">
+                  <p class="beg-hero-meta-line">📍 新宿教室 👥 2-6名 📋 ミリネ独自テキスト（PDF）</p>
+                  <p class="beg-hero-meta-line">📅 5/3,5/5,5/6 14:00〜16:50 ⏰ お申込み締切 4/30（木）</p>
                 </div>
                 <div class="beg-hero-btns">
                   <a href="#syutyu-apply-tab04" class="beg-hero-btn-primary">お申込みはこちら →</a>
@@ -3938,7 +3901,7 @@
             </div>
           </div>
 
-          <div class="beg-sec-header syutyu-reveal syutyu-apply-head">
+          <div id="syutyu-apply-tab04" class="beg-sec-header syutyu-reveal syutyu-apply-head">
             <div class="beg-sec-label">Application</div>
             <div class="beg-sec-title">お申し込み</div>
             <div class="beg-sec-line"></div>
@@ -4466,7 +4429,7 @@
         });
       }
 
-      function switchTab(tabId) {
+      function switchTab(tabId, preserveUrl) {
         tabBtns.forEach(function(btn) {
           btn.classList.toggle('active', btn.getAttribute('data-tab') === tabId);
         });
@@ -4477,10 +4440,25 @@
           var href = a.getAttribute('href');
           a.classList.toggle('active', href === 'syutyu.html#' + tabId);
         });
-        if (tabIds.indexOf(tabId) !== -1) {
+        if (tabIds.indexOf(tabId) !== -1 && !preserveUrl) {
           history.replaceState(null, '', '#' + tabId);
         }
         initSyutyuReveal(tabId);
+      }
+
+      function scrollToApplyHash(hash) {
+        if (!hash || !/^syutyu-apply-tab\d\d$/.test(hash)) return;
+        var m = /^syutyu-apply-(tab\d\d)$/.exec(hash);
+        if (!m) return;
+        var tabId = m[1];
+        if (tabIds.indexOf(tabId) === -1) return;
+        switchTab(tabId, true);
+        requestAnimationFrame(function() {
+          requestAnimationFrame(function() {
+            var el = document.getElementById(hash);
+            if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          });
+        });
       }
 
       tabBtns.forEach(function(btn) {
@@ -4511,6 +4489,8 @@
       var hash = location.hash.slice(1);
       if (tabIds.indexOf(hash) !== -1) {
         switchTab(hash);
+      } else if (/^syutyu-apply-tab\d\d$/.test(hash)) {
+        scrollToApplyHash(hash);
       } else {
         var activeTab = tabIds.find(function(id) { return document.getElementById(id) && document.getElementById(id).classList.contains('active'); }) || 'tab01';
         document.querySelectorAll('.courses-nav .nav-item[href^="syutyu.html#"]').forEach(function(a) {
@@ -4523,6 +4503,7 @@
       window.addEventListener('hashchange', function() {
         var h = location.hash.slice(1);
         if (tabIds.indexOf(h) !== -1) switchTab(h);
+        else if (/^syutyu-apply-tab\d\d$/.test(h)) scrollToApplyHash(h);
       });
     })();
   </script>

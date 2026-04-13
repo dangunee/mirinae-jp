@@ -1173,6 +1173,26 @@
         min-width: 0;
       }
     }
+    /* 詳細：モバイルは左列をアイコン幅＋最小パディングに（本文列を広く） */
+    @media (max-width: 768px) {
+      .beg-details-row { grid-template-columns: 48px minmax(0, 1fr); }
+      .beg-details-label {
+        padding: 12px 4px;
+        flex-shrink: 0;
+        gap: 6px;
+      }
+      .beg-details-label-icon {
+        flex-shrink: 0;
+        font-size: 18px;
+      }
+      .beg-details-label-text {
+        white-space: normal;
+        font-size: 10px;
+        line-height: 1.25;
+        letter-spacing: 0;
+        word-break: keep-all;
+      }
+    }
     /* Course Concept section */
     .concept-section {
       background: var(--white);

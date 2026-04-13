@@ -1873,6 +1873,19 @@
       grid-column: 1 / -1;
     }
 
+    /* 入門（tab01）：デスクトップで日数行と税抜内訳を同じ行に */
+    @media (min-width: 901px) {
+      #tab01 .beg-price-grid .beg-price-card.featured .beg-price-subline {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: baseline;
+        gap: 6px 12px;
+      }
+      #tab01 .beg-price-grid .beg-price-card.featured .beg-price-subline .beg-price-meta {
+        margin-bottom: 0;
+      }
+    }
+
     @media (max-width: 900px) {
       nav { padding: 0 24px; }
       .hero { padding: 48px 24px 40px; }

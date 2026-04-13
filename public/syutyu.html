@@ -1161,9 +1161,9 @@
       .syutyu-cta-form-wrap { margin-left: 0; margin-right: 0; }
       .syutyu-test-section { padding: 48px 24px; }
     }
-    /* 詳細：狭い画面では左列をアイコン＋ラベルの内容幅のみ（右列を広く） */
+    /* 詳細：狭い画面でも左列幅を行間で統一（ラベル文字数・絵文字幅で列がずれないように） */
     @media (max-width: 900px) {
-      .beg-details-row { grid-template-columns: auto minmax(0, 1fr); }
+      .beg-details-row { grid-template-columns: 108px minmax(0, 1fr); }
       .beg-details-label {
         padding: 12px 6px 12px 8px;
         flex-shrink: 0;

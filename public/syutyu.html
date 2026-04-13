@@ -1346,6 +1346,18 @@
       padding: 3px 12px;
       border-radius: 7px;
     }
+    /* 入門：各コマの補足（テキストのみ・バッジなし） */
+    #tab01 .tt-nyumon-detail {
+      margin: 8px 0 0;
+      padding-left: 1.15em;
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--mid);
+      line-height: 1.55;
+      list-style: disc;
+    }
+    #tab01 .tt-nyumon-detail li { margin-bottom: 4px; }
+    #tab01 .tt-nyumon-detail li::marker { color: rgba(3,105,161,.45); }
 
     /* 初級・中級・上級：日付ヘッダー内サブタイトル（2列時間割の日付行） */
     .syutyu-day-sub {
@@ -1825,6 +1837,8 @@
     .beg-price-card.featured { background: linear-gradient(135deg, var(--dark), #1a3060); border-color: rgba(200,145,30,.4); }
     #tab01 .beg-price-card.featured, #tab02 .beg-price-card.featured, #tab03 .beg-price-card.featured, #tab04 .beg-price-card.featured { background: linear-gradient(135deg, var(--syutyu-hero), var(--syutyu-hero-dark)); border-color: rgba(255,255,255,.2); }
     .beg-price-card.featured::after { content: 'おすすめ'; position: absolute; top: 10px; right: 10px; background: linear-gradient(135deg, var(--gold), var(--gold-light)); color: var(--dark); font-size: 9px; font-weight: 700; padding: 2px 8px; border-radius: 100px; }
+    #tab01 .beg-price-card.featured::after { content: none; }
+    #tab01 .beg-price-card.featured .beg-price-total-hero { padding-right: 0; }
     .beg-price-total-hero {
       display: flex;
       flex-direction: column;
@@ -2095,15 +2109,37 @@
             </div>
             <div class="tt-row nyumon" style="grid-template-columns:90px 1fr;">
               <div class="tt-cell"><div class="tt-time-num">10時</div></div>
-              <div class="tt-cell"><div class="tt-topic">ハングルが読めるようになる</div><div class="tt-items"><span class="tt-pill">基本母音と子音が理解できる</span><span class="tt-pill">発音の違いが分かる</span></div></div>
+              <div class="tt-cell"><div class="tt-topic">ハングルが読めるようになる</div><div class="tt-items"><span class="tt-pill">基本母音と子音が理解できる</span><span class="tt-pill">発音の違いが分かる</span></div>
+                <ul class="tt-nyumon-detail">
+                  <li>母音①②</li>
+                  <li>ハングルで、日本語の「ア行」「ヤ行」にあたる文字</li>
+                  <li>子音①②</li>
+                  <li>ハングルの子音に使われる文字</li>
+                  <li>二つの音を持つ子音字</li>
+                </ul>
+              </div>
             </div>
             <div class="tt-row nyumon" style="grid-template-columns:90px 1fr;">
               <div class="tt-cell"><div class="tt-time-num">11時</div></div>
-              <div class="tt-cell"><div class="tt-topic">単語の形が読めるようになる</div><div class="tt-items"><span class="tt-pill">パッチムの読み方が分かる</span><span class="tt-pill">二重母音も読めるようになる</span></div></div>
+              <div class="tt-cell"><div class="tt-topic">単語の形が読めるようになる</div><div class="tt-items"><span class="tt-pill">パッチムの読み方が分かる</span><span class="tt-pill">二重母音も読めるようになる</span></div>
+                <ul class="tt-nyumon-detail">
+                  <li>子音③ 子音「濃音」「激音」を覚える。</li>
+                  <li>母音③「合成母音」と呼ばれる母音字を覚える。</li>
+                  <li>子音④「パッチム」を覚える。</li>
+                  <li>子音⑤「複合パッチム」を覚える。</li>
+                </ul>
+              </div>
             </div>
             <div class="tt-row nyumon" style="grid-template-columns:90px 1fr;">
               <div class="tt-cell"><div class="tt-time-num">12時</div></div>
-              <div class="tt-cell"><div class="tt-topic">自然な発音ができるようになる</div><div class="tt-items"><span class="tt-pill">つながる音のルールが理解できる</span><span class="tt-pill">聞き取りやすい発音ができる</span></div></div>
+              <div class="tt-cell"><div class="tt-topic">自然な発音ができるようになる</div><div class="tt-items"><span class="tt-pill">つながる音のルールが理解できる</span><span class="tt-pill">聞き取りやすい発音ができる</span></div>
+                <ul class="tt-nyumon-detail">
+                  <li>発音の変化</li>
+                  <li>子音のまとめ</li>
+                  <li>発音変化「連音化」のルール</li>
+                  <li>発音変化「濃音化」「激音化」のルール</li>
+                </ul>
+              </div>
             </div>
             <div class="tt-row nyumon tt-lunch" style="grid-template-columns: 1fr;">
               <div class="tt-cell" style="flex-direction: row; flex-wrap: wrap; justify-content: center; align-items: center; gap: 10px;">

@@ -292,7 +292,9 @@
       .tabs-bar .tab-btn { flex: 1 1 0; min-width: 0; padding: 12px 2px; font-size: 11px; text-align: center; }
       .main-content { padding: 24px 16px 80px; }
       .beg-hero { padding: 48px 24px 52px !important; }
-      .beg-details-value { font-size: 13px; }
+      .beg-details-value,
+      .beg-details-value li,
+      .beg-book-inline { font-size: calc(13px * 1.2); }
     }
     @media (max-width: 600px) {
       nav { padding: 0 12px; }
@@ -302,7 +304,9 @@
       .tabs-bar .tab-btn { padding: 10px 1px; font-size: 10px; }
       .main-content { padding: 20px 12px 80px; }
       .beg-hero { padding: 36px 18px 40px !important; }
-      .beg-details-value { font-size: 12.5px; }
+      .beg-details-value,
+      .beg-details-value li,
+      .beg-book-inline { font-size: calc(12.5px * 1.2); }
       .beg-details-label-text { font-size: 11px; }
       .beg-details-label { padding: 12px 5px; }
       .beg-details-value { padding: 14px 12px 14px 14px; }
@@ -697,7 +701,7 @@
     }
     .beg-details-value {
       padding: 20px 28px;
-      font-size: 13.5px;
+      font-size: calc(13.5px * 1.2);
       color: var(--mid);
       line-height: 1.9;
     }
@@ -712,7 +716,7 @@
       display: flex;
       align-items: flex-start;
       gap: 10px;
-      font-size: 13.5px;
+      font-size: calc(13.5px * 1.2);
       color: var(--mid);
       line-height: 1.75;
     }
@@ -733,7 +737,7 @@
       border: 1px solid rgba(3,105,161,.18);
       border-radius: 10px;
       padding: 10px 16px;
-      font-size: 13.5px;
+      font-size: calc(13.5px * 1.2);
       color: var(--text-dark);
     }
     .beg-book-inline .beg-book-icon { font-size: 18px; }
@@ -1156,10 +1160,18 @@
     @media (max-width: 768px) {
       .syutyu-cta-form-wrap { margin-left: 0; margin-right: 0; }
       .syutyu-test-section { padding: 48px 24px; }
-      /* 詳細：左列は固定幅で行ごとに揃える（max-content だとラベル文字数で幅が変わる） */
-      .beg-details-row { grid-template-columns: 108px 1fr; }
-      .beg-details-label { padding: 16px 8px; }
-      .beg-details-value { padding: 18px 16px 18px 18px; }
+    }
+    /* 詳細：狭い画面では左列をアイコン＋ラベルの内容幅のみ（右列を広く） */
+    @media (max-width: 900px) {
+      .beg-details-row { grid-template-columns: auto minmax(0, 1fr); }
+      .beg-details-label {
+        padding: 12px 6px 12px 8px;
+        flex-shrink: 0;
+      }
+      .beg-details-value {
+        padding: 16px 14px 16px 14px;
+        min-width: 0;
+      }
     }
     /* Course Concept section */
     .concept-section {
@@ -1249,20 +1261,46 @@
     #tab01 .concept-icon, #tab02 .concept-icon, #tab03 .concept-icon, #tab04 .concept-icon { background: linear-gradient(135deg, var(--syutyu-hero), var(--syutyu-hero-dark)); box-shadow: 0 4px 16px rgba(3,105,161,.25); }
     .concept-card h3 {
       font-family: 'Noto Serif JP', serif;
-      font-size: 16px;
+      font-size: calc(16px * 1.2);
       font-weight: 600;
       color: var(--text-dark);
       margin-bottom: 8px;
       line-height: 1.5;
     }
     .concept-card p {
-      font-size: 13px;
+      font-size: calc(13px * 1.2);
       color: var(--mid);
       line-height: 1.9;
     }
     @media (max-width: 900px) {
       .concept-section { padding: 48px 24px; }
       .concept-grid { grid-template-columns: 1fr; }
+      .concept-card {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-template-rows: auto auto;
+        column-gap: 16px;
+        row-gap: 8px;
+        align-items: start;
+        padding: 22px 20px;
+      }
+      .concept-icon {
+        grid-row: 1 / span 2;
+        grid-column: 1;
+        margin-bottom: 0;
+        width: 48px;
+        height: 48px;
+        font-size: 20px;
+      }
+      .concept-card h3 {
+        grid-column: 2;
+        grid-row: 1;
+        margin-bottom: 0;
+      }
+      .concept-card p {
+        grid-column: 2;
+        grid-row: 2;
+      }
     }
 
     /* Timetable (tt-wrap) design */
@@ -1276,11 +1314,11 @@
       font-size: calc(11px * 1.5);
       line-height: 1.35;
     }
-    /* 初級・中級・上級：日付列ヘッダー（.tt-th 基準の1.5倍） */
+    /* 初級・中級・上級：日付列ヘッダー（さらに全体 1.5倍調整と整合） */
     #tab02 .tt-th-day,
     #tab03 .tt-th-day,
     #tab04 .tt-th-day {
-      font-size: calc(11px * 1.5);
+      font-size: calc(11px * 1.5 * 1.5);
       line-height: 1.35;
     }
     .tt-row { display: grid; border-top: 1px solid rgba(200,145,30,.08); transition: background .15s; }
@@ -1654,12 +1692,119 @@
     #tab04 .syutyu-sess-training {
       padding: 11px 14px;
       border-radius: 8px;
-      font-size: 12px;
+      font-size: calc(12px * 1.5);
       font-weight: 600;
       color: #0a4a66;
       background: #e8dcc8;
       border: 1px solid rgba(150, 130, 100, 0.35);
       text-align: center;
+    }
+
+    /* 初級・中級・上級：日程・時間割（デスクトップ表・モバイルアコーディオン・日付カード）の文字 1.5倍 */
+    #tab02 .tt-wrap .tt-th,
+    #tab03 .tt-wrap .tt-th,
+    #tab04 .tt-wrap .tt-th {
+      font-size: calc(11px * 1.5);
+    }
+    #tab02 .tt-wrap .syutyu-day-sub,
+    #tab03 .tt-wrap .syutyu-day-sub,
+    #tab04 .tt-wrap .syutyu-day-sub {
+      font-size: calc(11px * 1.5);
+    }
+    #tab02 .tt-wrap .tt-topic,
+    #tab03 .tt-wrap .tt-topic,
+    #tab04 .tt-wrap .tt-topic {
+      font-size: calc(13px * 1.5);
+    }
+    #tab02 .tt-detail-list,
+    #tab03 .tt-detail-list,
+    #tab04 .tt-detail-list {
+      font-size: calc(11.5px * 1.5);
+    }
+    #tab02 .syutyu-tt-slot,
+    #tab03 .syutyu-tt-slot,
+    #tab04 .syutyu-tt-slot {
+      font-size: calc(14px * 1.5);
+    }
+    #tab02 .tt-time-range,
+    #tab03 .tt-time-range,
+    #tab04 .tt-time-range {
+      font-size: calc(11px * 1.5);
+    }
+    #tab02 .tt-th-sub,
+    #tab03 .tt-th-sub,
+    #tab04 .tt-th-sub {
+      font-size: calc(9px * 1.5);
+    }
+    #tab02 .tt-drill,
+    #tab03 .tt-drill,
+    #tab04 .tt-drill {
+      font-size: calc(11.5px * 1.5);
+    }
+    #tab02 .syutyu-sess-title,
+    #tab03 .syutyu-sess-title,
+    #tab04 .syutyu-sess-title {
+      font-size: calc(18px * 1.5);
+    }
+    #tab02 .syutyu-sess-time,
+    #tab03 .syutyu-sess-time,
+    #tab04 .syutyu-sess-time {
+      font-size: clamp(36px, 3.3vw, 42px);
+    }
+    #tab02 .syutyu-date-card-date,
+    #tab03 .syutyu-date-card-date,
+    #tab04 .syutyu-date-card-date {
+      font-size: calc(20px * 1.5);
+    }
+    #tab02 .syutyu-date-card-sub,
+    #tab03 .syutyu-date-card-sub,
+    #tab04 .syutyu-date-card-sub {
+      font-size: calc(11px * 1.5);
+    }
+    #tab02 .syutyu-date-card .tt-topic,
+    #tab03 .syutyu-date-card .tt-topic,
+    #tab04 .syutyu-date-card .tt-topic {
+      font-size: calc(14px * 1.5);
+    }
+    #tab02 .syutyu-date-card .tt-detail-list li.syutyu-li-example,
+    #tab03 .syutyu-date-card .tt-detail-list li.syutyu-li-example,
+    #tab04 .syutyu-date-card .tt-detail-list li.syutyu-li-example {
+      font-size: calc(10.5px * 1.5);
+    }
+    #tab02 .syutyu-acc summary,
+    #tab03 .syutyu-acc summary,
+    #tab04 .syutyu-acc summary {
+      font-size: calc(13px * 1.5);
+    }
+    #tab02 .syutyu-acc-date,
+    #tab03 .syutyu-acc-date,
+    #tab04 .syutyu-acc-date {
+      font-size: calc(17px * 1.5);
+    }
+    #tab02 .syutyu-acc-sub,
+    #tab03 .syutyu-acc-sub,
+    #tab04 .syutyu-acc-sub {
+      font-size: calc(11px * 1.5);
+    }
+    #tab02 .syutyu-acc-sess-head,
+    #tab03 .syutyu-acc-sess-head,
+    #tab04 .syutyu-acc-sess-head {
+      font-size: calc(10px * 1.5);
+    }
+    #tab02 .syutyu-acc-topic,
+    #tab03 .syutyu-acc-topic,
+    #tab04 .syutyu-acc-topic {
+      font-size: calc(13px * 1.5);
+    }
+    #tab02 .syutyu-acc-list,
+    #tab03 .syutyu-acc-list,
+    #tab04 .syutyu-acc-list {
+      font-size: calc(11.5px * 1.5);
+    }
+    #tab02 .syutyu-acc-training,
+    #tab03 .syutyu-acc-training,
+    #tab04 .syutyu-acc-training {
+      font-size: calc(11.5px * 1.5);
     }
 
     /* Lesson flow (授業の流れ) */
@@ -1820,7 +1965,7 @@
             <div class="beg-hero-inner">
               <div class="beg-hero-left">
                 <div class="beg-hero-eyebrow">INTENSIVE COURSE · オンライン</div>
-                <div class="beg-hero-headline">連休に<em>集中して</em>伸ばす。</div>
+                <div class="beg-hero-headline">連休に<em>集中して</em>伸ばす</div>
                 <div class="beg-hero-subtitle">入門集中講座</div>
                 <p class="beg-hero-catch">1日6コマ（昼休みあり）の集中プログラム。自分の弱点を発見し、韓国語の基礎を一気に固めましょう。</p>
                 <div class="beg-hero-meta">
@@ -1920,8 +2065,8 @@
               <div class="tt-th">5/2（土）</div>
             </div>
             <div class="tt-header" style="grid-template-columns:90px 1fr;">
-              <div class="tt-th">時間</div>
-              <div class="tt-th">内容</div>
+              <div class="tt-th">5/2（土）</div>
+              <div class="tt-th">入門集中</div>
             </div>
             <div class="tt-row nyumon" style="grid-template-columns:90px 1fr;">
               <div class="tt-cell"><div class="tt-time-num">10時</div></div>
@@ -2247,7 +2392,7 @@
             <div class="beg-hero-inner">
               <div class="beg-hero-left">
                 <div class="beg-hero-eyebrow">INTENSIVE COURSE · 新宿教室</div>
-                <div class="beg-hero-headline">連休に<em>集中して</em>伸ばす。</div>
+                <div class="beg-hero-headline">連休に<em>集中して</em>伸ばす</div>
                 <div class="beg-hero-subtitle">初級集中講座</div>
                 <p class="beg-hero-catch">1日3コマ、最大3日間の集中プログラム。自分の弱点を発見し、韓国語の基礎を一気に固めましょう。</p>
                 <div class="beg-hero-meta">
@@ -2338,8 +2483,8 @@
               <div class="tt-th">5/2（土）<span class="syutyu-day-sub">会話の基本</span></div>
             </div>
             <div class="tt-header" style="grid-template-columns:minmax(96px,110px) 1fr;">
-              <div class="tt-th">時間</div>
-              <div class="tt-th">内容</div>
+              <div class="tt-th">5/2（土）</div>
+              <div class="tt-th">会話の基本</div>
             </div>
             <div class="tt-row shokyu" style="grid-template-columns:minmax(96px,110px) 1fr;">
               <div class="tt-cell"><div class="tt-time-num syutyu-tt-slot">14:00–14:50</div></div>
@@ -2373,8 +2518,8 @@
               <div class="tt-th">5/3（日）<span class="syutyu-day-sub">過去と状況説明</span></div>
             </div>
             <div class="tt-header" style="grid-template-columns:minmax(96px,110px) 1fr;">
-              <div class="tt-th">時間</div>
-              <div class="tt-th">内容</div>
+              <div class="tt-th">5/3（日）</div>
+              <div class="tt-th">過去と状況説明</div>
             </div>
             <div class="tt-row shokyu" style="grid-template-columns:minmax(96px,110px) 1fr;">
               <div class="tt-cell"><div class="tt-time-num syutyu-tt-slot">14:00–14:50</div></div>
@@ -2408,8 +2553,8 @@
               <div class="tt-th">5/4（月）<span class="syutyu-day-sub">実践的な表現とニュアンス</span></div>
             </div>
             <div class="tt-header" style="grid-template-columns:minmax(96px,110px) 1fr;">
-              <div class="tt-th">時間</div>
-              <div class="tt-th">内容</div>
+              <div class="tt-th">5/4（月）</div>
+              <div class="tt-th">実践的な表現とニュアンス</div>
             </div>
             <div class="tt-row shokyu" style="grid-template-columns:minmax(96px,110px) 1fr;">
               <div class="tt-cell"><div class="tt-time-num syutyu-tt-slot">14:00–14:50</div></div>
@@ -2875,7 +3020,7 @@
             <div class="beg-hero-inner">
               <div class="beg-hero-left">
                 <div class="beg-hero-eyebrow">INTENSIVE COURSE · 新宿教室</div>
-                <div class="beg-hero-headline">連休に<em>集中して</em>伸ばす。</div>
+                <div class="beg-hero-headline">連休に<em>集中して</em>伸ばす</div>
                 <div class="beg-hero-subtitle">中級集中講座</div>
                 <p class="beg-hero-catch">1日3コマ、最大3日間の集中プログラム。自分の弱点を発見し、韓国語の基礎を一気に固めましょう。</p>
                 <div class="beg-hero-meta">
@@ -2966,8 +3111,8 @@
               <div class="tt-th">5/3（月・祝）</div>
             </div>
             <div class="tt-header" style="grid-template-columns:minmax(96px,110px) 1fr;">
-              <div class="tt-th">時間</div>
-              <div class="tt-th">内容</div>
+              <div class="tt-th">5/3（月・祝）</div>
+              <div class="tt-th">間接話法</div>
             </div>
             <div class="tt-row chukyu" style="grid-template-columns:minmax(96px,110px) 1fr;">
               <div class="tt-cell"><div class="tt-time-num syutyu-tt-slot">10:00–10:50</div></div>
@@ -3004,8 +3149,8 @@
               <div class="tt-th">5/4（火・祝）</div>
             </div>
             <div class="tt-header" style="grid-template-columns:minmax(96px,110px) 1fr;">
-              <div class="tt-th">時間</div>
-              <div class="tt-th">内容</div>
+              <div class="tt-th">5/4（火・祝）</div>
+              <div class="tt-th">推測・進行・付加</div>
             </div>
             <div class="tt-row chukyu" style="grid-template-columns:minmax(96px,110px) 1fr;">
               <div class="tt-cell"><div class="tt-time-num syutyu-tt-slot">10:00–10:50</div></div>
@@ -3048,8 +3193,8 @@
               <div class="tt-th">5/5（火・祝）</div>
             </div>
             <div class="tt-header" style="grid-template-columns:minmax(96px,110px) 1fr;">
-              <div class="tt-th">時間</div>
-              <div class="tt-th">内容</div>
+              <div class="tt-th">5/5（火・祝）</div>
+              <div class="tt-th">条件・感情表現</div>
             </div>
             <div class="tt-row chukyu" style="grid-template-columns:minmax(96px,110px) 1fr;">
               <div class="tt-cell"><div class="tt-time-num syutyu-tt-slot">10:00–10:50</div></div>
@@ -3586,7 +3731,7 @@
             <div class="beg-hero-inner">
               <div class="beg-hero-left">
                 <div class="beg-hero-eyebrow">INTENSIVE COURSE · 新宿教室</div>
-                <div class="beg-hero-headline">連休に<em>集中して</em>伸ばす。</div>
+                <div class="beg-hero-headline">連休に<em>集中して</em>伸ばす</div>
                 <div class="beg-hero-subtitle">上級集中講座</div>
                 <p class="beg-hero-catch">1日3コマ、最大3日間の集中プログラム。自分の弱点を発見し、韓国語の基礎を一気に固めましょう。</p>
                 <div class="beg-hero-meta">
@@ -3675,8 +3820,8 @@
               <div class="tt-th">5/3（日）<span class="syutyu-day-sub">文法・表現の整理（文法中心）</span></div>
             </div>
             <div class="tt-header" style="grid-template-columns:minmax(96px,110px) 1fr;">
-              <div class="tt-th">時間</div>
-              <div class="tt-th">内容</div>
+              <div class="tt-th">5/3（日）</div>
+              <div class="tt-th">文法・表現の整理（文法中心）</div>
             </div>
             <div class="tt-row jokyu" style="grid-template-columns:minmax(96px,110px) 1fr;">
               <div class="tt-cell"><div class="tt-time-num syutyu-tt-slot">14:00–14:50</div></div>
@@ -3710,8 +3855,8 @@
               <div class="tt-th">5/5（火）<span class="syutyu-day-sub">実用表現（ドラマ・慣用句）</span></div>
             </div>
             <div class="tt-header" style="grid-template-columns:minmax(96px,110px) 1fr;">
-              <div class="tt-th">時間</div>
-              <div class="tt-th">内容</div>
+              <div class="tt-th">5/5（火）</div>
+              <div class="tt-th">実用表現（ドラマ・慣用句）</div>
             </div>
             <div class="tt-row jokyu" style="grid-template-columns:minmax(96px,110px) 1fr;">
               <div class="tt-cell"><div class="tt-time-num syutyu-tt-slot">14:00–14:50</div></div>
@@ -3742,8 +3887,8 @@
               <div class="tt-th">5/6（水）<span class="syutyu-day-sub">語彙（擬音語・擬態語）</span></div>
             </div>
             <div class="tt-header" style="grid-template-columns:minmax(96px,110px) 1fr;">
-              <div class="tt-th">時間</div>
-              <div class="tt-th">内容</div>
+              <div class="tt-th">5/6（水）</div>
+              <div class="tt-th">語彙（擬音語・擬態語）</div>
             </div>
             <div class="tt-row jokyu" style="grid-template-columns:minmax(96px,110px) 1fr;">
               <div class="tt-cell"><div class="tt-time-num syutyu-tt-slot">14:00–14:50</div></div>

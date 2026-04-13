@@ -617,6 +617,10 @@
       letter-spacing: 0.06em;
       white-space: nowrap;
     }
+    /* Lesson Flow 見出し（次ブロックが beg-flow-section のとき） */
+    .beg-sec-header:has(+ .beg-flow-section) .beg-sec-title {
+      font-size: calc(16px * 1.3);
+    }
     .beg-sec-label {
       font-family: 'Cormorant Garamond', serif;
       font-size: 11px;

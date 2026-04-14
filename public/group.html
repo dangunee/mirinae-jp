@@ -1244,7 +1244,18 @@
       gap: 12px;
       margin-bottom: 32px;
     }
-    #tab02 .beg-info-cards { grid-template-columns: repeat(4, 1fr); }
+    #tab02 .beg-info-cards, #tab03 .beg-info-cards { grid-template-columns: repeat(4, 1fr); }
+    #tab03 .beg-deadline-badge {
+      display: inline-block;
+      margin-top: 2px;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--mid);
+      background: var(--gold-pale);
+      border: 1px solid var(--gold-light);
+      border-radius: 8px;
+      padding: 6px 12px;
+    }
     @media (max-width: 560px) {
       #tab02 .beg-info-cards, #tab03 .beg-info-cards, #tab04 .beg-info-cards, #tab05 .beg-info-cards, #tab05 .beg-info-cards { grid-template-columns: 1fr; }
     }
@@ -2346,8 +2357,8 @@
             <div class="beg-hero-eyebrow">Group Lesson — Advanced Grammar</div>
             <div class="beg-hero-title">『上級｜<em>文法まとめ</em>講座』</div>
             <div class="beg-hero-desc">
-              <p>最短2ヶ月で重要な上級レベルの文法が習得できます！</p>
-              <p>2ヶ月間、土曜日（月4回・2コマ）の講座で、上級文法が学べるコースです。</p>
+              <p>全8回で重要な上級レベルの文法が習得できます！</p>
+              <p>毎週土曜日（全8回・各回50分×2コマ）の講座で、上級文法が学べるコースです。</p>
               <p>似ている文法の使い分けをしっかり学び、添削課題を通して定着を図ります。</p>
             </div>
             <div class="beg-hero-tags">
@@ -2355,8 +2366,7 @@
               <div class="beg-hero-tag">⏱ <span>50分×2コマ</span></div>
               <div class="beg-hero-tag">👥 <span>定員 3〜8人</span></div>
               <div class="beg-hero-tag">📍 <span>新宿教室</span></div>
-              <div class="beg-hero-tag">📅 <span>10月4日開始</span></div>
-              <div class="beg-hero-tag">🔒 <span>募集終了</span></div>
+              <div class="beg-hero-tag">📅 <span>6月13日開始</span></div>
             </div>
           </div>
 
@@ -2384,7 +2394,7 @@
           <div class="beg-info-cards group-reveal">
             <div class="beg-info-card">
               <div class="beg-info-card-label">Schedule</div>
-              <div class="beg-info-card-value">10月4日開始<small>土 12時〜14時（50分×2コマ）</small></div>
+              <div class="beg-info-card-value">6月13日開始<small>土 12時〜14時（50分×2コマ）</small></div>
             </div>
             <div class="beg-info-card">
               <div class="beg-info-card-label">Classroom</div>
@@ -2392,7 +2402,11 @@
             </div>
             <div class="beg-info-card">
               <div class="beg-info-card-label">Capacity</div>
-              <div class="beg-info-card-value">定員 3〜8人<small>募集終了</small></div>
+              <div class="beg-info-card-value">定員 3〜8人</div>
+            </div>
+            <div class="beg-info-card">
+              <div class="beg-info-card-label">Deadline</div>
+              <div class="beg-info-card-value"><span class="beg-deadline-badge">締切 6/5（金）</span></div>
             </div>
           </div>
 
@@ -2420,21 +2434,21 @@
                 <tr><th>回数</th><th>時限</th><th>項目</th><th>概要</th><th>日程</th></tr>
               </thead>
               <tbody id="tab03-syllabus-tbody">
-                <tr><td><span class="beg-num-badge">1</span></td><td>1限目</td><td>選択</td><td>-느니, -(으)ㄹ 바에야, -건-건</td><td>2/7(土)</td></tr>
+                <tr><td><span class="beg-num-badge">1</span></td><td>1限目</td><td>選択</td><td>-느니, -(으)ㄹ 바에야, -건-건</td><td>6/13(土)</td></tr>
                 <tr><td></td><td>2限目</td><td>選択・引用</td><td>-(느)ㄴ다기보다는, -고, など</td><td></td></tr>
-                <tr><td><span class="beg-num-badge">2</span></td><td>1限目</td><td>引用</td><td>-(느)ㄴ다니까, -(느)ㄴ다면서, ~에 의하면 など</td><td>2/14(土)</td></tr>
+                <tr><td><span class="beg-num-badge">2</span></td><td>1限目</td><td>引用</td><td>-(느)ㄴ다니까, -(느)ㄴ다면서, ~에 의하면 など</td><td>6/20(土)</td></tr>
                 <tr><td></td><td>2限目</td><td>名詞化</td><td>-(으)ㅁ, -는 데, -는 바</td><td></td></tr>
-                <tr><td><span class="beg-num-badge">3</span></td><td>1限目</td><td>原因と理由❶</td><td>(으)로 인해서, -는 통에, (으)로 말미암아</td><td>2/21(土)</td></tr>
+                <tr><td><span class="beg-num-badge">3</span></td><td>1限目</td><td>原因と理由❶</td><td>(으)로 인해서, -는 통에, (으)로 말미암아</td><td>6/27(土)</td></tr>
                 <tr><td></td><td>2限目</td><td>原因と理由❷</td><td>-느니만큼, -는 이상, -기로서니</td><td></td></tr>
-                <tr><td><span class="beg-num-badge">4</span></td><td>1限目</td><td>原因と理由❸</td><td>-기에망정이지, -(느)ㄴ답시고, -(으)ㅁ으로써</td><td>2/28(土)</td></tr>
+                <tr><td><span class="beg-num-badge">4</span></td><td>1限目</td><td>原因と理由❸</td><td>-기에망정이지, -(느)ㄴ답시고, -(으)ㅁ으로써</td><td>7/4(土)</td></tr>
                 <tr><td></td><td>2限目</td><td>原因と理由❹</td><td>-기에, -길래</td><td></td></tr>
-                <tr><td><span class="beg-num-badge">5</span></td><td>1限目</td><td>仮定❶</td><td>-더라도, -(으)ㄹ지라도, -(으)ㄴ들</td><td>3/7(土)</td></tr>
+                <tr><td><span class="beg-num-badge">5</span></td><td>1限目</td><td>仮定❶</td><td>-더라도, -(으)ㄹ지라도, -(으)ㄴ들</td><td>7/11(土)</td></tr>
                 <tr><td></td><td>2限目</td><td>仮定❷</td><td>-(으)ㄹ망정, -(느)ㄴ다고 치다, -는 셈치다</td><td></td></tr>
-                <tr><td><span class="beg-num-badge">6</span></td><td>1限目</td><td>続けてやる行動</td><td>-기가 무섭게, -자</td><td>3/14(土)</td></tr>
+                <tr><td><span class="beg-num-badge">6</span></td><td>1限目</td><td>続けてやる行動</td><td>-기가 무섭게, -자</td><td>7/18(土)</td></tr>
                 <tr><td></td><td>2限目</td><td>条件・決定</td><td>-는 한, -(으)ㄹ라치면, -노라면</td><td></td></tr>
-                <tr><td><span class="beg-num-badge">7</span></td><td>1限目</td><td>条件・決定</td><td>-느냐에 달려 있다, -기 나름이다</td><td>3/21(土)</td></tr>
+                <tr><td><span class="beg-num-badge">7</span></td><td>1限目</td><td>条件・決定</td><td>-느냐에 달려 있다, -기 나름이다</td><td>7/25(土)</td></tr>
                 <tr><td></td><td>2限目</td><td>別々にする行動 / 一緒にする行動</td><td>은/는 대로, -는 김에</td><td></td></tr>
-                <tr><td><span class="beg-num-badge beg-num-badge-last">8</span></td><td>1限目</td><td>対照・反対</td><td>-건만, -고도, -(으)ㅁ에도 불구하고</td><td>3/28(土)</td></tr>
+                <tr><td><span class="beg-num-badge beg-num-badge-last">8</span></td><td>1限目</td><td>対照・反対</td><td>-건만, -고도, -(으)ㅁ에도 불구하고</td><td>8/1(土)</td></tr>
                 <tr><td></td><td>2限目</td><td>類似</td><td>-듯이, -다시피 하다</td><td></td></tr>
               </tbody>
             </table>
@@ -2451,7 +2465,7 @@
                 <tr><th>回数</th><th>1回あたり</th><th>納入額</th><th>税込</th></tr>
               </thead>
               <tbody>
-                <tr><td>16回分</td><td><span class="beg-unit-formula">2,980円 × 2時限</span><span class="beg-unit-result">5,960円</span></td><td>95,360円+税</td><td>104,896円</td></tr>
+                <tr><td>8回分</td><td><span class="beg-unit-formula">2,980円 × 2時限</span><span class="beg-unit-result">5,960円</span></td><td>47,680円+税</td><td>52,448円</td></tr>
               </tbody>
             </table>
           </div>

@@ -12,6 +12,7 @@
     "seed:group-chubu": "node scripts/seed-group-chubu.cjs",
     "seed:group-jokyu": "node scripts/seed-group-jokyu.cjs",
     "seed:group": "node scripts/seed-group-chubu.cjs && node scripts/seed-group-jokyu.cjs",
+    "db:sync-group-curriculum": "node scripts/sync-group-curriculum-db.cjs",
     "seed:kaiwa": "node scripts/seed-kaiwa-themes.cjs",
     "img:webp": "node scripts/convert-book-webp.cjs"
   },

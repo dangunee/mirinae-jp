@@ -3064,6 +3064,7 @@
       });
     })();
 
+    /* 中級・上級シラバス: 下記 fetch が成功すると DB（curriculum_chubu / curriculum_jokyu）で tbody を上書き。HTML の初期表示とズレないよう seed を同期すること。 */
     (function() {
       function esc(s) { return (s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
       function renderRow(row, lastKaisu) {

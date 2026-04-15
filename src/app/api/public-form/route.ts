@@ -26,17 +26,21 @@ function validatePublicFormPayload(
 ): string | null {
   const name = (data.お名前 || "").trim();
   const email = (data.メールアドレス || "").trim();
-  const msg = (data.お問い合わせ || "").trim();
+  const msgInquiry = (data.お問い合わせ || "").trim();
+  const msgOther = (data.メッセージ || "").trim();
 
   if (!name || !email) return "invalid_input";
   if (name.length < 2) return "spam_detected";
   if (name.toLowerCase().includes("http")) return "spam_detected";
   if (!EMAIL_LIKE.test(email)) return "invalid_input";
-  if (msg.length > 0 && msg.length < 3) return "spam_detected";
+  if (msgInquiry.length > 0 && msgInquiry.length < 3) return "spam_detected";
+  if (msgOther.length > 0 && msgOther.length < 3) return "spam_detected";
 
   if (!isNetlessonStyleSubject(data._subject)) {
-    const phone = (data.お電話番号 || "").trim();
-    if (!phone || phone.length < 3) return "invalid_input";
+    // tab01/02 は お電話番号、tab04 お問い合わせは ご連絡先（携帯番号等）
+    const phoneLine =
+      (data.お電話番号 || "").trim() || (data.ご連絡先 || "").trim();
+    if (!phoneLine || phoneLine.length < 3) return "invalid_input";
   }
 
   return null;

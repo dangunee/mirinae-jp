@@ -56,6 +56,14 @@ function getPublicFormTransporter(): nodemailer.Transporter | null {
   return publicFormTransporter;
 }
 
+/**
+ * 差出人（From）表示。GMAIL_USER と別にしたい場合に FORM_MAIL_FROM を設定。
+ * SMTP 認証は常に GMAIL_USER。Google の「別のアドレスから送信」で許可済みのアドレスのみ有効。
+ */
+function getFormMailFrom(smtpUser: string): string {
+  return process.env.FORM_MAIL_FROM?.trim() || smtpUser;
+}
+
 async function sendApplicantConfirmationEmail(
   to: string,
   data: Record<string, string>
@@ -80,7 +88,7 @@ async function sendApplicantConfirmationEmail(
 
   try {
     await t.sendMail({
-      from: gmailUser,
+      from: getFormMailFrom(gmailUser),
       to,
       subject,
       html,
@@ -128,7 +136,7 @@ export async function sendPublicFormNotification(
 
   try {
     await t.sendMail({
-      from: gmailUser,
+      from: getFormMailFrom(gmailUser),
       to,
       subject,
       replyTo: replyTo || undefined,

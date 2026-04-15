@@ -1,4 +1,5 @@
 import nodemailer from "nodemailer";
+import type { SendMailOptions } from "nodemailer";
 import { Resend } from "resend";
 
 function escapeHtml(s: string): string {
@@ -57,11 +58,22 @@ function getPublicFormTransporter(): nodemailer.Transporter | null {
 }
 
 /**
- * 差出人（From）表示。GMAIL_USER と別にしたい場合に FORM_MAIL_FROM を設定。
- * SMTP 認証は常に GMAIL_USER。Google の「別のアドレスから送信」で許可済みのアドレスのみ有効。
+ * 差出人（From）。FORM_MAIL_FROM は `名前 <mail@domain>` またはメールのみ。
+ * Gmail 側で「別のアドレスから送信」に登録済みのアドレスのみ有効。
+ * 外部 SMTP では Gmail の **デフォルトの送信元** が優先されることがある →
+ * ウェブ設定で mirinae を「デフォルトにする」と改善することが多い。
  */
-function getFormMailFrom(smtpUser: string): string {
-  return process.env.FORM_MAIL_FROM?.trim() || smtpUser;
+function getFormMailFrom(smtpUser: string): SendMailOptions["from"] {
+  const raw = process.env.FORM_MAIL_FROM?.trim();
+  if (!raw) return smtpUser;
+  const bracket = raw.match(/^(.+?)\s*<([^>]+)>\s*$/);
+  if (bracket) {
+    const name = bracket[1].trim().replace(/^["']|["']$/g, "");
+    const address = bracket[2].trim();
+    if (EMAIL_LIKE.test(address)) return { name, address };
+  }
+  if (EMAIL_LIKE.test(raw)) return raw;
+  return smtpUser;
 }
 
 async function sendApplicantConfirmationEmail(

@@ -1,3 +1,4 @@
+import nodemailer from "nodemailer";
 import { Resend } from "resend";
 
 function escapeHtml(s: string): string {
@@ -37,15 +38,34 @@ function applicantConfirmationSubject(data: Record<string, string>): string {
   return "【ミリネ韓国語教室】お申込みを受け付けました";
 }
 
+let publicFormTransporter: nodemailer.Transporter | null | undefined;
+
+function getPublicFormTransporter(): nodemailer.Transporter | null {
+  if (publicFormTransporter === undefined) {
+    const user = process.env.GMAIL_USER?.trim();
+    const pass = process.env.GMAIL_APP_PASSWORD?.trim();
+    if (!user || !pass) {
+      publicFormTransporter = null;
+    } else {
+      publicFormTransporter = nodemailer.createTransport({
+        service: "gmail",
+        auth: { user, pass },
+      });
+    }
+  }
+  return publicFormTransporter;
+}
+
 async function sendApplicantConfirmationEmail(
   to: string,
   data: Record<string, string>
 ): Promise<{ ok: boolean; error?: string }> {
-  const apiKey = process.env.RESEND_API_KEY?.trim();
-  if (!apiKey) return { ok: false, error: "RESEND_API_KEY is not set" };
+  const gmailUser = process.env.GMAIL_USER?.trim();
+  const t = getPublicFormTransporter();
+  if (!t || !gmailUser) {
+    return { ok: false, error: "GMAIL_USER / GMAIL_APP_PASSWORD is not set" };
+  }
 
-  const from =
-    process.env.RESEND_FROM?.trim() || "Mirinae <onboarding@resend.dev>";
   const subject = applicantConfirmationSubject(data);
   const name = data["お名前"]?.trim();
   const greeting = name ? `${escapeHtml(name)} 様` : "お客様";
@@ -59,14 +79,12 @@ async function sendApplicantConfirmationEmail(
 </body></html>`;
 
   try {
-    const resend = new Resend(apiKey);
-    const { error } = await resend.emails.send({
-      from,
+    await t.sendMail({
+      from: gmailUser,
       to,
       subject,
       html,
     });
-    if (error) return { ok: false, error: error.message };
     return { ok: true };
   } catch (e) {
     return { ok: false, error: e instanceof Error ? e.message : String(e) };
@@ -74,25 +92,25 @@ async function sendApplicantConfirmationEmail(
 }
 
 /**
- * 公開フォーム（trial / syutyu / netlesson 等）からの送信を Resend で通知。
- * FORM_NOTIFY_TO（未設定時は mirinae@kaonnuri.com）
+ * 公開フォーム（trial / syutyu / netlesson 等）からの送信を Gmail SMTP で通知。
+ * FORM_NOTIFY_TO（未設定時は GMAIL_USER、さらに未設定時は mirinae@kaonnuri.com）
  */
 export async function sendPublicFormNotification(
   data: Record<string, string>
 ): Promise<{ ok: boolean; error?: string }> {
-  const apiKey = process.env.RESEND_API_KEY?.trim();
-  if (!apiKey) {
-    return { ok: false, error: "RESEND_API_KEY is not set" };
+  const gmailUser = process.env.GMAIL_USER?.trim();
+  const t = getPublicFormTransporter();
+  if (!t || !gmailUser) {
+    return { ok: false, error: "GMAIL_USER / GMAIL_APP_PASSWORD is not set" };
   }
 
-  const from =
-    process.env.RESEND_FROM?.trim() || "Mirinae <onboarding@resend.dev>";
-  const to = process.env.FORM_NOTIFY_TO?.trim() || "mirinae@kaonnuri.com";
+  const to =
+    process.env.FORM_NOTIFY_TO?.trim() || gmailUser || "mirinae@kaonnuri.com";
   const subject = data._subject?.trim() || "【ミリネ韓国語】お問い合わせ";
 
   const replyTo = resolveReplyTo(data);
 
-  const skip = new Set(["_next", "_captcha", "_honey", "_subject", "_replyto"]);
+  const skip = new Set(["_next", "_captcha", "_honey", "_subject", "_replyto", "website"]);
   const rows: string[] = [];
   if (data._url) {
     rows.push(
@@ -109,15 +127,13 @@ export async function sendPublicFormNotification(
   const html = `<!DOCTYPE html><html><head><meta charset="utf-8"></head><body style="font-family:sans-serif;font-size:14px;color:#333;"><p style="margin:0 0 12px;">公開フォームからの送信です。</p><table style="border-collapse:collapse;width:100%;max-width:640px;">${rows.join("")}</table></body></html>`;
 
   try {
-    const resend = new Resend(apiKey);
-    const { error } = await resend.emails.send({
-      from,
+    await t.sendMail({
+      from: gmailUser,
       to,
       subject,
       replyTo: replyTo || undefined,
       html,
     });
-    if (error) return { ok: false, error: error.message };
 
     const applicant = resolveApplicantEmail(data);
     if (applicant) {

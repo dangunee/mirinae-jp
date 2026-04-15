@@ -6,6 +6,42 @@ export const runtime = "nodejs";
 const DEFAULT_REDIRECT =
   "https://mirinae.jp/trial.html?thanks=1&tab=tab02";
 
+const EMAIL_LIKE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+/** 通信講座の JSON 送信など、電話番号が無いフォーム */
+function isNetlessonStyleSubject(subject: string | undefined): boolean {
+  if (!subject) return false;
+  return (
+    subject.includes("作文トレーニング") ||
+    subject.includes("音読トレーニング")
+  );
+}
+
+/**
+ * スパム除け（名前・メール必須、名前に URL 禁止、任意メッセージは 3 文字未満なら拒否）。
+ * 電話は trial / syutyu 系のみ必須（通信講座の JSON は除く）。
+ */
+function validatePublicFormPayload(
+  data: Record<string, string>
+): string | null {
+  const name = (data.お名前 || "").trim();
+  const email = (data.メールアドレス || "").trim();
+  const msg = (data.お問い合わせ || "").trim();
+
+  if (!name || !email) return "invalid_input";
+  if (name.length < 2) return "spam_detected";
+  if (name.toLowerCase().includes("http")) return "spam_detected";
+  if (!EMAIL_LIKE.test(email)) return "invalid_input";
+  if (msg.length > 0 && msg.length < 3) return "spam_detected";
+
+  if (!isNetlessonStyleSubject(data._subject)) {
+    const phone = (data.お電話番号 || "").trim();
+    if (!phone || phone.length < 3) return "invalid_input";
+  }
+
+  return null;
+}
+
 function safeRedirectUrl(next: string | undefined): URL {
   const fallback = new URL(DEFAULT_REDIRECT);
   if (!next?.trim()) return fallback;
@@ -89,6 +125,26 @@ export async function POST(req: NextRequest) {
   if (data._honey && data._honey.trim() !== "") {
     if (wantsJson) return NextResponse.json({ success: true });
     return NextResponse.redirect(safeRedirectUrl(data._next), 303);
+  }
+  if (data.website && data.website.trim() !== "") {
+    if (wantsJson) return NextResponse.json({ success: true });
+    return NextResponse.redirect(safeRedirectUrl(data._next), 303);
+  }
+
+  const validationError = validatePublicFormPayload(data);
+  if (validationError) {
+    if (wantsJson)
+      return NextResponse.json(
+        {
+          success: false,
+          message: "入力内容をご確認ください。",
+        },
+        { status: 400 }
+      );
+    return NextResponse.redirect(
+      new URL("https://mirinae.jp/trial.html?form_error=1"),
+      303
+    );
   }
 
   const result = await sendPublicFormNotification(data);

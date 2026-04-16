@@ -170,6 +170,29 @@ export async function sendPublicFormNotification(
 }
 
 export async function sendOtpEmail(to: string, otp: string): Promise<boolean> {
+  const subject = "【ミリネ韓国語】管理画面ログイン用コード";
+  const html = `
+        <p>管理画面ログイン用の確認コードです。</p>
+        <p style="font-size:24px;font-weight:bold;letter-spacing:4px;">${escapeHtml(otp)}</p>
+        <p style="color:#666;font-size:12px;">このコードは5分間有効です。心当たりがない場合は無視してください。</p>
+      `;
+
+  const gmailUser = process.env.GMAIL_USER?.trim();
+  const t = getPublicFormTransporter();
+  if (t && gmailUser) {
+    try {
+      await t.sendMail({
+        from: getFormMailFrom(gmailUser),
+        to,
+        subject,
+        html,
+      });
+      return true;
+    } catch {
+      return false;
+    }
+  }
+
   const apiKey = process.env.RESEND_API_KEY?.trim();
   if (!apiKey) return false;
 
@@ -180,12 +203,8 @@ export async function sendOtpEmail(to: string, otp: string): Promise<boolean> {
     const { error } = await resend.emails.send({
       from,
       to,
-      subject: "【ミリネ韓国語】管理画面ログイン用コード",
-      html: `
-        <p>管理画面ログイン用の確認コードです。</p>
-        <p style="font-size:24px;font-weight:bold;letter-spacing:4px;">${otp}</p>
-        <p style="color:#666;font-size:12px;">このコードは5分間有効です。心当たりがない場合は無視してください。</p>
-      `,
+      subject,
+      html,
     });
     return !error;
   } catch {

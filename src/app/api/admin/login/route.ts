@@ -23,10 +23,13 @@ export async function POST(req: NextRequest) {
   }
 
   const adminEmail = process.env.ADMIN_EMAIL?.trim();
+  const hasGmail = !!(
+    process.env.GMAIL_USER?.trim() && process.env.GMAIL_APP_PASSWORD?.trim()
+  );
   const hasResend = !!process.env.RESEND_API_KEY?.trim();
 
-  // OTP 2FA: ADMIN_EMAIL + RESEND_API_KEY が設定されていれば OTP フロー
-  if (adminEmail && hasResend) {
+  // OTP 2FA: ADMIN_EMAIL + (Gmail SMTP または Resend)
+  if (adminEmail && (hasGmail || hasResend)) {
     const otp = generateOtp();
     const token = generateToken();
     saveOtp(token, otp);

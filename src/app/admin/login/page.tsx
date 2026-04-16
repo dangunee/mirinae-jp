@@ -20,7 +20,7 @@ function LoginForm() {
         : displayError === "expired"
           ? "セッションが切れました。最初からやり直してください。"
           : displayError === "email_failed"
-            ? "メール送信に失敗しました。RESEND_API_KEY を確認してください。"
+            ? "メール送信に失敗しました。GMAIL_USER / GMAIL_APP_PASSWORD（または RESEND_API_KEY）を確認してください。"
             : null;
 
   const handlePasswordSubmit = async (e: React.FormEvent<HTMLFormElement>) => {

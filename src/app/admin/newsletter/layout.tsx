@@ -5,6 +5,9 @@ export default function NewsletterLayout({
 }: {
   children: React.ReactNode;
 }) {
+  if (process.env.NODE_ENV === "production") {
+    console.log("[admin/newsletter] layout render");
+  }
   return (
     <div>
       <h1 style={{ fontSize: 24, marginBottom: 8 }}>メール配信</h1>

@@ -85,6 +85,20 @@ export default function AdminPage() {
         >
           アクセス解析
         </a>
+        <a
+          href="/admin/newsletter"
+          style={{
+            display: "inline-block",
+            padding: "12px 20px",
+            background: "#5c4a2a",
+            color: "#fff",
+            borderRadius: 8,
+            textDecoration: "none",
+            fontWeight: 500,
+          }}
+        >
+          メール配信
+        </a>
       </p>
       <ul style={{ listStyle: "none", padding: 0 }}>
         {PAGES.map((p) => (

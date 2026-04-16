@@ -105,3 +105,128 @@ model CurriculumPublished {
   @@map("curriculum_published")
   @@schema("public")
 }
+
+// --- Newsletter module (isolated; additive only) ---
+
+model NewsletterSubscriber {
+  id             String    @id @default(cuid())
+  email          String    @unique
+  name           String?
+  status         String    @default("pending")
+  source         String    @default("web")
+  confirmedAt    DateTime?
+  unsubscribedAt DateTime?
+  bouncedAt      DateTime?
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  tokens     NewsletterSubscriptionToken[]
+  deliveries NewsletterCampaignDelivery[]
+
+  @@map("newsletter_subscribers")
+  @@schema("public")
+}
+
+model NewsletterSubscriptionToken {
+  id           String  @id @default(cuid())
+  subscriberId String?
+  email        String
+  tokenHash    String  @unique
+  purpose      String
+  expiresAt    DateTime
+  usedAt       DateTime?
+  createdAt    DateTime @default(now())
+
+  subscriber NewsletterSubscriber? @relation(fields: [subscriberId], references: [id], onDelete: Cascade)
+
+  @@index([email])
+  @@map("newsletter_subscription_tokens")
+  @@schema("public")
+}
+
+model NewsletterCampaign {
+  id               String    @id @default(cuid())
+  subject          String
+  preheader        String?
+  bodyHtml         String    @db.Text
+  ctaLabel         String?
+  ctaUrl           String?
+  status           String    @default("draft")
+  scheduledAt      DateTime?
+  sentAt           DateTime?
+  totalTargetCount Int       @default(0)
+  sentCount        Int       @default(0)
+  failedCount      Int       @default(0)
+  openCount        Int       @default(0)
+  uniqueOpenCount  Int       @default(0)
+  clickCount       Int       @default(0)
+  uniqueClickCount Int       @default(0)
+  createdBy        String?
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+
+  deliveries NewsletterCampaignDelivery[]
+
+  @@index([status, scheduledAt])
+  @@map("newsletter_campaigns")
+  @@schema("public")
+}
+
+model NewsletterCampaignDelivery {
+  id              String    @id @default(cuid())
+  campaignId      String
+  subscriberId    String?
+  email           String
+  resendMessageId String?
+  deliveryStatus  String    @default("queued")
+  errorMessage    String?
+  sentAt          DateTime?
+  firstOpenedAt   DateTime?
+  firstClickedAt  DateTime?
+  openCount       Int       @default(0)
+  clickCount      Int       @default(0)
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  campaign   NewsletterCampaign    @relation(fields: [campaignId], references: [id], onDelete: Cascade)
+  subscriber NewsletterSubscriber? @relation(fields: [subscriberId], references: [id], onDelete: SetNull)
+
+  @@index([campaignId])
+  @@index([campaignId, deliveryStatus])
+  @@index([email])
+  @@map("newsletter_campaign_deliveries")
+  @@schema("public")
+}
+
+model NewsletterImportJob {
+  id               String   @id @default(cuid())
+  originalFilename String
+  totalRows        Int      @default(0)
+  insertedRows     Int      @default(0)
+  updatedRows      Int      @default(0)
+  skippedRows      Int      @default(0)
+  invalidRows      Int      @default(0)
+  createdBy        String?
+  createdAt        DateTime @default(now())
+
+  rows NewsletterImportJobRow[]
+
+  @@map("newsletter_import_jobs")
+  @@schema("public")
+}
+
+model NewsletterImportJobRow {
+  id              String   @id @default(cuid())
+  importJobId     String
+  rawEmail        String
+  normalizedEmail String?
+  resultType      String
+  message         String?
+  createdAt       DateTime @default(now())
+
+  importJob NewsletterImportJob @relation(fields: [importJobId], references: [id], onDelete: Cascade)
+
+  @@index([importJobId])
+  @@map("newsletter_import_job_rows")
+  @@schema("public")
+}

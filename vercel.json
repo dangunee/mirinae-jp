@@ -1,4 +1,10 @@
 {
+  "crons": [
+    {
+      "path": "/api/cron/newsletter",
+      "schedule": "* * * * *"
+    }
+  ],
   "redirects": [
     { "source": "/b", "destination": "/b/", "permanent": true }
   ],

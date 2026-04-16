@@ -9,6 +9,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         <span style={{ display: "flex", alignItems: "center", flexWrap: "wrap", gap: "8px 20px" }}>
           <a href="/" style={{ color: "#fff", textDecoration: "none", fontWeight: 600 }}>www.mirinae.jp</a>
           <a href="/admin" style={{ color: "rgba(255,255,255,0.9)", textDecoration: "none" }}>管理</a>
+          <a href="/admin/newsletter" style={{ color: "rgba(255,255,255,0.9)", textDecoration: "none", fontSize: 14 }}>メール配信</a>
           <a href="/api/admin/logout" style={{ color: "rgba(255,255,255,0.85)", textDecoration: "none", fontSize: 14 }}>ログアウト</a>
           <span style={{ opacity: 0.9, fontSize: 14 }}>ホームページ表データの編集</span>
         </span>

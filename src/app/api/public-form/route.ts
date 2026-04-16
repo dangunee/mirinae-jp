@@ -24,6 +24,13 @@ function isNetlessonStyleSubject(subject: string | undefined): boolean {
 function validatePublicFormPayload(
   data: Record<string, string>
 ): string | null {
+  const subject = (data._subject || "").trim();
+  if (subject.includes("メールマガジン")) {
+    const email = (data.メールアドレス || "").trim();
+    if (!email || !EMAIL_LIKE.test(email)) return "invalid_input";
+    return null;
+  }
+
   const name = (data.お名前 || "").trim();
   const email = (data.メールアドレス || "").trim();
   const msgInquiry = (data.お問い合わせ || "").trim();

@@ -962,13 +962,20 @@
             <p class="form-note"><strong>役に立つ韓国語情報がいっぱい！</strong><br><span class="form-note-sub">以下のフォームにメールアドレスを入力して「登録する」ボタンを押してください。メールアドレス宛に確認のメールを送信します。</span></p>
           </div>
 
-          <form method="post" action="/api/newsletter/subscribe">
+          <form action="/api/public-form" method="POST">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_subject" value="【メールマガジン登録】ミリネ韓国語教室">
+            <input type="hidden" name="_next" value="https://mirinae.jp/trial.html?thanks=1&tab=tab03">
+            <input type="hidden" name="_replyto" value="メールアドレス">
+            <input type="hidden" name="_url" value="https://www.mirinae.jp/trial.html#tab03">
+            <input type="hidden" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+            <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
             <table class="form-table">
               <tbody>
                 <tr>
                   <th>E-MAILアドレス<span class="required">必須</span></th>
                   <td>
-                    <input type="email" name="mail" required>
+                    <input type="email" name="メールアドレス" required>
                     <small>※ハングルが文字化けする可能性があるため、「docomo」「ezweb」以外のアドレスでのご登録をおすすめします。</small>
                   </td>
                 </tr>

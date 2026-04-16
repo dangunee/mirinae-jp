@@ -3,7 +3,11 @@ import { runNewsletterDispatcher } from "@/lib/newsletter/send-queue";
 
 export const runtime = "nodejs";
 
-/** Vercel Cron: process scheduled campaigns & queued deliveries. */
+/**
+ * Vercel Cron: scheduled campaigns & queued deliveries.
+ * Schedule is in vercel.json — Hobby plan allows at most once per day; use Pro or an external
+ * cron (Bearer CRON_SECRET) for more frequent runs.
+ */
 export async function GET(req: NextRequest) {
   const secret = process.env.CRON_SECRET?.trim();
   const auth = req.headers.get("authorization") || "";

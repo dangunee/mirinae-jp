@@ -1,12 +1,16 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
+import { isAdminRequest } from "@/lib/admin-auth";
 
 export const dynamic = "force-dynamic";
 
 type CategoryInput = { value: string; label: string; color?: string; sortOrder?: number };
 
 // GET — カテゴリ一覧
-export async function GET() {
+export async function GET(req: NextRequest) {
+  if (!(await isAdminRequest(req))) {
+    return NextResponse.json({ error: "unauthorized" }, { status: 401 });
+  }
   const list = await prisma.scheduleCategory.findMany({
     orderBy: { sortOrder: "asc" },
   });
@@ -15,6 +19,9 @@ export async function GET() {
 
 // POST — 新規作成
 export async function POST(req: NextRequest) {
+  if (!(await isAdminRequest(req))) {
+    return NextResponse.json({ error: "unauthorized" }, { status: 401 });
+  }
   try {
     const body = (await req.json()) as CategoryInput;
     const { value, label, color, sortOrder } = body;
@@ -40,6 +47,9 @@ export async function POST(req: NextRequest) {
 
 // PUT — 更新
 export async function PUT(req: NextRequest) {
+  if (!(await isAdminRequest(req))) {
+    return NextResponse.json({ error: "unauthorized" }, { status: 401 });
+  }
   try {
     const body = (await req.json()) as CategoryInput & { id: string };
     const { id, value, label, color, sortOrder } = body;
@@ -68,6 +78,9 @@ export async function PUT(req: NextRequest) {
 
 // DELETE — 削除
 export async function DELETE(req: NextRequest) {
+  if (!(await isAdminRequest(req))) {
+    return NextResponse.json({ error: "unauthorized" }, { status: 401 });
+  }
   try {
     const { searchParams } = new URL(req.url);
     const id = searchParams.get("id");

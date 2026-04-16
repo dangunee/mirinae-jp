@@ -1,12 +1,16 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
+import { isAdminRequest } from "@/lib/admin-auth";
 
 /**
  * POST /api/admin/schedule/publish
  * 現在のスケジュールを公開スナップショットに保存。
  * フロントページはこのスナップショットを読む（DB直接参照しない）
  */
-export async function POST() {
+export async function POST(req: NextRequest) {
+  if (!(await isAdminRequest(req))) {
+    return NextResponse.json({ error: "unauthorized" }, { status: 401 });
+  }
   try {
     const [list, categories] = await Promise.all([
       prisma.scheduleEvent.findMany({

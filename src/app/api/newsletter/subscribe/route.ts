@@ -3,6 +3,7 @@ import { prisma } from "@/lib/db";
 import { generateRawToken, hashToken, normalizeEmail } from "@/lib/newsletter/tokens";
 import { sendDoubleOptInEmail } from "@/lib/newsletter/subscribe-mail";
 import { getNewsletterResend } from "@/lib/newsletter/resend-mail";
+import { rateLimitOrThrow } from "@/lib/rate-limit";
 
 const EMAIL_OK = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -26,6 +27,18 @@ async function readBody(req: NextRequest): Promise<Record<string, string>> {
 }
 
 export async function POST(req: NextRequest) {
+  try {
+    await rateLimitOrThrow(req, "newsletter_subscribe");
+  } catch (e) {
+    if ((e as Error & { status?: number }).status === 429) {
+      return NextResponse.json(
+        { ok: false, error: "rate_limited" },
+        { status: 429 }
+      );
+    }
+    throw e;
+  }
+
   if (!getNewsletterResend()) {
     return NextResponse.json(
       { ok: false, error: "mail_unavailable" },

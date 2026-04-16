@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
+import { isAdminRequest } from "@/lib/admin-auth";
 
 type ScheduleEventInput = {
   eventType: "recurring" | "single";
@@ -19,7 +20,10 @@ type ScheduleEventInput = {
 };
 
 // GET /api/admin/schedule — 管理用一覧
-export async function GET() {
+export async function GET(req: NextRequest) {
+  if (!(await isAdminRequest(req))) {
+    return NextResponse.json({ error: "unauthorized" }, { status: 401 });
+  }
   const list = await prisma.scheduleEvent.findMany({
     orderBy: [{ eventType: "asc" }, { sortOrder: "asc" }, { dow: "asc" }, { date: "asc" }],
   });
@@ -28,6 +32,9 @@ export async function GET() {
 
 // POST /api/admin/schedule — 新規作成
 export async function POST(req: NextRequest) {
+  if (!(await isAdminRequest(req))) {
+    return NextResponse.json({ error: "unauthorized" }, { status: 401 });
+  }
   try {
     const body = (await req.json()) as ScheduleEventInput;
     const { eventType, label, cat, categoryLabel, time, detail, url, dow, biweekly, biweeklyStartDate, monthlyWeeks, endDate, date, sortOrder } = body;
@@ -74,6 +81,9 @@ export async function POST(req: NextRequest) {
 
 // PUT /api/admin/schedule — 更新
 export async function PUT(req: NextRequest) {
+  if (!(await isAdminRequest(req))) {
+    return NextResponse.json({ error: "unauthorized" }, { status: 401 });
+  }
   try {
     const body = (await req.json()) as ScheduleEventInput & { id: string };
     const { id, eventType, label, cat, categoryLabel, time, detail, url, dow, biweekly, biweeklyStartDate, monthlyWeeks, endDate, date, sortOrder } = body;
@@ -113,6 +123,9 @@ export async function PUT(req: NextRequest) {
 
 // DELETE /api/admin/schedule — 削除
 export async function DELETE(req: NextRequest) {
+  if (!(await isAdminRequest(req))) {
+    return NextResponse.json({ error: "unauthorized" }, { status: 401 });
+  }
   const { searchParams } = new URL(req.url);
   const id = searchParams.get("id");
   if (!id) return NextResponse.json({ error: "id required" }, { status: 400 });

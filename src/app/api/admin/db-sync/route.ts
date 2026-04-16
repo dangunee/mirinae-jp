@@ -1,12 +1,16 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
+import { isAdminRequest } from "@/lib/admin-auth";
 
 /**
  * POST /api/admin/db-sync
  * schedule_categories, schedule_events 테이블을 생성/업데이트합니다.
  * 서버리스 환경(Vercel 등)에서도 동작합니다。
  */
-export async function POST() {
+export async function POST(req: NextRequest) {
+  if (!(await isAdminRequest(req))) {
+    return NextResponse.json({ error: "unauthorized" }, { status: 401 });
+  }
   try {
     // schedule_categories 테이블 생성
     await prisma.$executeRawUnsafe(`

@@ -9,7 +9,7 @@ export async function POST(
   ctx: { params: Promise<{ id: string }> }
 ) {
   const { id } = await ctx.params;
-  if (!isAdminRequest(req)) {
+  if (!(await isAdminRequest(req))) {
     return NextResponse.json({ error: "unauthorized" }, { status: 401 });
   }
 

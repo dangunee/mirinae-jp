@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
+import { isAdminRequest } from "@/lib/admin-auth";
 
 const THEMES_BLOCK_KEY = "curriculum_themes";
 const PAGE_SLUG_KOJIN = "kojin";
@@ -10,6 +11,9 @@ const PAGE_SLUG_KOJIN = "kojin";
  * 現在のカリキュラムを公開スナップショットに保存
  */
 export async function POST(req: NextRequest) {
+  if (!(await isAdminRequest(req))) {
+    return NextResponse.json({ error: "unauthorized" }, { status: 401 });
+  }
   try {
     const body = (await req.json()) as { page?: string };
     const page = body?.page;

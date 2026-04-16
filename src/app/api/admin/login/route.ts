@@ -1,8 +1,31 @@
 import { NextRequest, NextResponse } from "next/server";
-import { generateOtp, generateToken, saveOtp } from "@/lib/otp-store";
+import {
+  createOtpChallenge,
+  generateOtpDigits,
+  otpCookieOptions,
+} from "@/lib/admin-otp";
 import { sendOtpEmail } from "@/lib/email";
+import { rateLimitOrThrow } from "@/lib/rate-limit";
+import {
+  ADMIN_OTP_COOKIE,
+  ADMIN_SESSION_COOKIE,
+  createAdminSession,
+  sessionCookieOptions,
+} from "@/lib/admin-session";
 
 export async function POST(req: NextRequest) {
+  try {
+    await rateLimitOrThrow(req, "admin_login");
+  } catch (e) {
+    if ((e as Error & { status?: number }).status === 429) {
+      return NextResponse.json(
+        { ok: false, error: "rate_limited" },
+        { status: 429 }
+      );
+    }
+    throw e;
+  }
+
   const password = (process.env.ADMIN_PASSWORD ?? "").trim();
   if (!password) {
     return NextResponse.json({ ok: false, error: "config" }, { status: 400 });
@@ -28,11 +51,9 @@ export async function POST(req: NextRequest) {
   );
   const hasResend = !!process.env.RESEND_API_KEY?.trim();
 
-  // OTP 2FA: ADMIN_EMAIL + (Gmail SMTP または Resend)
   if (adminEmail && (hasGmail || hasResend)) {
-    const otp = generateOtp();
-    const token = generateToken();
-    saveOtp(token, otp);
+    const otp = generateOtpDigits();
+    const { cookieToken } = await createOtpChallenge(otp);
 
     const sent = await sendOtpEmail(adminEmail, otp);
     if (!sent) {
@@ -43,24 +64,12 @@ export async function POST(req: NextRequest) {
     }
 
     const res = NextResponse.json({ ok: true, requiresOtp: true });
-    res.cookies.set("mirinae_otp_token", token, {
-      path: "/",
-      httpOnly: true,
-      sameSite: "lax",
-      maxAge: 60 * 5, // 5 min
-      secure: process.env.NODE_ENV === "production",
-    });
+    res.cookies.set(ADMIN_OTP_COOKIE, cookieToken, otpCookieOptions());
     return res;
   }
 
-  // 従来どおりパスワードのみでログイン
+  const { rawToken } = await createAdminSession();
   const res = NextResponse.json({ ok: true });
-  res.cookies.set("mirinae_admin", "1", {
-    path: "/",
-    httpOnly: true,
-    sameSite: "lax",
-    maxAge: 60 * 60 * 24, // 1 day
-    secure: process.env.NODE_ENV === "production",
-  });
+  res.cookies.set(ADMIN_SESSION_COOKIE, rawToken, sessionCookieOptions());
   return res;
 }

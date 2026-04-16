@@ -1,9 +1,28 @@
 import { NextRequest, NextResponse } from "next/server";
-import { verifyOtp } from "@/lib/otp-store";
+import { consumeOtpChallenge } from "@/lib/admin-otp";
+import { rateLimitOrThrow } from "@/lib/rate-limit";
+import {
+  ADMIN_OTP_COOKIE,
+  ADMIN_SESSION_COOKIE,
+  createAdminSession,
+  sessionCookieOptions,
+} from "@/lib/admin-session";
 
 export async function POST(req: NextRequest) {
-  const token = req.cookies.get("mirinae_otp_token")?.value;
-  if (!token) {
+  try {
+    await rateLimitOrThrow(req, "admin_verify_otp");
+  } catch (e) {
+    if ((e as Error & { status?: number }).status === 429) {
+      return NextResponse.json(
+        { ok: false, error: "rate_limited" },
+        { status: 429 }
+      );
+    }
+    throw e;
+  }
+
+  const cookieToken = req.cookies.get(ADMIN_OTP_COOKIE)?.value;
+  if (!cookieToken) {
     return NextResponse.json(
       { ok: false, error: "expired" },
       { status: 401 }
@@ -18,21 +37,17 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ ok: false, error: "invalid" }, { status: 400 });
   }
 
-  if (!verifyOtp(token, otp)) {
+  const ok = await consumeOtpChallenge(cookieToken, otp);
+  if (!ok) {
     return NextResponse.json(
       { ok: false, error: "invalid" },
       { status: 401 }
     );
   }
 
+  const { rawToken } = await createAdminSession();
   const res = NextResponse.json({ ok: true });
-  res.cookies.delete("mirinae_otp_token");
-  res.cookies.set("mirinae_admin", "1", {
-    path: "/",
-    httpOnly: true,
-    sameSite: "lax",
-    maxAge: 60 * 60 * 24, // 1 day
-    secure: process.env.NODE_ENV === "production",
-  });
+  res.cookies.set(ADMIN_OTP_COOKIE, "", { path: "/", maxAge: 0 });
+  res.cookies.set(ADMIN_SESSION_COOKIE, rawToken, sessionCookieOptions());
   return res;
 }

@@ -1,11 +1,14 @@
 import { createHmac, timingSafeEqual } from "crypto";
 
 function trackingSecret(): string {
-  return (
-    process.env.NEWSLETTER_TRACKING_SECRET?.trim() ||
-    process.env.ADMIN_PASSWORD?.trim() ||
-    "dev-insecure-tracking"
-  );
+  const s = process.env.NEWSLETTER_TRACKING_SECRET?.trim();
+  if (process.env.NODE_ENV === "production") {
+    if (!s) {
+      throw new Error("NEWSLETTER_TRACKING_SECRET is required in production");
+    }
+    return s;
+  }
+  return s || "dev-insecure-tracking";
 }
 
 export function signTracking(deliveryId: string): string {

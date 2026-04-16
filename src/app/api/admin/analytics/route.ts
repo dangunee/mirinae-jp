@@ -1,18 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
-import { cookies } from "next/headers";
+import { isAdminRequest } from "@/lib/admin-auth";
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL ?? process.env.SUPABASE_URL;
 const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
-function checkAuth(): boolean {
-  const cookieStore = cookies();
-  const token = cookieStore.get("mirinae_admin")?.value;
-  return token === "1";
-}
-
 export async function GET(request: NextRequest) {
-  if (!checkAuth()) {
+  if (!(await isAdminRequest(request))) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 

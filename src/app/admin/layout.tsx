@@ -1,8 +1,26 @@
+import { headers } from "next/headers";
+import { redirect } from "next/navigation";
+import { validateAdminFromCookies } from "@/lib/admin-auth";
+
 export const metadata = {
   robots: "noindex, nofollow",
 };
 
-export default function AdminLayout({ children }: { children: React.ReactNode }) {
+export default async function AdminLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const path = headers().get("x-mirinae-path") ?? "";
+  const isLogin =
+    path === "/admin/login" ||
+    path === "/admin/login/" ||
+    path.startsWith("/admin/login/");
+  if (!isLogin) {
+    const ok = await validateAdminFromCookies();
+    if (!ok) redirect("/admin/login/");
+  }
+
   return (
     <div style={{ background: "#f5f5f5", minHeight: "100vh" }}>
       <header style={{ background: "#3d6b6b", color: "#fff", padding: "12px 24px", display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: 12 }}>

@@ -5,7 +5,7 @@ import { isAdminRequest } from "@/lib/admin-auth";
 export const runtime = "nodejs";
 
 export async function GET(req: NextRequest) {
-  if (!isAdminRequest(req)) {
+  if (!(await isAdminRequest(req))) {
     return NextResponse.json({ error: "unauthorized" }, { status: 401 });
   }
 

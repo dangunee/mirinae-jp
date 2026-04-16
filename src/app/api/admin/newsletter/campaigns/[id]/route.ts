@@ -9,7 +9,7 @@ export async function GET(
   ctx: { params: Promise<{ id: string }> }
 ) {
   const { id } = await ctx.params;
-  if (!isAdminRequest(_req)) {
+  if (!(await isAdminRequest(_req))) {
     return NextResponse.json({ error: "unauthorized" }, { status: 401 });
   }
 
@@ -23,7 +23,7 @@ export async function PATCH(
   ctx: { params: Promise<{ id: string }> }
 ) {
   const { id } = await ctx.params;
-  if (!isAdminRequest(req)) {
+  if (!(await isAdminRequest(req))) {
     return NextResponse.json({ error: "unauthorized" }, { status: 401 });
   }
 

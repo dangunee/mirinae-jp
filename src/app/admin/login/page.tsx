@@ -8,6 +8,7 @@ function LoginForm() {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [step, setStep] = useState<"password" | "otp">("password");
+  const [showPassword, setShowPassword] = useState(false);
   const displayError = error ?? searchParams.get("error");
 
   const message =
@@ -161,13 +162,35 @@ function LoginForm() {
           パスワード
         </label>
         <input
-          type="password"
+          type={showPassword ? "text" : "password"}
           name="password"
           required
           autoFocus
+          autoComplete="current-password"
           disabled={loading}
-          style={inputStyle}
+          style={{ ...inputStyle, marginBottom: 8 }}
         />
+        <label
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: 8,
+            marginBottom: 20,
+            fontSize: 14,
+            color: "#444",
+            cursor: "pointer",
+            userSelect: "none",
+          }}
+        >
+          <input
+            type="checkbox"
+            checked={showPassword}
+            onChange={(e) => setShowPassword(e.target.checked)}
+            disabled={loading}
+            style={{ width: 16, height: 16, cursor: loading ? "not-allowed" : "pointer" }}
+          />
+          パスワードを表示する
+        </label>
         <button
           type="submit"
           disabled={loading}

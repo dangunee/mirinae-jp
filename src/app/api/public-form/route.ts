@@ -1,6 +1,8 @@
+import { createHash } from "node:crypto";
 import { NextRequest, NextResponse } from "next/server";
 import { sendPublicFormNotification } from "@/lib/email";
-import { rateLimitOrThrow } from "@/lib/rate-limit";
+import { prisma } from "@/lib/db";
+import { getClientIp, rateLimitOrThrow } from "@/lib/rate-limit";
 import {
   assertCourseTurnstileOk,
   normalizeFormData,
@@ -8,6 +10,81 @@ import {
 } from "@/lib/public-form-validate";
 
 export const runtime = "nodejs";
+
+const GLOBAL_BURST_KEY = "public_form_global";
+const GLOBAL_BURST_WINDOW_MS = 60_000;
+const GLOBAL_BURST_MAX = 100;
+
+let globalBurstMem: { windowKey: number; count: number } = {
+  windowKey: -1,
+  count: 0,
+};
+
+const DUPLICATE_SUBMIT_TTL_MS = 60_000;
+const duplicateSubmissionSeen = new Map<string, number>();
+
+function pruneDuplicateStore(now: number): void {
+  for (const [k, t] of [...duplicateSubmissionSeen.entries()]) {
+    if (now - t > DUPLICATE_SUBMIT_TTL_MS) duplicateSubmissionSeen.delete(k);
+  }
+}
+
+/** メール + 自由記入相当 + IP; 60 秒以内の同一送信を弾く */
+function isDuplicateSubmission(
+  email: string,
+  message: string,
+  ip: string
+): boolean {
+  const key = createHash("sha256")
+    .update(`${email}\0${message}\0${ip}`, "utf8")
+    .digest("hex");
+  const now = Date.now();
+  pruneDuplicateStore(now);
+  const prev = duplicateSubmissionSeen.get(key);
+  if (prev !== undefined && now - prev < DUPLICATE_SUBMIT_TTL_MS) {
+    return true;
+  }
+  duplicateSubmissionSeen.set(key, now);
+  return false;
+}
+
+function duplicateFingerprintMessage(data: Record<string, string>): string {
+  return [
+    (data.お問い合わせ || "").trim(),
+    (data.メッセージ || "").trim(),
+    (data.希望日時 || "").trim(),
+    (data.学習歴 || "").trim(),
+  ].join("\x1f");
+}
+
+async function globalBurstExceeded(): Promise<boolean> {
+  const windowKey = Math.floor(Date.now() / GLOBAL_BURST_WINDOW_MS);
+  try {
+    const row = await prisma.rateLimitBucket.upsert({
+      where: {
+        rate_limit_key_window: {
+          key: GLOBAL_BURST_KEY,
+          windowKey,
+        },
+      },
+      create: {
+        key: GLOBAL_BURST_KEY,
+        windowKey,
+        count: 1,
+      },
+      update: {
+        count: { increment: 1 },
+      },
+    });
+    return row.count > GLOBAL_BURST_MAX;
+  } catch {
+    if (globalBurstMem.windowKey !== windowKey) {
+      globalBurstMem = { windowKey, count: 0 };
+    }
+    globalBurstMem.count++;
+    return globalBurstMem.count > GLOBAL_BURST_MAX;
+  }
+}
 
 const DEFAULT_REDIRECT =
   "https://mirinae.jp/trial.html?thanks=1&tab=tab02";
@@ -116,10 +193,36 @@ async function readBody(req: NextRequest): Promise<Record<string, string>> {
 }
 
 export async function POST(req: NextRequest) {
+  const ip = getClientIp(req);
+
+  if (process.env.PUBLIC_FORM_DISABLED === "true") {
+    console.warn("PUBLIC_FORM_BLOCKED", {
+      reason: "temporarily_disabled",
+      ip,
+    });
+    return NextResponse.json(
+      { ok: false, error: "temporarily_disabled" },
+      { status: 503 }
+    );
+  }
+
   if (!isAllowedOrigin(req)) {
     return NextResponse.json(
       { success: false, message: "Forbidden", code: "forbidden" as const },
       { status: 403 }
+    );
+  }
+
+  const burstWindowKey = Math.floor(Date.now() / GLOBAL_BURST_WINDOW_MS);
+  if (await globalBurstExceeded()) {
+    console.warn("PUBLIC_FORM_BLOCKED", {
+      reason: "rate_limited_global",
+      ip,
+      windowKey: burstWindowKey,
+    });
+    return NextResponse.json(
+      { ok: false, error: "rate_limited_global" },
+      { status: 429 }
     );
   }
 
@@ -171,6 +274,9 @@ export async function POST(req: NextRequest) {
     if (wantsJson) return NextResponse.json({ success: true });
     return NextResponse.redirect(safeRedirectUrl(data._next), 303);
   }
+  if (data.company && data.company.trim() !== "") {
+    return NextResponse.json({ ok: true }, { status: 200 });
+  }
 
   const validationError = validatePublicFormPayload(data);
   if (validationError) {
@@ -210,6 +316,15 @@ export async function POST(req: NextRequest) {
         { status: 400 }
       );
     return redirectFormError("turnstile", data);
+  }
+
+  const dupEmail = (data.メールアドレス || "").trim();
+  const dupMsg = duplicateFingerprintMessage(data);
+  if (isDuplicateSubmission(dupEmail, dupMsg, ip)) {
+    return NextResponse.json(
+      { ok: false, error: "duplicate_submission" },
+      { status: 429 }
+    );
   }
 
   const result = await sendPublicFormNotification(data);

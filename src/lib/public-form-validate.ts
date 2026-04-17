@@ -22,12 +22,24 @@ export function requiresCourseTurnstile(subject: string | undefined): boolean {
   return s.startsWith("【体験申込】") || s.startsWith("【講座申込】");
 }
 
+/** 全角数字（０-９）を半角に。IME やコピペで混在しても桁数検証が効くようにする */
+function normalizeFullWidthDigits(s: string): string {
+  return s.replace(/[\uFF10-\uFF19]/g, (ch) =>
+    String.fromCharCode(ch.charCodeAt(0) - 0xff10 + 0x30)
+  );
+}
+
 export function normalizeFormData(
   data: Record<string, string>
 ): Record<string, string> {
+  const phoneKeys = new Set(["お電話番号", "ご連絡先"]);
   const out: Record<string, string> = {};
   for (const [k, v] of Object.entries(data)) {
-    out[k] = typeof v === "string" ? v.trim() : v;
+    let val = typeof v === "string" ? v.trim() : v;
+    if (phoneKeys.has(k) && typeof val === "string") {
+      val = normalizeFullWidthDigits(val);
+    }
+    out[k] = val;
   }
   return out;
 }
@@ -58,7 +70,7 @@ function looksLikeGibberishName(s: string): boolean {
   return false;
 }
 
-/** 日本の電話らしい桁数（数字のみカウント） */
+/** 日本の電話らしい桁数（数字のみカウント。全角数字は normalizeFormData で半角化済み想定） */
 function isPlausibleJpPhone(raw: string): boolean {
   const d = raw.replace(/\D/g, "");
   return d.length >= 10 && d.length <= 15;

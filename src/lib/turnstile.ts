@@ -16,20 +16,9 @@ export function getTurnstileTokenFromPayload(
   return t;
 }
 
-export async function verifyTurnstileToken(
-  req: NextRequest,
-  token: string | undefined
-): Promise<boolean> {
-  const secret = process.env.TURNSTILE_SECRET_KEY?.trim();
-  if (!secret) return false;
-  if (!token || token.trim() === "") return false;
-
-  const remoteip = getClientIp(req);
-  const body = new URLSearchParams();
-  body.set("secret", secret);
-  body.set("response", token.trim());
-  if (remoteip && remoteip !== "unknown") body.set("remoteip", remoteip);
-
+async function siteverify(
+  body: URLSearchParams
+): Promise<{ ok: boolean; codes?: string[] }> {
   try {
     const res = await fetch(
       "https://challenges.cloudflare.com/turnstile/v0/siteverify",
@@ -39,9 +28,58 @@ export async function verifyTurnstileToken(
         body,
       }
     );
-    const json = (await res.json()) as { success?: boolean };
-    return json.success === true;
-  } catch {
-    return false;
+    const json = (await res.json()) as {
+      success?: boolean;
+      "error-codes"?: string[];
+    };
+    return {
+      ok: json.success === true,
+      codes: json["error-codes"],
+    };
+  } catch (e) {
+    console.error("[turnstile] siteverify request error:", e);
+    return { ok: false };
   }
+}
+
+export async function verifyTurnstileToken(
+  req: NextRequest,
+  token: string | undefined
+): Promise<boolean> {
+  const secret = process.env.TURNSTILE_SECRET_KEY?.trim();
+  if (!secret) return false;
+  if (!token || token.trim() === "") return false;
+
+  const response = token.trim();
+
+  // 1) IP なしを先に（Vercel 等で X-Forwarded-For が Turnstile 側の記録とずれ invalid になりやすい）
+  const withoutIp = new URLSearchParams();
+  withoutIp.set("secret", secret);
+  withoutIp.set("response", response);
+  const first = await siteverify(withoutIp);
+  if (first.ok) return true;
+
+  // 2) remoteip 付きで再試行
+  const remoteip = getClientIp(req);
+  if (remoteip && remoteip !== "unknown") {
+    const withIp = new URLSearchParams();
+    withIp.set("secret", secret);
+    withIp.set("response", response);
+    withIp.set("remoteip", remoteip);
+    const second = await siteverify(withIp);
+    if (second.ok) return true;
+    console.error(
+      "[turnstile] both attempts failed. error-codes:",
+      first.codes?.join(", ") || "(none)",
+      "/",
+      second.codes?.join(", ") || "(none)"
+    );
+  } else {
+    console.error(
+      "[turnstile] verify failed. error-codes:",
+      first.codes?.join(", ") || "(none)"
+    );
+  }
+
+  return false;
 }

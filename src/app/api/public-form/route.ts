@@ -51,6 +51,8 @@ const SAFE_PARSE_ERROR =
   "通信エラーが発生しました。再度お試しください。";
 const SAFE_TURNSTILE_ERROR =
   "認証の確認に失敗しました。ページを再読み込みのうえ、再度お試しください。";
+const SAFE_INVALID_PHONE =
+  "電話番号をご確認ください。数字10〜15桁で入力してください（ハイフンやスペースは除いて数えます。全角数字も入力できます）。";
 
 /** fetch + FormData 送信時は JSON で code を返し、画面にメッセージを出せるようにする */
 function wantsJsonResponse(req: NextRequest): boolean {
@@ -172,6 +174,18 @@ export async function POST(req: NextRequest) {
 
   const validationError = validatePublicFormPayload(data);
   if (validationError) {
+    if (validationError === "invalid_phone") {
+      if (wantsJson)
+        return NextResponse.json(
+          {
+            success: false,
+            message: SAFE_INVALID_PHONE,
+            code: "invalid_phone" as const,
+          },
+          { status: 400 }
+        );
+      return redirectFormError("invalid_phone", data);
+    }
     if (wantsJson)
       return NextResponse.json(
         {

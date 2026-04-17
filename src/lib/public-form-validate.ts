@@ -78,6 +78,7 @@ function isPlausibleJpPhone(raw: string): boolean {
 
 /**
  * スパム除け・必須チェック。戻り値: null=OK、非null=エラーコード
+ * invalid_phone … 電話が空・短い・桁数が10〜15の数字でない
  */
 export function validatePublicFormPayload(
   data: Record<string, string>
@@ -114,8 +115,8 @@ export function validatePublicFormPayload(
   if (!isNetlessonStyleSubject(data._subject)) {
     const phoneLine =
       (data.お電話番号 || "").trim() || (data.ご連絡先 || "").trim();
-    if (!phoneLine || phoneLine.length < 3) return "invalid_input";
-    if (!isPlausibleJpPhone(phoneLine)) return "invalid_input";
+    if (!phoneLine || phoneLine.length < 3) return "invalid_phone";
+    if (!isPlausibleJpPhone(phoneLine)) return "invalid_phone";
   }
 
   return null;

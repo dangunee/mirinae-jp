@@ -1,6 +1,6 @@
 /**
- * Loads Cloudflare Turnstile for forms with data-turnstile-form.
- * Site key from /api/public/turnstile-site-key (env NEXT_PUBLIC_TURNSTILE_SITE_KEY or TURNSTILE_SITE_KEY).
+ * Cloudflare Turnstile + /api/public-form/ は fetch 送信（JSON 応答）で
+ * 送信中のフィードバックとエラー表示を行う。
  */
 (function () {
   function ensureHidden(form, name) {
@@ -13,21 +13,171 @@
     return el;
   }
 
-  function bindSubmit(form, widgetId) {
-    form.addEventListener(
-      "submit",
-      function () {
-        if (!window.turnstile || widgetId == null) return;
+  var CODE_FALLBACK = {
+    rate: "送信が集中しています。しばらく時間をおいてから再度お試しください。",
+    validation: "入力内容をご確認ください。",
+    turnstile:
+      "認証の確認に失敗しました。ページを再読み込みのうえ、再度お試しください。",
+    parse: "通信エラーが発生しました。再度お試しください。",
+    forbidden: "送信を受け付けできませんでした。",
+    mail: "",
+  };
+
+  function showFormFetchError(code, message) {
+    var banner =
+      document.getElementById("form-error-banner") ||
+      document.getElementById("syutyu-form-error-banner");
+    var sub =
+      document.getElementById("form-error-sub") ||
+      document.getElementById("syutyu-form-error-sub");
+    var text =
+      message ||
+      (code && CODE_FALLBACK[code]) ||
+      CODE_FALLBACK.validation;
+    if (banner) {
+      banner.style.display = "block";
+      var titleP = banner.querySelector("p:first-child");
+      if (titleP) titleP.textContent = "送信に失敗しました。";
+      if (sub) {
+        if (code === "mail") {
+          sub.innerHTML =
+            "メールの送信に失敗しました。しばらくしてから再度お試しいただくか、<a href=\"mailto:mirinae@kaonnuri.com\">mirinae@kaonnuri.com</a> までご連絡ください。";
+        } else {
+          sub.textContent = text;
+        }
+      }
+      banner.scrollIntoView({ behavior: "smooth", block: "start" });
+    } else {
+      window.alert(text);
+    }
+  }
+
+  function getSubmitControl(form) {
+    return form.querySelector(
+      'button[type="submit"], input[type="submit"]'
+    );
+  }
+
+  function setSubmitBusy(btn, busy) {
+    if (!btn) return;
+    if (busy) {
+      btn.disabled = true;
+      btn.setAttribute("aria-busy", "true");
+      if (btn.tagName === "BUTTON") {
+        btn.dataset.mirinaePrevText = btn.textContent;
+        btn.textContent = "送信中…";
+      } else if (btn.tagName === "INPUT" && btn.type === "submit") {
+        btn.dataset.mirinaePrevValue = btn.value;
+        btn.value = "送信中…";
+      }
+    } else {
+      btn.disabled = false;
+      btn.removeAttribute("aria-busy");
+      if (btn.tagName === "BUTTON" && btn.dataset.mirinaePrevText != null) {
+        btn.textContent = btn.dataset.mirinaePrevText;
+        delete btn.dataset.mirinaePrevText;
+      } else if (
+        btn.tagName === "INPUT" &&
+        btn.type === "submit" &&
+        btn.dataset.mirinaePrevValue != null
+      ) {
+        btn.value = btn.dataset.mirinaePrevValue;
+        delete btn.dataset.mirinaePrevValue;
+      }
+    }
+  }
+
+  function courseFormNeedsTurnstile(subject) {
+    if (!subject) return false;
+    var s = subject.trim();
+    return (
+      s.indexOf("【体験申込】") === 0 || s.indexOf("【講座申込】") === 0
+    );
+  }
+
+  function bindAjaxSubmit(form) {
+    var action = form.getAttribute("action") || "";
+    if (action.indexOf("/api/public-form") === -1) return;
+
+    form.addEventListener("submit", function (ev) {
+      ev.preventDefault();
+
+      var btn = getSubmitControl(form);
+      setSubmitBusy(btn, true);
+
+      var widgetId = form._mirinaeTurnstileWidgetId;
+      if (window.turnstile && widgetId != null) {
         var token = window.turnstile.getResponse(widgetId) || "";
         ensureHidden(form, "cf-turnstile-response").value = token;
         var legacy = form.querySelector('input[name="turnstileToken"]');
         if (legacy) legacy.value = token;
-      },
-      true
-    );
+      }
+
+      var subjectEl = form.querySelector('input[name="_subject"]');
+      var subject = subjectEl ? subjectEl.value : "";
+      if (
+        courseFormNeedsTurnstile(subject) &&
+        form.getAttribute("data-turnstile-form") !== null
+      ) {
+        if (!window.turnstile || widgetId == null) {
+          showFormFetchError("turnstile", null);
+          setSubmitBusy(btn, false);
+          return;
+        }
+        var tok = window.turnstile.getResponse(widgetId) || "";
+        if (!tok) {
+          showFormFetchError("turnstile", null);
+          setSubmitBusy(btn, false);
+          return;
+        }
+      }
+
+      var fd = new FormData(form);
+      fetch(action, {
+        method: "POST",
+        body: fd,
+        headers: {
+          Accept: "application/json",
+          "X-Mirinae-Form-Fetch": "1",
+        },
+        credentials: "same-origin",
+      })
+        .then(function (r) {
+          return r.text().then(function (text) {
+            var j = null;
+            try {
+              j = text ? JSON.parse(text) : null;
+            } catch (e) {
+              j = null;
+            }
+            return { ok: r.ok, status: r.status, j: j };
+          });
+        })
+        .then(function (out) {
+          if (out.ok && out.j && out.j.success) {
+            var next = form.querySelector('input[name="_next"]');
+            window.location.href =
+              next && next.value ? next.value : "/";
+            return;
+          }
+          var code = out.j && out.j.code;
+          var msg = out.j && out.j.message;
+          if (out.status === 429) code = "rate";
+          else if (out.status === 403) code = "forbidden";
+          else if (out.status >= 500) code = "mail";
+          else if (!out.j) code = "parse";
+          else if (!code) code = "validation";
+          showFormFetchError(code, msg);
+          setSubmitBusy(btn, false);
+        })
+        .catch(function () {
+          showFormFetchError("parse", null);
+          setSubmitBusy(btn, false);
+        });
+    });
   }
 
-  function init() {
+  function initTurnstileWidgets() {
     fetch("/api/public/turnstile-site-key")
       .then(function (r) {
         return r.json();
@@ -42,42 +192,60 @@
         script.defer = true;
         script.onload = function () {
           if (!window.turnstile) return;
-          document.querySelectorAll("form[data-turnstile-form]").forEach(
-            function (form) {
+          document
+            .querySelectorAll("form[data-turnstile-form]")
+            .forEach(function (form) {
               var slot = form.querySelector(".turnstile-slot");
               if (!slot) return;
 
               var widgetId = window.turnstile.render(slot, {
                 sitekey: siteKey,
                 callback: function (token) {
-                  ensureHidden(form, "cf-turnstile-response").value = token || "";
-                  var legacy = form.querySelector('input[name="turnstileToken"]');
+                  ensureHidden(form, "cf-turnstile-response").value =
+                    token || "";
+                  var legacy = form.querySelector(
+                    'input[name="turnstileToken"]'
+                  );
                   if (legacy) legacy.value = token || "";
                 },
                 "expired-callback": function () {
                   ensureHidden(form, "cf-turnstile-response").value = "";
-                  var legacy = form.querySelector('input[name="turnstileToken"]');
+                  var legacy = form.querySelector(
+                    'input[name="turnstileToken"]'
+                  );
                   if (legacy) legacy.value = "";
                 },
                 "error-callback": function () {
                   ensureHidden(form, "cf-turnstile-response").value = "";
-                  var legacy = form.querySelector('input[name="turnstileToken"]');
+                  var legacy = form.querySelector(
+                    'input[name="turnstileToken"]'
+                  );
                   if (legacy) legacy.value = "";
                 },
               });
 
-              bindSubmit(form, widgetId);
-            }
-          );
+              form._mirinaeTurnstileWidgetId = widgetId;
+            });
         };
         document.head.appendChild(script);
       })
       .catch(function () {});
   }
 
+  function boot() {
+    document
+      .querySelectorAll('form[action="/api/public-form/"]')
+      .forEach(function (form) {
+        if (form._mirinaeAjaxBound) return;
+        form._mirinaeAjaxBound = true;
+        bindAjaxSubmit(form);
+      });
+    initTurnstileWidgets();
+  }
+
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", init);
+    document.addEventListener("DOMContentLoaded", boot);
   } else {
-    init();
+    boot();
   }
 })();

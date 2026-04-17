@@ -47,6 +47,19 @@ const SAFE_CLIENT_ERROR = "入力内容をご確認ください。";
 const SAFE_SERVER_ERROR = "送信に失敗しました。しばらくしてから再度お試しください。";
 const SAFE_RATE_ERROR =
   "送信が集中しています。しばらく時間をおいてから再度お試しください。";
+const SAFE_PARSE_ERROR =
+  "通信エラーが発生しました。再度お試しください。";
+const SAFE_TURNSTILE_ERROR =
+  "認証の確認に失敗しました。ページを再読み込みのうえ、再度お試しください。";
+
+/** fetch + FormData 送信時は JSON で code を返し、画面にメッセージを出せるようにする */
+function wantsJsonResponse(req: NextRequest): boolean {
+  const ct = req.headers.get("content-type") || "";
+  if (ct.includes("application/json")) return true;
+  const accept = req.headers.get("accept") || "";
+  if (accept.includes("application/json")) return true;
+  return req.headers.get("x-mirinae-form-fetch") === "1";
+}
 
 function safeRedirectUrl(next: string | undefined): URL {
   const fallback = new URL(DEFAULT_REDIRECT);
@@ -103,7 +116,7 @@ async function readBody(req: NextRequest): Promise<Record<string, string>> {
 export async function POST(req: NextRequest) {
   if (!isAllowedOrigin(req)) {
     return NextResponse.json(
-      { success: false, message: "Forbidden" },
+      { success: false, message: "Forbidden", code: "forbidden" as const },
       { status: 403 }
     );
   }
@@ -112,12 +125,13 @@ export async function POST(req: NextRequest) {
     await rateLimitOrThrow(req, "public_form_submit");
   } catch (e) {
     if ((e as Error & { status?: number }).status === 429) {
-      const wantsJson = (req.headers.get("content-type") || "").includes(
-        "application/json"
-      );
-      if (wantsJson) {
+      if (wantsJsonResponse(req)) {
         return NextResponse.json(
-          { success: false, message: SAFE_RATE_ERROR },
+          {
+            success: false,
+            message: SAFE_RATE_ERROR,
+            code: "rate" as const,
+          },
           { status: 429 }
         );
       }
@@ -126,9 +140,7 @@ export async function POST(req: NextRequest) {
     throw e;
   }
 
-  const wantsJson = (req.headers.get("content-type") || "").includes(
-    "application/json"
-  );
+  const wantsJson = wantsJsonResponse(req);
 
   let data: Record<string, string>;
   try {
@@ -136,7 +148,11 @@ export async function POST(req: NextRequest) {
   } catch {
     if (wantsJson)
       return NextResponse.json(
-        { success: false, message: SAFE_CLIENT_ERROR },
+        {
+          success: false,
+          message: SAFE_PARSE_ERROR,
+          code: "parse" as const,
+        },
         { status: 400 }
       );
     return redirectFormError("parse");
@@ -158,7 +174,11 @@ export async function POST(req: NextRequest) {
   if (validationError) {
     if (wantsJson)
       return NextResponse.json(
-        { success: false, message: SAFE_CLIENT_ERROR },
+        {
+          success: false,
+          message: SAFE_CLIENT_ERROR,
+          code: "validation" as const,
+        },
         { status: 400 }
       );
     return redirectFormError("validation", data);
@@ -168,7 +188,11 @@ export async function POST(req: NextRequest) {
   if (turnstileErr) {
     if (wantsJson)
       return NextResponse.json(
-        { success: false, message: SAFE_CLIENT_ERROR },
+        {
+          success: false,
+          message: SAFE_TURNSTILE_ERROR,
+          code: "turnstile" as const,
+        },
         { status: 400 }
       );
     return redirectFormError("turnstile", data);
@@ -181,6 +205,7 @@ export async function POST(req: NextRequest) {
         {
           success: false,
           message: SAFE_SERVER_ERROR,
+          code: "mail" as const,
         },
         { status: 500 }
       );

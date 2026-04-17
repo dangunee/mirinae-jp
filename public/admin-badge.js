@@ -1,7 +1,8 @@
 (function () {
   fetch("/api/admin/check", { credentials: "same-origin" })
     .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
-    .then(function () {
+    .then(function (data) {
+      if (!data || !data.ok) return;
       var a = document.createElement("a");
       a.href = "/admin";
       a.textContent = "管理モードで接続中";

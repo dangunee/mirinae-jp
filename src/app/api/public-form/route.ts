@@ -12,6 +12,14 @@ export const runtime = "nodejs";
 const DEFAULT_REDIRECT =
   "https://mirinae.jp/trial.html?thanks=1&tab=tab02";
 
+const TRIAL_ERROR_BASE = "https://mirinae.jp/trial.html";
+
+function redirectFormError(code: string): NextResponse {
+  const u = new URL(TRIAL_ERROR_BASE);
+  u.searchParams.set("form_error", code);
+  return NextResponse.redirect(u, 303);
+}
+
 const SAFE_CLIENT_ERROR = "入力内容をご確認ください。";
 const SAFE_SERVER_ERROR = "送信に失敗しました。しばらくしてから再度お試しください。";
 const SAFE_RATE_ERROR =
@@ -90,10 +98,7 @@ export async function POST(req: NextRequest) {
           { status: 429 }
         );
       }
-      return NextResponse.redirect(
-        new URL("https://mirinae.jp/trial.html?form_error=1"),
-        303
-      );
+      return redirectFormError("rate");
     }
     throw e;
   }
@@ -111,10 +116,7 @@ export async function POST(req: NextRequest) {
         { success: false, message: SAFE_CLIENT_ERROR },
         { status: 400 }
       );
-    return NextResponse.redirect(
-      new URL("https://mirinae.jp/trial.html?form_error=1"),
-      303
-    );
+    return redirectFormError("parse");
   }
 
   data = normalizeFormData(data);
@@ -136,10 +138,7 @@ export async function POST(req: NextRequest) {
         { success: false, message: SAFE_CLIENT_ERROR },
         { status: 400 }
       );
-    return NextResponse.redirect(
-      new URL("https://mirinae.jp/trial.html?form_error=1"),
-      303
-    );
+    return redirectFormError("validation");
   }
 
   const turnstileErr = await assertCourseTurnstileOk(req, data);
@@ -149,10 +148,7 @@ export async function POST(req: NextRequest) {
         { success: false, message: SAFE_CLIENT_ERROR },
         { status: 400 }
       );
-    return NextResponse.redirect(
-      new URL("https://mirinae.jp/trial.html?form_error=1"),
-      303
-    );
+    return redirectFormError("turnstile");
   }
 
   const result = await sendPublicFormNotification(data);
@@ -165,10 +161,7 @@ export async function POST(req: NextRequest) {
         },
         { status: 500 }
       );
-    return NextResponse.redirect(
-      new URL("https://mirinae.jp/trial.html?form_error=1"),
-      303
-    );
+    return redirectFormError("mail");
   }
 
   if (wantsJson) return NextResponse.json({ success: true });

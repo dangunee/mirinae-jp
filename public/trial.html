@@ -597,7 +597,7 @@
     <div class="main-content">
       <div id="form-error-banner" class="form-error-banner" style="display:none;" role="alert" aria-live="polite">
         <p style="font-weight:600;">送信に失敗しました。</p>
-        <p>時間をおいて再度お試しいただくか、<a href="mailto:mirinae@kaonnuri.com">mirinae@kaonnuri.com</a> までご連絡ください。</p>
+        <p id="form-error-sub">時間をおいて再度お試しいただくか、<a href="mailto:mirinae@kaonnuri.com">mirinae@kaonnuri.com</a> までご連絡ください。</p>
       </div>
       <div id="thanks-wrap" class="thanks-wrap" style="display:none;" aria-live="polite">
         <div class="thanks-tabs-row" role="tablist" aria-label="お申込み完了の案内">
@@ -1248,10 +1248,25 @@
       var hash = location.hash.slice(1);
       var params = new URLSearchParams(location.search);
 
-      if (params.get('form_error') === '1') {
+      var formErrorCode = params.get('form_error');
+      if (formErrorCode) {
         var formErr = document.getElementById('form-error-banner');
+        var formErrSub = document.getElementById('form-error-sub');
+        var formErrorMessages = {
+          rate: '送信が集中しています。しばらく時間をおいてから再度お試しください。',
+          validation: '入力内容をご確認ください。',
+          turnstile: '認証の確認に失敗しました。ページを再読み込みのうえ、再度お試しください。',
+          parse: '通信エラーが発生しました。再度お試しください。'
+        };
         if (formErr) {
           formErr.style.display = 'block';
+          if (formErrSub) {
+            if (formErrorCode === 'mail') {
+              formErrSub.innerHTML = 'メールの送信に失敗しました。しばらくしてから再度お試しいただくか、<a href="mailto:mirinae@kaonnuri.com">mirinae@kaonnuri.com</a> までご連絡ください。';
+            } else if (formErrorMessages[formErrorCode]) {
+              formErrSub.textContent = formErrorMessages[formErrorCode];
+            }
+          }
           formErr.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
       }

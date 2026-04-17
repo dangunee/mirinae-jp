@@ -236,18 +236,9 @@ async function sendApplicantConfirmationEmail(
   }
 }
 
-/**
- * 公開フォーム（trial / syutyu / netlesson 等）からの送信を Gmail SMTP で通知。
- * FORM_NOTIFY_TO（未設定時は GMAIL_USER、さらに未設定時は mirinae@kaonnuri.com）
- */
-export async function sendPublicFormNotification(
+export async function sendPublicFormViaGmail(
   data: Record<string, string>
 ): Promise<{ ok: boolean; error?: string }> {
-  const subject = data._subject?.trim() || "【ミリネ韓国語】お問い合わせ";
-  if (requiresCourseTurnstile(subject)) {
-    return sendCourseApplicationViaResend(data);
-  }
-
   const gmailUser = process.env.GMAIL_USER?.trim();
   const t = getPublicFormTransporter();
   if (!t || !gmailUser) {
@@ -256,6 +247,7 @@ export async function sendPublicFormNotification(
 
   const to =
     process.env.FORM_NOTIFY_TO?.trim() || gmailUser || "mirinae@kaonnuri.com";
+  const subject = data._subject?.trim() || "【ミリネ韓国語】お問い合わせ";
 
   const replyTo = resolveReplyTo(data);
   const html = buildPublicFormNotificationHtml(data);
@@ -281,6 +273,32 @@ export async function sendPublicFormNotification(
   } catch (e) {
     return { ok: false, error: e instanceof Error ? e.message : String(e) };
   }
+}
+
+/**
+ * 公開フォーム（trial / syutyu / netlesson 等）。
+ * 標準コース申込は Resend 優先、未設定・失敗時は Gmail にフォールバック。
+ */
+export async function sendPublicFormNotification(
+  data: Record<string, string>
+): Promise<{ ok: boolean; error?: string }> {
+  const subject = data._subject?.trim() || "【ミリネ韓国語】お問い合わせ";
+  if (requiresCourseTurnstile(subject)) {
+    const resendResult = await sendCourseApplicationViaResend(data);
+    if (resendResult.ok) return resendResult;
+    const gmailUser = process.env.GMAIL_USER?.trim();
+    const t = getPublicFormTransporter();
+    if (t && gmailUser) {
+      console.warn(
+        "[public-form] course form Resend unavailable, using Gmail:",
+        resendResult.error
+      );
+      return sendPublicFormViaGmail(data);
+    }
+    return resendResult;
+  }
+
+  return sendPublicFormViaGmail(data);
 }
 
 export async function sendOtpEmail(to: string, otp: string): Promise<boolean> {

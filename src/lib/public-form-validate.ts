@@ -1,0 +1,106 @@
+import type { NextRequest } from "next/server";
+import { getTurnstileTokenFromPayload, verifyTurnstileToken } from "@/lib/turnstile";
+
+const EMAIL_LIKE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+/** 通信講座の JSON 送信など、電話番号が無いフォーム */
+export function isNetlessonStyleSubject(subject: string | undefined): boolean {
+  if (!subject) return false;
+  return (
+    subject.includes("作文トレーニング") ||
+    subject.includes("音読トレーニング")
+  );
+}
+
+/**
+ * trial / syutyu の標準申込フォーム（Turnstile + Resend 対象）。
+ * netlesson の JSON（「体験申込（作文…」形式）は含めない。
+ */
+export function requiresCourseTurnstile(subject: string | undefined): boolean {
+  if (!subject) return false;
+  const s = subject.trim();
+  return s.startsWith("【体験申込】") || s.startsWith("【講座申込】");
+}
+
+export function normalizeFormData(
+  data: Record<string, string>
+): Record<string, string> {
+  const out: Record<string, string> = {};
+  for (const [k, v] of Object.entries(data)) {
+    out[k] = typeof v === "string" ? v.trim() : v;
+  }
+  return out;
+}
+
+function hasHttp(s: string): boolean {
+  return s.toLowerCase().includes("http");
+}
+
+/** 同一文字の極端な繰り返し */
+function looksLikeGibberishName(s: string): boolean {
+  if (s.length < 2) return true;
+  if (/^(.)\1{7,}$/u.test(s)) return true;
+  return false;
+}
+
+/** 日本の電話らしい桁数（数字のみカウント） */
+function isPlausibleJpPhone(raw: string): boolean {
+  const d = raw.replace(/\D/g, "");
+  return d.length >= 10 && d.length <= 15;
+}
+
+/**
+ * スパム除け・必須チェック。戻り値: null=OK、非null=エラーコード
+ */
+export function validatePublicFormPayload(
+  data: Record<string, string>
+): string | null {
+  const subject = (data._subject || "").trim();
+  if (subject.includes("メールマガジン")) {
+    const email = (data.メールアドレス || "").trim();
+    if (!email || !EMAIL_LIKE.test(email)) return "invalid_input";
+    return null;
+  }
+
+  const name = (data.お名前 || "").trim();
+  const furigana = (data.ふりがな || "").trim();
+  const email = (data.メールアドレス || "").trim();
+  const msgInquiry = (data.お問い合わせ || "").trim();
+  const msgOther = (data.メッセージ || "").trim();
+
+  if (!name || !email) return "invalid_input";
+  if (name.length < 2 || name.length > 120) return "spam_detected";
+  if (looksLikeGibberishName(name)) return "spam_detected";
+  if (hasHttp(name)) return "spam_detected";
+
+  if (!isNetlessonStyleSubject(subject) && !subject.includes("メールマガジン")) {
+    if (!furigana || furigana.length < 1) return "invalid_input";
+  }
+  if (furigana.length > 120 || hasHttp(furigana)) return "spam_detected";
+
+  if (!EMAIL_LIKE.test(email)) return "invalid_input";
+  if (email.length > 254) return "invalid_input";
+
+  if (msgInquiry.length > 0 && msgInquiry.length < 3) return "spam_detected";
+  if (msgOther.length > 0 && msgOther.length < 3) return "spam_detected";
+
+  if (!isNetlessonStyleSubject(data._subject)) {
+    const phoneLine =
+      (data.お電話番号 || "").trim() || (data.ご連絡先 || "").trim();
+    if (!phoneLine || phoneLine.length < 3) return "invalid_input";
+    if (!isPlausibleJpPhone(phoneLine)) return "invalid_input";
+  }
+
+  return null;
+}
+
+export async function assertCourseTurnstileOk(
+  req: NextRequest,
+  data: Record<string, string>
+): Promise<string | null> {
+  if (!requiresCourseTurnstile(data._subject)) return null;
+  const token = getTurnstileTokenFromPayload(data);
+  const ok = await verifyTurnstileToken(req, token);
+  if (!ok) return "turnstile_failed";
+  return null;
+}

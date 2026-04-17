@@ -969,6 +969,11 @@
       text-align: center;
       padding-top: 4px;
     }
+    .syutyu-cta-form .turnstile-slot {
+      margin: 12px 0 8px;
+      display: flex;
+      justify-content: center;
+    }
     .syutyu-cta-form .submit-btn {
       width: 100%;
       max-width: none;
@@ -2259,7 +2264,7 @@
           </div>
           <p class="syutyu-cta-form-description">受講したい講座が決まっている方はこちらから本申込ができます。希望の教室・レッスン名・日程などをご記入ください。</p>
           <div class="syutyu-cta-form-wrap">
-            <form class="syutyu-cta-form" action="/api/public-form" method="POST">
+            <form class="syutyu-cta-form" action="/api/public-form" method="POST" data-turnstile-form>
               <input type="hidden" name="_captcha" value="false">
                   <input type="hidden" name="_subject" value="【講座申込】ミリネ韓国語教室">
                   <input type="hidden" name="_next" value="https://mirinae.jp/trial.html?thanks=1&amp;tab=tab02">
@@ -2366,6 +2371,8 @@
                       </tr>
                     </tbody>
                   </table>
+                  <input type="hidden" name="turnstileToken" value="" class="turnstile-token-input" autocomplete="off">
+                  <div class="turnstile-slot" aria-label="認証"></div>
                   <div class="form-actions">
                     <button type="submit" class="submit-btn">申し込みする</button>
                   </div>
@@ -2845,7 +2852,7 @@
           </div>
           <p class="syutyu-cta-form-description">受講したい講座が決まっている方はこちらから本申込ができます。希望の教室・レッスン名・日程などをご記入ください。</p>
           <div class="syutyu-cta-form-wrap">
-            <form class="syutyu-cta-form" action="/api/public-form" method="POST">
+            <form class="syutyu-cta-form" action="/api/public-form" method="POST" data-turnstile-form>
               <input type="hidden" name="_captcha" value="false">
                   <input type="hidden" name="_subject" value="【講座申込】ミリネ韓国語教室">
                   <input type="hidden" name="_next" value="https://mirinae.jp/trial.html?thanks=1&amp;tab=tab02">
@@ -2957,6 +2964,8 @@
                       </tr>
                     </tbody>
                   </table>
+                  <input type="hidden" name="turnstileToken" value="" class="turnstile-token-input" autocomplete="off">
+                  <div class="turnstile-slot" aria-label="認証"></div>
                   <div class="form-actions">
                     <button type="submit" class="submit-btn">申し込みする</button>
                   </div>
@@ -3498,7 +3507,7 @@
           </div>
           <p class="syutyu-cta-form-description">受講したい講座が決まっている方はこちらから本申込ができます。希望の教室・レッスン名・日程などをご記入ください。</p>
           <div class="syutyu-cta-form-wrap">
-            <form class="syutyu-cta-form" action="/api/public-form" method="POST">
+            <form class="syutyu-cta-form" action="/api/public-form" method="POST" data-turnstile-form>
               <input type="hidden" name="_captcha" value="false">
                   <input type="hidden" name="_subject" value="【講座申込】ミリネ韓国語教室">
                   <input type="hidden" name="_next" value="https://mirinae.jp/trial.html?thanks=1&amp;tab=tab02">
@@ -3613,6 +3622,8 @@
                       </tr>
                     </tbody>
                   </table>
+                  <input type="hidden" name="turnstileToken" value="" class="turnstile-token-input" autocomplete="off">
+                  <div class="turnstile-slot" aria-label="認証"></div>
                   <div class="form-actions">
                     <button type="submit" class="submit-btn">申し込みする</button>
                   </div>
@@ -4190,7 +4201,7 @@
           </div>
           <p class="syutyu-cta-form-description">受講したい講座が決まっている方はこちらから本申込ができます。希望の教室・レッスン名・日程などをご記入ください。</p>
           <div class="syutyu-cta-form-wrap">
-            <form class="syutyu-cta-form" action="/api/public-form" method="POST">
+            <form class="syutyu-cta-form" action="/api/public-form" method="POST" data-turnstile-form>
               <input type="hidden" name="_captcha" value="false">
                   <input type="hidden" name="_subject" value="【講座申込】ミリネ韓国語教室">
                   <input type="hidden" name="_next" value="https://mirinae.jp/trial.html?thanks=1&amp;tab=tab02">
@@ -4302,6 +4313,8 @@
                       </tr>
                     </tbody>
                   </table>
+                  <input type="hidden" name="turnstileToken" value="" class="turnstile-token-input" autocomplete="off">
+                  <div class="turnstile-slot" aria-label="認証"></div>
                   <div class="form-actions">
                     <button type="submit" class="submit-btn">申し込みする</button>
                   </div>
@@ -4790,6 +4803,7 @@
       });
     })();
   </script>
+  <script src="/js/turnstile-forms.js" defer></script>
   <script src="/testimonials.js"></script>
   <script src="/admin-badge.js"></script>
   <script src="/js/analytics.js"></script>

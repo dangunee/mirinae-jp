@@ -18,6 +18,8 @@ const RULES: Record<string, LimitRule> = {
   admin_login: { windowMs: 15 * 60 * 1000, max: 10 },
   admin_verify_otp: { windowMs: 15 * 60 * 1000, max: 20 },
   newsletter_subscribe: { windowMs: 60 * 60 * 1000, max: 30 },
+  /** 公開フォーム POST（/api/public-form）— IP あたり */
+  public_form_submit: { windowMs: 10 * 60 * 1000, max: 5 },
 };
 
 function windowIndex(now: number, windowMs: number): number {

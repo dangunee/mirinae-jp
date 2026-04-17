@@ -502,6 +502,7 @@
     textarea { min-height: 120px; resize: vertical; }
 
     .form-actions { margin-top: 24px; text-align: center; }
+    .turnstile-slot { margin: 12px 0 8px; display: flex; justify-content: center; }
     .submit-btn {
       width: 100%;
       padding: 16px;
@@ -653,7 +654,7 @@
           </div>
         </div>
         <div class="form-card">
-          <form action="/api/public-form" method="POST">
+          <form action="/api/public-form" method="POST" data-turnstile-form>
             <input type="hidden" name="_captcha" value="false">
             <input type="hidden" name="_subject" value="【体験申込】ミリネ韓国語教室">
             <input type="hidden" name="_next" value="https://mirinae.jp/trial.html?thanks=1&tab=tab01">
@@ -783,6 +784,8 @@
                 </tr>
               </tbody>
             </table>
+            <input type="hidden" name="turnstileToken" value="" class="turnstile-token-input" autocomplete="off">
+            <div class="turnstile-slot" aria-label="認証"></div>
             <div class="form-actions">
               <button type="submit" class="submit-btn">送信する</button>
             </div>
@@ -797,7 +800,7 @@
           <div class="content-inner">
           <p class="form-note">受講したい講座が決まっている方はこちらから本申込ができます。希望の教室・レッスン名・日程などをご記入ください。</p>
 
-          <form action="/api/public-form" method="POST">
+          <form action="/api/public-form" method="POST" data-turnstile-form>
             <input type="hidden" name="_captcha" value="false">
             <input type="hidden" name="_subject" value="【講座申込】ミリネ韓国語教室">
             <input type="hidden" name="_next" value="https://mirinae.jp/trial.html?thanks=1&tab=tab02">
@@ -944,6 +947,8 @@
                 </tr>
               </tbody>
             </table>
+            <input type="hidden" name="turnstileToken" value="" class="turnstile-token-input" autocomplete="off">
+            <div class="turnstile-slot" aria-label="認証"></div>
             <div class="form-actions">
               <button type="submit" class="submit-btn">送信する</button>
             </div>
@@ -1316,6 +1321,7 @@
       });
     })();
   </script>
+  <script src="/js/turnstile-forms.js" defer></script>
   <script src="/testimonials.js"></script>
   <script src="/admin-badge.js"></script>
   <script src="/js/analytics.js"></script>

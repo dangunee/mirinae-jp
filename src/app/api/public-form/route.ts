@@ -1,57 +1,21 @@
 import { NextRequest, NextResponse } from "next/server";
 import { sendPublicFormNotification } from "@/lib/email";
+import { rateLimitOrThrow } from "@/lib/rate-limit";
+import {
+  assertCourseTurnstileOk,
+  normalizeFormData,
+  validatePublicFormPayload,
+} from "@/lib/public-form-validate";
 
 export const runtime = "nodejs";
 
 const DEFAULT_REDIRECT =
   "https://mirinae.jp/trial.html?thanks=1&tab=tab02";
 
-const EMAIL_LIKE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-/** 通信講座の JSON 送信など、電話番号が無いフォーム */
-function isNetlessonStyleSubject(subject: string | undefined): boolean {
-  if (!subject) return false;
-  return (
-    subject.includes("作文トレーニング") ||
-    subject.includes("音読トレーニング")
-  );
-}
-
-/**
- * スパム除け（名前・メール必須、名前に URL 禁止、任意メッセージは 3 文字未満なら拒否）。
- * 電話は trial / syutyu 系のみ必須（通信講座の JSON は除く）。
- */
-function validatePublicFormPayload(
-  data: Record<string, string>
-): string | null {
-  const subject = (data._subject || "").trim();
-  if (subject.includes("メールマガジン")) {
-    const email = (data.メールアドレス || "").trim();
-    if (!email || !EMAIL_LIKE.test(email)) return "invalid_input";
-    return null;
-  }
-
-  const name = (data.お名前 || "").trim();
-  const email = (data.メールアドレス || "").trim();
-  const msgInquiry = (data.お問い合わせ || "").trim();
-  const msgOther = (data.メッセージ || "").trim();
-
-  if (!name || !email) return "invalid_input";
-  if (name.length < 2) return "spam_detected";
-  if (name.toLowerCase().includes("http")) return "spam_detected";
-  if (!EMAIL_LIKE.test(email)) return "invalid_input";
-  if (msgInquiry.length > 0 && msgInquiry.length < 3) return "spam_detected";
-  if (msgOther.length > 0 && msgOther.length < 3) return "spam_detected";
-
-  if (!isNetlessonStyleSubject(data._subject)) {
-    // tab01/02 は お電話番号、tab04 お問い合わせは ご連絡先（携帯番号等）
-    const phoneLine =
-      (data.お電話番号 || "").trim() || (data.ご連絡先 || "").trim();
-    if (!phoneLine || phoneLine.length < 3) return "invalid_input";
-  }
-
-  return null;
-}
+const SAFE_CLIENT_ERROR = "入力内容をご確認ください。";
+const SAFE_SERVER_ERROR = "送信に失敗しました。しばらくしてから再度お試しください。";
+const SAFE_RATE_ERROR =
+  "送信が集中しています。しばらく時間をおいてから再度お試しください。";
 
 function safeRedirectUrl(next: string | undefined): URL {
   const fallback = new URL(DEFAULT_REDIRECT);
@@ -113,6 +77,27 @@ export async function POST(req: NextRequest) {
     );
   }
 
+  try {
+    await rateLimitOrThrow(req, "public_form_submit");
+  } catch (e) {
+    if ((e as Error & { status?: number }).status === 429) {
+      const wantsJson = (req.headers.get("content-type") || "").includes(
+        "application/json"
+      );
+      if (wantsJson) {
+        return NextResponse.json(
+          { success: false, message: SAFE_RATE_ERROR },
+          { status: 429 }
+        );
+      }
+      return NextResponse.redirect(
+        new URL("https://mirinae.jp/trial.html?form_error=1"),
+        303
+      );
+    }
+    throw e;
+  }
+
   const wantsJson = (req.headers.get("content-type") || "").includes(
     "application/json"
   );
@@ -123,7 +108,7 @@ export async function POST(req: NextRequest) {
   } catch {
     if (wantsJson)
       return NextResponse.json(
-        { success: false, message: "Bad request" },
+        { success: false, message: SAFE_CLIENT_ERROR },
         { status: 400 }
       );
     return NextResponse.redirect(
@@ -131,6 +116,8 @@ export async function POST(req: NextRequest) {
       303
     );
   }
+
+  data = normalizeFormData(data);
 
   // スパム用ハニーポット（値が入っていたら送信せず成功扱い）
   if (data._honey && data._honey.trim() !== "") {
@@ -146,10 +133,20 @@ export async function POST(req: NextRequest) {
   if (validationError) {
     if (wantsJson)
       return NextResponse.json(
-        {
-          success: false,
-          message: "入力内容をご確認ください。",
-        },
+        { success: false, message: SAFE_CLIENT_ERROR },
+        { status: 400 }
+      );
+    return NextResponse.redirect(
+      new URL("https://mirinae.jp/trial.html?form_error=1"),
+      303
+    );
+  }
+
+  const turnstileErr = await assertCourseTurnstileOk(req, data);
+  if (turnstileErr) {
+    if (wantsJson)
+      return NextResponse.json(
+        { success: false, message: SAFE_CLIENT_ERROR },
         { status: 400 }
       );
     return NextResponse.redirect(
@@ -164,7 +161,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json(
         {
           success: false,
-          message: result.error || "送信に失敗しました",
+          message: SAFE_SERVER_ERROR,
         },
         { status: 500 }
       );

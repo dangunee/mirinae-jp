@@ -117,11 +117,11 @@ function getCourseResendFromAddress(): string | null {
   return raw || null;
 }
 
+/** 事務局への通知先。GMAIL_USER（送信SMTP用）は使わない（未設定時は mirinae）。 */
 function getCourseNotifyToAddress(): string {
   return (
     process.env.COURSE_FORM_NOTIFY_TO?.trim() ||
     process.env.FORM_NOTIFY_TO?.trim() ||
-    process.env.GMAIL_USER?.trim() ||
     "mirinae@kaonnuri.com"
   );
 }
@@ -249,7 +249,7 @@ export async function sendPublicFormViaGmail(
   }
 
   const to =
-    process.env.FORM_NOTIFY_TO?.trim() || gmailUser || "mirinae@kaonnuri.com";
+    process.env.FORM_NOTIFY_TO?.trim() || "mirinae@kaonnuri.com";
   const subject = data._subject?.trim() || "【ミリネ韓国語】お問い合わせ";
 
   const replyTo = resolveReplyTo(data);

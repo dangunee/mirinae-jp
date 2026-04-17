@@ -974,6 +974,21 @@
       display: flex;
       justify-content: center;
     }
+    .syutyu-form-error-banner {
+      max-width: min(1200px, 100%);
+      margin: 0 auto 20px;
+      padding: 16px 20px;
+      border: 1px solid rgba(192, 57, 43, 0.45);
+      border-radius: 12px;
+      background: rgba(253, 241, 240, 0.95);
+      color: var(--dark);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+    .syutyu-form-error-banner p { margin: 0 0 8px 0; }
+    .syutyu-form-error-banner p:last-child { margin-bottom: 0; }
+    .syutyu-form-error-banner a { color: var(--gold); font-weight: 600; text-decoration: none; }
+    .syutyu-form-error-banner a:hover { text-decoration: underline; }
     .syutyu-cta-form .submit-btn {
       width: 100%;
       max-width: none;
@@ -2047,6 +2062,10 @@
   </div>
 
   <div class="page-wrapper">
+    <div id="syutyu-form-error-banner" class="syutyu-form-error-banner" style="display:none;" role="alert" aria-live="polite">
+      <p style="font-weight:600;">送信に失敗しました。</p>
+      <p id="syutyu-form-error-sub">時間をおいて再度お試しいただくか、<a href="mailto:mirinae@kaonnuri.com">mirinae@kaonnuri.com</a> までご連絡ください。</p>
+    </div>
     <div class="main-content">
       <div class="group-main-grid">
         <div class="group-left">
@@ -2270,6 +2289,7 @@
                   <input type="hidden" name="_next" value="https://mirinae.jp/trial.html?thanks=1&amp;tab=tab02">
                   <input type="hidden" name="_replyto" value="メールアドレス">
                   <input type="hidden" name="_url" value="https://mirinae.jp/syutyu.html">
+                  <input type="hidden" name="_error_next" value="https://mirinae.jp/syutyu/#tab01">
                   <input type="hidden" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
                   <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
                   <input type="hidden" name="タイトル" value="講座の申し込み">
@@ -2858,6 +2878,7 @@
                   <input type="hidden" name="_next" value="https://mirinae.jp/trial.html?thanks=1&amp;tab=tab02">
                   <input type="hidden" name="_replyto" value="メールアドレス">
                   <input type="hidden" name="_url" value="https://mirinae.jp/syutyu.html">
+                  <input type="hidden" name="_error_next" value="https://mirinae.jp/syutyu/#tab02">
                   <input type="hidden" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
                   <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
                   <input type="hidden" name="タイトル" value="講座の申し込み">
@@ -3513,6 +3534,7 @@
                   <input type="hidden" name="_next" value="https://mirinae.jp/trial.html?thanks=1&amp;tab=tab02">
                   <input type="hidden" name="_replyto" value="メールアドレス">
                   <input type="hidden" name="_url" value="https://mirinae.jp/syutyu.html">
+                  <input type="hidden" name="_error_next" value="https://mirinae.jp/syutyu/#tab03">
                   <input type="hidden" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
                   <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
                   <input type="hidden" name="タイトル" value="講座の申し込み">
@@ -4207,6 +4229,7 @@
                   <input type="hidden" name="_next" value="https://mirinae.jp/trial.html?thanks=1&amp;tab=tab02">
                   <input type="hidden" name="_replyto" value="メールアドレス">
                   <input type="hidden" name="_url" value="https://mirinae.jp/syutyu.html">
+                  <input type="hidden" name="_error_next" value="https://mirinae.jp/syutyu/#tab04">
                   <input type="hidden" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
                   <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
                   <input type="hidden" name="タイトル" value="講座の申し込み">
@@ -4782,6 +4805,29 @@
         });
       });
 
+      var params = new URLSearchParams(location.search);
+      var formErrorCode = params.get('form_error');
+      if (formErrorCode) {
+        var syFormErr = document.getElementById('syutyu-form-error-banner');
+        var syFormErrSub = document.getElementById('syutyu-form-error-sub');
+        var syFormErrorMessages = {
+          rate: '送信が集中しています。しばらく時間をおいてから再度お試しください。',
+          validation: '入力内容をご確認ください。',
+          turnstile: '認証の確認に失敗しました。ページを再読み込みのうえ、再度お試しください。',
+          parse: '通信エラーが発生しました。再度お試しください。'
+        };
+        if (syFormErr) {
+          syFormErr.style.display = 'block';
+          if (syFormErrSub) {
+            if (formErrorCode === 'mail') {
+              syFormErrSub.innerHTML = 'メールの送信に失敗しました。しばらくしてから再度お試しいただくか、<a href="mailto:mirinae@kaonnuri.com">mirinae@kaonnuri.com</a> までご連絡ください。';
+            } else if (syFormErrorMessages[formErrorCode]) {
+              syFormErrSub.textContent = syFormErrorMessages[formErrorCode];
+            }
+          }
+        }
+      }
+
       var hash = location.hash.slice(1);
       if (tabIds.indexOf(hash) !== -1) {
         switchTab(hash);
@@ -4794,6 +4840,10 @@
           a.classList.toggle('active', href === 'syutyu.html#' + activeTab);
         });
         initSyutyuReveal(activeTab);
+      }
+
+      if (formErrorCode && document.getElementById('syutyu-form-error-banner')) {
+        document.getElementById('syutyu-form-error-banner').scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
 
       window.addEventListener('hashchange', function() {

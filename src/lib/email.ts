@@ -81,6 +81,7 @@ function getFormMailFrom(smtpUser: string): SendMailOptions["from"] {
 
 const INTERNAL_FORM_SKIP = new Set([
   "_next",
+  "_error_next",
   "_captcha",
   "_honey",
   "_subject",

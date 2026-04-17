@@ -14,7 +14,30 @@ const DEFAULT_REDIRECT =
 
 const TRIAL_ERROR_BASE = "https://mirinae.jp/trial.html";
 
-function redirectFormError(code: string): NextResponse {
+const ALLOWED_REDIRECT_HOST = new Set([
+  "mirinae.jp",
+  "www.mirinae.jp",
+  "localhost",
+  "127.0.0.1",
+]);
+
+/** 失敗時の遷移先。フォームの _error_next（任意）があれば優先（例: 集中講座から送信→syutyu に戻す） */
+function redirectFormError(
+  code: string,
+  data?: Record<string, string>
+): NextResponse {
+  const custom = data?._error_next?.trim();
+  if (custom) {
+    try {
+      const u = new URL(custom);
+      if (ALLOWED_REDIRECT_HOST.has(u.hostname)) {
+        u.searchParams.set("form_error", code);
+        return NextResponse.redirect(u, 303);
+      }
+    } catch {
+      /* fall through */
+    }
+  }
   const u = new URL(TRIAL_ERROR_BASE);
   u.searchParams.set("form_error", code);
   return NextResponse.redirect(u, 303);
@@ -138,7 +161,7 @@ export async function POST(req: NextRequest) {
         { success: false, message: SAFE_CLIENT_ERROR },
         { status: 400 }
       );
-    return redirectFormError("validation");
+    return redirectFormError("validation", data);
   }
 
   const turnstileErr = await assertCourseTurnstileOk(req, data);
@@ -148,7 +171,7 @@ export async function POST(req: NextRequest) {
         { success: false, message: SAFE_CLIENT_ERROR },
         { status: 400 }
       );
-    return redirectFormError("turnstile");
+    return redirectFormError("turnstile", data);
   }
 
   const result = await sendPublicFormNotification(data);
@@ -161,7 +184,7 @@ export async function POST(req: NextRequest) {
         },
         { status: 500 }
       );
-    return redirectFormError("mail");
+    return redirectFormError("mail", data);
   }
 
   if (wantsJson) return NextResponse.json({ success: true });

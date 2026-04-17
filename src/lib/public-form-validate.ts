@@ -36,9 +36,24 @@ function hasHttp(s: string): boolean {
   return s.toLowerCase().includes("http");
 }
 
-/** 同一文字の極端な繰り返し */
+/** ユーザー表示名の「文字」数（ハングル・漢字・英字いずれも1文字ずつ数える） */
+function graphemeCount(s: string): number {
+  try {
+    const Seg = (Intl as unknown as { Segmenter?: typeof Intl.Segmenter })
+      .Segmenter;
+    if (Seg) {
+      const seg = new Seg("und", { granularity: "grapheme" });
+      return [...seg.segment(s)].length;
+    }
+  } catch {
+    /* ignore */
+  }
+  return [...s].length;
+}
+
+/** 同一文字の極端な繰り返し（1グラフェムの名前は許可） */
 function looksLikeGibberishName(s: string): boolean {
-  if (s.length < 2) return true;
+  if (graphemeCount(s) < 1) return true;
   if (/^(.)\1{7,}$/u.test(s)) return true;
   return false;
 }
@@ -69,7 +84,7 @@ export function validatePublicFormPayload(
   const msgOther = (data.メッセージ || "").trim();
 
   if (!name || !email) return "invalid_input";
-  if (name.length < 2 || name.length > 120) return "spam_detected";
+  if (name.length > 120) return "spam_detected";
   if (looksLikeGibberishName(name)) return "spam_detected";
   if (hasHttp(name)) return "spam_detected";
 

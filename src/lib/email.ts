@@ -66,15 +66,17 @@ function getPublicFormTransporter(): nodemailer.Transporter | null {
  */
 function getFormMailFrom(smtpUser: string): SendMailOptions["from"] {
   const raw = process.env.FORM_MAIL_FROM?.trim();
-  if (!raw) return smtpUser;
-  const bracket = raw.match(/^(.+?)\s*<([^>]+)>\s*$/);
-  if (bracket) {
-    const name = bracket[1].trim().replace(/^["']|["']$/g, "");
-    const address = bracket[2].trim();
-    if (EMAIL_LIKE.test(address)) return { name, address };
+  if (raw) {
+    const bracket = raw.match(/^(.+?)\s*<([^>]+)>\s*$/);
+    if (bracket) {
+      const name = bracket[1].trim().replace(/^["']|["']$/g, "");
+      const address = bracket[2].trim();
+      if (EMAIL_LIKE.test(address)) return { name, address };
+    }
+    if (EMAIL_LIKE.test(raw)) return raw;
   }
-  if (EMAIL_LIKE.test(raw)) return raw;
-  return smtpUser;
+  // FORM_MAIL_FROM 未設定時: Gmail プロフィール名（例: anirue）ではなく教室名を表示
+  return { name: "ミリネ韓国語教室", address: smtpUser };
 }
 
 const INTERNAL_FORM_SKIP = new Set([

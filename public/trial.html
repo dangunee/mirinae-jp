@@ -978,6 +978,7 @@
             <input type="hidden" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
             <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
             <input type="hidden" name="タイトル" value="レベルテスト">
+            <input type="hidden" name="ご希望レッスン" value="レベルテスト">
             <table class="form-table">
               <tbody>
                 <tr>
@@ -1034,24 +1035,6 @@
                       <option value="">選択してください</option>
                       <option value="新宿教室">新宿教室</option>
                       <option value="Teams / Zoom レッスン">Teams / Zoom レッスン</option>
-                      <option value="メール通信添削">メール通信添削</option>
-                    </select>
-                  </td>
-                </tr>
-                <tr>
-                  <th>ご希望レッスン<span class="required">必須</span></th>
-                  <td>
-                    <select name="ご希望レッスン" required>
-                      <option value="レベルテスト" selected>レベルテスト</option>
-                      <option value="個人レッスン">個人レッスン</option>
-                      <option value="短期集中個人レッスン">短期集中個人レッスン</option>
-                      <option value="発音矯正レッスン">発音矯正レッスン</option>
-                      <option value="時事韓国語レッスン">時事韓国語レッスン</option>
-                      <option value="土曜上級1講座">土曜上級1講座</option>
-                      <option value="土曜上級2講座">土曜上級2講座</option>
-                      <option value="ネットレッスン">ネットレッスン</option>
-                      <option value="会話トレーニング">会話トレーニング</option>
-                      <option value="その他">その他</option>
                     </select>
                   </td>
                 </tr>
@@ -1074,14 +1057,14 @@
                   </td>
                 </tr>
                 <tr>
-                  <th>体験・申し込み講座のご希望日と時間帯 <span class="optional">任意</span></th>
+                  <th>レベルテストのご希望日時<span class="required">必須</span></th>
                   <td>
-                    <textarea name="希望日時" placeholder="例）○月○日 ○時～○時"></textarea>
+                    <textarea name="希望日時" required placeholder="例）○月○日 ○時～○時"></textarea>
                   </td>
                 </tr>
                 <tr>
-                  <th>簡単な韓国語の学習歴及びレベル <span class="optional">任意</span></th>
-                  <td><textarea name="学習歴"></textarea></td>
+                  <th>簡単な韓国語の学習歴及びレベル<span class="required">必須</span></th>
+                  <td><textarea name="学習歴" required></textarea></td>
                 </tr>
                 <tr>
                   <th>お問い合わせ <span class="optional">任意</span></th>

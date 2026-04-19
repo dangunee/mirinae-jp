@@ -260,14 +260,13 @@
 
     .group-main-grid {
       display: grid;
-      /* 1fr の既定 min がコンテンツ幅になり二列合計がはみ出すのを防ぐ（サイドを下に落とす原因になりうる） */
-      grid-template-columns: minmax(0, 1fr) minmax(0, 300px);
+      grid-template-columns: 1fr 300px;
       gap: 32px;
       align-items: start;
-      width: 100%;
-      box-sizing: border-box;
     }
     @media (max-width: 900px) {
+      .group-main-grid { grid-template-columns: 1fr; }
+      .group-main-grid .sidebar { display: none; }
       nav { padding: 0 16px; }
       .nav-hamburger { display: flex; margin-left: auto; }
       .nav-links {
@@ -310,15 +309,6 @@
       .beg-tuition-table thead th { font-size: 14px; }
       .beg-tuition-table td { font-size: 15px; }
     }
-    /* 狭いスマホのみ1カラム＋サイド非表示。900px ではタブレットが二列を失うためここでは切り替えない */
-    @media (max-width: 640px) {
-      .group-main-grid {
-        grid-template-columns: 1fr;
-      }
-      .group-main-grid .sidebar {
-        display: none;
-      }
-    }
     @media (max-width: 600px) {
       nav { padding: 0 12px; }
       .nav-logo { font-size: 13px; white-space: nowrap; }
@@ -330,19 +320,11 @@
       .beg-tuition-table thead th { font-size: 13px; }
       .beg-tuition-table td { font-size: 14px; }
     }
-    .group-left {
-      min-width: 0;
-      max-width: 100%;
-    }
+    .group-left { min-width: 0; }
     .sidebar {
       position: sticky;
       top: 80px;
       padding-top: 32px;
-      min-width: 0;
-      width: 300px;
-      max-width: 100%;
-      align-self: start;
-      box-sizing: border-box;
     }
     .sidebar-promo-card {
       margin-bottom: 20px;

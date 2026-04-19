@@ -2571,15 +2571,19 @@
       margin-top: 8px;
     }
     #tab01 .t01-schedule-full .t01-schedule-box { width: 100%; box-sizing: border-box; }
-    #tab01 .t01-schedule-full .t01-tuition-notes {
-      margin-top: 16px;
-      padding: 14px 18px;
-      background: var(--beige);
-      border-radius: 10px;
-      border-left: 3px solid var(--border);
+    /* 開講スケジュール＋注記を同一カード内に（共通 .t01-tuition-notes の箱スタイルを解除） */
+    #tab01 .t01-schedule-full .t01-schedule-box .t01-tuition-notes {
+      margin-top: 18px;
+      padding: 18px 0 0;
+      border-top: 1px solid var(--border);
+      border-left: none;
+      border-radius: 0;
+      background: transparent;
       font-size: 11px;
       color: var(--text-muted);
       line-height: 1.9;
+      width: 100%;
+      box-sizing: border-box;
     }
     #tab01 .kaiwa-form-banner {
       border-radius: 12px;
@@ -2599,6 +2603,12 @@
       color: var(--mid);
     }
     #tab01 .kaiwa-form-banner a { color: var(--gold); font-weight: 600; }
+    #kaiwa-apply {
+      scroll-margin-top: 80px;
+    }
+    #tab01 .t01-schedule-full + .kaiwa-apply-wrap {
+      margin-top: 0;
+    }
     #tab01 .kaiwa-apply-wrap {
       margin-top: 28px;
       background: var(--white);
@@ -2886,7 +2896,7 @@
                   <div class="t01-hero-chip"><span class="icon">📅</span> 水 11:00 / 土 14:00</div>
                 </div>
                 <div class="t01-hero-btns">
-                  <a href="/trial" class="t01-btn-primary">お申し込み→</a>
+                  <a href="#kaiwa-apply" class="t01-btn-primary kaiwa-go-apply">お申し込み→</a>
                   <a href="#kaiwa-theme-content" class="t01-btn-secondary">テーマ一覧を見る</a>
                 </div>
               </div>
@@ -3024,7 +3034,7 @@
               <h3>気になるテーマは見つかりましたか？</h3>
               <p>ミリネ韓国語教室では、これらのテーマを使った<br>個人レッスン・グループレッスンをご用意しています。</p>
             </div>
-            <a href="https://mirinae.jp/trial.html" class="kaiwa-cta-btn">お申し込みはこちら →</a>
+            <a href="#kaiwa-apply" class="kaiwa-cta-btn kaiwa-go-apply">お申し込みはこちら →</a>
           </div>
 
           <div class="beg-sec-header kaiwa-reveal">
@@ -3083,28 +3093,27 @@
                 <div class="t01-schedule-rows">
                   <div class="t01-schedule-row">
                     <div class="day">水</div>
-                    <span>毎週水曜日 11:00〜11:50</span>
+                    <span>水・対面　毎週水曜日 11:00〜11:50</span>
                   </div>
                   <div class="t01-schedule-row">
                     <div class="day">土</div>
-                    <span>毎週土曜日 14:00〜14:50</span>
+                    <span>土・オンライン　毎週土曜日 14:00〜14:50</span>
                   </div>
                 </div>
-              </div>
-              <div class="t01-tuition-notes">
-                ※回数券の場合、予約は1週間前まで。キャンセル不可。<br>
-                ※一人からスタート可能です。
+                <div class="t01-tuition-notes">
+                  ※回数券の場合、予約は1週間前まで。キャンセル不可。<br>
+                  ※一人からスタート可能です。
+                </div>
               </div>
             </div>
 
-            <div class="kaiwa-apply-wrap">
+            <div class="kaiwa-apply-wrap" id="kaiwa-apply" tabindex="-1">
               <div class="kaiwa-apply-tabs" role="tablist" aria-label="お申込みの種類">
                 <button type="button" class="kaiwa-apply-tab active" role="tab" aria-selected="true" id="kaiwa-apply-tab-trial" data-kaiwa-apply="trial">体験申込</button>
                 <button type="button" class="kaiwa-apply-tab" role="tab" aria-selected="false" id="kaiwa-apply-tab-course" data-kaiwa-apply="course">講座申込</button>
               </div>
 
               <div id="kaiwa-apply-panel-trial" class="kaiwa-apply-panel active" role="tabpanel" aria-labelledby="kaiwa-apply-tab-trial">
-                <p class="form-note">会話強化クラス（会話トレーニング）の体験のお申込みはこちらです。</p>
                 <form action="/api/public-form/" method="POST" data-turnstile-form>
                   <input type="hidden" name="_captcha" value="false">
                   <input type="hidden" name="_subject" value="【体験申込】会話強化クラス｜ミリネ韓国語教室">
@@ -3124,6 +3133,10 @@
                       <tr>
                         <th>ふりがな<span class="required">必須</span></th>
                         <td><input type="text" name="ふりがな" required autocomplete="off"></td>
+                      </tr>
+                      <tr>
+                        <th>メールアドレス<span class="required">必須</span></th>
+                        <td><input type="email" name="メールアドレス" required></td>
                       </tr>
                       <tr>
                         <th>年齢 <span class="optional">任意</span></th>
@@ -3157,45 +3170,15 @@
                         </td>
                       </tr>
                       <tr>
-                        <th>メールアドレス<span class="required">必須</span></th>
-                        <td><input type="email" name="メールアドレス" required></td>
-                      </tr>
-                      <tr>
                         <th>お電話番号<span class="required">必須</span></th>
                         <td><input type="tel" name="お電話番号" required></td>
-                      </tr>
-                      <tr>
-                        <th>ご希望教室<span class="required">必須</span></th>
-                        <td>
-                          <div class="kaiwa-time-options">
-                            <label><input type="radio" name="ご希望教室" value="新宿教室" required> 新宿教室</label>
-                            <label><input type="radio" name="ご希望教室" value="Teams / Zoom レッスン"> Teams / Zoom レッスン</label>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th>ご希望レッスン<span class="required">必須</span></th>
-                        <td>
-                          <select name="ご希望レッスン" required>
-                            <option value="" selected>選択してください</option>
-                            <option value="個人レッスン">個人レッスン</option>
-                            <option value="短期集中個人レッスン">短期集中個人レッスン</option>
-                            <option value="発音矯正レッスン">発音矯正レッスン</option>
-                            <option value="時事韓国語レッスン">時事韓国語レッスン</option>
-                            <option value="土曜上級1講座">土曜上級1講座</option>
-                            <option value="土曜上級2講座">土曜上級2講座</option>
-                            <option value="ネットレッスン">ネットレッスン</option>
-                            <option value="会話トレーニング">会話トレーニング</option>
-                            <option value="その他">その他</option>
-                          </select>
-                        </td>
                       </tr>
                       <tr>
                         <th>選択時間帯<span class="required">必須</span></th>
                         <td>
                           <div class="kaiwa-time-options">
-                            <label><input type="radio" name="選択時間帯" value="グループ(中上級)　水 11:00" required> グループ(中上級)　水 11:00</label>
-                            <label><input type="radio" name="選択時間帯" value="グループ(中上級)　土 14:00〜"> グループ(中上級)　土 14:00〜</label>
+                            <label><input type="radio" name="選択時間帯" value="グループ(中上級 / 教室)　　水 11:00〜" required> グループ(中上級 / 教室)　　水 11:00〜</label>
+                            <label><input type="radio" name="選択時間帯" value="グループ(中上級 / Zoom)　土 14:00〜"> グループ(中上級 / Zoom)　土 14:00〜</label>
                             <label><input type="radio" name="選択時間帯" value="個人レッスン"> 個人レッスン</label>
                           </div>
                         </td>
@@ -3255,7 +3238,6 @@
               </div>
 
               <div id="kaiwa-apply-panel-course" class="kaiwa-apply-panel" role="tabpanel" aria-labelledby="kaiwa-apply-tab-course">
-                <p class="form-note">受講したい講座が決まっている方はこちらから本申込ができます。希望の教室・レッスン名・日程などをご記入ください。</p>
                 <form action="/api/public-form/" method="POST" data-turnstile-form data-turnstile-defer="1">
                   <input type="hidden" name="_captcha" value="false">
                   <input type="hidden" name="_subject" value="【講座申込】会話強化クラス｜ミリネ韓国語教室">
@@ -3290,9 +3272,9 @@
                         </td>
                       </tr>
                       <tr>
-                        <th>都道府県 <span class="optional">任意</span></th>
+                        <th>都道府県<span class="required">必須</span></th>
                         <td>
-                          <select name="都道府県">
+                          <select name="都道府県" required>
                             <option value="">選択してください</option>
                             <option>北海道</option><option>青森県</option><option>岩手県</option><option>宮城県</option><option>秋田県</option><option>山形県</option><option>福島県</option>
                             <option>茨城県</option><option>栃木県</option><option>群馬県</option><option>埼玉県</option><option>千葉県</option><option>東京23区</option><option>東京都</option><option>神奈川県</option>
@@ -3310,58 +3292,13 @@
                         <td><input type="tel" name="お電話番号" required></td>
                       </tr>
                       <tr>
-                        <th>ご希望教室<span class="required">必須</span></th>
+                        <th>選択時間帯<span class="required">必須</span></th>
                         <td>
                           <div class="kaiwa-time-options">
-                            <label><input type="radio" name="ご希望教室" value="新宿教室" required> 新宿教室</label>
-                            <label><input type="radio" name="ご希望教室" value="Teams / Zoom レッスン"> Teams / Zoom レッスン</label>
+                            <label><input type="radio" name="選択時間帯" value="グループ(中上級 / 教室)　　水 11:00〜" required> グループ(中上級 / 教室)　　水 11:00〜</label>
+                            <label><input type="radio" name="選択時間帯" value="グループ(中上級 / Zoom)　土 14:00〜"> グループ(中上級 / Zoom)　土 14:00〜</label>
+                            <label><input type="radio" name="選択時間帯" value="個人レッスン"> 個人レッスン</label>
                           </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th>ご希望レッスン<span class="required">必須</span></th>
-                        <td>
-                          <select name="ご希望レッスン" required>
-                            <option value="" selected>選択してください</option>
-                            <option value="2月多読・発音講座-初中級">2月多読・発音講座-初中級</option>
-                            <option value="2月多読・発音講座-中上級">2月多読・発音講座-中上級</option>
-                            <option value="中級文法まとめ講座">中級文法まとめ講座</option>
-                            <option value="上級文法まとめ講座">上級文法まとめ講座</option>
-                            <option value="個人レッスン">個人レッスン</option>
-                            <option value="短期集中個人レッスン">短期集中個人レッスン</option>
-                            <option value="発音矯正個人レッスン">発音矯正個人レッスン</option>
-                            <optgroup label="GW集中講座">
-                              <option value="GW集中入門1日間">GW集中入門1日間</option>
-                              <option value="GW集中初級1日間">GW集中初級1日間</option>
-                              <option value="GW集中初級2日間">GW集中初級2日間</option>
-                              <option value="GW集中初級3日間">GW集中初級3日間</option>
-                              <option value="GW集中中級1日間">GW集中中級1日間</option>
-                              <option value="GW集中中級2日間">GW集中中級2日間</option>
-                              <option value="GW集中中級3日間">GW集中中級3日間</option>
-                              <option value="GW集中上級1日間">GW集中上級1日間</option>
-                              <option value="GW集中上級2日間">GW集中上級2日間</option>
-                              <option value="GW集中上級3日間">GW集中上級3日間</option>
-                              <option value="GW集中講座、初級・中級1日間">GW集中講座、初級・中級1日間</option>
-                              <option value="GW集中講座、初級・中級2日間">GW集中講座、初級・中級2日間</option>
-                              <option value="GW集中講座、初級・中級3日間">GW集中講座、初級・中級3日間</option>
-                              <option value="GW集中講座、中級・上級1日間">GW集中講座、中級・上級1日間</option>
-                              <option value="GW集中講座、中級・上級2日間">GW集中講座、中級・上級2日間</option>
-                              <option value="GW集中講座、中級・上級3日間">GW集中講座、中級・上級3日間</option>
-                            </optgroup>
-                            <option value="語彙力強化レッスン">語彙力強化レッスン</option>
-                            <option value="TOPIK対策講座">TOPIK対策講座</option>
-                            <option value="ハン検対策クラス">ハン検対策クラス</option>
-                            <option value="ハングル検定準2級対策">ハングル検定準2級対策</option>
-                            <option value="土曜上級1講座">土曜上級1講座</option>
-                            <option value="土曜上級2講座">土曜上級2講座</option>
-                            <option value="ネットレッスン">ネットレッスン</option>
-                            <option value="会話トレーニング">会話トレーニング</option>
-                            <option value="小人数グループレッスン">小人数グループレッスン</option>
-                            <option value="小説朗読討論講座">小説朗読討論講座</option>
-                            <option value="通信音読トレーニング">通信音読トレーニング</option>
-                            <option value="メール作文トレーニング">メール作文トレーニング</option>
-                            <option value="その他">その他</option>
-                          </select>
                         </td>
                       </tr>
                       <tr>
@@ -3503,7 +3440,7 @@
                   <div class="t01-hero-chip"><span class="icon">💻</span> オンライン</div>
                 </div>
                 <div class="t01-hero-btns">
-                  <a href="/trial" class="t01-btn-primary">お申し込み→</a>
+                  <a href="#kaiwa-apply" class="t01-btn-primary kaiwa-go-apply">お申し込み→</a>
                   <a href="#tab02-points" class="t01-btn-secondary">ポイントを見る</a>
                 </div>
               </div>
@@ -3756,7 +3693,7 @@
                   <div class="t01-hero-chip"><span class="icon">📖</span> 長文音読</div>
                 </div>
                 <div class="t01-hero-btns">
-                  <a href="/trial" class="t01-btn-primary">お申し込み→</a>
+                  <a href="#kaiwa-apply" class="t01-btn-primary kaiwa-go-apply">お申し込み→</a>
                   <a href="#tab03-about" class="t01-btn-secondary">内容を見る</a>
                 </div>
               </div>
@@ -4058,7 +3995,7 @@
                   <div class="t01-hero-chip"><span class="icon">💻</span> Zoom</div>
                 </div>
                 <div class="t01-hero-btns">
-                  <a href="/trial" class="t01-btn-primary">お申し込み→</a>
+                  <a href="#kaiwa-apply" class="t01-btn-primary kaiwa-go-apply">お申し込み→</a>
                   <a href="#tab04-target" class="t01-btn-secondary">対象・テキストを見る</a>
                 </div>
               </div>
@@ -4356,7 +4293,7 @@
                   <div class="t01-hero-chip"><span class="icon">💻</span> Zoom</div>
                 </div>
                 <div class="t01-hero-btns">
-                  <a href="/trial" class="t01-btn-primary">お申し込み→</a>
+                  <a href="#kaiwa-apply" class="t01-btn-primary kaiwa-go-apply">お申し込み→</a>
                   <a href="#tab05-target" class="t01-btn-secondary">対象・テキストを見る</a>
                 </div>
               </div>
@@ -4829,6 +4766,19 @@
       tabBtns.forEach(function(btn) {
         btn.addEventListener('click', function() {
           switchTab(btn.getAttribute('data-tab'));
+        });
+      });
+
+      document.querySelectorAll('a.kaiwa-go-apply').forEach(function(a) {
+        a.addEventListener('click', function(e) {
+          e.preventDefault();
+          switchTab('tab01');
+          var el = document.getElementById('kaiwa-apply');
+          if (!el) return;
+          window.setTimeout(function() {
+            el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            try { el.focus({ preventScroll: true }); } catch (err) {}
+          }, 0);
         });
       });
 

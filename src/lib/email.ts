@@ -87,6 +87,7 @@ const INTERNAL_FORM_SKIP = new Set([
   "_subject",
   "_replyto",
   "website",
+  "company", // ハニーポット（bot 対策）。本文テーブルには出さない
   "turnstileToken",
   "cf-turnstile-response",
 ]);

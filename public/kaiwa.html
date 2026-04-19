@@ -3320,15 +3320,26 @@
                         </td>
                       </tr>
                       <tr>
-                        <th>申し込み講座のご希望日と時間帯 <span class="optional">任意</span></th>
+                        <th>会話トレーニングのご希望日と時間帯 <span class="optional">任意</span></th>
                         <td><textarea name="希望日時" placeholder="例）○月○日から、週○回 ○時台を希望　など"></textarea></td>
                       </tr>
                       <tr>
-                        <th>簡単な韓国語の学習歴及びレベル <span class="optional">任意</span></th>
-                        <td><textarea name="学習歴"></textarea></td>
+                        <th>韓国語レベル<span class="required">必須</span></th>
+                        <td>
+                          <div class="kaiwa-time-options">
+                            <label><input type="radio" name="韓国語レベル" value="初中級" required> 初中級</label>
+                            <label><input type="radio" name="韓国語レベル" value="中級"> 中級</label>
+                            <label><input type="radio" name="韓国語レベル" value="中上級"> 中上級</label>
+                            <label><input type="radio" name="韓国語レベル" value="上級"> 上級</label>
+                          </div>
+                        </td>
                       </tr>
                       <tr>
-                        <th>お問い合わせ・メッセージ <span class="optional">任意</span></th>
+                        <th>簡単な韓国語の学習歴<span class="required">必須</span></th>
+                        <td><textarea name="学習歴" required></textarea></td>
+                      </tr>
+                      <tr>
+                        <th>お問い合わせ <span class="optional">任意</span></th>
                         <td><textarea name="お問い合わせ"></textarea></td>
                       </tr>
                     </tbody>

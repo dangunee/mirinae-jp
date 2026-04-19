@@ -2834,11 +2834,11 @@
       font-weight: 700;
       background: var(--gold-pale);
     }
-    #tab01 .kaiwa-apply-wrap .form-actions { margin-top: 22px; text-align: center; }
+    #tab01 .kaiwa-apply-wrap .form-actions { margin-top: 22px; text-align: center; width: 100%; max-width: 100%; box-sizing: border-box; }
     #tab01 .kaiwa-apply-wrap .turnstile-slot { margin: 12px 0 8px; display: flex; justify-content: center; }
     #tab01 .kaiwa-apply-wrap .submit-btn {
       width: 100%;
-      max-width: 420px;
+      max-width: none;
       padding: 16px;
       background: linear-gradient(135deg, var(--gold) 0%, #c8a84b 100%);
       color: var(--white);
@@ -3084,14 +3084,6 @@
             <div class="beg-sec-line"></div>
           </div>
           <div class="t01-tuition-grid kaiwa-reveal">
-            <div id="kaiwa-t01-form-success" class="kaiwa-form-banner kaiwa-form-banner--success" style="display:none;" aria-live="polite">
-              <p style="font-weight:600;margin-bottom:8px;">お申込みありがとうございました。</p>
-              <p>内容を確認のうえ、折り返しご連絡いたします。</p>
-            </div>
-            <div id="kaiwa-t01-form-error" class="kaiwa-form-banner kaiwa-form-banner--error" style="display:none;" role="alert">
-              <p style="font-weight:600;margin-bottom:8px;">送信に失敗しました。</p>
-              <p id="kaiwa-t01-form-error-msg">時間をおいて再度お試しいただくか、<a href="mailto:mirinae@kaonnuri.com">mirinae@kaonnuri.com</a> までご連絡ください。</p>
-            </div>
             <div class="t01-price-cards">
               <div class="t01-price-card kaiwa-reveal">
                 <div class="t01-price-plan">月3回コース</div>
@@ -3149,6 +3141,14 @@
             </div>
 
             <div class="kaiwa-apply-wrap" id="kaiwa-apply" tabindex="-1">
+            <div id="kaiwa-t01-form-success" class="kaiwa-form-banner kaiwa-form-banner--success" style="display:none;" aria-live="polite">
+              <p style="font-weight:600;margin-bottom:8px;">お申込みありがとうございました。</p>
+              <p>内容を確認のうえ、折り返しご連絡いたします。</p>
+            </div>
+            <div id="kaiwa-t01-form-error" class="kaiwa-form-banner kaiwa-form-banner--error" style="display:none;" role="alert">
+              <p style="font-weight:600;margin-bottom:8px;">送信に失敗しました。</p>
+              <p id="kaiwa-t01-form-error-msg">時間をおいて再度お試しいただくか、<a href="mailto:mirinae@kaonnuri.com">mirinae@kaonnuri.com</a> までご連絡ください。</p>
+            </div>
               <div class="kaiwa-apply-tabs" role="tablist" aria-label="お申込みの種類">
                 <button type="button" class="kaiwa-apply-tab active" role="tab" aria-selected="true" id="kaiwa-apply-tab-trial" data-kaiwa-apply="trial">体験申込</button>
                 <button type="button" class="kaiwa-apply-tab" role="tab" aria-selected="false" id="kaiwa-apply-tab-course" data-kaiwa-apply="course">講座申込</button>

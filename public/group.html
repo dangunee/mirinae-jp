@@ -1776,13 +1776,43 @@
     #tab02 .group-inline-apply .kaiwa-time-options input,
     #tab03 .group-inline-apply .kaiwa-time-options input { margin-top: 4px; flex-shrink: 0; }
     #tab02 .group-inline-apply .form-actions,
-    #tab03 .group-inline-apply .form-actions { margin-top: 22px; text-align: center; }
+    #tab03 .group-inline-apply .form-actions { margin-top: 22px; text-align: center; width: 100%; max-width: 100%; }
     #tab02 .group-inline-apply .turnstile-slot,
     #tab03 .group-inline-apply .turnstile-slot { margin: 12px 0 8px; display: flex; justify-content: center; }
+    #group-apply-chubu,
+    #group-apply-jokyu {
+      scroll-margin-top: 88px;
+    }
+    #tab02 .group-form-banner,
+    #tab03 .group-form-banner {
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-bottom: 20px;
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--mid);
+    }
+    #tab02 .group-form-banner--success,
+    #tab03 .group-form-banner--success {
+      background: rgba(46, 125, 50, 0.08);
+      border: 1px solid rgba(46, 125, 50, 0.35);
+    }
+    #tab02 .group-form-banner--error,
+    #tab03 .group-form-banner--error {
+      background: rgba(185, 74, 72, 0.08);
+      border: 1px solid rgba(185, 74, 72, 0.4);
+    }
+    #tab02 .group-form-banner__lead,
+    #tab03 .group-form-banner__lead {
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    #tab02 .group-form-banner a,
+    #tab03 .group-form-banner a { color: var(--gold); font-weight: 600; }
     #tab02 .group-inline-apply .submit-btn,
     #tab03 .group-inline-apply .submit-btn {
       width: 100%;
-      max-width: 420px;
+      max-width: none;
       padding: 16px;
       background: linear-gradient(135deg, var(--gold) 0%, #c8a84b 100%);
       color: var(--white);
@@ -2467,10 +2497,18 @@
             <div class="beg-sec-line"></div>
           </div>
           <div class="group-inline-apply group-reveal" id="group-apply-chubu">
+            <div id="group-apply-chubu-success" class="group-form-banner group-form-banner--success" style="display:none;" aria-live="polite" role="status">
+              <p class="group-form-banner__lead">お申込みありがとうございました。</p>
+              <p>内容を確認のうえ、折り返しご連絡いたします。</p>
+            </div>
+            <div id="group-apply-chubu-error" class="group-form-banner group-form-banner--error" style="display:none;" role="alert">
+              <p class="group-form-banner__lead">送信に失敗しました。</p>
+              <p id="group-apply-chubu-error-msg">時間をおいて再度お試しいただくか、<a href="mailto:mirinae@kaonnuri.com">mirinae@kaonnuri.com</a> までご連絡ください。</p>
+            </div>
             <form action="/api/public-form/" method="POST" data-turnstile-form>
               <input type="hidden" name="_captcha" value="false">
               <input type="hidden" name="_subject" value="【講座申込】中級文法まとめ講座（グループレッスン）｜ミリネ韓国語教室">
-              <input type="hidden" name="_next" value="https://mirinae.jp/group.html?thanks=1&amp;tab=tab02&amp;apply=course">
+              <input type="hidden" name="_next" value="https://mirinae.jp/group.html?thanks=1&amp;tab=tab02&amp;apply=course#tab02">
               <input type="hidden" name="_replyto" value="メールアドレス">
               <input type="hidden" name="_url" value="https://mirinae.jp/group.html#tab02">
               <input type="hidden" name="_error_next" value="https://mirinae.jp/group.html?form_error=1&amp;tab=tab02&amp;apply=course#tab02">
@@ -2787,10 +2825,18 @@
             <div class="beg-sec-line"></div>
           </div>
           <div class="group-inline-apply group-reveal" id="group-apply-jokyu">
+            <div id="group-apply-jokyu-success" class="group-form-banner group-form-banner--success" style="display:none;" aria-live="polite" role="status">
+              <p class="group-form-banner__lead">お申込みありがとうございました。</p>
+              <p>内容を確認のうえ、折り返しご連絡いたします。</p>
+            </div>
+            <div id="group-apply-jokyu-error" class="group-form-banner group-form-banner--error" style="display:none;" role="alert">
+              <p class="group-form-banner__lead">送信に失敗しました。</p>
+              <p id="group-apply-jokyu-error-msg">時間をおいて再度お試しいただくか、<a href="mailto:mirinae@kaonnuri.com">mirinae@kaonnuri.com</a> までご連絡ください。</p>
+            </div>
             <form action="/api/public-form/" method="POST" data-turnstile-form>
               <input type="hidden" name="_captcha" value="false">
               <input type="hidden" name="_subject" value="【講座申込】上級文法まとめ講座（グループレッスン）｜ミリネ韓国語教室">
-              <input type="hidden" name="_next" value="https://mirinae.jp/group.html?thanks=1&amp;tab=tab03&amp;apply=course">
+              <input type="hidden" name="_next" value="https://mirinae.jp/group.html?thanks=1&amp;tab=tab03&amp;apply=course#tab03">
               <input type="hidden" name="_replyto" value="メールアドレス">
               <input type="hidden" name="_url" value="https://mirinae.jp/group.html#tab03">
               <input type="hidden" name="_error_next" value="https://mirinae.jp/group.html?form_error=1&amp;tab=tab03&amp;apply=course#tab03">
@@ -3442,7 +3488,7 @@
           a.classList.toggle('active', href === 'group.html#' + tabId);
         });
         if (tabIds.indexOf(tabId) !== -1) {
-          history.replaceState(null, '', '#' + tabId);
+          history.replaceState(null, '', location.pathname + location.search + '#' + tabId);
         }
         initGroupReveal(tabId);
       }
@@ -3467,14 +3513,89 @@
         });
       });
 
+      var pageParams = new URLSearchParams(location.search);
       var hash = location.hash.slice(1);
-      if (tabIds.indexOf(hash) !== -1) {
-        switchTab(hash);
+      var tabFromQuery = pageParams.get('tab');
+      var initialTab = tabIds.indexOf(hash) !== -1 ? hash : (tabIds.indexOf(tabFromQuery) !== -1 ? tabFromQuery : null);
+
+      if (initialTab) {
+        switchTab(initialTab);
       } else {
         var activeTab = tabIds.find(function(id) { return document.getElementById(id).classList.contains('active'); }) || 'tab01';
         updateSidebarActive(activeTab);
         initGroupReveal(activeTab);
       }
+
+      (function groupApplyFeedbackFromQuery() {
+        var thank = pageParams.get('thanks') === '1';
+        var apply = pageParams.get('apply');
+        var tabQ = pageParams.get('tab');
+        var errCode = pageParams.get('form_error');
+        var formErrorMessages = {
+          rate: '送信が集中しています。しばらく時間をおいてから再度お試しください。',
+          validation: '入力内容をご確認ください。',
+          invalid_phone: '電話番号をご確認ください。数字10〜15桁で入力してください（ハイフンやスペースは除いて数えます。全角数字も入力できます）。',
+          invalid_input: '入力内容をご確認ください。',
+          turnstile: '認証の確認に失敗しました。ページを再読み込みのうえ、再度お試しください。',
+          spam_detected: '送信を受け付けられませんでした。内容をご確認ください。',
+          parse: '通信エラーが発生しました。再度お試しください。'
+        };
+        function showErr(elId, msgId) {
+          var eb = document.getElementById(elId);
+          var em = document.getElementById(msgId);
+          if (!eb) return;
+          var okChubu = document.getElementById('group-apply-chubu-success');
+          var okJokyu = document.getElementById('group-apply-jokyu-success');
+          if (okChubu) okChubu.style.display = 'none';
+          if (okJokyu) okJokyu.style.display = 'none';
+          eb.style.display = 'block';
+          if (em && errCode === 'mail') {
+            em.innerHTML = 'メールの送信に失敗しました。しばらくしてから再度お試しいただくか、<a href="mailto:mirinae@kaonnuri.com">mirinae@kaonnuri.com</a> までご連絡ください。';
+          } else if (em && formErrorMessages[errCode]) {
+            em.textContent = formErrorMessages[errCode];
+          }
+          setTimeout(function() { eb.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 100);
+        }
+        if (errCode && apply === 'course' && (tabQ === 'tab02' || tabQ === 'tab03')) {
+          if (tabQ === 'tab02') {
+            showErr('group-apply-chubu-error', 'group-apply-chubu-error-msg');
+            var ej = document.getElementById('group-apply-jokyu-error');
+            if (ej) ej.style.display = 'none';
+          } else {
+            showErr('group-apply-jokyu-error', 'group-apply-jokyu-error-msg');
+            var ec = document.getElementById('group-apply-chubu-error');
+            if (ec) ec.style.display = 'none';
+          }
+          return;
+        }
+        if (thank && apply === 'course') {
+          if (tabQ === 'tab02') {
+            var s = document.getElementById('group-apply-chubu-success');
+            var sHide = document.getElementById('group-apply-jokyu-success');
+            var eb = document.getElementById('group-apply-chubu-error');
+            var ebO = document.getElementById('group-apply-jokyu-error');
+            if (sHide) sHide.style.display = 'none';
+            if (eb) eb.style.display = 'none';
+            if (ebO) ebO.style.display = 'none';
+            if (s) {
+              s.style.display = 'block';
+              setTimeout(function() { s.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 100);
+            }
+          } else if (tabQ === 'tab03') {
+            var s3 = document.getElementById('group-apply-jokyu-success');
+            var sHide3 = document.getElementById('group-apply-chubu-success');
+            var eb3 = document.getElementById('group-apply-jokyu-error');
+            var ebO3 = document.getElementById('group-apply-chubu-error');
+            if (sHide3) sHide3.style.display = 'none';
+            if (eb3) eb3.style.display = 'none';
+            if (ebO3) ebO3.style.display = 'none';
+            if (s3) {
+              s3.style.display = 'block';
+              setTimeout(function() { s3.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 100);
+            }
+          }
+        }
+      })();
 
       window.addEventListener('hashchange', function() {
         var h = location.hash.slice(1);

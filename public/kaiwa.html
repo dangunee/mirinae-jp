@@ -2619,14 +2619,16 @@
     }
     #tab01 .kaiwa-apply-tabs {
       display: flex;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
       gap: 10px;
       margin-bottom: 24px;
       border-bottom: 1px solid var(--gray-border);
       padding-bottom: 16px;
     }
     #tab01 .kaiwa-apply-tab {
-      flex: 1 1 160px;
+      flex: 1 1 0;
+      min-width: 0;
+      text-align: center;
       padding: 12px 18px;
       border: 1.5px solid var(--gray-border);
       border-radius: 999px;
@@ -2816,6 +2818,8 @@
     #tab01 .kaiwa-apply-wrap .submit-btn:hover { opacity: 0.92; transform: translateY(-1px); }
     #tab01 .kaiwa-apply-wrap .submit-btn:disabled { opacity: 0.75; cursor: wait; transform: none; }
     @media (max-width: 600px) {
+      #tab01 .kaiwa-apply-tabs { gap: 8px; }
+      #tab01 .kaiwa-apply-tab { padding: 10px 8px; font-size: 13px; }
       #tab01 .kaiwa-apply-wrap { padding: 20px 16px 24px; }
       #tab01 .kaiwa-apply-wrap .form-table { table-layout: auto; display: block; }
       #tab01 .kaiwa-apply-wrap .form-table tbody,

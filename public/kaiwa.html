@@ -260,9 +260,12 @@
 
     .group-main-grid {
       display: grid;
-      grid-template-columns: 1fr 300px;
+      /* 1fr の既定 min がコンテンツ幅になり二列合計がはみ出すのを防ぐ（サイドを下に落とす原因になりうる） */
+      grid-template-columns: minmax(0, 1fr) minmax(0, 300px);
       gap: 32px;
       align-items: start;
+      width: 100%;
+      box-sizing: border-box;
     }
     @media (max-width: 900px) {
       .group-main-grid { grid-template-columns: 1fr; }
@@ -320,11 +323,19 @@
       .beg-tuition-table thead th { font-size: 13px; }
       .beg-tuition-table td { font-size: 14px; }
     }
-    .group-left { min-width: 0; }
+    .group-left {
+      min-width: 0;
+      max-width: 100%;
+    }
     .sidebar {
       position: sticky;
       top: 80px;
       padding-top: 32px;
+      min-width: 0;
+      width: 300px;
+      max-width: 100%;
+      align-self: start;
+      box-sizing: border-box;
     }
     .sidebar-promo-card {
       margin-bottom: 20px;
@@ -400,9 +411,11 @@
       grid-template-rows: 0fr;
       transition: grid-template-rows 0.28s ease;
       overflow: hidden;
+      min-height: 0;
     }
     .courses-nav .nav-group.open .nav-items { grid-template-rows: 1fr; }
     .courses-nav .nav-items-inner {
+      min-height: 0;
       overflow: hidden;
       background: var(--gold-pale);
       border-top: 1px solid rgba(184,146,62,0.2);

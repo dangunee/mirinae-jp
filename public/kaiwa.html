@@ -268,8 +268,6 @@
       box-sizing: border-box;
     }
     @media (max-width: 900px) {
-      .group-main-grid { grid-template-columns: 1fr; }
-      .group-main-grid .sidebar { display: none; }
       nav { padding: 0 16px; }
       .nav-hamburger { display: flex; margin-left: auto; }
       .nav-links {
@@ -311,6 +309,15 @@
       #tab01 .beg-hero, #tab02 .beg-hero, #tab03 .beg-hero, #tab04 .beg-hero, #tab05 .beg-hero { padding: 28px 20px; }
       .beg-tuition-table thead th { font-size: 14px; }
       .beg-tuition-table td { font-size: 15px; }
+    }
+    /* 狭いスマホのみ1カラム＋サイド非表示。900px ではタブレットが二列を失うためここでは切り替えない */
+    @media (max-width: 640px) {
+      .group-main-grid {
+        grid-template-columns: 1fr;
+      }
+      .group-main-grid .sidebar {
+        display: none;
+      }
     }
     @media (max-width: 600px) {
       nav { padding: 0 12px; }

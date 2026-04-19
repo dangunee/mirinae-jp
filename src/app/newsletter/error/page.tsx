@@ -31,7 +31,7 @@ export default function Page({
       <h1 style={{ fontSize: 22, marginBottom: 16 }}>エラー</h1>
       <p>{msg}</p>
       <p>
-        <Link href="/trial.html#tab03" style={{ color: "#b8912e" }}>
+        <Link href="/trial.html#tab04" style={{ color: "#b8912e" }}>
           お申込みページへ戻る
         </Link>
       </p>

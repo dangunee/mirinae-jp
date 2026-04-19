@@ -27,10 +27,10 @@ export default function NewsletterLandingPage() {
         </p>
         <p style={{ marginTop: 24 }}>
           <a
-            href="/trial.html#tab03"
+            href="/trial.html#tab04"
             style={{ color: "#b8912e", fontWeight: 600 }}
           >
-            登録フォームへ（trial ページ・タブ3）
+            登録フォームへ（trial ページ・タブ4）
           </a>
         </p>
         <p style={{ marginTop: 16, fontSize: 13, color: "#666" }}>

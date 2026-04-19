@@ -26,8 +26,8 @@ export default function NewsletterAdminHome() {
         </ul>
         <p style={{ marginTop: 16, fontSize: 13, color: "#666" }}>
           公開の登録フォームは{" "}
-          <a href="/trial.html#tab03" target="_blank" rel="noreferrer">
-            trial ページ タブ3
+          <a href="/trial.html#tab04" target="_blank" rel="noreferrer">
+            trial ページ タブ4
           </a>
           です。送信APIには環境変数 <code>RESEND_API_KEY</code> が必要です（ページ表示には不要）。
         </p>

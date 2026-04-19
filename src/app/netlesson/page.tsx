@@ -250,7 +250,7 @@ export default function NetlessonPage() {
                 <h4>お申込み</h4>
                 <a href="/trial">体験申込</a>
                 <a href="/trial#tab02">講座申込</a>
-                <a href="/trial#tab04">お問い合わせ</a>
+                <a href="/trial#tab05">お問い合わせ</a>
               </div>
               <div className="footer-column">
                 <h4>その他</h4>

@@ -31,7 +31,7 @@ export default function Page({
           : "ミリネ韓国語教室メールマガジンの配信をご希望いただきありがとうございます。"}
       </p>
       <p>
-        <Link href="/trial.html#tab03" style={{ color: "#b8912e" }}>
+        <Link href="/trial.html#tab04" style={{ color: "#b8912e" }}>
           お申込みページへ戻る
         </Link>
       </p>

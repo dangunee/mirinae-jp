@@ -193,7 +193,7 @@ export default function NetlessonNav() {
           <li><a href="/trial" className="nav-cta" onClick={() => setOpen(false)}>お申込み</a></li>
           <li><a href="/about#tab03" onClick={() => setOpen(false)}>講師</a></li>
           <li><a href="/book" onClick={() => setOpen(false)}>著書</a></li>
-          <li><a href="/trial#tab04" onClick={() => setOpen(false)}>お問い合わせ</a></li>
+          <li><a href="/trial#tab05" onClick={() => setOpen(false)}>お問い合わせ</a></li>
         </ul>
       </nav>
     </>

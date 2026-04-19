@@ -576,7 +576,7 @@
       <li><a href="/trial" class="nav-cta">お申込み</a></li>
       <li><a href="/about#tab03">講師</a></li>
       <li><a href="/book">著書</a></li>
-      <li><a href="/trial#tab04">お問い合わせ</a></li>
+      <li><a href="/trial#tab05">お問い合わせ</a></li>
     </ul>
   </nav>
 
@@ -587,10 +587,11 @@
   </div>
 
   <div class="tabs-bar" role="tablist">
-    <button type="button" class="tab-btn active" data-tab="tab01" role="tab" aria-selected="true">体験＆レベルテスト</button>
+    <button type="button" class="tab-btn active" data-tab="tab01" role="tab" aria-selected="true">体験</button>
     <button type="button" class="tab-btn" data-tab="tab02" role="tab" aria-selected="false">講座申込</button>
-    <button type="button" class="tab-btn" data-tab="tab03" role="tab" aria-selected="false">メールマガジン</button>
-    <button type="button" class="tab-btn" data-tab="tab04" role="tab" aria-selected="false">お問い合わせ</button>
+    <button type="button" class="tab-btn" data-tab="tab03" role="tab" aria-selected="false">レベルテスト</button>
+    <button type="button" class="tab-btn" data-tab="tab04" role="tab" aria-selected="false">メルマガ</button>
+    <button type="button" class="tab-btn" data-tab="tab05" role="tab" aria-selected="false">問合せ</button>
   </div>
 
   <div class="page-wrapper">
@@ -602,12 +603,12 @@
       </div>
       <div id="thanks-wrap" class="thanks-wrap" style="display:none;" aria-live="polite">
         <div class="thanks-tabs-row" role="tablist" aria-label="お申込み完了の案内">
-          <button type="button" class="thanks-tab-btn active" role="tab" aria-selected="true" data-thanks-tab="01" id="thanks-tabbtn-01">体験＆レベルテスト</button>
+          <button type="button" class="thanks-tab-btn active" role="tab" aria-selected="true" data-thanks-tab="01" id="thanks-tabbtn-01">体験・レベルテスト</button>
           <button type="button" class="thanks-tab-btn" role="tab" aria-selected="false" data-thanks-tab="02" id="thanks-tabbtn-02">講座申込</button>
         </div>
         <div id="thanks-content-01" class="thanks-banner is-active" role="tabpanel" aria-labelledby="thanks-tabbtn-01">
           <p class="thanks-title">お申込みありがとうございました。</p>
-          <p>メールが届きましたら、体験レッスンの場合は日程を調整し、体験レッスンの可能な日時をお知らせいたします。</p>
+          <p>メールが届きましたら、体験レッスンまたはレベルテストの場合は日程を調整し、受講可能な日時をお知らせいたします。</p>
           <p>その他の講座は授業料のお振込締切日をお知らせし、ご入金の確認後予習範囲をお知らせします。</p>
           <p>定員になると早く締め切りになる場合もあります。</p>
           <p><a href="/" class="thanks-link">ホームに戻る</a></p>
@@ -619,16 +620,16 @@
           <p><a href="/" class="thanks-link">ホームに戻る</a></p>
         </div>
       </div>
-      <!-- ========== タブ1: 体験＆レベルテスト ========== -->
+      <!-- ========== タブ1: 体験レッスン ========== -->
       <div id="tab01" class="tab-panel active">
         <div class="info-banner">
-          <h2>『体験＆レベルテストの申込』</h2>
+          <h2>『体験レッスンの申込』</h2>
           <div class="info-grid">
             <div class="info-item">
               <div class="icon">💴</div>
               <div>
                 <div class="label">体験レッスン料金</div>
-                <div class="value">1,800円（レベルテストは別途）</div>
+                <div class="value">1,800円</div>
               </div>
             </div>
             <div class="info-item">
@@ -664,16 +665,7 @@
             <input type="hidden" name="_error_next" value="https://mirinae.jp/trial.html#tab01">
             <input type="hidden" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
             <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
-            <div class="radio-chip-group trial-type-buttons" style="margin-bottom: 20px; justify-content: center;">
-              <div class="radio-chip">
-                <input type="radio" name="タイトル" id="trial_taiken" value="体験レッスン" checked>
-                <label for="trial_taiken">体験レッスン</label>
-              </div>
-              <div class="radio-chip">
-                <input type="radio" name="タイトル" id="trial_level" value="レベルテスト">
-                <label for="trial_level">レベルテスト</label>
-              </div>
-            </div>
+            <input type="hidden" name="タイトル" value="体験レッスン">
             <table class="form-table">
               <tbody>
                 <tr>
@@ -816,12 +808,6 @@
             <table class="form-table">
               <tbody>
                 <tr>
-                  <th>タイトル<span class="required">必須</span></th>
-                  <td>
-                    <span class="radio-chip-single">講座の申し込み</span>
-                  </td>
-                </tr>
-                <tr>
                   <th>お名前<span class="required">必須</span></th>
                   <td><input type="text" name="お名前" required></td>
                 </tr>
@@ -885,24 +871,7 @@
                       <option value="個人レッスン">個人レッスン</option>
                       <option value="短期集中個人レッスン">短期集中個人レッスン</option>
                       <option value="発音矯正個人レッスン">発音矯正個人レッスン</option>
-                      <optgroup label="GW集中講座">
-                        <option value="GW集中入門1日間">GW集中入門1日間</option>
-                        <option value="GW集中初級1日間">GW集中初級1日間</option>
-                        <option value="GW集中初級2日間">GW集中初級2日間</option>
-                        <option value="GW集中初級3日間">GW集中初級3日間</option>
-                        <option value="GW集中中級1日間">GW集中中級1日間</option>
-                        <option value="GW集中中級2日間">GW集中中級2日間</option>
-                        <option value="GW集中中級3日間">GW集中中級3日間</option>
-                        <option value="GW集中上級1日間">GW集中上級1日間</option>
-                        <option value="GW集中上級2日間">GW集中上級2日間</option>
-                        <option value="GW集中上級3日間">GW集中上級3日間</option>
-                        <option value="GW集中講座、初級・中級1日間">GW集中講座、初級・中級1日間</option>
-                        <option value="GW集中講座、初級・中級2日間">GW集中講座、初級・中級2日間</option>
-                        <option value="GW集中講座、初級・中級3日間">GW集中講座、初級・中級3日間</option>
-                        <option value="GW集中講座、中級・上級1日間">GW集中講座、中級・上級1日間</option>
-                        <option value="GW集中講座、中級・上級2日間">GW集中講座、中級・上級2日間</option>
-                        <option value="GW集中講座、中級・上級3日間">GW集中講座、中級・上級3日間</option>
-                      </optgroup>
+                      <option value="GW集中講座">GW集中講座</option>
                       <option value="語彙力強化レッスン">語彙力強化レッスン</option>
                       <option value="TOPIK対策講座">TOPIK対策講座</option>
                       <option value="ハン検対策クラス">ハン検対策クラス</option>
@@ -911,6 +880,7 @@
                       <option value="土曜上級2講座">土曜上級2講座</option>
                       <option value="ネットレッスン">ネットレッスン</option>
                       <option value="会話トレーニング">会話トレーニング</option>
+                      <option value="日曜音読クラス">日曜音読クラス</option>
                       <option value="小人数グループレッスン">小人数グループレッスン</option>
                       <option value="小説朗読討論講座">小説朗読討論講座</option>
                       <option value="通信音読トレーニング">通信音読トレーニング</option>
@@ -962,8 +932,175 @@
         </div>
       </div>
 
-      <!-- ========== タブ3: メールマガジン ========== -->
+      <!-- ========== タブ3: レベルテスト ========== -->
       <div id="tab03" class="tab-panel">
+        <div class="info-banner">
+          <h2>『レベルテストの申込』</h2>
+          <div class="info-grid">
+            <div class="info-item">
+              <div class="icon">💴</div>
+              <div>
+                <div class="label">レベルテスト料金</div>
+                <div class="value">別途（詳細はメールにてご案内）</div>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="icon">📅</div>
+              <div>
+                <div class="label">定休日</div>
+                <div class="value">月曜日</div>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="icon">🕐</div>
+              <div>
+                <div class="label">受付可能日時（平日）</div>
+                <div class="value">10:00～21:00</div>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="icon">🕐</div>
+              <div>
+                <div class="label">土・日</div>
+                <div class="value">土 10:00～18:00／日 10:00～17:00</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-card">
+          <form action="/api/public-form/" method="POST" data-turnstile-form>
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_subject" value="【レベルテスト申込】ミリネ韓国語教室">
+            <input type="hidden" name="_next" value="https://mirinae.jp/trial.html?thanks=1&tab=tab03">
+            <input type="hidden" name="_replyto" value="メールアドレス">
+            <input type="hidden" name="_url" value="https://www.mirinae.jp/trial.html#tab03">
+            <input type="hidden" name="_error_next" value="https://mirinae.jp/trial.html#tab03">
+            <input type="hidden" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+            <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <input type="hidden" name="タイトル" value="レベルテスト">
+            <table class="form-table">
+              <tbody>
+                <tr>
+                  <th>お名前<span class="required">必須</span></th>
+                  <td><input type="text" name="お名前" required></td>
+                </tr>
+                <tr>
+                  <th>ふりがな<span class="required">必須</span></th>
+                  <td><input type="text" name="ふりがな" required autocomplete="off"></td>
+                </tr>
+                <tr>
+                  <th>年齢 <span class="optional">任意</span></th>
+                  <td>
+                    <select name="年齢">
+                      <option value="">選択してください</option>
+                      <option value="10代">10代</option>
+                      <option value="20代">20代</option>
+                      <option value="30代">30代</option>
+                      <option value="40代">40代</option>
+                      <option value="50代">50代</option>
+                      <option value="60代">60代</option>
+                      <option value="70代以上">70代以上</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <th>都道府県 <span class="optional">任意</span></th>
+                  <td>
+                    <select name="都道府県">
+                      <option value="">選択してください</option>
+                      <option>北海道</option><option>青森県</option><option>岩手県</option><option>宮城県</option><option>秋田県</option><option>山形県</option><option>福島県</option>
+                      <option>茨城県</option><option>栃木県</option><option>群馬県</option><option>埼玉県</option><option>千葉県</option><option>東京23区</option><option>東京都</option><option>神奈川県</option>
+                      <option>山梨県</option><option>長野県</option><option>新潟県</option><option>富山県</option><option>石川県</option><option>福井県</option>
+                      <option>岐阜県</option><option>静岡県</option><option>愛知県</option><option>三重県</option>
+                      <option>滋賀県</option><option>京都府</option><option>大阪府</option><option>兵庫県</option><option>奈良県</option><option>和歌山県</option>
+                      <option>鳥取県</option><option>島根県</option><option>岡山県</option><option>広島県</option><option>山口県</option>
+                      <option>徳島県</option><option>香川県</option><option>愛媛県</option><option>高知県</option>
+                      <option>福岡県</option><option>佐賀県</option><option>長崎県</option><option>熊本県</option><option>大分県</option><option>宮崎県</option><option>鹿児島県</option><option>沖縄県</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <th>メールアドレス<span class="required">必須</span></th>
+                  <td><input type="email" name="メールアドレス" required></td>
+                </tr>
+                <tr>
+                  <th>お電話番号<span class="required">必須</span></th>
+                  <td><input type="tel" name="お電話番号" required></td>
+                </tr>
+                <tr>
+                  <th>ご希望教室<span class="required">必須</span></th>
+                  <td>
+                    <select name="ご希望教室" required>
+                      <option value="">選択してください</option>
+                      <option value="新宿教室">新宿教室</option>
+                      <option value="Teams / Zoom レッスン">Teams / Zoom レッスン</option>
+                      <option value="メール通信添削">メール通信添削</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <th>ご希望レッスン<span class="required">必須</span></th>
+                  <td>
+                    <select name="ご希望レッスン" required>
+                      <option value="レベルテスト" selected>レベルテスト</option>
+                      <option value="個人レッスン">個人レッスン</option>
+                      <option value="短期集中個人レッスン">短期集中個人レッスン</option>
+                      <option value="発音矯正レッスン">発音矯正レッスン</option>
+                      <option value="時事韓国語レッスン">時事韓国語レッスン</option>
+                      <option value="土曜上級1講座">土曜上級1講座</option>
+                      <option value="土曜上級2講座">土曜上級2講座</option>
+                      <option value="ネットレッスン">ネットレッスン</option>
+                      <option value="会話トレーニング">会話トレーニング</option>
+                      <option value="その他">その他</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <th>ミリネ韓国語教室を知ったきっかけ</th>
+                  <td>
+                    <select name="きっかけ">
+                      <option value="" selected>選択してください</option>
+                      <option value="Ｘ・ツイッター">Ｘ・ツイッター</option>
+                      <option value="YouTube">YouTube</option>
+                      <option value="フェイスブック">フェイスブック</option>
+                      <option value="Instagram">Instagram</option>
+                      <option value="threads(スレッズ)">threads(スレッズ)</option>
+                      <option value="検索">検索</option>
+                      <option value="ブログ">ブログ</option>
+                      <option value="紹介">紹介</option>
+                      <option value="ミリネ出版本">ミリネ出版本</option>
+                      <option value="メールマガジン">メールマガジン</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <th>体験・申し込み講座のご希望日と時間帯 <span class="optional">任意</span></th>
+                  <td>
+                    <textarea name="希望日時" placeholder="例）○月○日 ○時～○時"></textarea>
+                  </td>
+                </tr>
+                <tr>
+                  <th>簡単な韓国語の学習歴及びレベル <span class="optional">任意</span></th>
+                  <td><textarea name="学習歴"></textarea></td>
+                </tr>
+                <tr>
+                  <th>お問い合わせ <span class="optional">任意</span></th>
+                  <td><textarea name="お問い合わせ"></textarea></td>
+                </tr>
+              </tbody>
+            </table>
+            <input type="hidden" name="turnstileToken" value="" class="turnstile-token-input" autocomplete="off">
+            <div class="turnstile-slot" aria-label="認証"></div>
+            <input type="text" name="company" value="" style="display:none" tabindex="-1" autocomplete="off" />
+            <div class="form-actions">
+              <button type="submit" class="submit-btn">送信する</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- ========== タブ4: メールマガジン ========== -->
+      <div id="tab04" class="tab-panel">
         <div class="content-card">
           <h2 class="section-header">『メールマガジン』</h2>
           <div class="content-inner">
@@ -994,8 +1131,8 @@
         </div>
       </div>
 
-      <!-- ========== タブ4: お問い合わせ ========== -->
-      <div id="tab04" class="tab-panel">
+      <!-- ========== タブ5: お問い合わせ ========== -->
+      <div id="tab05" class="tab-panel">
         <div class="content-card">
           <h2 class="section-header">『お問い合わせ』</h2>
           <div class="content-inner">
@@ -1004,10 +1141,10 @@
           <form action="/api/public-form/" method="POST">
             <input type="hidden" name="_captcha" value="false">
             <input type="hidden" name="_subject" value="【お問い合わせ】ミリネ韓国語教室">
-            <input type="hidden" name="_next" value="https://mirinae.jp/trial.html?thanks=1&tab=tab04">
+            <input type="hidden" name="_next" value="https://mirinae.jp/trial.html?thanks=1&tab=tab05">
             <input type="hidden" name="_replyto" value="メールアドレス">
-            <input type="hidden" name="_url" value="https://www.mirinae.jp/trial.html#tab04">
-            <input type="hidden" name="_error_next" value="https://mirinae.jp/trial.html#tab04">
+            <input type="hidden" name="_url" value="https://www.mirinae.jp/trial.html#tab05">
+            <input type="hidden" name="_error_next" value="https://mirinae.jp/trial.html#tab05">
             <input type="hidden" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
             <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
             <table class="form-table">
@@ -1192,7 +1329,7 @@
       <div class="footer-grid">
         <div class="footer-column"><h4>メニュー</h4><a href="/">ホーム</a><a href="/about">会社概要</a><a href="/about#tab02">アクセス</a></div>
         <div class="footer-column"><h4>講座</h4><a href="/kojin">個人レッスン</a><a href="/group">グループレッスン</a><a href="/kaiwa">会話強化クラス</a><a href="/special">試験対策講座</a><a href="/syutyu">集中講座</a><a href="/netlesson">通信講座</a></div>
-        <div class="footer-column"><h4>お申込み</h4><a href="/trial">体験申込</a><a href="/trial#tab02">講座申込</a><a href="/trial#tab04">お問い合わせ</a></div>
+        <div class="footer-column"><h4>お申込み</h4><a href="/trial">体験申込</a><a href="/trial#tab02">講座申込</a><a href="/trial#tab05">お問い合わせ</a></div>
         <div class="footer-column"><h4>その他</h4><a href="/about#tab03">講師</a><a href="/book">著書</a><a href="/voice">『ミリネ教科書』音声</a><a href="/cancel">キャンセル規定</a></div>
       </div>
       <div class="footer-bottom">Copyright © 2010-<span id="footer-year"></span> 株式会社 カオンヌリ All Rights Reserved.</div>
@@ -1239,9 +1376,7 @@
       });
 
       function applyLevelTestState() {
-        switchTab('tab01');
-        var levelRadio = document.getElementById('trial_level');
-        if (levelRadio) levelRadio.checked = true;
+        switchTab('tab03');
       }
 
       document.querySelectorAll('.courses-nav .nav-group-title').forEach(function(btn) {
@@ -1325,12 +1460,12 @@
         });
       }
       var tabParam = params.get('tab');
-      if (tabParam && ['tab01', 'tab02', 'tab03', 'tab04'].indexOf(tabParam) !== -1) {
+      if (tabParam && ['tab01', 'tab02', 'tab03', 'tab04', 'tab05'].indexOf(tabParam) !== -1) {
         switchTab(tabParam);
       } else if (hash === 'leveltest') {
         applyLevelTestState();
         history.replaceState(null, '', '#leveltest');
-      } else if (hash === 'tab02' || hash === 'tab03' || hash === 'tab04') {
+      } else if (hash === 'tab02' || hash === 'tab03' || hash === 'tab04' || hash === 'tab05') {
         switchTab(hash);
       }
 
@@ -1338,7 +1473,7 @@
         var h = location.hash.slice(1);
         if (h === 'leveltest') {
           applyLevelTestState();
-        } else if (['tab01', 'tab02', 'tab03', 'tab04'].indexOf(h) !== -1) {
+        } else if (['tab01', 'tab02', 'tab03', 'tab04', 'tab05'].indexOf(h) !== -1) {
           switchTab(h);
         }
       });

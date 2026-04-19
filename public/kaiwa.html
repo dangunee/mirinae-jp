@@ -3104,7 +3104,7 @@
               </div>
 
               <div id="kaiwa-apply-panel-trial" class="kaiwa-apply-panel active" role="tabpanel" aria-labelledby="kaiwa-apply-tab-trial">
-                <p class="form-note">会話強化クラス（会話トレーニング）の体験・レベルテストのお申込みはこちらです。</p>
+                <p class="form-note">会話強化クラス（会話トレーニング）の体験のお申込みはこちらです。</p>
                 <form action="/api/public-form/" method="POST" data-turnstile-form>
                   <input type="hidden" name="_captcha" value="false">
                   <input type="hidden" name="_subject" value="【体験申込】会話強化クラス｜ミリネ韓国語教室">
@@ -3114,16 +3114,7 @@
                   <input type="hidden" name="_error_next" value="https://mirinae.jp/kaiwa.html?form_error=1&amp;tab=tab01&amp;apply=trial#tab01">
                   <input type="hidden" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
                   <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
-                  <div class="radio-chip-group trial-type-buttons" style="margin-bottom: 20px; justify-content: center;">
-                    <div class="radio-chip">
-                      <input type="radio" name="タイトル" id="kaiwa_trial_taiken" value="体験レッスン" checked>
-                      <label for="kaiwa_trial_taiken">体験レッスン</label>
-                    </div>
-                    <div class="radio-chip">
-                      <input type="radio" name="タイトル" id="kaiwa_trial_level" value="レベルテスト">
-                      <label for="kaiwa_trial_level">レベルテスト</label>
-                    </div>
-                  </div>
+                  <input type="hidden" name="タイトル" value="体験レッスン">
                   <table class="form-table">
                     <tbody>
                       <tr>
@@ -3195,7 +3186,6 @@
                             <option value="土曜上級2講座">土曜上級2講座</option>
                             <option value="ネットレッスン">ネットレッスン</option>
                             <option value="会話トレーニング">会話トレーニング</option>
-                            <option value="レベルテスト">レベルテスト</option>
                             <option value="その他">その他</option>
                           </select>
                         </td>
@@ -3205,7 +3195,7 @@
                         <td>
                           <div class="kaiwa-time-options">
                             <label><input type="radio" name="選択時間帯" value="グループ(中上級)　水 11:00" required> グループ(中上級)　水 11:00</label>
-                            <label><input type="radio" name="選択時間帯" value="土 14:00〜"> 土 14:00〜</label>
+                            <label><input type="radio" name="選択時間帯" value="グループ(中上級)　土 14:00〜"> グループ(中上級)　土 14:00〜</label>
                             <label><input type="radio" name="選択時間帯" value="個人レッスン"> 個人レッスン</label>
                           </div>
                         </td>
@@ -3229,7 +3219,7 @@
                         </td>
                       </tr>
                       <tr>
-                        <th>体験・申し込み講座のご希望日と時間帯 <span class="optional">任意</span></th>
+                        <th>体験のご希望日と時間帯 <span class="optional">任意</span></th>
                         <td>
                           <textarea name="希望日時" placeholder="例）○月○日 ○時～○時"></textarea>
                         </td>
@@ -3237,13 +3227,12 @@
                       <tr>
                         <th>韓国語レベル<span class="required">必須</span></th>
                         <td>
-                          <select name="韓国語レベル" required>
-                            <option value="">選択してください</option>
-                            <option value="初中級">初中級</option>
-                            <option value="中級">中級</option>
-                            <option value="中上級">中上級</option>
-                            <option value="上級">上級</option>
-                          </select>
+                          <div class="kaiwa-time-options">
+                            <label><input type="radio" name="韓国語レベル" value="初中級" required> 初中級</label>
+                            <label><input type="radio" name="韓国語レベル" value="中級"> 中級</label>
+                            <label><input type="radio" name="韓国語レベル" value="中上級"> 中上級</label>
+                            <label><input type="radio" name="韓国語レベル" value="上級"> 上級</label>
+                          </div>
                         </td>
                       </tr>
                       <tr>
@@ -3279,12 +3268,6 @@
                   <input type="hidden" name="タイトル" value="講座の申し込み">
                   <table class="form-table">
                     <tbody>
-                      <tr>
-                        <th>タイトル<span class="required">必須</span></th>
-                        <td>
-                          <span class="radio-chip-single">講座の申し込み</span>
-                        </td>
-                      </tr>
                       <tr>
                         <th>お名前<span class="required">必須</span></th>
                         <td><input type="text" name="お名前" required></td>

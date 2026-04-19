@@ -38,6 +38,8 @@
       --navy: #0f1f3d;
       --navy-mid: #1e3a6e;
       --border: rgba(201,146,42,0.2);
+      --form-bg: #f8f6f2;
+      --red: #b94a48;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -2562,6 +2564,261 @@
       .hero::after { font-size: 60px; right: 16px; }
       .tabs-bar .tab-btn { padding: 10px 12px; font-size: 12px; }
     }
+
+    /* 会話クラス tab01: 開講スケジュール下の申込フォーム */
+    #tab01 .t01-schedule-full {
+      width: 100%;
+      margin-top: 8px;
+    }
+    #tab01 .t01-schedule-full .t01-schedule-box { width: 100%; box-sizing: border-box; }
+    #tab01 .t01-schedule-full .t01-tuition-notes {
+      margin-top: 16px;
+      padding: 14px 18px;
+      background: var(--beige);
+      border-radius: 10px;
+      border-left: 3px solid var(--border);
+      font-size: 11px;
+      color: var(--text-muted);
+      line-height: 1.9;
+    }
+    #tab01 .kaiwa-form-banner {
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-bottom: 20px;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+    #tab01 .kaiwa-form-banner--success {
+      background: rgba(46, 125, 50, 0.08);
+      border: 1px solid rgba(46, 125, 50, 0.35);
+      color: var(--mid);
+    }
+    #tab01 .kaiwa-form-banner--error {
+      background: rgba(185, 74, 72, 0.08);
+      border: 1px solid rgba(185, 74, 72, 0.4);
+      color: var(--mid);
+    }
+    #tab01 .kaiwa-form-banner a { color: var(--gold); font-weight: 600; }
+    #tab01 .kaiwa-apply-wrap {
+      margin-top: 28px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 28px 28px 32px;
+      box-shadow: 0 4px 24px rgba(14, 28, 56, 0.06);
+    }
+    #tab01 .kaiwa-apply-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 24px;
+      border-bottom: 1px solid var(--gray-border);
+      padding-bottom: 16px;
+    }
+    #tab01 .kaiwa-apply-tab {
+      flex: 1 1 160px;
+      padding: 12px 18px;
+      border: 1.5px solid var(--gray-border);
+      border-radius: 999px;
+      background: var(--form-bg);
+      color: var(--text-muted);
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s, color 0.2s;
+    }
+    #tab01 .kaiwa-apply-tab:hover {
+      border-color: var(--gold-light);
+      color: var(--gold);
+    }
+    #tab01 .kaiwa-apply-tab.active {
+      border-color: var(--gold);
+      background: var(--gold-pale);
+      color: var(--gold);
+    }
+    #tab01 .kaiwa-apply-panel { display: none; }
+    #tab01 .kaiwa-apply-panel.active { display: block; }
+    #tab01 .kaiwa-apply-wrap .form-note {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+      line-height: 1.75;
+    }
+    #tab01 .kaiwa-apply-wrap .form-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      margin-bottom: 8px;
+      table-layout: fixed;
+    }
+    #tab01 .kaiwa-apply-wrap .form-table th,
+    #tab01 .kaiwa-apply-wrap .form-table td {
+      border: 1px solid var(--gray-border);
+      padding: 12px 14px;
+      vertical-align: top;
+    }
+    #tab01 .kaiwa-apply-wrap .form-table th {
+      width: 32%;
+      max-width: 32%;
+      background: var(--form-bg);
+      font-weight: 600;
+      color: var(--mid);
+      font-size: 13px;
+      overflow-wrap: break-word;
+    }
+    #tab01 .kaiwa-apply-wrap .form-table .required {
+      display: inline-block;
+      background: var(--red);
+      color: white;
+      font-size: 10px;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-weight: 700;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+    #tab01 .kaiwa-apply-wrap .form-table .optional {
+      display: inline-block;
+      background: #e5e5ea;
+      color: var(--text-muted);
+      font-size: 10px;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-weight: 700;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+    #tab01 .kaiwa-apply-wrap .form-table td { background: var(--white); }
+    #tab01 .kaiwa-apply-wrap .form-table small {
+      display: block;
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+    #tab01 .kaiwa-apply-wrap input[type="text"],
+    #tab01 .kaiwa-apply-wrap input[type="email"],
+    #tab01 .kaiwa-apply-wrap input[type="tel"],
+    #tab01 .kaiwa-apply-wrap select,
+    #tab01 .kaiwa-apply-wrap textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 8px;
+      border: 1.5px solid var(--gray-border);
+      font-family: inherit;
+      font-size: 14px;
+      color: var(--text-dark);
+      background: var(--form-bg);
+      transition: border-color 0.2s, box-shadow 0.2s;
+      box-sizing: border-box;
+    }
+    #tab01 .kaiwa-apply-wrap input:focus,
+    #tab01 .kaiwa-apply-wrap select:focus,
+    #tab01 .kaiwa-apply-wrap textarea:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(184, 150, 62, 0.12);
+      background: var(--white);
+      outline: none;
+    }
+    #tab01 .kaiwa-apply-wrap select {
+      appearance: none;
+      padding-right: 36px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238E8E93' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      cursor: pointer;
+    }
+    #tab01 .kaiwa-apply-wrap textarea { min-height: 100px; resize: vertical; }
+    #tab01 .kaiwa-apply-wrap .kaiwa-time-options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    #tab01 .kaiwa-apply-wrap .kaiwa-time-options label {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      cursor: pointer;
+      font-size: 14px;
+      line-height: 1.5;
+      color: var(--mid);
+    }
+    #tab01 .kaiwa-apply-wrap .kaiwa-time-options input { margin-top: 4px; flex-shrink: 0; }
+    #tab01 .kaiwa-apply-wrap .radio-chip-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 16px;
+      justify-content: flex-start;
+    }
+    #tab01 .kaiwa-apply-wrap .radio-chip { display: inline-block; position: relative; }
+    #tab01 .kaiwa-apply-wrap .radio-chip input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+    #tab01 .kaiwa-apply-wrap .radio-chip label {
+      display: inline-block;
+      padding: 10px 18px;
+      border: 1.5px solid var(--gray-border);
+      border-radius: 999px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.2s;
+      color: var(--text-muted);
+      background: var(--form-bg);
+    }
+    #tab01 .kaiwa-apply-wrap .radio-chip input:checked + label,
+    #tab01 .kaiwa-apply-wrap .radio-chip label.checked {
+      border-color: var(--gold);
+      background: var(--gold-pale);
+      color: var(--gold);
+      font-weight: 700;
+    }
+    #tab01 .kaiwa-apply-wrap .radio-chip-single {
+      display: inline-block;
+      padding: 10px 20px;
+      border: 1.5px solid var(--gold);
+      border-radius: 999px;
+      font-size: 14px;
+      color: var(--gold);
+      font-weight: 700;
+      background: var(--gold-pale);
+    }
+    #tab01 .kaiwa-apply-wrap .form-actions { margin-top: 22px; text-align: center; }
+    #tab01 .kaiwa-apply-wrap .turnstile-slot { margin: 12px 0 8px; display: flex; justify-content: center; }
+    #tab01 .kaiwa-apply-wrap .submit-btn {
+      width: 100%;
+      max-width: 420px;
+      padding: 16px;
+      background: linear-gradient(135deg, var(--gold) 0%, #c8a84b 100%);
+      color: var(--white);
+      border: none;
+      border-radius: 12px;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.15s;
+      box-shadow: 0 4px 16px rgba(184, 150, 62, 0.35);
+    }
+    #tab01 .kaiwa-apply-wrap .submit-btn:hover { opacity: 0.92; transform: translateY(-1px); }
+    #tab01 .kaiwa-apply-wrap .submit-btn:disabled { opacity: 0.75; cursor: wait; transform: none; }
+    @media (max-width: 600px) {
+      #tab01 .kaiwa-apply-wrap { padding: 20px 16px 24px; }
+      #tab01 .kaiwa-apply-wrap .form-table { table-layout: auto; display: block; }
+      #tab01 .kaiwa-apply-wrap .form-table tbody,
+      #tab01 .kaiwa-apply-wrap .form-table tr { display: block; }
+      #tab01 .kaiwa-apply-wrap .form-table th,
+      #tab01 .kaiwa-apply-wrap .form-table td {
+        display: block;
+        width: 100%;
+        max-width: none;
+        box-sizing: border-box;
+      }
+      #tab01 .kaiwa-apply-wrap .form-table th { border-bottom: none; padding-bottom: 4px; }
+    }
   </style>
 </head>
 <body>
@@ -2776,6 +3033,14 @@
             <div class="beg-sec-line"></div>
           </div>
           <div class="t01-tuition-grid kaiwa-reveal">
+            <div id="kaiwa-t01-form-success" class="kaiwa-form-banner kaiwa-form-banner--success" style="display:none;" aria-live="polite">
+              <p style="font-weight:600;margin-bottom:8px;">お申込みありがとうございました。</p>
+              <p>内容を確認のうえ、折り返しご連絡いたします。</p>
+            </div>
+            <div id="kaiwa-t01-form-error" class="kaiwa-form-banner kaiwa-form-banner--error" style="display:none;" role="alert">
+              <p style="font-weight:600;margin-bottom:8px;">送信に失敗しました。</p>
+              <p id="kaiwa-t01-form-error-msg">時間をおいて再度お試しいただくか、<a href="mailto:mirinae@kaonnuri.com">mirinae@kaonnuri.com</a> までご連絡ください。</p>
+            </div>
             <div class="t01-price-cards">
               <div class="t01-price-card kaiwa-reveal">
                 <div class="t01-price-plan">月3回コース</div>
@@ -2812,7 +3077,7 @@
                 </div>
               </div>
             </div>
-            <div class="t01-schedule-cta-row">
+            <div class="t01-schedule-full">
               <div class="t01-schedule-box">
                 <h3>CLASS SCHEDULE / 開講スケジュール</h3>
                 <div class="t01-schedule-rows">
@@ -2826,14 +3091,338 @@
                   </div>
                 </div>
               </div>
-              <div class="t01-cta-box">
-                <a href="/trial" class="t01-cta-big">お申込みはこちら →</a>
-                <div class="t01-tuition-notes">
-                  ※回数券の場合、予約は1週間前まで。キャンセル不可。<br>
-                  ※一人からスタート可能です。
-                </div>
+              <div class="t01-tuition-notes">
+                ※回数券の場合、予約は1週間前まで。キャンセル不可。<br>
+                ※一人からスタート可能です。
               </div>
             </div>
+
+            <div class="kaiwa-apply-wrap">
+              <div class="kaiwa-apply-tabs" role="tablist" aria-label="お申込みの種類">
+                <button type="button" class="kaiwa-apply-tab active" role="tab" aria-selected="true" id="kaiwa-apply-tab-trial" data-kaiwa-apply="trial">体験申込</button>
+                <button type="button" class="kaiwa-apply-tab" role="tab" aria-selected="false" id="kaiwa-apply-tab-course" data-kaiwa-apply="course">講座申込</button>
+              </div>
+
+              <div id="kaiwa-apply-panel-trial" class="kaiwa-apply-panel active" role="tabpanel" aria-labelledby="kaiwa-apply-tab-trial">
+                <p class="form-note">会話強化クラス（会話トレーニング）の体験・レベルテストのお申込みはこちらです。</p>
+                <form action="/api/public-form/" method="POST" data-turnstile-form>
+                  <input type="hidden" name="_captcha" value="false">
+                  <input type="hidden" name="_subject" value="【体験申込】会話強化クラス｜ミリネ韓国語教室">
+                  <input type="hidden" name="_next" value="https://mirinae.jp/kaiwa.html?thanks=1&amp;tab=tab01&amp;apply=trial">
+                  <input type="hidden" name="_replyto" value="メールアドレス">
+                  <input type="hidden" name="_url" value="https://www.mirinae.jp/kaiwa.html#tab01">
+                  <input type="hidden" name="_error_next" value="https://mirinae.jp/kaiwa.html?form_error=1&amp;tab=tab01&amp;apply=trial#tab01">
+                  <input type="hidden" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+                  <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
+                  <div class="radio-chip-group trial-type-buttons" style="margin-bottom: 20px; justify-content: center;">
+                    <div class="radio-chip">
+                      <input type="radio" name="タイトル" id="kaiwa_trial_taiken" value="体験レッスン" checked>
+                      <label for="kaiwa_trial_taiken">体験レッスン</label>
+                    </div>
+                    <div class="radio-chip">
+                      <input type="radio" name="タイトル" id="kaiwa_trial_level" value="レベルテスト">
+                      <label for="kaiwa_trial_level">レベルテスト</label>
+                    </div>
+                  </div>
+                  <table class="form-table">
+                    <tbody>
+                      <tr>
+                        <th>お名前<span class="required">必須</span></th>
+                        <td><input type="text" name="お名前" required></td>
+                      </tr>
+                      <tr>
+                        <th>ふりがな<span class="required">必須</span></th>
+                        <td><input type="text" name="ふりがな" required autocomplete="off"></td>
+                      </tr>
+                      <tr>
+                        <th>年齢 <span class="optional">任意</span></th>
+                        <td>
+                          <select name="年齢">
+                            <option value="">選択してください</option>
+                            <option value="10代">10代</option>
+                            <option value="20代">20代</option>
+                            <option value="30代">30代</option>
+                            <option value="40代">40代</option>
+                            <option value="50代">50代</option>
+                            <option value="60代">60代</option>
+                            <option value="70代以上">70代以上</option>
+                          </select>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>都道府県<span class="required">必須</span></th>
+                        <td>
+                          <select name="都道府県" required>
+                            <option value="">選択してください</option>
+                            <option>北海道</option><option>青森県</option><option>岩手県</option><option>宮城県</option><option>秋田県</option><option>山形県</option><option>福島県</option>
+                            <option>茨城県</option><option>栃木県</option><option>群馬県</option><option>埼玉県</option><option>千葉県</option><option>東京23区</option><option>東京都</option><option>神奈川県</option>
+                            <option>山梨県</option><option>長野県</option><option>新潟県</option><option>富山県</option><option>石川県</option><option>福井県</option>
+                            <option>岐阜県</option><option>静岡県</option><option>愛知県</option><option>三重県</option>
+                            <option>滋賀県</option><option>京都府</option><option>大阪府</option><option>兵庫県</option><option>奈良県</option><option>和歌山県</option>
+                            <option>鳥取県</option><option>島根県</option><option>岡山県</option><option>広島県</option><option>山口県</option>
+                            <option>徳島県</option><option>香川県</option><option>愛媛県</option><option>高知県</option>
+                            <option>福岡県</option><option>佐賀県</option><option>長崎県</option><option>熊本県</option><option>大分県</option><option>宮崎県</option><option>鹿児島県</option><option>沖縄県</option>
+                          </select>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>メールアドレス<span class="required">必須</span></th>
+                        <td><input type="email" name="メールアドレス" required></td>
+                      </tr>
+                      <tr>
+                        <th>お電話番号<span class="required">必須</span></th>
+                        <td><input type="tel" name="お電話番号" required></td>
+                      </tr>
+                      <tr>
+                        <th>ご希望教室<span class="required">必須</span></th>
+                        <td>
+                          <div class="kaiwa-time-options">
+                            <label><input type="radio" name="ご希望教室" value="新宿教室" required> 新宿教室</label>
+                            <label><input type="radio" name="ご希望教室" value="Teams / Zoom レッスン"> Teams / Zoom レッスン</label>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>ご希望レッスン<span class="required">必須</span></th>
+                        <td>
+                          <select name="ご希望レッスン" required>
+                            <option value="" selected>選択してください</option>
+                            <option value="個人レッスン">個人レッスン</option>
+                            <option value="短期集中個人レッスン">短期集中個人レッスン</option>
+                            <option value="発音矯正レッスン">発音矯正レッスン</option>
+                            <option value="時事韓国語レッスン">時事韓国語レッスン</option>
+                            <option value="土曜上級1講座">土曜上級1講座</option>
+                            <option value="土曜上級2講座">土曜上級2講座</option>
+                            <option value="ネットレッスン">ネットレッスン</option>
+                            <option value="会話トレーニング">会話トレーニング</option>
+                            <option value="レベルテスト">レベルテスト</option>
+                            <option value="その他">その他</option>
+                          </select>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>選択時間帯<span class="required">必須</span></th>
+                        <td>
+                          <div class="kaiwa-time-options">
+                            <label><input type="radio" name="選択時間帯" value="グループ(中上級)　水 11:00" required> グループ(中上級)　水 11:00</label>
+                            <label><input type="radio" name="選択時間帯" value="土 14:00〜"> 土 14:00〜</label>
+                            <label><input type="radio" name="選択時間帯" value="個人レッスン"> 個人レッスン</label>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>ミリネ韓国語教室を知ったきっかけ</th>
+                        <td>
+                          <select name="きっかけ">
+                            <option value="" selected>選択してください</option>
+                            <option value="Ｘ・ツイッター">Ｘ・ツイッター</option>
+                            <option value="YouTube">YouTube</option>
+                            <option value="フェイスブック">フェイスブック</option>
+                            <option value="Instagram">Instagram</option>
+                            <option value="threads(スレッズ)">threads(スレッズ)</option>
+                            <option value="検索">検索</option>
+                            <option value="ブログ">ブログ</option>
+                            <option value="紹介">紹介</option>
+                            <option value="ミリネ出版本">ミリネ出版本</option>
+                            <option value="メールマガジン">メールマガジン</option>
+                          </select>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>体験・申し込み講座のご希望日と時間帯 <span class="optional">任意</span></th>
+                        <td>
+                          <textarea name="希望日時" placeholder="例）○月○日 ○時～○時"></textarea>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>韓国語レベル<span class="required">必須</span></th>
+                        <td>
+                          <select name="韓国語レベル" required>
+                            <option value="">選択してください</option>
+                            <option value="初中級">初中級</option>
+                            <option value="中級">中級</option>
+                            <option value="中上級">中上級</option>
+                            <option value="上級">上級</option>
+                          </select>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>簡単な韓国語の学習歴<span class="required">必須</span></th>
+                        <td><textarea name="学習歴" required></textarea></td>
+                      </tr>
+                      <tr>
+                        <th>お問い合わせ <span class="optional">任意</span></th>
+                        <td><textarea name="お問い合わせ"></textarea></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <input type="hidden" name="turnstileToken" value="" class="turnstile-token-input" autocomplete="off">
+                  <div class="turnstile-slot" aria-label="認証"></div>
+                  <input type="text" name="company" value="" style="display:none" tabindex="-1" autocomplete="off">
+                  <div class="form-actions">
+                    <button type="submit" class="submit-btn">送信する</button>
+                  </div>
+                </form>
+              </div>
+
+              <div id="kaiwa-apply-panel-course" class="kaiwa-apply-panel" role="tabpanel" aria-labelledby="kaiwa-apply-tab-course">
+                <p class="form-note">受講したい講座が決まっている方はこちらから本申込ができます。希望の教室・レッスン名・日程などをご記入ください。</p>
+                <form action="/api/public-form/" method="POST" data-turnstile-form data-turnstile-defer="1">
+                  <input type="hidden" name="_captcha" value="false">
+                  <input type="hidden" name="_subject" value="【講座申込】会話強化クラス｜ミリネ韓国語教室">
+                  <input type="hidden" name="_next" value="https://mirinae.jp/kaiwa.html?thanks=1&amp;tab=tab01&amp;apply=course">
+                  <input type="hidden" name="_replyto" value="メールアドレス">
+                  <input type="hidden" name="_url" value="https://www.mirinae.jp/kaiwa.html#tab01">
+                  <input type="hidden" name="_error_next" value="https://mirinae.jp/kaiwa.html?form_error=1&amp;tab=tab01&amp;apply=course#tab01">
+                  <input type="hidden" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+                  <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
+                  <input type="hidden" name="タイトル" value="講座の申し込み">
+                  <table class="form-table">
+                    <tbody>
+                      <tr>
+                        <th>タイトル<span class="required">必須</span></th>
+                        <td>
+                          <span class="radio-chip-single">講座の申し込み</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>お名前<span class="required">必須</span></th>
+                        <td><input type="text" name="お名前" required></td>
+                      </tr>
+                      <tr>
+                        <th>ふりがな<span class="required">必須</span></th>
+                        <td><input type="text" name="ふりがな" required autocomplete="off"></td>
+                      </tr>
+                      <tr>
+                        <th>メールアドレス<span class="required">必須</span></th>
+                        <td><input type="email" name="メールアドレス" required></td>
+                      </tr>
+                      <tr>
+                        <th>年齢 <span class="optional">任意</span></th>
+                        <td>
+                          <select name="年齢">
+                            <option value="">選択してください</option>
+                            <option value="10代">10代</option><option value="20代">20代</option><option value="30代">30代</option><option value="40代">40代</option><option value="50代">50代</option><option value="60代">60代</option><option value="70代以上">70代以上</option>
+                          </select>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>都道府県 <span class="optional">任意</span></th>
+                        <td>
+                          <select name="都道府県">
+                            <option value="">選択してください</option>
+                            <option>北海道</option><option>青森県</option><option>岩手県</option><option>宮城県</option><option>秋田県</option><option>山形県</option><option>福島県</option>
+                            <option>茨城県</option><option>栃木県</option><option>群馬県</option><option>埼玉県</option><option>千葉県</option><option>東京23区</option><option>東京都</option><option>神奈川県</option>
+                            <option>山梨県</option><option>長野県</option><option>新潟県</option><option>富山県</option><option>石川県</option><option>福井県</option>
+                            <option>岐阜県</option><option>静岡県</option><option>愛知県</option><option>三重県</option>
+                            <option>滋賀県</option><option>京都府</option><option>大阪府</option><option>兵庫県</option><option>奈良県</option><option>和歌山県</option>
+                            <option>鳥取県</option><option>島根県</option><option>岡山県</option><option>広島県</option><option>山口県</option>
+                            <option>徳島県</option><option>香川県</option><option>愛媛県</option><option>高知県</option>
+                            <option>福岡県</option><option>佐賀県</option><option>長崎県</option><option>熊本県</option><option>大分県</option><option>宮崎県</option><option>鹿児島県</option><option>沖縄県</option>
+                          </select>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>お電話番号<span class="required">必須</span></th>
+                        <td><input type="tel" name="お電話番号" required></td>
+                      </tr>
+                      <tr>
+                        <th>ご希望教室<span class="required">必須</span></th>
+                        <td>
+                          <div class="kaiwa-time-options">
+                            <label><input type="radio" name="ご希望教室" value="新宿教室" required> 新宿教室</label>
+                            <label><input type="radio" name="ご希望教室" value="Teams / Zoom レッスン"> Teams / Zoom レッスン</label>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>ご希望レッスン<span class="required">必須</span></th>
+                        <td>
+                          <select name="ご希望レッスン" required>
+                            <option value="" selected>選択してください</option>
+                            <option value="2月多読・発音講座-初中級">2月多読・発音講座-初中級</option>
+                            <option value="2月多読・発音講座-中上級">2月多読・発音講座-中上級</option>
+                            <option value="中級文法まとめ講座">中級文法まとめ講座</option>
+                            <option value="上級文法まとめ講座">上級文法まとめ講座</option>
+                            <option value="個人レッスン">個人レッスン</option>
+                            <option value="短期集中個人レッスン">短期集中個人レッスン</option>
+                            <option value="発音矯正個人レッスン">発音矯正個人レッスン</option>
+                            <optgroup label="GW集中講座">
+                              <option value="GW集中入門1日間">GW集中入門1日間</option>
+                              <option value="GW集中初級1日間">GW集中初級1日間</option>
+                              <option value="GW集中初級2日間">GW集中初級2日間</option>
+                              <option value="GW集中初級3日間">GW集中初級3日間</option>
+                              <option value="GW集中中級1日間">GW集中中級1日間</option>
+                              <option value="GW集中中級2日間">GW集中中級2日間</option>
+                              <option value="GW集中中級3日間">GW集中中級3日間</option>
+                              <option value="GW集中上級1日間">GW集中上級1日間</option>
+                              <option value="GW集中上級2日間">GW集中上級2日間</option>
+                              <option value="GW集中上級3日間">GW集中上級3日間</option>
+                              <option value="GW集中講座、初級・中級1日間">GW集中講座、初級・中級1日間</option>
+                              <option value="GW集中講座、初級・中級2日間">GW集中講座、初級・中級2日間</option>
+                              <option value="GW集中講座、初級・中級3日間">GW集中講座、初級・中級3日間</option>
+                              <option value="GW集中講座、中級・上級1日間">GW集中講座、中級・上級1日間</option>
+                              <option value="GW集中講座、中級・上級2日間">GW集中講座、中級・上級2日間</option>
+                              <option value="GW集中講座、中級・上級3日間">GW集中講座、中級・上級3日間</option>
+                            </optgroup>
+                            <option value="語彙力強化レッスン">語彙力強化レッスン</option>
+                            <option value="TOPIK対策講座">TOPIK対策講座</option>
+                            <option value="ハン検対策クラス">ハン検対策クラス</option>
+                            <option value="ハングル検定準2級対策">ハングル検定準2級対策</option>
+                            <option value="土曜上級1講座">土曜上級1講座</option>
+                            <option value="土曜上級2講座">土曜上級2講座</option>
+                            <option value="ネットレッスン">ネットレッスン</option>
+                            <option value="会話トレーニング">会話トレーニング</option>
+                            <option value="小人数グループレッスン">小人数グループレッスン</option>
+                            <option value="小説朗読討論講座">小説朗読討論講座</option>
+                            <option value="通信音読トレーニング">通信音読トレーニング</option>
+                            <option value="メール作文トレーニング">メール作文トレーニング</option>
+                            <option value="その他">その他</option>
+                          </select>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>ミリネ韓国語教室を知ったきっかけ</th>
+                        <td>
+                          <select name="きっかけ">
+                            <option value="" selected>選択してください</option>
+                            <option value="Ｘ・ツイッター">Ｘ・ツイッター</option>
+                            <option value="YouTube">YouTube</option>
+                            <option value="フェイスブック">フェイスブック</option>
+                            <option value="Instagram">Instagram</option>
+                            <option value="threads(スレッズ)">threads(スレッズ)</option>
+                            <option value="検索">検索</option>
+                            <option value="ブログ">ブログ</option>
+                            <option value="紹介">紹介</option>
+                            <option value="ミリネ出版本">ミリネ出版本</option>
+                            <option value="メールマガジン">メールマガジン</option>
+                          </select>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>申し込み講座のご希望日と時間帯 <span class="optional">任意</span></th>
+                        <td><textarea name="希望日時" placeholder="例）○月○日から、週○回 ○時台を希望　など"></textarea></td>
+                      </tr>
+                      <tr>
+                        <th>簡単な韓国語の学習歴及びレベル <span class="optional">任意</span></th>
+                        <td><textarea name="学習歴"></textarea></td>
+                      </tr>
+                      <tr>
+                        <th>お問い合わせ・メッセージ <span class="optional">任意</span></th>
+                        <td><textarea name="お問い合わせ"></textarea></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <input type="hidden" name="turnstileToken" value="" class="turnstile-token-input" autocomplete="off">
+                  <div class="turnstile-slot" aria-label="認証"></div>
+                  <input type="text" name="company" value="" style="display:none" tabindex="-1" autocomplete="off">
+                  <div class="form-actions">
+                    <button type="submit" class="submit-btn">送信する</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
           </div>
 
           <div class="beg-sec-header kaiwa-reveal">
@@ -4267,9 +4856,17 @@
         });
       });
 
+      var params = new URLSearchParams(location.search);
+      var tabParam = params.get('tab');
       var hash = location.hash.slice(1);
-      if (tabIds.indexOf(hash) !== -1) {
-        switchTab(hash);
+      var initialTab = null;
+      if (tabParam && tabIds.indexOf(tabParam) !== -1) {
+        initialTab = tabParam;
+      } else if (tabIds.indexOf(hash) !== -1) {
+        initialTab = hash;
+      }
+      if (initialTab) {
+        switchTab(initialTab);
       } else {
         var activeTab = tabIds.find(function(id) { return document.getElementById(id) && document.getElementById(id).classList.contains('active'); }) || 'tab01';
         document.querySelectorAll('.courses-nav .nav-item[href^="kaiwa.html#"]').forEach(function(a) {
@@ -4277,6 +4874,95 @@
           a.classList.toggle('active', href === 'kaiwa.html#' + activeTab);
         });
         initKaiwaReveal(activeTab);
+      }
+
+      function kaiwaT01ApplyFormsInit() {
+        var trialPanel = document.getElementById('kaiwa-apply-panel-trial');
+        var coursePanel = document.getElementById('kaiwa-apply-panel-course');
+        var tabTrial = document.getElementById('kaiwa-apply-tab-trial');
+        var tabCourse = document.getElementById('kaiwa-apply-tab-course');
+        function setKaiwaApplyTab(which) {
+          var isCourse = which === 'course';
+          if (trialPanel) {
+            trialPanel.classList.toggle('active', !isCourse);
+            trialPanel.setAttribute('aria-hidden', isCourse ? 'true' : 'false');
+          }
+          if (coursePanel) {
+            coursePanel.classList.toggle('active', isCourse);
+            coursePanel.setAttribute('aria-hidden', !isCourse ? 'true' : 'false');
+          }
+          if (tabTrial) {
+            tabTrial.classList.toggle('active', !isCourse);
+            tabTrial.setAttribute('aria-selected', !isCourse ? 'true' : 'false');
+          }
+          if (tabCourse) {
+            tabCourse.classList.toggle('active', isCourse);
+            tabCourse.setAttribute('aria-selected', isCourse ? 'true' : 'false');
+          }
+          if (isCourse && coursePanel && typeof window.mirinaeMountDeferredTurnstile === 'function') {
+            var cform = coursePanel.querySelector('form[data-turnstile-defer="1"]');
+            if (cform) window.mirinaeMountDeferredTurnstile(cform);
+          }
+        }
+        if (tabTrial) {
+          tabTrial.addEventListener('click', function() { setKaiwaApplyTab('trial'); });
+        }
+        if (tabCourse) {
+          tabCourse.addEventListener('click', function() { setKaiwaApplyTab('course'); });
+        }
+
+        var thanksOk = document.getElementById('kaiwa-t01-form-success');
+        var thanksErr = document.getElementById('kaiwa-t01-form-error');
+        var thanksErrMsg = document.getElementById('kaiwa-t01-form-error-msg');
+        var formErrorMessages = {
+          rate: '送信が集中しています。しばらく時間をおいてから再度お試しください。',
+          validation: '入力内容をご確認ください。',
+          invalid_phone: '電話番号をご確認ください。数字10〜15桁で入力してください（ハイフンやスペースは除いて数えます。全角数字も入力できます）。',
+          invalid_input: '入力内容をご確認ください。',
+          turnstile: '認証の確認に失敗しました。ページを再読み込みのうえ、再度お試しください。',
+          spam_detected: '送信を受け付けられませんでした。内容をご確認ください。',
+          parse: '通信エラーが発生しました。再度お試しください。'
+        };
+
+        function applyFromParams() {
+          var ap = params.get('apply');
+          if (ap === 'course') setKaiwaApplyTab('course');
+          else setKaiwaApplyTab('trial');
+        }
+
+        var errCode = params.get('form_error');
+        if (errCode) {
+          switchTab('tab01');
+          applyFromParams();
+          if (thanksErr) {
+            thanksErr.style.display = 'block';
+            if (thanksOk) thanksOk.style.display = 'none';
+            if (thanksErrMsg) {
+              if (errCode === 'mail') {
+                thanksErrMsg.innerHTML = 'メールの送信に失敗しました。しばらくしてから再度お試しいただくか、<a href="mailto:mirinae@kaonnuri.com">mirinae@kaonnuri.com</a> までご連絡ください。';
+              } else if (formErrorMessages[errCode]) {
+                thanksErrMsg.textContent = formErrorMessages[errCode];
+              }
+            }
+            thanksErr.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        } else if (params.get('thanks') === '1') {
+          switchTab('tab01');
+          applyFromParams();
+          if (thanksOk) {
+            thanksOk.style.display = 'block';
+            if (thanksErr) thanksErr.style.display = 'none';
+            thanksOk.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }
+      }
+      function scheduleKaiwaT01ApplyForms() {
+        setTimeout(kaiwaT01ApplyFormsInit, 0);
+      }
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', scheduleKaiwaT01ApplyForms);
+      } else {
+        scheduleKaiwaT01ApplyForms();
       }
 
       window.addEventListener('hashchange', function() {
@@ -4401,6 +5087,7 @@
       });
     })();
   </script>
+  <script src="/js/turnstile-forms.js" defer></script>
   <script src="/testimonials.js"></script>
   <script src="/admin-badge.js"></script>
   <script src="/js/analytics.js"></script>

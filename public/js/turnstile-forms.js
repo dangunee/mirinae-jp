@@ -28,10 +28,12 @@
   function showFormFetchError(code, message) {
     var banner =
       document.getElementById("form-error-banner") ||
-      document.getElementById("syutyu-form-error-banner");
+      document.getElementById("syutyu-form-error-banner") ||
+      document.getElementById("kaiwa-t01-form-error");
     var sub =
       document.getElementById("form-error-sub") ||
-      document.getElementById("syutyu-form-error-sub");
+      document.getElementById("syutyu-form-error-sub") ||
+      document.getElementById("kaiwa-t01-form-error-msg");
     var text =
       message ||
       (code && CODE_FALLBACK[code]) ||
@@ -179,6 +181,41 @@
     });
   }
 
+  var cachedTurnstileSiteKey = null;
+
+  function renderTurnstileOnForm(form, siteKey) {
+    var slot = form.querySelector(".turnstile-slot");
+    if (!slot || form._mirinaeTurnstileWidgetId != null) return;
+    if (!window.turnstile || !siteKey) return;
+
+    var widgetId = window.turnstile.render(slot, {
+      sitekey: siteKey,
+      callback: function (token) {
+        ensureHidden(form, "cf-turnstile-response").value = token || "";
+        var legacy = form.querySelector('input[name="turnstileToken"]');
+        if (legacy) legacy.value = token || "";
+      },
+      "expired-callback": function () {
+        ensureHidden(form, "cf-turnstile-response").value = "";
+        var legacy = form.querySelector('input[name="turnstileToken"]');
+        if (legacy) legacy.value = "";
+      },
+      "error-callback": function () {
+        ensureHidden(form, "cf-turnstile-response").value = "";
+        var legacy = form.querySelector('input[name="turnstileToken"]');
+        if (legacy) legacy.value = "";
+      },
+    });
+
+    form._mirinaeTurnstileWidgetId = widgetId;
+  }
+
+  /** 非表示タブ内など、後から表示されるフォーム用（会話強化 kaiwa 講座タブなど） */
+  window.mirinaeMountDeferredTurnstile = function (form) {
+    if (!form || form.getAttribute("data-turnstile-defer") !== "1") return;
+    renderTurnstileOnForm(form, cachedTurnstileSiteKey);
+  };
+
   function initTurnstileWidgets() {
     fetch("/api/public/turnstile-site-key")
       .then(function (r) {
@@ -186,6 +223,7 @@
       })
       .then(function (d) {
         var siteKey = d && d.siteKey;
+        cachedTurnstileSiteKey = siteKey || null;
         if (!siteKey) return;
 
         var script = document.createElement("script");
@@ -197,36 +235,8 @@
           document
             .querySelectorAll("form[data-turnstile-form]")
             .forEach(function (form) {
-              var slot = form.querySelector(".turnstile-slot");
-              if (!slot) return;
-
-              var widgetId = window.turnstile.render(slot, {
-                sitekey: siteKey,
-                callback: function (token) {
-                  ensureHidden(form, "cf-turnstile-response").value =
-                    token || "";
-                  var legacy = form.querySelector(
-                    'input[name="turnstileToken"]'
-                  );
-                  if (legacy) legacy.value = token || "";
-                },
-                "expired-callback": function () {
-                  ensureHidden(form, "cf-turnstile-response").value = "";
-                  var legacy = form.querySelector(
-                    'input[name="turnstileToken"]'
-                  );
-                  if (legacy) legacy.value = "";
-                },
-                "error-callback": function () {
-                  ensureHidden(form, "cf-turnstile-response").value = "";
-                  var legacy = form.querySelector(
-                    'input[name="turnstileToken"]'
-                  );
-                  if (legacy) legacy.value = "";
-                },
-              });
-
-              form._mirinaeTurnstileWidgetId = widgetId;
+              if (form.getAttribute("data-turnstile-defer") === "1") return;
+              renderTurnstileOnForm(form, siteKey);
             });
         };
         document.head.appendChild(script);

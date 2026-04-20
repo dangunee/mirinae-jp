@@ -1,6 +1,41 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   trailingSlash: true, // /b/ を /b にリダイレクトしない（ループ防止）
+
+  /** Global HTTP security headers (mirinae.jp scan / baseline CSP). */
+  async headers() {
+    return [
+      {
+        source: "/:path*",
+        headers: [
+          {
+            key: "Content-Security-Policy",
+            value: [
+              "default-src 'self'",
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https:",
+              "style-src 'self' 'unsafe-inline' https:",
+              "img-src 'self' data: blob: https:",
+              "font-src 'self' data: https:",
+              "connect-src 'self' https: wss:",
+              "frame-src 'self' https:",
+              "worker-src 'self' blob:",
+              "frame-ancestors 'self'",
+              "base-uri 'self'",
+              "form-action 'self' https:",
+            ].join("; "),
+          },
+          { key: "X-Frame-Options", value: "SAMEORIGIN" },
+          { key: "X-Content-Type-Options", value: "nosniff" },
+          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+          {
+            key: "Permissions-Policy",
+            value: "geolocation=(), camera=(), microphone=()",
+          },
+        ],
+      },
+    ];
+  },
+
   // 廃止ページの 301 リダイレクト
   async redirects() {
     return [

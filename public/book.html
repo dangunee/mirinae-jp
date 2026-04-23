@@ -285,8 +285,29 @@
       .book-intro-row { flex-direction: row; align-items: flex-start; gap: 28px; }
       .book-intro-row .book-cover { margin: 0; }
     }
-    .book-links { margin: 16px 0; }
-    .book-links a { display: inline-block; margin-right: 12px; padding: 10px 20px; background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%); color: white; text-decoration: none; border-radius: 8px; font-size: 14px; font-weight: 600; }
+    .book-links {
+      display: grid;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .book-links:has(> a:nth-child(1):last-child) { grid-template-columns: 1fr; }
+    .book-links:has(> a:nth-child(2):last-child) { grid-template-columns: 1fr 1fr; }
+    .book-links:has(> a:nth-child(3):last-child) { grid-template-columns: 1fr 1fr 1fr; }
+    @media (max-width: 540px) {
+      .book-links:has(> a:nth-child(3):last-child) { grid-template-columns: 1fr; }
+    }
+    .book-links a {
+      display: block;
+      box-sizing: border-box;
+      padding: 10px 16px;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      text-align: center;
+    }
     .book-links a:hover { opacity: 0.9; }
     .testimonial { background: var(--gold-pale); border-radius: 12px; padding: 20px; margin-bottom: 20px; border-left: 4px solid var(--gold); }
     .testimonial-header { font-weight: 600; font-size: 14px; margin-bottom: 10px; color: var(--dark); }
@@ -384,10 +405,6 @@
         <h2 class="section-header">『hanaの韓国語単語〈入門・初級編〉ハン検４・５級レベル』</h2>
         <div class="content-inner">
           <p>日本で受験できる韓国語の検定試験、「ハングル能力」検定試験(ハン検)の最新出題範囲(2016年2月発表)に対応した例文付き単語集。</p>
-          <div class="book-links">
-            <a href="https://www.amazon.co.jp/dp/4844376993" target="_blank" rel="noopener">AMAZON</a>
-            <a href="https://books.rakuten.co.jp/rb/14240785/" target="_blank" rel="noopener">楽天</a>
-          </div>
           <div class="content-block">
             <h3>本の紹介</h3>
             <div class="book-intro-row">
@@ -399,6 +416,10 @@
                 <p><strong>出版社からのコメント</strong><br>見出し語はもちろん、例文の中で表記と発音が異なる箇所には、すべて発音通りのハングルをフォローし、付録CD-ROMにはすべての例文の音声を収録してあります。さらに、「見出し語のみ音声」「見出し語訳のみ音声」「見出し語+例文訳音声」が弊社サイトよりダウンロード可能になっており、音読、シャドーイング、リピーティングから、クイックレスポンス、瞬間韓作文など、さまざまな練習方法を実践することが可能です。まさに「音から単語を学ぶ」単語集と言えます。</p>
               </div>
             </div>
+            <div class="book-links">
+              <a href="https://www.amazon.co.jp/dp/4844376993" target="_blank" rel="noopener">AMAZON</a>
+              <a href="https://books.rakuten.co.jp/rb/14240785/" target="_blank" rel="noopener">楽天</a>
+            </div>
           </div>
         </div>
       </div>
@@ -408,10 +429,6 @@
         <h2 class="section-header">『hanaの韓国語単語〈初中級編〉ハン検３級レベル』</h2>
         <div class="content-inner">
           <p>hanaの韓国語単語〈初中級編〉ハン検3級レベル CD-ROM付き</p>
-          <div class="book-links">
-            <a href="https://www.amazon.co.jp/dp/4844376993" target="_blank" rel="noopener">AMAZON</a>
-            <a href="https://books.rakuten.co.jp/rb/14240785/" target="_blank" rel="noopener">楽天</a>
-          </div>
           <div class="content-block">
             <h3>本の紹介</h3>
             <div class="book-intro-row">
@@ -423,6 +440,10 @@
                 <p><strong>出版社からのコメント</strong><br>見出し語はもちろん、例文の中で表記と発音が異なる注意すべき箇所には、発音通りのハングルをフォローし、付録CD-ROMにすべての例文の音声を収録してあります。さらに、「見出し語のみ音声」「見出し語訳のみ音声」「見出し語+例文訳音声」が弊社サイトよりダウンロード可能になっており、音読、シャドーイング、リピーティングから、クイックレスポンス、瞬間韓作文など、さまざまな練習方法を実践することが可能です。まさに「音から単語を学ぶ」単語集と言えます。</p>
               </div>
             </div>
+            <div class="book-links">
+              <a href="https://www.amazon.co.jp/dp/4844376993" target="_blank" rel="noopener">AMAZON</a>
+              <a href="https://books.rakuten.co.jp/rb/14240785/" target="_blank" rel="noopener">楽天</a>
+            </div>
           </div>
         </div>
       </div>
@@ -432,10 +453,6 @@
         <h2 class="section-header">『hanaの韓国語単語〈中級編〉ハン検準２級レベル』</h2>
         <div class="content-inner">
           <p>hanaの韓国語単語〈中級編〉ハン検準2級レベル CD-ROM付き</p>
-          <div class="book-links">
-            <a href="https://www.amazon.co.jp/dp/4295403504/" target="_blank" rel="noopener">AMAZON</a>
-            <a href="https://books.rakuten.co.jp/rb/16180229" target="_blank" rel="noopener">楽天</a>
-          </div>
           <div class="content-block">
             <h3>本の紹介</h3>
             <div class="book-intro-row">
@@ -447,6 +464,10 @@
                 <p>日本で受験できる韓国語の検定試験、「ハングル能力」検定試験（ハン検）の最新出題範囲に対応した例文付き単語集。ハン検準２級の出題範囲に指定された単語の中から、約1000語を取り上げました。例文は、ハン検準２〜５級までの語彙と文法を用いて作成し、すぐに会話で使えるものばかり。本書は、準２級合格を目指す人が、無理なく効果的に実力を蓄えることができるのはもちろん、「すぐに使える」単語力も身に付くようになっています。付録CD-ROMには、すべての例文の音声を収録してあります。さらに、「見出し語のみ音声」「見出し語訳のみ音声」「見出し語＋例文訳音声」が弊社サイトよりダウンロード可能になっており、音読、シャドーイング、リピーティングから、クイックレスポンス、瞬間韓作文など、さまざまな練習方法を実践することが可能です。まさに「音から単語を学ぶ」単語集と言えます。</p>
               </div>
             </div>
+            <div class="book-links">
+              <a href="https://www.amazon.co.jp/dp/4295403504/" target="_blank" rel="noopener">AMAZON</a>
+              <a href="https://books.rakuten.co.jp/rb/16180229" target="_blank" rel="noopener">楽天</a>
+            </div>
           </div>
         </div>
       </div>
@@ -456,9 +477,6 @@
         <h2 class="section-header">『hanaの韓国語単語〈上級編〉ハン検１・２級レベル』</h2>
         <div class="content-inner">
           <p>ハン検1・2級レベルの語彙をまとめた上級者向け単語集です。ニュースや評論、専門的な話題にも対応できるよう、抽象的な表現や慣用句・四字熟語などもバランスよく収録しています。</p>
-          <div class="book-links">
-            <a href="https://www.amazon.co.jp/dp/4295408484" target="_blank" rel="noopener">AMAZON</a>
-          </div>
           <div class="content-block">
             <h3>本の紹介</h3>
             <div class="book-intro-row">
@@ -468,6 +486,9 @@
               <div class="book-intro-content">
                 <p>検定最上級を目指す学習者が、読解・作文・面接で必要となる高度な語彙力を効率よく身に付けられるよう構成されています。例文は自然で実際の場面を意識したものが中心で、単語の使い方やニュアンスもあわせて学べます。</p>
               </div>
+            </div>
+            <div class="book-links">
+              <a href="https://www.amazon.co.jp/dp/4295408484" target="_blank" rel="noopener">AMAZON</a>
             </div>
           </div>
         </div>
@@ -479,9 +500,6 @@
         <div class="content-inner">
           <p>ハングルの読み書きから、日常会話につながる基本文法まで。韓国語の入門レベルの学習に最適な一冊です（入門〜初級）。音声ダウンロード付き。</p>
           <p class="form-note" style="margin-top:8px;">著：稲川右樹、金玄謹、池成林、田聖実　／　出版社：HANA</p>
-          <div class="book-links">
-            <a href="https://www.amazon.co.jp/dp/4295409243" target="_blank" rel="noopener">AMAZON</a>
-          </div>
           <div class="content-block">
             <h3>本の紹介</h3>
             <div class="book-intro-row">
@@ -493,6 +511,9 @@
                 <p>ミリネ韓国語教室の金玄謹講師ほか共著。表記「1 2 3 !」の読み（ハナ・トゥル・セッ）もカバーに記載されています。音声は書籍案内に従いダウンロードしてご利用ください。</p>
               </div>
             </div>
+            <div class="book-links">
+              <a href="https://www.amazon.co.jp/dp/4295409243" target="_blank" rel="noopener">AMAZON</a>
+            </div>
           </div>
         </div>
       </div>
@@ -503,9 +524,6 @@
         <div class="content-inner">
           <p>日常生活でよく使われるさまざまな文法をしっかり習得。韓国語の知識が深まり、より豊かな表現ができる一冊です（初中級）。音声ダウンロード付き。</p>
           <p class="form-note" style="margin-top:8px;">著：池成林、金玄謹、田聖実、稲川右樹　／　出版社：HANA</p>
-          <div class="book-links">
-            <a href="https://www.amazon.co.jp/dp/4295410519/" target="_blank" rel="noopener">AMAZON</a>
-          </div>
           <div class="content-block">
             <h3>本の紹介</h3>
             <div class="book-intro-row">
@@ -517,6 +535,9 @@
                 <p>シリーズ第2弾（初中級レベル）。ミリネ韓国語教室の金玄謹講師ほか共著。表記「1 2 3 !」の読み（ハナ・トゥル・セッ）もカバーに記載されています。音声は書籍案内に従いダウンロードしてご利用ください。</p>
               </div>
             </div>
+            <div class="book-links">
+              <a href="https://www.amazon.co.jp/dp/4295410519/" target="_blank" rel="noopener">AMAZON</a>
+            </div>
           </div>
         </div>
       </div>
@@ -526,9 +547,6 @@
         <h2 class="section-header">『ゼロから完全攻略！ 韓国語能力試験 TOPIK I』</h2>
         <div class="content-inner">
           <p>韓国語能力試験 TOPIK I（初級レベル）の合格を目指すための対策本です。 듣기・읽기 の問題形式に合わせて、頻出語彙と表現をまとめ、実戦的な練習問題も収録しています。</p>
-          <div class="book-links">
-            <a href="https://www.amazon.co.jp/dp/4405012822/" target="_blank" rel="noopener">AMAZON</a>
-          </div>
           <div class="content-block">
             <h3>本の紹介</h3>
             <div class="book-intro-row">
@@ -539,6 +557,9 @@
                 <p>ハングルの基礎を身につけた学習者が、試験本番で力を発揮できるよう、短い会話・案内文・掲示文など、日常生活でよく目にするタイプの文章を豊富に掲載しています。解説は日本語で丁寧に書かれており、独学でも学びやすい構成です。</p>
               </div>
             </div>
+            <div class="book-links">
+              <a href="https://www.amazon.co.jp/dp/4405012822/" target="_blank" rel="noopener">AMAZON</a>
+            </div>
           </div>
         </div>
       </div>
@@ -548,9 +569,6 @@
         <h2 class="section-header">『ゼロから完全攻略！ 韓国語能力試験 TOPIK II』</h2>
         <div class="content-inner">
           <p>TOPIK II（中上級レベル）に必要な 읽기・듣기・쓰기 をバランスよく鍛えるための対策本です。試験形式に沿った模擬問題と、解答のポイント・採点基準の解説がセットになっています。</p>
-          <div class="book-links">
-            <a href="https://www.amazon.co.jp/dp/4405012784/" target="_blank" rel="noopener">AMAZON</a>
-          </div>
           <div class="content-block">
             <h3>本の紹介</h3>
             <div class="book-intro-row">
@@ -561,6 +579,9 @@
                 <p>新聞記事やコラム、インタビューなど、実際の韓国語らしい素材を用いて、長文読解力と論理的な作文力を養成します。頻出テーマごとの必須表現も整理してあり、高級レベルを目指す学習者の「仕上げ」に最適な一冊です。</p>
               </div>
             </div>
+            <div class="book-links">
+              <a href="https://www.amazon.co.jp/dp/4405012784/" target="_blank" rel="noopener">AMAZON</a>
+            </div>
           </div>
         </div>
       </div>
@@ -570,11 +591,6 @@
         <h2 class="section-header">『韓国語リーディング タングニの日本生活記』</h2>
         <div class="content-inner">
           <p>「タングニの日本生活記」の発売中です。今アマゾン・楽天などのネット書店でご購入できます。出版社は「白水社」で、全国1600余りの書店でもご購入できます。</p>
-          <div class="book-links">
-            <a href="https://www.amazon.co.jp/dp/4560086923" target="_blank" rel="noopener">AMAZON</a>
-            <a href="https://books.rakuten.co.jp/rb/13158886" target="_blank" rel="noopener">楽天</a>
-            <a href="https://www.kinokuniya.co.jp/f/dsg-01-9784560086926" target="_blank" rel="noopener">紀伊國屋</a>
-          </div>
           <div class="content-block">
             <h3>本の紹介</h3>
             <div class="book-intro-row">
@@ -584,6 +600,11 @@
               <div class="book-intro-content">
                 <p>ミリネ韓国語教室の代表講師金玄謹です。「タングニの日本生活記」が出版され、発売中です。タングニは私のニックネームですが、この本は私が日本で15年間暮らしながら経験したことをエッセイで書いたものです。韓国語学習者のための本ですが別のページに日本語訳もありますので韓国語のわからない方もお読みいただけます。本の構成はエッセイの横に注を入れ、ハングル検定3級以上の単語の中で難しそうな単語を抜粋し、読むにあたって辞書を引く時間を省くようにしました。「ポイントとなる表現」もまとめ、抑えておく文法事項をチェックしました。今回イラストも描かせて頂いたのですが、そこに擬態語・擬声語も一緒に描きました。興味のある方はぜひ手に取ってお読みいただければ幸いです。</p>
               </div>
+            </div>
+            <div class="book-links">
+              <a href="https://www.amazon.co.jp/dp/4560086923" target="_blank" rel="noopener">AMAZON</a>
+              <a href="https://books.rakuten.co.jp/rb/13158886" target="_blank" rel="noopener">楽天</a>
+              <a href="https://www.kinokuniya.co.jp/f/dsg-01-9784560086926" target="_blank" rel="noopener">紀伊國屋</a>
             </div>
           </div>
           <div class="content-block">
@@ -610,9 +631,6 @@
         <h2 class="section-header">『韓国語リーディング タングニの韓国人生劇場』</h2>
         <div class="content-inner">
           <p>「タングニの韓国人生劇場」が好評発売中です。アマゾンなどのネット書店でご購入できます。出版社は「白水社」で、全国1600余りの書店でもご購入できます。</p>
-          <div class="book-links">
-            <a href="https://www.amazon.co.jp/dp/4560087288" target="_blank" rel="noopener">AMAZON</a>
-          </div>
           <div class="content-block">
             <h3>本の紹介</h3>
             <div class="book-intro-row">
@@ -622,6 +640,9 @@
               <div class="book-intro-content">
                 <p>韓流だけではわからない!? 好評『韓国語リーディング タングニの日本生活記』に続く第2弾! 今回は、韓国人の人生を彩る光と影を取り上げます。隣国ながら日本と異なる点が少なくない韓国における誕生から死に至るまでさまざまなエピソードを取り上げて、韓流の裏側のリアル・ライフに迫ります。百日酒、イタリアタオル、土の匙、修能、シーワールド、パルチャ等々。本文には詳しい注、日本語訳付。朗読音源をダウンロードして聞くことができます。<br><a href="https://www.hakusuisha.co.jp/smp/book/b243680.html" target="_blank" rel="noopener">➤ 白水社 音声ダウンロードはこちら</a></p>
               </div>
+            </div>
+            <div class="book-links">
+              <a href="https://www.amazon.co.jp/dp/4560087288" target="_blank" rel="noopener">AMAZON</a>
             </div>
           </div>
           <div class="content-block">

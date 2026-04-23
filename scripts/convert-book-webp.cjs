@@ -13,6 +13,8 @@ const FILES = [
   'book_han3.jpg',
   'book_hanjun2.jpg',
   'book_han12.jpg',
+  'book_hana_dul_set_123.png',
+  'book_hana_dul_set_123_chujyukyu.png',
   'book_tanguni_nihon.jpg',
   'book_tanguni_ningen.jpg',
   'book_topik1.jpg',

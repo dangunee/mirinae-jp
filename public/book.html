@@ -36,6 +36,7 @@
       --white: #FFFFFF;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-padding-top: 88px; }
     body { font-family: 'Noto Sans JP', sans-serif; color: var(--text-dark); line-height: 1.7; background: var(--bg); }
     .page-wrapper { max-width: 1100px; margin: 0 auto; min-height: 100vh; background: var(--bg); box-shadow: 0 0 40px rgba(0,0,0,0.06); }
     .main-with-sidebar { display: grid; grid-template-columns: 1fr 300px; gap: 32px; align-items: start; }
@@ -263,6 +264,35 @@
       from { opacity: 0; transform: translateY(8px); }
       to { opacity: 1; transform: translateY(0); }
     }
+    .book-vocab-jump {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 10px;
+      justify-content: center;
+      padding: 14px 16px;
+      margin-bottom: 28px;
+      background: var(--gray-light);
+      border: 1px solid var(--gray-border);
+      border-radius: 10px;
+    }
+    .book-vocab-jump a {
+      display: inline-block;
+      padding: 8px 14px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--mid);
+      text-decoration: none;
+      border-radius: 8px;
+      background: var(--white);
+      border: 1px solid var(--gray-border);
+      transition: color .15s, border-color .15s, background .15s;
+    }
+    .book-vocab-jump a:hover {
+      color: var(--gold);
+      border-color: rgba(184, 150, 62, 0.45);
+      background: var(--gold-pale);
+    }
+    .book-vocab-block { scroll-margin-top: 88px; }
     .section-header {
       background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
       color: white;
@@ -399,14 +429,9 @@
   </div>
 
   <div class="tabs-bar" role="tablist">
-    <button type="button" class="tab-btn active" data-tab="tab01" role="tab" aria-selected="true">入門・初級編</button>
-    <button type="button" class="tab-btn" data-tab="tab02" role="tab" aria-selected="false">初中級編</button>
-    <button type="button" class="tab-btn" data-tab="tab03" role="tab" aria-selected="false">中級編</button>
-    <button type="button" class="tab-btn" data-tab="tab04" role="tab" aria-selected="false">上級編</button>
-    <button type="button" class="tab-btn" data-tab="tab05" role="tab" aria-selected="false">1 2 3! 入門〜初級</button>
-    <button type="button" class="tab-btn" data-tab="tab06" role="tab" aria-selected="false">1 2 3! 初中級</button>
-    <button type="button" class="tab-btn" data-tab="tab07" role="tab" aria-selected="false">TOPIK I</button>
-    <button type="button" class="tab-btn" data-tab="tab08" role="tab" aria-selected="false">TOPIK II</button>
+    <button type="button" class="tab-btn active" data-tab="tab01" role="tab" aria-selected="true">hanaの韓国語単語</button>
+    <button type="button" class="tab-btn" data-tab="tab05" role="tab" aria-selected="false">１２３！韓国語</button>
+    <button type="button" class="tab-btn" data-tab="tab07" role="tab" aria-selected="false">ゼロから完全攻略!TOPIK対策</button>
     <button type="button" class="tab-btn" data-tab="tab09" role="tab" aria-selected="false">日本生活記</button>
     <button type="button" class="tab-btn" data-tab="tab10" role="tab" aria-selected="false">韓国人生劇場</button>
   </div>
@@ -414,194 +439,213 @@
   <div class="page-wrapper">
     <div class="main-with-sidebar">
     <div class="main-content">
-      <!-- tab01: 韓国語単語 入門・初級編 -->
+      <!-- tab01: hanaの韓国語単語シリーズ（全巻・ページ内リンク） -->
       <div id="tab01" class="tab-panel active">
-        <h2 class="section-header">『hanaの韓国語単語〈入門・初級編〉ハン検４・５級レベル』</h2>
-        <div class="content-inner">
-          <p>日本で受験できる韓国語の検定試験、「ハングル能力」検定試験(ハン検)の最新出題範囲(2016年2月発表)に対応した例文付き単語集。</p>
-          <div class="content-block">
-            <div class="book-intro-row">
-              <div class="book-cover">
-                <img src="/img/textbook/book_han45.png" alt="韓国語単語〈入門・初級編〉 表紙">
+        <nav class="book-vocab-jump" aria-label="hana単語シリーズの目次">
+          <a href="#hana-han45">入門</a>
+          <a href="#hana-han45">初級</a>
+          <a href="#hana-han3">初中級</a>
+          <a href="#hana-hanjun2">準2級</a>
+          <a href="#hana-han12">上級</a>
+        </nav>
+
+        <section id="hana-han45" class="book-vocab-block">
+          <h2 class="section-header">『hanaの韓国語単語〈入門・初級編〉ハン検４・５級レベル』</h2>
+          <div class="content-inner">
+            <p>日本で受験できる韓国語の検定試験、「ハングル能力」検定試験(ハン検)の最新出題範囲(2016年2月発表)に対応した例文付き単語集。</p>
+            <div class="content-block">
+              <div class="book-intro-row">
+                <div class="book-cover">
+                  <img src="/img/textbook/book_han45.png" alt="韓国語単語〈入門・初級編〉 表紙">
+                </div>
+                <div class="book-intro-content">
+                  <h3>本の紹介</h3>
+                  <p>ハン検の4級と5級の出題範囲に指定されている基礎単語911語を取り上げました。例文は、ハン検4・5級の語彙と文法を中心に作成した、短くてすぐに会話で使えるもの。本書は単なる検定対策の単語集ではなく、この例文と音声を使って「すぐに使える」単語力を身に付ける本です!</p>
+                  <p><strong>出版社からのコメント</strong><br>見出し語はもちろん、例文の中で表記と発音が異なる箇所には、すべて発音通りのハングルをフォローし、付録CD-ROMにはすべての例文の音声を収録してあります。さらに、「見出し語のみ音声」「見出し語訳のみ音声」「見出し語+例文訳音声」が弊社サイトよりダウンロード可能になっており、音読、シャドーイング、リピーティングから、クイックレスポンス、瞬間韓作文など、さまざまな練習方法を実践することが可能です。まさに「音から単語を学ぶ」単語集と言えます。</p>
+                </div>
               </div>
-              <div class="book-intro-content">
-                <h3>本の紹介</h3>
-                <p>ハン検の4級と5級の出題範囲に指定されている基礎単語911語を取り上げました。例文は、ハン検4・5級の語彙と文法を中心に作成した、短くてすぐに会話で使えるもの。本書は単なる検定対策の単語集ではなく、この例文と音声を使って「すぐに使える」単語力を身に付ける本です!</p>
-                <p><strong>出版社からのコメント</strong><br>見出し語はもちろん、例文の中で表記と発音が異なる箇所には、すべて発音通りのハングルをフォローし、付録CD-ROMにはすべての例文の音声を収録してあります。さらに、「見出し語のみ音声」「見出し語訳のみ音声」「見出し語+例文訳音声」が弊社サイトよりダウンロード可能になっており、音読、シャドーイング、リピーティングから、クイックレスポンス、瞬間韓作文など、さまざまな練習方法を実践することが可能です。まさに「音から単語を学ぶ」単語集と言えます。</p>
+              <div class="book-links">
+                <a href="https://www.amazon.co.jp/dp/4844376993" target="_blank" rel="noopener">AMAZON</a>
+                <a href="https://books.rakuten.co.jp/rb/14240785/" target="_blank" rel="noopener">楽天</a>
               </div>
-            </div>
-            <div class="book-links">
-              <a href="https://www.amazon.co.jp/dp/4844376993" target="_blank" rel="noopener">AMAZON</a>
-              <a href="https://books.rakuten.co.jp/rb/14240785/" target="_blank" rel="noopener">楽天</a>
             </div>
           </div>
-        </div>
-      </div>
+        </section>
 
-      <!-- tab02: 韓国語単語 初中級編 -->
-      <div id="tab02" class="tab-panel">
-        <h2 class="section-header">『hanaの韓国語単語〈初中級編〉ハン検３級レベル』</h2>
-        <div class="content-inner">
-          <p>hanaの韓国語単語〈初中級編〉ハン検3級レベル CD-ROM付き</p>
-          <div class="content-block">
-            <div class="book-intro-row">
-              <div class="book-cover">
-                <img src="/img/textbook/book_han3.jpg" alt="韓国語単語〈初中級編〉 表紙">
+        <section id="hana-han3" class="book-vocab-block">
+          <h2 class="section-header">『hanaの韓国語単語〈初中級編〉ハン検３級レベル』</h2>
+          <div class="content-inner">
+            <p>hanaの韓国語単語〈初中級編〉ハン検3級レベル CD-ROM付き</p>
+            <div class="content-block">
+              <div class="book-intro-row">
+                <div class="book-cover">
+                  <img src="/img/textbook/book_han3.jpg" alt="韓国語単語〈初中級編〉 表紙">
+                </div>
+                <div class="book-intro-content">
+                  <h3>本の紹介</h3>
+                  <p>ハン検3級の出題範囲に指定されている840単語を取り上げました。例文は、ハン検3〜5級までの語彙と文法を中心に作成し、すぐに会話で使えるものばかり。本書は、3級合格を目指す人が、無理なく効果的に3級の実力を蓄えることができるのはもちろん、「すぐに使える」単語力も身に付くようになっています。</p>
+                  <p><strong>出版社からのコメント</strong><br>見出し語はもちろん、例文の中で表記と発音が異なる注意すべき箇所には、発音通りのハングルをフォローし、付録CD-ROMにすべての例文の音声を収録してあります。さらに、「見出し語のみ音声」「見出し語訳のみ音声」「見出し語+例文訳音声」が弊社サイトよりダウンロード可能になっており、音読、シャドーイング、リピーティングから、クイックレスポンス、瞬間韓作文など、さまざまな練習方法を実践することが可能です。まさに「音から単語を学ぶ」単語集と言えます。</p>
+                </div>
               </div>
-              <div class="book-intro-content">
-                <h3>本の紹介</h3>
-                <p>ハン検3級の出題範囲に指定されている840単語を取り上げました。例文は、ハン検3〜5級までの語彙と文法を中心に作成し、すぐに会話で使えるものばかり。本書は、3級合格を目指す人が、無理なく効果的に3級の実力を蓄えることができるのはもちろん、「すぐに使える」単語力も身に付くようになっています。</p>
-                <p><strong>出版社からのコメント</strong><br>見出し語はもちろん、例文の中で表記と発音が異なる注意すべき箇所には、発音通りのハングルをフォローし、付録CD-ROMにすべての例文の音声を収録してあります。さらに、「見出し語のみ音声」「見出し語訳のみ音声」「見出し語+例文訳音声」が弊社サイトよりダウンロード可能になっており、音読、シャドーイング、リピーティングから、クイックレスポンス、瞬間韓作文など、さまざまな練習方法を実践することが可能です。まさに「音から単語を学ぶ」単語集と言えます。</p>
+              <div class="book-links">
+                <a href="https://www.amazon.co.jp/dp/4844376993" target="_blank" rel="noopener">AMAZON</a>
+                <a href="https://books.rakuten.co.jp/rb/14240785/" target="_blank" rel="noopener">楽天</a>
               </div>
-            </div>
-            <div class="book-links">
-              <a href="https://www.amazon.co.jp/dp/4844376993" target="_blank" rel="noopener">AMAZON</a>
-              <a href="https://books.rakuten.co.jp/rb/14240785/" target="_blank" rel="noopener">楽天</a>
             </div>
           </div>
-        </div>
-      </div>
+        </section>
 
-      <!-- tab03: 韓国語単語 中級編 -->
-      <div id="tab03" class="tab-panel">
-        <h2 class="section-header">『hanaの韓国語単語〈中級編〉ハン検準２級レベル』</h2>
-        <div class="content-inner">
-          <p>hanaの韓国語単語〈中級編〉ハン検準2級レベル CD-ROM付き</p>
-          <div class="content-block">
-            <div class="book-intro-row">
-              <div class="book-cover">
-                <img src="/img/textbook/book_hanjun2.jpg" alt="韓国語単語〈中級編〉 表紙">
+        <section id="hana-hanjun2" class="book-vocab-block">
+          <h2 class="section-header">『hanaの韓国語単語〈中級編〉ハン検準２級レベル』</h2>
+          <div class="content-inner">
+            <p>hanaの韓国語単語〈中級編〉ハン検準2級レベル CD-ROM付き</p>
+            <div class="content-block">
+              <div class="book-intro-row">
+                <div class="book-cover">
+                  <img src="/img/textbook/book_hanjun2.jpg" alt="韓国語単語〈中級編〉 表紙">
+                </div>
+                <div class="book-intro-content">
+                  <h3>本の紹介</h3>
+                  <p>ミリネ韓国語教室執筆の本、ハン検準2級レベルの単語集がついに出版されました！中級語彙を強化されたい方、ハン検準2級を目指される方、ぜひご注目ください。</p>
+                  <p>日本で受験できる韓国語の検定試験、「ハングル能力」検定試験（ハン検）の最新出題範囲に対応した例文付き単語集。ハン検準２級の出題範囲に指定された単語の中から、約1000語を取り上げました。例文は、ハン検準２〜５級までの語彙と文法を用いて作成し、すぐに会話で使えるものばかり。本書は、準２級合格を目指す人が、無理なく効果的に実力を蓄えることができるのはもちろん、「すぐに使える」単語力も身に付くようになっています。付録CD-ROMには、すべての例文の音声を収録してあります。さらに、「見出し語のみ音声」「見出し語訳のみ音声」「見出し語＋例文訳音声」が弊社サイトよりダウンロード可能になっており、音読、シャドーイング、リピーティングから、クイックレスポンス、瞬間韓作文など、さまざまな練習方法を実践することが可能です。まさに「音から単語を学ぶ」単語集と言えます。</p>
+                </div>
               </div>
-              <div class="book-intro-content">
-                <h3>本の紹介</h3>
-                <p>ミリネ韓国語教室執筆の本、ハン検準2級レベルの単語集がついに出版されました！中級語彙を強化されたい方、ハン検準2級を目指される方、ぜひご注目ください。</p>
-                <p>日本で受験できる韓国語の検定試験、「ハングル能力」検定試験（ハン検）の最新出題範囲に対応した例文付き単語集。ハン検準２級の出題範囲に指定された単語の中から、約1000語を取り上げました。例文は、ハン検準２〜５級までの語彙と文法を用いて作成し、すぐに会話で使えるものばかり。本書は、準２級合格を目指す人が、無理なく効果的に実力を蓄えることができるのはもちろん、「すぐに使える」単語力も身に付くようになっています。付録CD-ROMには、すべての例文の音声を収録してあります。さらに、「見出し語のみ音声」「見出し語訳のみ音声」「見出し語＋例文訳音声」が弊社サイトよりダウンロード可能になっており、音読、シャドーイング、リピーティングから、クイックレスポンス、瞬間韓作文など、さまざまな練習方法を実践することが可能です。まさに「音から単語を学ぶ」単語集と言えます。</p>
+              <div class="book-links">
+                <a href="https://www.amazon.co.jp/dp/4295403504/" target="_blank" rel="noopener">AMAZON</a>
+                <a href="https://books.rakuten.co.jp/rb/16180229" target="_blank" rel="noopener">楽天</a>
               </div>
-            </div>
-            <div class="book-links">
-              <a href="https://www.amazon.co.jp/dp/4295403504/" target="_blank" rel="noopener">AMAZON</a>
-              <a href="https://books.rakuten.co.jp/rb/16180229" target="_blank" rel="noopener">楽天</a>
             </div>
           </div>
-        </div>
-      </div>
+        </section>
 
-      <!-- tab04: 韓国語単語 上級編 -->
-      <div id="tab04" class="tab-panel">
-        <h2 class="section-header">『hanaの韓国語単語〈上級編〉ハン検１・２級レベル』</h2>
-        <div class="content-inner">
-          <p>ハン検1・2級レベルの語彙をまとめた上級者向け単語集です。ニュースや評論、専門的な話題にも対応できるよう、抽象的な表現や慣用句・四字熟語などもバランスよく収録しています。</p>
-          <div class="content-block">
-            <div class="book-intro-row">
-              <div class="book-cover">
-                <img src="/img/textbook/book_han12.jpg" alt="韓国語単語〈上級編〉 表紙">
+        <section id="hana-han12" class="book-vocab-block">
+          <h2 class="section-header">『hanaの韓国語単語〈上級編〉ハン検１・２級レベル』</h2>
+          <div class="content-inner">
+            <p>ハン検1・2級レベルの語彙をまとめた上級者向け単語集です。ニュースや評論、専門的な話題にも対応できるよう、抽象的な表現や慣用句・四字熟語などもバランスよく収録しています。</p>
+            <div class="content-block">
+              <div class="book-intro-row">
+                <div class="book-cover">
+                  <img src="/img/textbook/book_han12.jpg" alt="韓国語単語〈上級編〉 表紙">
+                </div>
+                <div class="book-intro-content">
+                  <h3>本の紹介</h3>
+                  <p>検定最上級を目指す学習者が、読解・作文・面接で必要となる高度な語彙力を効率よく身に付けられるよう構成されています。例文は自然で実際の場面を意識したものが中心で、単語の使い方やニュアンスもあわせて学べます。</p>
+                </div>
               </div>
-              <div class="book-intro-content">
-                <h3>本の紹介</h3>
-                <p>検定最上級を目指す学習者が、読解・作文・面接で必要となる高度な語彙力を効率よく身に付けられるよう構成されています。例文は自然で実際の場面を意識したものが中心で、単語の使い方やニュアンスもあわせて学べます。</p>
+              <div class="book-links">
+                <a href="https://www.amazon.co.jp/dp/4295408484" target="_blank" rel="noopener">AMAZON</a>
               </div>
-            </div>
-            <div class="book-links">
-              <a href="https://www.amazon.co.jp/dp/4295408484" target="_blank" rel="noopener">AMAZON</a>
             </div>
           </div>
-        </div>
+        </section>
       </div>
 
-      <!-- tab05: 하나 둘 셋 1 2 3 ! 韓国語 -->
+      <!-- tab05: １２３！韓国語（入門〜初級・初中級・ページ内リンク） -->
       <div id="tab05" class="tab-panel">
-        <h2 class="section-header">『하나 둘 셋 1 2 3 ! 韓国語』（入門〜初級）</h2>
-        <div class="content-inner">
-          <p>ハングルの読み書きから、日常会話につながる基本文法まで。韓国語の入門レベルの学習に最適な一冊です（入門〜初級）。音声ダウンロード付き。</p>
-          <p class="form-note" style="margin-top:8px;">著：稲川右樹、金玄謹、池成林、田聖実　／　出版社：HANA</p>
-          <div class="content-block">
-            <div class="book-intro-row">
-              <div class="book-cover">
-                <img src="/img/textbook/book_hana_dul_set_123.png" alt="하나 둘 셋 1 2 3 ! 韓国語 表紙">
+        <nav class="book-vocab-jump" aria-label="1 2 3 韓国語シリーズの目次">
+          <a href="#book-123-nyumon">入門〜初級</a>
+          <a href="#book-123-chujyukyu">初中級</a>
+        </nav>
+
+        <section id="book-123-nyumon" class="book-vocab-block">
+          <h2 class="section-header">『하나 둘 셋 1 2 3 ! 韓国語』（入門〜初級）</h2>
+          <div class="content-inner">
+            <p>ハングルの読み書きから、日常会話につながる基本文法まで。韓国語の入門レベルの学習に最適な一冊です（入門〜初級）。音声ダウンロード付き。</p>
+            <p class="form-note" style="margin-top:8px;">著：稲川右樹、金玄謹、池成林、田聖実　／　出版社：HANA</p>
+            <div class="content-block">
+              <div class="book-intro-row">
+                <div class="book-cover">
+                  <img src="/img/textbook/book_hana_dul_set_123.png" alt="하나 둘 셋 1 2 3 ! 韓国語 表紙">
+                </div>
+                <div class="book-intro-content">
+                  <h3>本の紹介</h3>
+                  <p>ハングルの読み書きから、日常会話につながる基本文法までを学べます。韓国語の入門レベルの学習に最適な一冊です。</p>
+                  <p>ミリネ韓国語教室の金玄謹講師ほか共著。表記「1 2 3 !」の読み（ハナ・トゥル・セッ）もカバーに記載されています。音声は書籍案内に従いダウンロードしてご利用ください。</p>
+                </div>
               </div>
-              <div class="book-intro-content">
-                <h3>本の紹介</h3>
-                <p>ハングルの読み書きから、日常会話につながる基本文法までを学べます。韓国語の入門レベルの学習に最適な一冊です。</p>
-                <p>ミリネ韓国語教室の金玄謹講師ほか共著。表記「1 2 3 !」の読み（ハナ・トゥル・セッ）もカバーに記載されています。音声は書籍案内に従いダウンロードしてご利用ください。</p>
+              <div class="book-links">
+                <a href="https://www.amazon.co.jp/dp/4295409243" target="_blank" rel="noopener">AMAZON</a>
               </div>
-            </div>
-            <div class="book-links">
-              <a href="https://www.amazon.co.jp/dp/4295409243" target="_blank" rel="noopener">AMAZON</a>
             </div>
           </div>
-        </div>
-      </div>
+        </section>
 
-      <!-- tab06: 하나 둘 셋 1 2 3 ! 韓国語 初中級 -->
-      <div id="tab06" class="tab-panel">
-        <h2 class="section-header">『하나 둘 셋 1 2 3 ! 韓国語』（初中級）</h2>
-        <div class="content-inner">
-          <p>日常生活でよく使われるさまざまな文法をしっかり習得。韓国語の知識が深まり、より豊かな表現ができる一冊です（初中級）。音声ダウンロード付き。</p>
-          <p class="form-note" style="margin-top:8px;">著：池成林、金玄謹、田聖実、稲川右樹　／　出版社：HANA</p>
-          <div class="content-block">
-            <div class="book-intro-row">
-              <div class="book-cover">
-                <img src="/img/textbook/book_hana_dul_set_123_chujyukyu.png" alt="하나 둘 셋 1 2 3 ! 韓国語（初中級）表紙">
+        <section id="book-123-chujyukyu" class="book-vocab-block">
+          <h2 class="section-header">『하나 둘 셋 1 2 3 ! 韓国語』（初中級）</h2>
+          <div class="content-inner">
+            <p>日常生活でよく使われるさまざまな文法をしっかり習得。韓国語の知識が深まり、より豊かな表現ができる一冊です（初中級）。音声ダウンロード付き。</p>
+            <p class="form-note" style="margin-top:8px;">著：池成林、金玄謹、田聖実、稲川右樹　／　出版社：HANA</p>
+            <div class="content-block">
+              <div class="book-intro-row">
+                <div class="book-cover">
+                  <img src="/img/textbook/book_hana_dul_set_123_chujyukyu.png" alt="하나 둘 셋 1 2 3 ! 韓国語（初中級）表紙">
+                </div>
+                <div class="book-intro-content">
+                  <h3>本の紹介</h3>
+                  <p>日常生活でよく使われるさまざまな文法をしっかり習得できます。この一冊で、韓国語の知識が深まり、より豊かな表現ができるようになります。</p>
+                  <p>シリーズ第2弾（初中級レベル）。ミリネ韓国語教室の金玄謹講師ほか共著。表記「1 2 3 !」の読み（ハナ・トゥル・セッ）もカバーに記載されています。音声は書籍案内に従いダウンロードしてご利用ください。</p>
+                </div>
               </div>
-              <div class="book-intro-content">
-                <h3>本の紹介</h3>
-                <p>日常生活でよく使われるさまざまな文法をしっかり習得できます。この一冊で、韓国語の知識が深まり、より豊かな表現ができるようになります。</p>
-                <p>シリーズ第2弾（初中級レベル）。ミリネ韓国語教室の金玄謹講師ほか共著。表記「1 2 3 !」の読み（ハナ・トゥル・セッ）もカバーに記載されています。音声は書籍案内に従いダウンロードしてご利用ください。</p>
+              <div class="book-links">
+                <a href="https://www.amazon.co.jp/dp/4295410519/" target="_blank" rel="noopener">AMAZON</a>
               </div>
-            </div>
-            <div class="book-links">
-              <a href="https://www.amazon.co.jp/dp/4295410519/" target="_blank" rel="noopener">AMAZON</a>
             </div>
           </div>
-        </div>
+        </section>
       </div>
 
-      <!-- tab07: TOPIK I 対策 -->
+      <!-- tab07: ゼロから完全攻略 TOPIK（I・II・ページ内リンク） -->
       <div id="tab07" class="tab-panel">
-        <h2 class="section-header">『ゼロから完全攻略！ 韓国語能力試験 TOPIK I』</h2>
-        <div class="content-inner">
-          <p class="book-sales-badge">４刷、累計10,000部突破！</p>
-          <p>韓国語能力試験 TOPIK I（初級レベル）の合格を目指すための対策本です。</p>
-          <p>듣기・읽기 の問題形式に合わせて、頻出語彙と表現をまとめ、実戦的な練習問題も収録しています。</p>
-          <div class="content-block">
-            <div class="book-intro-row">
-              <div class="book-cover">
-                <img src="/img/textbook/book_topik1.jpg" alt="TOPIK I対策 表紙">
-              </div>
-              <div class="book-intro-content">
-                <h3>本の紹介</h3>
-                <p>ハングルの基礎を身につけた学習者が、試験本番で力を発揮できるよう、短い会話・案内文・掲示文など、日常生活でよく目にするタイプの文章を豊富に掲載しています。解説は日本語で丁寧に書かれており、独学でも学びやすい構成です。</p>
-              </div>
-            </div>
-            <div class="book-links">
-              <a href="https://www.amazon.co.jp/dp/4405012822/" target="_blank" rel="noopener">AMAZON</a>
-            </div>
-          </div>
-        </div>
-      </div>
+        <nav class="book-vocab-jump" aria-label="TOPIK対策の目次">
+          <a href="#book-topik-i">TOPIK I</a>
+          <a href="#book-topik-ii">TOPIK II</a>
+        </nav>
 
-      <!-- tab08: TOPIK II 対策 -->
-      <div id="tab08" class="tab-panel">
-        <h2 class="section-header">『ゼロから完全攻略！ 韓国語能力試験 TOPIK II』</h2>
-        <div class="content-inner">
-          <p class="book-sales-badge">3刷、累計11,500部突破！</p>
-          <p>TOPIK II（中上級レベル）に必要な 읽기・듣기・쓰기 をバランスよく鍛えるための対策本です。</p>
-          <p>試験形式に沿った模擬問題と、解答のポイント・採点基準の解説がセットになっています。</p>
-          <div class="content-block">
-            <div class="book-intro-row">
-              <div class="book-cover">
-                <img src="/img/textbook/book_topik2.jpg" alt="TOPIK II対策 表紙">
+        <section id="book-topik-i" class="book-vocab-block">
+          <h2 class="section-header">『ゼロから完全攻略！ 韓国語能力試験 TOPIK I』</h2>
+          <div class="content-inner">
+            <p class="book-sales-badge">４刷、累計10,000部突破！</p>
+            <p>韓国語能力試験 TOPIK I（初級レベル）の合格を目指すための対策本です。</p>
+            <p>듣기・읽기 の問題形式に合わせて、頻出語彙と表現をまとめ、実戦的な練習問題も収録しています。</p>
+            <div class="content-block">
+              <div class="book-intro-row">
+                <div class="book-cover">
+                  <img src="/img/textbook/book_topik1.jpg" alt="TOPIK I対策 表紙">
+                </div>
+                <div class="book-intro-content">
+                  <h3>本の紹介</h3>
+                  <p>ハングルの基礎を身につけた学習者が、試験本番で力を発揮できるよう、短い会話・案内文・掲示文など、日常生活でよく目にするタイプの文章を豊富に掲載しています。解説は日本語で丁寧に書かれており、独学でも学びやすい構成です。</p>
+                </div>
               </div>
-              <div class="book-intro-content">
-                <h3>本の紹介</h3>
-                <p>新聞記事やコラム、インタビューなど、実際の韓国語らしい素材を用いて、長文読解力と論理的な作文力を養成します。頻出テーマごとの必須表現も整理してあり、高級レベルを目指す学習者の「仕上げ」に最適な一冊です。</p>
+              <div class="book-links">
+                <a href="https://www.amazon.co.jp/dp/4405012822/" target="_blank" rel="noopener">AMAZON</a>
               </div>
-            </div>
-            <div class="book-links">
-              <a href="https://www.amazon.co.jp/dp/4405012784/" target="_blank" rel="noopener">AMAZON</a>
             </div>
           </div>
-        </div>
+        </section>
+
+        <section id="book-topik-ii" class="book-vocab-block">
+          <h2 class="section-header">『ゼロから完全攻略！ 韓国語能力試験 TOPIK II』</h2>
+          <div class="content-inner">
+            <p class="book-sales-badge">3刷、累計11,500部突破！</p>
+            <p>TOPIK II（中上級レベル）に必要な 읽기・듣기・쓰기 をバランスよく鍛えるための対策本です。</p>
+            <p>試験形式に沿った模擬問題と、解答のポイント・採点基準の解説がセットになっています。</p>
+            <div class="content-block">
+              <div class="book-intro-row">
+                <div class="book-cover">
+                  <img src="/img/textbook/book_topik2.jpg" alt="TOPIK II対策 表紙">
+                </div>
+                <div class="book-intro-content">
+                  <h3>本の紹介</h3>
+                  <p>新聞記事やコラム、インタビューなど、実際の韓国語らしい素材を用いて、長文読解力と論理的な作文力を養成します。頻出テーマごとの必須表現も整理してあり、高級レベルを目指す学習者の「仕上げ」に最適な一冊です。</p>
+                </div>
+              </div>
+              <div class="book-links">
+                <a href="https://www.amazon.co.jp/dp/4405012784/" target="_blank" rel="noopener">AMAZON</a>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
 
       <!-- tab09: タングニ 日本生活記 -->
@@ -802,18 +846,106 @@
     (function() {
       var tabBtns = document.querySelectorAll('.tab-btn');
       var tabPanels = document.querySelectorAll('.tab-panel');
-      function switchTab(tabId) {
+      var VOCAB_SECTION_IDS = { 'hana-han45': true, 'hana-han3': true, 'hana-hanjun2': true, 'hana-han12': true };
+      var BOOK123_SECTION_IDS = { 'book-123-nyumon': true, 'book-123-chujyukyu': true };
+      var TOPIK_SECTION_IDS = { 'book-topik-i': true, 'book-topik-ii': true };
+      var LEGACY_VOCAB_TAB = { 'tab02': 'hana-han3', 'tab03': 'hana-hanjun2', 'tab04': 'hana-han12' };
+      var LEGACY_BOOK123_TAB = { 'tab05': 'book-123-nyumon', 'tab06': 'book-123-chujyukyu' };
+      var LEGACY_TOPIK_TAB = { 'tab07': 'book-topik-i', 'tab08': 'book-topik-ii' };
+      var OTHER_TABS = ['tab09','tab10'];
+
+      function switchTab(tabId, opts) {
+        opts = opts || {};
         tabBtns.forEach(function(btn) { btn.classList.toggle('active', btn.getAttribute('data-tab') === tabId); });
         tabPanels.forEach(function(panel) { panel.classList.toggle('active', panel.id === tabId); });
-        history.replaceState(null, '', '#' + tabId);
+        if (!opts.skipHistory) {
+          history.replaceState(null, '', '#' + tabId);
+        }
       }
-      tabBtns.forEach(function(btn) { btn.addEventListener('click', function() { switchTab(btn.getAttribute('data-tab')); }); });
-      var hash = location.hash.slice(1);
-      if (['tab02','tab03','tab04','tab05','tab06','tab07','tab08','tab09','tab10'].indexOf(hash) !== -1) switchTab(hash);
-      window.addEventListener('hashchange', function() {
+
+      function scrollVocabTo(id, smooth) {
+        var el = document.getElementById(id);
+        if (!el) return;
+        el.scrollIntoView({ behavior: smooth ? 'smooth' : 'auto', block: 'start' });
+      }
+
+      function scrollPanelJumpIntoView(panelId, smooth) {
+        var panel = document.getElementById(panelId);
+        if (!panel) return;
+        var j = panel.querySelector('.book-vocab-jump');
+        if (j) j.scrollIntoView({ behavior: smooth ? 'smooth' : 'auto', block: 'start' });
+      }
+
+      function applyHash() {
         var h = location.hash.slice(1);
-        if (['tab01','tab02','tab03','tab04','tab05','tab06','tab07','tab08','tab09','tab10'].indexOf(h) !== -1) switchTab(h);
+        if (LEGACY_VOCAB_TAB[h]) {
+          var sid = LEGACY_VOCAB_TAB[h];
+          switchTab('tab01', { skipHistory: true });
+          history.replaceState(null, '', '#' + sid);
+          requestAnimationFrame(function() { scrollVocabTo(sid, false); });
+          return;
+        }
+        if (VOCAB_SECTION_IDS[h]) {
+          switchTab('tab01', { skipHistory: true });
+          requestAnimationFrame(function() { scrollVocabTo(h, false); });
+          return;
+        }
+        if (LEGACY_BOOK123_TAB[h]) {
+          var sid123 = LEGACY_BOOK123_TAB[h];
+          switchTab('tab05', { skipHistory: true });
+          history.replaceState(null, '', '#' + sid123);
+          requestAnimationFrame(function() { scrollVocabTo(sid123, false); });
+          return;
+        }
+        if (BOOK123_SECTION_IDS[h]) {
+          switchTab('tab05', { skipHistory: true });
+          requestAnimationFrame(function() { scrollVocabTo(h, false); });
+          return;
+        }
+        if (LEGACY_TOPIK_TAB[h]) {
+          var sidT = LEGACY_TOPIK_TAB[h];
+          switchTab('tab07', { skipHistory: true });
+          history.replaceState(null, '', '#' + sidT);
+          requestAnimationFrame(function() { scrollVocabTo(sidT, false); });
+          return;
+        }
+        if (TOPIK_SECTION_IDS[h]) {
+          switchTab('tab07', { skipHistory: true });
+          requestAnimationFrame(function() { scrollVocabTo(h, false); });
+          return;
+        }
+        if (OTHER_TABS.indexOf(h) !== -1) {
+          switchTab(h);
+          return;
+        }
+        if (h === 'tab01') {
+          switchTab('tab01');
+          requestAnimationFrame(function() { scrollPanelJumpIntoView('tab01', false); });
+          return;
+        }
+        if (h === 'tab05') {
+          switchTab('tab05');
+          requestAnimationFrame(function() { scrollPanelJumpIntoView('tab05', false); });
+          return;
+        }
+        if (h === 'tab07') {
+          switchTab('tab07');
+          requestAnimationFrame(function() { scrollPanelJumpIntoView('tab07', false); });
+        }
+      }
+
+      tabBtns.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var id = btn.getAttribute('data-tab');
+          switchTab(id);
+          if (id === 'tab01') scrollPanelJumpIntoView('tab01', true);
+          if (id === 'tab05') scrollPanelJumpIntoView('tab05', true);
+          if (id === 'tab07') scrollPanelJumpIntoView('tab07', true);
+        });
       });
+
+      applyHash();
+      window.addEventListener('hashchange', applyHash);
       document.querySelectorAll('.courses-nav .nav-group-title').forEach(function(btn) {
         btn.addEventListener('click', function() {
           var group = this.closest('.nav-group');

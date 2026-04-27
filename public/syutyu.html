@@ -812,6 +812,25 @@
       margin-top: 28px;
       scroll-margin-top: 88px;
     }
+    /* tab02 初級：定員終了（フォーム非表示・案内のみ） */
+    #tab02 .syutyu-cta-form-description { display: none; }
+    #tab02 form.syutyu-cta-form--soldout { display: none !important; }
+    #tab02 .syutyu-apply-soldout-notice {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      padding: 48px 24px 52px;
+      text-align: center;
+    }
+    #tab02 .syutyu-apply-soldout-notice p {
+      margin: 0;
+      font-size: clamp(30px, 5.5vw, 52px);
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 0.08em;
+      line-height: 1.35;
+      text-shadow: 0 2px 14px rgba(0, 0, 0, 0.18);
+    }
     .syutyu-cta-form-description {
       max-width: none;
       width: 100%;
@@ -2873,7 +2892,10 @@
           </div>
           <p class="syutyu-cta-form-description">受講したい講座が決まっている方はこちらから本申込ができます。希望の教室・レッスン名・日程などをご記入ください。</p>
           <div class="syutyu-cta-form-wrap">
-            <form class="syutyu-cta-form" action="/api/public-form/" method="POST" data-turnstile-form>
+            <div class="syutyu-apply-soldout-notice" role="status" aria-live="polite">
+              <p>定員になりました。</p>
+            </div>
+            <form class="syutyu-cta-form syutyu-cta-form--soldout" action="/api/public-form/" method="POST" data-turnstile-form>
               <input type="hidden" name="_captcha" value="false">
                   <input type="hidden" name="_subject" value="【講座申込】ミリネ韓国語教室">
                   <input type="hidden" name="_next" value="https://mirinae.jp/trial.html?thanks=1&amp;tab=tab02">

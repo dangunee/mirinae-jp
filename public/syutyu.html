@@ -815,16 +815,19 @@
     /* tab02 初級：定員終了（フォーム非表示・案内のみ） */
     #tab02 .syutyu-cta-form-description { display: none; }
     #tab02 form.syutyu-cta-form--soldout { display: none !important; }
+    #tab02 .syutyu-cta-form-wrap {
+      padding: 18.2px 18.2px 16.8px; /* 外枠高さ方向：既定26/24の70% */
+    }
     #tab02 .syutyu-apply-soldout-notice {
       position: relative;
       z-index: 1;
       margin: 0;
-      padding: 48px 24px 52px;
+      padding: 33.6px 24px 36.4px; /* 内側余白：既定48/52の70% */
       text-align: center;
     }
     #tab02 .syutyu-apply-soldout-notice p {
       margin: 0;
-      font-size: clamp(21px, 3.85vw, 36.4px);
+      font-size: clamp(16.8px, 3.08vw, 29.12px); /* 前段階フォントの80% */
       font-weight: 700;
       color: #fff;
       letter-spacing: 0.08em;

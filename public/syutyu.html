@@ -812,28 +812,6 @@
       margin-top: 28px;
       scroll-margin-top: 88px;
     }
-    /* tab02 初級：定員終了（フォーム非表示・案内のみ） */
-    #tab02 .syutyu-cta-form-description { display: none; }
-    #tab02 form.syutyu-cta-form--soldout { display: none !important; }
-    #tab02 .syutyu-cta-form-wrap {
-      padding: 18.2px 18.2px 16.8px; /* 外枠高さ方向：既定26/24の70% */
-    }
-    #tab02 .syutyu-apply-soldout-notice {
-      position: relative;
-      z-index: 1;
-      margin: 0;
-      padding: 33.6px 24px 36.4px; /* 内側余白：既定48/52の70% */
-      text-align: center;
-    }
-    #tab02 .syutyu-apply-soldout-notice p {
-      margin: 0;
-      font-size: clamp(16.8px, 3.08vw, 29.12px); /* 前段階フォントの80% */
-      font-weight: 700;
-      color: #fff;
-      letter-spacing: 0.08em;
-      line-height: 1.35;
-      text-shadow: 0 2px 14px rgba(0, 0, 0, 0.18);
-    }
     .syutyu-cta-form-description {
       max-width: none;
       width: 100%;
@@ -2893,12 +2871,9 @@
             <div class="beg-sec-title">お申し込み</div>
             <div class="beg-sec-line"></div>
           </div>
-          <p class="syutyu-cta-form-description">受講したい講座が決まっている方はこちらから本申込ができます。希望の教室・レッスン名・日程などをご記入ください。</p>
+          <p class="syutyu-cta-form-description">現在初級講座は5月2日のみお申込みいただけます。5月3日と5月4日は定員になりました。</p>
           <div class="syutyu-cta-form-wrap">
-            <div class="syutyu-apply-soldout-notice" role="status" aria-live="polite">
-              <p>定員になりました。</p>
-            </div>
-            <form class="syutyu-cta-form syutyu-cta-form--soldout" action="/api/public-form/" method="POST" data-turnstile-form>
+            <form class="syutyu-cta-form" action="/api/public-form/" method="POST" data-turnstile-form>
               <input type="hidden" name="_captcha" value="false">
                   <input type="hidden" name="_subject" value="【講座申込】ミリネ韓国語教室">
                   <input type="hidden" name="_next" value="https://mirinae.jp/trial.html?thanks=1&amp;tab=tab02">
@@ -4249,7 +4224,7 @@
             <div class="beg-sec-title">お申し込み</div>
             <div class="beg-sec-line"></div>
           </div>
-          <p class="syutyu-cta-form-description">現在上級講座は5月3日と5月5日のみお申込みいただけます。5月6日は定員になりました。</p>
+          <p class="syutyu-cta-form-description">現在上級講座は5月5日のみお申込みいただけます。5月3日と5月6日は定員になりました。</p>
           <div class="syutyu-cta-form-wrap">
             <form class="syutyu-cta-form" action="/api/public-form/" method="POST" data-turnstile-form>
               <input type="hidden" name="_captcha" value="false">

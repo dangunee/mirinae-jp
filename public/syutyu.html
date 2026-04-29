@@ -812,6 +812,11 @@
       margin-top: 28px;
       scroll-margin-top: 88px;
     }
+    /* tab02・tab04：希望日入力行（GWの希望講座で日付確定済みのため） */
+    #tab02 .syutyu-form-row-kibo-date-hide,
+    #tab04 .syutyu-form-row-kibo-date-hide {
+      display: none !important;
+    }
     .syutyu-cta-form-description {
       max-width: none;
       width: 100%;
@@ -2944,13 +2949,7 @@
                         <th>ご希望レッスン<span class="required">必須</span></th>
                         <td>
                           <select name="ご希望レッスン" required>
-                            <option value="">選択してください</option>
-                            <option value="GW集中講座、初級1日間">GW集中講座、初級1日間</option>
-                            <option value="GW集中講座、初級2日間">GW集中講座、初級2日間</option>
-                            <option value="GW集中講座、初級3日間">GW集中講座、初級3日間</option>
-                            <option value="GW集中講座、初級・中級1日間">GW集中講座、初級・中級1日間</option>
-                            <option value="GW集中講座、初級・中級2日間">GW集中講座、初級・中級2日間</option>
-                            <option value="GW集中講座、初級・中級3日間">GW集中講座、初級・中級3日間</option>
+                            <option value="GW集中講座、初級1日間（5月2日）" selected>GW集中講座、初級1日間（5月2日）</option>
                           </select>
                         </td>
                       </tr>
@@ -2972,7 +2971,7 @@
                           </select>
                         </td>
                       </tr>
-                      <tr>
+                      <tr class="syutyu-form-row-kibo-date-hide">
                         <th>1日・2日間の場合はご希望日をご入力ください。 <span class="optional">任意</span></th>
                         <td><textarea name="希望日時" placeholder="例）○月○日から、週○回 ○時台を希望　など"></textarea></td>
                       </tr>
@@ -4297,13 +4296,7 @@
                         <th>ご希望レッスン<span class="required">必須</span></th>
                         <td>
                           <select name="ご希望レッスン" required>
-                            <option value="">選択してください</option>
-                            <option value="GW集中講座、上級1日間">GW集中講座、上級1日間</option>
-                            <option value="GW集中講座、上級2日間">GW集中講座、上級2日間</option>
-                            <option value="GW集中講座、上級3日間">GW集中講座、上級3日間</option>
-                            <option value="GW集中講座、中級・上級1日間">GW集中講座、中級・上級1日間</option>
-                            <option value="GW集中講座、中級・上級2日間">GW集中講座、中級・上級2日間</option>
-                            <option value="GW集中講座、中級・上級3日間">GW集中講座、中級・上級3日間</option>
+                            <option value="GW集中講座、上級1日間（5月5日）" selected>GW集中講座、上級1日間（5月5日）</option>
                           </select>
                         </td>
                       </tr>
@@ -4325,7 +4318,7 @@
                           </select>
                         </td>
                       </tr>
-                      <tr>
+                      <tr class="syutyu-form-row-kibo-date-hide">
                         <th>1日・2日間の場合はご希望日をご入力ください。 <span class="optional">任意</span></th>
                         <td><textarea name="希望日時" placeholder="例）○月○日から、週○回 ○時台を希望　など"></textarea></td>
                       </tr>

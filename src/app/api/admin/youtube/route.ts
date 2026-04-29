@@ -8,7 +8,7 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({ error: "unauthorized" }, { status: 401 });
   }
   const list = await prisma.youTubeVideo.findMany({
-    orderBy: { sortOrder: "asc" },
+    orderBy: [{ sortOrder: "asc" }, { uploadDate: "desc" }, { createdAt: "desc" }],
   });
   return NextResponse.json(list);
 }

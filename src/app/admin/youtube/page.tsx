@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
 const YOUTUBE_CATEGORIES = [
   "生活韓国語",
@@ -26,6 +27,7 @@ const extractVideoId = (v: string) =>
   (v || "").replace(/^.*(?:youtube\.com\/watch\?v=|youtu\.be\/|embed\/)([a-zA-Z0-9_-]{11}).*$/, "$1") || v.trim();
 
 export default function YouTubeAdminPage() {
+  const router = useRouter();
   const [list, setList] = useState<YouTubeVideo[]>([]);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
@@ -83,7 +85,7 @@ export default function YouTubeAdminPage() {
     setSaving(true);
     try {
       if (editing) {
-        await fetch("/api/admin/youtube", {
+        const putRes = await fetch("/api/admin/youtube", {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
@@ -98,8 +100,9 @@ export default function YouTubeAdminPage() {
             sortOrder: form.sortOrder,
           }),
         });
+        if (!putRes.ok) throw new Error("put failed");
       } else {
-        await fetch("/api/admin/youtube", {
+        const postRes = await fetch("/api/admin/youtube", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
@@ -113,9 +116,12 @@ export default function YouTubeAdminPage() {
             sortOrder: form.sortOrder,
           }),
         });
+        if (!postRes.ok) throw new Error("post failed");
       }
       cancelEdit();
       load();
+      router.replace("/admin/youtube/");
+      window.scrollTo({ top: 0, left: 0, behavior: "auto" });
     } catch (e) {
       alert("保存に失敗しました");
     } finally {
@@ -144,7 +150,9 @@ export default function YouTubeAdminPage() {
   return (
     <div>
       <p style={{ marginBottom: 16 }}>
-        <a href="/admin" style={{ color: "#4a6fa5" }}>← 一覧</a>
+        <a href="/admin/youtube/" style={{ color: "#4a6fa5" }}>← 動画一覧（このページ）</a>
+        <span style={{ color: "#999", margin: "0 8px" }}>·</span>
+        <a href="/admin/" style={{ color: "#888", fontSize: 13 }}>管理ホームへ</a>
       </p>
       <h1 style={{ fontSize: 24, marginBottom: 24 }}>ためになるミリネYouTube</h1>
       <p style={{ marginBottom: 24, color: "#666", fontSize: 14 }}>

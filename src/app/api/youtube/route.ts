@@ -25,7 +25,7 @@ export type YouTubeVideoItem = {
 // GET /api/youtube — 公開用（メインページ）
 export async function GET() {
   const list = await prisma.youTubeVideo.findMany({
-    orderBy: { sortOrder: "asc" },
+    orderBy: [{ sortOrder: "asc" }, { uploadDate: "desc" }, { createdAt: "desc" }],
   });
   const items: YouTubeVideoItem[] = list.map((v) => ({
     id: v.id,
